@@ -62,6 +62,8 @@
     </div>
   </div>
 
+  <div class="pt-state" id="liveStats">…</div>
+
   <div class="pt-note">
     <b>זה אב טיפוס, ואנחנו אומרות זאת מראש.</b> חלק מהכרטיסים למטה עדיין לא נבנו והם מסומנים
     ככאלה. כפתור שנראה עובד ואינו — פוגע יותר מכפתור שכתוב עליו "בקרוב".
@@ -108,7 +110,7 @@
       </p>
       <ul>
         <li>אינדקס הפוך, רץ בדפדפן</li>
-        <li>538 רשומות, 86 דיסציפלינות</li>
+        <li>יחפש בקורפוס הראשי — 538 רשומות ב־86 דיסציפלינות</li>
       </ul>
       <div class="state">בקרוב · גרסה מוקדמת קיימת בשואוקייס</div>
     </div>
@@ -177,5 +179,27 @@
   </div>
 
 </div>
+
+<script>
+// The numbers on this page are read from the data, never typed. A figure in prose drifts the
+// moment the corpus grows, and a stale number on a page whose whole claim is verifiability
+// would be the worst possible bug.
+(async () => {
+  try {
+    const [papers, cases] = await Promise.all(
+      ["papers", "cases"].map(n => fetch(`data/${n}.json`).then(r => r.json())));
+    const scored = papers.filter(p => p.n_scored).length;
+    const judged = cases.filter(c => c.status === "P" || c.status === "N").length;
+    const el = document.getElementById("liveStats");
+    el.innerHTML =
+      `<b>המושג שנטען כרגע:</b> אומנות · <span class="num">${papers.length}</span> מאמרים ` +
+      `(<span class="num">${scored}</span> מהם מנוקדים) · <span class="num">${cases.length}</span> ` +
+      `מקרים, <span class="num">${judged}</span> מהם מוכרעים · ` +
+      `<span class="num">13</span> הגדרות יריבות, שלוש מהן בקרות מכוונות`;
+  } catch (e) {
+    document.getElementById("liveStats").style.display = "none";
+  }
+})();
+</script>
 </body>
 </html>
