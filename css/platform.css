@@ -274,3 +274,9 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
 /* the parsed-state bar reads right-to-left like the rest of the page */
 .pt-state { direction: inherit; font-family: inherit; }
 .pt-state .num, .pt-state .ltr { font-family: Consolas, monospace; }
+
+/* A paper that is tagged but whose cases have not been judged against the definitions yet.
+   Shown, never hidden - the corpus grew and a visitor should see that - but not selectable,
+   because adding it would move no number and the tool would look broken rather than honest. */
+.pt-paper.unscored { opacity: .5; cursor: not-allowed; }
+.pt-paper.unscored .m { color: var(--pink); }

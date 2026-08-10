@@ -93,8 +93,9 @@ function readURL() {
   const u = new URL(location.href);
   const bits = u.searchParams.get("c");
   const ids = S.papers.map(p => p.id);
-  if (!bits || bits.length !== ids.length) ids.forEach(id => S.selected.add(id));
-  else ids.forEach((id, k) => { if (bits[k] === "1") S.selected.add(id); });
+  const scored = new Set(S.papers.filter(p => p.n_scored).map(p => p.id));
+  if (!bits || bits.length !== ids.length) scored.forEach(id => S.selected.add(id));
+  else ids.forEach((id, k) => { if (bits[k] === "1" && scored.has(id)) S.selected.add(id); });
   // the sensitivity panel is part of the shareable state: a claim about how robust a result
   // is should travel with the corpus that produced it, not have to be re-found by hand.
   if (u.searchParams.get("jk") === "1") {
@@ -110,12 +111,18 @@ function renderPapers() {
   const box = document.getElementById("paperList");
   box.innerHTML = S.papers.map(p => {
     const on = S.selected.has(p.id);
-    return `<label class="pt-paper ${on ? "" : "off"}" data-id="${esc(p.id)}">
-      <input type="checkbox" ${on ? "checked" : ""}>
+    // A paper whose cases carry no verdicts yet must say so. Otherwise a visitor adds it,
+    // nothing moves, and the tool looks broken when it is merely honest.
+    const unscored = !p.n_scored;
+    const meta = unscored
+      ? (LANG === "he" ? "תויג, טרם נוקד" : "tagged, not yet scored")
+      : `${p.n_cases} ${LANG === "he" ? "מקרים" : "cases"}`;
+    return `<label class="pt-paper ${on ? "" : "off"} ${unscored ? "unscored" : ""}" data-id="${esc(p.id)}">
+      <input type="checkbox" ${on ? "checked" : ""} ${unscored ? "disabled" : ""}>
       <span>
         <span class="t">${esc(p.title)}</span>
         <span class="m"><span class="ltr">${p.year || "—"}${p.venue ? " · " + esc(p.venue) : ""}</span>
-          · ${p.n_cases} ${LANG === "he" ? "מקרים" : "cases"}</span>
+          · ${meta}</span>
       </span>
     </label>`;
   }).join("");
@@ -276,11 +283,12 @@ function refresh() {
 /* ---------- corpus tools ---------- */
 function wire() {
   document.getElementById("selAll").onclick = () => {
-    S.papers.forEach(p => S.selected.add(p.id)); refresh();
+    S.papers.forEach(p => { if (p.n_scored) S.selected.add(p.id); }); refresh();
   };
   document.getElementById("selNone").onclick = () => { S.selected.clear(); refresh(); };
   document.getElementById("selInvert").onclick = () => {
-    S.papers.forEach(p => S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id));
+    S.papers.forEach(p => { if (!p.n_scored) return;
+    S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id); });
     refresh();
   };
   document.getElementById("jackBtn").onclick = (e) => {
