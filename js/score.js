@@ -84,13 +84,25 @@ function writeURL() {
   const u = new URL(location.href);
   if (S.selected.size === ids.length) u.searchParams.delete("c");
   else u.searchParams.set("c", bits);
+  const jk = document.getElementById("jack");
+  if (jk && jk.dataset.open === "1") u.searchParams.set("jk", "1");
+  else u.searchParams.delete("jk");
   history.replaceState(null, "", u);
 }
 function readURL() {
-  const bits = new URL(location.href).searchParams.get("c");
+  const u = new URL(location.href);
+  const bits = u.searchParams.get("c");
   const ids = S.papers.map(p => p.id);
-  if (!bits || bits.length !== ids.length) { ids.forEach(id => S.selected.add(id)); return; }
-  ids.forEach((id, k) => { if (bits[k] === "1") S.selected.add(id); });
+  if (!bits || bits.length !== ids.length) ids.forEach(id => S.selected.add(id));
+  else ids.forEach((id, k) => { if (bits[k] === "1") S.selected.add(id); });
+  // the sensitivity panel is part of the shareable state: a claim about how robust a result
+  // is should travel with the corpus that produced it, not have to be re-found by hand.
+  if (u.searchParams.get("jk") === "1") {
+    const jk = document.getElementById("jack");
+    if (jk) jk.dataset.open = "1";
+    const b = document.getElementById("jackBtn");
+    if (b) b.classList.add("on");
+  }
 }
 
 /* ---------- render ---------- */
@@ -191,10 +203,72 @@ function renderBoard() {
   }).join("");
 }
 
+/* ---------- leave-one-paper-out: which paper is carrying the result? ----------
+   Two things at once. It is the sensitivity analysis that turns "the score is
+   corpus-relative" from a slogan into a measurement, and it is the thing a sceptical reader
+   most wants: a result that rests on one paper is not a result. Removing a paper is exactly
+   as cheap and as measurable as adding one, which is the point. */
+function jackknife() {
+  const ids = [...S.selected];
+  if (ids.length < 3) {
+    return `<div class="plain">צריך לפחות שלושה מאמרים בקורפוס כדי לבדוק מי מחזיק את התוצאה.</div>`;
+  }
+  const all = corpusCases().judged;
+  const rank = idx => S.defs.map(d => ({ id: d.id, s: scoreDef(d.id, idx) }))
+    .filter(r => r.s.mcc !== null && !r.id.startsWith("circular"))
+    .sort((a, b) => b.s.mcc - a.s.mcc);
+  const base = rank(all);
+  if (!base.length) return "";
+  const topId = base[0].id, topMCC = base[0].s.mcc;
+
+  const rows = ids.map(pid => {
+    const idx = all.filter(i => S.cases[i].paper !== pid);
+    const r = rank(idx);
+    if (!r.length) return null;
+    const nowTop = r[0].id;
+    const mineNow = r.find(x => x.id === topId);
+    return {
+      pid,
+      flips: nowTop !== topId,
+      newTop: nowTop,
+      delta: mineNow ? mineNow.s.mcc - topMCC : null,
+      n: all.length - idx.length,
+    };
+  }).filter(Boolean).sort((a, b) => Math.abs(b.delta || 0) - Math.abs(a.delta || 0));
+
+  const nameOf = id => (S.defs.find(d => d.id === id) || {}).name_he || id;
+  const flips = rows.filter(r => r.flips);
+  const head = flips.length
+    ? `<b>התוצאה שברירה.</b> הסרת ${flips.length} מהמאמרים
+       ${flips.length === 1 ? "משנה" : "משנים"} את זהות ההגדרה המובילה.`
+    : `<b>התוצאה יציבה.</b> אין מאמר יחיד שהסרתו משנה את זהות ההגדרה המובילה
+       (<span class="num">${esc(nameOf(topId))}</span>).`;
+
+  return `<div class="pt-note">${head}
+    <div class="plain" style="margin-top:.5rem">
+      מוצגים חמשת המאמרים שהסרתם מזיזה הכי הרבה את הציון של המובילה
+      (<span class="num">${fmt(topMCC)}</span>):
+    </div>
+    ${rows.slice(0, 5).map(r => {
+      const p = S.papers.find(x => x.id === r.pid) || { title: r.pid };
+      return `<div class="pt-case">
+        <span class="th">${esc(p.title)}</span>
+        <span class="vd ${r.flips ? "fp" : "tn"}">${r.flips
+          ? "מסיר אותה מהראש → " + esc(nameOf(r.newTop))
+          : "לא משנה את הראש"}</span>
+        <div class="src">${r.n} מקרים · שינוי בציון
+          <span class="num">${r.delta === null ? "—" : fmt(r.delta)}</span></div>
+      </div>`;
+    }).join("")}
+  </div>`;
+}
+
 function refresh() {
   writeURL();
   renderPapers();
   renderBoard();
+  const jk = document.getElementById("jack");
+  if (jk && jk.dataset.open === "1") jk.innerHTML = jackknife();
 }
 
 /* ---------- corpus tools ---------- */
@@ -206,6 +280,13 @@ function wire() {
   document.getElementById("selInvert").onclick = () => {
     S.papers.forEach(p => S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id));
     refresh();
+  };
+  document.getElementById("jackBtn").onclick = (e) => {
+    const jk = document.getElementById("jack");
+    const on = jk.dataset.open === "1";
+    jk.dataset.open = on ? "0" : "1";
+    jk.innerHTML = on ? "" : jackknife();
+    e.target.classList.toggle("on", !on);
   };
   document.getElementById("copyLink").onclick = async (e) => {
     try {
