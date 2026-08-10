@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shir-openu.github.io/meta-tagging-platform-prototype/sitemap.xml

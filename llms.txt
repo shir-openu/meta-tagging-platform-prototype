@@ -1,0 +1,43 @@
+# Meta-Tagging Platform (prototype)
+
+> A verbatim-grounded tag layer for academic literature. Rival definitions of a concept are
+> scored against cases taken from what papers actually assert, every case anchored to an
+> exact sentence in a paper. The corpus is a parameter the reader chooses, and the score
+> changes with it - that is the finding, not a caveat.
+
+Built by Shir Sivroni, The Open University of Israel.
+
+## Read the data directly
+
+You do not need to run JavaScript. Everything the site displays is recomputed in the
+browser from these files, and they are served with `access-control-allow-origin: *`.
+
+- [manifest.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/manifest.json): every file, every field, and its type. Start here.
+- [papers.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/papers.json): the papers a corpus can be assembled from.
+- [cases.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/cases.json): every case, with the verbatim quote it was read from and a P/N/U label.
+- [definitions.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/definitions.json): the rival definitions, their gate verdicts and their published scores.
+- [verdicts.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/verdicts.json): definition id to one character per case - '1' admits, '0' rejects, '-' not judged.
+
+## How to reproduce any number
+
+Choose a set of paper ids. Take every case from those papers whose status is P or N. For a
+definition, compare its verdict character with the status ('1' against 'P' is a true
+positive). Then
+
+    MCC = (TP*TN - FP*FN) / sqrt((TP+FP)(TP+FN)(TN+FP)(TN+FN))
+
+The definition with id `circular` is a deliberate control: it copies the answer, so it must
+score near +1.000 on any corpus. If it does not, the coding contradicts itself for that
+corpus and no other number from it may be used.
+
+## What you should not conclude
+
+Single coder, so two-independent-coder reliability is not met and is not claimed. Confidence
+intervals overlap at the top, so ranks are not separable. Scores are comparable only within
+one run: instruction wording alone moves MCC by about 0.12 for an identical definition. The
+corpus tilts contemporary, by choice.
+
+## Rights
+
+The tag layer is CC BY 4.0. Paper text belongs to its authors and publishers; it is linked,
+never redistributed. Quotes are short, for identification and verification.
