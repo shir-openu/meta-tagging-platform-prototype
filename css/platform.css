@@ -1,0 +1,276 @@
+/* =====================================================
+   Meta-Tagging Platform - additions on top of shell.css
+   shell.css is PrimingToolbox/css/main.css, imported unchanged:
+   the wave background, the palette and the card system come from there
+   and are NOT reproduced here. Teal #169999, Pink #ff4db8, Wine #990f23.
+
+   House rule (Shir, 2026-08-09): never white text inside a coloured block.
+   Colour is carried on text and on borders. No filled chips, no badges.
+   ===================================================== */
+
+:root {
+  --teal: #169999;
+  --teal-lit: #2fd4d4;
+  --pink: #ff4db8;
+  --wine: #990f23;
+  --ink: #e5e7eb;
+  --dim: #9aa3ad;
+  --line: rgba(229, 231, 235, 0.14);
+  --panel: rgba(255, 255, 255, 0.035);
+}
+
+/* ---------- layout ---------- */
+.pt-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.6rem 1.4rem 5rem;
+}
+
+.pt-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+}
+.pt-head h1 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.pt-head .tag {
+  font-size: 0.82rem;
+  color: var(--pink);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pt-head .sub {
+  width: 100%;
+  color: var(--dim);
+  font-size: 0.94rem;
+  margin-top: 0.3rem;
+}
+
+a.pt-back {
+  color: var(--teal-lit);
+  text-decoration: none;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(47, 212, 212, 0.35);
+}
+a.pt-back:hover { border-bottom-color: var(--teal-lit); }
+
+/* ---------- entry cards ---------- */
+.pt-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+.pt-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem 1.2rem;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.18s, transform 0.18s;
+}
+.pt-card.live:hover {
+  border-color: rgba(47, 212, 212, 0.6);
+  transform: translateY(-2px);
+}
+.pt-card .ic { font-size: 1.5rem; line-height: 1; margin-bottom: 0.6rem; }
+.pt-card h2 {
+  font-size: 1.08rem;
+  color: #fff;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+.pt-card p { color: var(--dim); font-size: 0.92rem; flex: 1; }
+.pt-card ul { list-style: none; margin: 0.7rem 0 0; padding: 0; }
+.pt-card li {
+  color: var(--teal-lit);
+  font-size: 0.86rem;
+  padding: 0.12rem 0;
+}
+.pt-card li::before { content: "· "; color: var(--pink); }
+.pt-card .state {
+  margin-top: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.pt-card.live .state { color: var(--teal-lit); }
+.pt-card.soon { opacity: 0.62; }
+.pt-card.soon .state { color: var(--pink); }
+.pt-card a.go {
+  margin-top: 0.85rem;
+  align-self: flex-start;
+  color: var(--teal-lit);
+  border: 1px solid rgba(47, 212, 212, 0.45);
+  border-radius: 8px;
+  padding: 0.32rem 0.8rem;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.pt-card a.go:hover { border-color: var(--teal-lit); }
+
+/* ---------- two-column work surface ---------- */
+.pt-work {
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .pt-work { grid-template-columns: 1fr; } }
+
+.pt-panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 0.9rem 1rem;
+}
+.pt-panel h3 {
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+.pt-panel + .pt-panel { margin-top: 1rem; }
+
+/* corpus picker */
+.pt-tools {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.pt-btn {
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--teal-lit);
+  background: transparent;
+  border: 1px solid rgba(47, 212, 212, 0.4);
+  border-radius: 8px;
+  padding: 0.26rem 0.7rem;
+  cursor: pointer;
+}
+.pt-btn:hover { border-color: var(--teal-lit); }
+.pt-btn.on { border-color: var(--pink); color: var(--pink); }
+
+#paperList { max-height: 26rem; overflow-y: auto; padding-left: 0.2rem; }
+.pt-paper {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  padding: 0.4rem 0.2rem;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+.pt-paper:first-child { border-top: 0; }
+.pt-paper input { margin-top: 0.28rem; accent-color: #169999; }
+.pt-paper .t { font-size: 0.87rem; color: var(--ink); line-height: 1.4; }
+.pt-paper .m { font-size: 0.76rem; color: var(--dim); }
+.pt-paper.off .t, .pt-paper.off .m { opacity: 0.45; }
+
+/* the parsed-state bar, after direction_field */
+.pt-state {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 0.86rem;
+  color: var(--dim);
+  direction: ltr;
+  font-family: Consolas, monospace;
+}
+.pt-state b { color: var(--teal-lit); font-weight: 700; }
+
+/* leaderboard */
+.pt-def {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.85rem;
+  margin: 0.5rem 0;
+  background: var(--panel);
+}
+.pt-def.mine { border-color: rgba(255, 77, 184, 0.55); }
+.pt-def.control { opacity: 0.72; border-style: dashed; }
+.pt-defh { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.pt-defh .nm { font-weight: 700; color: #fff; font-size: 0.96rem; }
+.pt-defh .gate { font-size: 0.74rem; font-weight: 700; margin-inline-start: auto; }
+.pt-defh .gate.ok { color: var(--teal-lit); }
+.pt-defh .gate.borderline { color: #ffb020; }
+.pt-defh .gate.disqualified { color: #ff6b6b; }
+.pt-def .wording { color: var(--dim); font-size: 0.86rem; margin: 0.1rem 0 0.35rem; }
+.pt-bar { position: relative; height: 20px; border-radius: 6px; background: rgba(255,255,255,0.06); }
+.pt-bar > i { display: block; height: 20px; border-radius: 6px; background: var(--teal); opacity: 0.75; }
+.pt-bar > span {
+  position: absolute; left: 0.5rem; top: 0; line-height: 20px;
+  font-size: 0.78rem; font-family: Consolas, monospace; color: #fff;
+  direction: ltr;
+}
+.pt-def .cm {
+  font-size: 0.76rem; color: var(--dim); font-family: Consolas, monospace;
+  direction: ltr; unicode-bidi: isolate; text-align: left; margin-top: 0.25rem;
+}
+.pt-def .plain { font-size: 0.84rem; color: var(--dim); margin-top: 0.2rem; }
+
+details.pt-cases { margin-top: 0.4rem; }
+details.pt-cases > summary {
+  cursor: pointer; font-size: 0.8rem; color: var(--teal-lit); list-style: none;
+}
+details.pt-cases > summary::before { content: "▸ "; }
+details.pt-cases[open] > summary::before { content: "▾ "; }
+.pt-case {
+  border-top: 1px solid var(--line);
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+}
+.pt-case .th { color: var(--ink); }
+.pt-case .vd { font-size: 0.74rem; font-weight: 700; margin-inline-start: 0.4rem; }
+.pt-case .vd.tp, .pt-case .vd.tn { color: var(--teal-lit); }
+.pt-case .vd.fp, .pt-case .vd.fn { color: #ff6b6b; }
+.pt-case .q {
+  color: var(--dim); font-size: 0.82rem; font-style: italic;
+  border-inline-start: 2px solid rgba(255,77,184,0.4);
+  padding-inline-start: 0.6rem; margin-top: 0.25rem;
+}
+.pt-case .src { font-size: 0.74rem; color: var(--dim); margin-top: 0.15rem; }
+
+.pt-note {
+  border: 1px solid var(--line);
+  border-inline-start: 3px solid var(--pink);
+  border-radius: 0 10px 10px 0;
+  padding: 0.7rem 0.95rem;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  color: var(--dim);
+}
+.pt-note b { color: var(--pink); }
+
+.pt-foot {
+  margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  color: var(--dim); font-size: 0.82rem;
+}
+.pt-foot a { color: var(--teal-lit); text-decoration: none; }
+
+.num { direction: ltr; unicode-bidi: isolate; display: inline-block; font-family: Consolas, monospace; }
+
+/* A pure-ASCII run inside Hebrew prose. Without the isolate, the Hebrew around it opens an
+   RTL run that swallows the neighbouring "·", "[" and "," as neutrals and reorders the whole
+   fragment - measured, not theorised, on an earlier report where an interval's bounds were
+   printed swapped. Hebrew words must never go inside this class. */
+.ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+/* the parsed-state bar reads right-to-left like the rest of the page */
+.pt-state { direction: rtl; font-family: inherit; }
+.pt-state .num, .pt-state .ltr { font-family: Consolas, monospace; }

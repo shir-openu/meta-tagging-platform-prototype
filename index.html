@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>פלטפורמת מטא־תיוג — אב טיפוס</title>
+<meta name="description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/platform.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Meta-Tagging Platform - concept definition component",
+  "description": "Rival definitions of a concept scored against literature-sourced cases, every case anchored to an exact quote.",
+  "creator": {"@type": "Person", "name": "Shir Sivroni"},
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distribution": [
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/cases.json"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/definitions.json"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/verdicts.json"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/papers.json"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Background: imported verbatim from PrimingToolbox/index.html, driven by css/shell.css -->
+<div class="animated-background">
+  <div class="wave-container">
+    <svg class="wave wave-teal" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160 L1440,320 L0,320 Z"></path>
+    </svg>
+    <svg class="wave wave-pink" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,200 C280,260 380,140 680,200 C980,260 1080,140 1440,200 L1440,320 L0,320 Z"></path>
+    </svg>
+    <svg class="wave wave-wine" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,240 C240,300 340,180 640,240 C940,300 1040,180 1440,240 L1440,320 L0,320 Z"></path>
+    </svg>
+  </div>
+  <div class="particles">
+    <div class="particle particle-teal" style="left: 10%; top: 20%;"></div>
+    <div class="particle particle-pink" style="left: 30%; top: 60%;"></div>
+    <div class="particle particle-wine" style="left: 50%; top: 30%;"></div>
+    <div class="particle particle-teal" style="left: 70%; top: 70%;"></div>
+    <div class="particle particle-pink" style="left: 90%; top: 40%;"></div>
+    <div class="particle particle-wine" style="left: 20%; top: 80%;"></div>
+    <div class="particle particle-teal" style="left: 60%; top: 10%;"></div>
+    <div class="particle particle-pink" style="left: 80%; top: 50%;"></div>
+  </div>
+</div>
+
+<div class="pt-wrap">
+
+  <div class="pt-head">
+    <h1>פלטפורמת מטא־תיוג</h1>
+    <span class="tag">אב טיפוס</span>
+    <div class="sub">
+      שכבת תיוג אחידה לספרות אקדמית, שבה <b>כל תג נושא את המשפט המדויק מהמאמר שממנו נגזר</b>.
+      המטרה: להאיץ מחקר בין־תחומי — לחסוך את הצעד שבו נעצרים כשנכנסים לתחום זר.
+    </div>
+  </div>
+
+  <div class="pt-note">
+    <b>זה אב טיפוס, ואנחנו אומרות זאת מראש.</b> חלק מהכרטיסים למטה עדיין לא נבנו והם מסומנים
+    ככאלה. כפתור שנראה עובד ואינו — פוגע יותר מכפתור שכתוב עליו "בקרוב".
+  </div>
+
+  <div class="pt-cards">
+
+    <div class="pt-card live">
+      <div class="ic">🔍</div>
+      <h2>מציאת הגדרה אופטימלית לפי קורפוס</h2>
+      <p>
+        בוחרים אילו מאמרים מרכיבים את הקורפוס, ורואים מיד איזו הגדרה של המושג מתאימה לו
+        הכי טוב — ובאילו מקרים בדיוק היא נופלת.
+      </p>
+      <ul>
+        <li>בחירה חופשית של מאמרים</li>
+        <li>דירוג שמתעדכן מיד</li>
+        <li>מתחת לכל ציון — טבלת המקרים והציטוט</li>
+      </ul>
+      <div class="state">פעיל · המושג: אומנות</div>
+      <a class="go" href="define/">כניסה</a>
+    </div>
+
+    <div class="pt-card soon">
+      <div class="ic">📄</div>
+      <h2>העלאת מאמר לתיוג</h2>
+      <p>
+        מוסרים PDF, DOI או קישור. המערכת מחלצת את הטקסט, מתייגת, ומחזירה לכל תג את הראיה
+        המדויקת ואת מיקומה במקור.
+      </p>
+      <ul>
+        <li>בדיקת רישיון מובנית</li>
+        <li>כל תג עובר שער ווֹרבּטים</li>
+        <li>ייצוא בכל פורמט</li>
+      </ul>
+      <div class="state">בקרוב</div>
+    </div>
+
+    <div class="pt-card soon">
+      <div class="ic">🧭</div>
+      <h2>חיפוש בשכבת התגים</h2>
+      <p>
+        חיפוש בין־תחומי לפי מונח סטטיסטי, סוג טענה, תופעה או דיסציפלינה — על פני כל הקורפוס.
+      </p>
+      <ul>
+        <li>אינדקס הפוך, רץ בדפדפן</li>
+        <li>538 רשומות, 86 דיסציפלינות</li>
+      </ul>
+      <div class="state">בקרוב · גרסה מוקדמת קיימת בשואוקייס</div>
+    </div>
+
+    <div class="pt-card soon">
+      <div class="ic">🔗</div>
+      <h2>האם המושג נוסע בין תחומים</h2>
+      <p>
+        מפעילים את הקריטריונים של כל מאמר על המקרים של כל תחום, ומודדים כמה מהמשמעות שורדת
+        את המעבר.
+      </p>
+      <ul>
+        <li>מטריצת העברה ברמת המאמר</li>
+        <li>מומש כבר עבור "הצפה"</li>
+      </ul>
+      <div class="state">בקרוב</div>
+    </div>
+
+    <div class="pt-card soon">
+      <div class="ic">🕳️</div>
+      <h2>המרחב השלילי</h2>
+      <p>
+        איתור מונחים שהספרות <b>הייתה צריכה</b> לטבוע ולא טבעה — צומת שכל התחומים נוגעים בו
+        ואף אחד לא נתן לו שם.
+      </p>
+      <ul>
+        <li>הפונקציה הייחודית ביותר כאן</li>
+        <li>לא נמצא לה מקבילה בשוק</li>
+      </ul>
+      <div class="state">בקרוב</div>
+    </div>
+
+    <div class="pt-card live">
+      <div class="ic">📐</div>
+      <h2>השיטה, והמגבלות שלה</h2>
+      <p>
+        לא עמוד "אודות". מה הכלי <b>לא</b> יודע, ואיך לשחזר בעצמכם כל מספר שהוא מציג.
+      </p>
+      <ul>
+        <li>כל הנתונים פתוחים להורדה</li>
+        <li>המגבלות מוצגות לכולם</li>
+      </ul>
+      <div class="state">פעיל</div>
+      <a class="go" href="method.html">קריאה</a>
+    </div>
+
+  </div>
+
+  <div class="pt-note">
+    <b>אין הרשמה, אין חשבון, אין דוא"ל.</b> הפלטפורמה פתוחה לכל מי שמתעניין במחקר אקדמי —
+    חוקרות, סטודנטים, וכל מי שלא נמצא במוסד. אין "מצב מתקדם" ואין מידע שמוסתר ממישהו:
+    כולם רואים את אותם קריטריונים, את אותה טבלת מקרים ואת אותן מגבלות.
+  </div>
+
+  <div class="pt-foot">
+    נתונים פתוחים:
+    <a href="data/manifest.json">manifest</a> ·
+    <a href="data/papers.json">papers</a> ·
+    <a href="data/cases.json">cases</a> ·
+    <a href="data/definitions.json">definitions</a> ·
+    <a href="data/verdicts.json">verdicts</a>
+    <br>
+    שכבת התגים תחת CC BY 4.0. טקסט המאמרים שייך למחבריו, מקושר ולא משוכפל.
+    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
+    · <a href="https://shir-openu.github.io/">שאר הפרויקטים</a>
+  </div>
+
+</div>
+</body>
+</html>

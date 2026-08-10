@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>השיטה, והמגבלות שלה</title>
+<meta name="description" content="מה הכלי יודע, מה הוא לא יודע, ואיך לשחזר בעצמכם כל מספר שהוא מציג.">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/platform.css">
+</head>
+<body>
+
+<div class="animated-background">
+  <div class="wave-container">
+    <svg class="wave wave-teal" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160 L1440,320 L0,320 Z"></path>
+    </svg>
+    <svg class="wave wave-pink" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,200 C280,260 380,140 680,200 C980,260 1080,140 1440,200 L1440,320 L0,320 Z"></path>
+    </svg>
+    <svg class="wave wave-wine" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,240 C240,300 340,180 640,240 C940,300 1040,180 1440,240 L1440,320 L0,320 Z"></path>
+    </svg>
+  </div>
+</div>
+
+<div class="pt-wrap" style="max-width:56rem">
+
+  <div class="pt-head">
+    <h1>השיטה, והמגבלות שלה</h1>
+    <span class="tag">לא עמוד "אודות"</span>
+    <div class="sub">
+      <a class="pt-back" href="./">← חזרה לפלטפורמה</a>
+      &nbsp;·&nbsp;
+      עמוד שנועד לאפשר לכם <b>לא להאמין לנו</b>: מה הכלי עושה, מה הוא לא יודע,
+      ואיך לשחזר בעצמכם כל מספר שהוא מציג.
+    </div>
+  </div>
+
+  <div class="pt-panel">
+    <h3>בשורה אחת</h3>
+    <p style="color:var(--ink)">
+      אנחנו לוקחות מושג שנוי במחלוקת, אוספים מהספרות <b>הגדרות יריבות</b> ו<b>מקרים</b>
+      שהספרות טוענת עליהם שהם מופע של המושג או שאינם, ומודדות כל הגדרה כאילו הייתה מסווג.
+      מה שמייחד אותנו הוא לא המדידה — היא קיימת בספרות — אלא ש<b>כל מקרה מעוגן בציטוט
+      מילולי מדויק מתוך מאמר</b>, ושהקורפוס הוא פרמטר שאתם בוחרים.
+    </p>
+  </div>
+
+  <div class="pt-panel">
+    <h3>איך מחושב הציון</h3>
+    <p style="color:var(--dim);font-size:.92rem">
+      לכל הגדרה ולכל מקרה יש פסיקה: האם ההגדרה מקבלת את המקרה. משווים אותה לתווית הזהב —
+      מה שהמאמר טוען. מכאן ארבעה מספרים: <span class="ltr">TP, FP, FN, TN</span>, ומהם
+      <span class="ltr">MCC</span>.
+    </p>
+    <div class="pt-state" style="direction:ltr">
+      MCC = (TP·TN − FP·FN) / √((TP+FP)(TP+FN)(TN+FP)(TN+FN))
+    </div>
+    <p style="color:var(--dim);font-size:.92rem">
+      <b>למה MCC ולא F1.</b> בקורפוס הזה כ־80% מהמקרים חיוביים. F1 מתעלם מהשליליים הנכונים,
+      ולכן הגדרה שמקבלת כמעט הכל מקבלת ציון F1 יפה — ו־MCC נמוך. MCC הוא זה ששם לב.
+      <span class="ltr">+1.000</span> = התאמה מושלמת, <span class="ltr">0.000</span> = כמו
+      הטלת מטבע, שלילי = נופלת בכיוון ההפוך.
+    </p>
+  </div>
+
+  <div class="pt-panel">
+    <h3>הבקרה המעגלית — למה יש בטבלה הגדרה מטופשת בכוונה</h3>
+    <p style="color:var(--dim);font-size:.92rem">
+      אחת ההגדרות היא "מה שקוראים לו אומנות". היא מעגלית וחסרת ערך, והיא נמצאת שם
+      <b>כדי לבדוק אותנו</b>: היא מעתיקה את התשובה, ולכן היא חייבת לקבל כמעט
+      <span class="ltr">+1.000</span> בכל קורפוס. אם היא מקבלת פחות — הקידוד שלנו סותר את
+      עצמו באותו קורפוס, ואין לקרוא אף מספר אחר בטבלה. הכלי יציג אזהרה מעצמו במקרה כזה.
+    </p>
+  </div>
+
+  <div class="pt-panel">
+    <h3>מה הכלי לא יודע</h3>
+    <ul style="color:var(--dim);font-size:.92rem">
+      <li><b>מקודדת אחת.</b> התיוג נעשה במעבר אחד. מהימנות בין שני מקודדים בלתי־תלויים
+        אינה מתקיימת, ואיננו טוענות שהיא מתקיימת.</li>
+      <li><b>רווחי הסמך חופפים בצמרת.</b> מותר לומר "בין המובילות". אסור לומר "הראשונה".</li>
+      <li><b>אין להשוות בין הרצות.</b> מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12
+        לאותה הגדרה בדיוק. מספר מהרצה אחת אינו בר־השוואה למספר מהרצה אחרת.</li>
+      <li><b>מרחק המעגליוּת עולה עם הדיוק.</b> ככל שהגדרה מסכימה יותר עם הקונצנזוס, כך היא
+        נבדלת ממנו פחות. עלייה במדד הזה אינה בהכרח שיפור.</li>
+      <li><b>הקורפוס נוטה לעכשווי.</b> זו הייתה בחירה מוצהרת, והיא משפיעה על כל מספר כאן.</li>
+      <li><b>הגדרה אינה ניתנת להפרכה בקורפוס שאינו מכיל את מה שיפריך אותה.</b> אף מאמר לא
+        טורח לכתוב "טור דעה אינו יצירת אומנות", ולכן ההגדרות הרחבות נענשות פחות משמגיע להן.</li>
+    </ul>
+  </div>
+
+  <div class="pt-panel">
+    <h3>מי כבר עשה דברים דומים</h3>
+    <p style="color:var(--dim);font-size:.92rem">
+      המהלך של "הגדרה כמסווג, מנוקדת מול מקרים" אינו המצאה שלנו ואיננו טוענות לכך.
+      <span class="ltr">Bradley Allen (2023)</span> עשה זאת עבור המושגים "פלנטה" ו"אישה";
+      בפסיכיאטריה משווים הגדרות מתחרות של אותה הפרעה על אותה סדרת מטופלים מאז שנות ה־70;
+      ובעיבוד שפה טבעית קיים ז'אנר דומה לגבי הגדרות של דברי שנאה, שם גם כבר פורסם שהציון
+      תלוי בקורפוס. מה שכן חדש כאן: <b>המקרים נלקחים ממה שמאמרים טוענים ומעוגנים בציטוט
+      מילולי</b> — כל המתחרים מתייגים מסקרים, מקהל או ממאגרי ידע — ו<b>הקורפוס הוא פרמטר
+      שהמשתמש בוחר</b>.
+    </p>
+  </div>
+
+  <div class="pt-panel">
+    <h3>איך לשחזר בעצמכם</h3>
+    <p style="color:var(--dim);font-size:.92rem">
+      אין כאן שרת. כל מספר בכלי מחושב בדפדפן משני קבצים, ואפשר להוריד אותם:
+    </p>
+    <div class="pt-tools">
+      <a class="pt-btn" href="data/cases.json" download>cases.json</a>
+      <a class="pt-btn" href="data/verdicts.json" download>verdicts.json</a>
+      <a class="pt-btn" href="data/papers.json" download>papers.json</a>
+      <a class="pt-btn" href="data/definitions.json" download>definitions.json</a>
+      <a class="pt-btn" href="data/manifest.json" download>manifest.json</a>
+    </div>
+    <p style="color:var(--dim);font-size:.92rem;margin-top:.6rem">
+      ב־<span class="ltr">manifest.json</span> יש סכימה מלאה: אילו קבצים יש, מה בכל אחד,
+      ומה טיפוס כל שדה — כתוב גם עבור סוכני AI, לא רק עבור בני אדם. השרת מחזיר
+      <span class="ltr">access-control-allow-origin: *</span>, כלומר כל כלי אחר יכול למשוך
+      את הנתונים ישירות, בלי רשות ובלי מפתח.
+    </p>
+    <p style="color:var(--dim);font-size:.92rem">
+      <b>מבחן הקבלה שהצבנו לעצמנו:</b> בהינתן ה־URL הזה בלבד, סוכן שלא ראה את הפרויקט צריך
+      להיות מסוגל לשחזר את כל הטבלה ולקבל את אותם מספרים. אם לא — הפלטפורמה אינה נגישה,
+      ולא משנה כמה מטא־דאטה שמנו בה.
+    </p>
+  </div>
+
+  <div class="pt-panel">
+    <h3>זכויות</h3>
+    <p style="color:var(--dim);font-size:.92rem">
+      שכבת התגים היא שלנו ומשוחררת תחת <span class="ltr">CC BY 4.0</span>.
+      טקסט המאמרים שייך למחבריו ולמו"לים: אנחנו <b>מקשרות אליו ולא משכפלות אותו</b>,
+      והציטוטים המוצגים הם קצרים ונועדו לזיהוי ולאימות בלבד.
+    </p>
+  </div>
+
+  <div class="pt-foot">
+    <a href="./">חזרה לפלטפורמה</a> ·
+    <a href="define/">מסך העבודה</a> ·
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
+  </div>
+
+</div>
+</body>
+</html>

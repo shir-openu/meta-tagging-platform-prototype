@@ -1,0 +1,230 @@
+/* =====================================================
+   score.js -- the whole measurement, in the browser.
+
+   There is no server and no API key. Every number this page shows is recomputed here from
+   data/verdicts.json and data/cases.json, which is the point: a visitor can download those
+   two files and get the same answers with their own tools. TOOLS/build_platform_data.py
+   refuses to export unless all 13 published scores reproduce from these files, so what runs
+   here and what is in the paper are the same arithmetic.
+
+   MCC and not F1: the base rate here is about 0.80, and F1 ignores true negatives, so a
+   definition that admits nearly everything scores well on F1 and badly on MCC. MCC is the
+   one that notices.
+   ===================================================== */
+
+const S = {
+  papers: [], cases: [], defs: [], verdicts: {},
+  selected: new Set(),   // paper ids in the corpus
+  openDef: null,
+};
+
+/* ---------- metric ---------- */
+function mcc(tp, fp, fn, tn) {
+  const d = Math.sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn));
+  return d === 0 ? null : (tp * tn - fp * fn) / d;
+}
+
+/* Score one definition over the currently selected corpus.
+   Cases whose status is 'U' are excluded from the metric - the literature did not decide
+   them, so counting them as either answer would invent a label nobody asserted. They are
+   still counted and shown, because abstention is part of the picture and hiding it would
+   flatter every definition equally. */
+function scoreDef(id, caseIdx) {
+  const v = S.verdicts[id] || "";
+  let tp = 0, fp = 0, fn = 0, tn = 0, skipped = 0;
+  const rows = [];
+  for (const i of caseIdx) {
+    const c = S.cases[i];
+    const ch = v[i];
+    if (ch !== "0" && ch !== "1") { skipped++; continue; }
+    const pred = ch === "1", gold = c.status === "P";
+    let kind;
+    if (pred && gold) { tp++; kind = "tp"; }
+    else if (pred) { fp++; kind = "fp"; }
+    else if (gold) { fn++; kind = "fn"; }
+    else { tn++; kind = "tn"; }
+    rows.push({ i, kind });
+  }
+  return { id, tp, fp, fn, tn, skipped, rows, n: tp + fp + fn + tn, mcc: mcc(tp, fp, fn, tn) };
+}
+
+/* The case indices the current corpus contributes, split by whether they are adjudicable. */
+function corpusCases() {
+  const judged = [], undecided = [];
+  S.cases.forEach((c, i) => {
+    if (!S.selected.has(c.paper)) return;
+    if (c.status === "P" || c.status === "N") judged.push(i);
+    else undecided.push(i);
+  });
+  return { judged, undecided };
+}
+
+/* ---------- plain language, because a number nobody can read is not evidence ---------- */
+function plainMCC(m) {
+  if (m === null) return "אין די מקרים בקורפוס הזה כדי לחשב ציון.";
+  if (m >= 0.90) return "כמעט כל מקרה נופל בצד הנכון.";
+  if (m >= 0.70) return "מסכימה עם הספרות ברוב המכריע של המקרים.";
+  if (m >= 0.50) return "מסכימה עם הספרות לרוב, ונופלת במיעוט לא זניח.";
+  if (m >= 0.25) return "טובה מניחוש, אבל טועה בהרבה מקרים.";
+  if (m > 0.02) return "כמעט אינה מבדילה בין מה שהספרות מקבלת לבין מה שהיא פוסלת.";
+  if (m > -0.02) return "אינה מבדילה כלל — כמו הטלת מטבע.";
+  return "נופלת בכיוון ההפוך מהספרות.";
+}
+
+function fmt(x) { return (x >= 0 ? "+" : "") + x.toFixed(3); }
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/* ---------- URL is the state, so a corpus can be cited ---------- */
+function writeURL() {
+  const ids = S.papers.map(p => p.id);
+  const bits = ids.map(id => (S.selected.has(id) ? "1" : "0")).join("");
+  const u = new URL(location.href);
+  if (S.selected.size === ids.length) u.searchParams.delete("c");
+  else u.searchParams.set("c", bits);
+  history.replaceState(null, "", u);
+}
+function readURL() {
+  const bits = new URL(location.href).searchParams.get("c");
+  const ids = S.papers.map(p => p.id);
+  if (!bits || bits.length !== ids.length) { ids.forEach(id => S.selected.add(id)); return; }
+  ids.forEach((id, k) => { if (bits[k] === "1") S.selected.add(id); });
+}
+
+/* ---------- render ---------- */
+function renderPapers() {
+  const box = document.getElementById("paperList");
+  box.innerHTML = S.papers.map(p => {
+    const on = S.selected.has(p.id);
+    return `<label class="pt-paper ${on ? "" : "off"}" data-id="${esc(p.id)}">
+      <input type="checkbox" ${on ? "checked" : ""}>
+      <span>
+        <span class="t">${esc(p.title)}</span>
+        <span class="m"><span class="ltr">${p.year || "—"}${p.venue ? " · " + esc(p.venue) : ""}</span>
+          · ${p.n_cases} מקרים</span>
+      </span>
+    </label>`;
+  }).join("");
+  box.querySelectorAll(".pt-paper input").forEach(inp => {
+    inp.addEventListener("change", e => {
+      const id = e.target.closest(".pt-paper").dataset.id;
+      if (e.target.checked) S.selected.add(id); else S.selected.delete(id);
+      refresh();
+    });
+  });
+}
+
+function renderState(judged, undecided) {
+  const nPos = judged.filter(i => S.cases[i].status === "P").length;
+  const base = judged.length ? (nPos / judged.length) : 0;
+  const alpha = (judged.length + undecided.length)
+    ? undecided.length / (judged.length + undecided.length) : 0;
+  // The label stays Hebrew and OUTSIDE the numeric run. A Hebrew word inside an LTR block
+  // opens a bidi run that drags the following separators with it and the whole line reads
+  // backwards - the same trap that swapped a confidence interval's bounds on an earlier page.
+  // Hebrew phrases stay in the RTL run; each bare number is isolated so the digits cannot be
+  // dragged around by the neutrals beside them. Only the pure-ASCII tail is a single LTR run.
+  // This is the trap that once printed a confidence interval with its bounds swapped.
+  const n = x => `<span class="num">${x}</span>`;
+  document.getElementById("stateBar").innerHTML =
+    `<b>הקורפוס שלך:</b> ${n(S.selected.size)} מאמרים · ` +
+    `${n(judged.length)} מקרים מוכרעים · ${n(nPos)} חיוביים · ` +
+    `<span class="ltr">base rate ${base.toFixed(3)} · abstention α ${alpha.toFixed(3)}</span>`;
+}
+
+function caseRow(r) {
+  const c = S.cases[r.i];
+  const lab = { tp: "צדקה", tn: "צדקה", fp: "קיבלה בטעות", fn: "פסלה בטעות" }[r.kind];
+  return `<div class="pt-case">
+    <span class="th">${esc(c.thing_he || c.thing)}</span>
+    <span class="vd ${r.kind}">${lab}</span>
+    <div class="q">"${esc(c.quote)}"</div>
+    <div class="src">${esc(c.paper)} · מקרה #${r.i}</div>
+  </div>`;
+}
+
+function renderBoard() {
+  const { judged, undecided } = corpusCases();
+  renderState(judged, undecided);
+
+  const rows = S.defs.map(d => ({ d, s: scoreDef(d.id, judged) }))
+    .filter(r => r.s.mcc !== null)
+    .sort((a, b) => b.s.mcc - a.s.mcc);
+
+  const circ = rows.find(r => r.d.id === "circular");
+  const warn = document.getElementById("calib");
+  if (!circ) {
+    warn.innerHTML = `<b>אזהרה:</b> הבקרה המעגלית לא ניתנת לחישוב על הקורפוס הזה.`;
+    warn.style.display = "";
+  } else if (circ.s.mcc < 0.90) {
+    warn.innerHTML = `<b>אזהרה — הכיול נכשל.</b> הבקרה המעגלית קיבלה
+      <span class="num">${fmt(circ.s.mcc)}</span> במקום כמעט <span class="num">+1.000</span>.
+      היא מעתיקה את התשובה, ולכן היא <b>חייבת</b> לקבל ציון כמעט מושלם. אם לא —
+      הקידוד סותר את עצמו בקורפוס הזה, ואין לקרוא אף מספר אחר בטבלה.`;
+    warn.style.display = "";
+  } else {
+    warn.style.display = "none";
+  }
+
+  const max = Math.max(...rows.map(r => Math.abs(r.s.mcc)), 0.001);
+  document.getElementById("board").innerHTML = rows.map(({ d, s }) => {
+    const mine = d.id.startsWith("shir");
+    const w = Math.max(2, Math.abs(s.mcc) / max * 100);
+    const gate = { ok: "עוברת", borderline: "גבולית", disqualified: "נפסלת" }[d.gate] || d.gate;
+    const wrong = s.rows.filter(r => r.kind === "fp" || r.kind === "fn");
+    return `<div class="pt-def ${mine ? "mine" : ""} ${d.is_control ? "control" : ""}">
+      <div class="pt-defh">
+        <span class="nm">${esc(d.name_he)}</span>
+        <span class="gate ${d.gate}">${gate}</span>
+      </div>
+      <div class="wording">${esc(d.he)}</div>
+      <div class="pt-bar"><i style="width:${w}%"></i><span>MCC ${fmt(s.mcc)}</span></div>
+      <div class="cm">TP ${s.tp} · FP ${s.fp} · FN ${s.fn} · TN ${s.tn} · n ${s.n}</div>
+      <div class="plain">${plainMCC(s.mcc)}</div>
+      ${wrong.length ? `<details class="pt-cases">
+        <summary>${wrong.length} המקרים שההגדרה הזו טועה בהם — עם הציטוט מהמאמר</summary>
+        ${wrong.map(caseRow).join("")}
+      </details>` : `<div class="plain">אין מקרה שההגדרה הזו טועה בו בקורפוס הזה.</div>`}
+    </div>`;
+  }).join("");
+}
+
+function refresh() {
+  writeURL();
+  renderPapers();
+  renderBoard();
+}
+
+/* ---------- corpus tools ---------- */
+function wire() {
+  document.getElementById("selAll").onclick = () => {
+    S.papers.forEach(p => S.selected.add(p.id)); refresh();
+  };
+  document.getElementById("selNone").onclick = () => { S.selected.clear(); refresh(); };
+  document.getElementById("selInvert").onclick = () => {
+    S.papers.forEach(p => S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id));
+    refresh();
+  };
+  document.getElementById("copyLink").onclick = async (e) => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      const b = e.target; const o = b.textContent;
+      b.textContent = "הועתק ✓"; setTimeout(() => b.textContent = o, 1400);
+    } catch (_) { prompt("העתיקי את הקישור:", location.href); }
+  };
+}
+
+/* ---------- boot ---------- */
+async function boot() {
+  const [papers, cases, defs, verdicts] = await Promise.all(
+    ["papers", "cases", "definitions", "verdicts"].map(n =>
+      fetch(`../data/${n}.json`).then(r => r.json())));
+  S.papers = papers; S.cases = cases; S.defs = defs; S.verdicts = verdicts;
+  S.papers.sort((a, b) => (b.n_cases - a.n_cases));
+  readURL();
+  wire();
+  refresh();
+}
+boot();
