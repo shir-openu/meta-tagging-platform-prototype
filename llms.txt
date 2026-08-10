@@ -41,3 +41,23 @@ corpus tilts contemporary, by choice.
 
 The tag layer is CC BY 4.0. Paper text belongs to its authors and publishers; it is linked,
 never redistributed. Quotes are short, for identification and verification.
+
+## Check your reading before you trust it
+
+`reference_scorer.py` at the site root is a short, dependency-free implementation that
+reproduces every published score from these files. Run
+
+    python reference_scorer.py
+
+and compare. It exists because an agent given only this URL reproduced the table but
+reported that the recipe never said to SKIP cases whose verdict character is `-`. Read
+naively, that single omission turns every number wrong: the circular control comes out
+0.608 instead of 0.983.
+
+## Two things here are NOT reproducible from these files, and we say so
+
+- `lo` / `hi` come from a paper-clustered bootstrap (papers resampled, not cases, because
+  cases from one paper are one author's usage). A case-level bootstrap will not match them.
+- Seven of the scored papers have `url: null` — the pre-2010 classics — and they contribute
+  98 of the 355 adjudicated cases. Their quotes were verified against stored text, but a
+  third party cannot re-check those from this site alone.
