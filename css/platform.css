@@ -280,3 +280,41 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
    because adding it would move no number and the tool would look broken rather than honest. */
 .pt-paper.unscored { opacity: .5; cursor: not-allowed; }
 .pt-paper.unscored .m { color: var(--pink); }
+
+/* ---------- phones ----------
+   Checked at 390px and the page was clipping on the right: the state bar's monospace run
+   and the confusion-matrix line do not wrap, so they forced the layout wider than the
+   viewport and the RTL content ran off the edge. Nothing here is cosmetic - a visitor on a
+   phone was losing the beginning of every line, which in RTL is the part that matters. */
+@media (max-width: 620px) {
+  .pt-wrap { padding: 1rem .8rem 4rem; }
+  .pt-head h1 { font-size: 1.25rem; }
+  .pt-head .tag { font-size: .74rem; }
+  #langSwitch { margin-inline-start: 0 !important; }
+
+  /* The real cause, found by measuring rather than guessing: .ltr and .num are
+     display:inline-block so that a bidi run cannot be reordered by the Hebrew around it.
+     inline-block is also unbreakable, so on a narrow screen those runs push the layout
+     wider than the viewport. `inline` keeps the isolation - which is what actually
+     protects the digits - and lets the line wrap. */
+  .ltr, .num { display: inline; }
+  .pt-state, .pt-def .cm {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    font-size: .78rem;
+  }
+  .pt-state { text-align: start; }
+
+  /* long English paper titles inside an RTL column */
+  .pt-paper .t, .pt-paper .m { overflow-wrap: anywhere; }
+  #paperList { max-height: 18rem; }
+
+  .pt-note, .pt-panel { padding: .7rem .8rem; }
+  .pt-bar > span { font-size: .72rem; }
+  .pt-case .q { padding-inline-start: .45rem; }
+
+  /* nothing may make the body itself scroll sideways */
+  .pt-wrap, .pt-panel, .pt-note, .pt-def { max-width: 100%; }
+  img, svg { max-width: 100%; }
+}
