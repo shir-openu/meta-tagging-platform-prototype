@@ -61,14 +61,14 @@ function corpusCases() {
 
 /* ---------- plain language, because a number nobody can read is not evidence ---------- */
 function plainMCC(m) {
-  if (m === null) return "אין די מקרים בקורפוס הזה כדי לחשב ציון.";
-  if (m >= 0.90) return "כמעט כל מקרה נופל בצד הנכון.";
-  if (m >= 0.70) return "מסכימה עם הספרות ברוב המכריע של המקרים.";
-  if (m >= 0.50) return "מסכימה עם הספרות לרוב, ונופלת במיעוט לא זניח.";
-  if (m >= 0.25) return "טובה מניחוש, אבל טועה בהרבה מקרים.";
-  if (m > 0.02) return "כמעט אינה מבדילה בין מה שהספרות מקבלת לבין מה שהיא פוסלת.";
-  if (m > -0.02) return "אינה מבדילה כלל — כמו הטלת מטבע.";
-  return "נופלת בכיוון ההפוך מהספרות.";
+  if (m === null) return t("plain.none");
+  if (m >= 0.90) return t("plain.90");
+  if (m >= 0.70) return t("plain.70");
+  if (m >= 0.50) return t("plain.50");
+  if (m >= 0.25) return t("plain.25");
+  if (m > 0.02) return t("plain.02");
+  if (m > -0.02) return t("plain.00");
+  return t("plain.neg");
 }
 
 function fmt(x) { return (x >= 0 ? "+" : "") + x.toFixed(3); }
@@ -115,7 +115,7 @@ function renderPapers() {
       <span>
         <span class="t">${esc(p.title)}</span>
         <span class="m"><span class="ltr">${p.year || "—"}${p.venue ? " · " + esc(p.venue) : ""}</span>
-          · ${p.n_cases} מקרים</span>
+          · ${p.n_cases} ${LANG === "he" ? "מקרים" : "cases"}</span>
       </span>
     </label>`;
   }).join("");
@@ -141,19 +141,22 @@ function renderState(judged, undecided) {
   // This is the trap that once printed a confidence interval with its bounds swapped.
   const n = x => `<span class="num">${x}</span>`;
   document.getElementById("stateBar").innerHTML =
-    `<b>הקורפוס שלך:</b> ${n(S.selected.size)} מאמרים · ` +
-    `${n(judged.length)} מקרים מוכרעים · ${n(nPos)} חיוביים · ` +
+    `<b>${t("corpus.label")}</b> ${n(S.selected.size)} ${t("corpus.papers")} · ` +
+    `${n(judged.length)} ${t("corpus.judged")} · ${n(nPos)} ${t("corpus.pos")} · ` +
     `<span class="ltr">base rate ${base.toFixed(3)} · abstention α ${alpha.toFixed(3)}</span>`;
 }
 
 function caseRow(r) {
   const c = S.cases[r.i];
-  const lab = { tp: "צדקה", tn: "צדקה", fp: "קיבלה בטעות", fn: "פסלה בטעות" }[r.kind];
+  const lab = t("case." + r.kind);
+  // The visible name follows the interface language; the QUOTE never does. A translated
+  // quote is not the sentence the paper contains, and the quote is the evidence.
+  const name = LANG === "he" ? (c.thing_he || c.thing) : (c.thing || c.thing_he);
   return `<div class="pt-case">
-    <span class="th">${esc(c.thing_he || c.thing)}</span>
+    <span class="th">${esc(name)}</span>
     <span class="vd ${r.kind}">${lab}</span>
-    <div class="q">"${esc(c.quote)}"</div>
-    <div class="src">${esc(c.paper)} · מקרה #${r.i}</div>
+    <div class="q" dir="ltr">"${esc(c.quote)}"</div>
+    <div class="src">${t("case.paper")}: ${esc(c.paper)} · ${t("case.case")} #${r.i}</div>
   </div>`;
 }
 
@@ -168,13 +171,11 @@ function renderBoard() {
   const circ = rows.find(r => r.d.id === "circular");
   const warn = document.getElementById("calib");
   if (!circ) {
-    warn.innerHTML = `<b>אזהרה:</b> הבקרה המעגלית לא ניתנת לחישוב על הקורפוס הזה.`;
+    warn.innerHTML = t("calib.missing");
     warn.style.display = "";
   } else if (circ.s.mcc < 0.90) {
-    warn.innerHTML = `<b>אזהרה — הכיול נכשל.</b> הבקרה המעגלית קיבלה
-      <span class="num">${fmt(circ.s.mcc)}</span> במקום כמעט <span class="num">+1.000</span>.
-      היא מעתיקה את התשובה, ולכן היא <b>חייבת</b> לקבל ציון כמעט מושלם. אם לא —
-      הקידוד סותר את עצמו בקורפוס הזה, ואין לקרוא אף מספר אחר בטבלה.`;
+    warn.innerHTML = `${t("calib.failed")} <span class="num">${fmt(circ.s.mcc)}</span> ` +
+      `${t("calib.instead")} <span class="num">+1.000</span>. ${t("calib.why")}`;
     warn.style.display = "";
   } else {
     warn.style.display = "none";
@@ -184,21 +185,21 @@ function renderBoard() {
   document.getElementById("board").innerHTML = rows.map(({ d, s }) => {
     const mine = d.id.startsWith("shir");
     const w = Math.max(2, Math.abs(s.mcc) / max * 100);
-    const gate = { ok: "עוברת", borderline: "גבולית", disqualified: "נפסלת" }[d.gate] || d.gate;
+    const gate = t("gate." + d.gate) || d.gate;
     const wrong = s.rows.filter(r => r.kind === "fp" || r.kind === "fn");
     return `<div class="pt-def ${mine ? "mine" : ""} ${d.is_control ? "control" : ""}">
       <div class="pt-defh">
-        <span class="nm">${esc(d.name_he)}</span>
+        <span class="nm">${esc(LANG === "he" ? d.name_he : (d.name_en || d.id))}</span>
         <span class="gate ${d.gate}">${gate}</span>
       </div>
-      <div class="wording">${esc(d.he)}</div>
+      <div class="wording"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(LANG === "he" ? d.he : d.text)}</div>
       <div class="pt-bar"><i style="width:${w}%"></i><span>MCC ${fmt(s.mcc)}</span></div>
       <div class="cm">TP ${s.tp} · FP ${s.fp} · FN ${s.fn} · TN ${s.tn} · n ${s.n}</div>
       <div class="plain">${plainMCC(s.mcc)}</div>
       ${wrong.length ? `<details class="pt-cases">
-        <summary>${wrong.length} המקרים שההגדרה הזו טועה בהם — עם הציטוט מהמאמר</summary>
+        <summary>${wrong.length} ${t("case.wrongN")}</summary>
         ${wrong.map(caseRow).join("")}
-      </details>` : `<div class="plain">אין מקרה שההגדרה הזו טועה בו בקורפוס הזה.</div>`}
+      </details>` : `<div class="plain">${t("case.none")}</div>`}
     </div>`;
   }).join("");
 }
@@ -211,7 +212,7 @@ function renderBoard() {
 function jackknife() {
   const ids = [...S.selected];
   if (ids.length < 3) {
-    return `<div class="plain">צריך לפחות שלושה מאמרים בקורפוס כדי לבדוק מי מחזיק את התוצאה.</div>`;
+    return `<div class="plain">${t("jack.few")}</div>`;
   }
   const all = corpusCases().judged;
   const rank = idx => S.defs.map(d => ({ id: d.id, s: scoreDef(d.id, idx) }))
@@ -236,27 +237,28 @@ function jackknife() {
     };
   }).filter(Boolean).sort((a, b) => Math.abs(b.delta || 0) - Math.abs(a.delta || 0));
 
-  const nameOf = id => (S.defs.find(d => d.id === id) || {}).name_he || id;
+  const nameOf = id => {
+    const d = S.defs.find(x => x.id === id) || {};
+    return (LANG === "he" ? d.name_he : (d.name_en || d.id)) || id;
+  };
   const flips = rows.filter(r => r.flips);
   const head = flips.length
-    ? `<b>התוצאה שברירה.</b> הסרת ${flips.length} מהמאמרים
-       ${flips.length === 1 ? "משנה" : "משנים"} את זהות ההגדרה המובילה.`
-    : `<b>התוצאה יציבה.</b> אין מאמר יחיד שהסרתו משנה את זהות ההגדרה המובילה
-       (<span class="num">${esc(nameOf(topId))}</span>).`;
+    ? `${t("jack.fragile")} ${t("jack.removing")} ${flips.length} ` +
+      `${flips.length === 1 ? t("jack.paperChanges") : t("jack.papersChange")}`
+    : `${t("jack.stable")} (<span class="num">${esc(nameOf(topId))}</span>).`;
 
   return `<div class="pt-note">${head}
     <div class="plain" style="margin-top:.5rem">
-      מוצגים חמשת המאמרים שהסרתם מזיזה הכי הרבה את הציון של המובילה
-      (<span class="num">${fmt(topMCC)}</span>):
+      ${t("jack.top5")} (<span class="num">${fmt(topMCC)}</span>):
     </div>
     ${rows.slice(0, 5).map(r => {
       const p = S.papers.find(x => x.id === r.pid) || { title: r.pid };
       return `<div class="pt-case">
         <span class="th">${esc(p.title)}</span>
         <span class="vd ${r.flips ? "fp" : "tn"}">${r.flips
-          ? "מסיר אותה מהראש → " + esc(nameOf(r.newTop))
-          : "לא משנה את הראש"}</span>
-        <div class="src">${r.n} מקרים · שינוי בציון
+          ? t("jack.removes") + " " + esc(nameOf(r.newTop))
+          : t("jack.keeps")}</span>
+        <div class="src">${r.n} ${t("jack.cases")}
           <span class="num">${r.delta === null ? "—" : fmt(r.delta)}</span></div>
       </div>`;
     }).join("")}
@@ -292,7 +294,7 @@ function wire() {
     try {
       await navigator.clipboard.writeText(location.href);
       const b = e.target; const o = b.textContent;
-      b.textContent = "הועתק ✓"; setTimeout(() => b.textContent = o, 1400);
+      b.textContent = t("corpus.copied"); setTimeout(() => b.textContent = o, 1400);
     } catch (_) { prompt("העתיקי את הקישור:", location.href); }
   };
 }
@@ -304,6 +306,7 @@ async function boot() {
       fetch(`../data/${n}.json`).then(r => r.json())));
   S.papers = papers; S.cases = cases; S.defs = defs; S.verdicts = verdicts;
   S.papers.sort((a, b) => (b.n_cases - a.n_cases));
+  initLang();
   readURL();
   wire();
   refresh();

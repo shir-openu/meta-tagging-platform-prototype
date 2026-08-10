@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>מציאת הגדרה אופטימלית לפי קורפוס — אומנות</title>
+<title>Find the definition that fits a corpus / מציאת הגדרה אופטימלית לפי קורפוס</title>
 <meta name="description" content="בוחרים אילו מאמרים מרכיבים את הקורפוס, ורואים מיד איזו הגדרה של אומנות מתאימה לו — ובאילו מקרים היא נופלת.">
 <link rel="stylesheet" href="../css/shell.css">
 <link rel="stylesheet" href="../css/platform.css">
@@ -35,43 +35,40 @@
 <div class="pt-wrap">
 
   <div class="pt-head">
-    <h1>מציאת הגדרה אופטימלית לפי קורפוס</h1>
-    <span class="tag">המושג: אומנות</span>
+    <h1 data-i18n="def.title">מציאת הגדרה אופטימלית לפי קורפוס</h1>
+    <span class="tag" data-i18n="def.concept">המושג: אומנות</span>
+      <button class="pt-btn" id="langSwitch" style="margin-inline-start:auto">English</button>
     <div class="sub">
-      <a class="pt-back" href="../">← חזרה לפלטפורמה</a>
+      <a class="pt-back" href="../" data-i18n="def.back">← חזרה לפלטפורמה</a>
       &nbsp;·&nbsp;
-      סמנו אילו מאמרים מרכיבים את הקורפוס שלכם. כל ההגדרות מדורגות מחדש מיד, וכל ציון
-      נפתח לטבלת המקרים שהולידה אותו — כולל המשפט המדויק מהמאמר.
+      <span data-i18n="def.lede">סמנו אילו מאמרים מרכיבים את הקורפוס שלכם.</span>
     </div>
   </div>
 
   <div class="pt-note" id="calib" style="display:none"></div>
 
   <div class="pt-note">
-    <b>המספר משתנה כשמשנים את הקורפוס — וזו כל הנקודה.</b> הגדרה אינה נכונה או שגויה
-    בפני עצמה; היא מתאימה או לא מתאימה למה שספרות מסוימת אומרת. נסו להוריד חצי מהמאמרים
-    ולראות מה קורה לדירוג.
+    <span data-i18n="def.point"></span>
   </div>
 
   <div class="pt-work">
 
     <div>
       <div class="pt-panel">
-        <h3>הקורפוס שלך</h3>
+        <h3 data-i18n="corpus.h">הקורפוס שלך</h3>
         <div class="pt-tools">
-          <button class="pt-btn" id="selAll">הכל</button>
-          <button class="pt-btn" id="selNone">כלום</button>
-          <button class="pt-btn" id="selInvert">היפוך</button>
-          <button class="pt-btn" id="copyLink">העתקת קישור</button>
+          <button class="pt-btn" id="selAll" data-i18n="corpus.all">הכל</button>
+          <button class="pt-btn" id="selNone" data-i18n="corpus.none">כלום</button>
+          <button class="pt-btn" id="selInvert" data-i18n="corpus.invert">היפוך</button>
+          <button class="pt-btn" id="copyLink" data-i18n="corpus.copy">העתקת קישור</button>
         </div>
         <div id="paperList"></div>
       </div>
 
       <div class="pt-panel">
-        <h3>מה אפשר להוריד</h3>
+        <h3 data-i18n="dl.h">מה אפשר להוריד</h3>
         <div class="plain" style="font-size:.86rem;color:var(--dim)">
-          כל מה שמוצג כאן מחושב בדפדפן משני הקבצים האלה. אפשר להוריד אותם ולבדוק אותנו
-          בכלים משלכם — אין שרת ואין מה להסתיר.
+          <span data-i18n="dl.body"></span>
         </div>
         <div class="pt-tools" style="margin-top:.6rem">
           <a class="pt-btn" href="../data/cases.json" download>cases.json</a>
@@ -86,18 +83,13 @@
     <div>
       <div class="pt-state" id="stateBar">טוען…</div>
       <div class="pt-tools" style="margin-bottom:.8rem">
-        <button class="pt-btn" id="jackBtn">מי מחזיק את התוצאה?</button>
+        <button class="pt-btn" id="jackBtn" data-i18n="jack.btn">מי מחזיק את התוצאה?</button>
       </div>
       <div id="jack" data-open="0"></div>
       <div id="board"></div>
 
       <div class="pt-note">
-        <b>מה אסור להסיק מהעמוד הזה.</b>
-        רווחי הסמך של ההגדרות המובילות חופפים — מותר לומר "בין המובילות", אסור לומר "הראשונה".
-        התיוג נעשה במעבר אחד על ידי מקודדת אחת, ולכן מהימנות בין שני מקודדים בלתי־תלויים
-        אינה מתקיימת ואיננו טוענות שהיא מתקיימת.
-        ומספרים מהרצה אחת אינם ברי־השוואה למספרים מהרצה אחרת: מדדנו שניסוח ההוראה לשופטים
-        מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק.
+        <b data-i18n="limits.h"></b> <span data-i18n="limits.body"></span>
       </div>
     </div>
 
@@ -112,6 +104,7 @@
 
 </div>
 
+<script src="../js/i18n.js"></script>
 <script src="../js/score.js"></script>
 </body>
 </html>
