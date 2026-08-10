@@ -126,6 +126,14 @@ function renderPapers() {
       </span>
     </label>`;
   }).join("");
+  const nUn = S.papers.filter(p => !p.n_scored).length;
+  const note = document.getElementById("unscoredNote");
+  if (note) {
+    note.innerHTML = nUn
+      ? `<b>${t("unscored.h")}</b> (${nUn}) — ${t("unscored.body")}`
+      : "";
+    note.style.display = nUn ? "" : "none";
+  }
   box.querySelectorAll(".pt-paper input").forEach(inp => {
     inp.addEventListener("change", e => {
       const id = e.target.closest(".pt-paper").dataset.id;

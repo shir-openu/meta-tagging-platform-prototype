@@ -71,6 +71,8 @@ const I18N = {
     "plain.neg": "נופלת בכיוון ההפוך מהספרות.",
     "plain.none": "אין די מקרים בקורפוס הזה כדי לחשב ציון.",
 
+    "unscored.h": "למה יש מאמרים שאי אפשר לבחור",
+    "unscored.body": "אלה מאמרים שכבר תויגו — יש להם מקרים וציטוטים — אבל טרם נוקדו מול ההגדרות. <b>ולא ננקד אותם בנפרד</b>: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק, ולכן ציונים מהרצות שונות אינם ברי־השוואה. לצרף מקרים שנוקדו בהרצה אחרת היה מייצר טבלה שנראית גדולה יותר ואומרת פחות. הם ייפתחו כשכל הקורפוס ינוקד מחדש בהרצה אחת.",
     "limits.h": "מה אסור להסיק מהעמוד הזה.",
     "limits.body": "רווחי הסמך של ההגדרות המובילות חופפים — מותר לומר \"בין המובילות\", אסור לומר \"הראשונה\". התיוג נעשה במעבר אחד על ידי מקודדת אחת, ולכן מהימנות בין שני מקודדים בלתי־תלויים אינה מתקיימת ואיננו טוענות שהיא מתקיימת. ומספרים מהרצה אחת אינם ברי־השוואה למספרים מהרצה אחרת: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק.",
   },
@@ -130,6 +132,8 @@ const I18N = {
     "plain.neg": "Falls the opposite way from the literature.",
     "plain.none": "Not enough cases in this corpus to compute a score.",
 
+    "unscored.h": "why some papers cannot be selected",
+    "unscored.body": "These papers are already tagged — they have cases and quotes — but have not yet been judged against the definitions. <b>And we will not judge them separately</b>: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition, so scores from different runs are not comparable. Splicing in cases judged in another run would produce a table that looks bigger and says less. They open up when the whole corpus is re-scored in one run.",
     "limits.h": "What must not be concluded from this page.",
     "limits.body": "The confidence intervals of the leading definitions overlap — \"among the leaders\" is allowed, \"the best\" is not. The tagging was done in one pass by a single coder, so two-independent-coder reliability is not met and is not claimed. And numbers from one run are not comparable with numbers from another: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition.",
   },
