@@ -206,6 +206,7 @@ function renderBoard() {
     return `<div class="pt-def ${mine ? "mine" : ""} ${d.is_control ? "control" : ""}">
       <div class="pt-defh">
         <span class="nm">${esc(LANG === "he" ? d.name_he : (d.name_en || d.id))}</span>
+        <span class="prov prov-${d.provenance}">${t("prov." + d.provenance)}</span>
         <span class="gate ${d.gate}">${gate}</span>
       </div>
       <div class="wording"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(LANG === "he" ? d.he : d.text)}</div>
@@ -315,6 +316,7 @@ function renderOffered(rows) {
           <div class="oname">${esc(name)}</div>
           <div class="oword"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(word)}</div>
           <div class="oplain">${plainMCC(s.mcc)}</div>
+          <div class="oprov prov-${d.provenance}">${t("prov." + d.provenance)}</div>
         </div>
         <div class="onums">
           <div class="omcc">${fmt(s.mcc)}</div>

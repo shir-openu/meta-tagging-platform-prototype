@@ -583,3 +583,13 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
 /* the offered definitions: the leader is green, the rest keep a neutral body */
 .offer { --fam: #546e7a; }
 .offer.best { --fam: #1a7a33; }
+
+/* Where a definition came from. A project about provenance must say which definitions are
+   attested in published work, which a reader proposed, and which the tool proposed. */
+.oprov, .prov { font-size: .72rem; font-weight: 700; letter-spacing: .02em; }
+.oprov { margin-top: .25rem; }
+.prov { margin-inline-start: .5rem; }
+.prov-literature { color: #5aa9f0; }
+.prov-user { color: #f2789f; }
+.prov-user\+tool { color: #e0a33c; }
+.prov-control { color: var(--dim); }
