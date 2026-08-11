@@ -84,9 +84,9 @@ function writeURL() {
   const u = new URL(location.href);
   if (S.selected.size === ids.length) u.searchParams.delete("c");
   else u.searchParams.set("c", bits);
-  const jk = document.getElementById("jack");
-  if (jk && jk.dataset.open === "1") u.searchParams.set("jk", "1");
-  else u.searchParams.delete("jk");
+  const openPanel = document.querySelector(".panel.open");
+  if (openPanel) u.searchParams.set("p", openPanel.id);
+  else u.searchParams.delete("p");
   history.replaceState(null, "", u);
 }
 function readURL() {
@@ -98,11 +98,10 @@ function readURL() {
   else ids.forEach((id, k) => { if (bits[k] === "1" && scored.has(id)) S.selected.add(id); });
   // the sensitivity panel is part of the shareable state: a claim about how robust a result
   // is should travel with the corpus that produced it, not have to be re-found by hand.
-  if (u.searchParams.get("jk") === "1") {
-    const jk = document.getElementById("jack");
-    if (jk) jk.dataset.open = "1";
-    const b = document.getElementById("jackBtn");
-    if (b) b.classList.add("on");
+  const want = u.searchParams.get("p");
+  if (want) {
+    const p = document.getElementById(want);
+    if (p) p.classList.add("open");
   }
 }
 
@@ -196,6 +195,8 @@ function renderBoard() {
     warn.style.display = "none";
   }
 
+  renderOffered(rows);
+
   const max = Math.max(...rows.map(r => Math.abs(r.s.mcc)), 0.001);
   document.getElementById("board").innerHTML = rows.map(({ d, s }) => {
     const mine = d.id.startsWith("shir");
@@ -280,33 +281,140 @@ function jackknife() {
   </div>`;
 }
 
+/* WHAT THE TOOL OFFERS.
+   Shir, describing the process the two of us actually went through: the tool should propose
+   a few definitions based on the corpus and show the numbers that matter for each, and only
+   then let you try your own or ask for a particular scholar's. So this is a short list -
+   never the full thirteen with their confusion matrices - and the full table stays one
+   button away for whoever wants it. Controls are excluded: a deliberately circular
+   definition is a check on us, not a candidate to offer anybody. */
+const OFFER_N = 4;
+
+function renderOffered(rows) {
+  const el = document.getElementById("offered");
+  if (!el) return;
+  const real = rows.filter(r => !r.d.is_control && r.d.gate !== "disqualified");
+  const next = document.getElementById("nextline");
+  if (!real.length) {
+    el.innerHTML = `<div class="hero-result warn"><div class="win">${t("hero.empty")}</div></div>`;
+    if (next) next.hidden = true;
+    return;
+  }
+  if (next) next.hidden = false;
+
+  el.innerHTML =
+    `<div class="offerhead">${t("offer.head")} <span class="lead">${t("offer.sub")}</span></div>` +
+    real.slice(0, OFFER_N).map((r, k) => {
+      const d = r.d, s = r.s;
+      const name = LANG === "he" ? d.name_he : (d.name_en || d.id);
+      const word = LANG === "he" ? d.he : d.text;
+      const miss = s.fp + s.fn;
+      return `<div class="offer ${k === 0 ? "best" : ""}">
+        <div class="orank">${k + 1}</div>
+        <div class="obody">
+          <div class="oname">${esc(name)}</div>
+          <div class="oword"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(word)}</div>
+          <div class="oplain">${plainMCC(s.mcc)}</div>
+        </div>
+        <div class="onums">
+          <div class="omcc">${fmt(s.mcc)}</div>
+          <div class="olab">${t("offer.fit")}</div>
+          <div class="omiss">${miss} ${t("offer.misses")}</div>
+        </div>
+      </div>`;
+    }).join("");
+}
+
+/* Ask for the definitions of a particular scholar: keep only papers that engage them.
+   The theorist tags are already in papers.json - 209 of them - so this needs no new data. */
+function renderWho() {
+  const box = document.getElementById("whoList");
+  if (!box) return;
+  const count = {};
+  S.papers.forEach(p => {
+    if (!p.n_scored) return;
+    (p.theorists || []).forEach(n => { count[n] = (count[n] || 0) + 1; });
+  });
+  const top = Object.entries(count).filter(([, n]) => n >= 3)
+    .sort((a, b) => b[1] - a[1]).slice(0, 18);
+  box.innerHTML = top.map(([n, c]) =>
+    `<button class="pt-btn" data-who="${esc(n)}">${esc(n)} <span class="lead">(${c})</span></button>`
+  ).join("") || `<span class="lead">${t("who.none")}</span>`;
+  box.querySelectorAll("[data-who]").forEach(b => {
+    b.onclick = () => {
+      const who = b.dataset.who;
+      S.selected.clear();
+      S.papers.forEach(p => {
+        if (p.n_scored && (p.theorists || []).includes(who)) S.selected.add(p.id);
+      });
+      refresh();
+      document.getElementById("offered").scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  });
+}
+
+/* The two step buttons must always say what is currently chosen. */
+function renderSteps() {
+  const cv = document.getElementById("conceptVal");
+  if (cv) cv.textContent = t("concept.art");
+  const pv = document.getElementById("corpusVal");
+  if (pv) {
+    const n = S.selected.size, all = S.papers.filter(p => p.n_scored).length;
+    pv.textContent = n === all ? t("corpus.allpapers").replace("{n}", n)
+                               : t("corpus.npapers").replace("{n}", n);
+  }
+}
+
 function refresh() {
   writeURL();
   renderPapers();
   renderBoard();
+  renderSteps();
   const jk = document.getElementById("jack");
-  if (jk && jk.dataset.open === "1") jk.innerHTML = jackknife();
+  if (jk) jk.innerHTML = jackknife();
 }
 
 /* ---------- corpus tools ---------- */
 function wire() {
-  document.getElementById("selAll").onclick = () => {
+  const _selAll = document.getElementById("selAll");
+  if (_selAll) _selAll.onclick = () => {
     S.papers.forEach(p => { if (p.n_scored) S.selected.add(p.id); }); refresh();
   };
-  document.getElementById("selNone").onclick = () => { S.selected.clear(); refresh(); };
-  document.getElementById("selInvert").onclick = () => {
+  const _selNone = document.getElementById("selNone");
+  if (_selNone) _selNone.onclick = () => { S.selected.clear(); refresh(); };
+  const _selInvert = document.getElementById("selInvert");
+  if (_selInvert) _selInvert.onclick = () => {
     S.papers.forEach(p => { if (!p.n_scored) return;
     S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id); });
     refresh();
   };
-  document.getElementById("jackBtn").onclick = (e) => {
-    const jk = document.getElementById("jack");
-    const on = jk.dataset.open === "1";
-    jk.dataset.open = on ? "0" : "1";
-    jk.innerHTML = on ? "" : jackknife();
-    e.target.classList.toggle("on", !on);
+  const more = document.getElementById("moreBtn");
+  if (more) more.onclick = () => {
+    const acts = document.getElementById("acts");
+    acts.hidden = !acts.hidden;
+    more.textContent = acts.hidden ? t("more.show") : t("more.hide");
   };
-  document.getElementById("copyLink").onclick = async (e) => {
+  const send = document.getElementById("ownSend");
+  if (send) send.onclick = () => {
+    const box = document.getElementById("ownText");
+    const ack = document.getElementById("ownAck");
+    const v = (box.value || "").trim();
+    ack.classList.add("open");
+    if (!v) { ack.textContent = t("own.empty"); return; }
+    // No server to post to, and we will not pretend otherwise. It is kept locally and the
+    // panel says plainly that scoring waits for the next full run.
+    try {
+      const all = JSON.parse(localStorage.getItem("mtp_own") || "[]");
+      all.push({ text: v, when: new Date().toISOString() });
+      localStorage.setItem("mtp_own", JSON.stringify(all));
+    } catch (_) {}
+    ack.textContent = t("own.ack");
+    box.value = "";
+  };
+  renderWho();
+
+  const _copyLink = document.getElementById("copyLink");
+  if (_copyLink) _copyLink.onclick = async (e) => {
     try {
       await navigator.clipboard.writeText(location.href);
       const b = e.target; const o = b.textContent;

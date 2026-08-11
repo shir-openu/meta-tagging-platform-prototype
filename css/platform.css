@@ -318,3 +318,226 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
   .pt-wrap, .pt-panel, .pt-note, .pt-def { max-width: 100%; }
   img, svg { max-width: 100%; }
 }
+
+/* ---------- the wave layer ----------
+   shell.css is PrimingToolbox's main.css and is NOT edited. But that stylesheet stretches
+   .wave to 100% of the viewport, and the SVG carries preserveAspectRatio="none" over a
+   1440x320 viewBox - so on a 900px-tall window the curve is stretched 2.8x vertically and
+   the gentle wave becomes a long thin sweeping line. In PrimingToolbox that never shows,
+   because a full-height sidebar and the purple timeline bar cover almost all of it. Our
+   pages are open, so the strokes were exposed and read as stray lines across the content.
+   Fixed here, in OUR stylesheet: anchor the band to the bottom at close to its natural
+   aspect, and let it sit further back. */
+.animated-background { opacity: .07; }
+.wave-container {
+  top: auto;
+  bottom: 0;
+  height: 34vh;
+  min-height: 220px;
+}
+.wave { height: 100%; }
+.wave path { stroke-width: 1.5; }
+/* the drifting particles stay full-height; they are dots and never read as stray lines */
+.particles { top: 0; height: 100%; }
+
+/* ================= action buttons =================
+   Shir, 2026-08-10: the cards carried far too much prose. What a visitor needs first is a
+   button whose action is obvious; the explanation and the notes are there for whoever asks
+   for them. So each card is now an action with two disclosures - "?" opens the description,
+   "≡" opens the notes - and nothing else is shown until pressed.
+
+   One colour family per action, taken from REPORTS/report54.html. (report56 does not exist;
+   54 is the highest, and it is the reference for the house rule anyway.) Colour is carried
+   on text and border only - never a filled block with white text on it. */
+.act {
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--fam, var(--teal));
+  border-radius: 12px;
+  background: var(--panel);
+  padding: .85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.act.soon { opacity: .58; }
+.act .row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.act .ic { font-size: 1.15rem; line-height: 1; }
+.act h2 {
+  font-size: 1.05rem; font-weight: 700; margin: 0;
+  color: var(--fam-lit, var(--teal-lit));
+}
+.act .state {
+  font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+  margin-inline-start: auto; color: var(--fam-lit, var(--teal-lit)); opacity: .85;
+}
+.act.soon .state { color: var(--dim); }
+
+.act .disc { display: flex; gap: .35rem; margin-top: .55rem; align-items: center; }
+.act .go {
+  color: var(--fam-lit, var(--teal-lit));
+  border: 1px solid var(--fam, var(--teal));
+  border-radius: 8px; padding: .3rem .95rem;
+  text-decoration: none; font-size: .9rem; font-weight: 700;
+}
+.act .go:hover { background: rgba(255,255,255,.05); }
+.act .tog {
+  font: inherit; font-size: .82rem; line-height: 1;
+  width: 1.9rem; height: 1.9rem;
+  color: var(--fam-lit, var(--teal-lit));
+  background: transparent;
+  border: 1px solid var(--line); border-radius: 50%;
+  cursor: pointer; display: grid; place-items: center;
+}
+.act .tog:hover { border-color: var(--fam, var(--teal)); }
+.act .tog[aria-expanded="true"] { border-color: var(--fam, var(--teal)); background: rgba(255,255,255,.06); }
+.act .tog .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+.act .why, .act .notes { display: none; margin-top: .5rem; }
+.act .why.open, .act .notes.open { display: block; }
+.act .why { color: var(--dim); font-size: .9rem; }
+.act .notes ul { list-style: none; margin: 0; padding: 0; }
+.act .notes li {
+  font-size: .86rem; padding: .12rem 0; color: var(--fam-lit, var(--teal-lit));
+}
+.act .notes li::before { content: "· "; opacity: .7; }
+
+/* ================= button-first screen =================
+   Shir, 2026-08-10, after opening the screen herself: *"אני מכירה את הפרויקט ועדיין אין לי
+   מושג מה הולך שם, מלא טקסט, לא ברור לי איפה ללחוץ"*. If the person who designed the thing
+   cannot find the button, nobody can.
+
+   So: the screen shows ONE answer and a row of buttons that say what they do. Every
+   explanation, every table, every limitation is still here in full - transparency is the
+   product - but behind a button the reader presses only if they want it. */
+
+.hero-result {
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid #5cc46f;
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 1.1rem 1.3rem;
+  margin: .2rem 0 1.3rem;
+}
+.hero-result .lead {
+  font-size: .84rem; color: var(--dim); letter-spacing: .02em;
+}
+.hero-result .win {
+  font-size: 1.6rem; font-weight: 700; color: #fff; margin: .15rem 0 .1rem;
+  line-height: 1.25;
+}
+.hero-result .sc {
+  font-family: Consolas, monospace; direction: ltr; unicode-bidi: isolate;
+  color: #5cc46f; font-size: 1.05rem; font-weight: 700;
+}
+.hero-result .plainline { color: var(--dim); font-size: .92rem; margin-top: .3rem; }
+.hero-result.warn { border-inline-start-color: #ff6b6b; }
+.hero-result.warn .win { font-size: 1.15rem; color: #ff9d9d; }
+
+.acts[hidden], .nextline[hidden] { display: none !important; }
+.acts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: .8rem;
+}
+.act .lead { font-size: .87rem; color: var(--dim); margin-top: .1rem; }
+
+/* panels open only on request */
+.panel {
+  display: none;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 1rem 1.1rem;
+  margin-top: 1rem;
+}
+.panel.open { display: block; }
+.phead {
+  display: flex; align-items: center; gap: .5rem;
+  border-bottom: 1px solid var(--line); padding-bottom: .5rem; margin-bottom: .8rem;
+}
+.phead b { color: #fff; font-size: 1rem; }
+.pclose {
+  font: inherit; font-size: 1.1rem; line-height: 1;
+  margin-inline-start: auto; width: 1.8rem; height: 1.8rem;
+  color: var(--dim); background: transparent;
+  border: 1px solid var(--line); border-radius: 50%; cursor: pointer;
+}
+.pclose:hover { color: #fff; border-color: var(--dim); }
+
+.pt-foot #stateBar {
+  border: 0; padding: 0; margin: 0; background: none; font-size: inherit;
+}
+
+/* ---------- the two step buttons: the whole first screen ---------- */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+         gap: .9rem; margin: .4rem 0 1.2rem; }
+.step {
+  font: inherit; text-align: start; cursor: pointer;
+  display: flex; align-items: center; gap: .9rem;
+  padding: 1rem 1.15rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--fam);
+  border-radius: 14px;
+  transition: border-color .15s, transform .15s;
+}
+.step:hover { border-color: var(--fam-lit); transform: translateY(-2px); }
+.step .num {
+  flex: 0 0 auto; width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--fam); color: var(--fam-lit);
+  font-weight: 700; font-size: 1rem;
+}
+.step .txt { display: flex; flex-direction: column; gap: .1rem; }
+.step .ttl { color: #fff; font-weight: 700; font-size: 1.05rem; }
+.step .val { color: var(--fam-lit); font-size: .87rem; }
+
+.conceptlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .6rem; }
+.conceptbtn {
+  font: inherit; text-align: start; cursor: pointer;
+  display: flex; flex-direction: column; gap: .15rem;
+  padding: .75rem .9rem; border-radius: 10px;
+  background: transparent; border: 1px solid var(--line); color: var(--ink);
+}
+.conceptbtn b { color: #fff; }
+.conceptbtn span { color: var(--dim); font-size: .84rem; }
+.conceptbtn.on { border-color: #a98bec; }
+.conceptbtn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ---------- the offered definitions ---------- */
+.offerhead { color: #fff; font-weight: 700; margin: 0 0 .5rem; }
+.offerhead .lead { color: var(--dim); font-weight: 400; font-size: .87rem; }
+.offer {
+  display: flex; align-items: center; gap: .9rem;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel); padding: .7rem .95rem; margin-bottom: .5rem;
+}
+.offer.best { border-inline-start: 5px solid #5cc46f; }
+.offer .orank {
+  flex: 0 0 auto; width: 1.8rem; height: 1.8rem; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700; font-size: .85rem;
+  border: 1px solid var(--line); color: var(--dim);
+}
+.offer.best .orank { border-color: #5cc46f; color: #5cc46f; }
+.offer .obody { flex: 1 1 auto; min-width: 0; }
+.offer .oname { color: #fff; font-weight: 700; font-size: 1rem; }
+.offer .oword { color: var(--dim); font-size: .87rem; margin-top: .05rem; }
+.offer .oplain { color: var(--dim); font-size: .83rem; margin-top: .2rem; opacity: .85; }
+.offer .onums { flex: 0 0 auto; text-align: center; min-width: 6.5rem; }
+.offer .omcc {
+  font-family: Consolas, monospace; direction: ltr; unicode-bidi: isolate;
+  font-size: 1.15rem; font-weight: 700; color: #5cc46f;
+}
+.offer:not(.best) .omcc { color: var(--ink); }
+.offer .olab, .offer .omiss { font-size: .74rem; color: var(--dim); }
+
+.nextline { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0 .4rem; }
+.pt-btn.big { font-size: .92rem; padding: .45rem 1.1rem; font-weight: 700; }
+
+#ownText {
+  width: 100%; margin-top: .6rem; padding: .6rem .75rem;
+  background: rgba(255,255,255,.04); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px;
+  font: inherit; font-size: .95rem;
+}
+#ownText:focus { outline: none; border-color: var(--teal-lit); }

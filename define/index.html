@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Find the definition that fits a corpus / מציאת הגדרה אופטימלית לפי קורפוס</title>
-<meta name="description" content="בוחרים אילו מאמרים מרכיבים את הקורפוס, ורואים מיד איזו הגדרה של אומנות מתאימה לו — ובאילו מקרים היא נופלת.">
+<title>Find the definition that fits a corpus / מציאת הגדרה לפי קורפוס</title>
+<meta name="description" content="בוחרים מושג, בוחרים אילו מאמרים מרכיבים את הקורפוס, ומקבלים את ההגדרה שמתאימה לו.">
 <link rel="stylesheet" href="../css/shell.css">
 <link rel="stylesheet" href="../css/platform.css">
 </head>
@@ -23,84 +23,194 @@
     </svg>
   </div>
   <div class="particles">
-    <div class="particle particle-teal" style="left: 10%; top: 20%;"></div>
-    <div class="particle particle-pink" style="left: 30%; top: 60%;"></div>
-    <div class="particle particle-wine" style="left: 50%; top: 30%;"></div>
-    <div class="particle particle-teal" style="left: 70%; top: 70%;"></div>
-    <div class="particle particle-pink" style="left: 90%; top: 40%;"></div>
-    <div class="particle particle-wine" style="left: 20%; top: 80%;"></div>
+    <div class="particle particle-teal" style="left: 12%; top: 24%;"></div>
+    <div class="particle particle-pink" style="left: 34%; top: 62%;"></div>
+    <div class="particle particle-wine" style="left: 58%; top: 32%;"></div>
   </div>
 </div>
 
 <div class="pt-wrap">
 
   <div class="pt-head">
-    <h1 data-i18n="def.title">מציאת הגדרה אופטימלית לפי קורפוס</h1>
-    <span class="tag" data-i18n="def.concept">המושג: אומנות</span>
-      <button class="pt-btn" id="langSwitch" style="margin-inline-start:auto">English</button>
-    <div class="sub">
-      <a class="pt-back" href="../" data-i18n="def.back">← חזרה לפלטפורמה</a>
-      &nbsp;·&nbsp;
-      <span data-i18n="def.lede">סמנו אילו מאמרים מרכיבים את הקורפוס שלכם.</span>
+    <h1 data-i18n="def.title">מציאת הגדרה לפי קורפוס</h1>
+    <button class="pt-btn" id="langSwitch" style="margin-inline-start:auto">English</button>
+    <div class="sub"><a class="pt-back" href="../" data-i18n="def.back">← חזרה לפלטפורמה</a></div>
+  </div>
+
+  <!-- FIRST SCREEN: two buttons. Nothing else.
+       Shir: "נכנסתי פעם ראשונה למערכת, מה אני צריכה לראות? כפתור שמאפשר לבחור מילה או ביטוי
+       שאני רוצה להגדיר, וכפתור שמאפשר לי לבחור את הקורפוס מתוך רשימת מאמרים קיימת. זהו!" -->
+  <div class="steps">
+
+    <button class="step" data-panel="pConcept" style="--fam:#5e35b1;--fam-lit:#a98bec">
+      <span class="num">1</span>
+      <span class="txt">
+        <span class="ttl" data-i18n="step.concept">בחרו מושג להגדיר</span>
+        <span class="val" id="conceptVal">—</span>
+      </span>
+    </button>
+
+    <button class="step" data-panel="pCorpus" style="--fam:#1a7a33;--fam-lit:#5cc46f">
+      <span class="num">2</span>
+      <span class="txt">
+        <span class="ttl" data-i18n="step.corpus">בחרו את הקורפוס</span>
+        <span class="val" id="corpusVal">—</span>
+      </span>
+    </button>
+
+  </div>
+
+  <!-- WHAT THE TOOL OFFERS: a few definitions with the numbers that matter. -->
+  <div id="offered"></div>
+
+  <!-- WHAT YOU CAN DO NEXT -->
+  <div class="nextline" id="nextline" hidden>
+    <button class="pt-btn big" data-panel="pOwn" data-i18n="next.own">נסו הגדרה משלכם</button>
+    <button class="pt-btn big" data-panel="pWho" data-i18n="next.who">הגדרות לפי חוקר</button>
+    <button class="pt-btn" data-panel="pFaq" data-i18n="faq.btn">שאלות נפוצות</button>
+    <button class="pt-btn" id="moreBtn" data-i18n="more.show">עוד</button>
+  </div>
+
+  <div class="acts" id="acts" hidden>
+
+    <div class="act" style="--fam:#0b4f9c;--fam-lit:#5aa9f0">
+      <div class="row"><span class="ic">🏆</span><h2 data-i18n="btn.board">כל ההגדרות</h2></div>
+      <div class="lead" data-i18n="btn.board.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pBoard" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wBoard" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wBoard" data-i18n="btn.board.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#a35b00;--fam-lit:#e0a33c">
+      <div class="row"><span class="ic">⚖️</span><h2 data-i18n="btn.jack">מי מחזיק את התוצאה</h2></div>
+      <div class="lead" data-i18n="btn.jack.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pJack" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wJack" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wJack" data-i18n="btn.jack.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#00838f;--fam-lit:#3fd0dd">
+      <div class="row"><span class="ic">📐</span><h2 data-i18n="btn.how">איך נמדד הציון</h2></div>
+      <div class="lead" data-i18n="btn.how.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pHow" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wHow" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wHow" data-i18n="btn.how.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#c2185b;--fam-lit:#f2789f">
+      <div class="row"><span class="ic">🔗</span><h2 data-i18n="btn.share">שיתוף והורדה</h2></div>
+      <div class="lead" data-i18n="btn.share.lead"></div>
+      <div class="disc">
+        <button class="go" id="copyLink" data-i18n="btn.copy">העתקת קישור</button>
+        <button class="go" data-panel="pDl" data-i18n="btn.dl">הורדת הנתונים</button>
+        <button class="tog" data-why="wShare" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wShare" data-i18n="btn.share.why"></div>
+    </div>
+
+  </div>
+
+  <!-- PANELS -->
+  <div class="panel" id="pConcept">
+    <div class="phead"><b data-i18n="step.concept">בחרו מושג להגדיר</b>
+      <button class="pclose" data-close="pConcept">×</button></div>
+    <div class="conceptlist">
+      <button class="conceptbtn on" data-concept="art">
+        <b data-i18n="concept.art">אומנות</b>
+        <span data-i18n="concept.art.sub">52 מאמרים · 660 מקרים · 13 הגדרות</span>
+      </button>
+      <button class="conceptbtn" disabled>
+        <b data-i18n="concept.own">מושג משלכם</b>
+        <span data-i18n="concept.own.sub">בקרוב</span>
+      </button>
     </div>
   </div>
 
-  <div class="pt-note" id="calib" style="display:none"></div>
-
-  <div class="pt-note">
-    <span data-i18n="def.point"></span>
+  <div class="panel" id="pCorpus">
+    <div class="phead"><b data-i18n="step.corpus">בחרו את הקורפוס</b>
+      <button class="pclose" data-close="pCorpus">×</button></div>
+    <div class="pt-tools">
+      <button class="pt-btn" id="selAll" data-i18n="corpus.all">הכל</button>
+      <button class="pt-btn" id="selNone" data-i18n="corpus.none">כלום</button>
+      <button class="pt-btn" id="selInvert" data-i18n="corpus.invert">היפוך</button>
+    </div>
+    <div id="paperList"></div>
+    <div class="pt-note" id="unscoredNote" style="display:none;font-size:.82rem"></div>
   </div>
 
-  <div class="pt-work">
-
-    <div>
-      <div class="pt-panel">
-        <h3 data-i18n="corpus.h">הקורפוס שלך</h3>
-        <div class="pt-tools">
-          <button class="pt-btn" id="selAll" data-i18n="corpus.all">הכל</button>
-          <button class="pt-btn" id="selNone" data-i18n="corpus.none">כלום</button>
-          <button class="pt-btn" id="selInvert" data-i18n="corpus.invert">היפוך</button>
-          <button class="pt-btn" id="copyLink" data-i18n="corpus.copy">העתקת קישור</button>
-        </div>
-        <div id="paperList"></div>
-        <div class="pt-note" id="unscoredNote" style="display:none;font-size:.82rem;margin:.7rem 0 0"></div>
-      </div>
-
-      <div class="pt-panel">
-        <h3 data-i18n="dl.h">מה אפשר להוריד</h3>
-        <div class="plain" style="font-size:.86rem;color:var(--dim)">
-          <span data-i18n="dl.body"></span>
-        </div>
-        <div class="pt-tools" style="margin-top:.6rem">
-          <a class="pt-btn" href="../data/cases.json" download>cases.json</a>
-          <a class="pt-btn" href="../data/verdicts.json" download>verdicts.json</a>
-          <a class="pt-btn" href="../data/papers.json" download>papers.json</a>
-          <a class="pt-btn" href="../data/definitions.json" download>definitions.json</a>
-          <a class="pt-btn" href="../data/manifest.json" download>manifest.json</a>
-        </div>
-      </div>
+  <div class="panel" id="pOwn">
+    <div class="phead"><b data-i18n="next.own">נסו הגדרה משלכם</b>
+      <button class="pclose" data-close="pOwn">×</button></div>
+    <div class="why open" data-i18n="own.body"></div>
+    <textarea id="ownText" rows="3" placeholder=""></textarea>
+    <div class="pt-tools" style="margin-top:.5rem">
+      <button class="pt-btn" id="ownSend" data-i18n="own.send">שליחה</button>
     </div>
+    <div id="ownAck" class="why"></div>
+  </div>
 
-    <div>
-      <div class="pt-state" id="stateBar">טוען…</div>
-      <div class="pt-tools" style="margin-bottom:.8rem">
-        <button class="pt-btn" id="jackBtn" data-i18n="jack.btn">מי מחזיק את התוצאה?</button>
-      </div>
-      <div id="jack" data-open="0"></div>
-      <div id="board"></div>
+  <div class="panel" id="pWho">
+    <div class="phead"><b data-i18n="next.who">הגדרות לפי חוקר</b>
+      <button class="pclose" data-close="pWho">×</button></div>
+    <div class="why open" data-i18n="who.body"></div>
+    <div class="pt-tools" id="whoList" style="margin-top:.6rem"></div>
+  </div>
 
-      <div class="pt-note">
-        <b data-i18n="limits.h"></b> <span data-i18n="limits.body"></span>
-      </div>
+  <div class="panel" id="pFaq">
+    <div class="phead"><b data-i18n="faq.btn">שאלות נפוצות</b>
+      <button class="pclose" data-close="pFaq">×</button></div>
+    <div class="why open" data-i18n="faq.body"></div>
+  </div>
+
+  <div class="panel" id="pBoard">
+    <div class="phead"><b data-i18n="btn.board">כל ההגדרות</b>
+      <button class="pclose" data-close="pBoard">×</button></div>
+    <div class="pt-note" id="calib" style="display:none"></div>
+    <div id="board"></div>
+  </div>
+
+  <div class="panel" id="pJack">
+    <div class="phead"><b data-i18n="btn.jack">מי מחזיק את התוצאה</b>
+      <button class="pclose" data-close="pJack">×</button></div>
+    <div id="jack"></div>
+  </div>
+
+  <div class="panel" id="pHow">
+    <div class="phead"><b data-i18n="btn.how">איך נמדד הציון</b>
+      <button class="pclose" data-close="pHow">×</button></div>
+    <div class="why open" data-i18n="how.body"></div>
+    <div class="pt-note" style="margin-top:.8rem">
+      <b data-i18n="limits.h"></b> <span data-i18n="limits.body"></span>
     </div>
+    <div style="margin-top:.7rem">
+      <a class="pt-btn" href="../method.html" data-i18n="how.more">העמוד המלא על השיטה</a>
+    </div>
+  </div>
 
+  <div class="panel" id="pDl">
+    <div class="phead"><b data-i18n="btn.dl">הורדת הנתונים</b>
+      <button class="pclose" data-close="pDl">×</button></div>
+    <div class="why open" data-i18n="dl.body"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <a class="pt-btn" href="../data/cases.json" download>cases.json</a>
+      <a class="pt-btn" href="../data/verdicts.json" download>verdicts.json</a>
+      <a class="pt-btn" href="../data/papers.json" download>papers.json</a>
+      <a class="pt-btn" href="../data/definitions.json" download>definitions.json</a>
+      <a class="pt-btn" href="../data/manifest.json" download>manifest.json</a>
+      <a class="pt-btn" href="../reference_scorer.py" download>reference_scorer.py</a>
+    </div>
   </div>
 
   <div class="pt-foot">
-    הציונים מחושבים בדפדפן, בלי שרת. הבקרה המעגלית חייבת לקבל כמעט
-    <span class="num">+1.000</span> בכל קורפוס — אם לא, מופיעה אזהרה ואין לקרוא את הטבלה.
-    · <a href="../method.html">השיטה והמגבלות</a>
-    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
+    <span id="stateBar"></span>
+    · <a href="../method.html" data-i18n="how.more">השיטה והמגבלות</a>
+    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">GitHub</a>
   </div>
 
 </div>
