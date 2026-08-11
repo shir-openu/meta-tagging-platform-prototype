@@ -541,3 +541,45 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
   font: inherit; font-size: .95rem;
 }
 #ownText:focus { outline: none; border-color: var(--teal-lit); }
+
+/* ---------- each card gets a body in its own colour ----------
+   Shir: on my landing page every square's background belongs to that square's colour - it is
+   not all black in the eye. She is right, and reading the landing CSS rather than the
+   screenshot settled it: .project-card is a solid #fff body on a #f5f6f8 page, so the card
+   is a lit surface, not a hole. The dark equivalent is a tint of the family colour, strong
+   enough to read as that card's own body and light enough to keep text contrast.
+
+   Still no white text on a filled colour block: the tint is a low-alpha wash of the family,
+   the heading takes the family's light tone, and the body text stays the normal ink. */
+.act, .step, .offer, .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 14%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 14%, transparent)),
+    #14101a;
+}
+.act:hover, .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 22%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 22%, transparent)),
+    #14101a;
+}
+.act { border-color: color-mix(in srgb, var(--fam) 45%, transparent); }
+.step { border-color: color-mix(in srgb, var(--fam) 45%, transparent); }
+.act .why, .act .notes { color: var(--ink); }
+
+/* the panels inherit the colour of the button that opened them */
+#pConcept { --fam: #5e35b1; --fam-lit: #a98bec; }
+#pCorpus  { --fam: #1a7a33; --fam-lit: #5cc46f; }
+#pBoard   { --fam: #0b4f9c; --fam-lit: #5aa9f0; }
+#pJack    { --fam: #a35b00; --fam-lit: #e0a33c; }
+#pHow     { --fam: #00838f; --fam-lit: #3fd0dd; }
+#pDl      { --fam: #00838f; --fam-lit: #3fd0dd; }
+#pFaq     { --fam: #546e7a; --fam-lit: #9db4bf; }
+#pOwn     { --fam: #c2185b; --fam-lit: #f2789f; }
+#pWho     { --fam: #7b1fa2; --fam-lit: #c98fe0; }
+.panel { border-color: color-mix(in srgb, var(--fam, #169999) 45%, transparent); }
+.phead b { color: var(--fam-lit, #fff); }
+
+/* the offered definitions: the leader is green, the rest keep a neutral body */
+.offer { --fam: #546e7a; }
+.offer.best { --fam: #1a7a33; }

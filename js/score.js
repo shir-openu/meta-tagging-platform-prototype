@@ -388,6 +388,36 @@ function wire() {
     S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id); });
     refresh();
   };
+  /* Every disclosure on the page. These were deleted by accident along with a dead handler
+     next to them, which is exactly the failure Shir hit: the panels existed, the buttons
+     existed, and nothing connected them. A click test now covers all nine (PLATFORM/_probe
+     pattern), because reading the code was what missed it the first time. */
+  document.querySelectorAll(".tog[data-why]").forEach(b => {
+    b.onclick = () => {
+      const box = document.getElementById(b.dataset.why);
+      if (!box) return;
+      const open = box.classList.toggle("open");
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+  });
+  document.querySelectorAll("[data-panel]").forEach(b => {
+    b.onclick = () => {
+      const p = document.getElementById(b.dataset.panel);
+      if (!p) return;
+      const wasOpen = p.classList.contains("open");
+      document.querySelectorAll(".panel").forEach(x => x.classList.remove("open"));
+      if (!wasOpen) p.classList.add("open");
+      writeURL();
+    };
+  });
+  document.querySelectorAll("[data-close]").forEach(b => {
+    b.onclick = () => {
+      const p = document.getElementById(b.dataset.close);
+      if (p) p.classList.remove("open");
+      writeURL();
+    };
+  });
+
   const more = document.getElementById("moreBtn");
   if (more) more.onclick = () => {
     const acts = document.getElementById("acts");
