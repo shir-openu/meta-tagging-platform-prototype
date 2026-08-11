@@ -1,0 +1,10 @@
+# Scratch files written by the verification tools while they run.
+# TOOLS/probe_platform.py, audit_mobile.py and audit_a11y.py copy each page with a probe
+# script appended, serve the copy, and delete it afterwards. A commit made while one of
+# them is running will otherwise sweep the copies in - which happened once, adding ten
+# files that are not part of the site.
+_probe_*
+_m_*
+_f_*
+_a_*
+_dbg.html
