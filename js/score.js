@@ -456,8 +456,43 @@ function renderCrit() {
     : `<b>${esc(t("crit.out.h"))}</b><br>${esc(t("crit.out.none"))}`;
 }
 
+/* Give every icon-only control a name a screen reader can say.
+   "?" and "×" are shapes, not words: a reader announces them as "button" and a person
+   listening hears five identical buttons in a row. The name is built from the card or
+   panel the control belongs to, so it comes out as "why - all the definitions" and
+   "close - rights and ownership". Done in script rather than in the markup because the
+   titles are translated at runtime and the label has to follow the language. */
+function labelControls() {
+  document.querySelectorAll(".tog[data-why]").forEach(b => {
+    const card = b.closest(".act");
+    const h = card && card.querySelector("h2");
+    b.setAttribute("aria-label",
+      t("a11y.why") + (h ? " — " + h.textContent.trim() : ""));
+    b.setAttribute("aria-controls", b.dataset.why);
+    const w = document.getElementById(b.dataset.why);
+    b.setAttribute("aria-expanded", w && w.classList.contains("open") ? "true" : "false");
+  });
+  document.querySelectorAll("[data-close]").forEach(b => {
+    const p = document.getElementById(b.dataset.close);
+    const h = p && p.querySelector(".phead b");
+    b.setAttribute("aria-label",
+      t("a11y.close") + (h ? " — " + h.textContent.trim() : ""));
+    b.setAttribute("aria-controls", b.dataset.close);
+  });
+  document.querySelectorAll("[data-panel]").forEach(b => {
+    const p = document.getElementById(b.dataset.panel);
+    b.setAttribute("aria-controls", b.dataset.panel);
+    b.setAttribute("aria-expanded", p && p.classList.contains("open") ? "true" : "false");
+    if (!(b.textContent || "").trim()) {
+      const h = p && p.querySelector(".phead b");
+      if (h) b.setAttribute("aria-label", t("a11y.open") + " — " + h.textContent.trim());
+    }
+  });
+}
+
 function refresh() {
   writeURL();
+  labelControls();
   renderCrit();
   renderPapers();
   renderBoard();
@@ -576,6 +611,7 @@ function wire() {
   renderOwn();
   renderWho();
   renderCrit();
+  labelControls();
 
   const cAll = document.getElementById("critAll");
   if (cAll) cAll.onclick = () => { S.criteria.forEach(c => c.on = true); renderCrit(); };

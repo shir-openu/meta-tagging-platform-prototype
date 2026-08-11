@@ -696,3 +696,9 @@ a:focus-visible {
 .critrow.off { opacity: .5; }
 .critrow:focus-within { outline: 2px solid #a98bec; outline-offset: 2px; }
 @media (max-width: 640px) { .critrow { min-height: 44px; } }
+
+/* A <button> with no background declared gets the browser's default buttonface, which is
+   light grey. The card's action button was therefore pale blue text on rgb(240,240,240) -
+   2.2:1, measured, well under the 4.5:1 floor - and it was also the one thing Shir banned:
+   a filled pale block instead of colour on text over the card's own body. */
+.act .go, .tog, .conceptbtn { background: transparent; }
