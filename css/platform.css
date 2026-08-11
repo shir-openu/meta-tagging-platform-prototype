@@ -593,3 +593,106 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
 .prov-user { color: #f2789f; }
 .prov-user\+tool { color: #e0a33c; }
 .prov-control { color: var(--dim); }
+
+/* ---------- your own definition: name, text, and the public/private choice ----------
+   The radios sit in a real <fieldset>/<legend> rather than a styled div, because a screen
+   reader announces the legend before each option; a bare div leaves "private" and "public"
+   floating with nothing to say what they are a choice about. Same reason the inputs have
+   real <label for=...> rather than placeholder text - placeholders vanish on focus, which
+   is exactly when someone using magnification needs to know what field they are in. */
+.ownlab {
+  display: block;
+  margin: .85rem 0 .25rem;
+  font-size: .86rem;
+  color: var(--dim);
+}
+.owninput,
+#pOwn textarea {
+  width: 100%;
+  padding: .5rem .65rem;
+  border-radius: 8px;
+  border: 1px solid #3a3247;
+  background: #0e0b13;
+  color: var(--ink);
+  font: inherit;
+  font-size: .95rem;
+}
+.owninput:focus-visible,
+#pOwn textarea:focus-visible { outline: 2px solid var(--fam-lit, #a98bec); outline-offset: 1px; }
+
+.ownvis {
+  margin: .9rem 0 0;
+  padding: .55rem .8rem .7rem;
+  border: 1px solid #3a3247;
+  border-radius: 10px;
+}
+.ownvis legend { padding: 0 .4rem; font-size: .84rem; color: var(--dim); }
+.ownvis label {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  margin: .3rem 0;
+  font-size: .9rem;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.ownvis input[type="radio"] { margin-top: .28rem; accent-color: #a98bec; flex: none; }
+
+/* ---------- accessibility ----------
+   A visible focus ring on everything reachable by keyboard. The shell stylesheet suppresses
+   outlines for the mouse case and never puts them back, so tabbing through the page moved an
+   invisible cursor - which makes the tool unusable without a mouse, not merely awkward. */
+.pt-btn:focus-visible,
+.step:focus-visible,
+.conceptbtn:focus-visible,
+.go:focus-visible,
+.tog:focus-visible,
+.pclose:focus-visible,
+.pt-paper:focus-within,
+a:focus-visible {
+  outline: 2px solid #a98bec;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Touch targets. Apple and Google both put the floor at 44px; several controls here were
+   28-32px, which on a phone means the neighbouring button gets pressed instead. */
+@media (max-width: 640px) {
+  .pt-btn, .go, .tog, .pclose { min-height: 44px; min-width: 44px; }
+  .tog, .pclose { display: inline-flex; align-items: center; justify-content: center; }
+  .steps { grid-template-columns: 1fr; }
+  .ownvis label { min-height: 44px; align-items: center; }
+}
+
+/* min-height does nothing to an inline element, and .pt-btn is an <a>. The measured height
+   stayed 27px with the rule sitting right there in the sheet - the kind of fix that looks
+   applied in the source and is not applied on the screen. */
+@media (max-width: 640px) {
+  .pt-btn, .pt-back, .go, .tog, .pclose {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pt-back { min-height: 44px; }
+}
+
+/* ---------- the 14 criteria, offered ---------- */
+.critrow {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .5rem .6rem;
+  margin: .3rem 0;
+  border: 1px solid #3a3247;
+  border-radius: 9px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.critrow input { margin-top: .3rem; accent-color: #a98bec; flex: none; }
+.critrow .t { display: block; font-size: .93rem; }
+.critrow .m { display: block; font-size: .8rem; color: var(--dim); margin-top: .15rem; }
+/* An unticked criterion is dimmed, not hidden: dropping one is a decision the user should
+   be able to see they made, and undo. */
+.critrow.off { opacity: .5; }
+.critrow:focus-within { outline: 2px solid #a98bec; outline-offset: 2px; }
+@media (max-width: 640px) { .critrow { min-height: 44px; } }

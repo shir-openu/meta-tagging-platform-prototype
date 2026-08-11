@@ -1,0 +1,107 @@
+{
+  "concept": "art",
+  "status": "OFFER - not a definition, and not scored",
+  "note_en": "Candidate criteria drawn from the literature on defining art. They are offered, not imposed: keep the ones you accept, drop the ones you do not, add your own. The tool composes the wording; it does not score the result, because a score from a separate run is not comparable with the numbers on the screen.",
+  "note_he": "תנאים מועמדים, שנאספו מהספרות על הגדרת אומנות. הם מוצעים ולא נכפים: השאירו את מה שאתם מקבלים, הורידו את מה שלא, והוסיפו משלכם. הכלי מנסח את ההגדרה; הוא אינו מנקד אותה, כי ציון מהרצה נפרדת אינו בר־השוואה למספרים שבמסך.",
+  "exclusions_he_by": "Meta-Tagging Project (translation, not source text)",
+  "criteria": [
+    {
+      "id": "human-made",
+      "en": "The thing was made by a human being.",
+      "he": "נעשה בידי אדם",
+      "excludes_en": "biotic art, animal song, chance formations, wholly machine-generated work",
+      "excludes_he": "אמנות ביוטית, שירת בעלי חיים, תצורות מקריות, יצירה שנוצרה כולה במכונה"
+    },
+    {
+      "id": "intentionally-created",
+      "en": "Someone deliberately brought the thing into being, on purpose rather than by accident.",
+      "he": "נוצר בכוונה",
+      "excludes_en": "",
+      "excludes_he": "תוצרי לוואי מקריים, ממצאים טבעיים"
+    },
+    {
+      "id": "chosen-or-designated",
+      "en": "Someone deliberately selected or designated the thing, whether or not they made it.",
+      "he": "נבחר או יוּעד",
+      "excludes_en": "",
+      "excludes_he": "חפצים שאיש לא בחר בהם או ייעד אותם"
+    },
+    {
+      "id": "embodies-values",
+      "en": "The thing expresses, illustrates or carries values or meaning.",
+      "he": "מגלם או ממחיש ערכים",
+      "excludes_en": "",
+      "excludes_he": "עיטור ריק, תרגילי מיומנות טהורים"
+    },
+    {
+      "id": "beyond-use",
+      "en": "The point of the thing is not exhausted by its practical function.",
+      "he": "מעבר לשימוש",
+      "excludes_en": "",
+      "excludes_he": "כלי עבודה, מוצרים שימושיים בלבד"
+    },
+    {
+      "id": "aesthetic-intent",
+      "en": "It was made in order to afford someone a valuable aesthetic experience.",
+      "he": "כוונה אסתטית",
+      "excludes_en": "",
+      "excludes_he": "עבודה תיעודית או תעמולתית שלא כוונה לחוויה אסתטית"
+    },
+    {
+      "id": "skill-craft",
+      "en": "It displays skill or mastery of a medium.",
+      "he": "מיומנות ומלאכה",
+      "excludes_en": "",
+      "excludes_he": "רדי־מיידס, יצירה מקרית, אמנות מושגית ללא ביצוע"
+    },
+    {
+      "id": "representation",
+      "en": "It depicts, imitates or represents something else.",
+      "he": "ייצוג או חיקוי",
+      "excludes_en": "",
+      "excludes_he": "מוזיקה אינסטרומנטלית, אמנות מופשטת, אדריכלות"
+    },
+    {
+      "id": "expresses-emotion",
+      "en": "It presents human feeling in a non-discursive form.",
+      "he": "מבטא רגש",
+      "excludes_en": "",
+      "excludes_he": "עבודה פורמליסטית או מושגית ללא תוכן רגשי"
+    },
+    {
+      "id": "institutional-recognition",
+      "en": "An institution, an artworld or an accepted practice conferred the status on it.",
+      "he": "הכרה מוסדית",
+      "excludes_en": "",
+      "excludes_he": "אמנות עממית, אמנות חוץ, יצירה שטרם הוצגה"
+    },
+    {
+      "id": "displayed-or-shared",
+      "en": "It was presented to an audience, exhibited, or shared as communication between people.",
+      "he": "הוצג או שותף",
+      "excludes_en": "",
+      "excludes_he": "יצירה פרטית שמעולם לא נחשפה לאיש"
+    },
+    {
+      "id": "resembles-accepted",
+      "en": "It is similar enough to things already accepted in this category.",
+      "he": "דומה למה שכבר התקבל",
+      "excludes_en": "",
+      "excludes_he": "יצירה חדשנית באמת שאינה דומה לדבר קודם"
+    },
+    {
+      "id": "historical-regard",
+      "en": "It was intended to be regarded in the way earlier works were regarded.",
+      "he": "יחס היסטורי",
+      "excludes_en": "",
+      "excludes_he": "יצירה שנועדה לשבור את דרך ההתבוננות הקודמת"
+    },
+    {
+      "id": "coevolved-with-evaluation",
+      "en": "Its form coevolved with the evaluation of an audience.",
+      "he": "התפתח יחד עם הערכתו",
+      "excludes_en": "",
+      "excludes_he": "יצירה יחידה שלא נוצרה בתוך מסורת של הערכה"
+    }
+  ]
+}

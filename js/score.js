@@ -13,7 +13,7 @@
    ===================================================== */
 
 const S = {
-  papers: [], cases: [], defs: [], verdicts: {},
+  papers: [], cases: [], defs: [], verdicts: {}, criteria: [],
   selected: new Set(),   // paper ids in the corpus
   openDef: null,
 };
@@ -72,6 +72,19 @@ function plainMCC(m) {
 }
 
 function fmt(x) { return (x >= 0 ? "+" : "") + x.toFixed(3); }
+
+/* The provenance line. Where a person proposed a definition it names them and dates it,
+   because that is what provenance is for and "a user" is the opposite of it: priority is a
+   dated public record bearing a name, and an anonymous record establishes nothing. */
+function provLine(d) {
+  let s = t("prov." + d.provenance);
+  if (d.proposed_by) {
+    s += " " + esc(d.proposed_by);
+    if (d.provenance === "user+tool") s += t("prov.tool");
+    if (d.proposed_on) s += ' <span class="num">' + esc(d.proposed_on) + "</span>";
+  }
+  return s;
+}
 function esc(s) {
   return String(s == null ? "" : s)
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -206,7 +219,7 @@ function renderBoard() {
     return `<div class="pt-def ${mine ? "mine" : ""} ${d.is_control ? "control" : ""}">
       <div class="pt-defh">
         <span class="nm">${esc(LANG === "he" ? d.name_he : (d.name_en || d.id))}</span>
-        <span class="prov prov-${d.provenance}">${t("prov." + d.provenance)}</span>
+        <span class="prov prov-${d.provenance}">${provLine(d)}</span>
         <span class="gate ${d.gate}">${gate}</span>
       </div>
       <div class="wording"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(LANG === "he" ? d.he : d.text)}</div>
@@ -316,7 +329,7 @@ function renderOffered(rows) {
           <div class="oname">${esc(name)}</div>
           <div class="oword"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(word)}</div>
           <div class="oplain">${plainMCC(s.mcc)}</div>
-          <div class="oprov prov-${d.provenance}">${t("prov." + d.provenance)}</div>
+          <div class="oprov prov-${d.provenance}">${provLine(d)}</div>
         </div>
         <div class="onums">
           <div class="omcc">${fmt(s.mcc)}</div>
@@ -367,11 +380,89 @@ function renderSteps() {
   }
 }
 
+/* ---------- your own definition ----------
+   There is no server. Everything here happens on the visitor's machine, and the wording on
+   screen says so rather than implying a submission that never happens.
+
+   Every saved record carries a name and an ISO timestamp, because that is the only thing
+   that actually protects a definition. A one-sentence definition is too short and too
+   functional for copyright to attach, so what establishes ownership is priority: a dated
+   record bearing a name. The download button exists so the visitor holds that record
+   themselves rather than trusting us to hold it - we cannot, there is nowhere to hold it. */
+function ownAll() {
+  try { return JSON.parse(localStorage.getItem("mtp_own") || "[]"); } catch (_) { return []; }
+}
+
+function ownVis() {
+  const r = document.querySelector('input[name="ownVis"]:checked');
+  return r ? r.value : "private";
+}
+
+function renderOwn() {
+  const box = document.getElementById("ownList");
+  if (!box) return;
+  const all = ownAll();
+  if (!all.length) { box.innerHTML = ""; return; }
+  box.innerHTML = '<div class="pt-note" style="margin-top:.7rem;font-size:.86rem">'
+    + "<b>" + esc(t("own.saved.h")) + "</b>"
+    + all.map(r =>
+        '<div style="margin-top:.45rem">'
+        + '<span class="num">' + esc((r.when || "").slice(0, 16).replace("T", " ")) + "</span> · "
+        + esc(r.name || "—") + " · "
+        + esc(r.visibility === "public" ? t("own.vis.pub") : t("own.vis.priv"))
+        + "<br>" + esc(r.text) + "</div>").join("")
+    + "</div>";
+}
+
+/* ---------- build a definition from criteria ----------
+   Shir's design and her reason for it: "אולי משתמשים יצירתיים יחליטו שאחד התנאים מיותר
+   ואולי הקורפוס שלהם יתמוך בכך." So the fourteen are candidates on offer - every one can be
+   unticked, and a user can add their own.
+
+   What this does NOT do is score the result, and the panel says so. Scoring means judging
+   all 355 cases against the new definition in the same run as the other thirteen; a number
+   obtained any other way cannot be set beside the numbers on this screen, because we
+   measured that instruction wording alone moves MCC by about 0.12. */
+function critText() {
+  const on = S.criteria.filter(c => c.on);
+  if (!on.length) return "";
+  const body = on.map(c => (LANG === "he" ? c.he : c.en)).join(LANG === "he" ? "; " : "; ");
+  return t("crit.out.pre") + " " + body;
+}
+
+function renderCrit() {
+  const box = document.getElementById("critList");
+  if (!box || !S.criteria.length) return;
+  box.innerHTML = S.criteria.map((c, i) => {
+    const excl = LANG === "he" ? c.excludes_he : c.excludes_en;
+    return `<label class="critrow ${c.on ? "" : "off"}">
+      <input type="checkbox" data-crit="${i}" ${c.on ? "checked" : ""}>
+      <span>
+        <span class="t">${esc(LANG === "he" ? c.he : c.en)}</span>
+        ${excl ? `<span class="m">${esc(t("crit.excl"))} ${esc(excl)}</span>` : ""}
+      </span>
+    </label>`;
+  }).join("");
+  box.querySelectorAll("input[data-crit]").forEach(inp => {
+    inp.addEventListener("change", e => {
+      S.criteria[+e.target.dataset.crit].on = e.target.checked;
+      renderCrit();
+    });
+  });
+  const out = document.getElementById("critOut");
+  const txt = critText();
+  out.innerHTML = txt
+    ? `<b>${esc(t("crit.out.h"))}</b><br>${esc(txt)}`
+    : `<b>${esc(t("crit.out.h"))}</b><br>${esc(t("crit.out.none"))}`;
+}
+
 function refresh() {
   writeURL();
+  renderCrit();
   renderPapers();
   renderBoard();
   renderSteps();
+  renderOwn();
   const jk = document.getElementById("jack");
   if (jk) jk.innerHTML = jackknife();
 }
@@ -433,17 +524,86 @@ function wire() {
     const v = (box.value || "").trim();
     ack.classList.add("open");
     if (!v) { ack.textContent = t("own.empty"); return; }
-    // No server to post to, and we will not pretend otherwise. It is kept locally and the
-    // panel says plainly that scoring waits for the next full run.
-    try {
-      const all = JSON.parse(localStorage.getItem("mtp_own") || "[]");
-      all.push({ text: v, when: new Date().toISOString() });
-      localStorage.setItem("mtp_own", JSON.stringify(all));
-    } catch (_) {}
-    ack.textContent = t("own.ack");
+    const vis = ownVis();
+    const all = ownAll();
+    all.push({
+      text: v,
+      name: (document.getElementById("ownName").value || "").trim(),
+      visibility: vis,
+      concept: "art",
+      corpus: [...S.selected].sort(),
+      when: new Date().toISOString()
+    });
+    try { localStorage.setItem("mtp_own", JSON.stringify(all)); } catch (_) {}
+    // "public" cannot mean published - we have nowhere to publish it to. Saying so here is
+    // the whole point of the choice; a mark that silently does nothing would be worse than
+    // no choice at all.
+    ack.textContent = vis === "public" ? t("own.ack.pub") : t("own.ack");
     box.value = "";
+    renderOwn();
   };
+
+  const ownDl = document.getElementById("ownDl");
+  if (ownDl) ownDl.onclick = () => {
+    const ack = document.getElementById("ownAck");
+    ack.classList.add("open");
+    const all = ownAll();
+    if (!all.length) { ack.textContent = t("own.dl.none"); return; }
+    const blob = new Blob([JSON.stringify({
+      note: "Definitions written in the meta-tagging platform, saved locally by their author. "
+          + "Each record carries a name and an ISO 8601 timestamp so it can serve as a dated "
+          + "record of priority. Nothing here was ever sent to a server.",
+      source: location.href,
+      exported: new Date().toISOString(),
+      definitions: all
+    }, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "my-definitions-" + new Date().toISOString().slice(0, 10) + ".json";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  };
+
+  const ownClear = document.getElementById("ownClear");
+  if (ownClear) ownClear.onclick = () => {
+    localStorage.removeItem("mtp_own");
+    const ack = document.getElementById("ownAck");
+    ack.classList.add("open");
+    ack.textContent = t("own.cleared");
+    renderOwn();
+  };
+
+  renderOwn();
   renderWho();
+  renderCrit();
+
+  const cAll = document.getElementById("critAll");
+  if (cAll) cAll.onclick = () => { S.criteria.forEach(c => c.on = true); renderCrit(); };
+  const cNone = document.getElementById("critNone");
+  if (cNone) cNone.onclick = () => { S.criteria.forEach(c => c.on = false); renderCrit(); };
+
+  const cAdd = document.getElementById("critAdd");
+  if (cAdd) cAdd.onclick = () => {
+    const inp = document.getElementById("critOwn");
+    const v = (inp.value || "").trim();
+    if (!v) return;
+    // A user's own criterion carries the same text in both languages, because we have no
+    // business translating what somebody else wrote.
+    S.criteria.push({ id: "user-" + S.criteria.length, en: v, he: v,
+                      excludes_en: "", excludes_he: "", on: true, mine: true });
+    inp.value = "";
+    renderCrit();
+  };
+
+  const cUse = document.getElementById("critUse");
+  if (cUse) cUse.onclick = () => {
+    const txt = critText();
+    const ack = document.getElementById("critAck");
+    ack.classList.add("open");
+    if (!txt) { ack.textContent = t("crit.out.none"); return; }
+    document.getElementById("ownText").value = txt;
+    ack.textContent = t("crit.used");
+  };
 
   const _copyLink = document.getElementById("copyLink");
   if (_copyLink) _copyLink.onclick = async (e) => {
@@ -457,10 +617,15 @@ function wire() {
 
 /* ---------- boot ---------- */
 async function boot() {
-  const [papers, cases, defs, verdicts] = await Promise.all(
-    ["papers", "cases", "definitions", "verdicts"].map(n =>
-      fetch(`../data/${n}.json`).then(r => r.json())));
+  const [papers, cases, defs, verdicts, criteria] = await Promise.all(
+    ["papers", "cases", "definitions", "verdicts", "criteria"].map(n =>
+      // criteria.json is an offer rather than measurement data: if it is missing the rest
+      // of the screen must still work, so its failure is not allowed to reject the batch.
+      fetch(`../data/${n}.json`).then(r => r.json()).catch(() => null)));
   S.papers = papers; S.cases = cases; S.defs = defs; S.verdicts = verdicts;
+  // Every criterion starts ticked, because the fourteen ARE the drafted set; the point is
+  // that a user can untick any of them, not that they must assemble one from nothing.
+  S.criteria = ((criteria && criteria.criteria) || []).map(c => ({ ...c, on: true }));
   S.papers.sort((a, b) => (b.n_cases - a.n_cases));
   initLang();
   readURL();

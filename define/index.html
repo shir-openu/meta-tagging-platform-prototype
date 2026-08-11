@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find the definition that fits a corpus / מציאת הגדרה לפי קורפוס</title>
 <meta name="description" content="בוחרים מושג, בוחרים אילו מאמרים מרכיבים את הקורפוס, ומקבלים את ההגדרה שמתאימה לו.">
-<link rel="stylesheet" href="../css/shell.css?v=bd309d30">
-<link rel="stylesheet" href="../css/platform.css?v=bd309d30">
+<link rel="stylesheet" href="../css/shell.css?v=31022cf9">
+<link rel="stylesheet" href="../css/platform.css?v=31022cf9">
 </head>
 <body>
 
@@ -67,6 +67,7 @@
   <div class="nextline" id="nextline" hidden>
     <button class="pt-btn big" data-panel="pOwn" data-i18n="next.own">נסו הגדרה משלכם</button>
     <button class="pt-btn big" data-panel="pWho" data-i18n="next.who">הגדרות לפי חוקר</button>
+    <button class="pt-btn big" data-panel="pCrit" data-i18n="crit.btn">בנו הגדרה מתנאים</button>
     <button class="pt-btn" data-panel="pFaq" data-i18n="faq.btn">שאלות נפוצות</button>
     <button class="pt-btn" id="moreBtn" data-i18n="more.show">עוד</button>
   </div>
@@ -114,6 +115,16 @@
       <div class="why" id="wShare" data-i18n="btn.share.why"></div>
     </div>
 
+    <div class="act" style="--fam:#5d4037;--fam-lit:#c9a08c">
+      <div class="row"><span class="ic">©</span><h2 data-i18n="btn.rights">זכויות ובעלות</h2></div>
+      <div class="lead" data-i18n="btn.rights.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pRights" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wRights" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wRights" data-i18n="btn.rights.why"></div>
+    </div>
+
   </div>
 
   <!-- PANELS -->
@@ -148,11 +159,66 @@
     <div class="phead"><b data-i18n="next.own">נסו הגדרה משלכם</b>
       <button class="pclose" data-close="pOwn">×</button></div>
     <div class="why open" data-i18n="own.body"></div>
-    <textarea id="ownText" rows="3" placeholder=""></textarea>
-    <div class="pt-tools" style="margin-top:.5rem">
-      <button class="pt-btn" id="ownSend" data-i18n="own.send">שליחה</button>
+
+    <label class="ownlab" for="ownName" data-i18n="own.name.lab"></label>
+    <input class="owninput" id="ownName" type="text" autocomplete="name">
+
+    <label class="ownlab" for="ownText" data-i18n="own.text.lab"></label>
+    <textarea id="ownText" rows="3"></textarea>
+
+    <!-- Public/private. There is no server, so "public" cannot mean "published from here" -
+         it means marked, and the file still has to be sent. The wording says exactly that;
+         a checkbox that implies publication we cannot perform would be the same dishonesty
+         we just removed from own.body. -->
+    <fieldset class="ownvis">
+      <legend data-i18n="own.vis.lab"></legend>
+      <label><input type="radio" name="ownVis" value="private" checked>
+        <span data-i18n="own.vis.priv"></span></label>
+      <label><input type="radio" name="ownVis" value="public">
+        <span data-i18n="own.vis.pub"></span></label>
+    </fieldset>
+
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="ownSend" data-i18n="own.send">שמירה</button>
+      <button class="pt-btn" id="ownDl" data-i18n="own.dl">הורדה</button>
+      <button class="pt-btn" id="ownClear" data-i18n="own.clear">מחיקה</button>
     </div>
     <div id="ownAck" class="why"></div>
+    <div id="ownList"></div>
+
+    <div class="pt-note" style="margin-top:.9rem;font-size:.86rem">
+      <b data-i18n="own.rights.h">זכויות</b> <span data-i18n="own.rights.body"></span>
+    </div>
+  </div>
+
+  <!-- The 14 criteria. Shir's design, and her argument for it: a creative user may decide
+       one of the conditions is unnecessary, and their corpus may back them up. So the list
+       is editable and every entry can be dropped. -->
+  <div class="panel" id="pCrit">
+    <div class="phead"><b data-i18n="crit.h">בניית הגדרה מתנאים</b>
+      <button class="pclose" data-close="pCrit">×</button></div>
+    <div class="why open" data-i18n="crit.body"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="critAll" data-i18n="crit.all">סמנו הכל</button>
+      <button class="pt-btn" id="critNone" data-i18n="crit.none">נקו הכל</button>
+    </div>
+    <div id="critList"></div>
+    <label class="ownlab" for="critOwn" data-i18n="crit.add.lab"></label>
+    <input class="owninput" id="critOwn" type="text">
+    <div class="pt-tools" style="margin-top:.5rem">
+      <button class="pt-btn" id="critAdd" data-i18n="crit.add">הוספת תנאי</button>
+    </div>
+    <div class="pt-note" id="critOut" style="margin-top:.9rem"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="critUse" data-i18n="crit.use">העברה</button>
+    </div>
+    <div class="why" id="critAck"></div>
+  </div>
+
+  <div class="panel" id="pRights">
+    <div class="phead"><b data-i18n="btn.rights">זכויות ובעלות</b>
+      <button class="pclose" data-close="pRights">×</button></div>
+    <div class="why open" data-i18n="rights.body"></div>
   </div>
 
   <div class="panel" id="pWho">
@@ -215,7 +281,7 @@
 
 </div>
 
-<script src="../js/i18n.js?v=bd309d30"></script>
-<script src="../js/score.js?v=bd309d30"></script>
+<script src="../js/i18n.js?v=31022cf9"></script>
+<script src="../js/score.js?v=31022cf9"></script>
 </body>
 </html>
