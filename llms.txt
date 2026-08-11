@@ -17,6 +17,15 @@ browser from these files, and they are served with `access-control-allow-origin:
 - [cases.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/cases.json): every case, with the verbatim quote it was read from and a P/N/U label.
 - [definitions.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/definitions.json): the rival definitions, their gate verdicts and their published scores.
 - [verdicts.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/verdicts.json): definition id to one character per case - '1' admits, '0' rejects, '-' not judged.
+- [criteria.json](https://shir-openu.github.io/meta-tagging-platform-prototype/data/criteria.json): 14 candidate criteria for defining art, each with what it excludes. An OFFER, not a definition, and deliberately not scored - see below.
+
+There is no separate endpoint for machines, and there will not be one: a parallel AI surface
+drifts out of sync within weeks and then serves wrong numbers, which is worse than serving
+none. The same files are offered as JSON Lines, written in the same build from the same
+objects, for readers that prefer one self-contained record per line:
+
+- [cases.jsonl](https://shir-openu.github.io/meta-tagging-platform-prototype/data/cases.jsonl)
+- [definitions.jsonl](https://shir-openu.github.io/meta-tagging-platform-prototype/data/definitions.jsonl)
 
 ## How to reproduce any number
 
@@ -37,10 +46,28 @@ intervals overlap at the top, so ranks are not separable. Scores are comparable 
 one run: instruction wording alone moves MCC by about 0.12 for an identical definition. The
 corpus tilts contemporary, by choice.
 
-## Rights
+## The criteria are an offer, and are not scored
+
+`criteria.json` holds 14 candidate criteria for defining art, each with the cases it would
+exclude. They are offered so a reader can keep the ones they accept, drop the ones they do
+not, and add their own — a reader may decide one of the conditions is unnecessary and their
+corpus may back them up. The interface composes the wording of whatever they keep. It does
+NOT score it, and neither should you present a score for one: scoring means judging all 355
+cases in the same run as the thirteen definitions, and a number from a separate run is not
+comparable with anything on this site.
+
+## Rights, and who a definition belongs to
 
 The tag layer is CC BY 4.0. Paper text belongs to its authors and publishers; it is linked,
 never redistributed. Quotes are short, for identification and verification.
+
+Definitions drawn from the literature are attributed to whoever formulated them. Definitions
+a person proposed carry `proposed_by` and `proposed_on` in `definitions.json`, and if you
+quote or reuse one, use those. Not "a user": a one-sentence definition is too short and too
+functional for copyright to attach, so the only thing that establishes ownership is
+priority — a dated public record bearing a name — and an anonymous record establishes
+nothing. Stripping the name off a definition when you pass it on is the specific harm those
+two fields exist to prevent.
 
 ## Check your reading before you trust it
 
