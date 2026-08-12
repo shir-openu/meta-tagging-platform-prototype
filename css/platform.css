@@ -775,3 +775,15 @@ a:focus-visible {
 }
 .cnone b { color: #e0a33c; display: block; margin-bottom: 0.25rem; }
 #conceptSoon { margin-top: 0.6rem; }
+
+/* The discrimination warning. Amber like the abstention notice, and distinct from the red
+   calibration failure above it, because they mean different things: the red one says the
+   coding contradicts itself, the amber one says the coding is fine but the corpus is too
+   one-sided to separate a good definition from a deliberately hopeless one. */
+.pt-note.discrim {
+  border: 1px solid rgba(224, 163, 60, 0.45);
+  color: #e0a33c;
+  line-height: 1.65;
+  margin-bottom: 0.8rem;
+}
+.pt-note.discrim b { color: #f0c476; }

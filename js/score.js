@@ -284,6 +284,39 @@ function renderBoard() {
     warn.style.display = "none";
   }
 
+  // THE SECOND CALIBRATION: can this corpus discriminate at all?
+  //
+  // The circular control above only proves the arithmetic and the case indexing. It is
+  // reproducing the gold labels, so it scores near +1.000 however useless the corpus is.
+  // The deliberately-bad controls are the ones that test the corpus: "any activity governed
+  // by rules" is meant to come last. When the game corpus grew from 32 cases to 53, the new
+  // cases were 17 positive to 4 negative, the base rate went from 0.571 to 0.667, and that
+  // control rose to +0.725 and beat three published definitions - because a corpus that is
+  // two-thirds positives rewards admitting everything. The first calibration said OK
+  // throughout. This one says what is actually wrong.
+  const badControls = rows.filter(r => r.d.is_control && r.d.id !== conf().calib);
+  const litRows = rows.filter(r => r.d.provenance === "literature");
+  const outranked = badControls
+    .map(c => ({ c, beat: litRows.filter(l => l.s.mcc < c.s.mcc) }))
+    .filter(x => x.beat.length);
+  const disc = document.getElementById("discrim");
+  if (disc) {
+    if (outranked.length) {
+      const nPos = judged.filter(i => S.cases[i].status === "P").length;
+      const worst = outranked[0];
+      disc.innerHTML = t("discrim.body")
+        .replace("{ctrl}", esc(LANG === "he" ? worst.c.d.name_he : worst.c.d.name_en))
+        .replace("{mcc}", fmt(worst.c.s.mcc))
+        .replace("{k}", worst.beat.length)
+        .replace("{base}", (nPos / judged.length).toFixed(3))
+        .replace("{pos}", nPos)
+        .replace("{neg}", judged.length - nPos);
+      disc.style.display = "";
+    } else {
+      disc.style.display = "none";
+    }
+  }
+
   renderOffered(rows);
 
   const max = Math.max(...rows.map(r => Math.abs(r.s.mcc)), 0.001);
