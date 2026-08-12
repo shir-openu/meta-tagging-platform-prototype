@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The method, and its limits</title>
+<title>השיטה, והמגבלות שלה</title>
 <link rel="alternate" hreflang="en" href="method.html">
 <link rel="alternate" hreflang="he" href="method-he.html">
-<link rel="stylesheet" href="css/shell.css?v=487aa174">
-<link rel="stylesheet" href="css/platform.css?v=487aa174">
+<link rel="stylesheet" href="css/shell.css?v=a6a34b59">
+<link rel="stylesheet" href="css/platform.css?v=a6a34b59">
 </head>
 <body>
 
@@ -38,55 +38,55 @@
 <div class="pt-wrap" style="max-width:56rem">
 
   <div class="pt-head">
-    <h1>The method, and its limits</h1>
-    <span class="tag">not an About page</span>
-    <a class="pt-btn" href="method-he.html"
-       style="margin-inline-start:auto;text-decoration:none">עברית</a>
+    <h1>השיטה, והמגבלות שלה</h1>
+    <span class="tag">לא עמוד "אודות"</span>
+    <a class="pt-btn" href="method-en.html"
+       style="margin-inline-start:auto;text-decoration:none">English</a>
     <div class="sub">
-      <a class="pt-back" href="index.html">← back to the platform</a>
-      &nbsp;·&nbsp; A page written so that you can <b>disbelieve us</b>: what the tool does, what it does not know, and how to reproduce every number it shows.
+      <a class="pt-back" href="index-he.html">← חזרה לפלטפורמה</a>
+      &nbsp;·&nbsp; עמוד שנועד לאפשר לכם <b>לא להאמין לנו</b>: מה הכלי עושה, מה הוא לא יודע, ואיך לשחזר בעצמכם כל מספר שהוא מציג.
     </div>
   </div>
 
   <div class="pt-panel">
-    <h3>In one line</h3>
-    <div style="color:var(--dim);font-size:.93rem">We take a contested concept, collect from the literature the <b>rival definitions</b> and the <b>cases</b> the literature asserts are or are not instances of it, and score each definition as though it were a classifier. What is distinctive is not the measurement — that exists in the literature — but that <b>every case is anchored to an exact verbatim quote from a paper</b>, and that the corpus is a parameter you choose.</div>
+    <h3>בשורה אחת</h3>
+    <div style="color:var(--dim);font-size:.93rem">אנחנו לוקחות מושג שנוי במחלוקת, אוספות מהספרות <b>הגדרות יריבות</b> ו<b>מקרים</b> שהספרות טוענת עליהם שהם מופע של המושג או שאינם, ומודדות כל הגדרה כאילו הייתה מסווג. מה שמייחד אותנו הוא לא המדידה — היא קיימת בספרות — אלא ש<b>כל מקרה מעוגן בציטוט מילולי מדויק מתוך מאמר</b>, ושהקורפוס הוא פרמטר שאתם בוחרים.</div>
   </div>
 
   <div class="pt-panel">
-    <h3>How the score is computed</h3>
-    <div style="color:var(--dim);font-size:.93rem">Each definition has a verdict on each case: does it admit the case. That is compared with the gold label — what the paper asserts. From there four numbers, TP, FP, FN, TN, and from them MCC.<div class="pt-state" style="direction:ltr">MCC = (TP·TN − FP·FN) / √((TP+FP)(TP+FN)(TN+FP)(TN+FN))</div><b>Why MCC and not F1.</b> About 80% of the cases here are positive. F1 ignores true negatives, so a definition that admits almost everything gets a flattering F1 and a poor MCC. MCC is the one that notices. +1.000 is a perfect match, 0.000 is a coin flip, negative means it falls the opposite way.</div>
+    <h3>איך מחושב הציון</h3>
+    <div style="color:var(--dim);font-size:.93rem">לכל הגדרה ולכל מקרה יש פסיקה: האם ההגדרה מקבלת את המקרה. משווים אותה לתווית הזהב — מה שהמאמר טוען. מכאן ארבעה מספרים, TP, FP, FN, TN, ומהם MCC.<div class="pt-state" style="direction:ltr">MCC = (TP·TN − FP·FN) / √((TP+FP)(TP+FN)(TN+FP)(TN+FN))</div><b>למה MCC ולא F1.</b> בקורפוס הזה כ־80% מהמקרים חיוביים. F1 מתעלם מהשליליים הנכונים, ולכן הגדרה שמקבלת כמעט הכל מקבלת ציון F1 מחמיא ו־MCC נמוך. MCC הוא זה ששם לב. +1.000 היא התאמה מושלמת, 0.000 כמו הטלת מטבע, ושלילי נופל בכיוון ההפוך.</div>
   </div>
 
   <div class="pt-panel">
-    <h3>The circular control — why there is a deliberately silly definition in the table</h3>
-    <div style="color:var(--dim);font-size:.93rem">One of the definitions is "whatever people call art". It is circular and worthless, and it is there <b>to check us</b>: it copies the answer, so it must score near +1.000 on any corpus. If it scores less, our coding contradicts itself on that corpus and no other number in the table may be read. The tool raises that warning itself.<br><br>This is not theoretical. An AI agent given only this site's URL misread the scoring rule, saw the control at 0.608 instead of 0.983, and knew from that alone that its own reading was broken.</div>
+    <h3>הבקרה המעגלית — למה יש בטבלה הגדרה מטופשת בכוונה</h3>
+    <div style="color:var(--dim);font-size:.93rem">אחת ההגדרות היא "מה שקוראים לו אומנות". היא מעגלית וחסרת ערך, והיא נמצאת שם <b>כדי לבדוק אותנו</b>: היא מעתיקה את התשובה, ולכן היא חייבת לקבל כמעט +1.000 בכל קורפוס. אם היא מקבלת פחות — הקידוד שלנו סותר את עצמו באותו קורפוס, ואין לקרוא אף מספר אחר בטבלה. הכלי מציג את האזהרה מעצמו.<br><br>וזה לא תיאורטי. סוכן בינה מלאכותית שקיבל רק את כתובת האתר קרא את כלל הניקוד לא נכון, ראה את הבקרה על 0.608 במקום 0.983, והבין מזה לבדו שהקריאה שלו שבורה.</div>
   </div>
 
   <div class="pt-panel">
-    <h3>What the tool does not know</h3>
-    <div style="color:var(--dim);font-size:.93rem"><ul><li><b>A single coder.</b> The tagging was done in one pass. Two-independent-coder reliability is not met, and we do not claim it is.</li><li><b>The confidence intervals overlap at the top.</b> "Among the leaders" is allowed. "The best" is not.</li><li><b>Runs are not comparable.</b> We measured that instruction wording alone moves MCC by about 0.12 for an identical definition. A number from one run cannot be set beside a number from another.</li><li><b>Circularity distance rises with accuracy.</b> The more a definition agrees with the consensus, the less it distinguishes itself from it. A rise in that measure is not necessarily an improvement.</li><li><b>The corpus tilts contemporary.</b> A declared choice, and it affects every number here.</li><li><b>A definition cannot be falsified by a corpus that lacks what would falsify it.</b> No paper bothers to write "an opinion column is not a work of art", so broad definitions are punished less than they deserve.</li><li><b>A quarter of the evidence cannot be re-checked from here.</b> Seven of the scored papers — the pre-2010 classics — have no retrievable link, and they carry 98 of the 355 adjudicated cases. Their quotes were verified against stored text, but you cannot verify them from this site alone.</li></ul></div>
+    <h3>מה הכלי לא יודע</h3>
+    <div style="color:var(--dim);font-size:.93rem"><ul><li><b>מקודדת אחת.</b> התיוג נעשה במעבר אחד. מהימנות בין שני מקודדים בלתי־תלויים אינה מתקיימת, ואיננו טוענות שהיא מתקיימת.</li><li><b>רווחי הסמך חופפים בצמרת.</b> מותר לומר "בין המובילות". אסור לומר "הראשונה".</li><li><b>אין להשוות בין הרצות.</b> מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק. מספר מהרצה אחת אינו בר־השוואה למספר מהרצה אחרת.</li><li><b>מרחק המעגליוּת עולה עם הדיוק.</b> ככל שהגדרה מסכימה יותר עם הקונצנזוס, כך היא נבדלת ממנו פחות. עלייה במדד הזה אינה בהכרח שיפור.</li><li><b>הקורפוס נוטה לעכשווי.</b> בחירה מוצהרת, והיא משפיעה על כל מספר כאן.</li><li><b>הגדרה אינה ניתנת להפרכה בקורפוס שאינו מכיל את מה שיפריך אותה.</b> אף מאמר לא טורח לכתוב "טור דעה אינו יצירת אומנות", ולכן ההגדרות הרחבות נענשות פחות משמגיע להן.</li><li><b>רבע מהראיות אינו ניתן לבדיקה חוזרת מכאן.</b> לשבעה מהמאמרים המנוקדים — הקלאסיקות שלפני 2010 — אין קישור בר־אחזור, והם נושאים 98 מתוך 355 המקרים המוכרעים. הציטוטים שלהם אומתו מול טקסט שמור, אך אי אפשר לאמת אותם מהאתר הזה לבדו.</li></ul></div>
   </div>
 
   <div class="pt-panel">
-    <h3>Who has done similar things</h3>
-    <div style="color:var(--dim);font-size:.93rem">The move of treating a definition as a classifier and scoring it against cases is not our invention and we do not claim it. <span class="ltr">Bradley Allen (2023)</span> did it for the concepts PLANET and WOMAN; psychiatry has compared rival definitions of the same disorder on one patient series since the 1970s; and natural-language processing has a similar genre for definitions of hate speech, where corpus-relativity of the score has already been published. What is new here: <b>the cases are taken from what papers assert and are anchored to verbatim quotes</b> — every competitor labels from surveys, crowds or knowledge bases — and <b>the corpus is a parameter the user chooses</b>.</div>
+    <h3>מי כבר עשה דברים דומים</h3>
+    <div style="color:var(--dim);font-size:.93rem">המהלך של "הגדרה כמסווג, מנוקדת מול מקרים" אינו המצאה שלנו ואיננו טוענות לכך. <span class="ltr">Bradley Allen (2023)</span> עשה זאת עבור המושגים "פלנטה" ו"אישה"; בפסיכיאטריה משווים הגדרות מתחרות של אותה הפרעה על אותה סדרת מטופלים מאז שנות ה־70; ובעיבוד שפה טבעית קיים ז'אנר דומה לגבי הגדרות של דברי שנאה, שם כבר פורסם שהציון תלוי בקורפוס. מה שכן חדש כאן: <b>המקרים נלקחים ממה שמאמרים טוענים ומעוגנים בציטוט מילולי</b> — כל המתחרים מתייגים מסקרים, מקהל או ממאגרי ידע — ו<b>הקורפוס הוא פרמטר שהמשתמש בוחר</b>.</div>
   </div>
 
   <div class="pt-panel">
-    <h3>How to reproduce it yourself</h3>
-    <div style="color:var(--dim);font-size:.93rem">There is no server. Every number in the tool is computed in the browser from two files, and you can download them:<div class="pt-tools" style="margin-top:.6rem"><a class="pt-btn" href="data/cases.json" download>cases.json</a><a class="pt-btn" href="data/verdicts.json" download>verdicts.json</a><a class="pt-btn" href="data/papers.json" download>papers.json</a><a class="pt-btn" href="data/definitions.json" download>definitions.json</a><a class="pt-btn" href="data/manifest.json" download>manifest.json</a></div><br><span class="ltr">manifest.json</span> carries the full schema — which files exist, what is in each, and the type of every field — written for AI agents as much as for people. The server returns <span class="ltr">access-control-allow-origin: *</span>, so any other tool can pull the data directly, without permission and without a key. <span class="ltr">reference_scorer.py</span> is a short dependency-free implementation that reproduces every published score; run it before trusting your own reading.<br><br><b>The acceptance test we set ourselves:</b> given this URL alone, an agent that has never seen the project should be able to reproduce the whole table and get the same numbers. It did.</div>
+    <h3>איך לשחזר בעצמכם</h3>
+    <div style="color:var(--dim);font-size:.93rem">אין כאן שרת. כל מספר בכלי מחושב בדפדפן משני קבצים, ואפשר להוריד אותם:<div class="pt-tools" style="margin-top:.6rem"><a class="pt-btn" href="data/cases.json" download>cases.json</a><a class="pt-btn" href="data/verdicts.json" download>verdicts.json</a><a class="pt-btn" href="data/papers.json" download>papers.json</a><a class="pt-btn" href="data/definitions.json" download>definitions.json</a><a class="pt-btn" href="data/manifest.json" download>manifest.json</a></div><br>ב־<span class="ltr">manifest.json</span> יש סכימה מלאה: אילו קבצים יש, מה בכל אחד, ומה טיפוס כל שדה — כתוב גם עבור סוכני AI, לא רק עבור בני אדם. השרת מחזיר <span class="ltr">access-control-allow-origin: *</span>, כלומר כל כלי אחר יכול למשוך את הנתונים ישירות, בלי רשות ובלי מפתח. <span class="ltr">reference_scorer.py</span> הוא מימוש קצר בלי תלויות שמשחזר כל ציון שפורסם; הריצו אותו לפני שאתם סומכים על הקריאה שלכם.<br><br><b>מבחן הקבלה שהצבנו לעצמנו:</b> בהינתן הכתובת הזו בלבד, סוכן שלא ראה את הפרויקט צריך להיות מסוגל לשחזר את כל הטבלה ולקבל את אותם מספרים. הוא הצליח.</div>
   </div>
 
   <div class="pt-panel">
-    <h3>Rights</h3>
-    <div style="color:var(--dim);font-size:.93rem">The tag layer is ours and is released under <span class="ltr">CC BY 4.0</span>. Paper text belongs to its authors and publishers: we <b>link to it and do not reproduce it</b>, and the quotes shown are short and serve identification and verification only.</div>
+    <h3>זכויות</h3>
+    <div style="color:var(--dim);font-size:.93rem">שכבת התגים היא שלנו ומשוחררת תחת <span class="ltr">CC BY 4.0</span>. טקסט המאמרים שייך למחבריו ולמו"לים: אנחנו <b>מקשרות אליו ולא משכפלות אותו</b>, והציטוטים המוצגים הם קצרים ונועדו לזיהוי ולאימות בלבד.</div>
   </div>
 
   <div class="pt-foot">
-    <a href="index.html">← back to the platform</a> ·
-    <a href="define/">the working screen</a> ·
-    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">source code</a>
+    <a href="index-he.html">← חזרה לפלטפורמה</a> ·
+    <a href="define/">מסך העבודה</a> ·
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
   </div>
 
 </div>

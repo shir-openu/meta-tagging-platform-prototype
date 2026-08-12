@@ -45,6 +45,7 @@ const S = {
   concept: DEFAULT_CONCEPT,
   registry: [], query: "",
   papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
+  hits: [], sel: 0,
   selected: new Set(),   // paper ids in the corpus
   openDef: null,
 };
@@ -550,9 +551,20 @@ function matches(c, q) {
     .filter(Boolean).some(s => norm(s).includes(q));
 }
 
-/* THE PICKER. A search field over the registry, not a list of buttons.
-   Ready concepts sort first and are always shown even when the query is long, because the
-   two that can actually be loaded must never be buried under 472 that cannot. */
+/* THE PICKER: a field with a dropdown under it.
+   The tile grid was unusable - "אי אפשר לעבוד עם החלון של בחירת מושג" - so this follows the
+   pattern of the direction-field tool Shir named as the reference: a list that appears under
+   the caret, narrows as you type, and is driveable from the keyboard.
+   Ready concepts always sort first: the two that can actually be loaded must never be buried
+   under 472 that cannot. */
+function openConcepts(open) {
+  const box = document.getElementById("conceptResults");
+  const inp = document.getElementById("conceptSearch");
+  if (!box) return;
+  box.classList.toggle("open", !!open);
+  if (inp) inp.setAttribute("aria-expanded", open ? "true" : "false");
+}
+
 function renderConcepts() {
   const box = document.getElementById("conceptResults");
   if (!box) return;
@@ -561,6 +573,8 @@ function renderConcepts() {
   const ready = hits.filter(c => c.state === "ready");
   const rest = hits.filter(c => c.state !== "ready");
   const shown = ready.concat(rest.slice(0, MAX_HITS));
+  S.hits = shown;
+  if (S.sel == null || S.sel >= shown.length) S.sel = 0;
 
   const counts = c => t("concept.counts")
     .replace("{p}", c.papers).replace("{c}", c.cases).replace("{d}", c.definitions);
@@ -569,24 +583,26 @@ function renderConcepts() {
   if (!hits.length) {
     // Not an empty list. An empty list reads as a broken search; this says what is true -
     // we hold nothing on that word - and what a person can do next.
-    html = `<div class="cnone"><b>${t("concept.none.h").replace("{q}", esc(S.query))}</b>
-      <div>${t("concept.none.body")}</div></div>`;
+    html = `<div class="ac-none"><b>${t("concept.none.h").replace("{q}", esc(S.query))}</b>
+      ${t("concept.none.body")}</div>`;
   } else {
-    html = shown.map(c => {
+    html = shown.map((c, i) => {
       const on = c.id === S.concept;
+      const sel = i === S.sel ? " sel" : "";
       if (c.state === "ready") {
-        return `<button class="conceptbtn ${on ? "on" : ""}" data-conc="${esc(c.id)}"
-          aria-pressed="${on}"><b>${esc(conceptLabel(c))}</b>
-          <span>${counts(c)}</span>
-          <span class="cwhy">${esc(LANG === "he" ? c.why_he : c.why_en)}</span></button>`;
+        return `<button class="ac-item${sel}${on ? " on" : ""}" role="option"
+          aria-selected="${on}" data-conc="${esc(c.id)}"
+          ><span class="nm">${esc(conceptLabel(c))}</span>
+          <span class="sub">${counts(c)} · ${esc(LANG === "he" ? c.why_he : c.why_en)}</span>
+          </button>`;
       }
-      return `<button class="conceptbtn soon" data-soon="${esc(c.id)}">
-        <b>${esc(c.en)}</b>
-        <span>${t("concept.corpusonly").replace("{n}", c.papers)}</span></button>`;
+      return `<button class="ac-item soon${sel}" role="option" data-soon="${esc(c.id)}"
+        ><span class="nm">${esc(c.en)}</span>
+        <span class="sub">${t("concept.corpusonly").replace("{n}", c.papers)}</span></button>`;
     }).join("");
     const hidden = rest.length - Math.max(0, shown.length - ready.length);
     if (hidden > 0) {
-      html += `<div class="cmore">${t("concept.more").replace("{n}", hidden)}</div>`;
+      html += `<div class="ac-more">${t("concept.more").replace("{n}", hidden)}</div>`;
     }
   }
   box.innerHTML = html;
@@ -598,20 +614,58 @@ function renderConcepts() {
       .replace("{t}", S.registry.length);
   }
 
+  // mousedown, not click: the input's blur would close the dropdown before a click lands.
   box.querySelectorAll("[data-conc]").forEach(b => {
-    b.onclick = () => { if (b.dataset.conc !== S.concept) switchConcept(b.dataset.conc); };
+    b.addEventListener("mousedown", ev => {
+      ev.preventDefault();
+      openConcepts(false);
+      if (b.dataset.conc !== S.concept) switchConcept(b.dataset.conc);
+    });
   });
   box.querySelectorAll("[data-soon]").forEach(b => {
-    b.onclick = () => {
-      const c = S.registry.find(x => x.id === b.dataset.soon);
-      const out = document.getElementById("conceptSoon");
-      if (!out || !c) return;
-      out.classList.add("open");
-      out.innerHTML = t("concept.soon.body")
-        .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers);
-      out.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    };
+    b.addEventListener("mousedown", ev => {
+      ev.preventDefault();
+      chooseSoon(b.dataset.soon);
+    });
   });
+}
+
+/* A concept we hold papers on but have no board for. Pressing it must say what is missing,
+   not do nothing - that is the difference between an honest answer and a dead control. */
+function chooseSoon(id) {
+  const c = S.registry.find(x => x.id === id);
+  const out = document.getElementById("conceptSoon");
+  if (!out || !c) return;
+  openConcepts(false);
+  out.classList.add("open");
+  out.innerHTML = t("concept.soon.body")
+    .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers);
+  out.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+/* Keyboard: the reference tool is fully driveable without a mouse and so is this. */
+function conceptKey(ev) {
+  const box = document.getElementById("conceptResults");
+  const open = box && box.classList.contains("open");
+  const hits = S.hits || [];
+  if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+    ev.preventDefault();
+    if (!open) { openConcepts(true); renderConcepts(); return; }
+    S.sel = Math.max(0, Math.min(hits.length - 1,
+      (S.sel || 0) + (ev.key === "ArrowDown" ? 1 : -1)));
+    renderConcepts();
+    const sel = box.querySelector(".ac-item.sel");
+    if (sel) sel.scrollIntoView({ block: "nearest" });
+  } else if (ev.key === "Enter") {
+    const c = hits[S.sel || 0];
+    if (!c) return;
+    ev.preventDefault();
+    openConcepts(false);
+    if (c.state === "ready") { if (c.id !== S.concept) switchConcept(c.id); }
+    else chooseSoon(c.id);
+  } else if (ev.key === "Escape") {
+    openConcepts(false);
+  }
 }
 
 /* The download list, read from the concept's own manifest. The manifest is the contract the
@@ -826,11 +880,34 @@ function wire() {
   // The concept search. Renders on every keystroke - the registry is 474 rows in memory and
   // filtering it is free, so there is no reason to make anyone press a button to search.
   const cs = document.getElementById("conceptSearch");
-  if (cs) cs.addEventListener("input", () => {
-    S.query = cs.value;
-    const soon = document.getElementById("conceptSoon");
-    if (soon) soon.classList.remove("open");
-    renderConcepts();
+  if (cs) {
+    cs.addEventListener("input", () => {
+      S.query = cs.value;
+      S.sel = 0;
+      const soon = document.getElementById("conceptSoon");
+      if (soon) soon.classList.remove("open");
+      openConcepts(true);
+      renderConcepts();
+    });
+    // Focusing the empty field shows the whole list - the commonest thing a first-time
+    // visitor wants is to see what there is, not to guess a word.
+    cs.addEventListener("focus", () => { openConcepts(true); renderConcepts(); });
+    cs.addEventListener("keydown", conceptKey);
+    cs.addEventListener("blur", () => setTimeout(() => openConcepts(false), 120));
+  }
+  const caret = document.getElementById("conceptCaret");
+  if (caret) caret.onclick = () => {
+    const box = document.getElementById("conceptResults");
+    const open = box && box.classList.contains("open");
+    openConcepts(!open);
+    if (!open) { renderConcepts(); if (cs) cs.focus(); }
+  };
+  // Opening the concept panel should land the caret in the field, ready to type.
+  document.querySelectorAll('[data-panel="pConcept"]').forEach(b => {
+    b.addEventListener("click", () => setTimeout(() => {
+      const i = document.getElementById("conceptSearch");
+      if (i && document.getElementById("pConcept").classList.contains("open")) i.focus();
+    }, 60));
   });
 
   const more = document.getElementById("moreBtn");

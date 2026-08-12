@@ -787,3 +787,70 @@ a:focus-visible {
   margin-bottom: 0.8rem;
 }
 .pt-note.discrim b { color: #f0c476; }
+
+/* ---------- the concept picker: a field with a dropdown under it ----------
+   Modelled on the direction-field tool's autocomplete, which Shir named as the reference
+   after the tile grid proved unusable: "אי אפשר לעבוד עם החלון של בחירת מושג". A grid you
+   scroll is a list of options; a dropdown that appears under the caret and narrows as you
+   type is a picker. */
+.ac-wrap { position: relative; }
+.ac-wrap .owninput { padding-inline-end: 2.4rem; }
+.ac-caret {
+  position: absolute;
+  inset-inline-end: .5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  color: var(--dim);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: .35rem .45rem;
+  line-height: 1;
+}
+.ac-caret:hover { color: var(--teal-lit); }
+.ac-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline: 0;
+  z-index: 200;
+  max-height: 22rem;
+  overflow-y: auto;
+  background: #14101a;
+  border: 1px solid rgba(229, 231, 235, 0.22);
+  border-radius: 10px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+}
+.ac-dropdown.open { display: block; }
+.ac-item {
+  display: block;
+  width: 100%;
+  text-align: start;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  padding: .55rem .8rem;
+  cursor: pointer;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.ac-item:first-child { border-top: 0; }
+.ac-item:hover, .ac-item.sel { background: rgba(47, 212, 212, 0.12); }
+.ac-item .nm { font-weight: 700; color: #fff; }
+.ac-item .sub { display: block; font-size: 0.82rem; color: var(--dim); margin-top: .1rem; }
+/* A concept we hold papers on but cannot yet score. Dimmed, never disabled: pressing it is
+   how you find out what is missing. */
+.ac-item.soon .nm { font-weight: 600; color: var(--ink); }
+.ac-item.on .nm { color: var(--teal-lit); }
+.ac-none { padding: .7rem .85rem; font-size: 0.88rem; color: var(--dim); line-height: 1.6; }
+.ac-none b { color: #e0a33c; display: block; margin-bottom: .2rem; }
+.ac-more { padding: .5rem .85rem; font-size: 0.82rem; color: var(--dim);
+           border-top: 1px solid var(--line); }
+
+/* The caret is a real control and a thumb has to hit it. 27x27 is what the mobile audit
+   caught the moment the dropdown shipped - the same 44px rule that caught the buttons. */
+@media (max-width: 640px), (pointer: coarse) {
+  .ac-caret { min-width: 44px; min-height: 44px; }
+}

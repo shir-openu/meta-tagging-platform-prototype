@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find the definition that fits a corpus / מציאת הגדרה לפי קורפוס</title>
 <meta name="description" content="בוחרים מושג, בוחרים אילו מאמרים מרכיבים את הקורפוס, ומקבלים את ההגדרה שמתאימה לו.">
-<link rel="stylesheet" href="../css/shell.css?v=487aa174">
-<link rel="stylesheet" href="../css/platform.css?v=487aa174">
+<link rel="stylesheet" href="../css/shell.css?v=a6a34b59">
+<link rel="stylesheet" href="../css/platform.css?v=a6a34b59">
 </head>
 <body>
 
@@ -143,11 +143,20 @@
          Shir: "יש חלון שצריך לבחור מושג להגדיר אבל את לא נותנת אפשרות לבחור... ומה כשיהיו
          1000 מושגים????" The field searches data/concepts.json - 474 concepts today - and
          every state gets a truthful answer, including "we hold nothing on this word". -->
+    <!-- A field with a dropdown under it, the way the direction-field tool does it.
+         Shir: "אי אפשר לעבוד עם החלון של בחירת מושג... תבדקי איך זה נעשה בחלון הקלט של שדה
+         הכיוונים." A grid of tiles you have to scroll is not a picker; a list that appears
+         under the caret and filters as you type is. -->
     <label class="ownlab" for="conceptSearch" data-i18n="concept.search.lab"></label>
-    <input class="owninput" id="conceptSearch" type="search" autocomplete="off"
-           data-i18n-ph="concept.search.ph">
+    <div class="ac-wrap">
+      <input class="owninput" id="conceptSearch" type="text" autocomplete="off"
+             role="combobox" aria-expanded="false" aria-autocomplete="list"
+             aria-controls="conceptResults" data-i18n-ph="concept.search.ph">
+      <button class="ac-caret" id="conceptCaret" type="button"
+              aria-label="פתיחת רשימת המושגים">▾</button>
+      <div class="ac-dropdown" id="conceptResults" role="listbox"></div>
+    </div>
     <div class="pt-note" id="conceptTally" style="margin:.45rem 0 .2rem;font-size:.82rem"></div>
-    <div class="conceptlist" id="conceptResults"></div>
     <div class="why" id="conceptSoon"></div>
     <div class="pt-note" style="margin-top:.8rem;font-size:.86rem"
          data-i18n="concept.note"></div>
@@ -296,7 +305,7 @@
 
 </div>
 
-<script src="../js/i18n.js?v=487aa174"></script>
-<script src="../js/score.js?v=487aa174"></script>
+<script src="../js/i18n.js?v=a6a34b59"></script>
+<script src="../js/score.js?v=a6a34b59"></script>
 </body>
 </html>
