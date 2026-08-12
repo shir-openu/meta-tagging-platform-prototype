@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find the definition that fits a corpus / מציאת הגדרה לפי קורפוס</title>
 <meta name="description" content="בוחרים מושג, בוחרים אילו מאמרים מרכיבים את הקורפוס, ומקבלים את ההגדרה שמתאימה לו.">
-<link rel="stylesheet" href="../css/shell.css?v=d0ab2a6d">
-<link rel="stylesheet" href="../css/platform.css?v=d0ab2a6d">
+<link rel="stylesheet" href="../css/shell.css?v=cdb9b07f">
+<link rel="stylesheet" href="../css/platform.css?v=cdb9b07f">
 </head>
 <body>
 
@@ -131,9 +131,16 @@
   <div class="panel" id="pConcept">
     <div class="phead"><b data-i18n="step.concept">בחרו מושג להגדיר</b>
       <button class="pclose" data-close="pConcept">×</button></div>
-    <!-- Rendered from the CONCEPTS registry in score.js, counts included. Typed counts went
-         stale the day the corpus grew and sat on the live site saying the wrong thing. -->
-    <div class="conceptlist" id="conceptList"></div>
+    <!-- A SEARCH, not a list of tabs.
+         Shir: "יש חלון שצריך לבחור מושג להגדיר אבל את לא נותנת אפשרות לבחור... ומה כשיהיו
+         1000 מושגים????" The field searches data/concepts.json - 474 concepts today - and
+         every state gets a truthful answer, including "we hold nothing on this word". -->
+    <label class="ownlab" for="conceptSearch" data-i18n="concept.search.lab"></label>
+    <input class="owninput" id="conceptSearch" type="search" autocomplete="off"
+           data-i18n-ph="concept.search.ph">
+    <div class="pt-note" id="conceptTally" style="margin:.45rem 0 .2rem;font-size:.82rem"></div>
+    <div class="conceptlist" id="conceptResults"></div>
+    <div class="why" id="conceptSoon"></div>
     <div class="pt-note" style="margin-top:.8rem;font-size:.86rem"
          data-i18n="concept.note"></div>
   </div>
@@ -278,7 +285,7 @@
 
 </div>
 
-<script src="../js/i18n.js?v=d0ab2a6d"></script>
-<script src="../js/score.js?v=d0ab2a6d"></script>
+<script src="../js/i18n.js?v=cdb9b07f"></script>
+<script src="../js/score.js?v=cdb9b07f"></script>
 </body>
 </html>

@@ -371,26 +371,17 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
   img, svg { max-width: 100%; }
 }
 
-/* ---------- the wave layer ----------
-   shell.css is PrimingToolbox's main.css and is NOT edited. But that stylesheet stretches
-   .wave to 100% of the viewport, and the SVG carries preserveAspectRatio="none" over a
-   1440x320 viewBox - so on a 900px-tall window the curve is stretched 2.8x vertically and
-   the gentle wave becomes a long thin sweeping line. In PrimingToolbox that never shows,
-   because a full-height sidebar and the purple timeline bar cover almost all of it. Our
-   pages are open, so the strokes were exposed and read as stray lines across the content.
-   Fixed here, in OUR stylesheet: anchor the band to the bottom at close to its natural
-   aspect, and let it sit further back. */
-.animated-background { opacity: .07; }
-.wave-container {
-  top: auto;
-  bottom: 0;
-  height: 34vh;
-  min-height: 220px;
-}
-.wave { height: 100%; }
-.wave path { stroke-width: 1.5; }
-/* the drifting particles stay full-height; they are dots and never read as stray lines */
-.particles { top: 0; height: 100%; }
+/* ---------- the wave layer: NOT OVERRIDDEN ----------
+   There used to be a block here that dropped .animated-background to 7% opacity and
+   re-anchored the wave band to the bottom of the screen. I wrote it because the strokes
+   read to me as stray lines across open content, and it was a design decision I made on my
+   own and did not raise.
+   Shir, 2026-08-12: "לא רואים את הגלים! בפירוש ביקשתי לקחת העיצוב מעמודים קיימים ולא ליצור
+   לבד." She is right, and the override is gone. The waves are now exactly what shell.css
+   says, and shell.css is a byte-for-byte copy of PrimingToolbox's main.css - verified today
+   against https://shir-openu.github.io/PrimingToolbox/css/main.css.
+   Nothing about the wave layer belongs in this file. If it ever needs changing again, it
+   changes at the source and it is her call, not mine. */
 
 /* ================= action buttons =================
    Shir, 2026-08-10: the cards carried far too much prose. What a visitor needs first is a
@@ -754,3 +745,33 @@ a:focus-visible {
    2.2:1, measured, well under the 4.5:1 floor - and it was also the one thing Shir banned:
    a filled pale block instead of colour on text over the card's own body. */
 .act .go, .tog, .conceptbtn { background: transparent; }
+
+/* ---------- the concept picker ----------
+   A search field, a result list, and an honest panel for the concepts that have no board.
+   Shir's objection was that two buttons written into the page are not a picker, and that a
+   list of buttons does not survive a thousand concepts. Neither does a list of 472 rows, so
+   the ready concepts always sort first and the tail is capped with a count of what was
+   hidden - a search that silently truncates is a search that lies about its coverage. */
+.conceptbtn .cwhy {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--dim);
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+/* A concept we hold papers on but cannot yet score. Dimmed, but NOT disabled: pressing it
+   is how you find out what is missing, and a dead control would just look broken. */
+.conceptbtn.soon {
+  opacity: 0.72;
+  border-style: dashed;
+}
+.conceptbtn.soon b { font-weight: 600; }
+#conceptResults { max-height: 24rem; overflow-y: auto; }
+.cmore, .cnone {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--dim);
+  padding: 0.6rem 0.2rem;
+}
+.cnone b { color: #e0a33c; display: block; margin-bottom: 0.25rem; }
+#conceptSoon { margin-top: 0.6rem; }

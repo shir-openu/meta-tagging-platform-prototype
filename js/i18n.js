@@ -26,11 +26,15 @@ const I18N = {
     "def.title": "מציאת הגדרה לפי קורפוס",
     "step.concept": "בחרו מושג להגדיר",
     "step.corpus": "בחרו את הקורפוס",
-    "concept.art": "אומנות",
-    "concept.art.sub": "טוען…",
-    "concept.game": "משחק",
-    "concept.game.sub": "טוען…",
     "concept.counts": "{p} מאמרים · {c} מקרים מוכרעים · {d} הגדרות",
+    "concept.search.lab": "איזה מושג אתם רוצים להגדיר? הקלידו אותו.",
+    "concept.search.ph": "אומנות · משחק · deep learning · …",
+    "concept.tally": "{r} מושגים מוכנים לניקוד, מתוך {t} שהכלי מכיר. הרשימה נקראת מקובץ נתונים — הוספת מושג היא שינוי בנתונים, לא בממשק.",
+    "concept.corpusonly": "{n} מאמרים בקורפוס דנים בו · אין עדיין לוח הגדרות",
+    "concept.more": "ועוד {n} מושגים תואמים. צמצמו את החיפוש.",
+    "concept.none.h": "אין לנו כלום על “{q}”.",
+    "concept.none.body": "זו תשובה אמיתית ולא תקלה: המילה הזו לא מופיעה באף מאמר שאנחנו מחזיקות. כדי לבנות עליה לוח הגדרות צריך קורפוס — מאמרים פתוחים שדנים במושג — ואת המקרים שאפשר לחלץ מהם. אפשר להתחיל מהמאמרים שלכם: בשלב הבא הכלי יאפשר להעלות אותם, ובינתיים כתבו לנו.",
+    "concept.soon.body": "<b>יש לנו {n} מאמרים שדנים ב“{term}”, אבל אין לוח הגדרות.</b> ההבדל הוא לא טכני. לוח דורש שני דברים שאין כאן עדיין: <b>מקרים</b> — דברים קונקרטיים שהספרות טוענת עליהם במפורש שהם {term} או שאינם, כל אחד עם הציטוט המדויק — ו<b>הגדרות מתחרות</b> שנשפטות מול כל המקרים <b>בהרצה אחת</b>. אי אפשר להרכיב לוח מניקוד של הרצות נפרדות: ניסוח ההנחיה לבדו מזיז MCC בכ־0.12. זו העבודה, וזה מה שהיא דורשת — לא כפתור שחסר.",
     "concept.note": "שני המושגים אינם בני־השוואה זה לזה במספרים — רק בשיטה. כל הרצה נוקדה בנפרד, וניסוח ההנחיה לבדו מזיז MCC בכ־0.12. מה שכן משותף: אותו כלל, אותה מטריקה, ואותה דרישה שהבקרה תכייל את הטבלה — אבל <b>הבקרה אינה אותה בקרה</b>. באומנות \"מה שקוראים לו אומנות\" היא טאוטולוגיה שמכיילת; במשחק אותו משפט הוא עמדה שנויה במחלוקת שמפסידה לחמש הגדרות מהספרות.",
     "concept.own": "מושג משלכם",
     "concept.own.sub": "בקרוב",
@@ -187,11 +191,15 @@ const I18N = {
     "def.title": "Find the definition that fits a corpus",
     "step.concept": "Choose a concept to define",
     "step.corpus": "Choose the corpus",
-    "concept.art": "art",
-    "concept.art.sub": "loading…",
-    "concept.game": "game",
-    "concept.game.sub": "loading…",
     "concept.counts": "{p} papers · {c} adjudicated cases · {d} definitions",
+    "concept.search.lab": "Which concept do you want to define? Type it.",
+    "concept.search.ph": "art · game · deep learning · …",
+    "concept.tally": "{r} concepts ready to score, out of {t} the tool knows about. The list is read from a data file — adding a concept is a data change, not an interface change.",
+    "concept.corpusonly": "{n} papers in the corpus discuss it · no definition board yet",
+    "concept.more": "and {n} more matches. Narrow the search.",
+    "concept.none.h": "We hold nothing on “{q}”.",
+    "concept.none.body": "That is a real answer, not a failure: the word appears in none of the papers we hold. Building a board for it needs a corpus — open-access papers that argue about the concept — and the cases that can be drawn from them. Your own papers are a fine place to start: uploading them is the next component, and until then, write to us.",
+    "concept.soon.body": "<b>We hold {n} papers that discuss “{term}”, but there is no definition board.</b> The gap is not technical. A board needs two things that do not exist here yet: <b>cases</b> — concrete things the literature explicitly asserts are or are not {term}, each with the exact sentence — and <b>rival definitions</b> judged against every case <b>in one run</b>. A board cannot be assembled from separate runs: instruction wording alone moves MCC by about 0.12. That is the work, and that is what it takes — not a missing button.",
     "concept.note": "The two concepts are not comparable to each other in their numbers — only in their method. Each was scored in its own run, and instruction wording alone moves MCC by about 0.12. What they share: one rule, one metric, and the requirement that a control calibrate the table — but <b>it is not the same control</b>. For art, \"whatever people call art\" is a tautology that calibrates everything else; for game the same sentence is a contested position that loses to five published definitions.",
     "concept.own": "your own concept",
     "concept.own.sub": "coming",
@@ -352,6 +360,11 @@ function applyLang(code) {
   document.documentElement.dir = L.dir;
   document.querySelectorAll("[data-i18n]").forEach(el => {
     el.innerHTML = t(el.dataset.i18n);
+  });
+  // A placeholder is visible text and has to switch language with everything else. Setting
+  // it through innerHTML would have written the string into the input's markup instead.
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    el.setAttribute("placeholder", t(el.dataset.i18nPh));
   });
   const sw = document.getElementById("langSwitch");
   if (sw) sw.textContent = L.other;

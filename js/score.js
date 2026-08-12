@@ -12,36 +12,53 @@
    one that notices.
    ===================================================== */
 
-/* THE CONCEPTS. Everything that differs between them is here and nowhere else, because the
-   claim this site makes is about a method, and a method that needs the interface edited to
-   run on a second concept is not one.
+/* THE CONCEPTS ARE DATA, NOT CODE.
+   Shir, 2026-08-12: "יש חלון שצריך לבחור מושג להגדיר אבל את לא נותנת אפשרות לבחור, זה כבר
+   מובנה בעמוד ובחלון. ומה כשיהיו 1000 מושגים????"
 
-   `dir`   where its five files live. Art is at data/ and game at data/game/ - an asymmetry
-           that is historical, not principled: the art URLs are cited in a deposited Zenodo
-           record and in llms.txt, and moving them would break published links.
+   She was right and the criticism was structural. This used to be an object literal with two
+   keys, and two keys written into a script is not a picker - it is a pair of tabs for two
+   concepts somebody else already chose. A concept you cannot type is a concept the tool does
+   not offer.
+
+   The registry now lives in data/concepts.json and the picker is a search over it. It holds
+   474 concepts: two with a scored definition board, and 472 that the main corpus discusses
+   but for which no board exists. Typing one of those 472 gets an honest answer - how many
+   papers we hold and what building a board would take - and typing something absent
+   altogether gets "we hold nothing on this", which is a real answer where an empty result
+   list is just a search that looks broken.
+
+   Two fields still matter per concept and both come from the file:
+   `dir`   where that concept's five files live, relative to data/. Art is at the root and
+           game at game/ - historical, not principled: the art URLs are cited in a deposited
+           Zenodo record and in llms.txt, and moving them would break published links.
    `calib` the control that must score near +1.000, WITHOUT WHICH NO ROW MAY BE READ. It is
-           not the same control for both, and that is the most interesting thing on the site.
-           For art, "whatever people call art" is a tautology: it copies the answer, scores
-           +0.983 and calibrates everything else. For game the same sentence is a contested
-           position that loses to five published definitions, because this literature is
-           expressly in the business of overruling ordinary usage. So game calibrates on a
-           control that copies the corpus label instead. Hard-coding "circular" here would
-           have silently disabled the calibration warning on the game board - the failure
-           would have been invisible, which is the kind this project keeps having. */
-const CONCEPTS = {
-  art:  { dir: "../data/",     calib: "circular",   criteria: true  },
-  game: { dir: "../data/game/", calib: "label-copy", criteria: false },
-};
+           not the same control for every concept, and that is the most interesting thing on
+           the site: for art "whatever people call art" is a tautology that calibrates
+           everything else, and for game the same sentence is a contested position that loses
+           to five published definitions. Hard-coding one control silently disabled the
+           safety rail on the game board once already. */
 const DEFAULT_CONCEPT = "art";
+const MAX_HITS = 40;   // a search that prints 472 rows has not helped anybody
 
 const S = {
   concept: DEFAULT_CONCEPT,
+  registry: [], query: "",
   papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
   selected: new Set(),   // paper ids in the corpus
   openDef: null,
 };
 
-function conf() { return CONCEPTS[S.concept] || CONCEPTS[DEFAULT_CONCEPT]; }
+function conf() {
+  return S.registry.find(c => c.id === S.concept)
+      || { id: S.concept, dir: "", calib: "circular", state: "ready" };
+}
+function conceptLabel(c) {
+  return (LANG === "he" && c && c.he) ? c.he : (c ? (c.en || c.id) : S.concept);
+}
+/* Where a concept's files are. The registry stores it relative to data/; the working screen
+   sits one directory down, so it is resolved here and nowhere else. */
+function conceptDir(c) { return "../data/" + ((c && c.dir) || ""); }
 
 /* ---------- metric ---------- */
 function mcc(tp, fp, fn, tn) {
@@ -487,34 +504,80 @@ function renderWho() {
   });
 }
 
-/* The concept list. Built from CONCEPTS rather than written into the HTML, so adding a third
-   concept is a data change and not an interface change - which is the difference between a
-   platform and a study with two tabs. The counts come from the files that were just loaded,
-   never typed: a hardcoded "52 papers · 660 cases" went stale the day the corpus grew and
-   sat on the live site saying the wrong thing. */
+/* Match a typed string against a concept. Deliberately forgiving: Hebrew is typed with and
+   without the alef ("אמנות" / "אומנות"), and a reader who types "games" must find "game". */
+function norm(s) {
+  return String(s || "").toLowerCase().trim()
+    .replace(/[֑-ׇ]/g, "")     // Hebrew niqqud and cantillation
+    .replace(/["'׳״]/g, "");   // geresh, gershayim, quotes
+}
+function matches(c, q) {
+  if (!q) return true;
+  return [c.id, c.he, c.en, ...(c.aliases || [])]
+    .filter(Boolean).some(s => norm(s).includes(q));
+}
+
+/* THE PICKER. A search field over the registry, not a list of buttons.
+   Ready concepts sort first and are always shown even when the query is long, because the
+   two that can actually be loaded must never be buried under 472 that cannot. */
 function renderConcepts() {
-  const box = document.getElementById("conceptList");
+  const box = document.getElementById("conceptResults");
   if (!box) return;
-  box.innerHTML = Object.keys(CONCEPTS).map(id => {
-    const on = id === S.concept;
-    // From each concept's own manifest, including the one not currently loaded. Typing them
-    // put "68 papers · 686 cases" beside art when 29 papers are selectable and 355 cases are
-    // adjudicated - three numbers, none of them the one the board actually uses. The counts
-    // shown are what you can put in a corpus and what the metric is computed over.
-    const m = CONCEPTS[id].meta;
-    const sub = m
-      ? t("concept.counts")
-          .replace("{p}", m.canonical_corpus.papers_scored)
-          .replace("{c}", m.canonical_corpus.cases_adjudicated)
-          .replace("{d}", m.files["definitions.json"].count)
-      : t("concept." + id + ".sub");
-    return `<button class="conceptbtn ${on ? "on" : ""}" data-conc="${id}"
-      aria-pressed="${on}"><b>${t("concept." + id)}</b><span>${sub}</span></button>`;
-  }).join("") +
-    `<button class="conceptbtn" disabled><b>${t("concept.own")}</b>
-      <span>${t("concept.own.sub")}</span></button>`;
+  const q = norm(S.query);
+  const hits = S.registry.filter(c => matches(c, q));
+  const ready = hits.filter(c => c.state === "ready");
+  const rest = hits.filter(c => c.state !== "ready");
+  const shown = ready.concat(rest.slice(0, MAX_HITS));
+
+  const counts = c => t("concept.counts")
+    .replace("{p}", c.papers).replace("{c}", c.cases).replace("{d}", c.definitions);
+
+  let html = "";
+  if (!hits.length) {
+    // Not an empty list. An empty list reads as a broken search; this says what is true -
+    // we hold nothing on that word - and what a person can do next.
+    html = `<div class="cnone"><b>${t("concept.none.h").replace("{q}", esc(S.query))}</b>
+      <div>${t("concept.none.body")}</div></div>`;
+  } else {
+    html = shown.map(c => {
+      const on = c.id === S.concept;
+      if (c.state === "ready") {
+        return `<button class="conceptbtn ${on ? "on" : ""}" data-conc="${esc(c.id)}"
+          aria-pressed="${on}"><b>${esc(conceptLabel(c))}</b>
+          <span>${counts(c)}</span>
+          <span class="cwhy">${esc(LANG === "he" ? c.why_he : c.why_en)}</span></button>`;
+      }
+      return `<button class="conceptbtn soon" data-soon="${esc(c.id)}">
+        <b>${esc(c.en)}</b>
+        <span>${t("concept.corpusonly").replace("{n}", c.papers)}</span></button>`;
+    }).join("");
+    const hidden = rest.length - Math.max(0, shown.length - ready.length);
+    if (hidden > 0) {
+      html += `<div class="cmore">${t("concept.more").replace("{n}", hidden)}</div>`;
+    }
+  }
+  box.innerHTML = html;
+
+  const tally = document.getElementById("conceptTally");
+  if (tally) {
+    tally.innerHTML = t("concept.tally")
+      .replace("{r}", S.registry.filter(c => c.state === "ready").length)
+      .replace("{t}", S.registry.length);
+  }
+
   box.querySelectorAll("[data-conc]").forEach(b => {
     b.onclick = () => { if (b.dataset.conc !== S.concept) switchConcept(b.dataset.conc); };
+  });
+  box.querySelectorAll("[data-soon]").forEach(b => {
+    b.onclick = () => {
+      const c = S.registry.find(x => x.id === b.dataset.soon);
+      const out = document.getElementById("conceptSoon");
+      if (!out || !c) return;
+      out.classList.add("open");
+      out.innerHTML = t("concept.soon.body")
+        .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers);
+      out.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    };
   });
 }
 
@@ -524,14 +587,17 @@ function renderConcepts() {
 function renderDownloads() {
   const box = document.getElementById("dlList");
   if (!box) return;
-  const dir = conf().dir;
+  const dir = conceptDir(conf());
   const files = Object.keys((S.manifest && S.manifest.files) || {}).concat(["manifest.json"]);
   box.innerHTML = [...new Set(files)].sort().map(f =>
     `<a class="pt-btn" href="${dir}${esc(f)}" download>${esc(f)}</a>`).join("");
 }
 
 async function switchConcept(id) {
-  if (!CONCEPTS[id]) return;
+  const c = S.registry.find(x => x.id === id);
+  // Only a concept with a board can be loaded. A corpus-only term reaching here would fetch
+  // a directory that does not exist and blank the screen, so it is refused at the door.
+  if (!c || c.state !== "ready") return;
   S.concept = id;
   // The old corpus selection is a list of paper ids that do not exist in the new concept, and
   // the `c` bitmask in the URL is indexed against the old paper list. Both have to go, or the
@@ -546,7 +612,7 @@ async function switchConcept(id) {
 /* The two step buttons must always say what is currently chosen. */
 function renderSteps() {
   const cv = document.getElementById("conceptVal");
-  if (cv) cv.textContent = t("concept." + S.concept);
+  if (cv) cv.textContent = conceptLabel(conf());
   const pv = document.getElementById("corpusVal");
   if (pv) {
     const n = S.selected.size, all = S.papers.filter(p => p.n_scored).length;
@@ -724,6 +790,16 @@ function wire() {
     };
   });
 
+  // The concept search. Renders on every keystroke - the registry is 474 rows in memory and
+  // filtering it is free, so there is no reason to make anyone press a button to search.
+  const cs = document.getElementById("conceptSearch");
+  if (cs) cs.addEventListener("input", () => {
+    S.query = cs.value;
+    const soon = document.getElementById("conceptSoon");
+    if (soon) soon.classList.remove("open");
+    renderConcepts();
+  });
+
   const more = document.getElementById("moreBtn");
   if (more) more.onclick = () => {
     const acts = document.getElementById("acts");
@@ -835,7 +911,7 @@ function wire() {
    paths cannot drift - the bug where switching left one stale array behind is the kind that
    shows a real number computed from the wrong corpus, which is worse than showing nothing. */
 async function loadConcept(fromURL) {
-  const dir = conf().dir;
+  const dir = conceptDir(conf());
   const [papers, cases, defs, verdicts, criteria, manifest] = await Promise.all(
     ["papers", "cases", "definitions", "verdicts", "criteria", "manifest"].map(n =>
       // criteria.json is an offer rather than measurement data, and only art has one. If it
@@ -867,15 +943,24 @@ async function loadConcept(fromURL) {
 }
 
 async function boot() {
-  const want = new URL(location.href).searchParams.get("concept");
-  if (want && CONCEPTS[want]) S.concept = want;
   initLang();
-  // Every concept's manifest, not just the loaded one, so the picker can state each
-  // concept's size from that concept's own build rather than from a number typed here.
-  // A few kilobytes, once, against a count that is wrong the day after the corpus grows.
-  await Promise.all(Object.entries(CONCEPTS).map(([id, c]) =>
-    fetch(`${c.dir}manifest.json`).then(r => (r.ok ? r.json() : null))
-      .then(m => { c.meta = m; }).catch(() => { c.meta = null; })));
+  // The registry first: nothing else can resolve a concept to a directory without it, and
+  // its counts come from each concept's own build rather than from a number typed here.
+  const reg = await fetch("../data/concepts.json")
+    .then(r => (r.ok ? r.json() : null)).catch(() => null);
+  S.registry = (reg && reg.concepts) || [];
+  if (!S.registry.length) {
+    const el = document.getElementById("offered");
+    if (el) el.innerHTML = `<div class="hero-result warn"><div class="win">${
+      t("load.failed").replace("{dir}", "../data/concepts.json")}</div></div>`;
+    return;
+  }
+  // A deep link may name a concept that is only in the corpus, or one we have never heard
+  // of. Falling back to the default silently would show art's board under game's URL, so
+  // the fallback is only taken for a concept that genuinely has a board.
+  const want = new URL(location.href).searchParams.get("concept");
+  const wanted = want && S.registry.find(c => c.id === want && c.state === "ready");
+  if (wanted) S.concept = want;
   if (!await loadConcept(true)) return;
   wire();
   refresh();
