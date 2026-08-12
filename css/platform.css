@@ -224,6 +224,58 @@ a.pt-back:hover { border-bottom-color: var(--teal-lit); }
 }
 .pt-def .plain { font-size: 0.84rem; color: var(--dim); margin-top: 0.2rem; }
 
+/* The citation, and the warning that travels with it.
+   Colour goes on the TEXT, never as a filled block with white text on it - a rule of Shir's
+   that this sheet follows throughout. The "our wording" flag is the loudest thing in the
+   line on purpose: a one-line summary sitting under a scholar's name reads as a quotation
+   from them unless something says otherwise, and everything else in this project is built on
+   the difference between a quotation and a paraphrase. */
+.pt-def .cited, .offer .cited {
+  font-size: 0.78rem;
+  color: var(--dim);
+  line-height: 1.5;
+  margin: 0.15rem 0 0.4rem;
+  border-inline-start: 2px solid var(--line);
+  padding-inline-start: 0.55rem;
+}
+.cited .ourwords { color: #e0a33c; font-weight: 700; }
+/* Own line, own direction. A bibliographic reference is Latin script inside a Hebrew page,
+   and the two must not share a run. */
+.cited .ref { display: block; margin-top: 0.15rem; }
+.cited .flag:empty { display: none; }
+/* Smaller type, but still a real target. The earlier version set min-height:0 to make it sit
+   neatly in the line, which is exactly how the 27px buttons the accessibility audit caught
+   got there in the first place. */
+.pt-btn.tiny {
+  font-size: 0.74rem;
+  padding: 0.3rem 0.6rem;
+  margin-inline-start: 0.4rem;
+}
+/* The warning that the ranking is not a fair comparison. It sits ABOVE the first card,
+   because a caveat printed after the thing it qualifies is read second or not at all - and
+   this one reverses the headline. Amber text on the panel, not a filled amber block: nothing
+   on this site is white type on a coloured slab. */
+.offerwarn {
+  border: 1px solid rgba(224, 163, 60, 0.45);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  margin: 0 0 0.7rem;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: #e0a33c;
+}
+.offerwarn b { color: #f0c476; }
+.offer .oabstain { font-size: 0.78rem; color: #e0a33c; line-height: 1.5; margin-top: 0.2rem; }
+
+/* Abstention is a property of the definition, so it is stated on the definition, beside its
+   score, rather than in a footnote under the table. */
+.pt-def .abstain {
+  font-size: 0.8rem;
+  color: #e0a33c;
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+
 details.pt-cases { margin-top: 0.4rem; }
 details.pt-cases > summary {
   cursor: pointer; font-size: 0.8rem; color: var(--teal-lit); list-style: none;

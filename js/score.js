@@ -12,11 +12,36 @@
    one that notices.
    ===================================================== */
 
+/* THE CONCEPTS. Everything that differs between them is here and nowhere else, because the
+   claim this site makes is about a method, and a method that needs the interface edited to
+   run on a second concept is not one.
+
+   `dir`   where its five files live. Art is at data/ and game at data/game/ - an asymmetry
+           that is historical, not principled: the art URLs are cited in a deposited Zenodo
+           record and in llms.txt, and moving them would break published links.
+   `calib` the control that must score near +1.000, WITHOUT WHICH NO ROW MAY BE READ. It is
+           not the same control for both, and that is the most interesting thing on the site.
+           For art, "whatever people call art" is a tautology: it copies the answer, scores
+           +0.983 and calibrates everything else. For game the same sentence is a contested
+           position that loses to five published definitions, because this literature is
+           expressly in the business of overruling ordinary usage. So game calibrates on a
+           control that copies the corpus label instead. Hard-coding "circular" here would
+           have silently disabled the calibration warning on the game board - the failure
+           would have been invisible, which is the kind this project keeps having. */
+const CONCEPTS = {
+  art:  { dir: "../data/",     calib: "circular",   criteria: true  },
+  game: { dir: "../data/game/", calib: "label-copy", criteria: false },
+};
+const DEFAULT_CONCEPT = "art";
+
 const S = {
-  papers: [], cases: [], defs: [], verdicts: {}, criteria: [],
+  concept: DEFAULT_CONCEPT,
+  papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
   selected: new Set(),   // paper ids in the corpus
   openDef: null,
 };
+
+function conf() { return CONCEPTS[S.concept] || CONCEPTS[DEFAULT_CONCEPT]; }
 
 /* ---------- metric ---------- */
 function mcc(tp, fp, fn, tn) {
@@ -90,11 +115,44 @@ function esc(s) {
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+/* WHO SAID IT, AND IS THIS THEIR SENTENCE.
+   Shir asked for the classic definitions to name who proposed them and where, "even if we
+   don't have the paper yet". The second half is the part that needs care. A one-line summary
+   of Dickie sitting under Dickie's name looks exactly like a quotation from Dickie, and this
+   project's whole discipline is that a quote is checkable. So a definition whose wording is
+   ours says so, in the same breath as the citation, every time it is shown.
+
+   Where the corpus contains papers tagged with that theorist, the citation also becomes a
+   button: restrict the corpus to those papers and re-score there. That is the checkable part
+   - not the citation, which a reader must take on trust, but what happens to the number when
+   only the papers engaging that theorist are in the room. */
+function citeLine(d) {
+  if (!d.cited) return "";
+  const ours = d.wording === "ours"
+    ? `<span class="ourwords">${t("cite.ours")}</span> ` : "";
+  const n = d.n_papers_on_theorist || 0;
+  const btn = n
+    ? ` <button class="pt-btn tiny" data-theorist="${esc(d.theorist)}">${
+        t("cite.restrict").replace("{n}", n)}</button>`
+    : "";
+  // The citation itself is its own LTR run. Left in the surrounding RTL flow it comes apart:
+  // "…applying Wittgenstein's argument about GAMES to art, which is" / "why the two concepts
+  // on this site are these two" - the clause split and reversed across the line break,
+  // because the trailing neutrals get swept into the Hebrew run. This is the same bidi trap
+  // that once printed a confidence interval with its bounds the wrong way round.
+  return `<div class="cited"><span class="flag">${ours}</span>` +
+         `<span dir="ltr" class="ref">${esc(d.cited)}</span>${btn}</div>`;
+}
+
 /* ---------- URL is the state, so a corpus can be cited ---------- */
 function writeURL() {
   const ids = S.papers.map(p => p.id);
   const bits = ids.map(id => (S.selected.has(id) ? "1" : "0")).join("");
   const u = new URL(location.href);
+  // The concept travels in the URL with the corpus. A link to a result has to reopen the
+  // result, and half of "which result" is which concept it was about.
+  if (S.concept === DEFAULT_CONCEPT) u.searchParams.delete("concept");
+  else u.searchParams.set("concept", S.concept);
   if (S.selected.size === ids.length) u.searchParams.delete("c");
   else u.searchParams.set("c", bits);
   const openPanel = document.querySelector(".panel.open");
@@ -104,6 +162,7 @@ function writeURL() {
 }
 function readURL() {
   const u = new URL(location.href);
+  S.selected.clear();
   const bits = u.searchParams.get("c");
   const ids = S.papers.map(p => p.id);
   const scored = new Set(S.papers.filter(p => p.n_scored).map(p => p.id));
@@ -195,7 +254,7 @@ function renderBoard() {
     .filter(r => r.s.mcc !== null)
     .sort((a, b) => b.s.mcc - a.s.mcc);
 
-  const circ = rows.find(r => r.d.id === "circular");
+  const circ = rows.find(r => r.d.id === conf().calib);
   const warn = document.getElementById("calib");
   if (!circ) {
     warn.innerHTML = t("calib.missing");
@@ -223,8 +282,11 @@ function renderBoard() {
         <span class="gate ${d.gate}">${gate}</span>
       </div>
       <div class="wording"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(LANG === "he" ? d.he : d.text)}</div>
+      ${citeLine(d)}
       <div class="pt-bar"><i style="width:${w}%"></i><span>MCC ${fmt(s.mcc)}</span></div>
       <div class="cm">TP ${s.tp} · FP ${s.fp} · FN ${s.fn} · TN ${s.tn} · n ${s.n}</div>
+      ${(s.skipped && d.may_abstain) ? `<div class="abstain">${t("abstain.n")
+        .replace("{k}", s.skipped).replace("{n}", s.skipped + s.n)}</div>` : ""}
       <div class="plain">${plainMCC(s.mcc)}</div>
       ${wrong.length ? `<details class="pt-cases">
         <summary>${wrong.length} ${t("case.wrongN")}</summary>
@@ -232,6 +294,25 @@ function renderBoard() {
       </details>` : `<div class="plain">${t("case.none")}</div>`}
     </div>`;
   }).join("");
+  wireTheorists();
+}
+
+/* "Test this definition on the papers that discuss its author." The citation itself a reader
+   has to take on trust; this is the part they can check. Wired after every render because
+   the buttons are rebuilt with the board. */
+function wireTheorists() {
+  document.querySelectorAll("[data-theorist]").forEach(b => {
+    b.onclick = () => {
+      const who = b.dataset.theorist;
+      S.selected.clear();
+      S.papers.forEach(p => {
+        if (p.n_scored && (p.theorists || []).includes(who)) S.selected.add(p.id);
+      });
+      refresh();
+      const off = document.getElementById("offered");
+      if (off) off.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  });
 }
 
 /* ---------- leave-one-paper-out: which paper is carrying the result? ----------
@@ -245,8 +326,12 @@ function jackknife() {
     return `<div class="plain">${t("jack.few")}</div>`;
   }
   const all = corpusCases().judged;
+  // Controls are excluded by their own flag, not by a name. Matching on "circular" left the
+  // game board ranking its copy-the-answer control as the winner of the sensitivity test,
+  // which is a sentence that means nothing.
+  const isControl = id => (S.defs.find(d => d.id === id) || {}).is_control;
   const rank = idx => S.defs.map(d => ({ id: d.id, s: scoreDef(d.id, idx) }))
-    .filter(r => r.s.mcc !== null && !r.id.startsWith("circular"))
+    .filter(r => r.s.mcc !== null && !isControl(r.id))
     .sort((a, b) => b.s.mcc - a.s.mcc);
   const base = rank(all);
   if (!base.length) return "";
@@ -316,8 +401,39 @@ function renderOffered(rows) {
   }
   if (next) next.hidden = false;
 
+  // IS THE WINNER WINNING, OR JUST ANSWERING LESS?
+  //
+  // A definition entitled to abstain is not being asked the same questions as the rest, and
+  // on the game corpus the abstainer - Wittgenstein - comes top. Left alone, the first thing
+  // a visitor reads is "family resemblance fits this corpus best", and that is an artefact of
+  // it declining the four hardest cases. So when the leader abstains, every definition is
+  // re-scored on exactly the cases the leader answered and the result is stated right there.
+  // It reverses: on the same 24 questions, five definitions beat it.
+  //
+  // The published numbers are untouched. This is a second, clearly labelled comparison, not a
+  // different ranking rule - the board must stay reproducible from the downloaded files.
+  let caveat = "";
+  const top = real[0];
+  if (top && top.s.skipped && top.d.may_abstain) {
+    const sub = corpusCases().judged
+      .filter(i => { const c = S.verdicts[top.d.id][i]; return c === "0" || c === "1"; });
+    const fair = real.map(r => ({ d: r.d, m: scoreDef(r.d.id, sub).mcc }))
+      .filter(r => r.m !== null);
+    const mine = (fair.find(r => r.d.id === top.d.id) || {}).m;
+    const beat = fair.filter(r => r.m > mine + 1e-9);
+    if (beat.length) {
+      caveat = `<div class="offerwarn">${t("offer.abstainlead")
+        .replace("{name}", esc(LANG === "he" ? top.d.name_he : top.d.name_en))
+        .replace("{k}", top.s.skipped)
+        .replace("{n}", sub.length)
+        .replace("{beat}", beat.length)
+        .replace("{who}", esc(LANG === "he" ? beat[0].d.name_he : beat[0].d.name_en))}</div>`;
+    }
+  }
+
   el.innerHTML =
     `<div class="offerhead">${t("offer.head")} <span class="lead">${t("offer.sub")}</span></div>` +
+    caveat +
     real.slice(0, OFFER_N).map((r, k) => {
       const d = r.d, s = r.s;
       const name = LANG === "he" ? d.name_he : (d.name_en || d.id);
@@ -329,6 +445,9 @@ function renderOffered(rows) {
           <div class="oname">${esc(name)}</div>
           <div class="oword"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(word)}</div>
           <div class="oplain">${plainMCC(s.mcc)}</div>
+          ${(s.skipped && d.may_abstain) ? `<div class="oabstain">${t("abstain.n")
+            .replace("{k}", s.skipped).replace("{n}", s.skipped + s.n)}</div>` : ""}
+          ${citeLine(d)}
           <div class="oprov prov-${d.provenance}">${provLine(d)}</div>
         </div>
         <div class="onums">
@@ -368,10 +487,66 @@ function renderWho() {
   });
 }
 
+/* The concept list. Built from CONCEPTS rather than written into the HTML, so adding a third
+   concept is a data change and not an interface change - which is the difference between a
+   platform and a study with two tabs. The counts come from the files that were just loaded,
+   never typed: a hardcoded "52 papers · 660 cases" went stale the day the corpus grew and
+   sat on the live site saying the wrong thing. */
+function renderConcepts() {
+  const box = document.getElementById("conceptList");
+  if (!box) return;
+  box.innerHTML = Object.keys(CONCEPTS).map(id => {
+    const on = id === S.concept;
+    // From each concept's own manifest, including the one not currently loaded. Typing them
+    // put "68 papers · 686 cases" beside art when 29 papers are selectable and 355 cases are
+    // adjudicated - three numbers, none of them the one the board actually uses. The counts
+    // shown are what you can put in a corpus and what the metric is computed over.
+    const m = CONCEPTS[id].meta;
+    const sub = m
+      ? t("concept.counts")
+          .replace("{p}", m.canonical_corpus.papers_scored)
+          .replace("{c}", m.canonical_corpus.cases_adjudicated)
+          .replace("{d}", m.files["definitions.json"].count)
+      : t("concept." + id + ".sub");
+    return `<button class="conceptbtn ${on ? "on" : ""}" data-conc="${id}"
+      aria-pressed="${on}"><b>${t("concept." + id)}</b><span>${sub}</span></button>`;
+  }).join("") +
+    `<button class="conceptbtn" disabled><b>${t("concept.own")}</b>
+      <span>${t("concept.own.sub")}</span></button>`;
+  box.querySelectorAll("[data-conc]").forEach(b => {
+    b.onclick = () => { if (b.dataset.conc !== S.concept) switchConcept(b.dataset.conc); };
+  });
+}
+
+/* The download list, read from the concept's own manifest. The manifest is the contract the
+   build already enforces against the directory, so listing from it means the buttons cannot
+   offer a file that is not there, and cannot omit one that is. */
+function renderDownloads() {
+  const box = document.getElementById("dlList");
+  if (!box) return;
+  const dir = conf().dir;
+  const files = Object.keys((S.manifest && S.manifest.files) || {}).concat(["manifest.json"]);
+  box.innerHTML = [...new Set(files)].sort().map(f =>
+    `<a class="pt-btn" href="${dir}${esc(f)}" download>${esc(f)}</a>`).join("");
+}
+
+async function switchConcept(id) {
+  if (!CONCEPTS[id]) return;
+  S.concept = id;
+  // The old corpus selection is a list of paper ids that do not exist in the new concept, and
+  // the `c` bitmask in the URL is indexed against the old paper list. Both have to go, or the
+  // new board opens with an empty corpus and looks broken.
+  const u = new URL(location.href);
+  u.searchParams.delete("c");
+  history.replaceState(null, "", u);
+  await loadConcept();
+  refresh();
+}
+
 /* The two step buttons must always say what is currently chosen. */
 function renderSteps() {
   const cv = document.getElementById("conceptVal");
-  if (cv) cv.textContent = t("concept.art");
+  if (cv) cv.textContent = t("concept." + S.concept);
   const pv = document.getElementById("corpusVal");
   if (pv) {
     const n = S.selected.size, all = S.papers.filter(p => p.n_scored).length;
@@ -496,6 +671,9 @@ function refresh() {
   renderCrit();
   renderPapers();
   renderBoard();
+  renderConcepts();
+  renderDownloads();
+  renderWho();
   renderSteps();
   renderOwn();
   const jk = document.getElementById("jack");
@@ -565,7 +743,7 @@ function wire() {
       text: v,
       name: (document.getElementById("ownName").value || "").trim(),
       visibility: vis,
-      concept: "art",
+      concept: S.concept,
       corpus: [...S.selected].sort(),
       when: new Date().toISOString()
     });
@@ -652,19 +830,53 @@ function wire() {
 }
 
 /* ---------- boot ---------- */
-async function boot() {
-  const [papers, cases, defs, verdicts, criteria] = await Promise.all(
-    ["papers", "cases", "definitions", "verdicts", "criteria"].map(n =>
-      // criteria.json is an offer rather than measurement data: if it is missing the rest
-      // of the screen must still work, so its failure is not allowed to reject the batch.
-      fetch(`../data/${n}.json`).then(r => r.json()).catch(() => null)));
+
+/* Load one concept's files. Called at boot and again on every concept switch, so the two
+   paths cannot drift - the bug where switching left one stale array behind is the kind that
+   shows a real number computed from the wrong corpus, which is worse than showing nothing. */
+async function loadConcept(fromURL) {
+  const dir = conf().dir;
+  const [papers, cases, defs, verdicts, criteria, manifest] = await Promise.all(
+    ["papers", "cases", "definitions", "verdicts", "criteria", "manifest"].map(n =>
+      // criteria.json is an offer rather than measurement data, and only art has one. If it
+      // is missing the rest of the screen must still work, so its failure is not allowed to
+      // reject the batch.
+      fetch(`${dir}${n}.json`).then(r => (r.ok ? r.json() : null)).catch(() => null)));
+  S.manifest = manifest;
+  if (!papers || !cases || !defs || !verdicts) {
+    const el = document.getElementById("offered");
+    if (el) el.innerHTML = `<div class="hero-result warn"><div class="win">${
+      t("load.failed").replace("{dir}", esc(dir))}</div></div>`;
+    return false;
+  }
   S.papers = papers; S.cases = cases; S.defs = defs; S.verdicts = verdicts;
   // Every criterion starts ticked, because the fourteen ARE the drafted set; the point is
   // that a user can untick any of them, not that they must assemble one from nothing.
   S.criteria = ((criteria && criteria.criteria) || []).map(c => ({ ...c, on: true }));
   S.papers.sort((a, b) => (b.n_cases - a.n_cases));
+  S.selected.clear();
+  if (fromURL) readURL();
+  else S.papers.forEach(p => { if (p.n_scored) S.selected.add(p.id); });
+  // Buttons that belong to a concept the current one does not have must go, not sit there
+  // doing nothing when clicked. Only art carries criteria and theorist tags.
+  const hide = (sel, gone) => document.querySelectorAll(sel)
+    .forEach(b => { b.hidden = gone; });
+  hide('[data-panel="pCrit"]', !S.criteria.length);
+  hide('[data-panel="pWho"]', !S.papers.some(p => (p.theorists || []).length));
+  return true;
+}
+
+async function boot() {
+  const want = new URL(location.href).searchParams.get("concept");
+  if (want && CONCEPTS[want]) S.concept = want;
   initLang();
-  readURL();
+  // Every concept's manifest, not just the loaded one, so the picker can state each
+  // concept's size from that concept's own build rather than from a number typed here.
+  // A few kilobytes, once, against a count that is wrong the day after the corpus grows.
+  await Promise.all(Object.entries(CONCEPTS).map(([id, c]) =>
+    fetch(`${c.dir}manifest.json`).then(r => (r.ok ? r.json() : null))
+      .then(m => { c.meta = m; }).catch(() => { c.meta = null; })));
+  if (!await loadConcept(true)) return;
   wire();
   refresh();
 }

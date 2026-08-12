@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find the definition that fits a corpus / מציאת הגדרה לפי קורפוס</title>
 <meta name="description" content="בוחרים מושג, בוחרים אילו מאמרים מרכיבים את הקורפוס, ומקבלים את ההגדרה שמתאימה לו.">
-<link rel="stylesheet" href="../css/shell.css?v=233f0eb6">
-<link rel="stylesheet" href="../css/platform.css?v=233f0eb6">
+<link rel="stylesheet" href="../css/shell.css?v=d0ab2a6d">
+<link rel="stylesheet" href="../css/platform.css?v=d0ab2a6d">
 </head>
 <body>
 
@@ -131,16 +131,11 @@
   <div class="panel" id="pConcept">
     <div class="phead"><b data-i18n="step.concept">בחרו מושג להגדיר</b>
       <button class="pclose" data-close="pConcept">×</button></div>
-    <div class="conceptlist">
-      <button class="conceptbtn on" data-concept="art">
-        <b data-i18n="concept.art">אומנות</b>
-        <span data-i18n="concept.art.sub">52 מאמרים · 660 מקרים · 13 הגדרות</span>
-      </button>
-      <button class="conceptbtn" disabled>
-        <b data-i18n="concept.own">מושג משלכם</b>
-        <span data-i18n="concept.own.sub">בקרוב</span>
-      </button>
-    </div>
+    <!-- Rendered from the CONCEPTS registry in score.js, counts included. Typed counts went
+         stale the day the corpus grew and sat on the live site saying the wrong thing. -->
+    <div class="conceptlist" id="conceptList"></div>
+    <div class="pt-note" style="margin-top:.8rem;font-size:.86rem"
+         data-i18n="concept.note"></div>
   </div>
 
   <div class="panel" id="pCorpus">
@@ -219,6 +214,9 @@
     <div class="phead"><b data-i18n="btn.rights">זכויות ובעלות</b>
       <button class="pclose" data-close="pRights">×</button></div>
     <div class="why open" data-i18n="rights.body"></div>
+    <div class="pt-note" style="margin-top:.9rem;font-size:.86rem">
+      <b data-i18n="cite.h">ציטוט</b> <span data-i18n="cite.body"></span>
+    </div>
   </div>
 
   <div class="panel" id="pWho">
@@ -263,15 +261,11 @@
     <div class="phead"><b data-i18n="btn.dl">הורדת הנתונים</b>
       <button class="pclose" data-close="pDl">×</button></div>
     <div class="why open" data-i18n="dl.body"></div>
+    <!-- Filled by renderDownloads() from the concept's own manifest, so the list is what
+         that concept actually ships. A hardcoded list handed a visitor of the game board a
+         link to the art files, which is the worst kind of wrong: it downloads successfully. -->
+    <div class="pt-tools" style="margin-top:.6rem" id="dlList"></div>
     <div class="pt-tools" style="margin-top:.6rem">
-      <a class="pt-btn" href="../data/cases.json" download>cases.json</a>
-      <a class="pt-btn" href="../data/verdicts.json" download>verdicts.json</a>
-      <a class="pt-btn" href="../data/papers.json" download>papers.json</a>
-      <a class="pt-btn" href="../data/definitions.json" download>definitions.json</a>
-      <a class="pt-btn" href="../data/criteria.json" download>criteria.json</a>
-      <a class="pt-btn" href="../data/manifest.json" download>manifest.json</a>
-      <a class="pt-btn" href="../data/cases.jsonl" download>cases.jsonl</a>
-      <a class="pt-btn" href="../data/definitions.jsonl" download>definitions.jsonl</a>
       <a class="pt-btn" href="../reference_scorer.py" download>reference_scorer.py</a>
     </div>
   </div>
@@ -284,7 +278,7 @@
 
 </div>
 
-<script src="../js/i18n.js?v=233f0eb6"></script>
-<script src="../js/score.js?v=233f0eb6"></script>
+<script src="../js/i18n.js?v=d0ab2a6d"></script>
+<script src="../js/score.js?v=d0ab2a6d"></script>
 </body>
 </html>
