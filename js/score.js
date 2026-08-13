@@ -1362,6 +1362,16 @@ function wire() {
     b.onclick = () => {
       const box = document.getElementById(b.dataset.why);
       if (!box) return;
+      // One explainer open per card. A card carries two of these — "?" and "≡" — and the probe
+      // caught both standing open at once, which is the same complaint Shir made about the two
+      // entry buttons. Cards stay independent of each other, so two cards can still be compared.
+      const card = b.closest(".act, .offer, .row, li, section") || document;
+      card.querySelectorAll(".tog[data-why]").forEach(o => {
+        if (o === b) return;
+        const ob = document.getElementById(o.dataset.why);
+        if (ob) ob.classList.remove("open");
+        o.setAttribute("aria-expanded", "false");
+      });
       const open = box.classList.toggle("open");
       b.setAttribute("aria-expanded", open ? "true" : "false");
     };
@@ -1371,16 +1381,22 @@ function wire() {
       const p = document.getElementById(b.dataset.panel);
       if (!p) return;
       const wasOpen = p.classList.contains("open");
-      // The two entry panels live in their own columns now, so closing the other one
-      // when this one opens just makes the page jump. Only panels outside the entry
-      // screen are exclusive.
-      const inSteps = p.closest(".stepcol");
-      if (!inSteps) {
-        document.querySelectorAll(".panel").forEach(x => {
-          if (!x.closest(".stepcol")) x.classList.remove("open");
-        });
-      }
+      // Exactly one panel open at a time, on the entry screen as everywhere else.
+      // Shir, 2026-08-13: "presing purple should open purple options pressing green shoud
+      // close purple options and open green options and vice versa". An earlier note here
+      // claimed keeping both open avoided a jump; the jump had a different cause (the grid
+      // was auto-fit, so an opening panel changed the column count and moved the buttons),
+      // and that is fixed in the stylesheet. Two open panels was never what was asked for.
+      const inSteps = !!p.closest(".stepcol");
+      document.querySelectorAll(".panel").forEach(x => {
+        if (x !== p && !!x.closest(".stepcol") === inSteps) x.classList.remove("open");
+      });
       p.classList.toggle("open", !wasOpen);
+      // aria has to follow the DOM, including on the button whose panel just closed.
+      document.querySelectorAll("[data-panel]").forEach(o => {
+        const op = document.getElementById(o.dataset.panel);
+        o.setAttribute("aria-expanded", op && op.classList.contains("open") ? "true" : "false");
+      });
       writeURL();
     };
   });

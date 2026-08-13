@@ -7,8 +7,8 @@
 <meta name="description" content="A verbatim-grounded tag layer for academic literature. Build a corpus, test definitions, and check every score against the exact sentence it came from.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="he" href="index-he.html">
-<link rel="stylesheet" href="css/shell.css?v=9ef032df">
-<link rel="stylesheet" href="css/platform.css?v=9ef032df">
+<link rel="stylesheet" href="css/shell.css?v=ea91a3df">
+<link rel="stylesheet" href="css/platform.css?v=ea91a3df">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -158,11 +158,23 @@
 
 </div>
 
+<script src="data/inline.js"></script>
 <script>
 // "?" opens the description; the second button opens the notes. Nothing on arrival.
+// One at a time within a card: a card has both buttons and both panels used to stand open
+// together, which is the same thing Shir objected to on the entry screen. Cards stay
+// independent of one another so two of them can still be compared side by side.
 document.querySelectorAll(".tog[data-why]").forEach(b => {
   b.onclick = () => {
     const box = document.getElementById(b.dataset.why);
+    if (!box) return;
+    const card = b.closest(".act") || document;
+    card.querySelectorAll(".tog[data-why]").forEach(o => {
+      if (o === b) return;
+      const ob = document.getElementById(o.dataset.why);
+      if (ob) ob.classList.remove("open");
+      o.setAttribute("aria-expanded", "false");
+    });
     const open = box.classList.toggle("open");
     b.setAttribute("aria-expanded", open ? "true" : "false");
   };
@@ -170,10 +182,20 @@ document.querySelectorAll(".tog[data-why]").forEach(b => {
 
 // Read from the data, never typed. A figure in prose goes stale the moment the corpus grows,
 // and a stale number on a page whose whole claim is verifiability is the worst bug available.
+// fetch() is blocked on file://, and this page is opened by double-click as often as it is
+// served, so data/inline.js ships the same JSON as a script and answers when fetch cannot.
 (async () => {
   try {
-    const [papers, cases] = await Promise.all(
-      ["papers", "cases"].map(n => fetch(`data/${n}.json`).then(r => r.json())));
+    const inl = window.MTP_INLINE || {};
+    const grab = async n => {
+      try {
+        const r = await fetch(`data/${n}.json`);
+        if (r.ok) return await r.json();
+      } catch (e) { /* file:// */ }
+      if (inl[n + ".json"]) return inl[n + ".json"];
+      throw new Error("no data for " + n);
+    };
+    const [papers, cases] = await Promise.all(["papers", "cases"].map(grab));
     const scored = papers.filter(p => p.n_scored).length;
     const judged = cases.filter(c => c.status === "P" || c.status === "N").length;
     const L = document.documentElement.lang === "he";

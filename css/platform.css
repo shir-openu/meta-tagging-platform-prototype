@@ -873,6 +873,16 @@ a:focus-visible {
    nothing above it shifting by a pixel. */
 .stepcol { display: contents; }
 .steps { align-items: start; }
+/* 2026-08-13. The buttons still moved when a panel opened, and the reason was the column
+   count, not the panel. `.steps` is `repeat(auto-fit, minmax(19rem, 1fr))`, and because
+   `.stepcol` is `display: contents` the grid's children are the two buttons AND the two
+   panels — four items. Open one and auto-fit is free to lay out a different number of
+   columns, so button 1 and button 2 change width and slide. Two columns, stated outright,
+   cannot do that: whatever opens below, row 1 is two fixed tracks. */
+.steps:has(.stepcol) { grid-template-columns: 1fr 1fr; }
+@media (max-width: 900px) { .steps:has(.stepcol) { grid-template-columns: 1fr; } }
+/* #step3wrap holds a single stepcol spanning both columns, so it needs the same certainty. */
+#step3wrap:has(.stepcol) { grid-template-columns: 1fr 1fr; }
 .stepcol:nth-of-type(1) .step { grid-column: 1; grid-row: 1; }
 .stepcol:nth-of-type(2) .step { grid-column: 2; grid-row: 1; }
 .stepcol .panel { grid-column: 1 / -1; grid-row: 2; margin: .55rem 0 0;
