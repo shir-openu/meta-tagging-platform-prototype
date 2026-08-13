@@ -476,7 +476,13 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
 .hero-result.warn { border-inline-start-color: #ff6b6b; }
 .hero-result.warn .win { font-size: 1.322rem; color: #ff9d9d; }
 
-.acts[hidden], .nextline[hidden] { display: none !important; }
+/* `hidden` must actually hide, whatever else the element is.
+   #step3wrap carries class="steps" AND the hidden attribute, and `.steps { display: grid }`
+   silently beat the browser's own `[hidden] { display: none }` because a class selector
+   outranks it. The third button therefore sat on the opening screen from the first paint,
+   however carefully the JS gated it: I set the attribute and the stylesheet ignored it.
+   The old rule named two classes by hand, which is the same bug waiting for the third. */
+[hidden] { display: none !important; }
 .acts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
@@ -854,3 +860,112 @@ a:focus-visible {
 @media (max-width: 640px), (pointer: coarse) {
   .ac-caret { min-width: 44px; min-height: 44px; }
 }
+
+/* ---- the two-button entry screen -------------------------------------------------
+   Shir: "nothing else below the buttons, only the opening menu", and each panel opens
+   under the button that opened it rather than in one shared slot at the foot of the page. */
+/* Shir: "the buttons misbehave — press one and it expands while the other moves. It should
+   just open a window, with a horizontal scrollbar."
+   She is describing exactly what I built: the pressed column was set to span the full grid
+   width, which necessarily pushes the other button out of its place. The buttons must not
+   move at all. So the two columns are dissolved (`display: contents`), the buttons are pinned
+   to row 1 and any open panel takes the whole of row 2 — full width, its own scrollbars,
+   nothing above it shifting by a pixel. */
+.stepcol { display: contents; }
+.steps { align-items: start; }
+.stepcol:nth-of-type(1) .step { grid-column: 1; grid-row: 1; }
+.stepcol:nth-of-type(2) .step { grid-column: 2; grid-row: 1; }
+.stepcol .panel { grid-column: 1 / -1; grid-row: 2; margin: .55rem 0 0;
+                  max-width: none; overflow-x: auto; }
+@media (max-width: 900px) {
+  .stepcol:nth-of-type(1) .step,
+  .stepcol:nth-of-type(2) .step { grid-column: 1; }
+  .stepcol:nth-of-type(2) .step { grid-row: 2; }
+  .stepcol .panel { grid-row: 3; }
+}
+.stepcol .step { width: 100%; }
+.go3 { justify-content: center; }
+/* the paper list is long and its rows are wide: it scrolls in its own box, in both
+   directions, so a narrow window never makes the page itself scroll sideways */
+.paperscroll { max-height: 26rem; overflow-y: auto; overflow-x: auto; }
+.paperscroll .pt-paper { min-height: 44px; align-items: flex-start; }
+.paperscroll .pt-paper .t { display: block; direction: ltr; unicode-bidi: isolate;
+  text-align: start; overflow-wrap: anywhere; }
+.paperscroll .pt-paper .m { display: block; direction: ltr; unicode-bidi: isolate;
+  text-align: start; }
+/* A row in the picker is a touch target. Putting the list on one line dropped each row to
+   37px, under the 44px minimum, and the mobile audit found twelve of them. The row keeps its
+   single line; it just stops being too short to hit. */
+.paperscroll .pt-paper input { min-width: 22px; min-height: 22px; }
+.disc-h { position: sticky; top: 0; background: var(--pt-panel, #12151c);
+          font-weight: 700; font-size: .95rem; padding: .35rem .2rem .25rem;
+          border-bottom: 1px solid rgba(255,255,255,.08); z-index: 1; }
+.disc-h .n { color: #8b93a1; font-weight: 400; font-size: .85rem; margin-inline-start: .4rem; }
+.pt-paper .who { color: #8b93a1; font-size: .88rem; }
+.pt-paper .open-badge { color: #5cc46f; font-size: .78rem; margin-inline-start: .4rem; }
+@media (max-width: 900px) { .paperscroll { max-height: 20rem; } }
+
+/* ---- the live confusion matrix -----------------------------------------------------
+   Shir asked for the matrix she liked in the preprint, here, updating with the definition
+   under test. Same four colours as the preprint so a cell means the same thing in both.
+   Colour on the TEXT and the border, never a filled block with white text on it. */
+.stagehead { font-size: 1.28rem; margin: 1.6rem 0 .6rem; }
+.lmhead { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin: .4rem 0 .8rem; }
+.lmlab { font-size: .9rem; color: #9aa3b2; }
+.lmhead .owninput { flex: 1 1 18rem; min-width: 0; }
+.lmscore { font-size: 1.05rem; }
+.lmscore b { font-size: 1.25rem; }
+.lmwrap { display: grid; grid-template-columns: minmax(7rem, auto) 1fr 1fr;
+          gap: .5rem; align-items: stretch; overflow-x: auto; }
+.lmcolh, .lmrowh { display: flex; align-items: center; font-size: .92rem;
+                   font-weight: 700; color: #c3cad6; padding: .3rem .2rem; }
+.lmcolh { justify-content: center; text-align: center; }
+.lmcell { display: flex; flex-direction: column; align-items: flex-start; gap: .12rem;
+          border: 2px solid var(--c); border-radius: 12px; background: transparent;
+          padding: .7rem .9rem; cursor: pointer; font: inherit; text-align: start;
+          transition: background .12s; min-width: 8rem; }
+.lmcell:hover, .lmcell:focus-visible { background: var(--l); }
+.lmk { font-family: Consolas, monospace; font-weight: 700; font-size: .82rem; color: var(--c); }
+.lmn { font-size: 1.7rem; font-weight: 700; color: var(--c); line-height: 1.1; }
+.lml { font-size: .95rem; color: #e6e9ee; }
+.lms { font-size: .82rem; color: #9aa3b2; }
+.lmfoot { font-size: .86rem; color: #9aa3b2; margin: .7rem 0 .4rem; }
+.lmcaseh { font-weight: 700; margin: .8rem 0 .3rem; }
+@media (max-width: 760px) {
+  .lmwrap { grid-template-columns: 1fr 1fr; }
+  .lmrowh { grid-column: 1 / -1; }
+  .lmcorner { display: none; }
+}
+
+/* one author, one row: the earlier drafts fold inside the surviving card */
+.vers { margin: .35rem 0 .1rem; }
+.vers > summary { cursor: pointer; font-size: .84rem; color: #8fb7e8; list-style: none; }
+.vers > summary::-webkit-details-marker { display: none; }
+.vers > summary::before { content: "▸ "; }
+.vers[open] > summary::before { content: "▾ "; }
+.verbody { border-inline-start: 2px solid rgba(255,255,255,.12); margin: .3rem 0 .2rem .2rem;
+           padding-inline-start: .6rem; }
+.verrow { font-size: .84rem; color: #9aa3b2; padding: .1rem 0; }
+
+/* judging your own definition, one case at a time */
+.jcard { border: 1px solid var(--line, #2a2f3a); border-radius: 12px; padding: .9rem 1rem;
+         margin: .7rem 0; background: rgba(255,255,255,.02); }
+.jcount { font-size: .82rem; color: #8b93a1; }
+.jthing { font-size: 1.16rem; font-weight: 700; margin: .3rem 0 .45rem; }
+.jquote { font-size: .96rem; line-height: 1.6; border-inline-start: 3px solid #5e35b1;
+          padding-inline-start: .7rem; color: #d7dce4; }
+.jpaper { font-size: .8rem; color: #8b93a1; margin: .45rem 0 .7rem;
+          direction: ltr; unicode-bidi: isolate; }
+.jcard .pt-tools { flex-wrap: wrap; gap: .45rem; }
+.jyes { border-color: #0d9488 !important; color: #4ecdc4 !important; }
+.jno  { border-color: #c0392b !important; color: #ef8a7f !important; }
+
+/* what a composed definition scores -- or why it cannot be scored yet */
+.critgap { margin-top: .7rem; padding: .7rem .9rem; border-radius: 10px;
+           border: 1px solid #f3ddc4; border-inline-start: 5px solid #ef6c00;
+           background: rgba(239,108,0,.07); font-size: .9rem; line-height: 1.6; }
+.critgap b { color: #ffb066; }
+.critscore { margin-top: .7rem; padding: .6rem .9rem; border-radius: 10px;
+             border: 1px solid #cfe8dd; border-inline-start: 5px solid #0d9488;
+             background: rgba(13,148,136,.08); font-size: .95rem; }
+.critscore b { font-size: 1.15rem; color: #4ecdc4; }

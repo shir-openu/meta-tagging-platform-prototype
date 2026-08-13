@@ -114,7 +114,16 @@ function plainMCC(m) {
   return t("plain.neg");
 }
 
-function fmt(x) { return (x >= 0 ? "+" : "") + x.toFixed(3); }
+/* MCC is undefined whenever a whole row or column of the matrix is empty -- which is the
+   NORMAL state after the first case a person judges, and mcc() correctly returns null there.
+   fmt() then called .toFixed on null and threw. Inside renderJudge that killed the re-render,
+   so the card never advanced and every click overwrote the same case: four clicks, one
+   verdict, an empty score, and nothing on screen to say anything had gone wrong.
+   A formatter must be able to say "there is no number yet". */
+function fmt(x) {
+  if (x === null || x === undefined || Number.isNaN(x)) return "—";
+  return (x >= 0 ? "+" : "") + x.toFixed(3);
+}
 
 /* The provenance line. Where a person proposed a definition it names them and dates it,
    because that is what provenance is for and "a user" is the opposite of it: priority is a
@@ -195,41 +204,147 @@ function readURL() {
   }
 }
 
+/* ---------- LOADING DATA WHEN THERE IS NO SERVER ----------
+   Shir opens the page by double-clicking it. That is file://, where a browser refuses fetch,
+   so every data file was blocked and she met two empty buttons — while every screenshot I
+   took ran over http://127.0.0.1 and looked perfect. A tool that only works when its author
+   starts a web server is not a tool she can show anyone.
+
+   So: try the network first (on a real server that is the live path and nothing changes), and
+   fall back to the copy that data/inline.js puts on `window`. A <script> tag is not subject to
+   the fetch restriction. Both come from the same build, so they cannot disagree. */
+async function getData(rel) {
+  try {
+    const r = await fetch("../data/" + rel + "?v=" + (window.ASSET_STAMP || ""));
+    if (r.ok) return await r.json();
+  } catch (e) { /* file:// — fall through to the inlined copy */ }
+  const inl = window.MTP_INLINE || {};
+  return (rel in inl) ? inl[rel] : null;
+}
+
 /* ---------- render ---------- */
+/* ---------- PAPER INDEX: the whole library, searched like Scholar ----------
+   S.papers is the board's own working set - the papers that carry verdicts. The picker must
+   offer more than that: Shir, "all open access papers should appear there, we cannot limit
+   the users." So the list is drawn from data/paper_index.json (the full corpus, 528 papers
+   across 87 disciplines) and the board's set is used only to decide what can be ticked.
+
+   An empty search box shows everything, grouped by discipline in the colours report54 uses.
+   Typing matches a discipline, a title, an author or a year - whichever the visitor happens
+   to have in mind, the way a literature search actually works. */
+function paperMatches(p, q) {
+  if (!q) return true;
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  const hay = [p.title, p.discipline, (p.authors || []).join(" "), String(p.year || ""),
+               p.id].join(" ").toLowerCase();
+  return terms.every(t => hay.includes(t));
+}
+
 function renderPapers() {
   const box = document.getElementById("paperList");
-  box.innerHTML = S.papers.map(p => {
-    const on = S.selected.has(p.id);
-    // A paper whose cases carry no verdicts yet must say so. Otherwise a visitor adds it,
-    // nothing moves, and the tool looks broken when it is merely honest.
-    const unscored = !p.n_scored;
-    const meta = unscored
-      ? (LANG === "he" ? "תויג, טרם נוקד" : "tagged, not yet scored")
-      : `${p.n_cases} ${LANG === "he" ? "מקרים" : "cases"}`;
-    return `<label class="pt-paper ${on ? "" : "off"} ${unscored ? "unscored" : ""}" data-id="${esc(p.id)}">
-      <input type="checkbox" ${on ? "checked" : ""} ${unscored ? "disabled" : ""}>
-      <span>
-        <span class="t">${esc(p.title)}</span>
-        <span class="m"><span class="ltr">${p.year || "—"}${p.venue ? " · " + esc(p.venue) : ""}</span>
-          · ${meta}</span>
-      </span>
-    </label>`;
+  if (!box) return;
+  const q = (document.getElementById("paperSearch") || {}).value || "";
+  const scored = new Map(S.papers.map(p => [p.id, p]));
+  const all = (S.index && S.index.length) ? S.index : S.papers.map(p => ({
+    id: p.id, title: p.title, authors: [], year: p.year,
+    discipline: p.field || "—", colour: "#5a6472", open: false,
+    n_cases: p.n_cases, n_scored: p.n_scored }));
+
+  const hits = all.filter(p => paperMatches(p, q));
+
+  // Shir: "why won't it let me choose papers from the corpus?"
+  // Because the ones she CAN choose were buried. The list is the whole library, ordered by
+  // discipline, so the first two screens were anaesthesiology, anthropology and
+  // applied-behavior-analysis — all tagged but not yet judged, every checkbox disabled. The
+  // 29 that can actually be ticked sat hundreds of rows down under philosophy-of-art. A list
+  // that opens showing only things you cannot pick reads as a list you cannot pick from.
+  // So the selectable papers come first, in their own group, and the library follows.
+  const scoredSet = new Set(S.papers.filter(x => x.n_scored).map(x => x.id));
+  const ready = hits.filter(p => scoredSet.has(p.id));
+  const rest = hits.filter(p => !scoredSet.has(p.id));
+  const groups = new Map();
+  if (ready.length) {
+    groups.set(LANG === "he" ? "מוכנים לניקוד — אפשר לבחור" : "ready to score — selectable",
+               ready);
+  }
+  rest.forEach(p => {
+    if (!groups.has(p.discipline)) groups.set(p.discipline, []);
+    groups.get(p.discipline).push(p);
+  });
+
+  const tally = document.getElementById("paperTally");
+  if (tally) {
+    tally.innerHTML = q
+      ? `<span class="num">${hits.length}</span> ${t("corpus.hits")} · ` +
+        `<span class="num">${groups.size}</span> ${t("corpus.disc")}`
+      : `<span class="num">${all.length}</span> ${t("corpus.hits")} · ` +
+        `<span class="num">${groups.size}</span> ${t("corpus.disc")}`;
+  }
+  if (!hits.length) {
+    box.innerHTML = `<div class="pt-note">${t("corpus.none.found")}</div>`;
+    return;
+  }
+
+  box.innerHTML = [...groups.entries()].map(([disc, rows]) => {
+    const isReady = rows.every(r => scoredSet.has(r.id));
+    const col = isReady ? "#5cc46f" : (rows[0].colour || "#5a6472");
+    const head = `<div class="disc-h" style="color:${col}">${esc(disc)}` +
+                 `<span class="n">${rows.length}</span></div>`;
+    return head + rows.map(p => {
+      const board = scored.get(p.id);
+      // Only a paper that carries verdicts can change a score. The rest are listed - the
+      // library is not hidden - but ticking one would do nothing, so it cannot be ticked.
+      const canScore = !!(board && board.n_scored);
+      const on = S.selected.has(p.id);
+      const who = (p.authors || []).slice(0, 3).join(", ");
+      const meta = canScore
+        ? `${board.n_cases} ${LANG === "he" ? "מקרים" : "cases"}`
+        : (LANG === "he" ? "תויג, טרם נוקד" : "tagged, not yet scored");
+      return `<label class="pt-paper ${on ? "" : "off"} ${canScore ? "" : "unscored"}"
+                     data-id="${esc(p.id)}">
+        <input type="checkbox" ${on ? "checked" : ""} ${canScore ? "" : "disabled"}>
+        <span>
+          <span class="t">${esc(p.title)}</span>
+          <span class="m"><span class="ltr">${p.year || "—"}</span>
+            ${who ? `· <span class="who">${esc(who)}</span>` : ""}
+            · ${meta}${p.open ? `<span class="open-badge">${t("corpus.open")}</span>` : ""}</span>
+        </span>
+      </label>`;
+    }).join("");
   }).join("");
+
   const nUn = S.papers.filter(p => !p.n_scored).length;
   const note = document.getElementById("unscoredNote");
   if (note) {
-    note.innerHTML = nUn
-      ? `<b>${t("unscored.h")}</b> (${nUn}) — ${t("unscored.body")}`
-      : "";
+    note.innerHTML = nUn ? `<b>${t("unscored.h")}</b> (${nUn}) — ${t("unscored.body")}` : "";
     note.style.display = nUn ? "" : "none";
   }
   box.querySelectorAll(".pt-paper input").forEach(inp => {
     inp.addEventListener("change", e => {
       const id = e.target.closest(".pt-paper").dataset.id;
       if (e.target.checked) S.selected.add(id); else S.selected.delete(id);
+      S.pickedCorpus = true;
       refresh();
+      updateStep3();
     });
   });
+}
+
+/* The third button exists only once there is something for it to open. */
+function updateStep3() {
+  const wrap = document.getElementById("step3wrap");
+  if (!wrap) return;
+  // Gate on what the VISITOR chose, not on the defaults the board boots with. The page loads
+  // with a concept and every scored paper already selected so the board is reproducible; if
+  // that counted as a choice, the third button would be there before she had pressed
+  // anything -- which is the same fault as showing the ranking before she asked for it.
+  const haveConcept = !!S.pickedConcept;
+  const haveCorpus = !!S.pickedCorpus && S.selected && S.selected.size > 0;
+  wrap.hidden = !(haveConcept && haveCorpus);
+  const v = document.getElementById("goVal");
+  if (v && !wrap.hidden) {
+    v.textContent = `${S.selected.size} ${LANG === "he" ? "מאמרים נבחרו" : "papers selected"}`;
+  }
 }
 
 function renderState(judged, undecided) {
@@ -440,6 +555,162 @@ function jackknife() {
    definition is a check on us, not a candidate to offer anybody. */
 const OFFER_N = 4;
 
+
+/* ---------- THE LIVE CONFUSION MATRIX ----------
+   Shir asked for this twice: "the confusion matrix can be shown and be updated according to
+   my definition", and "there I can insert a definition and ask for its score relative to the
+   given corpus."
+
+   It is the same four numbers the board already computes - scoreDef() returns them - but put
+   where a person can act on them: one definition at a time, over the corpus THEY picked, with
+   every cell clickable through to the cases behind it. A score with no way to see the cases
+   is the thing this project exists not to ship.
+
+   Colours are the ones the preprint uses, so the same cell means the same thing in both
+   places: TP teal, FP pink, FN red, TN blue. */
+const LM = {
+  tp: { c: "#0d9488", d: "#00544c", l: "rgba(13,148,136,.14)" },
+  fp: { c: "#b5179e", d: "#7d0f6c", l: "rgba(181,23,158,.14)" },
+  fn: { c: "#c0392b", d: "#8e2b20", l: "rgba(192,57,43,.14)" },
+  tn: { c: "#1565c0", d: "#0d3f77", l: "rgba(21,101,192,.14)" },
+};
+
+function liveCell(kind, n, label, sub) {
+  const k = LM[kind];
+  return `<button class="lmcell" data-kind="${kind}"
+      style="--c:${k.c};--d:${k.d};--l:${k.l}">
+    <span class="lmk">${kind.toUpperCase()}</span>
+    <span class="lmn">${n}</span>
+    <span class="lml">${label}</span>
+    <span class="lms">${sub}</span>
+  </button>`;
+}
+
+function renderLiveMatrix(defId) {
+  const el = document.getElementById("liveMatrix");
+  if (!el) return;
+  const d = S.defs.find(x => x.id === defId) || S.defs.find(x => !x.is_control);
+  if (!d) { el.innerHTML = ""; return; }
+  S.liveDef = d.id;
+  const { judged } = corpusCases();
+  const he = LANG === "he";
+  // An empty corpus is a normal state -- it is what "select none" produces -- and it must not
+  // be an error. With no cases, mcc() returns null, and calling .toFixed on it threw inside
+  // refresh(), which then never reached renderState: pressing "none" left the state bar
+  // showing the previous selection. A crash upstream of a display is invisible until the
+  // display is wrong.
+  if (!judged.length) {
+    el.innerHTML = `<div class="pt-note">${he
+      ? "לא נבחרו מאמרים. בחרי קורפוס בכפתור 2 והמטריצה תופיע כאן."
+      : "No papers selected. Choose a corpus with button 2 and the matrix appears here."
+    }</div>`;
+    return;
+  }
+  const r = scoreDef(d.id, judged);
+  const name = he ? (d.name_he || d.name_en) : (d.name_en || d.name_he);
+
+  const pick = S.defs.filter(x => x.gate !== "disqualified").map(x =>
+    `<option value="${esc(x.id)}" ${x.id === d.id ? "selected" : ""}>` +
+    `${esc(he ? (x.name_he || x.name_en) : (x.name_en || x.name_he))}` +
+    `${x.is_control ? (he ? " — בקרה" : " — control") : ""}</option>`).join("");
+
+  el.innerHTML = `
+    <div class="lmhead">
+      <label class="lmlab">${he ? "ההגדרה שנבדקת" : "Definition under test"}</label>
+      <select id="lmPick" class="owninput">${pick}</select>
+      <div class="lmscore">MCC <b class="ltr">${fmt(r.mcc)}</b></div>
+    </div>
+    <div class="lmwrap">
+      <div class="lmcorner"></div>
+      <div class="lmcolh">${he ? "הספרות אומרת: כן" : "The literature says: YES"}</div>
+      <div class="lmcolh">${he ? "הספרות אומרת: לא" : "The literature says: NO"}</div>
+      <div class="lmrowh">${he ? "ההגדרה מכניסה" : "the definition INCLUDES"}</div>
+      ${liveCell("tp", r.tp, he ? "פגיעה" : "hit", he ? "צדקה" : "correct")}
+      ${liveCell("fp", r.fp, he ? "אזעקת שווא" : "false alarm", he ? "הכניסה מה שלא" : "let in what it should not")}
+      <div class="lmrowh">${he ? "ההגדרה מוציאה" : "the definition EXCLUDES"}</div>
+      ${liveCell("fn", r.fn, he ? "פספוס" : "miss", he ? "פספסה" : "missed it")}
+      ${liveCell("tn", r.tn, he ? "דחייה נכונה" : "correct rejection", he ? "צדקה" : "correct")}
+    </div>
+    <div class="lmfoot">
+      ${he ? "מתוך" : "over"} <span class="num">${r.n}</span>
+      ${he ? "מקרים מוכרעים ב־" : "adjudicated cases in "}<span class="num">${S.selected.size}</span>
+      ${he ? "מאמרים שבחרת" : "papers you chose"}${r.skipped
+        ? ` · <span class="num">${r.skipped}</span> ${he ? "נמנעה" : "abstained"}` : ""}
+      · ${he ? "לחצי על תא כדי לראות את המקרים שבו" : "click a cell to see the cases in it"}
+    </div>
+    <div id="lmCases"></div>`;
+
+  const sel = document.getElementById("lmPick");
+  if (sel) sel.addEventListener("change", e => renderLiveMatrix(e.target.value));
+  el.querySelectorAll(".lmcell").forEach(b => {
+    b.addEventListener("click", () => {
+      const kind = b.dataset.kind;
+      const box = document.getElementById("lmCases");
+      const hits = r.rows.filter(x => x.kind === kind);
+      box.innerHTML = `<div class="lmcaseh" style="color:${LM[kind].d}">` +
+        `${kind.toUpperCase()} — <span class="num">${hits.length}</span> ` +
+        `${he ? "מקרים" : "cases"}</div>` +
+        hits.map(x => caseRow(x)).join("");
+      box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  });
+}
+
+
+/* ---------- ONE AUTHOR, ONE ROW ----------
+   Shir, seeing the board: "cluster account, Sivroni v7, Sivroni v1, Sivroni v6??? what is it?
+   why is it there? what is the 3 Sivroni definitions? no no."
+
+   Three rows were three drafts of one person's one definition, ranked against each other as
+   though they were rival positions. They are a version history, and a version history belongs
+   inside the entry, not spread across the leaderboard where it crowds out other people's
+   definitions and makes one author look like three.
+
+   Grouped by proposed_by rather than by an id prefix, so this works for the next visitor who
+   saves four attempts, not only for Shir. The best-scoring version represents the lineage;
+   the others travel with it. Nothing is deleted and nothing is re-scored - the full board
+   still lists every version, because that table has to stay reproducible from the files. */
+function collapseVersions(rows) {
+  const byAuthor = new Map();
+  const out = [];
+  rows.forEach(r => {
+    const who = (r.d.proposed_by || "").trim();
+    if (!who) { out.push({ ...r, versions: [] }); return; }
+    if (!byAuthor.has(who)) {
+      const entry = { ...r, versions: [] };
+      byAuthor.set(who, entry);
+      out.push(entry);
+      return;
+    }
+    const kept = byAuthor.get(who);
+    // the better score represents the lineage; the loser becomes history on the winner
+    if (r.s.mcc > kept.s.mcc) {
+      kept.versions.push({ d: kept.d, s: kept.s });
+      kept.d = r.d; kept.s = r.s;
+    } else {
+      kept.versions.push({ d: r.d, s: r.s });
+    }
+  });
+  out.forEach(e => e.versions.sort((a, b) => b.s.mcc - a.s.mcc));
+  return out.sort((a, b) => b.s.mcc - a.s.mcc);
+}
+
+function versionLine(r) {
+  if (!r.versions || !r.versions.length) return "";
+  const he = LANG === "he";
+  const n = r.versions.length + 1;
+  const rows = r.versions.map(v => {
+    const nm = he ? (v.d.name_he || v.d.name_en) : (v.d.name_en || v.d.name_he);
+    const when = v.d.proposed_on ? `<span class="num">${esc(v.d.proposed_on)}</span> · ` : "";
+    return `<div class="verrow">${when}${esc(nm)} · ` +
+           `<span class="num">${fmt(v.s.mcc)}</span></div>`;
+  }).join("");
+  return `<details class="vers"><summary>${he
+    ? `${n} גרסאות של אותה הגדרה — זו הטובה שבהן`
+    : `${n} versions of the same definition — this is the best of them`}</summary>` +
+    `<div class="verbody">${rows}</div></details>`;
+}
+
 function renderOffered(rows) {
   const el = document.getElementById("offered");
   if (!el) return;
@@ -485,7 +756,7 @@ function renderOffered(rows) {
   el.innerHTML =
     `<div class="offerhead">${t("offer.head")} <span class="lead">${t("offer.sub")}</span></div>` +
     caveat +
-    real.slice(0, OFFER_N).map((r, k) => {
+    collapseVersions(real).slice(0, OFFER_N).map((r, k) => {
       const d = r.d, s = r.s;
       const name = LANG === "he" ? d.name_he : (d.name_en || d.id);
       const word = LANG === "he" ? d.he : d.text;
@@ -499,6 +770,7 @@ function renderOffered(rows) {
           ${(s.skipped && d.may_abstain) ? `<div class="oabstain">${t("abstain.n")
             .replace("{k}", s.skipped).replace("{n}", s.skipped + s.n)}</div>` : ""}
           ${citeLine(d)}
+          ${versionLine(r)}
           <div class="oprov prov-${d.provenance}">${provLine(d)}</div>
         </div>
         <div class="onums">
@@ -633,6 +905,8 @@ function renderConcepts() {
 /* A concept we hold papers on but have no board for. Pressing it must say what is missing,
    not do nothing - that is the difference between an honest answer and a dead control. */
 function chooseSoon(id) {
+  S.pickedConcept = true;
+  setTimeout(updateStep3, 0);
   const c = S.registry.find(x => x.id === id);
   const out = document.getElementById("conceptSoon");
   if (!out || !c) return;
@@ -726,20 +1000,162 @@ function ownVis() {
   return r ? r.value : "private";
 }
 
+
+/* The stored timestamp is ISO 8601 in UTC, which is right for a record of priority and wrong
+   to show to a person unlabelled: a definition saved at 20:15 in Israel displayed as 17:15,
+   three hours before it was written. The file keeps UTC; the screen shows local time, and the
+   UTC original is on the tooltip so nothing is hidden. */
+function localWhen(iso) {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  if (isNaN(d)) return String(iso).slice(0, 16).replace("T", " ");
+  const p2 = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())} ` +
+         `${p2(d.getHours())}:${p2(d.getMinutes())}`;
+}
+
+
+/* ---------- JUDGE YOUR OWN DEFINITION ----------
+   Shir: "there I can insert a definition and ask for its score relative to the given corpus."
+
+   The automatic route needs a judged column per criterion, and that run has not happened yet.
+   This is not a substitute for it: it is the SAME job every other column on this board was
+   made by -- a person reading the thing and the sentence the literature decided it in, and
+   saying yes or no. The verdicts go through scoreDef's arithmetic unchanged, so a definition
+   judged here is comparable with the rest of THIS run and with nothing else.
+
+   The gold labels are never shown while judging. A scorer who can see the answer is measuring
+   their own agreeableness. */
+const JKEY = "mtp_judge";
+
+function judgeState() {
+  try { return JSON.parse(localStorage.getItem(JKEY) || "{}"); } catch (_) { return {}; }
+}
+function judgeSave(st) {
+  try { localStorage.setItem(JKEY, JSON.stringify(st)); } catch (_) {}
+}
+
+function judgeQueue() {
+  return corpusCases().judged;
+}
+
+function renderJudge() {
+  const card = document.getElementById("judgeCard");
+  const out = document.getElementById("judgeScore");
+  if (!card || !out) return;
+  const he = LANG === "he";
+  const st = judgeState();
+  const q = judgeQueue();
+  if (!q.length) {
+    card.innerHTML = `<div class="pt-note">${he
+      ? "בחרי קורפוס קודם — בכפתור 2." : "Choose a corpus first, with button 2."}</div>`;
+    out.innerHTML = "";
+    return;
+  }
+  // find() returns the case INDEX, and the first case in the queue is index 0, which is
+  // falsy. `if (!next)` therefore reported "done, 355 cases" before a single case had
+  // been judged. Compare against undefined, which is the only value that means "none".
+  const next = q.find(i => !(i in st));
+  const finished = next === undefined;
+
+  // the score so far, through the same arithmetic as every other definition
+  let tp = 0, fp = 0, fn = 0, tn = 0;
+  q.forEach(i => {
+    const v = st[i];
+    if (v !== "1" && v !== "0") return;
+    const gold = S.cases[i].status === "P", pred = v === "1";
+    if (pred && gold) tp++; else if (pred) fp++; else if (gold) fn++; else tn++;
+  });
+  const done = tp + fp + fn + tn;
+  const m = mcc(tp, fp, fn, tn);
+
+  out.innerHTML = done ? `
+    <div class="lmwrap" style="margin-top:.8rem">
+      <div class="lmcorner"></div>
+      <div class="lmcolh">${he ? "הספרות: כן" : "literature: YES"}</div>
+      <div class="lmcolh">${he ? "הספרות: לא" : "literature: NO"}</div>
+      <div class="lmrowh">${he ? "אתם: כן" : "you: yes"}</div>
+      ${liveCell("tp", tp, he ? "פגיעה" : "hit", "")}
+      ${liveCell("fp", fp, he ? "אזעקת שווא" : "false alarm", "")}
+      <div class="lmrowh">${he ? "אתם: לא" : "you: no"}</div>
+      ${liveCell("fn", fn, he ? "פספוס" : "miss", "")}
+      ${liveCell("tn", tn, he ? "דחייה נכונה" : "correct rejection", "")}
+    </div>
+    <div class="lmfoot">MCC <b class="ltr">${fmt(m)}</b> · ${he ? "על" : "over"}
+      <span class="num">${done}</span> ${he ? "מקרים שהכרעת" : "cases you judged"}
+      ${done < q.length ? ` · ${he ? "עוד" : ""} <span class="num">${q.length - done}</span> ${he ? "נותרו" : "to go"}` : ""}
+      · ${he ? "בר-השוואה רק להרצה הזאת" : "comparable within this run only"}</div>` : "";
+
+  if (finished) {
+    card.innerHTML = `<div class="pt-note">${he
+      ? `סיימת — ${q.length} מקרים.` : `Done — ${q.length} cases.`}</div>`;
+  } else {
+    const c = S.cases[next];
+    if (!c) {
+      card.innerHTML = `<div class="pt-note">${he
+        ? "מקרה " + next + " לא נמצא בקורפוס הזה." : "case " + next + " is not in this corpus."}</div>`;
+      return;
+    }
+    card.innerHTML = `
+      <div class="jcard">
+        <div class="jcount"><span class="num">${done + 1}</span> / <span class="num">${q.length}</span></div>
+        <div class="jthing">${esc(c.thing)}</div>
+        <div class="jquote">&ldquo;${esc(c.quote)}&rdquo;</div>
+        <div class="jpaper">${esc(c.paper)}</div>
+        <div class="pt-tools">
+          <button class="pt-btn jyes" data-v="1">${he ? "כן — נכנס להגדרה שלי" : "yes — my definition admits it"}</button>
+          <button class="pt-btn jno"  data-v="0">${he ? "לא — לא נכנס" : "no — it does not"}</button>
+          <button class="pt-btn"      data-v="-">${he ? "לא ניתן להכריע" : "cannot tell"}</button>
+        </div>
+      </div>`;
+    card.querySelectorAll("[data-v]").forEach(b => {
+      b.addEventListener("click", () => {
+        const s2 = judgeState();
+        s2[next] = b.dataset.v;
+        judgeSave(s2);
+        renderJudge();
+      });
+    });
+  }
+
+}
+
 function renderOwn() {
   const box = document.getElementById("ownList");
   if (!box) return;
   const all = ownAll();
   if (!all.length) { box.innerHTML = ""; return; }
+  // The rights panel now promises exactly three things: a timestamp, a name, and the corpus
+  // the definition was scored against. Two of those were stored and never shown. A promise
+  // the page does not display is a promise the reader cannot check.
   box.innerHTML = '<div class="pt-note" style="margin-top:.7rem;font-size:.86rem">'
     + "<b>" + esc(t("own.saved.h")) + "</b>"
-    + all.map(r =>
-        '<div style="margin-top:.45rem">'
-        + '<span class="num">' + esc((r.when || "").slice(0, 16).replace("T", " ")) + "</span> · "
-        + esc(r.name || "—") + " · "
+    + all.map((r, k) =>
+        '<div class="ownrec" style="margin-top:.55rem">'
+        + '<span class="num" title="' + esc(r.when || "") + '">'
+        + esc(localWhen(r.when)) + "</span> · "
+        + "<b>" + esc(r.name || "—") + "</b> · "
+        + esc(r.concept || "—") + " · "
+        + esc(t("own.saved.corpus")) + " <span class="
+        + '"num">' + ((r.corpus || []).length) + "</span> " + esc(t("own.saved.papers")) + " · "
         + esc(r.visibility === "public" ? t("own.vis.pub") : t("own.vis.priv"))
+        + ' <button class="pt-btn ownDel" data-k="' + k + '">'
+        + esc(t("own.saved.del")) + "</button>"
         + "<br>" + esc(r.text) + "</div>").join("")
     + "</div>";
+  // Deleting one record, not all of them. "delete what is saved" wiped every definition the
+  // visitor had ever written, which is not what anyone means by delete next to a list.
+  box.querySelectorAll(".ownDel").forEach(b => {
+    b.addEventListener("click", () => {
+      const k = Number(b.dataset.k);
+      const list = ownAll();
+      list.splice(k, 1);
+      try { localStorage.setItem("mtp_own", JSON.stringify(list)); } catch (_) {}
+      const ack = document.getElementById("ownAck");
+      if (ack) { ack.classList.add("open"); ack.textContent = t("own.saved.delone"); }
+      renderOwn();
+    });
+  });
 }
 
 /* ---------- build a definition from criteria ----------
@@ -782,6 +1198,70 @@ function renderCrit() {
   out.innerHTML = txt
     ? `<b>${esc(t("crit.out.h"))}</b><br>${esc(txt)}`
     : `<b>${esc(t("crit.out.h"))}</b><br>${esc(t("crit.out.none"))}`;
+  if (txt) out.innerHTML += critScoreLine();
+  const jump = document.getElementById("critJudge");
+  if (jump) jump.addEventListener("click", () => {
+    const box = document.getElementById("judgeText");
+    if (box) box.value = txt;
+    document.querySelectorAll(".panel").forEach(x => x.classList.remove("open"));
+    const jp = document.getElementById("pJudge");
+    if (jp) { jp.classList.add("open"); jp.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    renderJudge();
+  });
+}
+
+/* ---------- SCORING A COMPOSED DEFINITION ----------
+   Composing a definition from the criteria is the designed automatic route: pick conditions,
+   and because each criterion already carries a judged column over every case, the browser can
+   intersect those columns and produce a score with no model and no server.
+
+   The columns do not exist yet. The run that would produce them judged the wrong list once and
+   has not been redone, so this says exactly what is missing rather than showing a number it
+   cannot justify or, worse, nothing at all. The moment data/criteria_verdicts.json appears the
+   same function starts scoring, because the arithmetic is already here. */
+function critColumns() {
+  return (S.critVerdicts && Object.keys(S.critVerdicts).length) ? S.critVerdicts : null;
+}
+
+function critScoreLine() {
+  const he = LANG === "he";
+  const chosen = S.criteria.filter(c => c.on);
+  const cols = critColumns();
+  if (!cols) {
+    return `<div class="critgap">${he
+      ? "<b>אי אפשר לנקד את ההרכבה הזאת עדיין.</b> ניקוד אוטומטי דורש עמודת הכרעות לכל קריטריון "
+        + "מול כל מקרה, וההרצה שהייתה אמורה לייצר אותן ניקדה רשימת קריטריונים שגויה ולא הורצה "
+        + "מחדש. אין כאן מספר כי אין לו על מה לעמוד."
+      : "<b>This composition cannot be scored yet.</b> Automatic scoring needs a judged column "
+        + "for every criterion over every case, and the run that was to produce them judged the "
+        + "wrong list and has not been redone. There is no number here because there is nothing "
+        + "for one to stand on."}
+      <div class="pt-tools" style="margin-top:.5rem">
+        <button class="pt-btn" id="critJudge">${he
+          ? "לנקד אותה בעצמכם, מקרה־מקרה" : "score it yourself, case by case"}</button>
+      </div></div>`;
+  }
+  // The columns exist: a composed definition admits a case only if EVERY chosen criterion
+  // admits it. Conjunction is what "a definition made of conditions" means.
+  const { judged } = corpusCases();
+  let tp = 0, fp = 0, fn = 0, tn = 0, skipped = 0;
+  judged.forEach(i => {
+    let pred = true, known = true;
+    chosen.forEach(c => {
+      const v = (cols[c.id] || "")[i];
+      if (v !== "0" && v !== "1") { known = false; return; }
+      if (v === "0") pred = false;
+    });
+    if (!known) { skipped++; return; }
+    const gold = S.cases[i].status === "P";
+    if (pred && gold) tp++; else if (pred) fp++; else if (gold) fn++; else tn++;
+  });
+  const m = mcc(tp, fp, fn, tn);
+  return `<div class="critscore">MCC <b class="ltr">${fmt(m)}</b> · `
+    + `<span class="ltr">TP ${tp} · FP ${fp} · FN ${fn} · TN ${tn}</span>`
+    + (skipped ? ` · ${skipped} ${he ? "לא ידועים" : "unknown"}` : "")
+    + ` · ${he ? "מתוך " : "over "}<span class="num">${tp + fp + fn + tn}</span> `
+    + `${he ? "מקרים בקורפוס שבחרת" : "cases in the corpus you chose"}</div>`;
 }
 
 /* Give every icon-only control a name a screen reader can say.
@@ -790,7 +1270,32 @@ function renderCrit() {
    panel the control belongs to, so it comes out as "why - all the definitions" and
    "close - rights and ownership". Done in script rather than in the markup because the
    titles are translated at runtime and the label has to follow the language. */
+/* Every action names the concept it acts on. "Try your own definition" is ambiguous
+   the moment the site holds more than one concept, and it holds two. */
+function namedActions() {
+  // conceptLabel needs the registry ENTRY; called bare it falls through to the id and
+  // the Hebrew page ended up saying "למושג art".
+  const entry = (S.registry || []).find(c => c.id === S.concept);
+  const name = conceptLabel(entry);
+  if (!name) return;
+  const of = LANG === "he" ? " למושג " : " of the term ";
+  [["next.own", '[data-panel="pOwn"]'],
+   ["next.who", '[data-panel="pWho"]'],
+   ["crit.btn", '[data-panel="pCrit"]']].forEach(([key, sel]) => {
+    const b = document.querySelector(sel);
+    if (b) b.textContent = t(key) + of + name;
+  });
+}
+
 function labelControls() {
+  namedActions();
+
+  // The back link must land in the language the reader is already in. It was
+  // hard-coded to "../" (the Hebrew index) while its label was translated, so an
+  // English reader was sent to a Hebrew page by a button that said "back".
+  const back = document.getElementById("backLink");
+  if (back) back.setAttribute("href", LANG === "en" ? "../index-en.html" : "../");
+
   document.querySelectorAll(".tog[data-why]").forEach(b => {
     const card = b.closest(".act");
     const h = card && card.querySelector("h2");
@@ -820,9 +1325,11 @@ function labelControls() {
 
 function refresh() {
   writeURL();
+  if (typeof renderLiveMatrix === 'function') renderLiveMatrix(S.liveDef);
   labelControls();
   renderCrit();
   renderPapers();
+  updateStep3();
   renderBoard();
   renderConcepts();
   renderDownloads();
@@ -864,8 +1371,16 @@ function wire() {
       const p = document.getElementById(b.dataset.panel);
       if (!p) return;
       const wasOpen = p.classList.contains("open");
-      document.querySelectorAll(".panel").forEach(x => x.classList.remove("open"));
-      if (!wasOpen) p.classList.add("open");
+      // The two entry panels live in their own columns now, so closing the other one
+      // when this one opens just makes the page jump. Only panels outside the entry
+      // screen are exclusive.
+      const inSteps = p.closest(".stepcol");
+      if (!inSteps) {
+        document.querySelectorAll(".panel").forEach(x => {
+          if (!x.closest(".stepcol")) x.classList.remove("open");
+        });
+      }
+      p.classList.toggle("open", !wasOpen);
       writeURL();
     };
   });
@@ -903,6 +1418,43 @@ function wire() {
     if (!open) { renderConcepts(); if (cs) cs.focus(); }
   };
   // Opening the concept panel should land the caret in the field, ready to type.
+  ['selAll','selNone','selInvert'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) b.addEventListener('click', () => {
+      S.pickedCorpus = true; setTimeout(updateStep3, 0); });
+  });
+  const psearch = document.getElementById('paperSearch');
+  if (psearch) psearch.addEventListener('input', renderPapers);
+  const add = document.getElementById('addPaper');
+  if (add) add.addEventListener('click', () => {
+    const n = document.getElementById('addPaperNote');
+    if (n) { n.classList.toggle('open'); n.innerHTML = t('corpus.add.note'); }
+  });
+  const head = () => {
+    const h = document.getElementById('stageHead');
+    if (!h) return;
+    const entry = (S.registry || []).find(c => c.id === S.concept);
+    const name = conceptLabel(entry);
+    h.textContent = LANG === 'he'
+      ? `הגדרה למושג ${name} — מול ${S.selected.size} המאמרים שבחרת`
+      : `Defining ${name} — against the ${S.selected.size} papers you chose`;
+  };
+  const js_ = document.getElementById('judgeStart');
+  if (js_) js_.addEventListener('click', renderJudge);
+  const jr_ = document.getElementById('judgeReset');
+  if (jr_) jr_.addEventListener('click', () => {
+    try { localStorage.removeItem(JKEY); } catch (_) {}
+    renderJudge();
+  });
+  const s3 = document.getElementById('step3');
+  if (s3) s3.addEventListener('click', () => {
+    const st = document.getElementById('stage2');
+    if (!st) return;
+    st.hidden = false;
+    head();
+    renderLiveMatrix(S.liveDef);
+    st.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   document.querySelectorAll('[data-panel="pConcept"]').forEach(b => {
     b.addEventListener("click", () => setTimeout(() => {
       const i = document.getElementById("conceptSearch");
@@ -1027,7 +1579,7 @@ async function loadConcept(fromURL) {
       // criteria.json is an offer rather than measurement data, and only art has one. If it
       // is missing the rest of the screen must still work, so its failure is not allowed to
       // reject the batch.
-      fetch(`${dir}${n}.json`).then(r => (r.ok ? r.json() : null)).catch(() => null)));
+      getData(dir.replace("../data/", "") + n + ".json")));
   S.manifest = manifest;
   if (!papers || !cases || !defs || !verdicts) {
     const el = document.getElementById("offered");
@@ -1053,11 +1605,26 @@ async function loadConcept(fromURL) {
 }
 
 async function boot() {
+  // The whole library, for the corpus picker. Loaded once, here, because it is boot
+  // data and not render data -- putting the fetch in refresh() both re-fetched on every
+  // keystroke and, being an await inside a plain function, stopped the file parsing at
+  // all: the entire page went dead and the screenshot still looked plausible.
+  try {
+    const _cv = await getData("criteria_verdicts.json");
+    S.critVerdicts = (_cv && _cv.verdicts) || {};
+  } catch (e) { S.critVerdicts = null; }
+  try {
+    const _pi = await getData("paper_index.json");
+    S.index = (_pi && _pi.papers) || [];
+  } catch (e) { S.index = []; }
+
   initLang();
   // The registry first: nothing else can resolve a concept to a directory without it, and
   // its counts come from each concept's own build rather than from a number typed here.
-  const reg = await fetch("../data/concepts.json")
-    .then(r => (r.ok ? r.json() : null)).catch(() => null);
+  // getData returns the PARSED object, not a Response. Leaving the old `.then(r => r.ok
+  // ? r.json() : null)` on it made `r.ok` undefined, so reg came back null and the whole
+  // registry was empty — the page would have shown "could not load" on every visit.
+  const reg = await getData("concepts.json");
   S.registry = (reg && reg.concepts) || [];
   if (!S.registry.length) {
     const el = document.getElementById("offered");

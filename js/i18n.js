@@ -25,6 +25,15 @@ const I18N = {
 
     "def.title": "מציאת הגדרה לפי קורפוס",
     "step.concept": "בחרו מושג להגדיר",
+    "corpus.search.lab": "חיפוש: דיסציפלינה · כותרת · שם מחבר · שנה",
+    "corpus.search.ph": "למשל: neuroscience · Danto · 1964 · priming",
+    "corpus.hits": "מאמרים",
+    "corpus.disc": "דיסציפלינות",
+    "corpus.none.found": "אין מאמר שמתאים לחיפוש הזה.",
+    "corpus.open": "פתוח",
+    "corpus.add": "הוספת מאמר",
+    "corpus.add.note": "הוספת מאמר משלכם היא שלב הבא ודורשת שרת — היום אפשר לבקש מאיתנו לתייג אותו, והוא ייכנס לספרייה עם אותה בדיקת ציטוט מילולית כמו כל השאר.",
+    "step.go": "כתבו הגדרה — או בחרו מתוך רשימה",
     "step.corpus": "בחרו את הקורפוס",
     "concept.counts": "{p} מאמרים · {c} מקרים מוכרעים · {d} הגדרות",
     "concept.search.lab": "איזה מושג אתם רוצים להגדיר? הקלידו אותו.",
@@ -61,7 +70,13 @@ const I18N = {
     "more.show": "עוד",
     "more.hide": "פחות",
     "own.body": "כתבו הגדרה משלכם למושג. <b>שימו לב לפני שאתם כותבים: אין כאן שרת.</b> מה שתכתבו נשמר בדפדפן שלכם בלבד — הוא לא נשלח לשום מקום, אנחנו לא רואות אותו, ואם תנקו את הדפדפן הוא ייעלם. גם ניקוד אוטומטי עדיין אין, כי ניקוד דורש שיפוט של כל 355 המקרים בהרצה אחת, ותוצאה מהרצה נפרדת אינה בת־השוואה למספרים שבמסך. <b>אם אתם רוצים שההגדרה שלכם תישקל לטבלה — הורידו אותה בכפתור שלמטה ושלחו לנו את הקובץ.</b> זו הדרך היחידה שהיא מגיעה אלינו.",
-    "own.name.lab": "שם (רשות — אבל בלי שם אין קדימוּת)",
+    "own.name.lab": "שם או כינוי (רשות — אבל רשומה בלי שם לא מקנה קדימוּת)",
+    "judge.btn": "נקדו הגדרה משלכם",
+    "judge.h": "נקדו את ההגדרה שלכם מול הקורפוס שבחרתם",
+    "judge.body": "אין כאן קסם. זו בדיוק העבודה שממנה נוצרה כל עמודה אחרת בלוח: אדם קורא את הדבר ואת המשפט שבו המאמר הכריע לגביו, ואומר כן או לא. אתם תעשו את אותה עבודה עבור ההגדרה שלכם, על הקורפוס שבחרתם, והחשבון שירוץ הוא אותו חשבון בדיוק.<br><br><b>לא תראו את התשובה של הספרות בזמן ההכרעה.</b> מי שרואה את התשובה מודד את מידת ההסכמה שלו עם עצמו. הציון שיצא בר-השוואה להרצה הזאת בלבד.",
+    "judge.text.lab": "ההגדרה שאתם מנקדים (כדי שתהיה מול העיניים)",
+    "judge.start": "התחלה",
+    "judge.reset": "איפוס ההכרעות",
     "own.text.lab": "ההגדרה",
     "own.vis.lab": "מה לעשות עם ההגדרה",
     "own.vis.priv": "פרטית — נשארת בדפדפן שלי, ואף אחד לא רואה אותה",
@@ -75,8 +90,12 @@ const I18N = {
     "own.dl.none": "אין עדיין הגדרה שמורה להורדה.",
     "own.cleared": "נמחק. הדפדפן לא מחזיק יותר דבר.",
     "own.saved.h": "שמור אצלכם",
-    "own.rights.h": "זכויות",
-    "own.rights.body": "ההגדרה נשארת שלכם. הגדרה של משפט אחד היא בדרך כלל קצרה ופונקציונלית מכדי שזכויות יוצרים יחולו עליה — מה שמקנה בעלות באקדמיה הוא <b>קדימוּת</b>: רשומה ציבורית ומתוארכת הנושאת שם. לכן הקובץ שתורידו נושא את שמכם ואת התאריך והשעה, ולכן כל הגדרה בטבלה נושאת <span class=\"ltr\">proposed_by</span> ותאריך. אם ההגדרה חשובה לכם, אל תסתפקו בקובץ — הפקידו אותה במקום שנותן תאריך רשום, למשל <span class=\"ltr\">Zenodo</span>, שגם מאפשר להפקיד תחת אמברגו כך שהתאריך והשם פומביים והטקסט סגור עד שתחליטו.",
+    "own.saved.corpus": "מול",
+    "own.saved.papers": "מאמרים",
+    "own.saved.del": "מחיקת הרשומה הזאת",
+    "own.saved.delone": "הרשומה נמחקה.",
+    "own.rights.h": "זכויות: מה הכלי כן נותן, ומה לא",
+    "own.rights.body": "<b>הגדרה שכבר קיימת בספרות אינה שלכם</b>, גם אם הגעתם אליה בעצמכם ואפילו אם ניסחתם אותה טוב יותר. הכלי אינו בודק את זה ואינו יכול — הוא לא מכיר את כל מה שנכתב אי פעם.<br><br><b>מה הוא כן נותן: חותמת זמן.</b> ההגדרה שכתבתם נרשמת כאן עם השם או הכינוי שבחרתם, עם התאריך והשעה, ועם הקורפוס שמולו נוקדה. זה כל מה שיש, וזה לא מעט: מה שמקנה בעלות באקדמיה אינו זכויות יוצרים אלא <b>קדימוּת</b> — רשומה ציבורית, מתוארכת, נושאת שם. הגדרה של משפט אחד קצרה ופונקציונלית מכדי שזכויות יוצרים יחולו עליה בכלל.<br><br><b>מה לעשות אם ההגדרה חשובה לכם.</b> אל תסתפקו בקובץ שירד למחשב שלכם — הוא מוכיח רק שהיה לכם קובץ. הפקידו אותה במקום שמנפיק <span class=\"ltr\">DOI</span> (זנודו, OSF, arXiv). זו רשומה שצד שלישי מתארך ולא אתם, ולכן היא זו שנחשבת.",
     "who.body": "בחרו חוקר, והקורפוס יצטמצם למאמרים שמתדיינים איתו. זו הדרך לשאול \"איך המושג נראה בעיני מי שקורא את דנטו\" — ולראות שהתשובה משתנה.",
     "who.none": "אין די תיאורטיקנים מתויגים בקורפוס הזה.",
     "faq.btn": "שאלות נפוצות",
@@ -191,6 +210,15 @@ const I18N = {
 
     "def.title": "Find the definition that fits a corpus",
     "step.concept": "Choose a concept to define",
+    "corpus.search.lab": "Search: discipline · title · author · year",
+    "corpus.search.ph": "e.g. neuroscience · Danto · 1964 · priming",
+    "corpus.hits": "papers",
+    "corpus.disc": "disciplines",
+    "corpus.none.found": "No paper matches that search.",
+    "corpus.open": "open",
+    "corpus.add": "Add a paper",
+    "corpus.add.note": "Adding your own paper is the next stage and needs a server. Today you can ask us to tag it, and it enters the library under the same verbatim check as everything else.",
+    "step.go": "Write a definition — or pick one from a list",
     "step.corpus": "Choose the corpus",
     "concept.counts": "{p} papers · {c} adjudicated cases · {d} definitions",
     "concept.search.lab": "Which concept do you want to define? Type it.",
@@ -227,7 +255,13 @@ const I18N = {
     "more.show": "more",
     "more.hide": "less",
     "own.body": "Write your own definition of the concept. <b>Before you do, know this: there is no server.</b> What you write is saved in your browser only — it is not sent anywhere, we never see it, and clearing your browser deletes it. Nor is it scored automatically, because scoring means judging all 355 cases in one run, and a result from a separate run is not comparable with the numbers on this screen. <b>If you want your definition considered for the table, download it with the button below and send us the file.</b> That is the only way it reaches us.",
-    "own.name.lab": "Name (optional — but without a name there is no priority)",
+    "own.name.lab": "Name or nickname (optional — but a record with no name confers no priority)",
+    "judge.btn": "score your own definition",
+    "judge.h": "Score your definition against the corpus you chose",
+    "judge.body": "There is no magic here. This is exactly the work every other column on the board was made by: a person reads the thing, and the sentence in which a paper decided it, and says yes or no. You do that same work for your definition, over the corpus you chose, and the arithmetic that runs is the same arithmetic.<br><br><b>You are not shown the literature's answer while you judge.</b> A scorer who can see the answer is measuring their own agreeableness. The score is comparable within this run and nothing else.",
+    "judge.text.lab": "The definition you are scoring (kept in front of you)",
+    "judge.start": "start",
+    "judge.reset": "clear my verdicts",
     "own.text.lab": "The definition",
     "own.vis.lab": "What to do with it",
     "own.vis.priv": "Private — stays in my browser, nobody sees it",
@@ -241,8 +275,12 @@ const I18N = {
     "own.dl.none": "Nothing saved to download yet.",
     "own.cleared": "Deleted. The browser holds nothing further.",
     "own.saved.h": "Saved on your machine",
-    "own.rights.h": "Rights",
-    "own.rights.body": "The definition remains yours. A one-sentence definition is usually too short and too functional for copyright to attach — what confers ownership in academia is <b>priority</b>: a dated public record carrying a name. That is why the file you download carries your name and the date and time, and why every definition in the table carries <span class=\"ltr\">proposed_by</span> and a date. If the definition matters to you, do not stop at the file — deposit it somewhere that registers a date, such as <span class=\"ltr\">Zenodo</span>, which also lets you deposit under embargo so the date and name are public while the text stays closed until you choose.",
+    "own.saved.corpus": "against",
+    "own.saved.papers": "papers",
+    "own.saved.del": "delete this record",
+    "own.saved.delone": "That record is gone.",
+    "own.rights.h": "Rights: what the tool does give you, and what it does not",
+    "own.rights.body": "<b>A definition that already exists in the literature is not yours</b>, even if you arrived at it independently and even if you worded it better. The tool cannot check this and does not pretend to &mdash; it does not know everything ever written.<br><br><b>What it does give you: a timestamp.</b> The definition you write is recorded here with the name or nickname you choose, the date and time, and the corpus it was scored against. That is all it is, and it is not nothing: what confers ownership in academia is not copyright but <b>priority</b> &mdash; a dated public record carrying a name. A one-sentence definition is far too short and too functional for copyright to attach in the first place.<br><br><b>If the definition matters to you.</b> Do not rely on the file that downloaded to your machine; it proves only that you had a file. Deposit it somewhere that issues a <span class=\"ltr\">DOI</span> &mdash; Zenodo, OSF, arXiv. That is a record a third party dates, not you, which is why it is the one that counts.",
     "who.body": "Pick a scholar and the corpus narrows to the papers that engage with them. This is how you ask \"what does the concept look like to someone who reads Danto\" — and watch the answer change.",
     "who.none": "Not enough tagged theorists in this corpus.",
     "faq.btn": "Common questions",
@@ -374,7 +412,11 @@ function applyLang(code) {
 
 function initLang() {
   const u = new URL(location.href);
-  const want = u.searchParams.get("lang") || localStorage.getItem("mtp_lang") || "he";
+  // A page may declare its own language (define/index-en.html does). That wins over
+  // everything: the query string is lost when Windows opens a local file by
+  // double-click, and the stored preference then silently overrode the URL.
+  const want = window.MTP_FORCE_LANG || u.searchParams.get("lang")
+    || localStorage.getItem("mtp_lang") || "en";   // English is the default now
   applyLang(want);
   const sw = document.getElementById("langSwitch");
   if (sw) {
@@ -383,7 +425,8 @@ function initLang() {
       applyLang(next);
       localStorage.setItem("mtp_lang", next);
       const u2 = new URL(location.href);
-      if (next === "he") u2.searchParams.delete("lang");
+      // English is the default, so IT is the clean URL and Hebrew carries the parameter.
+      if (next === "en") u2.searchParams.delete("lang");
       else u2.searchParams.set("lang", next);
       history.replaceState(null, "", u2);
       if (typeof refresh === "function") refresh();
