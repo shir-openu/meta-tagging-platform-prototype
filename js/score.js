@@ -1766,6 +1766,23 @@ async function boot() {
   // ?term=<slug> opens a tagged term's corpus straight away. It exists so a term can be sent
   // to somebody as a link - and so this feature can be screenshot-tested without a click,
   // which is the only way I can check it before handing it over.
+  // ?q= prefills the search and opens the dropdown. It exists so a SEARCH can be screenshot-
+  // tested - Shir typed "consciousness", saw no option to pick it, and I had no way to look at
+  // what she was looking at. A feature I cannot reproduce is a feature I cannot fix.
+  const wantQ = new URL(location.href).searchParams.get("q");
+  if (wantQ) {
+    const p = document.getElementById("pConcept");
+    if (p) {
+      document.querySelectorAll(".panel").forEach(x => x.classList.remove("open"));
+      p.classList.add("open");
+    }
+    const inp = document.getElementById("conceptSearch");
+    if (inp) inp.value = wantQ;
+    S.query = wantQ;
+    openConcepts(true);
+    renderConcepts();
+  }
+
   const wantTerm = new URL(location.href).searchParams.get("term");
   const termRow = wantTerm && S.registry.find(
     c => (c.slug || slugOf(c.en || c.id)) === slugOf(wantTerm) && c.state !== "ready");
