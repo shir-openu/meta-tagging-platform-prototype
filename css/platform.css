@@ -314,6 +314,9 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
   color: var(--dim); font-size: 0.968rem;
 }
 .pt-foot a { color: var(--teal-lit); text-decoration: none; }
+/* The credit line. English on every page, including the RTL ones, so it is set LTR and
+   start-aligned rather than inheriting the page direction. */
+.pt-credit { display: inline-block; margin-top: .5rem; direction: ltr; unicode-bidi: isolate; }
 
 .num { direction: ltr; unicode-bidi: isolate; display: inline-block; font-family: Consolas, monospace; }
 
