@@ -247,6 +247,38 @@ function paperMatches(p, q) {
 function renderPapers() {
   const box = document.getElementById("paperList");
   if (!box) return;
+  // TERM MODE. The green button now opens the corpus OF THE CHOSEN TERM - every paper the
+  // term occurs in - rather than the definition board's own working set. None of them carry
+  // judged cases, so none is tickable, and the panel says that instead of offering checkboxes
+  // that would do nothing.
+  if (S.termPick) {
+    const q = norm((document.getElementById("paperSearch") || {}).value || "");
+    const rows = S.termPick.ids
+      .map(pid => [pid, (S.termPapers || {})[pid]])
+      .filter(([, p]) => p && (!q || norm(p[0]).includes(q)));
+    const groups = new Map();
+    rows.forEach(([pid, p]) => {
+      const d = p[2] || "uncategorised";
+      if (!groups.has(d)) groups.set(d, []);
+      groups.get(d).push([pid, p]);
+    });
+    const tally = document.getElementById("paperTally");
+    if (tally) {
+      tally.innerHTML = `<b>${esc(S.termPick.label)}</b> — <span class="num">${rows.length}</span> ` +
+        (LANG === "he" ? "מאמרים · " : "papers · ") +
+        `<span class="num">${groups.size}</span> ` + (LANG === "he" ? "דיסציפלינות" : "disciplines");
+    }
+    box.innerHTML = [...groups.entries()].sort((a, b) => b[1].length - a[1].length)
+      .map(([d, rs]) =>
+        `<div class="disc-h" style="color:#c77dff">${esc(d)}<span class="n">${rs.length}</span></div>` +
+        rs.sort((a, b) => (b[1][1] || 0) - (a[1][1] || 0)).map(([pid, p]) =>
+          `<div class="pt-paper unscored" data-id="${esc(pid)}"><span>
+             <span class="t">${paperLink(pid, d, p[0], p[3] || "")}</span>
+             <span class="m"><span class="ltr">${esc(String(p[1] || "—"))}</span> · ` +
+             (LANG === "he" ? "תויג, טרם נוקד" : "tagged, not yet scored") +
+          `</span></span></div>`).join("")).join("");
+    return;
+  }
   const q = (document.getElementById("paperSearch") || {}).value || "";
   const scored = new Map(S.papers.map(p => [p.id, p]));
   const all = (S.index && S.index.length) ? S.index : S.papers.map(p => ({
@@ -948,8 +980,26 @@ function chooseSoon(id) {
   if (!out || !c) return;
   openConcepts(false);
   out.classList.add("open");
-  out.innerHTML = t("concept.soon.body")
-    .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers) + termCorpusHTML(c);
+  // Shir, 2026-08-14: "all the text below after I choose a term - hide it in a comment for
+  // now, the field of view should be clean." The paragraph explaining why there is no
+  // definition board is kept in the markup as a comment and not rendered.
+  out.innerHTML = "<!-- " + t("concept.soon.body")
+    .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers).replace(/<!--|-->/g, "")
+    + " -->" + termCorpusHTML(c);
+  // The term becomes the working selection: step 1 names it, step 2 becomes ITS papers.
+  const ent = S.termCorpus && S.termCorpus[c.slug || slugOf(c.en || c.id)];
+  S.termPick = { id: c.id, label: c.en || c.id, ids: (ent && ent[1]) || [] };
+  // The art-vs-game comparison note and the board's own state bar both describe the loaded
+  // definition board, not the term just chosen. Leaving them on screen under a term's corpus
+  // is the same fault as the green button: text that belongs to something else.
+  const note = document.getElementById("conceptNote");
+  if (note) note.style.display = "none";
+  ["liveStats", "stateBar"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+  renderSteps();
+  renderPapers();
   // A term you can reach by clicking should be a term you can send to someone.
   const u = new URL(location.href);
   u.searchParams.set("term", id);
@@ -1048,6 +1098,15 @@ async function switchConcept(id) {
   // Only a concept with a board can be loaded. A corpus-only term reaching here would fetch
   // a directory that does not exist and blank the screen, so it is refused at the door.
   if (!c || c.state !== "ready") return;
+  // Loading a real definition board ends term mode, or the green button would keep showing
+  // the previous term's papers under the new concept's name.
+  S.termPick = null;
+  const note0 = document.getElementById("conceptNote");
+  if (note0) note0.style.display = "";
+  ["liveStats", "stateBar"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "";
+  });
   S.concept = id;
   // The old corpus selection is a list of paper ids that do not exist in the new concept, and
   // the `c` bitmask in the URL is indexed against the old paper list. Both have to go, or the
@@ -1061,13 +1120,20 @@ async function switchConcept(id) {
 
 /* The two step buttons must always say what is currently chosen. */
 function renderSteps() {
+  // When a tagged term is the current pick, BOTH buttons must follow it. Shir chose a term,
+  // pressed the green button, and got art's 29 papers - because the buttons still described
+  // the loaded definition board rather than the thing she had just chosen.
   const cv = document.getElementById("conceptVal");
-  if (cv) cv.textContent = conceptLabel(conf());
+  if (cv) cv.textContent = S.termPick ? S.termPick.label : conceptLabel(conf());
   const pv = document.getElementById("corpusVal");
   if (pv) {
-    const n = S.selected.size, all = S.papers.filter(p => p.n_scored).length;
-    pv.textContent = n === all ? t("corpus.allpapers").replace("{n}", n)
-                               : t("corpus.npapers").replace("{n}", n);
+    if (S.termPick) {
+      pv.textContent = t("corpus.npapers").replace("{n}", S.termPick.ids.length);
+    } else {
+      const n = S.selected.size, all = S.papers.filter(p => p.n_scored).length;
+      pv.textContent = n === all ? t("corpus.allpapers").replace("{n}", n)
+                                 : t("corpus.npapers").replace("{n}", n);
+    }
   }
 }
 
