@@ -854,7 +854,24 @@ function renderConcepts() {
   const q = norm(S.query);
   const hits = S.registry.filter(c => matches(c, q));
   const ready = hits.filter(c => c.state === "ready");
-  const rest = hits.filter(c => c.state !== "ready");
+  // RANK BY HOW WELL THE TERM MATCHES WHAT WAS TYPED, not by how many papers it has.
+  // Shir typed "ART" and the panel came back with "job shop scheduling problem". The list was
+  // ordered by paper count across the whole corpus, so a term that merely CONTAINS the letters
+  // and happens to be well covered outranked the term she actually typed. Exact first, then
+  // starts-with, then a word that starts with it, then anywhere; paper count only breaks ties.
+  const rank = c => {
+    const n = norm(c.en || c.id);
+    if (!q) return 4;
+    if (n === q) return 0;
+    if (n.startsWith(q)) return 1;
+    // No RegExp here on purpose: the query is user text, and building a pattern out of it
+    // needs escaping that is easy to get wrong - the first version of this line compiled to
+    // an invalid expression and would have killed the whole file at parse time.
+    if (n.includes(" " + q) || n.includes("-" + q)) return 2;
+    return 3;
+  };
+  const rest = hits.filter(c => c.state !== "ready")
+    .sort((a, b) => rank(a) - rank(b) || (b.papers || 0) - (a.papers || 0));
   const shown = ready.concat(rest.slice(0, MAX_HITS));
   S.hits = shown;
   if (S.sel == null || S.sel >= shown.length) S.sel = 0;
@@ -917,6 +934,14 @@ function renderConcepts() {
    not do nothing - that is the difference between an honest answer and a dead control. */
 function chooseSoon(id) {
   S.pickedConcept = true;
+  // The box kept the typed letters while the panel described a different term, which is how
+  // "I chose ART" produced a screenshot of job-shop scheduling. Whatever is chosen is what the
+  // field says.
+  {
+    const c0 = S.registry.find(x => x.id === id);
+    const inp = document.getElementById("conceptSearch");
+    if (inp && c0) { inp.value = c0.en || c0.id; S.query = inp.value; }
+  }
   setTimeout(updateStep3, 0);
   const c = S.registry.find(x => x.id === id);
   const out = document.getElementById("conceptSoon");
