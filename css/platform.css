@@ -982,3 +982,26 @@ a:focus-visible {
              border: 1px solid #cfe8dd; border-inline-start: 5px solid #0d9488;
              background: rgba(13,148,136,.08); font-size: .95rem; }
 .critscore b { font-size: 1.15rem; color: #4ecdc4; }
+
+/* ---- the corpus behind a term ------------------------------------------------------
+   Shir, 2026-08-14: picking a tagged term must show the papers it appears in, not just
+   how many. Purple and pink, and stronger than the earlier pass - she said the previous
+   tints looked faded. */
+.tc { margin-top: .8rem; border-top: 1px solid var(--line); padding-top: .7rem; }
+.tc-h { font-weight: 700; color: #d81b8c; margin-bottom: .5rem; }
+.tc-list { max-height: 22rem; overflow-y: auto; padding-inline-end: .3rem; }
+.tc-d { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em;
+        color: #a259ff; font-weight: 700; margin: .6rem 0 .2rem; }
+.tc-d .n { color: #d81b8c; margin-inline-start: .4rem; }
+.tc-p { display: flex; gap: .55rem; align-items: baseline; padding: .12rem 0; font-size: .9rem; }
+.tc-p .y { color: #8b7aa8; font-variant-numeric: tabular-nums; min-width: 2.6rem; }
+.tc-p a { color: #c77dff; text-decoration: none; }
+.tc-p a:hover { color: #ff5fb0; text-decoration: underline; }
+.tc-note { margin-top: .6rem; font-size: .84rem; color: #b98fd6; }
+
+/* The concept dropdown holds 10,506 terms. It scrolls; the count line at the bottom says how
+   many more are behind the slice, in pink so it is not mistaken for a disabled note. */
+#conceptResults.open { max-height: 26rem; overflow-y: auto; }
+.ac-more { color: #ff5fb0; font-weight: 700; font-size: .88rem;
+           padding: .5rem .6rem; border-top: 1px solid var(--line); position: sticky;
+           bottom: 0; background: #170f22; }

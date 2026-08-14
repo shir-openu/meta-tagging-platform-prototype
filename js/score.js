@@ -39,7 +39,11 @@
            to five published definitions. Hard-coding one control silently disabled the
            safety rail on the game board once already. */
 const DEFAULT_CONCEPT = "art";
-const MAX_HITS = 40;   // a search that prints 472 rows has not helped anybody
+// Was 40, when the registry held 474 terms. It now holds 10,506, and Shir opened the
+// picker and asked "I have like 20-30 terms to choose from, where are all the tags?" -
+// a cap that silently hides 99.6% of the list reads as a list that does not exist. The
+// dropdown scrolls, so show a real slice and always say how many are behind it.
+const MAX_HITS = 300;
 
 const S = {
   concept: DEFAULT_CONCEPT,
@@ -812,6 +816,13 @@ function renderWho() {
 
 /* Match a typed string against a concept. Deliberately forgiving: Hebrew is typed with and
    without the alef ("אמנות" / "אומנות"), and a reader who types "games" must find "game". */
+/* The one slug rule, matching TOOLS/build_term_corpus.py character for character. Two copies
+   of a key drift; this is the only copy on the JavaScript side. */
+function slugOf(s) {
+  return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-")
+         .replace(/^-+|-+$/g, "").slice(0, 60);
+}
+
 function norm(s) {
   return String(s || "").toLowerCase().trim()
     .replace(/[֑-ׇ]/g, "")     // Hebrew niqqud and cantillation
@@ -913,8 +924,61 @@ function chooseSoon(id) {
   openConcepts(false);
   out.classList.add("open");
   out.innerHTML = t("concept.soon.body")
-    .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers);
+    .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers) + termCorpusHTML(c);
+  // A term you can reach by clicking should be a term you can send to someone.
+  const u = new URL(location.href);
+  u.searchParams.set("term", id);
+  history.replaceState(null, "", u);
   out.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+/* Where a paper in a term's corpus goes.
+
+   Locally there is a full tagged page under CORPUS/. Inside the published platform repo there
+   is not - that directory is a different repository - so writing the local path into the page
+   would ship several thousand links that 404 on the live site. Off file:// the row falls back
+   to the paper's own address, and a paper with neither is printed as plain text rather than as
+   a link that goes nowhere. */
+function paperLink(pid, disc, title, url) {
+  const local = location.protocol === "file:";
+  const href = local ? ("../../CORPUS/" + disc + "/" + pid + "/paper_colored.html") : url;
+  if (!href) return `<span class="t">${esc(title)}</span>`;
+  return `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(title)}</a>`;
+}
+
+/* The corpus behind the count: every paper in which this term appears at least once.
+   Shir's rule for the whole platform applies here too - saying "13 papers" and not showing
+   which 13 is a number without its evidence, which is the thing this project exists against. */
+function termCorpusHTML(c) {
+  const he = LANG === "he";
+  const ent = S.termCorpus && S.termCorpus[c.slug || slugOf(c.en || c.id)];
+  if (!ent) return "";
+  const ids = ent[1] || [];
+  if (!ids.length) return "";
+  const byDisc = new Map();
+  ids.forEach(pid => {
+    const p = (S.termPapers || {})[pid];
+    if (!p) return;
+    const d = p[2] || "uncategorised";
+    if (!byDisc.has(d)) byDisc.set(d, []);
+    byDisc.get(d).push([pid, p[0], p[1], p[3] || ""]);
+  });
+  const disc = [...byDisc.entries()].sort((a, b) => b[1].length - a[1].length);
+  const head = `<div class="tc-h">${he ? "הקורפוס של המונח" : "the corpus for this term"} —
+    <span class="num">${ids.length}</span> ${he ? "מאמרים" : "papers"} ·
+    <span class="num">${disc.length}</span> ${he ? "דיסציפלינות" : "disciplines"}</div>`;
+  const body = disc.map(([d, rows]) =>
+    `<div class="tc-d">${esc(d)} <span class="n">${rows.length}</span></div>` +
+    rows.sort((a, b) => (b[2] || 0) - (a[2] || 0)).map(([pid, title, year, url]) =>
+      `<div class="tc-p"><span class="ltr y">${esc(String(year || "—"))}</span>
+        ${paperLink(pid, d, title, url)}</div>`).join("")
+  ).join("");
+  const note = he
+    ? "אין עדיין מקרים מוכרעים למונח הזה, ולכן אפשר לעיין בקורפוס אך לא לנקד עליו הגדרות."
+    : "This term has no judged cases yet, so the corpus can be browsed but definitions "
+      + "cannot be scored against it.";
+  return `<div class="tc">${head}<div class="tc-list">${body}</div>
+          <div class="tc-note">${note}</div></div>`;
 }
 
 /* Keyboard: the reference tool is fully driveable without a mouse and so is this. */
@@ -1642,6 +1706,47 @@ async function boot() {
   // registry was empty — the page would have shown "could not load" on every visit.
   const reg = await getData("concepts.json");
   S.registry = (reg && reg.concepts) || [];
+
+  // ---- EVERY TAG IN THE PICKER, EACH WITH ITS OWN CORPUS -------------------------------
+  // Shir, 2026-08-14: "I will want to see a list of ALL our tags in the term-to-define
+  // window. For every term like that I choose I will need to see the corpus containing all
+  // papers in which the term appears at least once."
+  //
+  // The registry held 474 terms and, for each, only a COUNT of papers - so the picker could
+  // say thirteen and could not show you which thirteen. term_corpus.json carries the list
+  // behind the count for all 10,506 tagged terms. Merged rather than replaced: a concept
+  // with a real definition board keeps its own entry and its `ready` state, and the tag
+  // layer only fills in what the registry does not already have.
+  try {
+    const tc = await getData("term_corpus.json");
+    if (tc && tc.terms) {
+      S.termPapers = tc.papers || {};
+      S.termCorpus = tc.terms;
+      // The registry's ids are RAW TERMS with spaces ("working memory"); term_corpus is keyed
+      // by slug ("working-memory"). Every entry therefore carries its slug from here on, or
+      // the two files silently fail to meet - which they did on the first attempt, and the
+      // screenshot showed a page where nothing happened at all.
+      const bySlug = new Map();
+      S.registry.forEach(c => { c.slug = slugOf(c.en || c.id); bySlug.set(c.slug, c); });
+      Object.keys(tc.terms).forEach(sl => {
+        const [label, ids] = tc.terms[sl];
+        const have = bySlug.get(sl);
+        if (have) {
+          // Its count came from an older build: "working memory" said 1 paper where the tag
+          // layer holds 24. The layer is the newer measurement, so it wins.
+          have.papers = Math.max(have.papers || 0, ids.length);
+          return;
+        }
+        S.registry.push({ id: sl, slug: sl, state: "corpus", en: label, he: null,
+                          aliases: [], papers: ids.length, cases: 0, definitions: 0 });
+      });
+      // Terms carried by more papers are the ones that can join fields, so they surface
+      // first when the search box is empty.
+      S.registry.sort((a, b) => (b.state === "ready") - (a.state === "ready")
+                             || (b.papers || 0) - (a.papers || 0));
+    }
+  } catch (e) { S.termCorpus = null; }
+
   if (!S.registry.length) {
     const el = document.getElementById("offered");
     if (el) el.innerHTML = `<div class="hero-result warn"><div class="win">${
@@ -1657,5 +1762,25 @@ async function boot() {
   if (!await loadConcept(true)) return;
   wire();
   refresh();
+
+  // ?term=<slug> opens a tagged term's corpus straight away. It exists so a term can be sent
+  // to somebody as a link - and so this feature can be screenshot-tested without a click,
+  // which is the only way I can check it before handing it over.
+  const wantTerm = new URL(location.href).searchParams.get("term");
+  const termRow = wantTerm && S.registry.find(
+    c => (c.slug || slugOf(c.en || c.id)) === slugOf(wantTerm) && c.state !== "ready");
+  if (termRow) {
+    // The concept panel is collapsed until its step button is pressed, so opening the term
+    // without opening the panel writes the corpus into a box nobody can see - which is what
+    // the first screenshot of this feature showed, and why it is checked with a screenshot.
+    const p = document.getElementById("pConcept");
+    if (p) {
+      document.querySelectorAll(".panel").forEach(x => x.classList.remove("open"));
+      p.classList.add("open");
+      const b = document.querySelector('[data-panel="pConcept"]');
+      if (b) b.setAttribute("aria-expanded", "true");
+    }
+    chooseSoon(termRow.id);
+  }
 }
 boot();
