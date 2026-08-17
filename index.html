@@ -95,15 +95,16 @@
    have coined and did not.</div>
 
   <div class="pt-foot" dir="ltr" style="text-align:start">
-    Open data:
-    <a href="data/manifest.json">manifest</a> ·
-    <a href="data/papers.json">papers</a> ·
-    <a href="data/cases.json">cases</a> ·
-    <a href="data/definitions.json">definitions</a> ·
-    <a href="data/verdicts.json">verdicts</a> ·
-    <a href="reference_scorer.py">reference_scorer.py</a> ·
-    <a href="llms.txt">llms.txt</a> ·
-    <a href="README.md">README</a>
+    <!-- 2026-08-17. These eight links pointed a READER at raw machine data. verdicts.json
+         opens as {"circular":"1111101111111101111..."} and reference_scorer.py was served
+         as application/octet-stream, so clicking it DOWNLOADED a file rather than showing
+         anything. Every one returned HTTP 200 - and resolving is not the same as being
+         readable. The data stays open; it is now offered where a person can look at it. -->
+    Open data &mdash; every number on this page is reproducible from
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">the five data files</a>, and
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a> recomputes the
+    scores from them. Also <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a> and
+    <a href="llms.txt">llms.txt</a>.
     <br>
     The tag layer is CC BY 4.0. Paper text belongs to its authors, and is linked rather than reproduced.
     · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">source code</a>

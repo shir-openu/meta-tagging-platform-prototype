@@ -68,7 +68,7 @@
       <div class="row"><span class="ic">🔍</span><h2>מציאת הגדרה אופטימלית לפי קורפוס</h2>
         <span class="state">פעיל</span></div>
       <div class="disc">
-        <a class="go" href="define/">כניסה</a>
+        <a class="go" href="define/index-he.html">כניסה</a>
         <button class="tog" data-why="w0" aria-expanded="false" aria-controls="w0" aria-label="הסבר — מציאת הגדרה אופטימלית לפי קורפוס">?</button>
         <button class="tog" data-why="n0" aria-expanded="false" aria-controls="n0" aria-label="הערות — מציאת הגדרה אופטימלית לפי קורפוס">&#8801;</button>
       </div>
@@ -94,19 +94,23 @@
    האם מושג עובר בין תחומים · המרחב השלילי — מונחים שהספרות הייתה אמורה לטבוע ולא טבעה.</div>
 
   <div class="pt-foot" dir="ltr" style="text-align:start">
-    Open data:
-    <a href="data/manifest.json">manifest</a> ·
-    <a href="data/papers.json">papers</a> ·
-    <a href="data/cases.json">cases</a> ·
-    <a href="data/definitions.json">definitions</a> ·
-    <a href="data/verdicts.json">verdicts</a> ·
-    <a href="reference_scorer.py">reference_scorer.py</a> ·
-    <a href="llms.txt">llms.txt</a> ·
-    <a href="README.md">README</a>
+    <!-- 2026-08-17. These eight links pointed a READER at raw machine data. verdicts.json
+         opens as {"circular":"1111101111111101111..."} and reference_scorer.py was served
+         as application/octet-stream, so clicking it DOWNLOADED a file rather than showing
+         anything. Every one returned HTTP 200 - and resolving is not the same as being
+         readable. The data stays open; it is now offered where a person can look at it. -->
+    נתונים פתוחים &mdash; כל מספר בעמוד הזה ניתן לשחזור מתוך
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">חמשת קובצי הנתונים</a>, ו־
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a> מחשב מהם את
+    הניקוד מחדש. בנוסף <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a> ו־
+    <a href="llms.txt">llms.txt</a>.
     <br>
-    The tag layer is CC BY 4.0. Paper text belongs to its authors, and is linked rather than reproduced.
-    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">source code</a>
-    · <a href="https://shir-openu.github.io/">other projects</a>
+    <!-- 2026-08-17. This line was left in English on the Hebrew page. Shir: a Hebrew page must
+         not send its reader into English. Same fault as define/index-he.html linking at
+         ../method.html. -->
+    שכבת התיוג מסופקת תחת <span class="ltr">CC BY 4.0</span>. טקסט המאמרים שייך למחבריו, ומקושר ולא משוכפל.
+    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
+    · <a href="https://shir-openu.github.io/">פרויקטים נוספים</a>
     <br><!-- The line here used to read:
          Developed by Shir Sivroni &middot; &copy; 2026 Shir Sivroni
      The year was an attempt to stamp a date on the work. It is not needed
