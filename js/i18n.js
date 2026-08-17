@@ -53,7 +53,15 @@ const I18N = {
     "offer.abstainlead": "<b>קראו את זה לפני שאתם קוראים את הדירוג.</b> ההגדרה שבמקום הראשון — {name} — נמנעת מהכרעה ב־{k} מקרים, ולכן היא לא נשאלה את אותן שאלות כמו האחרות. כשמנקדים את כולן על אותם {n} מקרים בדיוק שהיא כן ענתה עליהם, <b>{beat} הגדרות עוקפות אותה</b> (הראשונה: {who}). הציונים למטה נכונים כפי שהם — כל אחת נמדדת על מה שענתה — אבל הסדר ביניהן אינו השוואה הוגנת.",
     "discrim.body": "<b>אזהרה שנייה, ואחרת מהראשונה.</b> הבקרה שאמורה להיות חסרת תועלת — {ctrl} — קיבלה {mcc} ו<b>עקפה {k} הגדרות מהספרות</b>. הבקרה המעגלית שלמעלה בודקת רק את החשבון ואת האינדוקס; זו בודקת אם <b>הקורפוס עצמו מסוגל להבחין</b>. יחס החיוביים כאן הוא {base} ({pos} חיוביים מול {neg} שליליים), וקורפוס שרובו חיוביים מתגמל הגדרה שמכניסה הכל — וזה בדיוק מה שהבקרה הרחבה עושה. אל תקראו את הדירוג מתחת לצמרת. מה שיתקן את זה אינו עוד מאמרים אלא <b>עוד מקרים שהספרות שוללת</b>.",
     "load.failed": "לא הצלחנו לטעון את נתוני המושג הזה ({dir}). אין כאן שרת, ולכן זה אומר שהקבצים חסרים — לא שמשהו נכשל זמנית.",
+    // RETIRED 2026-08-16, kept only so the he/en key counts stay equal. Nothing references it.
+    // It rendered step 2 as "all 29 papers", naming the papers that carried verdicts as though
+    // they were the corpus - the label Shir asked to have removed. Do not wire it back in: the
+    // corpus is what the visitor picked, and the judged count belongs beside the number it
+    // affects. Delete it from BOTH tables in one edit or not at all.
     "corpus.allpapers": "כל {n} המאמרים",
+    "corpus.nopick": "לא נבחרו מאמרים",
+    "board.pick": "בחרו מושג ואז בחרו מאמרים לקורפוס — התוצאות יופיעו כאן.",
+    "step.nopick": "טרם נבחר",
     "corpus.npapers": "{n} מאמרים נבחרו",
     "offer.head": "ההגדרות שמתאימות לקורפוס שלכם",
     "offer.sub": "מדורגות לפי מידת ההתאמה",
@@ -195,8 +203,10 @@ const I18N = {
     "plain.neg": "נופלת בכיוון ההפוך מהספרות.",
     "plain.none": "אין די מקרים בקורפוס הזה כדי לחשב ציון.",
 
-    "unscored.h": "למה יש מאמרים שאי אפשר לבחור",
-    "unscored.body": "אלה מאמרים שכבר תויגו — יש להם מקרים וציטוטים — אבל טרם נוקדו מול ההגדרות. <b>ולא ננקד אותם בנפרד</b>: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק, ולכן ציונים מהרצות שונות אינם ברי־השוואה. לצרף מקרים שנוקדו בהרצה אחרת היה מייצר טבלה שנראית גדולה יותר ואומרת פחות. הם ייפתחו כשכל הקורפוס ינוקד מחדש בהרצה אחת.",
+    "unscored.h": "אפשר לבחור כל מאמר — לא כל מאמר משנה את הציון",
+    "unscored.body": "כל 598 המאמרים פתוחים לבחירה: הקורפוס הוא מה שבחרתם. אבל רק מאמר שנושא הכרעות יכול לשנות מספר, ולכן ליד כל בחירה כתוב כמה מהמאמרים שבחרתם נושאים הכרעות וכמה לא. מאמר שטרם נוקד תויג כבר — יש לו מקרים וציטוטים — אבל <b>לא ננקד אותו בנפרד</b>: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק, ולכן ציונים מהרצות שונות אינם ברי־השוואה. הכרעות ייפתחו כשכל הקורפוס ינוקד מחדש בהרצה אחת.",
+    "corpus.split": "<span class=\"num\">{n}</span> מאמרים נבחרו · <span class=\"num\">{k}</span> נושאים הכרעות ומנוקדים · <span class=\"num\">{m}</span> ללא הכרעה, ואינם משנים אף מספר",
+    "corpus.split.none": "אף אחד מהמאמרים שבחרתם אינו נושא הכרעות, ולכן אין ממה לחשב ציון.",
     "limits.h": "מה אסור להסיק מהעמוד הזה.",
     "limits.body": "רווחי הסמך של ההגדרות המובילות חופפים — מותר לומר \"בין המובילות\", אסור לומר \"הראשונה\". התיוג נעשה במעבר אחד על ידי מקודדת אחת, ולכן מהימנות בין שני מקודדים בלתי־תלויים אינה מתקיימת ואיננו טוענות שהיא מתקיימת. ומספרים מהרצה אחת אינם ברי־השוואה למספרים מהרצה אחרת: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק.",
   },
@@ -238,7 +248,11 @@ const I18N = {
     "offer.abstainlead": "<b>Read this before you read the ranking.</b> The definition in first place — {name} — declines to decide {k} cases, so it was not asked the same questions as the others. Score every definition on exactly the {n} cases it did answer and <b>{beat} of them beat it</b> (first: {who}). The scores below are correct as they stand — each is measured on what it answered — but the order between them is not a fair comparison.",
     "discrim.body": "<b>A second warning, and a different one.</b> The control that is meant to be useless — {ctrl} — scored {mcc} and <b>beat {k} published definition(s)</b>. The circular control above tests only the arithmetic and the case indexing; this one tests whether <b>the corpus itself can discriminate</b>. The base rate here is {base} ({pos} positive against {neg} negative), and a corpus that is mostly positives rewards a definition that admits everything — which is exactly what the broad control does. Do not read the ranking below the top few. The cure is not more papers; it is <b>more cases the literature denies</b>.",
     "load.failed": "could not load this concept's data ({dir}). There is no server, so this means the files are missing rather than temporarily unavailable.",
+    // RETIRED 2026-08-16 - see the note beside the Hebrew twin of this key. Referenced nowhere.
     "corpus.allpapers": "all {n} papers",
+    "corpus.nopick": "no papers chosen",
+    "board.pick": "Choose a concept, then choose papers for the corpus — results appear here.",
+    "step.nopick": "not chosen yet",
     "corpus.npapers": "{n} papers selected",
     "offer.head": "The definitions that fit your corpus",
     "offer.sub": "ranked by how well they fit",
@@ -380,8 +394,10 @@ const I18N = {
     "plain.neg": "Falls the opposite way from the literature.",
     "plain.none": "Not enough cases in this corpus to compute a score.",
 
-    "unscored.h": "why some papers cannot be selected",
-    "unscored.body": "These papers are already tagged — they have cases and quotes — but have not yet been judged against the definitions. <b>And we will not judge them separately</b>: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition, so scores from different runs are not comparable. Splicing in cases judged in another run would produce a table that looks bigger and says less. They open up when the whole corpus is re-scored in one run.",
+    "unscored.h": "any paper can be chosen — not every paper moves the score",
+    "unscored.body": "All 598 papers are selectable: the corpus is what you pick. But only a paper carrying verdicts can move a number, so every selection says how many of your papers carry them and how many do not. A paper not yet judged is already tagged — it has cases and quotes — but <b>we will not judge it separately</b>: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition, so scores from different runs are not comparable. Verdicts open up when the whole corpus is re-scored in one run.",
+    "corpus.split": "<span class=\"num\">{n}</span> papers chosen · <span class=\"num\">{k}</span> carry verdicts and are scored · <span class=\"num\">{m}</span> have no verdict and change no number",
+    "corpus.split.none": "None of the papers you chose carries a verdict, so there is nothing to compute a score from.",
     "limits.h": "What must not be concluded from this page.",
     "limits.body": "The confidence intervals of the leading definitions overlap — \"among the leaders\" is allowed, \"the best\" is not. The tagging was done in one pass by a single coder, so two-independent-coder reliability is not met and is not claimed. And numbers from one run are not comparable with numbers from another: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition.",
   },

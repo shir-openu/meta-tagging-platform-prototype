@@ -1,3 +1,28 @@
+/* ---------------------------------------------------------------------------
+   Shir, 2026-08-15: "THE RESOLUTION OF THE PAGES IS VERY SMALL. The current design
+   looks good on my PC monitor at 125%. On my laptop it looks good at 67% and 125 is
+   far too big. Is there a way to make a page suitable to the monitor it is viewed
+   from?"  Yes, and the cause was two fixed numbers.
+
+   Every size in this file is already in `rem` - but `rem` is anchored to the browser's
+   root font size, which is 16px on EVERY machine and knows nothing about the screen.
+   So the page rendered identically on a 27-inch monitor and a 13-inch laptop, and the
+   only way to fix it was the zoom control - 125% on one, 67% on the other.
+
+   The root font size now scales WITH THE VIEWPORT, so one setting suits both:
+       small laptop  (1280px wide) -> ~15.4px
+       1366px laptop               -> ~15.9px
+       1920px monitor              -> ~18.2px
+       2560px monitor              -> ~21px  (capped)
+   The rem+vw mix inside clamp() is deliberate: a pure-vw root font size stops the
+   browser's own zoom from working, which would take away the control she is using now.
+   --------------------------------------------------------------------------- */
+html { font-size: clamp(15px, 0.72rem + 0.32vw, 21px); }
+
+/* The container was a hard 1400px. On a 1366-wide laptop that is wider than the
+   window, which is what forced 67% - the page did not fit at any comfortable size. */
+:root { --shell-max: min(1400px, 94vw); }
+
 /* =====================================================
    PrimingToolbox - Main Stylesheet
    Version: 1.0
@@ -222,7 +247,7 @@ body::after {
 .main {
   flex: 1;
   padding: 30px 40px;
-  max-width: 1400px;
+  max-width: var(--shell-max, min(1400px, 94vw));
 }
 
 h1 {

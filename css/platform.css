@@ -1,3 +1,28 @@
+/* ---------------------------------------------------------------------------
+   Shir, 2026-08-15: "THE RESOLUTION OF THE PAGES IS VERY SMALL. The current design
+   looks good on my PC monitor at 125%. On my laptop it looks good at 67% and 125 is
+   far too big. Is there a way to make a page suitable to the monitor it is viewed
+   from?"  Yes, and the cause was two fixed numbers.
+
+   Every size in this file is already in `rem` - but `rem` is anchored to the browser's
+   root font size, which is 16px on EVERY machine and knows nothing about the screen.
+   So the page rendered identically on a 27-inch monitor and a 13-inch laptop, and the
+   only way to fix it was the zoom control - 125% on one, 67% on the other.
+
+   The root font size now scales WITH THE VIEWPORT, so one setting suits both:
+       small laptop  (1280px wide) -> ~15.4px
+       1366px laptop               -> ~15.9px
+       1920px monitor              -> ~18.2px
+       2560px monitor              -> ~21px  (capped)
+   The rem+vw mix inside clamp() is deliberate: a pure-vw root font size stops the
+   browser's own zoom from working, which would take away the control she is using now.
+   --------------------------------------------------------------------------- */
+html { font-size: clamp(15px, 0.72rem + 0.32vw, 21px); }
+
+/* The container was a hard 1400px. On a 1366-wide laptop that is wider than the
+   window, which is what forced 67% - the page did not fit at any comfortable size. */
+:root { --shell-max: min(1400px, 94vw); }
+
 /* =====================================================
    Meta-Tagging Platform - additions on top of shell.css
    shell.css is PrimingToolbox/css/main.css, imported unchanged:
@@ -23,7 +48,7 @@
 .pt-wrap {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
+  max-width: var(--shell-max, min(1400px, 94vw));
   margin: 0 auto;
   padding: 1.8rem 2.2rem 5rem;
 }
@@ -888,8 +913,13 @@ a:focus-visible {
 #step3wrap:has(.stepcol) { grid-template-columns: 1fr 1fr; }
 .stepcol:nth-of-type(1) .step { grid-column: 1; grid-row: 1; }
 .stepcol:nth-of-type(2) .step { grid-column: 2; grid-row: 1; }
+/* Shir, 2026-08-15: "WHEN YOU PRESS THIS BUTTON TWO SLIDERS APPEAR - I THINK ONLY THE INNER
+   ONE SHOULD STAY, THE OUTER SLIDER REDUNDANT." The panel carried its own horizontal scroller
+   and the concept dropdown inside it carries a vertical one, so opening the picker put two
+   bars on screen for one list. The inner bar belongs to the thing being scrolled; this one
+   only ever existed to rescue content too wide for the column. */
 .stepcol .panel { grid-column: 1 / -1; grid-row: 2; margin: .55rem 0 0;
-                  max-width: none; overflow-x: auto; }
+                  max-width: none; overflow-x: visible; }
 @media (max-width: 900px) {
   .stepcol:nth-of-type(1) .step,
   .stepcol:nth-of-type(2) .step { grid-column: 1; }
@@ -1005,3 +1035,8 @@ a:focus-visible {
 .ac-more { color: #ff5fb0; font-weight: 700; font-size: .88rem;
            padding: .5rem .6rem; border-top: 1px solid var(--line); position: sticky;
            bottom: 0; background: #170f22; }
+
+/* One quiet line where four "coming" cards used to stand. Shir, 2026-08-17: a first-time reader
+   met four roadmap cards, eight toggle buttons and their hidden prose before the two things that
+   actually work. A roadmap is not the product. */
+.pt-soon{color:var(--dim,#8b8b96);font-size:.88rem;line-height:1.6;margin:1.1rem 0 0;max-width:70ch}

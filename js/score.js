@@ -46,6 +46,11 @@ const DEFAULT_CONCEPT = "art";
 const MAX_HITS = 300;
 
 const S = {
+  // Shir, 2026-08-15: "ART SHOULD BE REMOVED FROM THE FIRST PURPLE BUTTON". The board used to
+  // open already holding art - button labelled ART, corpus labelled "all 29 papers", results
+  // for a concept nobody had asked for. A tool that answers before it is asked teaches the
+  // visitor that the answer was not about their question. Nothing is picked until someone picks.
+  picked: false,
   concept: DEFAULT_CONCEPT,
   registry: [], query: "",
   papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
@@ -184,7 +189,9 @@ function writeURL() {
   // result, and half of "which result" is which concept it was about.
   if (S.concept === DEFAULT_CONCEPT) u.searchParams.delete("concept");
   else u.searchParams.set("concept", S.concept);
-  if (S.selected.size === ids.length) u.searchParams.delete("c");
+  // An absent "c" means EMPTY now, so a full corpus has to be written out explicitly or a
+  // shared link would reopen with nothing chosen.
+  if (S.selected.size === 0) u.searchParams.delete("c");
   else u.searchParams.set("c", bits);
   const openPanel = document.querySelector(".panel.open");
   if (openPanel) u.searchParams.set("p", openPanel.id);
@@ -197,7 +204,11 @@ function readURL() {
   const bits = u.searchParams.get("c");
   const ids = S.papers.map(p => p.id);
   const scored = new Set(S.papers.filter(p => p.n_scored).map(p => p.id));
-  if (!bits || bits.length !== ids.length) scored.forEach(id => S.selected.add(id));
+  // Shir, 2026-08-15: "THE ALL 29 PAPERS SHOULD BE REMOVED AND THE USER SHOULD HAVE THE
+  // OPTION TO PICK HIS OWN CORPUS." No bits in the URL now means NOTHING chosen, not
+  // everything. "הכל" still selects all in one press - the difference is that choosing all
+  // is now something the visitor DID, not something that happened to them.
+  if (!bits || bits.length !== ids.length) { /* start empty - the visitor picks */ }
   else ids.forEach((id, k) => { if (bits[k] === "1" && scored.has(id)) S.selected.add(id); });
   // the sensitivity panel is part of the shareable state: a claim about how robust a result
   // is should travel with the corpus that produced it, not have to be re-found by hand.
@@ -328,8 +339,20 @@ function renderPapers() {
                  `<span class="n">${rows.length}</span></div>`;
     return head + rows.map(p => {
       const board = scored.get(p.id);
-      // Only a paper that carries verdicts can change a score. The rest are listed - the
-      // library is not hidden - but ticking one would do nothing, so it cannot be ticked.
+      // 2026-08-16, Shir: "THE ALL 29 PAPERS SHOULD BE REMOVED AND THE USER - E.G. ME - SHOULD
+      // HAVE THE OPTION TO PICK HIS OWN CORPUS." Every paper is now tickable.
+      //
+      // The lock that used to sit here was mine and it OVERSHOT ITS OWN FINDING. The measurement
+      // behind it is real - instruction wording alone moves MCC by about 0.12 for an identical
+      // definition, so scores from different runs are not comparable - but that says nothing
+      // about WHICH PAPERS A PERSON MAY PUT IN A CORPUS. It licenses "never pool two runs", and I
+      // had implemented "you may not choose". A paper with no verdicts contributes no case to
+      // corpusCases(), so ticking one cannot move a number and cannot pool anything.
+      //
+      // What it CAN do is mislead by silence: choose fifty papers, watch the matrix not move, and
+      // conclude the definition fits. So the panel states both halves of the selection every time
+      // - how many carry verdicts and how many do not - and canScore now drives that line and the
+      // row's own label instead of driving `disabled`.
       const canScore = !!(board && board.n_scored);
       const on = S.selected.has(p.id);
       const who = (p.authors || []).slice(0, 3).join(", ");
@@ -338,7 +361,7 @@ function renderPapers() {
         : (LANG === "he" ? "תויג, טרם נוקד" : "tagged, not yet scored");
       return `<label class="pt-paper ${on ? "" : "off"} ${canScore ? "" : "unscored"}"
                      data-id="${esc(p.id)}">
-        <input type="checkbox" ${on ? "checked" : ""} ${canScore ? "" : "disabled"}>
+        <input type="checkbox" ${on ? "checked" : ""}>
         <span>
           <span class="t">${esc(p.title)}</span>
           <span class="m"><span class="ltr">${p.year || "—"}</span>
@@ -349,11 +372,20 @@ function renderPapers() {
     }).join("");
   }).join("");
 
-  const nUn = S.papers.filter(p => !p.n_scored).length;
+  // The whole library is selectable, so the visitor's own selection is what has to be described -
+  // and described in BOTH halves. "3 of your 12 are scored" and "9 of your 12 change nothing" are
+  // the same fact, and only the second one warns.
+  S.visible = hits.map(p => p.id);
+  const nSel = S.selected.size;
+  const nSelScored = [...S.selected].filter(id => scoredSet.has(id)).length;
   const note = document.getElementById("unscoredNote");
   if (note) {
-    note.innerHTML = nUn ? `<b>${t("unscored.h")}</b> (${nUn}) — ${t("unscored.body")}` : "";
-    note.style.display = nUn ? "" : "none";
+    note.innerHTML = nSel
+      ? t("corpus.split").replace("{n}", nSel).replace("{k}", nSelScored)
+                         .replace("{m}", nSel - nSelScored)
+        + (nSelScored === 0 ? ` <b>${t("corpus.split.none")}</b>` : "")
+      : `<b>${t("unscored.h")}</b> — ${t("unscored.body")}`;
+    note.style.display = "";
   }
   box.querySelectorAll(".pt-paper input").forEach(inp => {
     inp.addEventListener("change", e => {
@@ -416,6 +448,17 @@ function caseRow(r) {
 }
 
 function renderBoard() {
+  // With nothing picked there is nothing to say, and saying it badly is worse than saying
+  // nothing: an empty corpus makes every definition unscorable, which the calibration check
+  // would otherwise report as "the calibration definition is missing" - a warning about our
+  // data, on a screen where the visitor has simply not chosen yet.
+  if (!S.picked || S.selected.size === 0) {
+    const w = document.getElementById("calib");
+    if (w) w.style.display = "none";
+    const off = document.getElementById("offered");
+    if (off) off.innerHTML = `<div class="pt-note" style="padding:.9rem 0">${esc(t("board.pick"))}</div>`;
+    return;
+  }
   const { judged, undecided } = corpusCases();
   renderState(judged, undecided);
 
@@ -1108,6 +1151,7 @@ async function switchConcept(id) {
     if (el) el.style.display = "";
   });
   S.concept = id;
+  S.picked = true;
   // The old corpus selection is a list of paper ids that do not exist in the new concept, and
   // the `c` bitmask in the URL is indexed against the old paper list. Both have to go, or the
   // new board opens with an empty corpus and looks broken.
@@ -1124,15 +1168,19 @@ function renderSteps() {
   // pressed the green button, and got art's 29 papers - because the buttons still described
   // the loaded definition board rather than the thing she had just chosen.
   const cv = document.getElementById("conceptVal");
-  if (cv) cv.textContent = S.termPick ? S.termPick.label : conceptLabel(conf());
+  if (cv) cv.textContent = S.termPick ? S.termPick.label
+                        : (S.picked ? conceptLabel(conf()) : t("step.nopick"));
   const pv = document.getElementById("corpusVal");
   if (pv) {
     if (S.termPick) {
       pv.textContent = t("corpus.npapers").replace("{n}", S.termPick.ids.length);
     } else {
-      const n = S.selected.size, all = S.papers.filter(p => p.n_scored).length;
-      pv.textContent = n === all ? t("corpus.allpapers").replace("{n}", n)
-                                 : t("corpus.npapers").replace("{n}", n);
+      // "all {n} papers" is gone. It named the 29 that carried verdicts as though they were the
+      // corpus, which is the label Shir asked to remove: the corpus is whatever she picked, and
+      // the count of judged ones belongs beside the number it affects, not in the button.
+      const n = S.selected.size;
+      pv.textContent = n === 0 ? t("corpus.nopick")
+                               : t("corpus.npapers").replace("{n}", n);
     }
   }
 }
@@ -1499,7 +1547,13 @@ function refresh() {
 function wire() {
   const _selAll = document.getElementById("selAll");
   if (_selAll) _selAll.onclick = () => {
-    S.papers.forEach(p => { if (p.n_scored) S.selected.add(p.id); }); refresh();
+    // "all" now means every paper CURRENTLY LISTED, which is what a person reading a filtered
+    // list means by it. It used to mean "the 29 that carry verdicts" whatever was on screen -
+    // so searching for a discipline and pressing all silently selected papers from another one.
+    const ids = (S.visible && S.visible.length) ? S.visible : S.papers.map(p => p.id);
+    ids.forEach(id => S.selected.add(id));
+    S.pickedCorpus = true;
+    refresh();
   };
   const _selNone = document.getElementById("selNone");
   if (_selNone) _selNone.onclick = () => { S.selected.clear(); refresh(); };
@@ -1849,7 +1903,7 @@ async function boot() {
   // the fallback is only taken for a concept that genuinely has a board.
   const want = new URL(location.href).searchParams.get("concept");
   const wanted = want && S.registry.find(c => c.id === want && c.state === "ready");
-  if (wanted) S.concept = want;
+  if (wanted) { S.concept = want; S.picked = true; }
   if (!await loadConcept(true)) return;
   wire();
   refresh();

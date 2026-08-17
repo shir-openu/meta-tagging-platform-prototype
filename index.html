@@ -7,8 +7,8 @@
 <meta name="description" content="A verbatim-grounded tag layer for academic literature. Build a corpus, test definitions, and check every score against the exact sentence it came from.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="he" href="index-he.html">
-<link rel="stylesheet" href="css/shell.css?v=9c6721cb">
-<link rel="stylesheet" href="css/platform.css?v=9c6721cb">
+<link rel="stylesheet" href="css/shell.css?v=4ff3e47a">
+<link rel="stylesheet" href="css/platform.css?v=4ff3e47a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,15 +60,13 @@
     <span class="tag">prototype</span>
     <a class="pt-btn" href="index-he.html"
        style="margin-inline-start:auto;text-decoration:none">עברית</a>
-    <div class="sub">A field-neutral tag layer for academic literature in which <b>every tag carries the exact sentence from the paper it was read from</b>. The purpose: to accelerate interdisciplinary research — to save the step where a reader stalls on entering an unfamiliar field.</div>
+    <div class="sub">A tag layer for academic literature in which <b>every tag carries the exact sentence from the paper it was read from</b>.</div>
   </div>
-
-  <div class="pt-state" id="liveStats">…</div>
 
   <div class="acts">
     <div class="act live" style="--fam:#1a7a33;--fam-lit:#5cc46f">
       <div class="row"><span class="ic">🔍</span><h2>Find the definition that fits a corpus</h2>
-        <span class="state">live · two concepts: art and game</span></div>
+        <span class="state">live</span></div>
       <div class="disc">
         <a class="go" href="define/?lang=en">enter</a>
         <button class="tog" data-why="w0" aria-expanded="false" aria-controls="w0" aria-label="why — Find the definition that fits a corpus">?</button>
@@ -76,54 +74,6 @@
       </div>
       <div class="why" id="w0">Choose which papers make up the corpus and see immediately which definition of the concept fits it best — and exactly which cases it fails on.</div>
       <div class="notes" id="n0"><ul><li>Free choice of papers</li><li>Ranking updates instantly</li><li>Under every score, the case table and the quote</li></ul></div>
-    </div>
-
-    <div class="act soon" style="--fam:#0b4f9c;--fam-lit:#5aa9f0">
-      <div class="row"><span class="ic">📄</span><h2>Upload a paper for tagging</h2>
-        <span class="state">coming</span></div>
-      <div class="disc">
-        
-        <button class="tog" data-why="w1" aria-expanded="false" aria-controls="w1" aria-label="why — Upload a paper for tagging">?</button>
-        <button class="tog" data-why="n1" aria-expanded="false" aria-controls="n1" aria-label="notes — Upload a paper for tagging">&#8801;</button>
-      </div>
-      <div class="why" id="w1">Hand over a PDF, a DOI or a link. The system extracts the text, tags it, and returns for every tag the exact evidence and where it sits in the source.</div>
-      <div class="notes" id="n1"><ul><li>Licence check built in</li><li>Every tag passes the verbatim gate</li><li>Export in any format</li></ul></div>
-    </div>
-
-    <div class="act soon" style="--fam:#5e35b1;--fam-lit:#a98bec">
-      <div class="row"><span class="ic">🧭</span><h2>Search the tag layer</h2>
-        <span class="state">coming · an early version exists in the showcase</span></div>
-      <div class="disc">
-        
-        <button class="tog" data-why="w2" aria-expanded="false" aria-controls="w2" aria-label="why — Search the tag layer">?</button>
-        <button class="tog" data-why="n2" aria-expanded="false" aria-controls="n2" aria-label="notes — Search the tag layer">&#8801;</button>
-      </div>
-      <div class="why" id="w2">Cross-field search by statistical term, claim type, phenomenon or discipline, across the whole corpus.</div>
-      <div class="notes" id="n2"><ul><li>Inverted index, runs in the browser</li><li>Will search the main corpus — 538 records across 86 disciplines</li></ul></div>
-    </div>
-
-    <div class="act soon" style="--fam:#00838f;--fam-lit:#3fd0dd">
-      <div class="row"><span class="ic">🔗</span><h2>Does the concept travel between fields</h2>
-        <span class="state">coming</span></div>
-      <div class="disc">
-        
-        <button class="tog" data-why="w3" aria-expanded="false" aria-controls="w3" aria-label="why — Does the concept travel between fields">?</button>
-        <button class="tog" data-why="n3" aria-expanded="false" aria-controls="n3" aria-label="notes — Does the concept travel between fields">&#8801;</button>
-      </div>
-      <div class="why" id="w3">Apply each paper's criteria to every field's cases and measure how much of the meaning survives the crossing.</div>
-      <div class="notes" id="n3"><ul><li>Paper-level transfer matrix</li><li>Already implemented for priming</li></ul></div>
-    </div>
-
-    <div class="act soon" style="--fam:#c2185b;--fam-lit:#f2789f">
-      <div class="row"><span class="ic">🕳️</span><h2>The negative space</h2>
-        <span class="state">coming</span></div>
-      <div class="disc">
-        
-        <button class="tog" data-why="w4" aria-expanded="false" aria-controls="w4" aria-label="why — The negative space">?</button>
-        <button class="tog" data-why="n4" aria-expanded="false" aria-controls="n4" aria-label="notes — The negative space">&#8801;</button>
-      </div>
-      <div class="why" id="w4">Finding terms the literature <b>should</b> have coined and did not — a junction every field touches and nobody has named.</div>
-      <div class="notes" id="n4"><ul><li>The most distinctive function here</li><li>No equivalent found on the market</li></ul></div>
     </div>
 
     <div class="act live" style="--fam:#a35b00;--fam-lit:#e0a33c">
@@ -139,6 +89,10 @@
     </div>
 
   </div>
+
+  <div class="pt-soon">Also planned: upload a paper for tagging · search the tag layer ·
+   does a concept travel between fields · the negative space — terms the literature should
+   have coined and did not.</div>
 
   <div class="pt-foot" dir="ltr" style="text-align:start">
     Open data:
@@ -202,11 +156,13 @@ document.querySelectorAll(".tog[data-why]").forEach(b => {
       if (inl[n + ".json"]) return inl[n + ".json"];
       throw new Error("no data for " + n);
     };
+    const box = document.getElementById("liveStats");
+    if (!box) return;   // the entry page no longer carries a stats bar
     const [papers, cases] = await Promise.all(["papers", "cases"].map(grab));
     const scored = papers.filter(p => p.n_scored).length;
     const judged = cases.filter(c => c.status === "P" || c.status === "N").length;
     const L = document.documentElement.lang === "he";
-    document.getElementById("liveStats").innerHTML = L
+    box.innerHTML = L
       ? `<b>המושג שנטען כרגע:</b> אומנות · <span class="num">${papers.length}</span> מאמרים `
         + `(<span class="num">${scored}</span> מהם מנוקדים) · <span class="num">${cases.length}</span> `
         + `מקרים, <span class="num">${judged}</span> מהם מוכרעים · `
@@ -216,7 +172,8 @@ document.querySelectorAll(".tog[data-why]").forEach(b => {
         + `cases, <span class="num">${judged}</span> adjudicated · `
         + `<span class="num">13</span> rival definitions, three of them deliberate controls`;
   } catch (e) {
-    document.getElementById("liveStats").style.display = "none";
+    const b = document.getElementById("liveStats");
+    if (b) b.style.display = "none";
   }
 })();
 </script>
