@@ -359,6 +359,24 @@ details.pt-cases[open] > summary::before { content: "▾ "; }
    Shown, never hidden - the corpus grew and a visitor should see that - but not selectable,
    because adding it would move no number and the tool would look broken rather than honest. */
 .pt-paper.unscored { opacity: .5; cursor: not-allowed; }
+/* A term's corpus holds two kinds of paper and they are different claims: somebody TAGGED this
+   paper with the term, or the term simply occurs in its text. Both are selectable, so neither is
+   dimmed - the distinction is carried by the colour of the meta line. (2026-08-19) */
+.pt-paper.istag .m { color: #5cc46f; }
+.pt-paper.mention .m { color: var(--dim); }
+/* A title in the corpus list is a LINK to the paper, and a link takes the page's link colour -
+   a mid-blue that sits at roughly 2:1 on this near-black panel, then gets multiplied by the
+   0.45 of `.off` when the row is unticked. The result is a list of titles nobody can read; it
+   is visible in Shir's own screenshot of 2026-08-19 and predates the term-corpus work.
+   The row already sets `.t { color: var(--ink) }` - the anchor just has to stop overriding it,
+   keeping the underline so it still reads as a link. (2026-08-19) */
+.pt-paper .t a { color: var(--ink); text-decoration: underline;
+                 text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.pt-paper .t a:hover, .pt-paper .t a:focus { color: #5cc46f; }
+/* An unticked row is de-emphasised, not hidden. 0.45 was set when these rows were plain text on
+   the panel; on a list of 60 selectable papers it is the difference between scanning the list
+   and squinting at it. */
+.paperscroll .pt-paper.off .t, .paperscroll .pt-paper.off .m { opacity: 0.72; }
 .pt-paper.unscored .m { color: var(--pink); }
 
 /* ---------- phones ----------
@@ -943,7 +961,10 @@ a:focus-visible {
 .disc-h { position: sticky; top: 0; background: var(--pt-panel, #12151c);
           font-weight: 700; font-size: .95rem; padding: .35rem .2rem .25rem;
           border-bottom: 1px solid rgba(255,255,255,.08); z-index: 1; }
-.disc-h .n { color: #8b93a1; font-weight: 400; font-size: .85rem; margin-inline-start: .4rem; }
+/* margin-inline-START alone lost its gap in the Hebrew page: the discipline name is Latin
+   inside an RTL line, so bidi reordering can put the count on the side the margin is not
+   on and it rendered as `neuroscience32`. A margin on BOTH sides cannot be reordered away. */
+.disc-h .n { color: #8b93a1; font-weight: 400; font-size: .85rem; margin-inline: .4rem; }
 .pt-paper .who { color: #8b93a1; font-size: .88rem; }
 .pt-paper .open-badge { color: #5cc46f; font-size: .78rem; margin-inline-start: .4rem; }
 @media (max-width: 900px) { .paperscroll { max-height: 20rem; } }

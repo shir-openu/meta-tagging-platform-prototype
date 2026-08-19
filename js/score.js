@@ -237,6 +237,30 @@ async function getData(rel) {
   return (rel in inl) ? inl[rel] : null;
 }
 
+/* A term's paper ids, decoded on demand.
+
+   term_corpus.json stores ids as INDICES into its `order` array - 156,641 (term, paper) pairs
+   would otherwise repeat a 45-character id in every one of them and weigh 8 MB, which cannot be
+   inlined for the file:// path these pages are opened on.
+
+   Decoding is LAZY, one term at a time. Expanding all 10,986 terms at load would build 156,641
+   strings to use sixty of them. */
+function termIds(ent) {
+  if (!ent) return [];
+  const ord = S.termOrder;
+  const raw = ent[1] || [];
+  if (!ord) return raw;                       // older file: ids were already strings
+  return raw.map(i => (typeof i === "number" ? ord[i] : i)).filter(Boolean);
+}
+
+/* The subset that was TAGGED with the term, as opposed to merely containing the word. Two
+   different claims, so the row says which one it is rather than implying the stronger. */
+function termTaggedSet(ent) {
+  const ord = S.termOrder;
+  const raw = (ent && ent[2]) || [];
+  return new Set(ord ? raw.map(i => (typeof i === "number" ? ord[i] : i)) : raw);
+}
+
 /* ---------- render ---------- */
 /* ---------- PAPER INDEX: the whole library, searched like Scholar ----------
    S.papers is the board's own working set - the papers that carry verdicts. The picker must
@@ -263,6 +287,19 @@ function renderPapers() {
   // judged cases, so none is tickable, and the panel says that instead of offering checkboxes
   // that would do nothing.
   if (S.termPick) {
+    // 2026-08-19, Shir, of this exact panel: "all papers that contain the word consciousness or
+    // linked to the tag consciousness should appear here ENABLING THEIR SELECTION."
+    //
+    // Two faults, and only the first was about the data. The list held the papers where the term
+    // had been WRITTEN AS A TAG - six for `consciousness`, against sixty that contain the word -
+    // which is fixed in build_term_corpus.py. The second was here: these rows were rendered as
+    // plain <div>s with no checkbox, on the reasoning that none of them carries a judged case so
+    // ticking one could not move a score.
+    //
+    // That is the same overshoot the normal branch already had removed on 2026-08-16 ("THE USER -
+    // E.G. ME - SHOULD HAVE THE OPTION TO PICK HIS OWN CORPUS"). A paper with no verdicts
+    // contributes no case, so ticking it cannot pool anything; what it can do is let a person
+    // assemble the corpus they mean to work on. The panel states both halves instead.
     const q = norm((document.getElementById("paperSearch") || {}).value || "");
     const rows = S.termPick.ids
       .map(pid => [pid, (S.termPapers || {})[pid]])
@@ -279,15 +316,39 @@ function renderPapers() {
         (LANG === "he" ? "מאמרים · " : "papers · ") +
         `<span class="num">${groups.size}</span> ` + (LANG === "he" ? "דיסציפלינות" : "disciplines");
     }
+    const tagged = S.termPick.tagged || new Set();
     box.innerHTML = [...groups.entries()].sort((a, b) => b[1].length - a[1].length)
       .map(([d, rs]) =>
         `<div class="disc-h" style="color:#c77dff">${esc(d)}<span class="n">${rs.length}</span></div>` +
-        rs.sort((a, b) => (b[1][1] || 0) - (a[1][1] || 0)).map(([pid, p]) =>
-          `<div class="pt-paper unscored" data-id="${esc(pid)}"><span>
-             <span class="t">${paperLink(pid, d, p[0], p[3] || "")}</span>
-             <span class="m"><span class="ltr">${esc(String(p[1] || "—"))}</span> · ` +
-             (LANG === "he" ? "תויג, טרם נוקד" : "tagged, not yet scored") +
-          `</span></span></div>`).join("")).join("");
+        rs.sort((a, b) => (b[1][1] || 0) - (a[1][1] || 0)).map(([pid, p]) => {
+          const on = S.selected.has(pid);
+          const isTag = tagged.has(pid);
+          const how = isTag
+            ? (LANG === "he" ? "מתויג במונח" : "tagged with this term")
+            : (LANG === "he" ? "המונח מופיע בטקסט" : "term appears in the text");
+          // NOT `unscored`: that class means "carries no verdicts, cannot be ticked" and brings
+          // cursor:not-allowed plus a second opacity multiplier with it.
+          return `<label class="pt-paper ${on ? "" : "off"} ${isTag ? "istag" : "mention"}"
+                         data-id="${esc(pid)}">
+            <input type="checkbox" ${on ? "checked" : ""}>
+            <span>
+              <span class="t">${paperLink(pid, d, p[0], p[3] || "")}</span>
+              <span class="m"><span class="ltr">${esc(String(p[1] || "—"))}</span> · ${how}</span>
+            </span>
+          </label>`;
+        }).join("")).join("");
+    // all / none / invert act on what is on screen, so the visible set has to be this list and
+    // not the library's.
+    S.visible = rows.map(([pid]) => pid);
+    box.querySelectorAll(".pt-paper input").forEach(inp => {
+      inp.addEventListener("change", e => {
+        const id = e.target.closest(".pt-paper").dataset.id;
+        if (e.target.checked) S.selected.add(id); else S.selected.delete(id);
+        S.pickedCorpus = true;
+        renderSteps();
+        updateStep3();
+      });
+    });
     return;
   }
   const q = (document.getElementById("paperSearch") || {}).value || "";
@@ -1031,7 +1092,8 @@ function chooseSoon(id) {
     + " -->" + termCorpusHTML(c);
   // The term becomes the working selection: step 1 names it, step 2 becomes ITS papers.
   const ent = S.termCorpus && S.termCorpus[c.slug || slugOf(c.en || c.id)];
-  S.termPick = { id: c.id, label: c.en || c.id, ids: (ent && ent[1]) || [] };
+  S.termPick = { id: c.id, label: c.en || c.id, ids: termIds(ent),
+                 tagged: termTaggedSet(ent) };
   // The art-vs-game comparison note and the board's own state bar both describe the loaded
   // definition board, not the term just chosen. Leaving them on screen under a term's corpus
   // is the same fault as the green button: text that belongs to something else.
@@ -1071,7 +1133,7 @@ function termCorpusHTML(c) {
   const he = LANG === "he";
   const ent = S.termCorpus && S.termCorpus[c.slug || slugOf(c.en || c.id)];
   if (!ent) return "";
-  const ids = ent[1] || [];
+  const ids = termIds(ent);
   if (!ids.length) return "";
   const byDisc = new Map();
   ids.forEach(pid => {
@@ -1173,7 +1235,12 @@ function renderSteps() {
   const pv = document.getElementById("corpusVal");
   if (pv) {
     if (S.termPick) {
-      pv.textContent = t("corpus.npapers").replace("{n}", S.termPick.ids.length);
+      // Until something is ticked this says how many papers the TERM has, which is the number
+      // the visitor came for; once anything is ticked it says how many THEY chose. Printing the
+      // corpus size under the word "selected" was true only while the rows could not be ticked.
+      const k = S.selected.size;
+      pv.textContent = k ? t("corpus.npapers").replace("{n}", k)
+                         : t("corpus.navail").replace("{n}", S.termPick.ids.length);
     } else {
       // "all {n} papers" is gone. It named the 29 that carried verdicts as though they were the
       // corpus, which is the label Shir asked to remove: the corpus is whatever she picked, and
@@ -1866,6 +1933,7 @@ async function boot() {
     const tc = await getData("term_corpus.json");
     if (tc && tc.terms) {
       S.termPapers = tc.papers || {};
+      S.termOrder = tc.order || null;   // index -> paper id; absent in the pre-2026-08-19 file
       S.termCorpus = tc.terms;
       // The registry's ids are RAW TERMS with spaces ("working memory"); term_corpus is keyed
       // by slug ("working-memory"). Every entry therefore carries its slug from here on, or
