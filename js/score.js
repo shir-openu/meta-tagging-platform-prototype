@@ -740,9 +740,17 @@ function renderLiveMatrix(defId) {
   // showing the previous selection. A crash upstream of a display is invisible until the
   // display is wrong.
   if (!judged.length) {
-    el.innerHTML = `<div class="pt-note">${he
-      ? "לא נבחרו מאמרים. בחרי קורפוס בכפתור 2 והמטריצה תופיע כאן."
-      : "No papers selected. Choose a corpus with button 2 and the matrix appears here."
+    // TWO DIFFERENT EMPTINESSES, AND THEY WANT DIFFERENT ACTIONS. `judged` is the selected papers
+    // that ALSO carry a yes/no judgement for this concept. Sixty selected papers with no
+    // judgement on this concept produced an empty `judged` and a message saying no papers were
+    // selected - so the step-3 header said 60 and the panel under it said none, from one state.
+    const n = S.selected.size;
+    el.innerHTML = `<div class="pt-note">${
+      n === 0
+        ? (he ? "לא נבחרו מאמרים. בחרי קורפוס בכפתור 2 והמטריצה תופיע כאן."
+              : "No papers selected. Choose a corpus with button 2 and the matrix appears here.")
+        : (he ? `${n} מאמרים נבחרו, ולאף אחד מהם אין עדיין הכרעה על המושג הזה. הכריעי כמה בכפתור 2, או בחרי מושג שהמאמרים האלה מכסים.`
+              : `${n} papers selected, and none of them carries a yes/no judgement for this concept yet. Judge a few with button 2, or choose a concept these papers cover.`)
     }</div>`;
     return;
   }
@@ -1119,11 +1127,36 @@ function chooseSoon(id) {
    would ship several thousand links that 404 on the live site. Off file:// the row falls back
    to the paper's own address, and a paper with neither is printed as plain text rather than as
    a link that goes nowhere. */
+/* THE TAGGED PAGE IS ON THE WEB, and this function used to send readers to the publisher.
+
+   The tagged pages live in another repository, so a local CORPUS/ path would 404 on the live
+   site - which is why the published build fell back to the paper's own url and Shir clicked a
+   paper and landed on nature.com behind a cookie wall. But the showcase publishes every one of
+   them, so what was missing was not the page: it was the LIST of which ids have one.
+
+   data/showcase_pages.json carries that list, written by
+   TOOLS/export_showcase_pages_for_platform.py. Our page first; the publisher only when we have
+   no page, because a link to a page we do not publish is worse than a link to the paper. */
+let SHOWCASE = null;
+
+function showcaseHref(pid) {
+  if (!SHOWCASE || !pid) return "";
+  const known = SHOWCASE.full_text.includes(pid) || SHOWCASE.tags_only.includes(pid);
+  return known ? (SHOWCASE.base + "papers/" + pid + ".html") : "";
+}
+
 function paperLink(pid, disc, title, url) {
   const local = location.protocol === "file:";
-  const href = local ? ("../../CORPUS/" + disc + "/" + pid + "/paper_colored.html") : url;
+  const href = (local ? ("../../CORPUS/" + disc + "/" + pid + "/paper_colored.html") : "")
+    || showcaseHref(pid) || url;
   if (!href) return `<span class="t">${esc(title)}</span>`;
-  return `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(title)}</a>`;
+  const ours = href.indexOf("meta-tagging-showcase") !== -1 || href.indexOf("CORPUS/") === 0
+    || href.indexOf("../../CORPUS/") === 0;
+  const full = ours && SHOWCASE && SHOWCASE.full_text.includes(pid);
+  const note = full ? (LANG === "he" ? "טקסט מלא מתויג" : "full tagged text")
+    : ours ? (LANG === "he" ? "שכבת התגים" : "our tag layer") : "";
+  return `<a href="${esc(href)}" target="_blank" rel="noopener"${note ? ` title="${esc(note)}"` : ""}>`
+    + `${esc(title)}</a>`;
 }
 
 /* The corpus behind the count: every paper in which this term appears at least once.
@@ -1873,6 +1906,13 @@ async function loadConcept(fromURL) {
       // reject the batch.
       getData(dir.replace("../data/", "") + n + ".json")));
   S.manifest = manifest;
+  // WHICH PAPERS HAVE A TAGGED PAGE ON THE SHOWCASE. Loaded once; a failure here must never stop
+  // the screen, because without it every link simply falls back to the publisher, which is the
+  // behaviour we are replacing rather than something the page depends on.
+  if (SHOWCASE === null) {
+    try { SHOWCASE = await getData("showcase_pages.json"); } catch (e) { SHOWCASE = null; }
+    if (SHOWCASE && !(SHOWCASE.full_text && SHOWCASE.tags_only)) SHOWCASE = null;
+  }
   if (!papers || !cases || !defs || !verdicts) {
     const el = document.getElementById("offered");
     if (el) el.innerHTML = `<div class="hero-result warn"><div class="win">${
