@@ -445,7 +445,7 @@ function renderPapers() {
       ? t("corpus.split").replace("{n}", nSel).replace("{k}", nSelScored)
                          .replace("{m}", nSel - nSelScored)
         + (nSelScored === 0 ? ` <b>${t("corpus.split.none")}</b>` : "")
-      : `<b>${t("unscored.h")}</b> — ${t("unscored.body")}`;
+      : `<b>${t("unscored.h")}</b> — ${t("unscored.body").replace("{n}", (S.index && S.index.length) || all.length)}`;
     note.style.display = "";
   }
   box.querySelectorAll(".pt-paper input").forEach(inp => {

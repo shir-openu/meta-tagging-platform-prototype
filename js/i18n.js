@@ -205,7 +205,7 @@ const I18N = {
     "plain.none": "אין די מקרים בקורפוס הזה כדי לחשב ציון.",
 
     "unscored.h": "אפשר לבחור כל מאמר — לא כל מאמר משנה את הציון",
-    "unscored.body": "כל 598 המאמרים פתוחים לבחירה: הקורפוס הוא מה שבחרתם. אבל רק מאמר שנושא הכרעות יכול לשנות מספר, ולכן ליד כל בחירה כתוב כמה מהמאמרים שבחרתם נושאים הכרעות וכמה לא. מאמר שטרם נוקד תויג כבר — יש לו מקרים וציטוטים — אבל <b>לא ננקד אותו בנפרד</b>: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק, ולכן ציונים מהרצות שונות אינם ברי־השוואה. הכרעות ייפתחו כשכל הקורפוס ינוקד מחדש בהרצה אחת.",
+    "unscored.body": "כל {n} המאמרים פתוחים לבחירה: הקורפוס הוא מה שבחרתם. אבל רק מאמר שנושא הכרעות יכול לשנות מספר, ולכן ליד כל בחירה כתוב כמה מהמאמרים שבחרתם נושאים הכרעות וכמה לא. מאמר שטרם נוקד תויג כבר — יש לו מקרים וציטוטים — אבל <b>לא ננקד אותו בנפרד</b>: מדדנו שניסוח ההוראה לשופטים מזיז את ה־MCC בכ־0.12 לאותה הגדרה בדיוק, ולכן ציונים מהרצות שונות אינם ברי־השוואה. הכרעות ייפתחו כשכל הקורפוס ינוקד מחדש בהרצה אחת.",
     "corpus.split": "<span class=\"num\">{n}</span> מאמרים נבחרו · <span class=\"num\">{k}</span> נושאים הכרעות ומנוקדים · <span class=\"num\">{m}</span> ללא הכרעה, ואינם משנים אף מספר",
     "corpus.split.none": "אף אחד מהמאמרים שבחרתם אינו נושא הכרעות, ולכן אין ממה לחשב ציון.",
     "limits.h": "מה אסור להסיק מהעמוד הזה.",
@@ -397,7 +397,7 @@ const I18N = {
     "plain.none": "Not enough cases in this corpus to compute a score.",
 
     "unscored.h": "any paper can be chosen — not every paper moves the score",
-    "unscored.body": "All 598 papers are selectable: the corpus is what you pick. But only a paper carrying verdicts can move a number, so every selection says how many of your papers carry them and how many do not. A paper not yet judged is already tagged — it has cases and quotes — but <b>we will not judge it separately</b>: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition, so scores from different runs are not comparable. Verdicts open up when the whole corpus is re-scored in one run.",
+    "unscored.body": "All {n} papers are selectable: the corpus is what you pick. But only a paper carrying verdicts can move a number, so every selection says how many of your papers carry them and how many do not. A paper not yet judged is already tagged — it has cases and quotes — but <b>we will not judge it separately</b>: we measured that instruction wording alone moves MCC by about 0.12 for an identical definition, so scores from different runs are not comparable. Verdicts open up when the whole corpus is re-scored in one run.",
     "corpus.split": "<span class=\"num\">{n}</span> papers chosen · <span class=\"num\">{k}</span> carry verdicts and are scored · <span class=\"num\">{m}</span> have no verdict and change no number",
     "corpus.split.none": "None of the papers you chose carries a verdict, so there is nothing to compute a score from.",
     "limits.h": "What must not be concluded from this page.",
