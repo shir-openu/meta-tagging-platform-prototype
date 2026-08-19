@@ -285,6 +285,21 @@
    "n_scored": 0
   },
   {
+   "id": "kingma2014-adam",
+   "title": "Adam: A Method for Stochastic Optimization",
+   "authors": [
+    "Diederik P. Kingma",
+    "Jimmy Ba"
+   ],
+   "year": 2014,
+   "discipline": "artificial-intelligence",
+   "colour": "#a959e1",
+   "colour_light": "#8324c4",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
    "id": "kingma2013-vae",
    "title": "Auto-Encoding Variational Bayes",
    "authors": [
@@ -480,21 +495,6 @@
    "discipline": "astronomy",
    "colour": "#d65548",
    "colour_light": "#c0392b",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
-   "id": "watanabe1971-auditory-temporal-masking-an-elect",
-   "title": "Auditory temporal masking: an electrophysiological study of single neurons in the cat's cochlear nucleus and inferior colliculus",
-   "authors": [
-    "Watanabe",
-    "Simada"
-   ],
-   "year": 1971,
-   "discipline": "auditory-neurophysiology",
-   "colour": "#e21dc5",
-   "colour_light": "#b5179e",
    "open": false,
    "n_cases": 0,
    "n_scored": 0
@@ -1552,21 +1552,6 @@
    "n_scored": 0
   },
   {
-   "id": "meyer1971-lexical",
-   "title": "Facilitation in Recognizing Pairs of Words: Evidence of a Dependence Between Retrieval Operations",
-   "authors": [
-    "David E. Meyer",
-    "Roger W. Schvaneveldt"
-   ],
-   "year": 1971,
-   "discipline": "cognitive-psychology",
-   "colour": "#359039",
-   "colour_light": "#2e7d32",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
    "id": "bugelski-alampay1961-perceptual-set",
    "title": "The Role of Frequency in Developing Perceptual Sets",
    "authors": [
@@ -1832,7 +1817,7 @@
    "discipline": "digital-humanities",
    "colour": "#009280",
    "colour_light": "#00695c",
-   "open": false,
+   "open": true,
    "n_cases": 0,
    "n_scored": 0
   },
@@ -1852,7 +1837,7 @@
    "discipline": "digital-humanities",
    "colour": "#009280",
    "colour_light": "#00695c",
-   "open": false,
+   "open": true,
    "n_cases": 0,
    "n_scored": 0
   },
@@ -2927,20 +2912,6 @@
    "n_scored": 0
   },
   {
-   "id": "bock1986-syntactic",
-   "title": "Syntactic Persistence in Language Production",
-   "authors": [
-    "J. Kathryn Bock"
-   ],
-   "year": 1986,
-   "discipline": "linguistics",
-   "colour": "#8a70dc",
-   "colour_light": "#4527a0",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
    "id": "reagan2016-emotional-arcs",
    "title": "The Emotional Arcs of Stories Are Dominated by Six Basic Shapes",
    "authors": [
@@ -3023,6 +2994,22 @@
    "n_scored": 0
   },
   {
+   "id": "ferraro2009-brand",
+   "title": "The Power of Strangers: The Effect of Incidental Consumer Brand Encounters on Brand Choice",
+   "authors": [
+    "Rosellina Ferraro",
+    "James R. Bettman",
+    "Tanya L. Chartrand"
+   ],
+   "year": 2009,
+   "discipline": "marketing",
+   "colour": "#6d7ace",
+   "colour_light": "#3949ab",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
    "id": "lee2003-effect-conceptual",
    "title": "The Effect of Conceptual and Perceptual Fluency on Brand Evaluation",
    "authors": [
@@ -3065,6 +3052,21 @@
    "discipline": "marketing",
    "colour": "#6d7ace",
    "colour_light": "#3949ab",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
+   "id": "geim2007-rise-graphene",
+   "title": "The Rise of Graphene",
+   "authors": [
+    "A. K. Geim",
+    "K. S. Novoselov"
+   ],
+   "year": 2007,
+   "discipline": "materials-science",
+   "colour": "#658492",
+   "colour_light": "#546e7a",
    "open": false,
    "n_cases": 0,
    "n_scored": 0
@@ -3185,20 +3187,6 @@
    "discipline": "media-and-communication-studies",
    "colour": "#e64716",
    "colour_light": "#d84315",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
-   "id": "akp-nar2025-critical-appraisal-of-evidence-in",
-   "title": "Critical Appraisal of Evidence in Medical Education: A Systematic Review of Methodological Approaches, Evidence Types, and Appraisal Frameworks",
-   "authors": [
-    "Ersin Akpınar"
-   ],
-   "year": 2025,
-   "discipline": "medical-education",
-   "colour": "#0284d1",
-   "colour_light": "#0277bd",
    "open": false,
    "n_cases": 0,
    "n_scored": 0
@@ -3470,6 +3458,22 @@
     "Spivak",
     "Gattegno",
     "Stark"
+   ],
+   "year": 2023,
+   "discipline": "neuroscience",
+   "colour": "#906ed4",
+   "colour_light": "#5e35b1",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
+   "id": "sivroni2023-auditory",
+   "title": "Short-Term Auditory Priming in Freely-Moving Mice",
+   "authors": [
+    "Shir Sivroni",
+    "Hadas E. Sloin",
+    "Eran Stark"
    ],
    "year": 2023,
    "discipline": "neuroscience",
@@ -6766,6 +6770,21 @@
    "n_scored": 0
   },
   {
+   "id": "mcmahon-olson2007-suppression",
+   "title": "Repetition Suppression in Monkey Inferotemporal Cortex: Relation to Behavioral Priming",
+   "authors": [
+    "David B. T. McMahon",
+    "Carl R. Olson"
+   ],
+   "year": 2007,
+   "discipline": "neuroscience",
+   "colour": "#906ed4",
+   "colour_light": "#5e35b1",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
    "id": "chen2006-operant-conditioning-of-h-reflex-c",
    "title": "Operant Conditioning of H-Reflex Can Correct a Locomotor Abnormality after Spinal Cord Injury in Rats",
    "authors": [
@@ -7106,6 +7125,20 @@
    "n_scored": 0
   },
   {
+   "id": "Desimone1996-neural-mechanisms-for-visual-memory-and-thei",
+   "title": "Desimone1996-neural-mechanisms-for-visual-memory-and-thei",
+   "authors": [
+    "Desimone"
+   ],
+   "year": 1996,
+   "discipline": "neuroscience",
+   "colour": "#906ed4",
+   "colour_light": "#5e35b1",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
    "id": "desimone1996-repetition-suppression",
    "title": "Neural Mechanisms for Visual Memory and Their Role in Attention",
    "authors": [
@@ -7127,21 +7160,6 @@
     "Morin"
    ],
    "year": 1995,
-   "discipline": "neuroscience",
-   "colour": "#906ed4",
-   "colour_light": "#5e35b1",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
-   "id": "Wilson1994-reactivation-of-hippocampal-ensemble-memorie",
-   "title": "Reactivation of hippocampal ensemble memories during sleep",
-   "authors": [
-    "Wilson",
-    "McNaughton"
-   ],
-   "year": 1994,
    "discipline": "neuroscience",
    "colour": "#906ed4",
    "colour_light": "#5e35b1",
@@ -8700,6 +8718,22 @@
    "n_scored": 0
   },
   {
+   "id": "gu2020-ml-asset-pricing",
+   "title": "Empirical Asset Pricing via Machine Learning",
+   "authors": [
+    "Shihao Gu",
+    "Bryan Kelly",
+    "Dacheng Xiu"
+   ],
+   "year": 2020,
+   "discipline": "quantitative-finance",
+   "colour": "#d65548",
+   "colour_light": "#c0392b",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
    "id": "gatheral2018-rough-volatility",
    "title": "Volatility Is Rough",
    "authors": [
@@ -8783,20 +8817,6 @@
     "Peter W. Shor"
    ],
    "year": 1997,
-   "discipline": "quantum-computing",
-   "colour": "#008c99",
-   "colour_light": "#00838f",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
-   "id": "grover1996-search",
-   "title": "A Fast Quantum Mechanical Algorithm for Database Search",
-   "authors": [
-    "Lov K. Grover"
-   ],
-   "year": 1996,
    "discipline": "quantum-computing",
    "colour": "#008c99",
    "colour_light": "#00838f",
@@ -9228,6 +9248,23 @@
    "n_scored": 0
   },
   {
+   "id": "fazio1986-attitudes",
+   "title": "On the Automatic Activation of Attitudes",
+   "authors": [
+    "Russell H. Fazio",
+    "David M. Sanbonmatsu",
+    "Martha C. Powell",
+    "Frank R. Kardes"
+   ],
+   "year": 1986,
+   "discipline": "social-psychology",
+   "colour": "#e21dc5",
+   "colour_light": "#b5179e",
+   "open": false,
+   "n_cases": 0,
+   "n_scored": 0
+  },
+  {
    "id": "kunstwilson1980-affective-discrimination",
    "title": "Affective Discrimination of Stimuli That Cannot Be Recognized",
    "authors": [
@@ -9266,20 +9303,6 @@
     "Carl R. Jones"
    ],
    "year": 1977,
-   "discipline": "social-psychology",
-   "colour": "#e21dc5",
-   "colour_light": "#b5179e",
-   "open": false,
-   "n_cases": 0,
-   "n_scored": 0
-  },
-  {
-   "id": "janisse1970-attitudinal-effects",
-   "title": "Attitudinal effects of mere exposure: A replication and extension",
-   "authors": [
-    "Janisse, Michel Pierre"
-   ],
-   "year": 1970,
    "discipline": "social-psychology",
    "colour": "#e21dc5",
    "colour_light": "#b5179e",
@@ -9575,7 +9598,7 @@
  "disciplines": [
   {
    "name": "neuroscience",
-   "n": 227,
+   "n": 229,
    "colour": "#906ed4",
    "colour_light": "#5e35b1"
   },
@@ -9587,7 +9610,7 @@
   },
   {
    "name": "cognitive-psychology",
-   "n": 55,
+   "n": 54,
    "colour": "#359039",
    "colour_light": "#2e7d32"
   },
@@ -9604,16 +9627,16 @@
    "colour_light": "#d84315"
   },
   {
+   "name": "artificial-intelligence",
+   "n": 15,
+   "colour": "#a959e1",
+   "colour_light": "#8324c4"
+  },
+  {
    "name": "digital-humanities",
    "n": 15,
    "colour": "#009280",
    "colour_light": "#00695c"
-  },
-  {
-   "name": "artificial-intelligence",
-   "n": 14,
-   "colour": "#a959e1",
-   "colour_light": "#8324c4"
   },
   {
    "name": "psychology",
@@ -9635,9 +9658,15 @@
   },
   {
    "name": "linguistics",
-   "n": 8,
+   "n": 7,
    "colour": "#8a70dc",
    "colour_light": "#4527a0"
+  },
+  {
+   "name": "marketing",
+   "n": 7,
+   "colour": "#6d7ace",
+   "colour_light": "#3949ab"
   },
   {
    "name": "medicine",
@@ -9662,12 +9691,6 @@
    "n": 6,
    "colour": "#d65548",
    "colour_light": "#c0392b"
-  },
-  {
-   "name": "marketing",
-   "n": 6,
-   "colour": "#6d7ace",
-   "colour_light": "#3949ab"
   },
   {
    "name": "mathematics",
@@ -9706,12 +9729,6 @@
    "colour_light": "#3d5afe"
   },
   {
-   "name": "quantum-computing",
-   "n": 4,
-   "colour": "#008c99",
-   "colour_light": "#00838f"
-  },
-  {
    "name": "science-education",
    "n": 4,
    "colour": "#658492",
@@ -9748,10 +9765,28 @@
    "colour_light": "#c62828"
   },
   {
+   "name": "materials-science",
+   "n": 3,
+   "colour": "#658492",
+   "colour_light": "#546e7a"
+  },
+  {
    "name": "physics",
    "n": 3,
    "colour": "#197def",
    "colour_light": "#0b4f9c"
+  },
+  {
+   "name": "quantitative-finance",
+   "n": 3,
+   "colour": "#d65548",
+   "colour_light": "#c0392b"
+  },
+  {
+   "name": "quantum-computing",
+   "n": 3,
+   "colour": "#008c99",
+   "colour_light": "#00838f"
   },
   {
    "name": "behavioral-economics",
@@ -9784,12 +9819,6 @@
    "colour_light": "#00acc1"
   },
   {
-   "name": "materials-science",
-   "n": 2,
-   "colour": "#658492",
-   "colour_light": "#546e7a"
-  },
-  {
    "name": "network-science",
    "n": 2,
    "colour": "#98786c",
@@ -9812,12 +9841,6 @@
    "n": 2,
    "colour": "#359039",
    "colour_light": "#2e7d32"
-  },
-  {
-   "name": "quantitative-finance",
-   "n": 2,
-   "colour": "#d65548",
-   "colour_light": "#c0392b"
   },
   {
    "name": "robotics",
@@ -9860,12 +9883,6 @@
    "n": 1,
    "colour": "#359039",
    "colour_light": "#2e7d32"
-  },
-  {
-   "name": "auditory-neurophysiology",
-   "n": 1,
-   "colour": "#e21dc5",
-   "colour_light": "#b5179e"
   },
   {
    "name": "auditory-psychophysics",
@@ -10016,12 +10033,6 @@
    "n": 1,
    "colour": "#e64716",
    "colour_light": "#d84315"
-  },
-  {
-   "name": "medical-education",
-   "n": 1,
-   "colour": "#0284d1",
-   "colour_light": "#0277bd"
   },
   {
    "name": "metascience",
