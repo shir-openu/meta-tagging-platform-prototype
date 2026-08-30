@@ -1175,3 +1175,11 @@ a:focus-visible {
   .sense-paper{padding:.75rem}.sense-meta .pt-btn{display:inline-block;margin-top:.3rem}
   .coverage-summary{grid-template-columns:1fr 1fr}
 }
+#nextline [data-panel="pOwn"]::before {
+  content: "+";
+  display: inline-block;
+  margin-inline-end: .35em;
+  font-size: 1.2em;
+  font-weight: 800;
+  line-height: 0;
+}

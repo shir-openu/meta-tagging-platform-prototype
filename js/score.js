@@ -414,6 +414,41 @@ function termTaggedSet(ent) {
   return new Set(ord ? raw.map(i => (typeof i === "number" ? ord[i] : i)) : raw);
 }
 
+/* The public sense index and term-corpus index were built from different snapshots. Eight of
+   the original 474 picker terms have a rights-cleared, safely bound sense whose source paper is
+   absent from the older term-corpus list. Capability was computed from the sense index, but the
+   corpus picker could not select that paper, so the page promised evidence and rendered none.
+
+   A safely bound sense is itself evidence that the paper tags this term. Keep the term-corpus
+   list, then add those source papers and their already-public metadata. This is a runtime join
+   between two published derived files; it does not mutate either source or weaken rights. */
+function sensePaperIdsForSlug(termSlug) {
+  const senses = (S.senseIndex || {}).senses || [];
+  return [...new Set(senseIndicesForSlug(termSlug)
+    .map(index => senses[index] && senses[index].paper_id).filter(Boolean))];
+}
+
+function termIdsWithSenseSources(ent, termSlug) {
+  return [...new Set(termIds(ent).concat(sensePaperIdsForSlug(termSlug)))];
+}
+
+function termTaggedSetWithSenseSources(ent, termSlug) {
+  const tagged = termTaggedSet(ent);
+  sensePaperIdsForSlug(termSlug).forEach(id => tagged.add(id));
+  return tagged;
+}
+
+function ensureSensePaperMetadata(paperIds) {
+  const papers = (S.senseIndex || {}).papers || {};
+  S.termPapers = S.termPapers || {};
+  paperIds.forEach(id => {
+    if (S.termPapers[id] || !papers[id]) return;
+    const paper = papers[id];
+    S.termPapers[id] = [paper.title || id, paper.year || null,
+      paper.discipline || "uncategorised", paper.source_url || ""];
+  });
+}
+
 /* ---------- render ---------- */
 /* ---------- PAPER INDEX: the whole library, searched like Scholar ----------
    S.papers is the board's own working set - the papers that carry verdicts. The picker must
@@ -1271,8 +1306,11 @@ function chooseSoon(id, fromURL, sourceURL) {
   out.classList.add("open");
   const termSlug = c.slug || slugOf(c.en || c.id);
   const ent = S.termCorpus && S.termCorpus[termSlug];
-  S.termPick = { id: c.id, slug: termSlug, label: c.en || c.id, ids: termIds(ent),
-                 tagged: termTaggedSet(ent), senseIndices: senseIndicesForSlug(termSlug),
+  const ids = termIdsWithSenseSources(ent, termSlug);
+  ensureSensePaperMetadata(ids);
+  S.termPick = { id: c.id, slug: termSlug, label: c.en || c.id, ids,
+                 tagged: termTaggedSetWithSenseSources(ent, termSlug),
+                 senseIndices: senseIndicesForSlug(termSlug),
                  capability: S.capability };
   if (fromURL) { readTermURL(sourceURL); writeURL(false); }
   else writeURL(true);
@@ -1344,7 +1382,9 @@ function termCorpusHTML(c) {
   const he = LANG === "he";
   const ent = S.termCorpus && S.termCorpus[c.slug || slugOf(c.en || c.id)];
   if (!ent) return "";
-  const ids = termIds(ent);
+  const termSlug = c.slug || slugOf(c.en || c.id);
+  const ids = termIdsWithSenseSources(ent, termSlug);
+  ensureSensePaperMetadata(ids);
   if (!ids.length) return "";
   const byDisc = new Map();
   ids.forEach(pid => {
@@ -2636,12 +2676,17 @@ function wire() {
    shows a real number computed from the wrong corpus, which is worse than showing nothing. */
 async function loadConcept(fromURL) {
   const dir = conceptDir(conf());
-  const [papers, cases, defs, verdicts, criteria, manifest] = await Promise.all(
-    ["papers", "cases", "definitions", "verdicts", "criteria", "manifest"].map(n =>
-      // criteria.json is an offer rather than measurement data, and only art has one. If it
-      // is missing the rest of the screen must still work, so its failure is not allowed to
-      // reject the batch.
-      getData(dir.replace("../data/", "") + n + ".json")));
+  const prefix = dir.replace("../data/", "");
+  const optionalData = rel => Object.prototype.hasOwnProperty.call(window.MTP_INLINE || {}, rel)
+    ? getData(rel) : Promise.resolve(null);
+  const [papers, cases, defs, verdicts, manifest, criteria] = await Promise.all([
+    ...["papers", "cases", "definitions", "verdicts", "manifest"]
+      .map(n => getData(prefix + n + ".json")),
+    // criteria.json is an offer rather than measurement data, and only art has one. The
+    // inline manifest is the build's file list, so consult it before fetching an optional
+    // path instead of producing a browser-console 404 for every game visit.
+    optionalData(prefix + "criteria.json"),
+  ]);
   S.manifest = manifest;
   // WHICH PAPERS HAVE A TAGGED PAGE ON THE SHOWCASE. Loaded once; a failure here must never stop
   // the screen, because without it every link simply falls back to the publisher, which is the
@@ -2679,8 +2724,13 @@ async function boot() {
   // keystroke and, being an await inside a plain function, stopped the file parsing at
   // all: the entire page went dead and the screenshot still looked plausible.
   try {
-    const _cv = await getData("criteria_verdicts.json");
-    S.critVerdicts = (_cv && _cv.verdicts) || {};
+    // This optional file has not been produced yet. data/inline.js is generated from the same
+    // publishable file list and will contain the key when it exists; until then, do not request
+    // a known-missing URL and turn every otherwise healthy journey into a console error.
+    const haveCriteriaVerdicts = Object.prototype.hasOwnProperty.call(
+      window.MTP_INLINE || {}, "criteria_verdicts.json");
+    const _cv = haveCriteriaVerdicts ? await getData("criteria_verdicts.json") : null;
+    S.critVerdicts = _cv ? (_cv.verdicts || {}) : null;
   } catch (e) { S.critVerdicts = null; }
   try {
     const _pi = await getData("paper_index.json");
@@ -2747,6 +2797,10 @@ async function boot() {
       S.registry.forEach(c => {
         const sl = c.slug || slugOf(c.en || c.id);
         c.sense_count = senseIndicesForSlug(sl).length;
+        const ent = tc.terms[sl];
+        const ids = termIdsWithSenseSources(ent, sl);
+        ensureSensePaperMetadata(ids);
+        c.papers = Math.max(c.papers || 0, ids.length);
         c.capability = capabilityForRegistryEntry(c);
       });
     }
