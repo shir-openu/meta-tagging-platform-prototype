@@ -50,10 +50,17 @@ const S = {
   // open already holding art - button labelled ART, corpus labelled "all 29 papers", results
   // for a concept nobody had asked for. A tool that answers before it is asked teaches the
   // visitor that the answer was not about their question. Nothing is picked until someone picks.
-  picked: false,
   concept: DEFAULT_CONCEPT,
+  // One state, not the old picked/pickedConcept pair.  null means the visitor has not selected
+  // a term yet; every selected term is then explicit about what the corpus can support.
+  capability: null,
+  pickedCorpus: false,
   registry: [], query: "",
   papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
+  senseIndex: null, senseReport: null,
+  subtermIndex: null,
+  coverageDef: null,
+  featureSelection: new Set(),
   hits: [], sel: 0,
   selected: new Set(),   // paper ids in the corpus
   openDef: null,
@@ -69,6 +76,71 @@ function conceptLabel(c) {
 /* Where a concept's files are. The registry stores it relative to data/; the working screen
    sits one directory down, so it is resolved here and nowhere else. */
 function conceptDir(c) { return "../data/" + ((c && c.dir) || ""); }
+
+const CAPABILITY = Object.freeze({
+  BENCHMARK: "benchmark-score",
+  COVERAGE: "attested-use-coverage",
+  EVIDENCE: "evidence-only",
+  CORPUS: "corpus-only",
+});
+
+function capabilityInfo(kind) {
+  if (kind === CAPABILITY.BENCHMARK) {
+    return { cls: "benchmark", title: t("cap.benchmark.h"), body: t("cap.benchmark.body") };
+  }
+  if (kind === CAPABILITY.COVERAGE) {
+    return { cls: "coverage", title: t("cap.coverage.h"), body: t("cap.coverage.body") };
+  }
+  if (kind === CAPABILITY.EVIDENCE) {
+    return { cls: "evidence", title: t("cap.evidence.h"), body: t("cap.evidence.body") };
+  }
+  return { cls: "corpus", title: t("cap.corpus.h"), body: t("cap.corpus.body") };
+}
+
+function senseIndicesForSlug(termSlug) {
+  return (((S.senseIndex || {}).picker_terms || {})[termSlug] || []).slice();
+}
+
+function sensePaperCountForSlug(termSlug) {
+  const senses = (S.senseIndex || {}).senses || [];
+  return new Set(senseIndicesForSlug(termSlug).map(index => senses[index] && senses[index].paper_id)
+    .filter(Boolean)).size;
+}
+
+function capabilityForRegistryEntry(c) {
+  if (c && c.state === "ready") return CAPABILITY.BENCHMARK;
+  const termSlug = c && (c.slug || slugOf(c.en || c.id));
+  const paperCount = sensePaperCountForSlug(termSlug);
+  if (paperCount >= 2) return CAPABILITY.COVERAGE;
+  return paperCount === 1 ? CAPABILITY.EVIDENCE : CAPABILITY.CORPUS;
+}
+
+function renderCapability() {
+  let box = document.getElementById("capabilityState");
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "capabilityState";
+    box.className = "capability-state";
+    const first = document.querySelector(".steps");
+    if (first) first.insertAdjacentElement("afterend", box);
+  }
+  if (!box) return;
+  if (!S.capability) { box.hidden = true; return; }
+  const info = capabilityInfo(S.capability);
+  const evidenceReady = S.capability === CAPABILITY.BENCHMARK ||
+    S.capability === CAPABILITY.COVERAGE || S.capability === CAPABILITY.EVIDENCE;
+  const coverageReady = S.capability === CAPABILITY.COVERAGE;
+  const benchmarkReady = S.capability === CAPABILITY.BENCHMARK;
+  box.hidden = false;
+  box.className = `capability-state cap-${info.cls}`;
+  box.innerHTML = `<div class="cap-main"><span class="cap-badge">${esc(info.title)}</span>` +
+    `<span>${info.body}</span></div>` +
+    `<div class="cap-screens" aria-label="${esc(t("cap.screens"))}">` +
+      `<span class="cap-chip ${evidenceReady ? "ready" : "off"}">${esc(t("cap.screen.evidence"))} · ${esc(evidenceReady ? t("cap.ready") : t("cap.unavailable"))}</span>` +
+      `<span class="cap-chip ${coverageReady ? "ready coverage" : "off"}">${esc(t("cap.screen.coverage"))} · ${esc(coverageReady ? t("cap.ready") : t("cap.unavailable"))}</span>` +
+      `<span class="cap-chip ${benchmarkReady ? "ready" : "off"}">${esc(t("cap.screen.benchmark"))} · ${esc(benchmarkReady ? t("cap.ready") : t("cap.unavailable"))}</span>` +
+    `</div>`;
+}
 
 /* ---------- metric ---------- */
 function mcc(tp, fp, fn, tn) {
@@ -150,6 +222,16 @@ function esc(s) {
   return String(s == null ? "" : s)
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
+function escAttr(s) {
+  return esc(s).replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+/* Corpus anchors are produced in Python and count Unicode code points.  JavaScript's native
+   String#slice counts UTF-16 code units and silently shifts any span after a non-BMP character.
+   Every reader that resolves locator.start/end into source text must go through this helper. */
+function codePointSlice(text, start, end) {
+  return Array.from(String(text == null ? "" : text)).slice(start, end).join("");
+}
 
 /* WHO SAID IT, AND IS THIS THEIR SENTENCE.
    Shir asked for the classic definitions to name who proposed them and where, "even if we
@@ -181,35 +263,59 @@ function citeLine(d) {
 }
 
 /* ---------- URL is the state, so a corpus can be cited ---------- */
-function writeURL() {
-  const ids = S.papers.map(p => p.id);
-  const bits = ids.map(id => (S.selected.has(id) ? "1" : "0")).join("");
+function benchmarkCorpusIds(bits) {
+  const boardIds = (S.papers || []).map(p => p.id);
+  const libraryIds = (S.index || []).map(p => p.id).filter(Boolean);
+  // Links created before TASK 06 used the board's shorter paper order. Keep them readable,
+  // while new links use the same full-library order the corpus picker actually exposes.
+  if (bits && bits.length === boardIds.length && bits.length !== libraryIds.length) return boardIds;
+  return libraryIds.length ? libraryIds : boardIds;
+}
+
+function writeURL(push) {
   const u = new URL(location.href);
-  // The concept travels in the URL with the corpus. A link to a result has to reopen the
-  // result, and half of "which result" is which concept it was about.
-  if (S.concept === DEFAULT_CONCEPT) u.searchParams.delete("concept");
-  else u.searchParams.set("concept", S.concept);
-  // An absent "c" means EMPTY now, so a full corpus has to be written out explicitly or a
-  // shared link would reopen with nothing chosen.
-  if (S.selected.size === 0) u.searchParams.delete("c");
-  else u.searchParams.set("c", bits);
+  if (S.termPick) {
+    // A term corpus has a different paper order from an art/game board.  Its own bitmask is
+    // therefore named `tc`; reusing `c` decoded the same bits against the wrong papers.
+    const ids = S.termPick.ids;
+    const bits = ids.map(id => (S.selected.has(id) ? "1" : "0")).join("");
+    u.searchParams.delete("concept");
+    u.searchParams.delete("c");
+    u.searchParams.set("term", S.termPick.slug);
+    if (S.pickedCorpus && S.selected.size) u.searchParams.set("tc", bits); else u.searchParams.delete("tc");
+  } else if (S.capability === CAPABILITY.BENCHMARK) {
+    const ids = benchmarkCorpusIds();
+    const bits = ids.map(id => (S.selected.has(id) ? "1" : "0")).join("");
+    // Keep `concept=art` when art was explicitly selected.  The clean URL now means "nothing
+    // selected", so deleting the default made those two user states indistinguishable on Back.
+    u.searchParams.set("concept", S.concept);
+    u.searchParams.delete("term");
+    u.searchParams.delete("tc");
+    if (S.pickedCorpus && S.selected.size) u.searchParams.set("c", bits); else u.searchParams.delete("c");
+  } else {
+    u.searchParams.delete("concept");
+    u.searchParams.delete("term");
+    u.searchParams.delete("c");
+    u.searchParams.delete("tc");
+  }
+  u.searchParams.delete("q");
   const openPanel = document.querySelector(".panel.open");
   if (openPanel) u.searchParams.set("p", openPanel.id);
   else u.searchParams.delete("p");
-  history.replaceState(null, "", u);
+  history[push ? "pushState" : "replaceState"](null, "", u);
 }
 function readURL() {
   const u = new URL(location.href);
   S.selected.clear();
   const bits = u.searchParams.get("c");
-  const ids = S.papers.map(p => p.id);
-  const scored = new Set(S.papers.filter(p => p.n_scored).map(p => p.id));
+  const ids = benchmarkCorpusIds(bits);
   // Shir, 2026-08-15: "THE ALL 29 PAPERS SHOULD BE REMOVED AND THE USER SHOULD HAVE THE
   // OPTION TO PICK HIS OWN CORPUS." No bits in the URL now means NOTHING chosen, not
   // everything. "הכל" still selects all in one press - the difference is that choosing all
   // is now something the visitor DID, not something that happened to them.
   if (!bits || bits.length !== ids.length) { /* start empty - the visitor picks */ }
-  else ids.forEach((id, k) => { if (bits[k] === "1" && scored.has(id)) S.selected.add(id); });
+  else ids.forEach((id, k) => { if (bits[k] === "1") S.selected.add(id); });
+  S.pickedCorpus = !!bits && bits.length === ids.length && S.selected.size > 0;
   // the sensitivity panel is part of the shareable state: a claim about how robust a result
   // is should travel with the corpus that produced it, not have to be re-found by hand.
   const want = u.searchParams.get("p");
@@ -217,6 +323,16 @@ function readURL() {
     const p = document.getElementById(want);
     if (p) p.classList.add("open");
   }
+}
+
+function readTermURL(sourceURL) {
+  S.selected.clear();
+  const bits = (sourceURL || new URL(location.href)).searchParams.get("tc");
+  const ids = (S.termPick && S.termPick.ids) || [];
+  if (bits && bits.length === ids.length) {
+    ids.forEach((id, k) => { if (bits[k] === "1") S.selected.add(id); });
+  }
+  S.pickedCorpus = !!bits && bits.length === ids.length && S.selected.size > 0;
 }
 
 /* ---------- LOADING DATA WHEN THERE IS NO SERVER ----------
@@ -233,8 +349,45 @@ async function getData(rel) {
     const r = await fetch("../data/" + rel + "?v=" + (window.ASSET_STAMP || ""));
     if (r.ok) return await r.json();
   } catch (e) { /* file:// — fall through to the inlined copy */ }
+  if (rel === "sense_index.json" && window.MTP_SENSE_INDEX) return window.MTP_SENSE_INDEX;
+  if (rel === "sense_index_report.json" && window.MTP_SENSE_REPORT) return window.MTP_SENSE_REPORT;
+  if (rel === "subterm_index.json" && window.MTP_SUBTERM_INDEX) return window.MTP_SUBTERM_INDEX;
   const inl = window.MTP_INLINE || {};
   return (rel in inl) ? inl[rel] : null;
+}
+
+async function loadSenseData() {
+  let index = await getData("sense_index.json");
+  let report = await getData("sense_index_report.json");
+  if (!index && location.protocol === "file:") {
+    // Keep the large fallback off normal HTTP visits. It exists only because fetch() is blocked
+    // when the page is opened by double-clicking it.
+    await new Promise(resolve => {
+      const script = document.createElement("script");
+      script.src = "../data/sense_index.inline.js";
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.appendChild(script);
+    });
+    index = window.MTP_SENSE_INDEX || null;
+    report = window.MTP_SENSE_REPORT || null;
+  }
+  return { index, report };
+}
+
+async function loadSubtermData() {
+  let index = await getData("subterm_index.json");
+  if (!index && location.protocol === "file:") {
+    await new Promise(resolve => {
+      const script = document.createElement("script");
+      script.src = "../data/subterm_index.inline.js";
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.appendChild(script);
+    });
+    index = window.MTP_SUBTERM_INDEX || null;
+  }
+  return index;
 }
 
 /* A term's paper ids, decoded on demand.
@@ -347,6 +500,7 @@ function renderPapers() {
         S.pickedCorpus = true;
         renderSteps();
         updateStep3();
+        writeURL();
       });
     });
     return;
@@ -467,9 +621,13 @@ function updateStep3() {
   // with a concept and every scored paper already selected so the board is reproducible; if
   // that counted as a choice, the third button would be there before she had pressed
   // anything -- which is the same fault as showing the ranking before she asked for it.
-  const haveConcept = !!S.pickedConcept;
+  const haveConcept = !!S.capability;
   const haveCorpus = !!S.pickedCorpus && S.selected && S.selected.size > 0;
   wrap.hidden = !(haveConcept && haveCorpus);
+  renderCapability();
+  const ttl = document.querySelector("#step3 .ttl");
+  if (ttl) ttl.textContent = S.capability === CAPABILITY.BENCHMARK
+    ? t("step.go") : t("evidence.step");
   const v = document.getElementById("goVal");
   if (v && !wrap.hidden) {
     v.textContent = `${S.selected.size} ${LANG === "he" ? "מאמרים נבחרו" : "papers selected"}`;
@@ -509,11 +667,19 @@ function caseRow(r) {
 }
 
 function renderBoard() {
+  if (S.capability && S.capability !== CAPABILITY.BENCHMARK) {
+    ["calib", "discrim"].forEach(id => {
+      const el = document.getElementById(id); if (el) el.style.display = "none";
+    });
+    const stage = document.getElementById("stage2");
+    if (stage && !stage.hidden) renderEvidenceWorkspace();
+    return;
+  }
   // With nothing picked there is nothing to say, and saying it badly is worse than saying
   // nothing: an empty corpus makes every definition unscorable, which the calibration check
   // would otherwise report as "the calibration definition is missing" - a warning about our
   // data, on a screen where the visitor has simply not chosen yet.
-  if (!S.picked || S.selected.size === 0) {
+  if (S.capability !== CAPABILITY.BENCHMARK || S.selected.size === 0) {
     const w = document.getElementById("calib");
     if (w) w.style.display = "none";
     const off = document.getElementById("offered");
@@ -727,6 +893,7 @@ function liveCell(kind, n, label, sub) {
 }
 
 function renderLiveMatrix(defId) {
+  if (S.capability !== CAPABILITY.BENCHMARK) return;
   const el = document.getElementById("liveMatrix");
   if (!el) return;
   const d = S.defs.find(x => x.id === defId) || S.defs.find(x => !x.is_control);
@@ -1031,7 +1198,7 @@ function renderConcepts() {
       ${t("concept.none.body")}</div>`;
   } else {
     html = shown.map((c, i) => {
-      const on = c.id === S.concept;
+      const on = !!S.capability && !S.termPick && c.id === S.concept;
       const sel = i === S.sel ? " sel" : "";
       if (c.state === "ready") {
         return `<button class="ac-item${sel}${on ? " on" : ""}" role="option"
@@ -1040,9 +1207,14 @@ function renderConcepts() {
           <span class="sub">${counts(c)} · ${esc(LANG === "he" ? c.why_he : c.why_en)}</span>
           </button>`;
       }
+      const cap = capabilityForRegistryEntry(c);
+      const sub = cap === CAPABILITY.COVERAGE
+        ? t("concept.coverage").replace("{n}", c.papers).replace("{s}", c.sense_count || 0)
+        : cap === CAPABILITY.EVIDENCE
+          ? t("concept.evidenceonly").replace("{n}", c.papers).replace("{s}", c.sense_count || 0)
+          : t("concept.corpusonly").replace("{n}", c.papers);
       return `<button class="ac-item soon${sel}" role="option" data-soon="${esc(c.id)}"
-        ><span class="nm">${esc(c.en)}</span>
-        <span class="sub">${t("concept.corpusonly").replace("{n}", c.papers)}</span></button>`;
+        ><span class="nm">${esc(c.en)}</span><span class="sub">${sub}</span></button>`;
     }).join("");
     const hidden = rest.length - Math.max(0, shown.length - ready.length);
     if (hidden > 0) {
@@ -1063,7 +1235,7 @@ function renderConcepts() {
     b.addEventListener("mousedown", ev => {
       ev.preventDefault();
       openConcepts(false);
-      if (b.dataset.conc !== S.concept) switchConcept(b.dataset.conc);
+      switchConcept(b.dataset.conc);
     });
   });
   box.querySelectorAll("[data-soon]").forEach(b => {
@@ -1076,32 +1248,40 @@ function renderConcepts() {
 
 /* A concept we hold papers on but have no board for. Pressing it must say what is missing,
    not do nothing - that is the difference between an honest answer and a dead control. */
-function chooseSoon(id) {
-  S.pickedConcept = true;
+function chooseSoon(id, fromURL, sourceURL) {
+  const c = S.registry.find(x => x.id === id);
+  if (!c) return;
+  S.capability = capabilityForRegistryEntry(c);
+  S.coverageDef = null;
+  S.featureSelection = new Set();
+  S.selected.clear();
+  S.pickedCorpus = false;
+  const st = document.getElementById("stage2");
+  if (st) st.hidden = true;
   // The box kept the typed letters while the panel described a different term, which is how
   // "I chose ART" produced a screenshot of job-shop scheduling. Whatever is chosen is what the
   // field says.
   {
-    const c0 = S.registry.find(x => x.id === id);
     const inp = document.getElementById("conceptSearch");
-    if (inp && c0) { inp.value = c0.en || c0.id; S.query = inp.value; }
+    if (inp) { inp.value = c.en || c.id; S.query = inp.value; }
   }
-  setTimeout(updateStep3, 0);
-  const c = S.registry.find(x => x.id === id);
   const out = document.getElementById("conceptSoon");
-  if (!out || !c) return;
+  if (!out) return;
   openConcepts(false);
   out.classList.add("open");
+  const termSlug = c.slug || slugOf(c.en || c.id);
+  const ent = S.termCorpus && S.termCorpus[termSlug];
+  S.termPick = { id: c.id, slug: termSlug, label: c.en || c.id, ids: termIds(ent),
+                 tagged: termTaggedSet(ent), senseIndices: senseIndicesForSlug(termSlug),
+                 capability: S.capability };
+  if (fromURL) { readTermURL(sourceURL); writeURL(false); }
+  else writeURL(true);
   // Shir, 2026-08-14: "all the text below after I choose a term - hide it in a comment for
   // now, the field of view should be clean." The paragraph explaining why there is no
   // definition board is kept in the markup as a comment and not rendered.
   out.innerHTML = "<!-- " + t("concept.soon.body")
     .replace(/{term}/g, esc(c.en)).replace("{n}", c.papers).replace(/<!--|-->/g, "")
     + " -->" + termCorpusHTML(c);
-  // The term becomes the working selection: step 1 names it, step 2 becomes ITS papers.
-  const ent = S.termCorpus && S.termCorpus[c.slug || slugOf(c.en || c.id)];
-  S.termPick = { id: c.id, label: c.en || c.id, ids: termIds(ent),
-                 tagged: termTaggedSet(ent) };
   // The art-vs-game comparison note and the board's own state bar both describe the loaded
   // definition board, not the term just chosen. Leaving them on screen under a term's corpus
   // is the same fault as the green button: text that belongs to something else.
@@ -1113,10 +1293,8 @@ function chooseSoon(id) {
   });
   renderSteps();
   renderPapers();
-  // A term you can reach by clicking should be a term you can send to someone.
-  const u = new URL(location.href);
-  u.searchParams.set("term", id);
-  history.replaceState(null, "", u);
+  renderCapability();
+  updateStep3();
   out.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
@@ -1194,6 +1372,337 @@ function termCorpusHTML(c) {
           <div class="tc-note">${note}</div></div>`;
 }
 
+function evidenceSelectorPlan(rows) {
+  const byPaper = new Map();
+  rows.forEach(row => {
+    if (!byPaper.has(row.paper_id)) byPaper.set(row.paper_id, []);
+    byPaper.get(row.paper_id).push(row);
+  });
+  const papers = [...byPaper.keys()].map(id => [id, (S.senseIndex.papers || {})[id] || {}]);
+  const badges = new Map(papers.map(([id]) => [id, []]));
+  const notes = [];
+  const add = (id, label) => {
+    const list = badges.get(id) || [];
+    if (!list.includes(label)) list.push(label);
+    badges.set(id, list);
+  };
+
+  if (papers.length === 1) notes.push(t("evidence.onepaper"));
+  const hasYear = p => p.year !== null && p.year !== "" && Number.isFinite(Number(p.year));
+  const years = papers.filter(([, p]) => hasYear(p)).map(([, p]) => Number(p.year));
+  if (years.length !== papers.length) {
+    notes.push(t("evidence.year.unavailable").replace("{n}", papers.length - years.length));
+  } else if (papers.length) {
+    const oldest = Math.min(...years), newest = Math.max(...years);
+    papers.filter(([, p]) => hasYear(p) && Number(p.year) === oldest).forEach(([id]) => add(id, t("evidence.oldest")));
+    papers.filter(([, p]) => hasYear(p) && Number(p.year) === newest).forEach(([id]) => add(id, t("evidence.newest")));
+    const oldTies = papers.filter(([, p]) => hasYear(p) && Number(p.year) === oldest).length;
+    const newTies = papers.filter(([, p]) => hasYear(p) && Number(p.year) === newest).length;
+    if (oldTies > 1) notes.push(t("evidence.oldest.tie").replace("{n}", oldTies).replace("{y}", oldest));
+    if (newTies > 1 && newest !== oldest) notes.push(t("evidence.newest.tie").replace("{n}", newTies).replace("{y}", newest));
+  }
+
+  const cited = papers.filter(([, p]) => p.citations && Number.isFinite(Number(p.citations.count)));
+  if (cited.length !== papers.length) {
+    notes.push(t("evidence.cited.unavailable")
+      .replace("{n}", papers.length - cited.length).replace("{all}", papers.length));
+  } else if (cited.length) {
+    const max = Math.max(...cited.map(([, p]) => Number(p.citations.count)));
+    cited.filter(([, p]) => Number(p.citations.count) === max)
+      .forEach(([id]) => add(id, t("evidence.cited")));
+  }
+  return { byPaper, papers, badges, notes };
+}
+
+/* ---------- attested-use coverage ---------------------------------------------------
+   This is deliberately NOT the art/game benchmark.  The corpus supplies positive attested
+   uses, while the visitor supplies the definition-versus-use judgements.  With no independent
+   negatives there can be no TN, FP, MCC or bootstrap.  What this can answer is narrower and
+   useful: which published uses would the wording leave out? */
+const COVERAGE_KEY = "mtp_attested_coverage_v1";
+
+function smallHash(text) {
+  let h = 2166136261;
+  for (let i = 0; i < String(text).length; i++) {
+    h ^= String(text).charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString(16).padStart(8, "0");
+}
+
+function coverageAll() {
+  try { return JSON.parse(localStorage.getItem(COVERAGE_KEY) || "{}"); } catch (_) { return {}; }
+}
+
+function coverageCases(definition, rows) {
+  return rows.filter(row => !definition.sourcePaper || row.paper_id !== definition.sourcePaper);
+}
+
+function coverageRunKey(definition, rows) {
+  const sourceHash = (((S.senseIndex || {}).source || {}).sha256 || "unversioned").slice(0, 16);
+  const caseIds = rows.map(row => row.sense_id).sort().join("|");
+  return [sourceHash, S.termPick && S.termPick.slug, smallHash(definition.text),
+          definition.sourcePaper || "user", smallHash(caseIds)].join(":");
+}
+
+function coverageRun(definition, rows) {
+  const key = coverageRunKey(definition, rows);
+  const all = coverageAll();
+  const saved = all[key];
+  return { key, verdicts: (saved && saved.verdicts) || {} };
+}
+
+function saveCoverageRun(definition, rows, verdicts) {
+  const key = coverageRunKey(definition, rows);
+  const all = coverageAll();
+  all[key] = {
+    schema_version: "attested-use-coverage-1",
+    term: S.termPick.slug,
+    definition: definition.text,
+    definition_source_sense: definition.senseId || null,
+    definition_source_paper: definition.sourcePaper || null,
+    corpus: [...S.selected].sort(),
+    case_senses: rows.map(row => row.sense_id),
+    verdicts,
+    updated: new Date().toISOString(),
+  };
+  try { localStorage.setItem(COVERAGE_KEY, JSON.stringify(all)); } catch (_) {}
+}
+
+function coverageMetrics(rows, verdicts) {
+  const counts = { covered: 0, omitted: 0, uncertain: 0, open: 0 };
+  const papers = new Map();
+  rows.forEach(row => {
+    const value = verdicts[row.sense_id];
+    if (value === "covered") counts.covered++;
+    else if (value === "omitted") counts.omitted++;
+    else if (value === "uncertain") counts.uncertain++;
+    else counts.open++;
+    if (!papers.has(row.paper_id)) papers.set(row.paper_id, { covered: 0, omitted: 0 });
+    const paper = papers.get(row.paper_id);
+    if (value === "covered") paper.covered++;
+    if (value === "omitted") paper.omitted++;
+  });
+  const decided = counts.covered + counts.omitted;
+  const paperRates = [...papers.values()].filter(paper => paper.covered + paper.omitted)
+    .map(paper => paper.covered / (paper.covered + paper.omitted));
+  return {
+    ...counts,
+    decided,
+    caseRate: decided ? counts.covered / decided : null,
+    paperRate: paperRates.length ? paperRates.reduce((a, b) => a + b, 0) / paperRates.length : null,
+    papersDecided: paperRates.length,
+  };
+}
+
+function evidenceOwnHTML() {
+  const canCover = S.capability === CAPABILITY.COVERAGE;
+  return `<button class="pt-btn evidence-add" id="evidenceAddOwn">+ ${esc(t("evidence.add"))}</button>` +
+    `<div class="coverage-own" id="evidenceOwnBox" hidden>` +
+      `<label for="coverageOwnText">${esc(t("coverage.own.label"))}</label>` +
+      `<textarea id="coverageOwnText" rows="3"></textarea>` +
+      `<div class="pt-tools">` +
+        (canCover ? `<button class="pt-btn" id="coverageOwnStart">${esc(t("coverage.own.test"))}</button>` : "") +
+        `<button class="pt-btn" id="evidenceSaveOwn">${esc(t("coverage.own.save"))}</button>` +
+      `</div>` +
+      (!canCover ? `<div class="coverage-limit">${esc(t("coverage.unavailable.one"))}</div>` : "") +
+    `</div>`;
+}
+
+function renderCoverageWorkbench(rows) {
+  if (S.capability !== CAPABILITY.COVERAGE) return "";
+  const paperCount = new Set(rows.map(row => row.paper_id)).size;
+  if (paperCount < 2) {
+    return `<section class="coverage-workbench unavailable"><h3>${esc(t("coverage.h"))}</h3>` +
+      `<p>${esc(t("coverage.need.two"))}</p></section>`;
+  }
+  const definition = S.coverageDef;
+  if (!definition) {
+    return `<section class="coverage-workbench"><span class="screen-kicker">${esc(t("coverage.screen"))}</span>` +
+      `<h3>${esc(t("coverage.h"))}</h3><p>${esc(t("coverage.choose"))}</p>` +
+      `<div class="coverage-warning">${esc(t("coverage.warning"))}</div></section>`;
+  }
+  const cases = coverageCases(definition, rows);
+  if (!cases.length) {
+    return `<section class="coverage-workbench unavailable"><h3>${esc(t("coverage.h"))}</h3>` +
+      `<p>${esc(t("coverage.no.heldout"))}</p></section>`;
+  }
+  const run = coverageRun(definition, cases);
+  const metrics = coverageMetrics(cases, run.verdicts);
+  const pct = value => value == null ? "—" : `${Math.round(value * 100)}%`;
+  const sourceNote = definition.sourcePaper
+    ? `<div class="coverage-source">${esc(t("coverage.source.excluded")
+        .replace("{paper}", ((S.senseIndex.papers || {})[definition.sourcePaper] || {}).title || definition.sourcePaper))}</div>`
+    : `<div class="coverage-source">${esc(t("coverage.source.user"))}</div>`;
+  const summary = `<div class="coverage-summary">` +
+    `<div><b>${pct(metrics.caseRate)}</b><span>${esc(t("coverage.caseweighted"))}</span></div>` +
+    `<div><b>${pct(metrics.paperRate)}</b><span>${esc(t("coverage.paperweighted"))}</span></div>` +
+    `<div><b>${metrics.covered}/${metrics.decided}</b><span>${esc(t("coverage.covered"))}</span></div>` +
+    `<div><b>${metrics.uncertain}</b><span>${esc(t("coverage.uncertain"))}</span></div>` +
+    `</div>`;
+  const caseCards = cases.map(row => {
+    const paper = (S.senseIndex.papers || {})[row.paper_id] || {};
+    const selected = run.verdicts[row.sense_id] || "";
+    const button = (value, label) => `<button class="pt-btn coverage-v ${selected === value ? "on" : ""}" ` +
+      `data-coverage-case="${escAttr(row.sense_id)}" data-v="${value}" aria-pressed="${selected === value}">${esc(label)}</button>`;
+    return `<article class="coverage-case"><div class="coverage-case-head">${esc(row.gloss || row.label)}</div>` +
+      `<blockquote>${esc(row.evidence)}</blockquote>` +
+      `<div class="coverage-case-paper">${esc(paper.title || row.paper_id)} · ${esc(String(paper.year || "—"))}</div>` +
+      `<div class="pt-tools">${button("covered", t("coverage.v.covered"))}` +
+        `${button("omitted", t("coverage.v.omitted"))}${button("uncertain", t("coverage.v.uncertain"))}</div></article>`;
+  }).join("");
+  return `<section class="coverage-workbench"><span class="screen-kicker">${esc(t("coverage.screen"))}</span>` +
+    `<h3>${esc(t("coverage.h"))}</h3><div class="coverage-definition">${esc(definition.text)}</div>` +
+    sourceNote + summary + `<div class="coverage-warning">${esc(t("coverage.warning"))}</div>` +
+    `<div class="coverage-actions"><button class="pt-btn" id="coverageReset">${esc(t("coverage.reset"))}</button></div>` +
+    `<div class="coverage-cases">${caseCards}</div></section>`;
+}
+
+function renderEvidenceWorkspace() {
+  const out = document.getElementById("offered");
+  if (!out || !S.termPick) return;
+  const next = document.getElementById("nextline");
+  if (next) next.hidden = true;
+  const acts = document.getElementById("acts");
+  if (acts) acts.hidden = true;
+  const live = document.getElementById("liveMatrix");
+  if (live) live.style.display = "none";
+
+  const index = S.senseIndex || {};
+  const allRows = (S.termPick.senseIndices || []).map(i => index.senses && index.senses[i])
+    .filter(Boolean);
+  const rows = allRows.filter(row => S.selected.has(row.paper_id));
+  const info = capabilityInfo(S.capability);
+  const reportCounts = index.counts || {};
+
+  if (!rows.length) {
+    out.innerHTML = `<section class="evidence-workspace"><div class="evidence-head">` +
+      `<span class="cap-badge">${esc(info.title)}</span><h2>${esc(S.termPick.label)}</h2></div>` +
+      `<div class="evidence-empty">${allRows.length
+        ? t("evidence.none.selected").replace("{n}", allRows.length)
+        : t("evidence.none.term")}</div>` +
+      evidenceOwnHTML() + renderCoverageWorkbench(rows) + `</section>`;
+  } else {
+    const plan = evidenceSelectorPlan(rows);
+    const defaultIds = new Set([...plan.badges].filter(([, b]) => b.length).map(([id]) => id));
+    const ordered = plan.papers.sort((a, b) =>
+      Number(defaultIds.has(b[0])) - Number(defaultIds.has(a[0]))
+      || Number(a[1].year || 9999) - Number(b[1].year || 9999)
+      || String(a[1].title || a[0]).localeCompare(String(b[1].title || b[0])));
+    const cards = ordered.map(([paperId, paper]) => {
+      const defaults = (plan.badges.get(paperId) || []).map(x =>
+        `<span class="sense-default">${esc(x)}</span>`).join("");
+      const who = (paper.authors || []).join(", ");
+      const citation = paper.citations
+        ? ` · ${esc(t("evidence.citation"))}: <span class="num">${Number(paper.citations.count).toLocaleString()}</span>`
+        : "";
+      const source = paper.source_url
+        ? `<a class="pt-btn tiny" href="${escAttr(paper.source_url)}" target="_blank" rel="noopener">${esc(t("evidence.source"))}</a>`
+        : "";
+      const senses = (plan.byPaper.get(paperId) || []).map(row => {
+        const loc = row.locator || {};
+        // Anchor offsets are UNICODE CODE POINT indices -- they are produced in Python.
+        // JavaScript indexes strings in UTF-16 code units, so ANY future code that resolves
+        // these into text must not use body.slice(start, end): a non-BMP character is one code
+        // point and two UTF-16 units, and 698 of the corpus's 63,899 anchors shift under UTF-16.
+        // Use codePointSlice(body, start, end) instead.
+        // It fails SILENTLY -- the wrong span is still a plausible sentence and no verbatim
+        // check compares it to anything. Positive control: schlemper2019-attention-gated-networks
+        // has ONE such glyph and 52 of its 75 anchors move.
+        // Today this line only DISPLAYS the numbers; the derived locator records the convention.
+        const locator = loc.start != null
+          ? `${row.source_field} · ${t("evidence.chars")} ${loc.start}–${loc.end} · SHA-1 ${String(loc.text_sha1 || "").slice(0, 12)}`
+          : row.source_field;
+        return `<article class="sense-card" id="${esc(row.sense_id)}">` +
+          `<h4>${esc(row.gloss || row.label)}</h4>` +
+          `<div class="sense-provenance">${esc(t("evidence.gloss.note"))}</div>` +
+          `<blockquote dir="ltr"><span class="sense-quote-label">${esc(t("evidence.quote"))}</span>` +
+            `${esc(row.evidence)}</blockquote>` +
+          `<div class="sense-locator">${esc(locator)}</div>` +
+          (S.capability === CAPABILITY.COVERAGE
+            ? `<button class="pt-btn tiny sense-test" data-coverage-def="${escAttr(row.sense_id)}">${esc(t("coverage.test.this"))}</button>`
+            : "") + `</article>`;
+      }).join("");
+      return `<section class="sense-paper ${defaults ? "is-default" : ""}">` +
+        `<div class="sense-defaults">${defaults}</div>` +
+        `<h3>${esc(paper.title || paperId)}</h3>` +
+        `<div class="sense-meta"><span class="num">${esc(String(paper.year || "—"))}</span>` +
+          ` · ${esc(paper.discipline || "uncategorised")}${who ? ` · ${esc(who)}` : ""}${citation} ${source}</div>` +
+        senses + `</section>`;
+    }).join("");
+    const notes = plan.notes.length
+      ? `<div class="selector-notes">${plan.notes.map(n => `<div>${n}</div>`).join("")}</div>` : "";
+    out.innerHTML = `<section class="evidence-workspace"><div class="evidence-head">` +
+      `<span class="cap-badge">${esc(info.title)}</span><h2>${esc(S.termPick.label)}</h2>` +
+      `<p>${t("evidence.summary").replace("{s}", rows.length).replace("{p}", plan.papers.length)}</p></div>` +
+      notes + evidenceOwnHTML() + renderCoverageWorkbench(rows) +
+      `<div class="sense-all-head">${esc(t("evidence.all"))}</div>${cards}` +
+      `<div class="sense-audit">${t("evidence.audit")
+        .replace("{active}", reportCounts.sense_rows_active || "—")
+        .replace("{hard}", reportCounts.hard_parse_failures || "—")
+        .replace("{ambig}", reportCounts.delimiter_ambiguities || "—")}` +
+        ` <a href="../data/sense_index_report.md" target="_blank" rel="noopener">${esc(t("evidence.audit.link"))}</a></div>` +
+      `</section>`;
+  }
+  const add = document.getElementById("evidenceAddOwn");
+  if (add) add.onclick = () => {
+    const box = document.getElementById("evidenceOwnBox");
+    if (!box) return;
+    box.hidden = !box.hidden;
+    if (!box.hidden) document.getElementById("coverageOwnText").focus();
+  };
+  const saveOwn = document.getElementById("evidenceSaveOwn");
+  if (saveOwn) saveOwn.onclick = () => {
+    const text = (document.getElementById("coverageOwnText").value || "").trim();
+    if (!text) return;
+    const panel = document.getElementById("pOwn");
+    if (!panel) return;
+    const ownText = document.getElementById("ownText");
+    if (ownText) ownText.value = text;
+    document.querySelectorAll(".panel").forEach(x => x.classList.remove("open"));
+    panel.classList.add("open");
+    document.querySelectorAll('[data-panel="pOwn"]').forEach(b => b.setAttribute("aria-expanded", "true"));
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  const ownStart = document.getElementById("coverageOwnStart");
+  if (ownStart) ownStart.onclick = () => {
+    const text = (document.getElementById("coverageOwnText").value || "").trim();
+    if (!text) return;
+    S.coverageDef = { id: "user-" + smallHash(text), text, sourcePaper: null, senseId: null };
+    renderEvidenceWorkspace();
+    document.querySelector(".coverage-workbench").scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  document.querySelectorAll("[data-coverage-def]").forEach(button => {
+    button.onclick = () => {
+      const row = rows.find(item => item.sense_id === button.dataset.coverageDef);
+      if (!row) return;
+      S.coverageDef = { id: row.sense_id, text: row.gloss || row.label,
+                        sourcePaper: row.paper_id, senseId: row.sense_id };
+      renderEvidenceWorkspace();
+      document.querySelector(".coverage-workbench").scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  });
+  document.querySelectorAll("[data-coverage-case]").forEach(button => {
+    button.onclick = () => {
+      const definition = S.coverageDef;
+      if (!definition) return;
+      const cases = coverageCases(definition, rows);
+      const run = coverageRun(definition, cases);
+      run.verdicts[button.dataset.coverageCase] = button.dataset.v;
+      saveCoverageRun(definition, cases, run.verdicts);
+      renderEvidenceWorkspace();
+    };
+  });
+  const reset = document.getElementById("coverageReset");
+  if (reset) reset.onclick = () => {
+    const definition = S.coverageDef;
+    if (!definition) return;
+    const cases = coverageCases(definition, rows);
+    saveCoverageRun(definition, cases, {});
+    renderEvidenceWorkspace();
+  };
+}
+
 /* Keyboard: the reference tool is fully driveable without a mouse and so is this. */
 function conceptKey(ev) {
   const box = document.getElementById("conceptResults");
@@ -1212,7 +1721,7 @@ function conceptKey(ev) {
     if (!c) return;
     ev.preventDefault();
     openConcepts(false);
-    if (c.state === "ready") { if (c.id !== S.concept) switchConcept(c.id); }
+    if (c.state === "ready") switchConcept(c.id);
     else chooseSoon(c.id);
   } else if (ev.key === "Escape") {
     openConcepts(false);
@@ -1239,6 +1748,15 @@ async function switchConcept(id) {
   // Loading a real definition board ends term mode, or the green button would keep showing
   // the previous term's papers under the new concept's name.
   S.termPick = null;
+  S.coverageDef = null;
+  S.featureSelection = new Set();
+  S.selected.clear();
+  S.pickedCorpus = false;
+  S.capability = CAPABILITY.BENCHMARK;
+  const stage = document.getElementById("stage2");
+  if (stage) stage.hidden = true;
+  const soon = document.getElementById("conceptSoon");
+  if (soon) { soon.classList.remove("open"); soon.innerHTML = ""; }
   const note0 = document.getElementById("conceptNote");
   if (note0) note0.style.display = "";
   ["liveStats", "stateBar"].forEach(id => {
@@ -1246,13 +1764,10 @@ async function switchConcept(id) {
     if (el) el.style.display = "";
   });
   S.concept = id;
-  S.picked = true;
   // The old corpus selection is a list of paper ids that do not exist in the new concept, and
   // the `c` bitmask in the URL is indexed against the old paper list. Both have to go, or the
   // new board opens with an empty corpus and looks broken.
-  const u = new URL(location.href);
-  u.searchParams.delete("c");
-  history.replaceState(null, "", u);
+  writeURL(true);
   await loadConcept();
   refresh();
 }
@@ -1264,7 +1779,7 @@ function renderSteps() {
   // the loaded definition board rather than the thing she had just chosen.
   const cv = document.getElementById("conceptVal");
   if (cv) cv.textContent = S.termPick ? S.termPick.label
-                        : (S.picked ? conceptLabel(conf()) : t("step.nopick"));
+                        : (S.capability ? conceptLabel(conf()) : t("step.nopick"));
   const pv = document.getElementById("corpusVal");
   if (pv) {
     if (S.termPick) {
@@ -1329,13 +1844,174 @@ function localWhen(iso) {
 
    The gold labels are never shown while judging. A scorer who can see the answer is measuring
    their own agreeableness. */
-const JKEY = "mtp_judge";
+const JKEY = "mtp_judge_v2";
 
-function judgeState() {
+function judgeAll() {
   try { return JSON.parse(localStorage.getItem(JKEY) || "{}"); } catch (_) { return {}; }
 }
-function judgeSave(st) {
-  try { localStorage.setItem(JKEY, JSON.stringify(st)); } catch (_) {}
+
+function judgeDefinition() {
+  return ((document.getElementById("judgeText") || {}).value || "").trim();
+}
+
+function judgeRunKey() {
+  const definition = judgeDefinition();
+  if (!definition) return null;
+  const q = judgeQueue();
+  const caseIdentity = q.map(index => {
+    const row = S.cases[index] || {};
+    return row.id || `${row.paper || ""}|${row.thing || ""}|${smallHash(row.quote || "")}`;
+  }).join(";");
+  const version = (S.manifest && S.manifest.built) || "unversioned";
+  return [S.concept, version, smallHash(definition), smallHash(caseIdentity),
+          smallHash([...S.selected].sort().join("|"))].join(":");
+}
+
+function judgeState() {
+  const key = judgeRunKey();
+  if (!key) return { key: null, verdicts: {} };
+  const record = judgeAll()[key];
+  return { key, verdicts: (record && record.verdicts) || {} };
+}
+
+function judgeSave(verdicts) {
+  const key = judgeRunKey();
+  if (!key) return;
+  const all = judgeAll();
+  all[key] = {
+    schema_version: "definition-bound-judge-2",
+    definition: judgeDefinition(),
+    concept: S.concept,
+    corpus: [...S.selected].sort(),
+    case_set: judgeQueue().map(index => index),
+    case_set_version: (S.manifest && S.manifest.built) || null,
+    prediction_provenance: "visitor judgement, gold label hidden",
+    verdicts,
+    updated: new Date().toISOString(),
+  };
+  try { localStorage.setItem(JKEY, JSON.stringify(all)); } catch (_) {}
+}
+
+function judgeResetCurrent() {
+  const key = judgeRunKey();
+  if (!key) return;
+  const all = judgeAll();
+  delete all[key];
+  try { localStorage.setItem(JKEY, JSON.stringify(all)); } catch (_) {}
+}
+
+/* ---------- transparent feature / sub-term mapping ---------------------------------
+   Arbitrary prose cannot be decomposed honestly by a static browser.  The API-free path is
+   therefore confirmation, not inference: the visitor identifies which reviewed feature their
+   wording requires.  The object layer is separate from the fourteen art criteria (it is a
+   genus/type commitment), and the interface keeps those layers visibly separate. */
+function featureInventory() {
+  if (S.termPick || S.capability !== CAPABILITY.BENCHMARK) return [];
+  const concept = (((S.subtermIndex || {}).concepts || {})[S.concept]) || {};
+  const reviewed = (concept.reviewed_terms || []).map(row => ({
+    key: `subterm:${row.id}`, id: row.id, layer: "subterm",
+    label: LANG === "he" ? (row.label_he || row.label_en) : row.label_en,
+    row,
+  }));
+  const criteria = (S.criteria || []).map(row => ({
+    key: `criterion:${row.id}`, id: row.id, layer: "criterion",
+    label: LANG === "he" ? (row.he || row.en) : row.en,
+    row,
+  }));
+  return reviewed.concat(criteria);
+}
+
+function selectedFeatureMap() {
+  const selected = featureInventory().filter(row => S.featureSelection.has(row.key));
+  return {
+    method: "user-confirmed; no automatic semantic inference",
+    features: selected.map(row => ({ id: row.id, layer: row.layer, label: row.label })),
+  };
+}
+
+function featureCaseRow(row) {
+  const c = S.cases[row.case_index];
+  if (!c) return "";
+  const verdict = row.object_layer_verdict;
+  const label = verdict === "object" ? t("feature.v.object")
+    : verdict === "not-object" ? t("feature.v.notobject") : t("feature.v.undecided");
+  return `<div class="pt-case feature-case"><span class="th">${esc(
+      LANG === "he" ? (c.thing_he || c.thing) : (c.thing || c.thing_he))}</span>` +
+    `<span class="feature-v ${escAttr(verdict)}">${esc(label)}</span>` +
+    `<div class="q" dir="ltr">"${esc(c.quote)}"</div>` +
+    `<div class="src">${esc(t("case.paper"))}: ${esc(c.paper)} · ${esc(t("case.case"))} #${row.case_index}</div></div>`;
+}
+
+function renderFeatureMap() {
+  const ownText = document.getElementById("ownText");
+  if (!ownText) return;
+  let box = document.getElementById("ownFeatureMap");
+  if (!box) {
+    box = document.createElement("section");
+    box.id = "ownFeatureMap";
+    box.className = "feature-map";
+    ownText.insertAdjacentElement("afterend", box);
+  }
+
+  if (S.termPick || S.capability !== CAPABILITY.BENCHMARK) {
+    box.innerHTML = `<h3>${esc(t("feature.h"))}</h3><div class="feature-limit">${esc(
+      t("feature.unavailable.term"))}</div>`;
+    return;
+  }
+
+  const concept = (((S.subtermIndex || {}).concepts || {})[S.concept]) || {};
+  const items = featureInventory();
+  if (!items.length) {
+    box.innerHTML = `<h3>${esc(t("feature.h"))}</h3><div class="feature-limit">${esc(
+      t("feature.unavailable.concept"))}</div>`;
+    return;
+  }
+
+  const itemHTML = item => `<label class="feature-row ${item.layer}">` +
+    `<input type="checkbox" data-feature-key="${escAttr(item.key)}" ${S.featureSelection.has(item.key) ? "checked" : ""}>` +
+    `<span><b>${esc(item.label)}</b><small>${esc(item.layer === "subterm"
+      ? t("feature.layer.subterm") : t("feature.layer.criterion"))}</small></span></label>`;
+  const subterms = items.filter(row => row.layer === "subterm");
+  const criteria = items.filter(row => row.layer === "criterion");
+  const mapped = selectedFeatureMap();
+  const answer = mapped.features.length
+    ? t("feature.answer").replace("{features}", mapped.features.map(row => row.label).join(", "))
+    : t("feature.none");
+
+  let objectEvidence = "";
+  const objectItem = subterms.find(row => row.id === "object");
+  if (objectItem && S.featureSelection.has(objectItem.key)) {
+    const overlap = objectItem.row.public_case_overlap || {};
+    const rows = (overlap.cases || []).filter(row => {
+      const c = S.cases[row.case_index];
+      return c && S.selected.has(c.paper);
+    });
+    objectEvidence = `<div class="feature-evidence"><b>${esc(t("feature.object.overlap")
+      .replace("{n}", rows.length).replace("{all}", overlap.matched || 0))}</b>` +
+      `<div>${esc(t("feature.object.source")
+        .replace("{p}", objectItem.row.source_counts.object)
+        .replace("{n}", objectItem.row.source_counts.not_object)
+        .replace("{u}", objectItem.row.source_counts.undecided))}</div>` +
+      `<div class="feature-limit">${esc(t("feature.object.limit"))}</div>` +
+      (rows.length ? `<details><summary>${esc(t("feature.cases").replace("{n}", rows.length))}</summary>` +
+        rows.map(featureCaseRow).join("") + `</details>` : "") + `</div>`;
+  }
+
+  box.innerHTML = `<h3>${esc(t("feature.h"))}</h3><p>${esc(t("feature.body"))}</p>` +
+    subterms.map(itemHTML).join("") +
+    (criteria.length ? `<details class="feature-criteria"><summary>${esc(t("feature.criteria")
+      .replace("{n}", criteria.length))}</summary>${criteria.map(itemHTML).join("")}</details>` : "") +
+    `<div class="feature-answer">${esc(answer)}</div>${objectEvidence}` +
+    (Number(concept.criterion_verdict_columns || 0) === 0
+      ? `<div class="feature-limit">${esc(t("feature.no.columns"))}</div>` : "");
+
+  box.querySelectorAll("input[data-feature-key]").forEach(input => {
+    input.addEventListener("change", () => {
+      if (input.checked) S.featureSelection.add(input.dataset.featureKey);
+      else S.featureSelection.delete(input.dataset.featureKey);
+      renderFeatureMap();
+    });
+  });
 }
 
 function judgeQueue() {
@@ -1347,7 +2023,14 @@ function renderJudge() {
   const out = document.getElementById("judgeScore");
   if (!card || !out) return;
   const he = LANG === "he";
-  const st = judgeState();
+  const definition = judgeDefinition();
+  if (!definition) {
+    card.innerHTML = `<div class="pt-note">${esc(t("judge.definition.required"))}</div>`;
+    out.innerHTML = "";
+    return;
+  }
+  const run = judgeState();
+  const st = run.verdicts;
   const q = judgeQueue();
   if (!q.length) {
     card.innerHTML = `<div class="pt-note">${he
@@ -1363,14 +2046,24 @@ function renderJudge() {
 
   // the score so far, through the same arithmetic as every other definition
   let tp = 0, fp = 0, fn = 0, tn = 0;
+  const scoredRows = [];
   q.forEach(i => {
     const v = st[i];
     if (v !== "1" && v !== "0") return;
     const gold = S.cases[i].status === "P", pred = v === "1";
-    if (pred && gold) tp++; else if (pred) fp++; else if (gold) fn++; else tn++;
+    let kind;
+    if (pred && gold) { tp++; kind = "tp"; }
+    else if (pred) { fp++; kind = "fp"; }
+    else if (gold) { fn++; kind = "fn"; }
+    else { tn++; kind = "tn"; }
+    scoredRows.push({ i, kind });
   });
   const done = tp + fp + fn + tn;
   const m = mcc(tp, fp, fn, tn);
+  const metricNote = m === null
+    ? `<div class="judge-validity warn">${esc(t("judge.mcc.unavailable"))}</div>`
+    : (done < q.length
+      ? `<div class="judge-validity">${esc(t("judge.mcc.provisional"))}</div>` : "");
 
   out.innerHTML = done ? `
     <div class="lmwrap" style="margin-top:.8rem">
@@ -1387,7 +2080,23 @@ function renderJudge() {
     <div class="lmfoot">MCC <b class="ltr">${fmt(m)}</b> · ${he ? "על" : "over"}
       <span class="num">${done}</span> ${he ? "מקרים שהכרעת" : "cases you judged"}
       ${done < q.length ? ` · ${he ? "עוד" : ""} <span class="num">${q.length - done}</span> ${he ? "נותרו" : "to go"}` : ""}
-      · ${he ? "בר-השוואה רק להרצה הזאת" : "comparable within this run only"}</div>` : "";
+      · ${he ? "בר-השוואה רק להרצה הזאת" : "comparable within this run only"}</div>
+    ${metricNote}
+    <div class="judge-bound">${esc(t("judge.bound").replace("{id}", run.key.slice(0, 28)))}</div>
+    <div id="judgeCases"></div>` : "";
+
+  if (done) {
+    out.querySelectorAll(".lmcell").forEach(button => {
+      button.addEventListener("click", () => {
+        const kind = button.dataset.kind;
+        const hits = scoredRows.filter(row => row.kind === kind);
+        const cases = document.getElementById("judgeCases");
+        cases.innerHTML = `<div class="lmcaseh" style="color:${LM[kind].d}">${kind.toUpperCase()} — ` +
+          `<span class="num">${hits.length}</span> ${esc(t("judge.cases"))}</div>` +
+          hits.map(row => caseRow(row)).join("");
+      });
+    });
+  }
 
   if (finished) {
     card.innerHTML = `<div class="pt-note">${he
@@ -1413,7 +2122,10 @@ function renderJudge() {
       </div>`;
     card.querySelectorAll("[data-v]").forEach(b => {
       b.addEventListener("click", () => {
-        const s2 = judgeState();
+        // Editing the wording while a card is open starts a different run. Do not let the
+        // visible card from the old run write a verdict into the new definition's record.
+        if (judgeRunKey() !== run.key) { renderJudge(); return; }
+        const s2 = judgeState().verdicts;
         s2[next] = b.dataset.v;
         judgeSave(s2);
         renderJudge();
@@ -1424,6 +2136,7 @@ function renderJudge() {
 }
 
 function renderOwn() {
+  renderFeatureMap();
   const box = document.getElementById("ownList");
   if (!box) return;
   const all = ownAll();
@@ -1444,7 +2157,11 @@ function renderOwn() {
         + esc(r.visibility === "public" ? t("own.vis.pub") : t("own.vis.priv"))
         + ' <button class="pt-btn ownDel" data-k="' + k + '">'
         + esc(t("own.saved.del")) + "</button>"
-        + "<br>" + esc(r.text) + "</div>").join("")
+        + "<br>" + esc(r.text)
+        + ((r.feature_map && r.feature_map.features || []).length
+          ? '<div class="ownfeatures">' + esc(t("feature.saved")) + ": "
+            + esc(r.feature_map.features.map(f => f.label).join(", ")) + "</div>" : "")
+        + "</div>").join("")
     + "</div>";
   // Deleting one record, not all of them. "delete what is saved" wiped every definition the
   // visitor had ever written, which is not what anyone means by delete next to a list.
@@ -1502,6 +2219,7 @@ function renderCrit() {
     ? `<b>${esc(t("crit.out.h"))}</b><br>${esc(txt)}`
     : `<b>${esc(t("crit.out.h"))}</b><br>${esc(t("crit.out.none"))}`;
   if (txt) out.innerHTML += critScoreLine();
+  renderFeatureMap();
   const jump = document.getElementById("critJudge");
   if (jump) jump.addEventListener("click", () => {
     const box = document.getElementById("judgeText");
@@ -1639,6 +2357,7 @@ function refresh() {
   renderWho();
   renderSteps();
   renderOwn();
+  renderCapability();
   const jk = document.getElementById("jack");
   if (jk) jk.innerHTML = jackknife();
 }
@@ -1659,8 +2378,10 @@ function wire() {
   if (_selNone) _selNone.onclick = () => { S.selected.clear(); refresh(); };
   const _selInvert = document.getElementById("selInvert");
   if (_selInvert) _selInvert.onclick = () => {
-    S.papers.forEach(p => { if (!p.n_scored) return;
-    S.selected.has(p.id) ? S.selected.delete(p.id) : S.selected.add(p.id); });
+    const ids = S.termPick ? ((S.visible && S.visible.length) ? S.visible : S.termPick.ids)
+                           : S.papers.filter(p => p.n_scored).map(p => p.id);
+    ids.forEach(id => { S.selected.has(id) ? S.selected.delete(id) : S.selected.add(id); });
+    S.pickedCorpus = true;
     refresh();
   };
   /* Every disclosure on the page. These were deleted by accident along with a dead handler
@@ -1768,7 +2489,7 @@ function wire() {
   if (js_) js_.addEventListener('click', renderJudge);
   const jr_ = document.getElementById('judgeReset');
   if (jr_) jr_.addEventListener('click', () => {
-    try { localStorage.removeItem(JKEY); } catch (_) {}
+    judgeResetCurrent();
     renderJudge();
   });
   const s3 = document.getElementById('step3');
@@ -1777,7 +2498,18 @@ function wire() {
     if (!st) return;
     st.hidden = false;
     head();
-    renderLiveMatrix(S.liveDef);
+    if (S.capability === CAPABILITY.BENCHMARK) {
+      const live = document.getElementById("liveMatrix");
+      if (live) live.style.display = "";
+      renderLiveMatrix(S.liveDef);
+      renderBoard();
+    } else {
+      const h = document.getElementById("stageHead");
+      if (h) h.textContent = t("evidence.stage")
+        .replace("{term}", S.termPick ? S.termPick.label : conceptLabel(conf()))
+        .replace("{n}", S.selected.size);
+      renderEvidenceWorkspace();
+    }
     st.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   document.querySelectorAll('[data-panel="pConcept"]').forEach(b => {
@@ -1806,8 +2538,9 @@ function wire() {
       text: v,
       name: (document.getElementById("ownName").value || "").trim(),
       visibility: vis,
-      concept: S.concept,
+      concept: S.termPick ? S.termPick.id : S.concept,
       corpus: [...S.selected].sort(),
+      feature_map: selectedFeatureMap(),
       when: new Date().toISOString()
     });
     try { localStorage.setItem("mtp_own", JSON.stringify(all)); } catch (_) {}
@@ -1890,6 +2623,10 @@ function wire() {
       b.textContent = t("corpus.copied"); setTimeout(() => b.textContent = o, 1400);
     } catch (_) { prompt("העתיקי את הקישור:", location.href); }
   };
+  // Explicit concept/term choices use pushState. Re-running boot on Back/Forward is deliberate:
+  // each capability has different data and paper ordering, so partial restoration risks leaving
+  // a real art/game number under another term's URL.
+  window.addEventListener("popstate", () => location.reload(), { once: true });
 }
 
 /* ---------- boot ---------- */
@@ -1951,6 +2688,16 @@ async function boot() {
   } catch (e) { S.index = []; }
 
   initLang();
+  try {
+    const senseData = await loadSenseData();
+    S.senseIndex = senseData.index;
+    S.senseReport = senseData.report;
+  } catch (e) {
+    S.senseIndex = null;
+    S.senseReport = null;
+  }
+  try { S.subtermIndex = await loadSubtermData(); }
+  catch (e) { S.subtermIndex = null; }
   // The registry first: nothing else can resolve a concept to a directory without it, and
   // its counts come from each concept's own build rather than from a number typed here.
   // getData returns the PARSED object, not a Response. Leaving the old `.then(r => r.ok
@@ -1997,6 +2744,11 @@ async function boot() {
       // first when the search box is empty.
       S.registry.sort((a, b) => (b.state === "ready") - (a.state === "ready")
                              || (b.papers || 0) - (a.papers || 0));
+      S.registry.forEach(c => {
+        const sl = c.slug || slugOf(c.en || c.id);
+        c.sense_count = senseIndicesForSlug(sl).length;
+        c.capability = capabilityForRegistryEntry(c);
+      });
     }
   } catch (e) { S.termCorpus = null; }
 
@@ -2009,9 +2761,12 @@ async function boot() {
   // A deep link may name a concept that is only in the corpus, or one we have never heard
   // of. Falling back to the default silently would show art's board under game's URL, so
   // the fallback is only taken for a concept that genuinely has a board.
-  const want = new URL(location.href).searchParams.get("concept");
+  // Capture the incoming URL once. The first refresh normalises address state; reading `term`
+  // after that refresh erased a deep link before boot had consumed it.
+  const bootURL = new URL(location.href);
+  const want = bootURL.searchParams.get("concept");
   const wanted = want && S.registry.find(c => c.id === want && c.state === "ready");
-  if (wanted) { S.concept = want; S.picked = true; }
+  if (wanted) { S.concept = want; S.capability = CAPABILITY.BENCHMARK; }
   if (!await loadConcept(true)) return;
   wire();
   refresh();
@@ -2022,7 +2777,7 @@ async function boot() {
   // ?q= prefills the search and opens the dropdown. It exists so a SEARCH can be screenshot-
   // tested - Shir typed "consciousness", saw no option to pick it, and I had no way to look at
   // what she was looking at. A feature I cannot reproduce is a feature I cannot fix.
-  const wantQ = new URL(location.href).searchParams.get("q");
+  const wantQ = bootURL.searchParams.get("q");
   if (wantQ) {
     const p = document.getElementById("pConcept");
     if (p) {
@@ -2036,7 +2791,7 @@ async function boot() {
     renderConcepts();
   }
 
-  const wantTerm = new URL(location.href).searchParams.get("term");
+  const wantTerm = bootURL.searchParams.get("term");
   const termRow = wantTerm && S.registry.find(
     c => (c.slug || slugOf(c.en || c.id)) === slugOf(wantTerm) && c.state !== "ready");
   if (termRow) {
@@ -2050,7 +2805,7 @@ async function boot() {
       const b = document.querySelector('[data-panel="pConcept"]');
       if (b) b.setAttribute("aria-expanded", "true");
     }
-    chooseSoon(termRow.id);
+    chooseSoon(termRow.id, true, bootURL);
   }
 }
 boot();

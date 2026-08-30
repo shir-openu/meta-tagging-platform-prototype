@@ -9,3 +9,9 @@ _f_*
 _a_*
 _dbg.html
 css/*.bak-*
+
+# Local build/test artefacts are never part of the published site.
+__pycache__/
+*.py[cod]
+*.bak-task06-*
+*.bak-before-*

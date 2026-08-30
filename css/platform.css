@@ -1023,6 +1023,25 @@ a:focus-visible {
 .jcard .pt-tools { flex-wrap: wrap; gap: .45rem; }
 .jyes { border-color: #0d9488 !important; color: #4ecdc4 !important; }
 .jno  { border-color: #c0392b !important; color: #ef8a7f !important; }
+.judge-bound{margin:.45rem 0;color:#7f8997;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:.68rem;overflow-wrap:anywhere}
+.judge-validity{margin-top:.55rem;font-size:.82rem;color:var(--muted)}
+.judge-validity.warn{color:#8a4b08;font-weight:650}
+.feature-map{margin:.9rem 0;padding:.85rem;border:1px solid rgba(124,92,191,.28);border-radius:12px;
+  background:rgba(124,92,191,.06)}
+.feature-map h3{margin:0 0 .35rem;font-size:1rem}.feature-map p{margin:.2rem 0 .7rem;color:var(--muted)}
+.feature-row{display:flex;gap:.55rem;align-items:flex-start;padding:.45rem .5rem;margin:.25rem 0;
+  border:1px solid rgba(127,137,151,.2);border-radius:8px;background:rgba(255,255,255,.03);cursor:pointer}
+.feature-row input{margin-top:.2rem}.feature-row span{display:flex;flex-direction:column;gap:.12rem}
+.feature-row small{color:var(--muted);font-size:.72rem}.feature-row.subterm{border-color:rgba(13,148,136,.45)}
+.feature-criteria{margin:.6rem 0}.feature-criteria>summary{cursor:pointer;font-weight:700}
+.feature-answer{margin:.7rem 0;padding:.55rem .65rem;border-left:4px solid #0d9488;background:rgba(13,148,136,.1);
+  font-weight:750}.feature-limit{margin:.45rem 0;color:var(--muted);font-size:.8rem;line-height:1.45}
+.feature-evidence{margin:.65rem 0;padding:.65rem;border:1px solid rgba(13,148,136,.25);border-radius:8px}
+.feature-evidence details{margin-top:.55rem}.feature-evidence summary{cursor:pointer}.feature-v{font-size:.72rem;
+  border-radius:999px;padding:.12rem .42rem;background:rgba(13,148,136,.14);color:#00685f}
+.feature-v.not-object{background:rgba(192,57,43,.12);color:#8e2b20}.ownfeatures{margin-top:.3rem;color:var(--muted);
+  font-size:.78rem}
 
 /* what a composed definition scores -- or why it cannot be scored yet */
 .critgap { margin-top: .7rem; padding: .7rem .9rem; border-radius: 10px;
@@ -1061,3 +1080,98 @@ a:focus-visible {
    met four roadmap cards, eight toggle buttons and their hidden prose before the two things that
    actually work. A roadmap is not the product. */
 .pt-soon{color:var(--dim,#8b8b96);font-size:.88rem;line-height:1.6;margin:1.1rem 0 0;max-width:70ch}
+
+/* TASK 06: capability is a data state, visible before the visitor invests in a trial. */
+.capability-state{margin:.8rem 0 1rem;padding:.75rem .9rem;border:1px solid var(--line);
+  border-inline-start:5px solid #a259ff;border-radius:12px;background:rgba(24,14,36,.88);
+  font-size:.88rem;line-height:1.5}
+.capability-state.cap-benchmark{border-inline-start-color:#5cc46f}
+.capability-state.cap-coverage{border-inline-start-color:#28b6a8}
+.capability-state.cap-evidence{border-inline-start-color:#5aa9f0}
+.capability-state.cap-corpus{border-inline-start-color:#a98bec}
+.cap-main{display:flex;align-items:baseline;gap:.65rem;flex-wrap:wrap}
+.cap-badge{display:inline-block;padding:.12rem .55rem;border-radius:999px;background:#322044;
+  color:#e5c9ff;font-size:.72rem;font-weight:800;letter-spacing:.035em;text-transform:uppercase}
+.cap-benchmark .cap-badge{background:#173d25;color:#8ce29e}
+.cap-coverage .cap-badge{background:#123f3b;color:#74e0d5}
+.cap-evidence .cap-badge{background:#173652;color:#85c4ff}
+.cap-screens{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.55rem}
+.cap-chip{border:1px solid var(--line);border-radius:999px;padding:.12rem .5rem;font-size:.72rem}
+.cap-chip.ready{border-color:#397f51;color:#8ce29e;background:rgba(57,127,81,.13)}
+.cap-chip.off{color:#9b8da8;background:rgba(255,255,255,.025)}
+
+/* Grounded sense browser.  The interpretive gloss and the verbatim passage are deliberately
+   different visual objects; provenance is not a footnote to a definition here. */
+.evidence-workspace{margin-top:.7rem}
+.evidence-head{border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;
+  background:linear-gradient(135deg,rgba(43,24,66,.92),rgba(17,31,50,.92))}
+.evidence-head h2{margin:.45rem 0 .2rem;color:#f5edff;font-size:1.35rem}
+.evidence-head p{margin:.2rem 0;color:#c4b6d1;max-width:78ch}
+.selector-notes{margin:.7rem 0;padding:.65rem .8rem;border-inline-start:4px solid #d49133;
+  border-radius:8px;background:rgba(212,145,51,.08);color:#d9c19b;font-size:.84rem}
+.selector-notes>div+div{margin-top:.3rem}
+.evidence-add{margin:.8rem 0!important;font-weight:800!important;border-color:#d81b8c!important;color:#ff77bd!important}
+.sense-all-head{margin:1rem 0 .45rem;color:#c77dff;font-size:.8rem;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase}
+.sense-paper{border:1px solid var(--line);border-radius:13px;padding:.9rem 1rem;margin:.75rem 0;
+  background:rgba(19,13,28,.86)}
+.sense-paper.is-default{border-color:#5c4770;box-shadow:0 0 0 1px rgba(199,125,255,.08)}
+.sense-paper h3{font-size:1.03rem;color:#f0e8f8;margin:.3rem 0 .1rem}
+.sense-defaults{display:flex;gap:.3rem;flex-wrap:wrap}
+.sense-default{font-size:.68rem;color:#a89daf;background:rgba(255,255,255,.045);
+  border:1px solid #4b4055;border-radius:999px;padding:.12rem .45rem}
+.sense-meta{font-size:.78rem;color:#9f90ad;line-height:1.55}
+.sense-meta .pt-btn{margin-inline-start:.35rem}
+.sense-card{margin-top:.7rem;padding:.75rem .8rem;border-inline-start:3px solid #5aa9f0;
+  background:rgba(41,67,91,.13);border-radius:0 9px 9px 0}
+[dir="rtl"] .sense-card{border-radius:9px 0 0 9px}
+.sense-card h4{margin:0 0 .15rem;color:#ddd0e8;font-size:.94rem;line-height:1.45}
+.sense-provenance{font-size:.7rem;color:#8f8498;margin-bottom:.5rem}
+.sense-card blockquote{margin:.35rem 0;padding:.55rem .7rem;border-inline-start:3px solid #d81b8c;
+  background:rgba(216,27,140,.055);color:#f1eaf3;font-size:.88rem;line-height:1.55}
+.sense-quote-label{display:block;color:#d68db7;font-size:.68rem;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;margin-bottom:.25rem}
+.sense-locator{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#756b7e;
+  font-size:.66rem;overflow-wrap:anywhere}
+.sense-audit{margin-top:1rem;color:#82768d;font-size:.73rem}
+.sense-audit a{color:#a98bec}
+.evidence-empty{margin:.8rem 0;padding:.8rem;border:1px solid #6e5537;border-radius:9px;
+  background:rgba(212,145,51,.08);color:#d9c19b}
+
+/* Attested-use coverage is a separate positive-only screen, never a matrix-shaped imitation
+   of the benchmark. The warning stays visually attached to every partial result. */
+.coverage-own{margin:.2rem 0 .9rem;padding:.8rem .9rem;border:1px solid #6d3860;border-radius:11px;
+  background:rgba(111,32,89,.09)}
+.coverage-own label{display:block;color:#d9b4cf;font-size:.78rem;font-weight:750;margin-bottom:.3rem}
+.coverage-own textarea{width:100%;resize:vertical;box-sizing:border-box;margin-bottom:.5rem}
+.coverage-limit{margin-top:.55rem;color:#b7a6b2;font-size:.78rem;line-height:1.45}
+.coverage-workbench{margin:.9rem 0 1.1rem;padding:1rem;border:1px solid #246e68;
+  border-radius:14px;background:rgba(18,63,59,.12)}
+.coverage-workbench.unavailable{border-color:#715d3b;background:rgba(113,93,59,.1)}
+.coverage-workbench h3{margin:.25rem 0 .4rem;color:#d8fffb;font-size:1.12rem}
+.coverage-workbench p{color:#bcd4d1;max-width:74ch}
+.screen-kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.055em;color:#74e0d5;font-weight:850}
+.coverage-warning{margin:.7rem 0;padding:.65rem .75rem;border-inline-start:4px solid #d49133;
+  border-radius:7px;background:rgba(212,145,51,.08);color:#d9c19b;font-size:.8rem;line-height:1.5}
+.coverage-definition{margin:.55rem 0;padding:.65rem .75rem;border:1px solid #3d766f;border-radius:9px;
+  color:#f0fbfa;background:rgba(31,96,89,.12);font-weight:650}
+.coverage-source{font-size:.75rem;color:#99b7b3;margin:.25rem 0 .7rem}
+.coverage-summary{display:grid;grid-template-columns:repeat(4,minmax(8rem,1fr));gap:.45rem;margin:.75rem 0}
+.coverage-summary>div{padding:.55rem .65rem;border:1px solid #315f5a;border-radius:9px;background:rgba(19,67,62,.16)}
+.coverage-summary b{display:block;color:#7ce4d8;font-size:1.16rem;font-variant-numeric:tabular-nums}
+.coverage-summary span{display:block;color:#9ab7b3;font-size:.7rem;line-height:1.35}
+.coverage-actions{margin:.5rem 0}
+.coverage-case{margin:.65rem 0;padding:.75rem .8rem;border:1px solid #2c5551;border-radius:10px;
+  background:rgba(12,39,37,.23)}
+.coverage-case-head{font-weight:750;color:#d8e7e5;line-height:1.45}
+.coverage-case blockquote{margin:.45rem 0;padding:.5rem .65rem;border-inline-start:3px solid #28b6a8;
+  color:#cddbd9;font-size:.83rem;line-height:1.5}
+.coverage-case-paper{color:#7e9996;font-size:.72rem;margin-bottom:.5rem}
+.coverage-v.on{border-color:#63d8cc!important;color:#8af0e5!important;background:rgba(40,182,168,.13)!important}
+.sense-test{margin-top:.55rem!important;border-color:#347c75!important;color:#7ce4d8!important}
+
+@media(max-width:680px){
+  .cap-main{display:block}.cap-main .cap-badge{margin-bottom:.35rem}
+  .sense-paper{padding:.75rem}.sense-meta .pt-btn{display:inline-block;margin-top:.3rem}
+  .coverage-summary{grid-template-columns:1fr 1fr}
+}
