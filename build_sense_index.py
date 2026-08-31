@@ -23,8 +23,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
+import shutil
 import sys
+import time
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -34,11 +37,15 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent
 PROJECT = ROOT.parent
 CORPUS = PROJECT / "DATA" / "corpus.json"
+RIGHTS = PROJECT / "DATA" / "rights_manifest.json"
 TERM_CORPUS = ROOT / "data" / "term_corpus.json"
+CONCEPTS = ROOT / "data" / "concepts.json"
 OUT_INDEX = ROOT / "data" / "sense_index.json"
 OUT_INLINE = ROOT / "data" / "sense_index.inline.js"
 OUT_REPORT = ROOT / "data" / "sense_index_report.json"
 OUT_REPORT_MD = ROOT / "data" / "sense_index_report.md"
+OUT_META_REPORT = ROOT / "data" / "meta_render_report.json"
+OUT_META_REPORT_MD = ROOT / "data" / "meta_render_report.md"
 
 # Publication rights are decided by the same audited allow-list as the paper-page builders.
 # The record's own `license` field is deliberately not consulted: it is known to be wrong in
@@ -46,9 +53,122 @@ OUT_REPORT_MD = ROOT / "data" / "sense_index_report.md"
 # produce a non-empty result.
 sys.path.insert(0, str(PROJECT / "TOOLS"))
 from build_paper_edition import cleared_ids  # noqa: E402
+from build_concept_index import _normalised_is_attested, _paper_defined_acronym  # noqa: E402
+from live_quote_fields import is_live  # noqa: E402
 
 DELIMITER = re.compile(r" (?:-|—) ")
 WRAPPERS = (("`", "`"), ('"', '"'), ("'", "'"), ("“", "”"), ("‘", "’"))
+
+
+def abbreviation_kind(label: str) -> str | None:
+    """Classify the complete short-form class requested by Shir.
+
+    A single letter means exactly one letter, not a statistic such as ``N = 5``. An all-caps
+    short form has two to ten Latin letters and may contain the separators used by real corpus
+    labels (for example ``CIDOC CRM``); equations and prose are outside this visual class. Hebrew
+    abbreviations are identified by geresh/gershayim spelling rather than English case.
+    """
+    value = " ".join(str(label or "").split())
+    if len(value) == 1 and value.isalpha():
+        return "single-letter"
+    letters = "".join(character for character in value if character.isalpha())
+    if (
+        2 <= len(letters) <= 10
+        and letters.upper() == letters
+        and re.fullmatch(r"[A-Z][A-Z0-9]*(?:[ ./&+_-][A-Z0-9]+)*", value)
+    ):
+        return "all-caps-short-form"
+    if (
+        re.search(r"[\u0590-\u05ff]", value)
+        and any(mark in value for mark in ("״", "׳", '"', "'"))
+        and len(letters) <= 12
+    ):
+        return "hebrew-abbreviation"
+    return None
+
+
+def collect_grounded_rows(record: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Collect grounded definitions from all three real layers using shared ``is_live``."""
+    paper_id = str(record.get("id") or "")
+    active: list[dict[str, Any]] = []
+    withdrawn: list[dict[str, Any]] = []
+
+    def consider(
+        item: dict[str, Any],
+        *,
+        source_layer: str,
+        position: int,
+        term: str,
+        gloss: str,
+        label: str,
+    ) -> None:
+        clean_term = " ".join(str(term or "").split()).strip()
+        clean_gloss = " ".join(str(gloss or "").split()).strip()
+        evidence = " ".join(str(item.get("evidence") or "").split()).strip()
+        row = {
+            "term": clean_term,
+            "gloss": clean_gloss,
+            "label": " ".join(str(label or "").split()).strip(),
+            "evidence": evidence,
+            "confidence": item.get("confidence"),
+            "paper_id": paper_id,
+            "source_layer": source_layer,
+            "position": position,
+            "source_field": f"{source_layer}[{position}].evidence",
+        }
+        if not is_live(item):
+            withdrawn.append(row)
+            return
+        if clean_term and clean_gloss and evidence:
+            active.append(row)
+
+    content_tags = record.get("content_tags") or {}
+    if isinstance(content_tags, dict):
+        for position, item in enumerate(content_tags.get("definitions") or []):
+            if not isinstance(item, dict):
+                continue
+            consider(
+                item,
+                source_layer="content_tags.definitions",
+                position=position,
+                term=str(item.get("term") or ""),
+                gloss=str(item.get("text") or item.get("evidence") or ""),
+                label=str(item.get("term") or ""),
+            )
+
+    senses = record.get("senses") or []
+    if isinstance(senses, dict):
+        senses = [senses]
+    for position, item in enumerate(senses):
+        if not isinstance(item, dict):
+            continue
+        label = " ".join(str(item.get("label") or "").split())
+        parsed = parse_label(label)
+        consider(
+            item,
+            source_layer="senses",
+            position=position,
+            term=str(parsed.get("head") or ""),
+            gloss=str(parsed.get("gloss") or ""),
+            label=label,
+        )
+
+    concepts = record.get("concepts") or []
+    if isinstance(concepts, dict):
+        concepts = [concepts]
+    for position, item in enumerate(concepts):
+        if not isinstance(item, dict):
+            continue
+        consider(
+            item,
+            source_layer="concepts",
+            position=position,
+            term=str(item.get("term") or ""),
+            gloss=str(item.get("sense") or ""),
+            label=str(item.get("term") or ""),
+        )
+
+    return active, withdrawn
 
 
 def slug(text: str) -> str:
@@ -89,7 +209,36 @@ def atomic_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_name(path.name + ".tmp-task06")
     temp.write_text(text, encoding="utf-8", newline="\n")
-    temp.replace(path)
+    # Windows indexers and browser previews can hold a generated JS file open without delete
+    # sharing while still permitting writes. Retry the atomic path first. If that exact lock
+    # persists, keep a byte-for-byte recovery copy while replacing the contents and fsync before
+    # removing the recovery copy. This avoids leaving the six-file build permanently mixed.
+    for attempt in range(20):
+        try:
+            temp.replace(path)
+            return
+        except PermissionError:
+            if attempt == 19:
+                recovery = path.with_name(path.name + ".recovery-task06")
+                if path.exists():
+                    shutil.copyfile(path, recovery)
+                try:
+                    with temp.open("rb") as source, path.open("wb") as destination:
+                        shutil.copyfileobj(source, destination, length=1024 * 1024)
+                        destination.flush()
+                        os.fsync(destination.fileno())
+                    temp.unlink()
+                    if recovery.exists():
+                        recovery.unlink()
+                    return
+                except Exception:
+                    if recovery.exists():
+                        with recovery.open("rb") as source, path.open("wb") as destination:
+                            shutil.copyfileobj(source, destination, length=1024 * 1024)
+                            destination.flush()
+                            os.fsync(destination.fileno())
+                    raise
+            time.sleep(0.25)
 
 
 def parse_label(label: str) -> dict[str, Any]:
@@ -107,14 +256,144 @@ def parse_label(label: str) -> dict[str, Any]:
     }
 
 
+def folded(value: object) -> str:
+    return " ".join(str(value or "").split()).casefold()
+
+
+def presentation_base_term(value: str) -> str:
+    """Remove a trailing project qualifier, never words from the source term itself."""
+    return re.sub(
+        r"\s*\([^)]*(?:usage|sense|meaning|context)[^)]*\)\s*$",
+        "",
+        " ".join(str(value or "").split()),
+        flags=re.IGNORECASE,
+    ).strip()
+
+
+def collect_abbreviation_expansions(
+    records: list[dict[str, Any]],
+) -> dict[str, list[dict[str, Any]]]:
+    """Return paper-attributed expansion rows without guessing from general knowledge.
+
+    The primary detector is the existing concept-index predicate.  A narrow literal fallback
+    handles non-initial forms such as ``prefrontal cortex (PFC)``: both strings must occur together
+    in the row's own evidence.  Stored ``normalised`` values are accepted only for visually short
+    terms and only when the existing attestation predicate confirms that the paper writes the
+    expansion.
+    """
+    by_short: dict[str, dict[tuple[str, str], dict[str, Any]]] = defaultdict(dict)
+
+    def add(short: str, expansion: str, record: dict[str, Any], source: str, evidence: str) -> None:
+        clean_short = " ".join(str(short or "").split()).strip("`\"“”‘’")
+        clean_expansion = " ".join(str(expansion or "").split()).strip("`\"“”‘’")
+        paper_id = str(record.get("id") or "")
+        if (
+            not clean_short
+            or not clean_expansion
+            or not paper_id
+            or folded(clean_short) == folded(clean_expansion)
+            or len(clean_expansion) <= len(clean_short)
+        ):
+            return
+        key = (folded(clean_expansion), paper_id)
+        by_short[folded(clean_short)][key] = {
+            "short_form": clean_short,
+            "expansion": clean_expansion,
+            "paper_id": paper_id,
+            "source": source,
+            "evidence": " ".join(str(evidence or "").split()),
+        }
+
+    for record in records:
+        groundings, _ = collect_grounded_rows(record)
+        candidates = [
+            (str(row["term"]), str(row["evidence"]), str(row["source_layer"]))
+            for row in groundings
+        ]
+        # Curated sense rows sometimes state the ambiguity more explicitly than the concept
+        # layer: `PFC` - reserved here for `perfluorocarbons`. Accept a wrapped candidate only
+        # when the same words occur in the attesting passage; the label alone is not evidence.
+        for row in groundings:
+            short = unwrap_head(str(row["term"]))[0]
+            if row["source_layer"] != "senses" or not abbreviation_kind(short):
+                continue
+            evidence_folded = folded(row["evidence"])
+            for candidate in re.findall(r"[`\u201c\u201d]([^`\u201c\u201d]+)[`\u201c\u201d]", str(row["gloss"])):
+                clean_candidate = " ".join(candidate.split()).strip(".,;:()[]{}")
+                if (
+                    len(clean_candidate) > len(short)
+                    and 1 <= len(clean_candidate.split()) <= 12
+                    and folded(clean_candidate) in evidence_folded
+                ):
+                    add(
+                        short,
+                        clean_candidate,
+                        record,
+                        f"{row['source_field']}:attested-wrapped-expansion",
+                        str(row["evidence"]),
+                    )
+        concepts = record.get("concepts") or []
+        if isinstance(concepts, dict):
+            concepts = [concepts]
+        for position, concept in enumerate(concepts):
+            if not isinstance(concept, dict) or not is_live(concept):
+                continue
+            term = " ".join(str(concept.get("term") or "").split())
+            evidence = " ".join(str(concept.get("evidence") or "").split())
+            if term and evidence:
+                candidates.append((term, evidence, f"concepts[{position}]"))
+            normalised = " ".join(str(concept.get("normalised") or "").split())
+            if (
+                term
+                and normalised
+                and abbreviation_kind(term)
+                and folded(term) != folded(normalised)
+                and _normalised_is_attested(record, normalised)
+            ):
+                add(term, normalised, record, f"concepts[{position}].normalised", evidence)
+
+        for term, evidence, source in candidates:
+            for expansion in {term, presentation_base_term(term)}:
+                if not expansion:
+                    continue
+                acronym = _paper_defined_acronym(record, expansion)
+                if acronym:
+                    add(acronym, expansion, record, "build_concept_index._paper_defined_acronym", evidence)
+
+                # Literal Expansion (SHORT) fallback.  It does not infer initials: it only returns
+                # the exact parenthetical string beside this exact corpus term in this evidence.
+                parts = [re.escape(part) for part in re.split(r"[\s\-‐‑‒–—_]+", expansion) if part]
+                if not parts or not evidence:
+                    continue
+                expansion_pattern = r"[\s\-‐‑‒–—_]*".join(parts)
+                match = re.search(
+                    r"(?<!\w)" + expansion_pattern
+                    + r"\s*\(\s*([A-Za-z][A-Za-z0-9./_-]{1,11})\s*\)",
+                    evidence,
+                    flags=re.IGNORECASE,
+                )
+                if match:
+                    add(match.group(1), expansion, record, "literal-expansion-parenthesis", evidence)
+
+    return {
+        short: sorted(rows.values(), key=lambda row: (folded(row["expansion"]), row["paper_id"]))
+        for short, rows in sorted(by_short.items())
+    }
+
+
 def main() -> int:
     corpus_bytes = CORPUS.read_bytes()
+    rights_bytes = RIGHTS.read_bytes()
+    term_corpus_bytes = TERM_CORPUS.read_bytes()
+    concepts_bytes = CONCEPTS.read_bytes()
     corpus = json.loads(corpus_bytes.decode("utf-8"))
-    term_corpus = json.loads(TERM_CORPUS.read_text(encoding="utf-8"))
+    term_corpus = json.loads(term_corpus_bytes.decode("utf-8"))
     records = corpus["records"]
     cleared = set(cleared_ids())
     if not cleared:
         raise RuntimeError("cleared_ids() returned an empty set; refusing to build public quotes")
+    if RIGHTS.read_bytes() != rights_bytes:
+        raise RuntimeError("rights manifest changed while the allow-list was read; retry the build")
 
     picker_by_fold: dict[str, list[tuple[str, str]]] = defaultdict(list)
     for term_slug, entry in term_corpus.get("terms", {}).items():
@@ -128,6 +407,9 @@ def main() -> int:
         "bytes": len(corpus_bytes),
         "records": len(records),
         "schema_version": corpus.get("schema_version"),
+        "rights_sha256": hashlib.sha256(rights_bytes).hexdigest(),
+        "term_corpus_sha256": hashlib.sha256(term_corpus_bytes).hexdigest(),
+        "concepts_sha256": hashlib.sha256(concepts_bytes).hexdigest(),
     }
 
     paper_rows: dict[str, dict[str, Any]] = {}
@@ -147,6 +429,103 @@ def main() -> int:
     exact_bindings = 0
     wrapper_bindings = 0
     missing_locators = 0
+    grounded_layer_counts: Counter[str] = Counter()
+    withdrawn_layer_counts: Counter[str] = Counter()
+    live_picker_slugs: set[str] = set()
+
+    def add_direct_grounding(
+        record: dict[str, Any],
+        raw_row: dict[str, Any],
+        anchor_by_field: dict[str, dict[str, Any]],
+    ) -> None:
+        """Append a content-definition or concept-sense row in the legacy browser shape."""
+        nonlocal exact_bindings, wrapper_bindings, missing_locators
+        paper_id = str(record["id"])
+        head = str(raw_row["term"])
+        paper_head_counts[(paper_id, head.casefold())] += 1
+        candidates = picker_by_fold.get(head.casefold(), [])
+        binding_status = "no_picker_match"
+        picker_slug = None
+        picker_label = None
+        if len(candidates) == 1:
+            picker_slug, picker_label = candidates[0]
+            binding_status = "exact_casefold"
+            exact_bindings += 1
+        else:
+            clean, changed = unwrap_head(head)
+            candidates = picker_by_fold.get(clean.casefold(), []) if changed else []
+            if len(candidates) == 1:
+                picker_slug, picker_label = candidates[0]
+                binding_status = "presentation_wrapper_removed"
+                wrapper_bindings += 1
+            elif len(candidates) > 1 or len(picker_by_fold.get(head.casefold(), [])) > 1:
+                binding_status = "picker_ambiguous"
+
+        canonical_id = "sense-term-" + hashlib.sha1(head.casefold().encode("utf-8")).hexdigest()[:12]
+        term = canonical_terms.setdefault(canonical_id, {
+            "head": head,
+            "sense_indices": [],
+            "picker_slugs": [],
+        })
+        term["sense_indices"].append(len(sense_rows))
+        if picker_slug and picker_slug not in term["picker_slugs"]:
+            term["picker_slugs"].append(picker_slug)
+
+        source_field = str(raw_row["source_field"])
+        anchor = anchor_by_field.get(source_field)
+        locator = None
+        if anchor:
+            locator = {
+                "field": source_field,
+                "index": "unicode-code-point",
+                "start": anchor.get("start"),
+                "end": anchor.get("end"),
+                "occurrences": anchor.get("occurrences"),
+                "text_sha1": anchor.get("text_sha1"),
+            }
+        else:
+            missing_locators += 1
+
+        source_layer = str(raw_row["source_layer"])
+        row_id = f"{paper_id}:{source_layer}[{raw_row['position']}]"
+        row = {
+            "sense_id": row_id,
+            "paper_id": paper_id,
+            "source_field": source_field,
+            "source_layer": source_layer,
+            "label": raw_row["label"],
+            "head": head,
+            "term": head,
+            "gloss": raw_row["gloss"],
+            "evidence": raw_row["evidence"],
+            "confidence": raw_row["confidence"],
+            "parse_status": "direct_term",
+            "delimiter_count": None,
+            "binding_status": binding_status,
+            "picker_slug": picker_slug,
+            "picker_label": picker_label,
+            "wording_kind": "tagged_definition" if source_layer == "content_tags.definitions" else "curatorial_gloss",
+            "evidence_kind": "verbatim_source_passage",
+            "locator": locator,
+        }
+        sense_rows.append(row)
+        grounded_layer_counts[source_layer] += 1
+        active_paper_ids.add(paper_id)
+        if picker_slug:
+            picker_terms[picker_slug].append(len(sense_rows) - 1)
+        else:
+            key = head.casefold()
+            small = {"sense_id": row_id, "paper_id": paper_id, "label": raw_row["label"]}
+            item = mismatches.setdefault(key, {"head": head, "rows": 0, "examples": []})
+            item["rows"] += 1
+            if len(item["examples"]) < 3:
+                item["examples"].append(small)
+            if paper_id in cleared:
+                public_item = published_mismatches.setdefault(
+                    key, {"head": head, "rows": 0, "examples": []})
+                public_item["rows"] += 1
+                if len(public_item["examples"]) < 3:
+                    public_item["examples"].append(small)
 
     for record in records:
         paper_id = str(record["id"])
@@ -155,19 +534,72 @@ def main() -> int:
             for anchor in (record.get("anchors") or [])
             if isinstance(anchor, dict) and anchor.get("field")
         }
+
+        # The two legacy picker builders do not filter withdrawn concept rows. Publish a live
+        # registry predicate beside this index so the browser can fail closed without modifying
+        # files outside this task's PLATFORM-only scope.
+        live_terms: list[str] = []
+        for concept in (record.get("concepts") or []):
+            if isinstance(concept, dict) and is_live(concept):
+                live_terms.append(str(concept.get("term") or ""))
+        content_tags = record.get("content_tags") or {}
+        if isinstance(content_tags, dict):
+            for key in ("key_terms", "variables", "definitions"):
+                for item in (content_tags.get(key) or []):
+                    if isinstance(item, dict):
+                        if is_live(item):
+                            live_terms.append(str(item.get("term") or ""))
+                    else:
+                        live_terms.append(str(item or ""))
+            for item in (content_tags.get("statistics") or []):
+                if isinstance(item, dict):
+                    if is_live(item):
+                        live_terms.append(str(item.get("surface") or ""))
+                else:
+                    live_terms.append(str(item or ""))
+        if record.get("method"):
+            live_terms.append(str(record["method"]))
+        live_picker_slugs.update(slug(term) for term in live_terms if slug(term))
+
+        record_groundings, record_withdrawn = collect_grounded_rows(record)
+        for raw_row in record_groundings:
+            if raw_row["source_layer"] != "senses":
+                add_direct_grounding(record, raw_row, anchor_by_field)
+        for raw_row in record_withdrawn:
+            if raw_row["source_layer"] == "senses":
+                continue
+            withdrawn_layer_counts[str(raw_row["source_layer"])] += 1
+            withdrawn.append({
+                "sense_id": f"{paper_id}:{raw_row['source_layer']}[{raw_row['position']}]",
+                "paper_id": paper_id,
+                "label": raw_row["label"],
+                "term": raw_row["term"],
+                "source_layer": raw_row["source_layer"],
+                "reason": "withdrawn by the shared live-row predicate",
+            })
+
         senses = record.get("senses") or []
+        if isinstance(senses, dict):
+            senses = [senses]
         for position, sense in enumerate(senses):
             if not isinstance(sense, dict):
                 continue
             sense_id = f"{paper_id}:senses[{position}]"
             label = str(sense.get("label") or "")
-            if sense.get("withdrawn_reason"):
+            if not is_live(sense):
+                withdrawn_layer_counts["senses"] += 1
                 withdrawn.append({
                     "sense_id": sense_id,
                     "paper_id": paper_id,
                     "label": label,
-                    "reason": str(sense.get("withdrawn_reason") or ""),
+                    "term": str(parse_label(label).get("head") or ""),
+                    "source_layer": "senses",
+                    "reason": str(sense.get("withdrawn_reason") or "withdrawn by the shared live-row predicate"),
                 })
+                continue
+
+            evidence = str(sense.get("evidence") or "").strip()
+            if not evidence:
                 continue
 
             active_paper_ids.add(paper_id)
@@ -232,10 +664,12 @@ def main() -> int:
                 "sense_id": sense_id,
                 "paper_id": paper_id,
                 "source_field": field,
+                "source_layer": "senses",
                 "label": label,
                 "head": head,
+                "term": head,
                 "gloss": gloss,
-                "evidence": str(sense.get("evidence") or ""),
+                "evidence": evidence,
                 "confidence": sense.get("confidence"),
                 "parse_status": parsed["status"],
                 "delimiter_count": parsed["delimiter_count"],
@@ -247,6 +681,7 @@ def main() -> int:
                 "locator": locator,
             }
             sense_rows.append(row)
+            grounded_layer_counts["senses"] += 1
             sense_index = len(sense_rows) - 1
             if picker_slug:
                 picker_terms[picker_slug].append(sense_index)
@@ -311,8 +746,12 @@ def main() -> int:
     unmatched_rows = sum(item["rows"] for item in mismatches.values())
 
     counts = {
-        "sense_rows_total": len(sense_rows) + len(withdrawn),
-        "sense_rows_active": len(sense_rows),
+        "sense_rows_total": grounded_layer_counts["senses"] + withdrawn_layer_counts["senses"],
+        "sense_rows_active": grounded_layer_counts["senses"],
+        "grounding_rows_total": len(sense_rows) + len(withdrawn),
+        "grounding_rows_active": len(sense_rows),
+        "grounding_rows_by_layer": dict(sorted(grounded_layer_counts.items())),
+        "withdrawn_rows_by_layer": dict(sorted(withdrawn_layer_counts.items())),
         "withdrawn_rows": len(withdrawn),
         "hard_parse_failures": len(hard_failures),
         "delimiter_ambiguities": len(ambiguities),
@@ -322,9 +761,14 @@ def main() -> int:
         "picker_exact_casefold_rows": exact_bindings,
         "picker_wrapper_cleaned_rows": wrapper_bindings,
         "picker_unmatched_parsed_rows": unmatched_rows,
-        "active_sense_papers": len(paper_rows),
+        "active_sense_papers": len({row["paper_id"] for row in sense_rows if row["source_layer"] == "senses"}),
+        "active_grounding_papers": len(paper_rows),
         "canonical_parsed_heads": len(canonical_terms),
-        "picker_terms_with_grounded_senses": len(picker_terms),
+        "picker_terms_with_grounded_senses": len({
+            row["picker_slug"] for row in sense_rows
+            if row["source_layer"] == "senses" and row.get("picker_slug")
+        }),
+        "picker_terms_with_grounded_rows": len(picker_terms),
         "multi_sense_papers": len(multi_sense_papers),
         "multi_sense_paper_head_groups": len(multi_head_groups),
         "missing_year_papers": len(missing_year_papers),
@@ -373,10 +817,22 @@ def main() -> int:
     }
     counts.update({
         "rights_cleared_manifest_ids": len(cleared),
-        "published_sense_rows": len(published_senses),
-        "withheld_sense_rows_rights": len(sense_rows) - len(published_senses),
-        "published_sense_papers": len(published_papers),
-        "published_picker_terms_with_grounded_senses": len(published_picker_terms),
+        "published_sense_rows": sum(row["source_layer"] == "senses" for row in published_senses),
+        "published_grounding_rows": len(published_senses),
+        "withheld_sense_rows_rights": (
+            grounded_layer_counts["senses"]
+            - sum(row["source_layer"] == "senses" for row in published_senses)
+        ),
+        "withheld_grounding_rows_rights": len(sense_rows) - len(published_senses),
+        "published_sense_papers": len({
+            row["paper_id"] for row in published_senses if row["source_layer"] == "senses"
+        }),
+        "published_grounding_papers": len(published_papers),
+        "published_picker_terms_with_grounded_senses": len({
+            row["picker_slug"] for row in published_senses
+            if row["source_layer"] == "senses" and row.get("picker_slug")
+        }),
+        "published_picker_terms_with_grounded_rows": len(published_picker_terms),
         "published_picker_terms_multi_paper": sum(
             paper_count >= 2 for paper_count in public_term_paper_counts.values()
         ),
@@ -391,8 +847,156 @@ def main() -> int:
         ),
     })
 
+    # Build the complete runtime-picker denominator. concepts.json is the historical 474-term
+    # cohort used by Task 09; score.js then merges every term_corpus row into it.
+    concept_payload = json.loads(concepts_bytes.decode("utf-8"))
+    base_concepts = concept_payload.get("concepts") or []
+    runtime_labels = {
+        slug(str(concept.get("en") or concept.get("id") or "")):
+            str(concept.get("en") or concept.get("id") or "")
+        for concept in base_concepts
+        if isinstance(concept, dict) and slug(str(concept.get("en") or concept.get("id") or ""))
+    }
+    ready_slugs = {
+        slug(str(concept.get("en") or concept.get("id") or ""))
+        for concept in base_concepts
+        if isinstance(concept, dict) and concept.get("state") == "ready"
+    }
+    for term_slug, entry in term_corpus.get("terms", {}).items():
+        runtime_labels.setdefault(str(term_slug), str(entry[0]))
+    live_runtime_slugs = set(live_picker_slugs) | ready_slugs
+
+    all_expansions = collect_abbreviation_expansions(records)
+    public_expansions = {
+        short: [row for row in rows if row["paper_id"] in cleared]
+        for short, rows in all_expansions.items()
+    }
+    abbreviation_rows = []
+    for term_slug, label in sorted(runtime_labels.items(), key=lambda item: folded(item[1])):
+        if term_slug not in live_runtime_slugs:
+            continue
+        kind = abbreviation_kind(label)
+        internal_rows = all_expansions.get(folded(label), [])
+        public_rows = public_expansions.get(folded(label), [])
+        if not kind and not internal_rows:
+            continue
+        expansion_names = {folded(row["expansion"]) for row in internal_rows}
+        abbreviation_rows.append({
+            "slug": term_slug,
+            "label": label,
+            "kind": kind or "corpus-attested-abbreviation",
+            "expansions": public_rows,
+            # A count is safe to publish; the denied paper's wording and identity are not.
+            "withheld_expansion_rows": len(internal_rows) - len(public_rows),
+            "internal_expansion_count": len(expansion_names),
+            "ambiguous": len(expansion_names) > 1,
+        })
+
+    # Expansion rows can cite a rights-cleared paper that has no definition card of its own.
+    # Add metadata only after the same rights decision that admitted the expansion.
+    records_by_id = {str(record["id"]): record for record in records}
+    for abbreviation in abbreviation_rows:
+        for expansion in abbreviation["expansions"]:
+            paper_id = expansion["paper_id"]
+            if paper_id in published_papers:
+                continue
+            record = records_by_id[paper_id]
+            citation = record.get("citations") if isinstance(record.get("citations"), dict) else None
+            published_papers[paper_id] = {
+                "title": str(record.get("title") or paper_id),
+                "authors": authors(record),
+                "year": record.get("year"),
+                "date": record.get("date"),
+                "discipline": str(record.get("discipline") or "uncategorised"),
+                "source_url": source_url(record),
+                "citations": ({
+                    "count": citation.get("count"),
+                    "source": citation.get("source"),
+                    "fetched": citation.get("fetched"),
+                    "openalex": citation.get("openalex"),
+                } if citation and citation.get("count") is not None else None),
+            }
+
+    base_slugs = {
+        slug(str(concept.get("en") or concept.get("id") or ""))
+        for concept in base_concepts if isinstance(concept, dict)
+    }
+    strict_public_slugs = {
+        row["picker_slug"] for row in published_senses
+        if row["source_layer"] == "senses" and row.get("picker_slug") in base_slugs
+    }
+    all_layer_public_slugs = {
+        row["picker_slug"] for row in published_senses
+        if row.get("picker_slug") in base_slugs
+    }
+    render_gap_slugs = sorted(all_layer_public_slugs - strict_public_slugs - ready_slugs)
+    before_rendered = strict_public_slugs | ready_slugs
+    after_rendered = all_layer_public_slugs | ready_slugs
+    live_historical_slugs = base_slugs & live_runtime_slugs
+
+    counts.update({
+        "historical_picker_terms": len(base_slugs),
+        "historical_picker_terms_before_live_filter": len(base_slugs),
+        "historical_picker_terms_after_live_filter": len(live_historical_slugs),
+        "historical_picker_terms_removed_as_withdrawn_only": len(base_slugs - live_runtime_slugs),
+        "historical_terms_grounded_any_layer": len(all_layer_public_slugs),
+        "historical_terms_grounded_strict_senses": len(strict_public_slugs),
+        "historical_definition_cards_before": len(before_rendered),
+        "historical_definition_cards_after": len(after_rendered),
+        "historical_render_gap_before": len(render_gap_slugs),
+        "historical_render_gap_after": 0,
+        "runtime_picker_terms_before_live_filter": len(runtime_labels),
+        "runtime_picker_terms_after_live_filter": len(live_runtime_slugs & set(runtime_labels)),
+        "runtime_picker_terms_removed_as_withdrawn_only": len(set(runtime_labels) - live_runtime_slugs),
+        "abbreviation_class_terms": len(abbreviation_rows),
+        "abbreviation_single_letter_terms": sum(
+            row["kind"] == "single-letter" for row in abbreviation_rows
+        ),
+        "abbreviation_all_caps_terms": sum(
+            row["kind"] == "all-caps-short-form" for row in abbreviation_rows
+        ),
+        "abbreviation_hebrew_terms": sum(
+            row["kind"] == "hebrew-abbreviation" for row in abbreviation_rows
+        ),
+        "abbreviation_terms_with_public_expansions": sum(
+            bool(row["expansions"]) for row in abbreviation_rows
+        ),
+        "abbreviation_ambiguous_terms_internal": sum(
+            row["ambiguous"] for row in abbreviation_rows
+        ),
+        "abbreviation_withheld_expansion_rows": sum(
+            row["withheld_expansion_rows"] for row in abbreviation_rows
+        ),
+    })
+
+    gap_rows = []
+    for term_slug in render_gap_slugs:
+        indices = published_picker_terms[term_slug]
+        rows = [published_senses[index] for index in indices]
+        gap_rows.append({
+            "slug": term_slug,
+            "label": runtime_labels.get(term_slug, term_slug),
+            "grounded_rows": len(rows),
+            "papers": sorted({row["paper_id"] for row in rows}),
+            "source_layers": dict(sorted(Counter(row["source_layer"] for row in rows).items())),
+            "outcome": "renders after three-layer index",
+        })
+
+    meta_report = {
+        "schema_version": "meta-render-1",
+        "generated_utc": generated,
+        "source": source,
+        "counts": counts,
+        "historical_render_gap_terms": gap_rows,
+        "abbreviation_class": abbreviation_rows,
+        "rights_rule": (
+            "Expansion wording and evidence are emitted only for papers in the audited "
+            "cleared_ids allow-list; denied expansions contribute counts only."
+        ),
+    }
+
     index = {
-        "schema_version": "task06-sense-index-1",
+        "schema_version": "meta-render-sense-index-2",
         "generated_utc": generated,
         "source": source,
         "counts": counts,
@@ -400,14 +1004,18 @@ def main() -> int:
             "displayed_label": "project curatorial gloss; not attributed as the paper author's wording",
             "evidence": "verbatim attesting passage stored in DATA/corpus.json",
             "picker_binding": "case-folded exact text, with only matching outer quote/backtick removal allowed",
-            "withdrawal_rule": "rows carrying withdrawn_reason are reported but excluded",
+            "grounding_layers": ["content_tags.definitions", "senses", "concepts"],
+            "withdrawal_rule": "the shared is_live predicate excludes every non-live row",
             "rights_gate": "verbatim passages are included only when build_paper_edition.cleared_ids() allows the paper",
             "anchor_index": "locator start/end count Unicode code points, not UTF-16 code units",
+            "abbreviation_rule": "expansions are corpus-attested and paper-attributed; ambiguity is preserved",
         },
         "papers": published_papers,
         "senses": published_senses,
         "canonical_terms": published_canonical_terms,
         "picker_terms": published_picker_terms,
+        "picker_live_slugs": sorted(live_runtime_slugs & set(runtime_labels)),
+        "abbreviations": {row["slug"]: row for row in abbreviation_rows},
     }
     report = {
         "schema_version": "task06-sense-index-report-1",
@@ -436,9 +1044,7 @@ def main() -> int:
 
     index_json = json.dumps(index, ensure_ascii=False, separators=(",", ":"))
     report_json = json.dumps(report, ensure_ascii=False, separators=(",", ":"))
-    atomic_text(OUT_INDEX, index_json + "\n")
-    atomic_text(OUT_INLINE, "window.MTP_SENSE_INDEX=" + index_json + ";\nwindow.MTP_SENSE_REPORT=" + report_json + ";\n")
-    atomic_text(OUT_REPORT, report_json + "\n")
+    meta_report_json = json.dumps(meta_report, ensure_ascii=False, separators=(",", ":"))
 
     mismatch_examples = "\n".join(
         f"- `{item['head']}` — {item['rows']} row(s)"
@@ -450,7 +1056,10 @@ Generated {generated} from `DATA/corpus.json` SHA-256 `{source['sha256']}`.
 
 | Finding | Count |
 |---|---:|
-| Active grounded sense rows | {counts['sense_rows_active']:,} |
+| Active grounded rows across all three layers | {counts['grounding_rows_active']:,} |
+| Active legacy `senses` rows | {counts['sense_rows_active']:,} |
+| Active `content_tags.definitions` rows | {counts['grounding_rows_by_layer'].get('content_tags.definitions', 0):,} |
+| Active `concepts` rows | {counts['grounding_rows_by_layer'].get('concepts', 0):,} |
 | Verbatim sense rows published after audited rights gate | {counts['published_sense_rows']:,} |
 | Verbatim sense rows withheld by rights gate | {counts['withheld_sense_rows_rights']:,} |
 | Picker terms with publishable grounded senses | {counts['published_picker_terms_with_grounded_senses']:,} |
@@ -481,7 +1090,87 @@ predicate. No row-level example from a denied paper is written into the publishe
 
 {mismatch_examples or '- none'}
 """
+    gap_markdown = "\n".join(
+        f"- `{row['slug']}` — {row['label']} — {row['grounded_rows']} grounded row(s); "
+        f"layers: {', '.join(f'{layer}={count}' for layer, count in row['source_layers'].items())}"
+        for row in gap_rows
+    )
+    abbreviation_markdown_rows = []
+    for row in abbreviation_rows:
+        if row["expansions"]:
+            details = []
+            for expansion in row["expansions"]:
+                paper = published_papers.get(expansion["paper_id"], {})
+                details.append(
+                    f"{expansion['expansion']} — {paper.get('title', expansion['paper_id'])} "
+                    f"({paper.get('year') or 'year unavailable'})"
+                )
+            rendered = "; ".join(details)
+        else:
+            rendered = "no corpus-attested public expansion"
+        withheld = (
+            f"; {row['withheld_expansion_rows']} additional expansion row(s) withheld by rights gate"
+            if row["withheld_expansion_rows"] else ""
+        )
+        ambiguity = "; ambiguous across corpus records" if row["ambiguous"] else ""
+        abbreviation_markdown_rows.append(
+            f"- `{row['slug']}` — {row['label']} [{row['kind']}] — {rendered}{withheld}{ambiguity}"
+        )
+    meta_markdown = f"""# Meta-render audit report
+
+Generated {generated}. This report audits the complete runtime picker, with public expansion
+wording limited to the audited rights-cleared paper set.
+
+| Denominator / outcome | Count |
+|---|---:|
+| Historical picker cohort | {counts['historical_picker_terms']:,} |
+| Historical picker cohort after shared-live filtering | {counts['historical_picker_terms_after_live_filter']:,} |
+| Historical rows removed as withdrawn-only | {counts['historical_picker_terms_removed_as_withdrawn_only']:,} |
+| Definition cards before three-layer repair | {counts['historical_definition_cards_before']:,} |
+| Definition cards after three-layer repair | {counts['historical_definition_cards_after']:,} |
+| Historical render gap before | {counts['historical_render_gap_before']:,} |
+| Historical render gap after | {counts['historical_render_gap_after']:,} |
+| Runtime picker rows before shared-live filtering | {counts['runtime_picker_terms_before_live_filter']:,} |
+| Runtime picker rows after shared-live filtering | {counts['runtime_picker_terms_after_live_filter']:,} |
+| Runtime rows removed as withdrawn-only | {counts['runtime_picker_terms_removed_as_withdrawn_only']:,} |
+| Complete abbreviation class | {counts['abbreviation_class_terms']:,} |
+| Abbreviations with public corpus-attested expansions | {counts['abbreviation_terms_with_public_expansions']:,} |
+| Rights-withheld expansion rows (count only) | {counts['abbreviation_withheld_expansion_rows']:,} |
+
+## Historical terms repaired by the three-layer route
+
+{gap_markdown or '- none'}
+
+## Complete runtime abbreviation class
+
+{chr(10).join(abbreviation_markdown_rows) or '- none'}
+"""
+
+    # These inputs are maintained by concurrent workers. A mixed-generation output is worse
+    # than no output, so compare every byte snapshot immediately before the first atomic write.
+    stable_inputs = (
+        (CORPUS, corpus_bytes),
+        (RIGHTS, rights_bytes),
+        (TERM_CORPUS, term_corpus_bytes),
+        (CONCEPTS, concepts_bytes),
+    )
+    changed_inputs = [str(path) for path, snapshot in stable_inputs if path.read_bytes() != snapshot]
+    if changed_inputs:
+        raise RuntimeError(
+            "input changed during meta-render build; refusing all output writes: "
+            + ", ".join(changed_inputs)
+        )
+
+    atomic_text(OUT_INDEX, index_json + "\n")
+    atomic_text(
+        OUT_INLINE,
+        "window.MTP_SENSE_INDEX=" + index_json
+        + ";\nwindow.MTP_SENSE_REPORT=" + report_json + ";\n",
+    )
+    atomic_text(OUT_REPORT, report_json + "\n")
+    atomic_text(OUT_META_REPORT, meta_report_json + "\n")
     atomic_text(OUT_REPORT_MD, markdown)
+    atomic_text(OUT_META_REPORT_MD, meta_markdown)
 
     print(json.dumps({"generated": generated, "counts": counts}, ensure_ascii=False, indent=2))
     return 0

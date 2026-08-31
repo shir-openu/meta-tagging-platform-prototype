@@ -60,14 +60,17 @@ function markdown(report) {
   return `# Task 09 — coverage of every pickable term
 
 Generated ${report.generated_at} from \`${report.source.page_url}\` with headless Chrome driving
-the production DOM and production \`score.js\` paths. The term set is the 474 entries in the
-live \`data/concepts.json\`; this is an exhaustive sweep, not a sample.
+the production DOM and production \`score.js\` paths. The historical cohort begins with all 474
+entries in \`data/concepts.json\`, then applies the same live-row predicate as the runtime picker.
+Every retained historical term and every runtime abbreviation is exercised; this is not a sample.
 
 ## Result
 
 | Check | Result |
 |---|---:|
-| Terms exercised | ${c.terms_exercised}/${c.terms_expected} |
+| Historical terms before shared-live filter | ${c.historical_terms_before_live_filter} |
+| Historical terms removed as withdrawn-only | ${c.historical_terms_removed_as_withdrawn_only} |
+| Live historical terms exercised | ${c.terms_exercised}/${c.terms_expected} |
 | Definition/evidence cards rendered | ${c.definition_cards_rendered} |
 | Honest no-public-sense refusals | ${c.correct_refusals} |
 | User definitions accepted | ${c.user_definitions_accepted}/${c.terms_expected} |
@@ -78,6 +81,9 @@ live \`data/concepts.json\`; this is an exhaustive sweep, not a sample.
 | Tier-3 score leaks | ${c.tier3_score_leaks} |
 | Terms with console/page errors | ${c.terms_with_console_errors} |
 | Terms with broken-path failures | ${c.terms_with_failures} |
+| Runtime picker rows after shared-live filter | ${c.runtime_picker_terms} |
+| Complete abbreviation class exercised | ${c.abbreviation_terms_exercised}/${c.abbreviation_terms_expected} |
+| Abbreviation presentation failures | ${c.abbreviation_presentation_failures} |
 
 ## Honest capability tiers
 
@@ -91,9 +97,13 @@ is counted separately from a broken path.
 
 ## Repairs made from the baseline sweep
 
-- 8 sense-capable terms were silently empty because their safely bound sense-source papers were
-  absent from the older term-corpus snapshot. The production reader now joins those already-public
-  papers into the selectable corpus; all 8 render their grounded cards.
+- The sense route previously read only \`senses\`. The production index now reads the three actual
+  grounded layers (\`content_tags.definitions\`, \`senses\`, and \`concepts\`) through one liveness
+  and rights predicate. The report prints the before/after denominator and every moved term.
+- Withdrawn-only picker entries are removed with the shared live-row predicate, and that movement
+  is counted separately rather than hidden inside the post-filter denominator.
+- The complete runtime abbreviation class is presented with every public corpus-attested expansion
+  and its paper; unknown expansions are explicit, ambiguity is preserved, and denied text is not emitted.
 - Known-optional missing data and the missing favicon made all 474 baseline journeys report a
   browser error. Optional paths are now checked against the generated inline file list, and the
   definition page has an explicit favicon; the final sweep has zero console/page errors.
@@ -153,12 +163,63 @@ const pageUrl = `${baseUrl}/define/index-en.html`;
 await page.goto(pageUrl, { waitUntil: "networkidle", timeout: 60_000 });
 await page.evaluate(() => localStorage.clear());
 
-const terms = await page.evaluate(async () => {
+const historicalTerms = await page.evaluate(async () => {
   const response = await fetch(new URL("../data/concepts.json", location.href));
   if (!response.ok) throw new Error(`concepts.json returned ${response.status}`);
   return (await response.json()).concepts;
 });
-if (terms.length !== 474) throw new Error(`Expected 474 pickable terms, found ${terms.length}`);
+if (historicalTerms.length !== 474) {
+  throw new Error(`Expected the 474-term historical cohort, found ${historicalTerms.length}`);
+}
+const runtimeState = await page.evaluate(() => ({
+  ids: S.registry.map(row => row.id),
+  terms: S.registry.length,
+  abbreviations: Object.keys((S.senseIndex || {}).abbreviations || {}).length,
+}));
+const runtimeIds = new Set(runtimeState.ids);
+const terms = historicalTerms.filter(term => runtimeIds.has(term.id));
+const removedHistoricalTerms = historicalTerms.filter(term => !runtimeIds.has(term.id));
+
+const abbreviationAudit = await page.evaluate(() => {
+  const index = S.senseIndex || {};
+  const papers = index.papers || {};
+  return Object.values(index.abbreviations || {}).map(entry => {
+    const registry = S.registry.find(row =>
+      (row.slug || slugOf(row.en || row.id)) === entry.slug);
+    const failures = [];
+    if (!registry) failures.push("absent-from-live-runtime-picker");
+    const label = registry ? conceptLabel(registry) : "";
+    const html = registry ? abbreviationDetailsHTML(registry) : "";
+    if (entry.expansions.length) {
+      for (const row of entry.expansions) {
+        if (!label.includes(row.expansion)) failures.push(`label-omits-expansion:${row.expansion}`);
+        if (!html.includes(row.expansion)) failures.push(`detail-omits-expansion:${row.expansion}`);
+        const paperTitle = (papers[row.paper_id] || {}).title;
+        if (!paperTitle || !html.includes(paperTitle)) {
+          failures.push(`detail-omits-paper:${row.paper_id}`);
+        }
+      }
+    } else if (!/no corpus-attested expansion|unavailable from the public rights-cleared corpus/.test(label)) {
+      failures.push("missing-explicit-no-public-expansion-label");
+    }
+    if (entry.ambiguous && !html.includes("Ambiguous short form")) {
+      failures.push("ambiguity-not-disclosed");
+    }
+    if (entry.withheld_expansion_rows && !html.includes("withheld by the public-rights gate")) {
+      failures.push("rights-withheld-count-not-disclosed");
+    }
+    return {
+      slug: entry.slug,
+      label: entry.label,
+      kind: entry.kind,
+      public_expansion_rows: entry.expansions.length,
+      withheld_expansion_rows: entry.withheld_expansion_rows,
+      ambiguous: entry.ambiguous,
+      rendered_label: label,
+      failures: [...new Set(failures)],
+    };
+  });
+});
 
 const bootEvents = events.filter(event => event.term_id === null);
 const results = [];
@@ -345,7 +406,7 @@ await browser.close();
 
 const selectorCounts = name => countBy(results, row => row.selectors[name].status);
 const report = {
-  schema_version: "task09-term-coverage-1",
+  schema_version: "meta-render-browser-audit-2",
   generated_at: new Date().toISOString(),
   source: {
     page_url: pageUrl,
@@ -354,8 +415,14 @@ const report = {
     browser_executable: executablePath,
   },
   counts: {
-    terms_expected: 474,
+    historical_terms_before_live_filter: historicalTerms.length,
+    historical_terms_removed_as_withdrawn_only: removedHistoricalTerms.length,
+    terms_expected: terms.length,
     terms_exercised: results.length,
+    runtime_picker_terms: runtimeState.terms,
+    abbreviation_terms_expected: runtimeState.abbreviations,
+    abbreviation_terms_exercised: abbreviationAudit.length,
+    abbreviation_presentation_failures: abbreviationAudit.filter(row => row.failures.length).length,
     capability_tiers: countBy(results, row => row.capability.expected),
     capability_labels_true: results.filter(row => row.capability.true_for_term).length,
     definition_cards_rendered: results.filter(row => row.definitions.cards_rendered > 0).length,
@@ -384,6 +451,8 @@ const report = {
       row => row.failure),
   },
   boot_errors: bootEvents,
+  historical_terms_removed_as_withdrawn_only: removedHistoricalTerms.map(term => term.id),
+  abbreviations: abbreviationAudit,
   terms: results,
 };
 
@@ -392,4 +461,6 @@ fs.writeFileSync(outputPath, JSON.stringify(report, null, 2) + "\n", "utf8");
 fs.writeFileSync(summaryPath, markdown(report), "utf8");
 console.log(JSON.stringify(report.counts, null, 2));
 
-if (report.counts.terms_exercised !== 474) process.exitCode = 1;
+if (report.counts.terms_exercised !== report.counts.terms_expected ||
+    report.counts.abbreviation_terms_exercised !== report.counts.abbreviation_terms_expected ||
+    report.counts.abbreviation_presentation_failures !== 0) process.exitCode = 1;

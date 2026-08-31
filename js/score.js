@@ -70,9 +70,74 @@ function conf() {
   return S.registry.find(c => c.id === S.concept)
       || { id: S.concept, dir: "", calib: "circular", state: "ready" };
 }
-function conceptLabel(c) {
-  return (LANG === "he" && c && c.he) ? c.he : (c ? (c.en || c.id) : S.concept);
+function abbreviationEntry(c) {
+  const termSlug = c && (c.slug || slugOf(c.en || c.id));
+  return termSlug && (((S.senseIndex || {}).abbreviations || {})[termSlug] || null);
 }
+function abbreviationSearchValues(c) {
+  const entry = abbreviationEntry(c);
+  if (!entry) return [];
+  const papers = (S.senseIndex || {}).papers || {};
+  return (entry.expansions || []).flatMap(row => [
+    row.expansion,
+    (papers[row.paper_id] || {}).title,
+  ]).filter(Boolean);
+}
+function conceptLabel(c) {
+  const base = (LANG === "he" && c && c.he) ? c.he : (c ? (c.en || c.id) : S.concept);
+  const entry = abbreviationEntry(c);
+  if (!entry) return base;
+  const expansions = [...new Set((entry.expansions || []).map(row => row.expansion).filter(Boolean))];
+  if (expansions.length) {
+    const joiner = LANG === "he" ? " / " : "; ";
+    const relation = LANG === "he"
+      ? " \u2013 \u05e8\u05d0\u05e9\u05d9 \u05ea\u05d9\u05d1\u05d5\u05ea \u05e9\u05dc "
+      : " for ";
+    return expansions.map(expansion => `${base}${relation}${expansion}`).join(joiner);
+  }
+  if (entry.withheld_expansion_rows) {
+    const note = LANG === "he"
+      ? "\u05d4\u05e4\u05d9\u05e8\u05d5\u05e9 \u05d0\u05d9\u05e0\u05d5 \u05d6\u05de\u05d9\u05df \u05dc\u05e4\u05e8\u05e1\u05d5\u05dd \u05dc\u05e4\u05d9 \u05de\u05d2\u05d1\u05dc\u05d5\u05ea \u05d4\u05e8\u05e9\u05d0\u05d4"
+      : "expansion unavailable from the public rights-cleared corpus";
+    return `${base} \u2014 ${note}`;
+  }
+  const note = LANG === "he"
+    ? "\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0 \u05e4\u05d9\u05e8\u05d5\u05e9 \u05de\u05ea\u05d5\u05e2\u05d3 \u05d1\u05e7\u05d5\u05e8\u05e4\u05d5\u05e1"
+    : "no corpus-attested expansion";
+  return `${base} \u2014 ${note}`;
+}
+
+function abbreviationDetailsHTML(c, compact = false) {
+  const entry = abbreviationEntry(c);
+  if (!entry) return "";
+  const he = LANG === "he";
+  const papers = (S.senseIndex || {}).papers || {};
+  const relation = he
+    ? " \u2013 \u05e8\u05d0\u05e9\u05d9 \u05ea\u05d9\u05d1\u05d5\u05ea \u05e9\u05dc "
+    : " for ";
+  const rows = (entry.expansions || []).map(row => {
+    const paper = papers[row.paper_id] || {};
+    const year = paper.year || (he ? "\u05e9\u05e0\u05d4 \u05dc\u05d0 \u05d6\u05de\u05d9\u05e0\u05d4" : "year unavailable");
+    return `<li><b>${esc(entry.label + relation + row.expansion)}</b>` +
+      ` <span>\u2014 ${esc(paper.title || row.paper_id)} (${esc(String(year))})</span></li>`;
+  }).join("");
+  const noExpansion = rows ? "" : `<div class="abbr-none">${esc(he
+    ? "\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0 \u05e4\u05d9\u05e8\u05d5\u05e9 \u05e4\u05d5\u05de\u05d1\u05d9 \u05de\u05ea\u05d5\u05e2\u05d3 \u05d1\u05e7\u05d5\u05e8\u05e4\u05d5\u05e1; \u05dc\u05d0 \u05e0\u05e0\u05d7\u05e9 \u05e4\u05d9\u05e8\u05d5\u05e9."
+    : "No public corpus-attested expansion; no expansion is guessed.")}</div>`;
+  const ambiguous = entry.ambiguous ? `<div class="abbr-warning">${esc(he
+    ? "\u05e8\u05d0\u05e9\u05d9 \u05d4\u05ea\u05d9\u05d1\u05d5\u05ea \u05d3\u05d5-\u05de\u05e9\u05de\u05e2\u05d9\u05d9\u05dd \u05d1\u05e7\u05d5\u05e8\u05e4\u05d5\u05e1; \u05db\u05dc \u05d4\u05e4\u05d9\u05e8\u05d5\u05e9\u05d9\u05dd \u05d4\u05e4\u05d5\u05de\u05d1\u05d9\u05d9\u05dd \u05de\u05d5\u05e6\u05d2\u05d9\u05dd."
+    : "Ambiguous short form: every public corpus-attested expansion is shown.")}</div>` : "";
+  const withheld = entry.withheld_expansion_rows ? `<div class="abbr-withheld">${esc(he
+    ? `${entry.withheld_expansion_rows} \u05e8\u05e9\u05d5\u05de\u05d5\u05ea \u05e4\u05d9\u05e8\u05d5\u05e9 \u05e0\u05d5\u05e1\u05e4\u05d5\u05ea \u05e0\u05e1\u05e4\u05e8\u05d5 \u05d0\u05da \u05e0\u05d5\u05ea\u05e8\u05d5 \u05d7\u05e1\u05d5\u05d9\u05d5\u05ea \u05d1\u05e9\u05e2\u05e8 \u05d4\u05d4\u05e8\u05e9\u05d0\u05d5\u05ea.`
+    : `${entry.withheld_expansion_rows} additional expansion record(s) counted but withheld by the public-rights gate.`)}</div>` : "";
+  const heading = he
+    ? "\u05e4\u05d9\u05e8\u05d5\u05e9\u05d9\u05dd \u05de\u05ea\u05d5\u05e2\u05d3\u05d9\u05dd \u05d1\u05e7\u05d5\u05e8\u05e4\u05d5\u05e1"
+    : "Corpus-attested expansions";
+  return `<div class="abbr-details${compact ? " compact" : ""}">` +
+    `<div class="abbr-head">${esc(heading)}</div>` +
+    (rows ? `<ul>${rows}</ul>` : noExpansion) + ambiguous + withheld + `</div>`;
+}
+
 /* Where a concept's files are. The registry stores it relative to data/; the working screen
    sits one directory down, so it is resolved here and nowhere else. */
 function conceptDir(c) { return "../data/" + ((c && c.dir) || ""); }
@@ -1176,7 +1241,7 @@ function norm(s) {
 }
 function matches(c, q) {
   if (!q) return true;
-  return [c.id, c.he, c.en, ...(c.aliases || [])]
+  return [c.id, c.he, c.en, ...(c.aliases || []), ...abbreviationSearchValues(c)]
     .filter(Boolean).some(s => norm(s).includes(q));
 }
 
@@ -1238,7 +1303,7 @@ function renderConcepts() {
       if (c.state === "ready") {
         return `<button class="ac-item${sel}${on ? " on" : ""}" role="option"
           aria-selected="${on}" data-conc="${esc(c.id)}"
-          ><span class="nm">${esc(conceptLabel(c))}</span>
+          ><span class="nm">${esc(conceptLabel(c))}</span>${abbreviationDetailsHTML(c, true)}
           <span class="sub">${counts(c)} · ${esc(LANG === "he" ? c.why_he : c.why_en)}</span>
           </button>`;
       }
@@ -1249,7 +1314,8 @@ function renderConcepts() {
           ? t("concept.evidenceonly").replace("{n}", c.papers).replace("{s}", c.sense_count || 0)
           : t("concept.corpusonly").replace("{n}", c.papers);
       return `<button class="ac-item soon${sel}" role="option" data-soon="${esc(c.id)}"
-        ><span class="nm">${esc(c.en)}</span><span class="sub">${sub}</span></button>`;
+        ><span class="nm">${esc(conceptLabel(c))}</span><span class="sub">${sub}</span>
+        ${abbreviationDetailsHTML(c, true)}</button>`;
     }).join("");
     const hidden = rest.length - Math.max(0, shown.length - ready.length);
     if (hidden > 0) {
@@ -1298,7 +1364,7 @@ function chooseSoon(id, fromURL, sourceURL) {
   // field says.
   {
     const inp = document.getElementById("conceptSearch");
-    if (inp) { inp.value = c.en || c.id; S.query = inp.value; }
+    if (inp) { inp.value = conceptLabel(c); S.query = inp.value; }
   }
   const out = document.getElementById("conceptSoon");
   if (!out) return;
@@ -1308,7 +1374,7 @@ function chooseSoon(id, fromURL, sourceURL) {
   const ent = S.termCorpus && S.termCorpus[termSlug];
   const ids = termIdsWithSenseSources(ent, termSlug);
   ensureSensePaperMetadata(ids);
-  S.termPick = { id: c.id, slug: termSlug, label: c.en || c.id, ids,
+  S.termPick = { id: c.id, slug: termSlug, label: conceptLabel(c), ids,
                  tagged: termTaggedSetWithSenseSources(ent, termSlug),
                  senseIndices: senseIndicesForSlug(termSlug),
                  capability: S.capability };
@@ -1408,7 +1474,7 @@ function termCorpusHTML(c) {
     ? "אין עדיין מקרים מוכרעים למונח הזה, ולכן אפשר לעיין בקורפוס אך לא לנקד עליו הגדרות."
     : "This term has no judged cases yet, so the corpus can be browsed but definitions "
       + "cannot be scored against it.";
-  return `<div class="tc">${head}<div class="tc-list">${body}</div>
+  return `<div class="tc">${abbreviationDetailsHTML(c)}${head}<div class="tc-list">${body}</div>
           <div class="tc-note">${note}</div></div>`;
 }
 
@@ -2790,6 +2856,12 @@ async function boot() {
         S.registry.push({ id: sl, slug: sl, state: "corpus", en: label, he: null,
                           aliases: [], papers: ids.length, cases: 0, definitions: 0 });
       });
+      // term_corpus is generated by an older builder that can still carry withdrawn-only tags.
+      // The sense index publishes the shared Python is_live decision for the complete runtime
+      // denominator. Fail closed when that decision is unavailable: only scored boards remain.
+      const publishedLive = new Set(((S.senseIndex || {}).picker_live_slugs) || []);
+      S.registry = S.registry.filter(c => c.state === "ready" ||
+        publishedLive.has(c.slug || slugOf(c.en || c.id)));
       // Terms carried by more papers are the ones that can join fields, so they surface
       // first when the search box is empty.
       S.registry.sort((a, b) => (b.state === "ready") - (a.state === "ready")

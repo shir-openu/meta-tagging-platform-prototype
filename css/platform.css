@@ -1068,6 +1068,16 @@ a:focus-visible {
 .tc-p a { color: #c77dff; text-decoration: none; }
 .tc-p a:hover { color: #ff5fb0; text-decoration: underline; }
 .tc-note { margin-top: .6rem; font-size: .84rem; color: #b98fd6; }
+.abbr-details { margin: 0 0 .75rem; padding: .65rem .75rem; border: 1px solid rgba(216,27,140,.35);
+  border-radius: 9px; background: rgba(216,27,140,.07); color: var(--ink); }
+.abbr-details.compact { margin: .35rem 0 0; padding: .4rem .55rem; font-size: .76rem; }
+.abbr-head { color: #ff74bd; font-size: .76rem; font-weight: 800; letter-spacing: .035em;
+  text-transform: uppercase; }
+.abbr-details ul { margin: .35rem 0 0; padding-inline-start: 1.15rem; }
+.abbr-details li { margin: .18rem 0; line-height: 1.35; }
+.abbr-details li span, .abbr-none { color: var(--dim); }
+.abbr-warning, .abbr-withheld { margin-top: .38rem; color: #f5c96a; font-size: .8rem; }
+.ac-item .abbr-details { pointer-events: none; }
 
 /* The concept dropdown holds 10,506 terms. It scrolls; the count line at the bottom says how
    many more are behind the slice, in pink so it is not mistaken for a disabled note. */
