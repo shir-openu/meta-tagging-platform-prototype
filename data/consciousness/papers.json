@@ -1,44 +1,114 @@
 [
  {
   "id": "cooke2021-what-is-consciousness-integrated-information",
-  "short": "cooke2021",
+  "title": "What Is Consciousness? Integrated Information vs. Inference",
+  "year": 2021,
+  "venue": "Entropy",
+  "url": "https://doi.org/10.3390/e23081032",
+  "field": "consciousness-studies",
+  "words": 7010,
   "n_cases": 3,
-  "n_definitions": 3
+  "n_scored": 3,
+  "n_pos": 1,
+  "n_neg": 2,
+  "n_undecided": 0,
+  "theorists": [],
+  "n_senses": 3
  },
  {
   "id": "forti2025-what-is-consciousness-and-what-it-is-for-an",
-  "short": "forti2025",
+  "title": "What is consciousness and what it is for. An introduction to extended information theory.",
+  "year": 2025,
+  "venue": "Frontiers in Psychology",
+  "url": "https://doi.org/10.3389/fpsyg.2025.1627289",
+  "field": "consciousness-studies",
+  "words": 12544,
   "n_cases": 1,
-  "n_definitions": 1
+  "n_scored": 1,
+  "n_pos": 0,
+  "n_neg": 1,
+  "n_undecided": 0,
+  "theorists": [],
+  "n_senses": 1
  },
  {
   "id": "wahbeh2022-what-if-consciousness-is-not-an-emergent-pro",
-  "short": "wahbeh2022",
+  "title": "What if consciousness is not an emergent property of the brain? Observational and empirical challenges to materialistic models",
+  "year": 2022,
+  "venue": "Frontiers in Psychology",
+  "url": "https://doi.org/10.3389/fpsyg.2022.955594",
+  "field": "consciousness-studies",
+  "words": 9679,
   "n_cases": 1,
-  "n_definitions": 1
+  "n_scored": 1,
+  "n_pos": 0,
+  "n_neg": 1,
+  "n_undecided": 0,
+  "theorists": [],
+  "n_senses": 1
  },
  {
   "id": "stanciu2023-consciousness-4e-cognition-and-aristotle-a-f",
-  "short": "stanciu2023",
+  "title": "Consciousness, 4E cognition and Aristotle: a few conceptual and historical aspects.",
+  "year": 2023,
+  "venue": "Frontiers in Computational Neuroscience",
+  "url": "https://doi.org/10.3389/fncom.2023.1204602",
+  "field": "consciousness-studies",
+  "words": 9113,
   "n_cases": 0,
-  "n_definitions": 1
+  "n_scored": 0,
+  "n_pos": 0,
+  "n_neg": 0,
+  "n_undecided": 0,
+  "theorists": [],
+  "n_senses": 1
  },
  {
   "id": "gervais2023-a-scoping-review-for-building-a-criticality",
-  "short": "gervais2023",
+  "title": "A scoping review for building a criticality-based conceptual framework of altered states of consciousness",
+  "year": 2023,
+  "venue": "Frontiers in Systems Neuroscience",
+  "url": "https://doi.org/10.3389/fnsys.2023.1085902",
+  "field": "consciousness-studies",
+  "words": 10248,
   "n_cases": 4,
-  "n_definitions": 2
+  "n_scored": 3,
+  "n_pos": 3,
+  "n_neg": 0,
+  "n_undecided": 1,
+  "theorists": [],
+  "n_senses": 2
  },
  {
   "id": "ouwersloot2020-reintroducing-consciousness-in-psychopatholo",
-  "short": "ouwersloot2020",
+  "title": "Reintroducing Consciousness in Psychopathology: Review of the Literature and Conceptual Framework",
+  "year": 2020,
+  "venue": "Frontiers in Psychology",
+  "url": "https://doi.org/10.3389/fpsyg.2020.586284",
+  "field": "consciousness-studies",
+  "words": 6522,
   "n_cases": 3,
-  "n_definitions": 0
+  "n_scored": 2,
+  "n_pos": 2,
+  "n_neg": 0,
+  "n_undecided": 1,
+  "theorists": [],
+  "n_senses": 0
  },
  {
   "id": "farisco2018-large-scale-brain-simulation-and-disorders-o",
-  "short": "farisco2018",
+  "title": "Large-Scale Brain Simulation and Disorders of Consciousness. Mapping Technical and Conceptual Issues",
+  "year": 2018,
+  "venue": "Frontiers in Psychology",
+  "url": "https://doi.org/10.3389/fpsyg.2018.00585",
+  "field": "consciousness-studies",
+  "words": 6465,
   "n_cases": 3,
-  "n_definitions": 1
+  "n_scored": 2,
+  "n_pos": 1,
+  "n_neg": 1,
+  "n_undecided": 1,
+  "theorists": [],
+  "n_senses": 1
  }
 ]

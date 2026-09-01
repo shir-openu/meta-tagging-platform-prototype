@@ -1,7 +1,7 @@
 [
  {
   "i": 0,
-  "paper": "cooke2021",
+  "paper": "cooke2021-what-is-consciousness-integrated-information",
   "thing": "digital camera feedforward circuit",
   "quote": "For example, the feedforward circuitry of a digital camera where the activity of each photodiode is fully independent of the others shows no integration, while a recurrently connec",
   "status": "N",
@@ -10,7 +10,7 @@
  },
  {
   "i": 1,
-  "paper": "cooke2021",
+  "paper": "cooke2021-what-is-consciousness-integrated-information",
   "thing": "protozoans and bacteria",
   "quote": "Indeed, the purportedly nonconscious protozoans and bacteria do all these things.",
   "status": "N",
@@ -19,7 +19,7 @@
  },
  {
   "i": 2,
-  "paper": "cooke2021",
+  "paper": "cooke2021-what-is-consciousness-integrated-information",
   "thing": "a dreaming person",
   "quote": "The focus on internal dynamics in IIT does allow it to account for the phenomenon of dreaming, however.",
   "status": "P",
@@ -28,7 +28,7 @@
  },
  {
   "i": 3,
-  "paper": "wahbeh2022",
+  "paper": "wahbeh2022-what-if-consciousness-is-not-an-emergent-pro",
   "thing": "a person under general anaesthesia",
   "quote": "Other authors have focused solely on states of unconsciousness during general anesthesia ( Hudetz, 2012 ), epilepsy ( Blumenfeld and Taylor, 2003 ), or sleep ( Steriade et al.",
   "status": "N",
@@ -37,7 +37,7 @@
  },
  {
   "i": 4,
-  "paper": "farisco2018",
+  "paper": "farisco2018-large-scale-brain-simulation-and-disorders-o",
   "thing": "coma, vegetative state, minimally conscious state",
   "quote": ", Coma, Vegetative State/Unresponsive Wakefulness Syndrome, Minimally Conscious State.",
   "status": "N",
@@ -46,7 +46,7 @@
  },
  {
   "i": 5,
-  "paper": "farisco2018",
+  "paper": "farisco2018-large-scale-brain-simulation-and-disorders-o",
   "thing": "a simulated brain configuration",
   "quote": "However, even in this case, what seems plausible to model and eventually simulate is not consciousness as such, but only the cerebral configuration (i.",
   "status": "U",
@@ -55,7 +55,7 @@
  },
  {
   "i": 6,
-  "paper": "gervais2023",
+  "paper": "gervais2023-a-scoping-review-for-building-a-criticality",
   "thing": "a person in meditation",
   "quote": "As described earlier, consciousness is said to be composed of arousal as well as awareness, making meditation (a practice where awareness is increased), a sort of “super-conscious” state.",
   "status": "P",
@@ -64,7 +64,7 @@
  },
  {
   "i": 7,
-  "paper": "ouwersloot2020",
+  "paper": "ouwersloot2020-reintroducing-consciousness-in-psychopatholo",
   "thing": "a person asleep",
   "quote": "Even when it is interrupted by sleep or anesthesia, people experience consciousness with a certain continuity.",
   "status": "U",
@@ -73,7 +73,7 @@
  },
  {
   "i": 8,
-  "paper": "forti2025",
+  "paper": "forti2025-what-is-consciousness-and-what-it-is-for-an",
   "thing": "a computer performing sensorimotor tasks",
   "quote": "sensorimotor skills—is difficult for computers, and vice versa ( Moravec, 1988 ; Pinker, 1994 ; Sheikh et al.",
   "status": "N",
@@ -82,7 +82,7 @@
  },
  {
   "i": 9,
-  "paper": "gervais2023",
+  "paper": "gervais2023-a-scoping-review-for-building-a-criticality",
   "thing": "a person in psychedelic or shamanic state",
   "quote": "psychedelics and shamanic state of consciousness ( n = 4); delirium ( n = 1); meditative state ( n = 2).",
   "status": "P",
@@ -91,7 +91,7 @@
  },
  {
   "i": 10,
-  "paper": "gervais2023",
+  "paper": "gervais2023-a-scoping-review-for-building-a-criticality",
   "thing": "a sleeper who reports experience",
   "quote": "Although normal sleep is not considered to be a conscious state, some sleepers may experience some forms of consciousness during sleep.",
   "status": "P",
@@ -100,7 +100,7 @@
  },
  {
   "i": 11,
-  "paper": "gervais2023",
+  "paper": "gervais2023-a-scoping-review-for-building-a-criticality",
   "thing": "deep sleep, wakefulness suspended",
   "quote": "During sleep, wakefulness is entirely suspended and awareness is partially, but not completely dissolved.",
   "status": "U",
@@ -109,7 +109,7 @@
  },
  {
   "i": 12,
-  "paper": "farisco2018",
+  "paper": "farisco2018-large-scale-brain-simulation-and-disorders-o",
   "thing": "a behaviourally conscious patient who fails the test",
   "quote": "Significantly many behaviourally conscious patients failed the same test ( Monti et al.",
   "status": "P",
@@ -118,7 +118,7 @@
  },
  {
   "i": 13,
-  "paper": "ouwersloot2020",
+  "paper": "ouwersloot2020-reintroducing-consciousness-in-psychopatholo",
   "thing": "a person in hypnosis or concentrative trance",
   "quote": "consciousness occur during hypnosis and other forms of religious or concentrative trance, meditation, “peak-experiences” such as being in a flow, focused concentration and in states induced by medication, alcohol, or drugs ( Ludwig, 1966 ; Tart, 1969 , 1980 ; ",
   "status": "P",
@@ -127,7 +127,7 @@
  },
  {
   "i": 14,
-  "paper": "ouwersloot2020",
+  "paper": "ouwersloot2020-reintroducing-consciousness-in-psychopatholo",
   "thing": "a person in a dissociative episode",
   "quote": "We encounter psychopathology of the state of consciousness in dissociative disorders, sleep disorders, PTSDs, and conversion disorders, but also in substance-related and addictive disorders.",
   "status": "P",
