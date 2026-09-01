@@ -358,6 +358,14 @@ def build(wordnet_root: Path) -> dict[str, Any]:
             "n": "noun", "v": "verb", "a": "adjective",
             "s": "adjective satellite", "r": "adverb",
         },
+        # The auditor cannot check a file that does not say what it read.  withheld_term_ids
+        # below is derived from the sense index, so the index's hash belongs in the payload
+        # itself and not only in the report next to it.
+        "derived_from": {
+            "public_sense_index_sha256": public_index_sha,
+            "public_sense_index_generated_utc": public_index_generated,
+            "corpus_snapshot_sha256": corpus_sha,
+        },
         "corpus_definition_visibility": {
             "withheld_term_ids": sorted(
                 term_id for term_id in matched

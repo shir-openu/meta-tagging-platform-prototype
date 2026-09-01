@@ -4,7 +4,7 @@
   "counts": {
     "historical_assignment_gap_left_uncovered": 340,
     "historical_assignment_gap_terms": 415,
-    "payload_bytes": 878604,
+    "payload_bytes": 878871,
     "picker_terms": 14767,
     "wordnet_matched_picker_terms": 1859,
     "wordnet_matches_in_historical_assignment_gap": 75,
