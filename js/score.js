@@ -1330,7 +1330,14 @@ function renderConcepts() {
           </button>`;
       }
       const cap = capabilityForRegistryEntry(c);
-      const sub = cap === CAPABILITY.COVERAGE
+      // THE DISPUTE COUNT WINS OVER THE GROUNDING LABELS, because it answers a different and
+      // scarcer question. "3 grounded senses, evidence only" says what we HAVE; "4 of them argue
+      // what it means" says what could be BUILT, and only 34 of 14,768 corpus terms can say it.
+      // `working memory` is the case that forced this: it is the best board candidate in the
+      // corpus and it was reading as "evidence only, no benchmark score" like any other term.
+      const sub = (c.disputed_by || 0) >= 4
+        ? t("concept.disputed").replace("{n}", c.papers).replace("{d}", c.disputed_by)
+        : cap === CAPABILITY.COVERAGE
         ? t("concept.coverage").replace("{n}", c.papers).replace("{s}", c.sense_count || 0)
         : cap === CAPABILITY.EVIDENCE
           ? t("concept.evidenceonly").replace("{n}", c.papers).replace("{s}", c.sense_count || 0)
