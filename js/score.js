@@ -2958,7 +2958,16 @@ async function boot() {
         if (have) {
           // Its count came from an older build: "working memory" said 1 paper where the tag
           // layer holds 24. The layer is the newer measurement, so it wins.
-          have.papers = Math.max(have.papers || 0, ids.length);
+          //
+          // EXCEPT FOR A SCORED BOARD, where the two numbers mean different things and the max
+          // silently picks the wrong one. A ready concept's `papers` is HOW MANY PAPERS THE BOARD
+          // SCORES - 29 for art, 10 for game, 7 for consciousness - and the tag layer's count is
+          // how many corpus papers mention the word, which is 80 for game and 86 for consciousness.
+          // Taking the larger published "game - 80 papers - 28 adjudicated cases", inviting a
+          // reader to divide one by the other and conclude the board ignores 52 of its papers.
+          // The comment three lines up already says a board "keeps its own entry"; this is what
+          // that has to mean for the number as well as the state.
+          if (have.state !== "ready") have.papers = Math.max(have.papers || 0, ids.length);
           return;
         }
         S.registry.push({ id: sl, slug: sl, state: "corpus", en: label, he: null,
@@ -2980,7 +2989,9 @@ async function boot() {
         const ent = tc.terms[sl];
         const ids = termIdsWithSenseSources(ent, sl);
         ensureSensePaperMetadata(ids);
-        c.papers = Math.max(c.papers || 0, ids.length);
+        // Same rule, second place. This loop runs over EVERY entry including the ready ones, so
+        // guarding only the merge above would have left the board counts overwritten here.
+        if (c.state !== "ready") c.papers = Math.max(c.papers || 0, ids.length);
         c.capability = capabilityForRegistryEntry(c);
       });
     }

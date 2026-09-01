@@ -1,0 +1,137 @@
+[
+ {
+  "i": 0,
+  "paper": "cooke2021",
+  "thing": "digital camera feedforward circuit",
+  "quote": "For example, the feedforward circuitry of a digital camera where the activity of each photodiode is fully independent of the others shows no integration, while a recurrently connec",
+  "status": "N",
+  "why": "every definition on the board refuses it, which makes it the board's negative control: a case they all decide the same way is worth nothing for separating them and everything for checking that a definition is not simply saying yes.",
+  "status_why": "N. Cooke introduces it as the example of a system with NO integration, against a recurrently connected network; nothing in the seven papers treats it as a candidate."
+ },
+ {
+  "i": 1,
+  "paper": "cooke2021",
+  "thing": "protozoans and bacteria",
+  "quote": "Indeed, the purportedly nonconscious protozoans and bacteria do all these things.",
+  "status": "N",
+  "why": "the case that splits the board. Living Mirror counts them conscious because all living systems are; self-modelling inference and EIT refuse them; IIT does not decide without a computation nobody has performed.",
+  "status_why": "N by the field's default, which Cooke names as a default in the act of disputing it: 'the PURPORTEDLY NONCONSCIOUS protozoans and bacteria'. Living Mirror's whole claim is that this default is wrong, so scoring it as N is what makes the disagreement visible."
+ },
+ {
+  "i": 2,
+  "paper": "cooke2021",
+  "thing": "a dreaming person",
+  "quote": "The focus on internal dynamics in IIT does allow it to account for the phenomenon of dreaming, however.",
+  "status": "P",
+  "why": "internal dynamics continue with no external input, so every internally-defined theory counts it and the two that require environmental coupling - enactive, criticality - do not clearly rule.",
+  "status_why": "P. Dreaming is treated throughout as a state to be ACCOUNTED FOR rather than argued about; Cooke credits IIT with accommodating it, which presupposes there is something there."
+ },
+ {
+  "i": 3,
+  "paper": "wahbeh2022",
+  "thing": "a person under general anaesthesia",
+  "quote": "Other authors have focused solely on states of unconsciousness during general anesthesia ( Hudetz, 2012 ), epilepsy ( Blumenfeld and Taylor, 2003 ), or sleep ( Steriade et al.",
+  "status": "N",
+  "why": "the clinical case the whole disorders-of-consciousness literature turns on. Living Mirror alone counts them conscious, because they are alive.",
+  "status_why": "N by clinical convention, which is the convention the disorders-of-consciousness literature runs on and which wahbeh2022 cites as a state OF UNCONSCIOUSNESS."
+ },
+ {
+  "i": 4,
+  "paper": "farisco2018",
+  "thing": "coma, vegetative state, minimally conscious state",
+  "quote": ", Coma, Vegetative State/Unresponsive Wakefulness Syndrome, Minimally Conscious State.",
+  "status": "N",
+  "why": "three states the literature separates and most definitions on this board cannot: only dual-capacity and criticality attempt to grade them, and only Living Mirror gives a verdict from the definition alone.",
+  "status_why": "N. farisco2018 groups them as disorders OF consciousness and the clinical question is how much residual consciousness remains, which presupposes the baseline verdict."
+ },
+ {
+  "i": 5,
+  "paper": "farisco2018",
+  "thing": "a simulated brain configuration",
+  "quote": "However, even in this case, what seems plausible to model and eventually simulate is not consciousness as such, but only the cerebral configuration (i.",
+  "status": "U",
+  "why": "farisco2018 states the gap in its own words - what is simulated is the cerebral configuration and not consciousness as such - so every definition here refuses it and the correlational sense that would accept it is the one the paper declines to hold.",
+  "status_why": "U, and deliberately. This is the question farisco2018 is asking, not a case it settles. A P or an N here would be the board inventing its own answer."
+ },
+ {
+  "i": 6,
+  "paper": "gervais2023",
+  "thing": "a person in meditation",
+  "quote": "As described earlier, consciousness is said to be composed of arousal as well as awareness, making meditation (a practice where awareness is increased), a sort of “super-conscious” state.",
+  "status": "P",
+  "why": "raised awareness with full arousal, which dual-capacity scores as MORE conscious than baseline; the paper calls it a 'super-conscious' state, which a single-axis definition has no way to represent.",
+  "status_why": "P. gervais2023 describes it as a practice where awareness is INCREASED, a sort of 'super-conscious' state, which cannot be read as an absence."
+ },
+ {
+  "i": 7,
+  "paper": "ouwersloot2020",
+  "thing": "a person asleep",
+  "quote": "Even when it is interrupted by sleep or anesthesia, people experience consciousness with a certain continuity.",
+  "status": "U",
+  "why": "ouwersloot2020 says consciousness has continuity across sleep, so the stream-like and brain-local senses count it while the arousal-requiring one cannot.",
+  "status_why": "U. ouwersloot2020 says consciousness has continuity across sleep while the dual-capacity sense requires arousal that sleep removes. The literature here genuinely splits."
+ },
+ {
+  "i": 8,
+  "paper": "forti2025",
+  "thing": "a computer performing sensorimotor tasks",
+  "quote": "sensorimotor skills—is difficult for computers, and vice versa ( Moravec, 1988 ; Pinker, 1994 ; Sheikh et al.",
+  "status": "N",
+  "why": "Moravec's paradox as a case: the tasks a computer finds hard are the ones consciousness is said to make easy. Nothing on the board counts a computer conscious, but they refuse it for different reasons, which is what a case is for.",
+  "status_why": "N by current consensus, and forti2025 uses Moravec's paradox to mark the gap rather than to argue a computer might be conscious."
+ },
+ {
+  "i": 9,
+  "paper": "gervais2023",
+  "thing": "a person in psychedelic or shamanic state",
+  "quote": "psychedelics and shamanic state of consciousness ( n = 4); delirium ( n = 1); meditative state ( n = 2).",
+  "status": "P",
+  "why": "intense experience with altered content, which every experience-based definition counts.",
+  "status_why": "P. gervais2023 counts it among ALTERED states of consciousness, which presupposes the state is present and altered rather than absent."
+ },
+ {
+  "i": 10,
+  "paper": "gervais2023",
+  "thing": "a sleeper who reports experience",
+  "quote": "Although normal sleep is not considered to be a conscious state, some sleepers may experience some forms of consciousness during sleep.",
+  "status": "P",
+  "why": "the case that breaks a single verdict on sleep: unconscious by convention, conscious by report, in one sentence of one paper.",
+  "status_why": "P, and it is the paper's own concession: normal sleep is not considered a conscious state, yet some sleepers DO experience forms of consciousness during it."
+ },
+ {
+  "i": 11,
+  "paper": "gervais2023",
+  "thing": "deep sleep, wakefulness suspended",
+  "quote": "During sleep, wakefulness is entirely suspended and awareness is partially, but not completely dissolved.",
+  "status": "U",
+  "why": "arousal gone and awareness partly present - the split dual-capacity cannot score.",
+  "status_why": "U. Wakefulness entirely suspended and awareness only PARTIALLY dissolved is exactly the configuration dual-capacity was built for and cannot resolve."
+ },
+ {
+  "i": 12,
+  "paper": "farisco2018",
+  "thing": "a behaviourally conscious patient who fails the test",
+  "quote": "Significantly many behaviourally conscious patients failed the same test ( Monti et al.",
+  "status": "P",
+  "why": "separates a definition from its instrument. Criticality and dual-capacity ARE their tests, so they inherit the test's error; the phenomenal and inference senses do not.",
+  "status_why": "P, and this is the board's sharpest case: the patient is behaviourally conscious and the instrument says otherwise."
+ },
+ {
+  "i": 13,
+  "paper": "ouwersloot2020",
+  "thing": "a person in hypnosis or concentrative trance",
+  "quote": "consciousness occur during hypnosis and other forms of religious or concentrative trance, meditation, “peak-experiences” such as being in a flow, focused concentration and in states induced by medication, alcohol, or drugs ( Ludwig, 1966 ; Tart, 1969 , 1980 ; ",
+  "status": "P",
+  "why": "awareness redirected rather than reduced, which nothing on the board refuses.",
+  "status_why": "P. Listed by ouwersloot2020 among the states in which consciousness OCCURS, beside meditation and flow."
+ },
+ {
+  "i": 14,
+  "paper": "ouwersloot2020",
+  "thing": "a person in a dissociative episode",
+  "quote": "We encounter psychopathology of the state of consciousness in dissociative disorders, sleep disorders, PTSDs, and conversion disorders, but also in substance-related and addictive disorders.",
+  "status": "P",
+  "why": "consciousness present and disordered, which is ouwersloot2020's case for defining the term clinically rather than metaphysically.",
+  "status_why": "P. Named as psychopathology OF the state of consciousness, which requires the state to be present in order to be disordered."
+ }
+]
