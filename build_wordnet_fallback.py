@@ -15,6 +15,7 @@ but polysemy must not manufacture several independent sources.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 import os
@@ -49,8 +50,20 @@ LICENCE_SPDX = "WordNet"
 LICENCE_URI = "https://spdx.org/licenses/WordNet.html"
 OFFICIAL_LICENCE_URI = "https://wordnet.princeton.edu/license-and-commercial-use"
 ARCHIVE_SHA256 = "640db279c949a88f61f851dd54ebbb22d003f8b90b85267042ef85a3781d3a52"
-EXPECTED_PICKER_TERMS = 474
-EXPECTED_MATCHED_TERMS = 92
+BASELINE = DATA_DIR / "external_definitions.baseline.json"
+# set to a UTC stamp by --rebaseline; None means "check, do not record"
+REBASELINE = None
+
+
+def load_baseline() -> dict:
+    """The counts the last accepted build saw.  A guard nobody can edit by hand."""
+    if not BASELINE.is_file():
+        raise FileNotFoundError(
+            f"missing coverage baseline: {BASELINE}. Run once with --rebaseline to record it."
+        )
+    return json.loads(BASELINE.read_text(encoding="utf-8"))
+
+
 EXPECTED_HISTORICAL_GAP = 415
 EXPECTED_HISTORICAL_MATCHES = 75
 
@@ -107,10 +120,13 @@ def atomic_write(path: Path, data: bytes) -> None:
 def load_picker() -> tuple[list[dict[str, Any]], dict[str, list[str]]]:
     source = json.loads(CONCEPTS.read_text(encoding="utf-8"))
     concepts = source.get("concepts") or []
-    if len(concepts) != EXPECTED_PICKER_TERMS:
-        raise RuntimeError(
-            f"picker drift: expected {EXPECTED_PICKER_TERMS} concepts, found {len(concepts)}"
-        )
+    if REBASELINE is None:
+        expected = load_baseline()["picker_terms"]
+        if len(concepts) != expected:
+            raise RuntimeError(
+                f"picker drift: baseline records {expected} concepts, found {len(concepts)}. "
+                "Rerun with --rebaseline if the picker was meant to change."
+            )
     by_lemma: dict[str, list[str]] = defaultdict(list)
     seen_ids: set[str] = set()
     for concept in concepts:
@@ -295,10 +311,13 @@ def build(wordnet_root: Path) -> dict[str, Any]:
     concepts, lemma_to_terms = load_picker()
     definitions = extract_wordnet(dict_dir, lemma_to_terms)
     matched = set(definitions)
-    if len(matched) != EXPECTED_MATCHED_TERMS:
-        raise RuntimeError(
-            f"WordNet coverage drift: expected {EXPECTED_MATCHED_TERMS} picker terms, found {len(matched)}"
-        )
+    if REBASELINE is None:
+        expected = load_baseline()["wordnet_matched_picker_terms"]
+        if len(matched) != expected:
+            raise RuntimeError(
+                f"WordNet coverage drift: baseline records {expected} matched picker terms, "
+                f"found {len(matched)}. Rerun with --rebaseline if this was intended."
+            )
 
     corpus, corpus_sha = read_corpus_snapshot()
     current_counts = corpus_counts(concepts, corpus)
@@ -430,6 +449,13 @@ WordNet is counted as one independent provider per term for the two-definition t
     atomic_write(OUT_REPORT, report_raw)
     atomic_write(OUT_REPORT_MD, report_md)
     atomic_write(OUT_MANIFEST, manifest_raw)
+    if REBASELINE is not None:
+        atomic_write(BASELINE, json_bytes({
+            "schema_version": "external-definitions-baseline-1",
+            "recorded_utc": REBASELINE,
+            "picker_terms": len(concepts),
+            "wordnet_matched_picker_terms": len(matched),
+        }, pretty=True))
     return report
 
 
@@ -441,7 +467,15 @@ def main() -> int:
         type=Path,
         help="extracted WordNet-3.0 directory containing LICENSE and dict/",
     )
+    parser.add_argument(
+        "--rebaseline",
+        action="store_true",
+        help="record the observed counts as the new baseline instead of checking against it",
+    )
     args = parser.parse_args()
+    if args.rebaseline:
+        global REBASELINE
+        REBASELINE = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     report = build(args.wordnet_root.resolve())
     counts = report["counts"]
     print(

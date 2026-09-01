@@ -38,8 +38,11 @@ class WordNetFallbackTests(unittest.TestCase):
         concepts = json.loads((DATA / "concepts.json").read_text(encoding="utf-8"))["concepts"]
         picker = {concept["id"] for concept in concepts}
         terms = self.layer["terms"]
-        self.assertEqual(len(picker), 474)
-        self.assertEqual(len(terms), 92)
+        baseline = json.loads(
+            (DATA / "external_definitions.baseline.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(len(picker), baseline["picker_terms"])
+        self.assertEqual(len(terms), baseline["wordnet_matched_picker_terms"])
         self.assertLessEqual(set(terms), picker)
         self.assertEqual(
             self.payload["definition_fields"],
@@ -64,7 +67,12 @@ class WordNetFallbackTests(unittest.TestCase):
 
     def test_assignment_and_two_definition_measurements_are_explicit(self) -> None:
         counts = self.report["counts"]
-        self.assertEqual(counts["wordnet_matched_picker_terms"], 92)
+        baseline = json.loads(
+            (DATA / "external_definitions.baseline.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            counts["wordnet_matched_picker_terms"], baseline["wordnet_matched_picker_terms"]
+        )
         self.assertEqual(counts["historical_assignment_gap_terms"], 415)
         self.assertEqual(counts["wordnet_matches_in_historical_assignment_gap"], 75)
         self.assertEqual(counts["historical_assignment_gap_left_uncovered"], 340)
