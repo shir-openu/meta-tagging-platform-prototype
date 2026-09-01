@@ -48,6 +48,17 @@ an identical definition. The corpus tilts contemporary, by choice.
 Tag layer: CC BY 4.0. Paper text belongs to its authors and publishers; it is linked, never
 redistributed. Quotes shown are short, for identification and verification.
 
+The optional external dictionary layer is separate from corpus senses and is off by default.
+Its first provider is the exact-lemma 474-term subset of Princeton WordNet 3.0, distributed
+under the SPDX `WordNet` licence. The complete notice is in
+`data/WORDNET_LICENSE.txt`; provenance and file hashes are in
+`data/external_definitions.wordnet.manifest.json`. Rebuild it from an extracted official
+WordNet 3.0 archive with:
+
+```text
+python build_wordnet_fallback.py --wordnet-root /path/to/WordNet-3.0
+```
+
 ## Design
 
 The shell — the wave background, palette and card system — is imported unchanged from

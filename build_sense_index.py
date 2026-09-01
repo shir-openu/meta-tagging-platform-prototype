@@ -4,6 +4,7 @@
 
 Inputs (read only):
   ../DATA/corpus.json
+  ../DATA/facet_queue/*.txt (rights-cleared HTML/MHTML records only)
   data/term_corpus.json
 
 Outputs (derived and reproducible):
@@ -40,6 +41,7 @@ PROJECT = ROOT.parent
 CORPUS = PROJECT / "DATA" / "corpus.json"
 RIGHTS = PROJECT / "DATA" / "rights_manifest.json"
 TERM_CORPUS = ROOT / "data" / "term_corpus.json"
+STAGED_DIR = PROJECT / "DATA" / "facet_queue"
 CONCEPTS = ROOT / "data" / "concepts.json"
 OUT_INDEX = ROOT / "data" / "sense_index.json"
 OUT_INLINE = ROOT / "data" / "sense_index.inline.js"
@@ -301,6 +303,51 @@ def folded(value: object) -> str:
     return " ".join(str(value or "").split()).casefold()
 
 
+def phrase_key(value: object) -> str:
+    """Fold a displayed phrase while treating punctuation as a word boundary."""
+    return " ".join(re.findall(r"[a-z0-9\u0590-\u05ff]+", str(value or "").casefold()))
+
+
+def literal_evidence_slice(body: str, start: int, end: int) -> str:
+    """Return the one compact source sentence/line that contains a literal expansion."""
+    left = max(body.rfind("\n", 0, start), body.rfind(". ", 0, start))
+    right_candidates = [position for position in (
+        body.find("\n", end), body.find(". ", end)
+    ) if position >= 0]
+    right = min(right_candidates) + 1 if right_candidates else min(len(body), end + 500)
+    return " ".join(body[left + 1:right].split())[:1200]
+
+
+def cleared_staged_mhtml_sources(
+    records: list[dict[str, Any]], cleared: set[str]
+) -> tuple[dict[str, str], dict[Path, str]]:
+    """Read only cleared HTML/MHTML staging text, never text derived from a PDF.
+
+    The source hash map is rechecked before output so a concurrently replaced staged file makes
+    the complete build fail closed instead of mixing generations.
+    """
+    sources: dict[str, str] = {}
+    hashes: dict[Path, str] = {}
+    marker = "QUOTE ONLY FROM HERE -----"
+    for record in records:
+        paper_id = str(record.get("id") or "")
+        source_format = str(record.get("source_format") or "").casefold()
+        if paper_id not in cleared or source_format not in {"html", "mhtml"}:
+            continue
+        path = STAGED_DIR / f"{paper_id}.txt"
+        if not path.exists():
+            continue
+        raw_bytes = path.read_bytes()
+        raw = raw_bytes.decode("utf-8", errors="replace")
+        position = raw.find(marker)
+        if position >= 0:
+            newline = raw.find("\n", position)
+            raw = raw[newline + 1:] if newline >= 0 else ""
+        sources[paper_id] = raw
+        hashes[path] = hashlib.sha256(raw_bytes).hexdigest()
+    return sources, hashes
+
+
 def presentation_base_term(value: str) -> str:
     """Remove a trailing project qualifier, never words from the source term itself."""
     return re.sub(
@@ -313,6 +360,10 @@ def presentation_base_term(value: str) -> str:
 
 def collect_abbreviation_expansions(
     records: list[dict[str, Any]],
+    *,
+    literal_sources: dict[str, str] | None = None,
+    short_forms: list[str] | None = None,
+    runtime_labels: list[str] | None = None,
 ) -> dict[str, list[dict[str, Any]]]:
     """Return paper-attributed expansion rows without guessing from general knowledge.
 
@@ -359,8 +410,17 @@ def collect_abbreviation_expansions(
             if row["source_layer"] != "senses" or not abbreviation_kind(short):
                 continue
             evidence_folded = folded(row["evidence"])
-            for candidate in re.findall(r"[`\u201c\u201d]([^`\u201c\u201d]+)[`\u201c\u201d]", str(row["gloss"])):
-                clean_candidate = " ".join(candidate.split()).strip(".,;:()[]{}")
+            for candidate_match in re.finditer(
+                r"[`\u201c\u201d]([^`\u201c\u201d]+)[`\u201c\u201d]", str(row["gloss"])
+            ):
+                # A gloss can quote criticism as well as an expansion.  The earlier version
+                # treated `AN UNFORTUNATE AND INAPPROPRIATE` as a PFC expansion merely because
+                # the criticism also appeared in the evidence.  Require an explicit expansion
+                # cue immediately before the wrapped phrase.
+                cue = str(row["gloss"])[max(0, candidate_match.start() - 55):candidate_match.start()]
+                if not re.search(r"(?:\bfor|\bmeans|\bexpands?\s+to|\babbreviation\s+for)\s*$", cue, re.I):
+                    continue
+                clean_candidate = " ".join(candidate_match.group(1).split()).strip(".,;:()[]{}")
                 if (
                     len(clean_candidate) > len(short)
                     and 1 <= len(clean_candidate.split()) <= 12
@@ -415,6 +475,87 @@ def collect_abbreviation_expansions(
                 )
                 if match:
                     add(match.group(1), expansion, record, "literal-expansion-parenthesis", evidence)
+
+    # The tag layer does not repeat every paper definition as a concept row.  Search only the
+    # already-staged HTML/MHTML bodies that the caller has rights-cleared, and accept only a
+    # literal ``Expansion (SHORT)`` witness.  This closes the class-wide gap that hid explicit
+    # corpus statements such as ``random access memory (RAM)`` and ``sample size (N)`` without
+    # importing a dictionary or guessing initials from general knowledge.
+    if literal_sources and short_forms:
+        records_by_id = {str(record.get("id") or ""): record for record in records}
+        short_by_key = {folded(value): value for value in short_forms if folded(value)}
+        label_by_key = {
+            phrase_key(value): " ".join(str(value).split())
+            for value in (runtime_labels or [])
+            if len(phrase_key(value).split()) >= 2
+        }
+        parenthetical = re.compile(
+            r"\(\s*([A-Za-z\u0590-\u05ff][A-Za-z0-9\u0590-\u05ff ./&+_'\u05f3\u05f4\-]{0,24})\s*\)"
+        )
+        token_pattern = re.compile(r"[A-Za-z][A-Za-z0-9]*(?:[-\u2010-\u2015][A-Za-z0-9]+)*")
+
+        for paper_id, body in literal_sources.items():
+            record = records_by_id.get(paper_id)
+            if not record:
+                continue
+            for match in parenthetical.finditer(body):
+                written_short = " ".join(match.group(1).split())
+                short_key = folded(written_short)
+                if short_key not in short_by_key and written_short.casefold().endswith("s"):
+                    short_key = folded(written_short[:-1])
+                if short_key not in short_by_key:
+                    continue
+                short = short_by_key[short_key]
+                prefix = body[max(0, match.start() - 260):match.start()]
+                tokens = token_pattern.findall(prefix)[-12:]
+                candidates: list[str] = []
+
+                target = "".join(character for character in short if character.isalpha()).upper()
+
+                # First prefer an exact runtime term or already-curated expansion immediately
+                # before the parentheses.  This handles non-initial forms such as PFC.
+                prefix_key = phrase_key(prefix)
+                adjacent = []
+                for width in range(2, min(12, len(tokens)) + 1):
+                    canonical = label_by_key.get(phrase_key(" ".join(tokens[-width:])))
+                    # Parenthetical N is frequently a table count placed after the name of a
+                    # measure (``age acceleration (N)``); that does not expand N.  For a one-letter
+                    # symbol, accept only an explicit quantity label whose head names a count.
+                    single_letter_head = phrase_key(canonical).split()[-1:] if canonical else []
+                    if canonical and (
+                        len(target) != 1
+                        or single_letter_head in (["size"], ["number"], ["count"], ["rank"])
+                    ):
+                        adjacent.append(canonical)
+                adjacent.extend(
+                    row["expansion"] for row in by_short.get(short_key, {}).values()
+                    if phrase_key(row["expansion"])
+                    and prefix_key.endswith(phrase_key(row["expansion"]))
+                )
+                if adjacent:
+                    candidates.append(max(adjacent, key=lambda value: len(phrase_key(value))))
+
+                # Otherwise the paper itself supplies the initials.  Work backwards from the
+                # parenthesis and keep the shortest exact suffix, e.g. random access memory -> RAM.
+                targets = {target}
+                if target.endswith("S") and len(target) > 2:
+                    targets.add(target[:-1])
+                if len(target) >= 2:
+                    for width in range(2, min(12, len(tokens)) + 1):
+                        words = tokens[-width:]
+                        initials = "".join(
+                            part[0].upper()
+                            for word in words
+                            for part in re.findall(r"[A-Za-z]+", word)
+                            if part
+                        )
+                        if initials in targets:
+                            candidates.append(" ".join(words))
+                            break
+
+                evidence = literal_evidence_slice(body, match.start(), match.end())
+                for expansion in dict.fromkeys(candidates):
+                    add(short, expansion, record, "staged-mhtml-literal-expansion-parenthesis", evidence)
 
     return {
         short: sorted(rows.values(), key=lambda row: (folded(row["expansion"]), row["paper_id"]))
@@ -918,7 +1059,17 @@ def main() -> int:
         runtime_labels.setdefault(str(term_slug), str(entry[0]))
     live_runtime_slugs = set(live_picker_slugs) | ready_slugs
 
-    all_expansions = collect_abbreviation_expansions(records)
+    staged_sources, staged_source_hashes = cleared_staged_mhtml_sources(records, cleared)
+    visual_short_forms = [
+        label for term_slug, label in runtime_labels.items()
+        if term_slug in live_runtime_slugs and abbreviation_kind(label)
+    ]
+    all_expansions = collect_abbreviation_expansions(
+        records,
+        literal_sources=staged_sources,
+        short_forms=visual_short_forms,
+        runtime_labels=list(runtime_labels.values()),
+    )
     public_expansions = {
         short: [row for row in rows if row["paper_id"] in cleared]
         for short, rows in all_expansions.items()
@@ -1018,6 +1169,11 @@ def main() -> int:
         ),
         "abbreviation_withheld_expansion_rows": sum(
             row["withheld_expansion_rows"] for row in abbreviation_rows
+        ),
+        "abbreviation_staged_mhtml_sources_scanned": len(staged_sources),
+        "abbreviation_staged_literal_expansion_rows": sum(
+            row.get("source") == "staged-mhtml-literal-expansion-parenthesis"
+            for rows in all_expansions.values() for row in rows
         ),
     })
 
@@ -1188,6 +1344,8 @@ wording limited to the audited rights-cleared paper set.
 | Complete abbreviation class | {counts['abbreviation_class_terms']:,} |
 | Abbreviations with public corpus-attested expansions | {counts['abbreviation_terms_with_public_expansions']:,} |
 | Rights-withheld expansion rows (count only) | {counts['abbreviation_withheld_expansion_rows']:,} |
+| Rights-cleared staged HTML/MHTML sources scanned for literal expansions | {counts['abbreviation_staged_mhtml_sources_scanned']:,} |
+| Literal expansion rows recovered from those sources | {counts['abbreviation_staged_literal_expansion_rows']:,} |
 | Picker labels matching denied live quotes removed in this build | {counts['rights_removed_quote_picker_rows_this_build']:,} |
 
 ## Historical terms repaired by the three-layer route
@@ -1208,6 +1366,10 @@ wording limited to the audited rights-cleared paper set.
         (CONCEPTS, concepts_bytes),
     )
     changed_inputs = [str(path) for path, snapshot in stable_inputs if path.read_bytes() != snapshot]
+    changed_inputs.extend(
+        str(path) for path, snapshot_hash in staged_source_hashes.items()
+        if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != snapshot_hash
+    )
     if changed_inputs:
         raise RuntimeError(
             "input changed during meta-render build; refusing all output writes: "

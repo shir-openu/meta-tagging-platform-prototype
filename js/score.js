@@ -58,6 +58,9 @@ const S = {
   registry: [], query: "",
   papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
   senseIndex: null, senseReport: null,
+  // External dictionaries are a separate provider layer.  Loading this object never enables
+  // it, and none of its rows can enter the corpus sense index, capability state, or scoring.
+  externalDefinitions: null, externalEnabled: false,
   subtermIndex: null,
   coverageDef: null,
   featureSelection: new Set(),
@@ -417,6 +420,9 @@ async function getData(rel) {
   if (rel === "sense_index.json" && window.MTP_SENSE_INDEX) return window.MTP_SENSE_INDEX;
   if (rel === "sense_index_report.json" && window.MTP_SENSE_REPORT) return window.MTP_SENSE_REPORT;
   if (rel === "subterm_index.json" && window.MTP_SUBTERM_INDEX) return window.MTP_SUBTERM_INDEX;
+  if (rel === "external_definitions.wordnet.json" && window.MTP_EXTERNAL_DEFINITIONS) {
+    return window.MTP_EXTERNAL_DEFINITIONS;
+  }
   const inl = window.MTP_INLINE || {};
   return (rel in inl) ? inl[rel] : null;
 }
@@ -453,6 +459,22 @@ async function loadSubtermData() {
     index = window.MTP_SUBTERM_INDEX || null;
   }
   return index;
+}
+
+async function loadExternalDefinitions() {
+  let data = await getData("external_definitions.wordnet.json");
+  if (!data && location.protocol === "file:") {
+    await new Promise(resolve => {
+      const script = document.createElement("script");
+      script.src = "../data/external_definitions.wordnet.inline.js";
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.appendChild(script);
+    });
+    data = window.MTP_EXTERNAL_DEFINITIONS || null;
+  }
+  if (!data || data.default_enabled !== false || !data.external_definitions) return null;
+  return data;
 }
 
 /* A term's paper ids, decoded on demand.
@@ -1353,6 +1375,9 @@ function chooseSoon(id, fromURL, sourceURL) {
   const c = S.registry.find(x => x.id === id);
   if (!c) return;
   S.capability = capabilityForRegistryEntry(c);
+  // Provider consent is session-local and term-local.  A previous opt-in must never carry
+  // silently to the next concept or become a URL/default setting.
+  S.externalEnabled = false;
   S.coverageDef = null;
   S.featureSelection = new Set();
   S.selected.clear();
@@ -1615,6 +1640,68 @@ function evidenceOwnHTML() {
     `</div>`;
 }
 
+function externalDefinitionEntry() {
+  if (!S.termPick || !S.externalDefinitions) return null;
+  const providers = S.externalDefinitions.external_definitions || {};
+  for (const layer of Object.values(providers)) {
+    const compact = layer && layer.terms && layer.terms[S.termPick.id];
+    if (!Array.isArray(compact) || !compact.length) continue;
+    const posCodes = S.externalDefinitions.pos_codes || {};
+    const definitions = compact.map(row => ({
+      pos: posCodes[row[0]] || row[0],
+      synset_offset: row[1],
+      sense_keys: [row[2]],
+      gloss: row[3],
+    }));
+    const withheld = new Set(
+      ((S.externalDefinitions.corpus_definition_visibility || {}).withheld_term_ids) || []
+    );
+    const corpusStatus = senseIndicesForSlug(S.termPick.slug).length
+      ? "available" : withheld.has(S.termPick.id) ? "withheld" : "absent";
+    return {
+      provider: layer.provider || {},
+      term: { definitions, corpus_definition_status: corpusStatus },
+    };
+  }
+  return null;
+}
+
+function externalDefinitionsHTML(corpusRowCount) {
+  const entry = externalDefinitionEntry();
+  if (!entry) return "";
+  const provider = entry.provider;
+  const definitions = entry.term.definitions || [];
+  const checked = S.externalEnabled ? " checked" : "";
+  const sourceLabel = `${provider.name || "WordNet"} ${provider.version || ""}`.trim();
+  const source = `<a href="${escAttr(provider.source_page || provider.source_uri || "#")}" ` +
+    `target="_blank" rel="noopener">${esc(sourceLabel)}</a>`;
+  const licence = `<a href="${escAttr(provider.licence_uri || "#")}" target="_blank" ` +
+    `rel="noopener">${esc(provider.licence_spdx || "licence")}</a>`;
+  const notice = `<a href="../data/${escAttr(provider.licence_notice_path || "WORDNET_LICENSE.txt")}" ` +
+    `target="_blank" rel="noopener">${esc(t("external.notice"))}</a>`;
+  const meta = `${esc(t("external.source"))}: ${source} · ${esc(t("external.licence"))}: ${licence} · ${notice}`;
+  const cards = !S.externalEnabled ? "" : definitions.map((definition, index) => {
+    const keys = (definition.sense_keys || []).join(", ");
+    const rival = corpusRowCount === 1
+      ? `<span class="external-rival">${esc(t("external.rival"))}</span>` : "";
+    return `<article class="external-definition-card" data-external-definition="${index}">` +
+      `<div class="external-card-head">${rival}<span>${esc(definition.pos || "")}</span></div>` +
+      `<h4 dir="ltr">${esc(definition.gloss || "")}</h4>` +
+      `<div class="external-card-source">${meta}</div>` +
+      `<div class="sense-locator" dir="ltr">WordNet 3.0 · synset ${esc(definition.synset_offset || "")} · ${esc(keys)}</div>` +
+      `</article>`;
+  }).join("");
+  const state = S.externalEnabled
+    ? `<div class="external-count">${esc(t("external.senses").replace("{n}", definitions.length))}</div>${cards}`
+    : `<div class="external-off">${esc(t("external.off"))}</div>`;
+  return `<section class="external-definitions ${S.externalEnabled ? "is-on" : "is-off"}">` +
+    `<div class="external-heading"><span>${esc(t("external.heading"))}</span></div>` +
+    `<label class="external-optin"><input id="externalDefinitionsToggle" type="checkbox"${checked}>` +
+      `<span>${esc(t("external.optin"))}</span></label>` +
+    `<div class="external-meta">${meta}</div>` +
+    `<div class="external-separation">${esc(t("external.separation"))}</div>` + state + `</section>`;
+}
+
 function renderCoverageWorkbench(rows) {
   if (S.capability !== CAPABILITY.COVERAGE) return "";
   const paperCount = new Set(rows.map(row => row.paper_id)).size;
@@ -1680,14 +1767,18 @@ function renderEvidenceWorkspace() {
   const rows = allRows.filter(row => S.selected.has(row.paper_id));
   const info = capabilityInfo(S.capability);
   const reportCounts = index.counts || {};
+  const external = externalDefinitionEntry();
+  const availability = external && external.term.corpus_definition_status;
 
   if (!rows.length) {
     out.innerHTML = `<section class="evidence-workspace"><div class="evidence-head">` +
       `<span class="cap-badge">${esc(info.title)}</span><h2>${esc(S.termPick.label)}</h2></div>` +
       `<div class="evidence-empty">${allRows.length
         ? t("evidence.none.selected").replace("{n}", allRows.length)
-        : t("evidence.none.term")}</div>` +
-      evidenceOwnHTML() + renderCoverageWorkbench(rows) + `</section>`;
+        : availability === "withheld"
+          ? t("external.corpus.withheld")
+          : external ? t("external.no.corpus") : t("evidence.none.term")}</div>` +
+      externalDefinitionsHTML(rows.length) + evidenceOwnHTML() + renderCoverageWorkbench(rows) + `</section>`;
   } else {
     const plan = evidenceSelectorPlan(rows);
     const defaultIds = new Set([...plan.badges].filter(([, b]) => b.length).map(([id]) => id));
@@ -1743,6 +1834,7 @@ function renderEvidenceWorkspace() {
       `<p>${t("evidence.summary").replace("{s}", rows.length).replace("{p}", plan.papers.length)}</p></div>` +
       notes + evidenceOwnHTML() + renderCoverageWorkbench(rows) +
       `<div class="sense-all-head">${esc(t("evidence.all"))}</div>${cards}` +
+      externalDefinitionsHTML(rows.length) +
       `<div class="sense-audit">${t("evidence.audit")
         .replace("{active}", reportCounts.sense_rows_active || "—")
         .replace("{hard}", reportCounts.hard_parse_failures || "—")
@@ -1750,6 +1842,13 @@ function renderEvidenceWorkspace() {
         ` <a href="../data/sense_index_report.md" target="_blank" rel="noopener">${esc(t("evidence.audit.link"))}</a></div>` +
       `</section>`;
   }
+  const externalToggle = document.getElementById("externalDefinitionsToggle");
+  if (externalToggle) externalToggle.onchange = () => {
+    S.externalEnabled = externalToggle.checked;
+    renderEvidenceWorkspace();
+    const layer = document.querySelector(".external-definitions");
+    if (layer) layer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
   const add = document.getElementById("evidenceAddOwn");
   if (add) add.onclick = () => {
     const box = document.getElementById("evidenceOwnBox");
@@ -2814,6 +2913,8 @@ async function boot() {
   }
   try { S.subtermIndex = await loadSubtermData(); }
   catch (e) { S.subtermIndex = null; }
+  try { S.externalDefinitions = await loadExternalDefinitions(); }
+  catch (e) { S.externalDefinitions = null; }
   // The registry first: nothing else can resolve a concept to a directory without it, and
   // its counts come from each concept's own build rather than from a number typed here.
   // getData returns the PARSED object, not a Response. Leaving the old `.then(r => r.ok

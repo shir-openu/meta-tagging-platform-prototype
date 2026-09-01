@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בקשת תיוג מאמר — פלטפורמת מטא־תיוג</title>
+<meta name="description" content="בדיקה אם מאמר יכול להיכנס לשירות המטא־תיוג הידני במחיר דולר אחד, לפני בקשת תשלום כלשהי.">
+<link rel="alternate" hreflang="en" href="request-tagging.html">
+<link rel="alternate" hreflang="he" href="request-tagging-he.html">
+<link rel="stylesheet" href="css/shell.css?v=4ba5d57a">
+<link rel="stylesheet" href="css/platform.css?v=4ba5d57a">
+<link rel="stylesheet" href="css/intake.css?v=4ba5d57a">
+</head>
+<body class="intake-page">
+
+<div class="animated-background" aria-hidden="true">
+  <div class="wave-container">
+    <svg class="wave wave-teal" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160 L1440,320 L0,320 Z"></path></svg>
+    <svg class="wave wave-pink" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,200 C280,260 380,140 680,200 C980,260 1080,140 1440,200 L1440,320 L0,320 Z"></path></svg>
+    <svg class="wave wave-wine" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,240 C240,300 340,180 640,240 C940,300 1040,180 1440,240 L1440,320 L0,320 Z"></path></svg>
+  </div>
+  <div class="particles">
+    <div class="particle particle-teal" style="left:10%;top:20%"></div><div class="particle particle-pink" style="left:30%;top:60%"></div>
+    <div class="particle particle-wine" style="left:50%;top:30%"></div><div class="particle particle-teal" style="left:70%;top:70%"></div>
+    <div class="particle particle-pink" style="left:90%;top:40%"></div><div class="particle particle-wine" style="left:20%;top:80%"></div>
+  </div>
+</div>
+
+<main class="pt-wrap">
+  <header class="pt-head">
+    <a class="pt-back" href="index-he.html">→ הפלטפורמה</a>
+    <span class="tag">שירות ידני</span>
+    <a class="pt-btn lang-switch" href="request-tagging.html" hreflang="en">English</a>
+  </header>
+
+  <section class="intake-hero" aria-labelledby="intakeTitle">
+    <div class="intake-kicker">קודם בדיקת מקור · אין כפתור תשלום מיידי</div>
+    <h1 id="intakeTitle">שלחו לנו מאמר לתיוג</h1>
+    <p>כל תג חוזר עם המשפט המדויק במקור שממנו נגזר. השירות הראשון ידני, באנגלית בלבד, ומוגבל לטקסט מלא ובר־בחירה שזכויותיו אושרו.</p>
+    <div class="price-lockup">
+      <span class="price ltr">$1</span><span class="unit">למאמר שהתקבל</span>
+      <span class="outline-badge">אין תשלום לפני בדיקה מקדימה</span>
+    </div>
+  </section>
+
+  <section class="fee-math" aria-label="חישוב עמלת התשלום">
+    <div class="fee-case"><b>מאמר אחד · <span class="ltr">$1</span></b><span>דוגמת עמלת Stripe: ‏<span class="ltr">$0.33 (32.9%)</span>; נשארים <span class="ltr">$0.67</span>.</span></div>
+    <div class="fee-case"><b>חבילה של עשרה מאמרים · <span class="ltr">$10</span></b><span>דוגמת עמלת Stripe: ‏<span class="ltr">$0.59 (5.9%)</span>; נשארים <span class="ltr">$9.41</span>.</span></div>
+  </section>
+  <p class="fee-caveat">Google Pay הוא ארנק: Google אינה מוסיפה עמלה נפרדת, אך עמלת מעבד התשלומים עדיין חלה. ההמלצה היא לשמור על מחיר יחידה של דולר אחד, אבל לקבוע חבילה מוגדרת של 10 מאמרים ב־10 דולר כמינימום הרגיל לתשלום, במקום זיכויים פתוחים. המספרים משתמשים בדוגמה האמריקאית התקנית הנוכחית של Stripe לכרטיס מקומי (<span class="ltr">2.9% + $0.30</span>), ואינם הבטחה ש־Stripe יהיה הספק שייבחר לעסק בישראל. מס וחשבוניות אינם כלולים כאן.</p>
+
+  <div class="intake-grid">
+    <section class="intake-panel" aria-labelledby="checkTitle">
+      <h2 id="checkTitle">בדיקת המקור לפני תשלום</h2>
+      <p class="intro">הבדיקה בדפדפן אינה שולחת דבר. תוצאה חיובית פותחת הודעת דוא״ל מוכנה; שיר עדיין מאמתת את המקור לפני אישור זמני כלשהו.</p>
+
+      <form id="intakePreflight" class="preflight-form" novalidate>
+        <label class="source-label" for="locator">DOI, קישור למאגר או כותרת המאמר</label>
+        <input class="source-input ltr" id="locator" name="locator" autocomplete="off" placeholder="10.… or https://…" required>
+
+        <fieldset>
+          <legend>איזה מקור יש לכם?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI או קישור למקור<small>אנחנו מאתרים ומאמתים את הטקסט המלא.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="mhtml"><span>יש קובץ MHTML<small>מצרפים אותו אחר כך לדוא״ל.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="pdf"><span>יש רק PDF<small>תהליך העבודה הנוכחי מסרב לטקסט PDF.</small></span></label>
+          </div>
+          <label class="source-label" for="mhtml">קובץ MHTML אופציונלי</label>
+          <input class="source-file" id="mhtml" name="mhtml" type="file" accept=".mhtml,.mht,message/rfc822">
+          <small class="field-note">הקובץ נשאר במכשיר. GitHub Pages אינו יכול לקבל אותו; מצרפים אותו ידנית רק לאחר שהבדיקה עוברת.</small>
+        </fieldset>
+
+        <fieldset>
+          <legend>האם המאמר המלא זמין?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="fulltext" value="yes"><span>כן, יש טקסט מלא</span></label>
+            <label class="choice"><input type="radio" name="fulltext" value="no"><span>לא, יש רק תקציר או רשומה</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>מה רישיון המקור מתיר?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="rights" value="cleared"><span><span class="ltr">CC BY, CC BY-SA, CC0</span> או נחלת הכלל</span></label>
+            <label class="choice"><input type="radio" name="rights" value="blocked"><span><span class="ltr">NC, ND</span> או רישיון מגביל אחר</span></label>
+            <label class="choice"><input type="radio" name="rights" value="unknown"><span>לא ידוע או שיש סתירה</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>האם אפשר לבחור את המשפטים המדויקים?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="quality" value="selectable"><span>כן, זה טקסט דיגיטלי</span></label>
+            <label class="choice"><input type="radio" name="quality" value="scan"><span>לא, זו סריקה או תמונה</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>שפה והיקף</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="language" value="english"><span>הטקסט המלא באנגלית</span></label>
+            <label class="choice"><input type="radio" name="language" value="other"><span>שפה אחרת</span></label>
+            <label class="choice"><input type="radio" name="scope" value="paper"><span>מאמר אקדמי</span></label>
+            <label class="choice"><input type="radio" name="scope" value="other"><span>פריט מסוג אחר</span></label>
+          </div>
+        </fieldset>
+
+        <button class="check-button" type="submit">בדיקה לפני תשלום</button>
+        <div id="preflightResult" class="preflight-result" role="status" tabindex="-1" hidden></div>
+        <a id="eligibleEmail" class="email-button" hidden>שליחת הבקשה בדוא״ל</a>
+      </form>
+    </section>
+
+    <aside class="intake-panel" aria-labelledby="flowTitle">
+      <h2 id="flowTitle">מה קורה לדולר</h2>
+      <ol class="flow-list">
+        <li><b>1 · בדיקת מקור</b><span>זהות, רישיון, טקסט מלא, שפה ואיכות טקסט. אין תשלום.</span></li>
+        <li><b>2 · קבלה ידנית</b><span>שיר מאשרת את המקור ואת מועד המסירה.</span></li>
+        <li><b>3 · אישור זמני של דולר אחד</b><span>אישור בלבד. מועד פקיעת האישור אצל הספק קובע את לוח הזמנים.</span></li>
+        <li><b>4 · תיוג ובדיקה</b><span>התגים המעוגנים במקור מופקים ונבדקים.</span></li>
+        <li><b>5 · מסירה, ואז חיוב</b><span>הדולר נגבה רק כאשר התוצאה המתויגת נמסרת.</span></li>
+      </ol>
+      <div class="flow-stop"><b>אם אי אפשר לתייג את המאמר</b><p>לפני חיוב: מבטלים ומשחררים את האישור. אחרי חיוב: מחזירים את מלוא הסכום. לעולם לא מחליפים בזיכוי לשירות.</p></div>
+      <span class="test-only">חיבור התשלום אינו קיים במכוון</span>
+    </aside>
+  </div>
+
+  <section class="refusal-section" aria-labelledby="refusalTitle">
+    <h2 id="refusalTitle">נדחה לפני תשלום</h2>
+    <div class="refusal-grid">
+      <article class="refusal-card"><b>אין טקסט מלא</b><p>רשומה או תקציר אינם יכולים לתמוך בתיוג מילולי. לא מתבקש תשלום.</p><code>NO_FULL_TEXT</code></article>
+      <article class="refusal-card"><b>רישיון שגוי או לא ידוע</b><p>נגיש באינטרנט אינו שווה למורשה לשירות הזה. לא מתבקש תשלום.</p><code>RIGHTS_NOT_CLEARED</code></article>
+      <article class="refusal-card"><b>תמונה סרוקה</b><p>בלי טקסט אמין ובר־בחירה אי אפשר לשמר עוגנים למשפטים המדויקים. לא מתבקש תשלום.</p><code>IMAGE_ONLY</code></article>
+    </div>
+  </section>
+
+  <section class="server-note" aria-labelledby="serverTitle">
+    <h2 id="serverTitle">למה העמוד הזה אינו מעלה את הקובץ</h2>
+    <p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages הוא אחסון סטטי</a>; הוא יכול להציג את הבדיקה, אבל אינו יכול לקבל מאמר באופן פרטי או ליצור אישור תשלום. התוספת המזערית להעלאה ישירה היא נתיב שרת אחד ב־Vercel, מאומת ומוגבל בקצב, שמנפיק אסימון העלאה קצר־חיים, לצד מאגר Blob פרטי ופעולת מחיקה. שום סוד אינו שייך לעמוד הזה.</p>
+    <p><strong>תקציב האחסון המסחרי המזערי: בסיס של 20 דולר לחודש ל־Vercel Pro</strong>, הכולל זיכוי שימוש של 20 דולר; שימוש ב־Blob נמדד לפי אזור מעבר לזיכוי. תוכנית Hobby החינמית של Vercel מוגבלת לשימוש אישי ולא־מסחרי. קליטה ידנית בדוא״ל מוסיפה אפס עלות אחסון.</p>
+  </section>
+
+  <section class="source-list" aria-labelledby="sourcesTitle">
+    <h2 id="sourcesTitle">מקורות עדכניים לעמלות ולתשתית · נבדקו ב־1.9.2026</h2>
+    <p><a href="https://stripe.com/pricing">התמחור התקני של Stripe</a> · <a href="https://developers.google.com/pay/api/web/support/faq">שאלות ותשובות על עמלות Google Pay</a> · <a href="https://docs.stripe.com/payments/place-a-hold-on-a-payment-method">אישור וחיוב ב־Stripe</a> · <a href="https://vercel.com/pricing">תמחור Vercel</a> · <a href="https://vercel.com/docs/plans/hobby">מגבלת תוכנית Hobby</a> · <a href="https://vercel.com/docs/pricing/regional-pricing">תמחור אזורי של Vercel Blob</a></p>
+  </section>
+
+  <footer class="pt-foot"><a href="index-he.html">פלטפורמת מטא־תיוג</a> · אין תשלום אמיתי במשטח הבדיקה הזה. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
+</main>
+
+<script src="js/intake.js?v=4ba5d57a"></script>
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body>
+</html>

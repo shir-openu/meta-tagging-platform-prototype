@@ -1148,6 +1148,32 @@ a:focus-visible {
 .evidence-empty{margin:.8rem 0;padding:.8rem;border:1px solid #6e5537;border-radius:9px;
   background:rgba(212,145,51,.08);color:#d9c19b}
 
+/* External dictionaries are visually and structurally outside the corpus evidence stream.
+   The whole block remains visible while off so consent, source and licence are knowable before
+   enabling it; definition text appears only after the visitor opts in for the current term. */
+.external-definitions{margin:1rem 0;padding:.9rem 1rem;border:1px solid #66507c;
+  border-inline-start:5px solid #a98bec;border-radius:13px;background:rgba(45,27,62,.2)}
+.external-definitions.is-on{border-color:#8966aa;background:rgba(65,37,87,.28)}
+.external-heading{color:#e4c9fb;font-size:.82rem;font-weight:850;letter-spacing:.035em;
+  text-transform:uppercase;margin-bottom:.6rem}
+.external-optin{display:flex;align-items:flex-start;gap:.55rem;padding:.65rem .7rem;
+  border:1px solid #6e5685;border-radius:9px;background:rgba(109,70,140,.13);cursor:pointer;
+  color:#f2e6fb;font-size:.9rem;font-weight:750;line-height:1.45}
+.external-optin input{margin-top:.22rem;accent-color:#a98bec}
+.external-meta{margin:.55rem 0 .25rem;color:#b7a5c5;font-size:.75rem;line-height:1.55}
+.external-meta a,.external-card-source a{color:#cda8ef}
+.external-separation,.external-off,.external-count{color:#a99ab4;font-size:.76rem;line-height:1.5}
+.external-off{margin-top:.55rem;font-style:italic}
+.external-count{margin:.7rem 0 .35rem;color:#d0b9df}
+.external-definition-card{margin:.7rem 0;padding:.8rem .85rem;border:1px solid #5e4773;
+  border-inline-start:3px solid #a98bec;border-radius:9px;background:rgba(49,31,65,.45)}
+.external-definition-card h4{margin:.35rem 0;color:#f0e6f8;font-size:.94rem;line-height:1.48}
+.external-card-head{display:flex;align-items:center;gap:.45rem;color:#a99ab4;font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.04em}
+.external-rival{display:inline-block;padding:.1rem .42rem;border-radius:999px;
+  color:#f1d9ff;background:#5a3474;font-weight:850}
+.external-card-source{margin:.35rem 0;color:#9f8cac;font-size:.7rem;line-height:1.5}
+
 /* Attested-use coverage is a separate positive-only screen, never a matrix-shaped imitation
    of the benchmark. The warning stays visually attached to every partial result. */
 .coverage-own{margin:.2rem 0 .9rem;padding:.8rem .9rem;border:1px solid #6d3860;border-radius:11px;

@@ -1,28 +1,28 @@
 # Task 06 sense-index failure report
 
-Generated 2026-09-01T11:09:19+00:00 from `DATA/corpus.json` SHA-256 `135da110f991e1d6837fbc8646a3d225355782882c3b16402e5dc6ff5444ec5e`.
+Generated 2026-09-01T12:37:20+00:00 from `DATA/corpus.json` SHA-256 `f5aaf6e66db645f960bebd51e9c5e60d56190a94d0020e261ffa2ea680507e80`.
 
 | Finding | Count |
 |---|---:|
-| Active grounded rows across all three layers | 20,725 |
-| Active legacy `senses` rows | 5,657 |
-| Active `content_tags.definitions` rows | 4,659 |
-| Active `concepts` rows | 10,409 |
-| Verbatim sense rows published after audited rights gate | 1,087 |
-| Verbatim sense rows withheld by rights gate | 4,570 |
-| Picker terms with publishable grounded senses | 133 |
-| Publishable multi-paper picker terms | 179 |
-| Publishable one-paper picker terms | 4,662 |
+| Active grounded rows across all three layers | 21,138 |
+| Active legacy `senses` rows | 5,716 |
+| Active `content_tags.definitions` rows | 4,694 |
+| Active `concepts` rows | 10,728 |
+| Verbatim sense rows published after audited rights gate | 1,231 |
+| Verbatim sense rows withheld by rights gate | 4,485 |
+| Picker terms with publishable grounded senses | 149 |
+| Publishable multi-paper picker terms | 208 |
+| Publishable one-paper picker terms | 5,059 |
 | Withdrawn rows excluded | 54 |
-| Hard delimiter failures | 1,835 |
-| Rights-cleared hard delimiter examples published | 787 |
+| Hard delimiter failures | 1,877 |
+| Rights-cleared hard delimiter examples published | 920 |
 | Delimiter-ambiguous rows | 305 |
 | Rights-cleared delimiter-ambiguous examples published | 2 |
-| Parsed rows bound by exact case-folded picker label | 16,216 |
-| Parsed rows bound after removing one presentation wrapper | 201 |
-| Parsed rows without a safe picker-term match | 2,473 |
-| Papers with more than one active sense | 957 |
-| Paper/head groups with multiple active senses | 1,787 |
+| Parsed rows bound by exact case-folded picker label | 16,587 |
+| Parsed rows bound after removing one presentation wrapper | 202 |
+| Parsed rows without a safe picker-term match | 2,472 |
+| Papers with more than one active sense | 966 |
+| Paper/head groups with multiple active senses | 1,828 |
 | Active-sense papers missing a year | 3 |
 | Active-sense papers missing citation counts | 14 |
 | Active sense rows missing an anchor locator | 13 |
@@ -40,8 +40,6 @@ predicate. No row-level example from a denied paper is written into the publishe
 - `R 2` — 2 row(s)
 - `remaining carbon budget` — 2 row(s)
 - `reverse inference` — 2 row(s)
-- `the ambitious scenario` — 2 row(s)
-- `the target` — 2 row(s)
 - `training samples` — 2 row(s)
 - `upper limit on Λ(1.4 M⊙)` — 2 row(s)
 - `η` — 2 row(s)
@@ -70,6 +68,7 @@ predicate. No row-level example from a denied paper is written into the publishe
 - `cognitive inoculation` — 1 row(s)
 - `composite health behavior change score` — 1 row(s)
 - `Composite null hypothesis` — 1 row(s)
+- `content analysis` — 1 row(s)
 - `Content-addressable representation` — 1 row(s)
 - `Cook's distance` — 1 row(s)
 - `coreness and uniqueness scores` — 1 row(s)
@@ -79,6 +78,7 @@ predicate. No row-level example from a denied paper is written into the publishe
 - `DASS 21` — 1 row(s)
 - `DASS-21` — 1 row(s)
 - `Delay penalty` — 1 row(s)
+- `Delphi consensus` — 1 row(s)
 - `DESeq2 software` — 1 row(s)
 - `Detection statistic / background` — 1 row(s)
 - `Detector-noise background` — 1 row(s)

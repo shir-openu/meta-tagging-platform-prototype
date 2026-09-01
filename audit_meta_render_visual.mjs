@@ -7,6 +7,7 @@ const root = path.resolve(process.argv[2] || ".tmp-task06-browser");
 const entry = path.join(root, "node_modules", "playwright-core", "index.mjs");
 const { chromium } = await import(pathToFileURL(entry).href);
 const chrome = [
+  path.resolve(".tmp-task06-browser/browsers/chromium-1187/chrome-win/chrome.exe"),
   "C:/Program Files/Google/Chrome/Application/chrome.exe",
   "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
 ].find(fs.existsSync);
@@ -31,14 +32,15 @@ async function picker(shortForm, expected) {
   await item.screenshot({ path: path.join(output, `meta_render_${shortForm.toLowerCase()}.png`) });
 }
 
-await picker("N", "no corpus-attested expansion");
-await picker("RAM", "no corpus-attested expansion");
+await picker("N", "N for sample size");
+await picker("RAM", "RAM for random access memory");
 
 await page.goto(`${base}/define/index-en.html?term=pfc`, { waitUntil: "networkidle" });
 const pfc = page.locator("#conceptSoon");
 const pfcText = await pfc.innerText();
 const pfcEntry = senseIndex.abbreviations.pfc;
 const publicExpansions = [...new Set(pfcEntry.expansions.map(row => row.expansion))];
+assert(publicExpansions.includes("prefrontal cortex"), "PFC lacks its public corpus-attested full term");
 assert.equal(await pfc.locator(".abbr-details li").count(), pfcEntry.expansions.length);
 if (publicExpansions.length) {
   for (const expansion of publicExpansions) {
@@ -59,6 +61,12 @@ if (!publicExpansions.includes("perfluorocarbons")) {
 }
 await pfc.screenshot({ path: path.join(output, "meta_render_pfc.png") });
 
+await page.goto(`${base}/define/index-he.html?q=RAM`, { waitUntil: "networkidle" });
+const hebrewRam = page.locator('[data-soon="ram"]').first();
+const hebrewText = await hebrewRam.innerText();
+assert(hebrewText.includes("RAM – ראשי תיבות של random access memory"));
+await hebrewRam.screenshot({ path: path.join(output, "meta_render_hebrew.png") });
+
 assert.deepEqual(errors, [], `browser errors: ${errors.join(" | ")}`);
 await browser.close();
-console.log("Meta-render N/RAM/PFC visual audit: ok");
+console.log("Meta-render N/RAM/PFC/Hebrew visual audit: ok");

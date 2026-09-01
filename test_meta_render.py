@@ -72,6 +72,44 @@ class AbbreviationClassTests(unittest.TestCase):
         record["senses"][0]["evidence"] = "The paper uses PFC but gives no full form here."
         self.assertNotIn("pfc", collect_abbreviation_expansions([record]))
 
+    def test_wrapped_criticism_is_not_misread_as_an_expansion(self) -> None:
+        record = {
+            "id": "chemical-paper",
+            "senses": [{
+                "label": "`PFC` - reserved for `perfluorocarbons`; the old usage is called `AN UNFORTUNATE CHOICE`",
+                "evidence": "PFC designates perfluorocarbons, and the old usage was an unfortunate choice.",
+            }],
+        }
+
+        rows = collect_abbreviation_expansions([record])["pfc"]
+
+        self.assertEqual([row["expansion"] for row in rows], ["perfluorocarbons"])
+
+    def test_cleared_staged_literal_expansions_cover_the_requested_class(self) -> None:
+        record = {"id": "cleared-paper"}
+        body = (
+            "The table reports age acceleration (N) and n/k (N), neither of which expands N. "
+            "The analysis records sample size (N). "
+            "It uses random access memory (RAM) for the index. "
+            "The signal is represented in the prefrontal cortex (PFC)."
+        )
+
+        rows = collect_abbreviation_expansions(
+            [record],
+            literal_sources={"cleared-paper": body},
+            short_forms=["N", "RAM", "PFC"],
+            runtime_labels=["sample size", "prefrontal cortex"],
+        )
+
+        self.assertEqual(rows["n"][0]["expansion"], "sample size")
+        self.assertEqual(len(rows["n"]), 1)
+        self.assertEqual(rows["ram"][0]["expansion"], "random access memory")
+        self.assertEqual(rows["pfc"][0]["expansion"], "prefrontal cortex")
+        self.assertTrue(all(
+            row["source"] == "staged-mhtml-literal-expansion-parenthesis"
+            for short in ("n", "ram", "pfc") for row in rows[short]
+        ))
+
 
 class TermCorpusRightsTests(unittest.TestCase):
     def test_denied_long_statistic_surface_is_removed_but_short_form_remains(self) -> None:

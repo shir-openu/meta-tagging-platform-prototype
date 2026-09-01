@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request paper tagging — Meta-Tagging Platform</title>
+<meta name="description" content="Check whether a paper can enter the manual $1 meta-tagging service before any payment is requested.">
+<link rel="alternate" hreflang="en" href="request-tagging.html">
+<link rel="alternate" hreflang="he" href="request-tagging-he.html">
+<link rel="stylesheet" href="css/shell.css?v=4ba5d57a">
+<link rel="stylesheet" href="css/platform.css?v=4ba5d57a">
+<link rel="stylesheet" href="css/intake.css?v=4ba5d57a">
+</head>
+<body class="intake-page">
+
+<div class="animated-background" aria-hidden="true">
+  <div class="wave-container">
+    <svg class="wave wave-teal" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160 L1440,320 L0,320 Z"></path></svg>
+    <svg class="wave wave-pink" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,200 C280,260 380,140 680,200 C980,260 1080,140 1440,200 L1440,320 L0,320 Z"></path></svg>
+    <svg class="wave wave-wine" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,240 C240,300 340,180 640,240 C940,300 1040,180 1440,240 L1440,320 L0,320 Z"></path></svg>
+  </div>
+  <div class="particles">
+    <div class="particle particle-teal" style="left:10%;top:20%"></div><div class="particle particle-pink" style="left:30%;top:60%"></div>
+    <div class="particle particle-wine" style="left:50%;top:30%"></div><div class="particle particle-teal" style="left:70%;top:70%"></div>
+    <div class="particle particle-pink" style="left:90%;top:40%"></div><div class="particle particle-wine" style="left:20%;top:80%"></div>
+  </div>
+</div>
+
+<main class="pt-wrap">
+  <header class="pt-head">
+    <a class="pt-back" href="index.html">← Platform</a>
+    <span class="tag">manual service</span>
+    <a class="pt-btn lang-switch" href="request-tagging-he.html" hreflang="he">עברית</a>
+  </header>
+
+  <section class="intake-hero" aria-labelledby="intakeTitle">
+    <div class="intake-kicker">Source check first · no pay-now button</div>
+    <h1 id="intakeTitle">Send a paper for us to tag</h1>
+    <p>Every tag comes back with the exact source sentence it was read from. The first service is manual, English-only and limited to complete, selectable text with cleared rights.</p>
+    <div class="price-lockup">
+      <span class="price">$1</span><span class="unit">per accepted paper</span>
+      <span class="outline-badge">no payment before preflight</span>
+    </div>
+  </section>
+
+  <section class="fee-math" aria-label="Payment fee arithmetic">
+    <div class="fee-case"><b>One paper · $1</b><span>Stripe example fee: $0.33 (32.9%); $0.67 remains.</span></div>
+    <div class="fee-case"><b>Ten-paper pack · $10</b><span>Stripe example fee: $0.59 (5.9%); $9.41 remains.</span></div>
+  </section>
+  <p class="fee-caveat">Google Pay is a wallet: Google adds no separate fee, while the payment processor’s fee still applies. Recommendation: keep the $1 unit price, but make a defined 10-paper/$10 batch the normal paid minimum instead of open-ended credits. These figures use Stripe’s current US standard domestic-card example (2.9% + $0.30), not a promise that Stripe is the eventual Israel-supported provider. Tax and invoicing are not included here.</p>
+
+  <div class="intake-grid">
+    <section class="intake-panel" aria-labelledby="checkTitle">
+      <h2 id="checkTitle">Check the source before payment</h2>
+      <p class="intro">This browser check sends nothing. A pass opens a pre-filled email; Shir still verifies the source before any temporary hold.</p>
+
+      <form id="intakePreflight" class="preflight-form" novalidate>
+        <label class="source-label" for="locator">DOI, repository URL or paper title</label>
+        <input class="source-input" id="locator" name="locator" autocomplete="off" placeholder="10.… or https://…" required>
+
+        <fieldset>
+          <legend>What source do you have?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI or source link<small>We locate and verify the full text.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="mhtml"><span>MHTML available<small>Attach it later in your email.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="pdf"><span>PDF only<small>The current workflow refuses PDF text.</small></span></label>
+          </div>
+          <label class="source-label" for="mhtml">Optional MHTML file</label>
+          <input class="source-file" id="mhtml" name="mhtml" type="file" accept=".mhtml,.mht,message/rfc822">
+          <small class="field-note">The file stays on your device. GitHub Pages cannot receive it; attach it manually only after this check passes.</small>
+        </fieldset>
+
+        <fieldset>
+          <legend>Is the complete paper available?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="fulltext" value="yes"><span>Yes, complete full text</span></label>
+            <label class="choice"><input type="radio" name="fulltext" value="no"><span>No, abstract or citation only</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>What does the source licence allow?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="rights" value="cleared"><span>CC BY, CC BY-SA, CC0 or public domain</span></label>
+            <label class="choice"><input type="radio" name="rights" value="blocked"><span>NC, ND or another restricted licence</span></label>
+            <label class="choice"><input type="radio" name="rights" value="unknown"><span>Unknown or conflicting</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Can the exact sentences be selected?</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="quality" value="selectable"><span>Yes, born-digital text</span></label>
+            <label class="choice"><input type="radio" name="quality" value="scan"><span>No, it is a scan or image</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Language and scope</legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="language" value="english"><span>Full text is English</span></label>
+            <label class="choice"><input type="radio" name="language" value="other"><span>Another language</span></label>
+            <label class="choice"><input type="radio" name="scope" value="paper"><span>Academic paper</span></label>
+            <label class="choice"><input type="radio" name="scope" value="other"><span>Another kind of item</span></label>
+          </div>
+        </fieldset>
+
+        <button class="check-button" type="submit">Check before payment</button>
+        <div id="preflightResult" class="preflight-result" role="status" tabindex="-1" hidden></div>
+        <a id="eligibleEmail" class="email-button" hidden>Email this request</a>
+      </form>
+    </section>
+
+    <aside class="intake-panel" aria-labelledby="flowTitle">
+      <h2 id="flowTitle">What happens to the $1</h2>
+      <ol class="flow-list">
+        <li><b>1 · Source check</b><span>Identity, licence, full text, language and text quality. No payment.</span></li>
+        <li><b>2 · Manual acceptance</b><span>Shir confirms the source and a delivery date.</span></li>
+        <li><b>3 · Temporary $1 hold</b><span>Authorization only. The provider’s real capture deadline controls the schedule.</span></li>
+        <li><b>4 · Tag and review</b><span>Verbatim-grounded tags are produced and checked.</span></li>
+        <li><b>5 · Deliver, then capture</b><span>The $1 is captured only when the tagged result is delivered.</span></li>
+      </ol>
+      <div class="flow-stop"><b>If the paper cannot be tagged</b><p>Before capture: cancel and release the hold. After capture: issue a full refund. Never substitute credits.</p></div>
+      <span class="test-only">payment connection intentionally absent</span>
+    </aside>
+  </div>
+
+  <section class="refusal-section" aria-labelledby="refusalTitle">
+    <h2 id="refusalTitle">Refused before payment</h2>
+    <div class="refusal-grid">
+      <article class="refusal-card"><b>No full text</b><p>A citation or abstract cannot support verbatim tagging. No payment is requested.</p><code>NO_FULL_TEXT</code></article>
+      <article class="refusal-card"><b>Wrong or unknown licence</b><p>Accessible online does not mean cleared for this service. No payment is requested.</p><code>RIGHTS_NOT_CLEARED</code></article>
+      <article class="refusal-card"><b>Scanned image</b><p>Without reliable selectable text, exact sentence anchors cannot be preserved. No payment is requested.</p><code>IMAGE_ONLY</code></article>
+    </div>
+  </section>
+
+  <section class="server-note" aria-labelledby="serverTitle">
+    <h2 id="serverTitle">Why this page does not upload the file</h2>
+    <p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages is static hosting</a>; it can show this check but cannot privately receive a paper or create a payment authorization. The minimum direct-upload addition is one authenticated, rate-limited Vercel server route that issues a short-lived upload token, plus a private Blob store and deletion callback. No secret belongs in this page.</p>
+    <p><strong>Minimum commercial hosting budget: $20/month base for Vercel Pro</strong>, including $20 of usage credit; Blob use is metered regionally after included credit. Vercel’s free Hobby plan is restricted to personal, non-commercial use. Manual email intake costs $0 incremental hosting.</p>
+  </section>
+
+  <section class="source-list" aria-labelledby="sourcesTitle">
+    <h2 id="sourcesTitle">Current fee and infrastructure sources · checked 2026-09-01</h2>
+    <p><a href="https://stripe.com/pricing">Stripe standard pricing</a> · <a href="https://developers.google.com/pay/api/web/support/faq">Google Pay fee FAQ</a> · <a href="https://docs.stripe.com/payments/place-a-hold-on-a-payment-method">Stripe authorization and capture</a> · <a href="https://vercel.com/pricing">Vercel pricing</a> · <a href="https://vercel.com/docs/plans/hobby">Vercel Hobby restriction</a> · <a href="https://vercel.com/docs/pricing/regional-pricing">Vercel regional Blob pricing</a></p>
+  </section>
+
+  <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · No real payment is available on this test surface. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
+</main>
+
+<script src="js/intake.js?v=4ba5d57a"></script>
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body>
+</html>
