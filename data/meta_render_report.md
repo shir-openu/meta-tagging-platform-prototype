@@ -1,78 +1,7309 @@
 # Meta-render audit report
 
-Generated 2026-09-01T12:37:20+00:00. This report audits the complete runtime picker, with public expansion
+Generated 2026-09-01T19:58:01+00:00. This report audits the complete runtime picker, with public expansion
 wording limited to the audited rights-cleared paper set.
 
 | Denominator / outcome | Count |
 |---|---:|
-| Historical picker cohort | 474 |
-| Historical picker cohort after shared-live filtering | 473 |
-| Historical rows removed as withdrawn-only | 1 |
-| Definition cards before three-layer repair | 10 |
-| Definition cards after three-layer repair | 59 |
-| Historical render gap before | 49 |
+| Historical picker cohort | 14,719 |
+| Historical picker cohort after shared-live filtering | 14,714 |
+| Historical rows removed as withdrawn-only | 5 |
+| Definition cards before three-layer repair | 425 |
+| Definition cards after three-layer repair | 7,705 |
+| Historical render gap before | 7,280 |
 | Historical render gap after | 0 |
-| Runtime picker rows before shared-live filtering | 22,453 |
-| Runtime picker rows after shared-live filtering | 22,392 |
-| Runtime rows removed as withdrawn-only | 61 |
-| Complete abbreviation class | 702 |
-| Abbreviations with public corpus-attested expansions | 209 |
-| Rights-withheld expansion rows (count only) | 83 |
-| Rights-cleared staged HTML/MHTML sources scanned for literal expansions | 273 |
-| Literal expansion rows recovered from those sources | 526 |
-| Picker labels matching denied live quotes removed in this build | 10 |
+| Runtime picker rows before shared-live filtering | 22,532 |
+| Runtime picker rows after shared-live filtering | 22,472 |
+| Runtime rows removed as withdrawn-only | 60 |
+| Complete abbreviation class | 701 |
+| Abbreviations with public corpus-attested expansions | 230 |
+| Rights-withheld expansion rows (count only) | 45 |
+| Rights-cleared staged HTML/MHTML sources scanned for literal expansions | 287 |
+| Literal expansion rows recovered from those sources | 518 |
+| Picker labels matching denied live quotes removed in this build | 0 |
 
 ## Historical terms repaired by the three-layer route
 
+- `0-c-threshold` — 0 °C threshold — 1 grounded row(s); layers: concepts=1
+- `1-000-bootstrap-replicates` — 1,000 bootstrap replicates — 1 grounded row(s); layers: concepts=1
+- `1-jsd` — 1−JSD — 1 grounded row(s); layers: concepts=1
+- `1-kb-windows` — 1 kb windows — 1 grounded row(s); layers: concepts=1
+- `1-km-resolution` — 1-km resolution — 1 grounded row(s); layers: concepts=1
+- `1-molecule-of-circular-rna-for-every-100-molecules-of-poly-a` — 1 molecule of circular RNA for every 100 molecules of poly(A) RNA — 1 grounded row(s); layers: concepts=1
+- `10-795-protein-sequences` — 10,795 protein sequences — 1 grounded row(s); layers: concepts=1
+- `10-fold-cross-validations` — 10 × fold cross-validations — 1 grounded row(s); layers: concepts=1
+- `10-genomics-encapsulation-system` — 10× Genomics encapsulation system — 1 grounded row(s); layers: concepts=1
+- `10-mismatch-free-bases` — 10 mismatch-free bases — 1 grounded row(s); layers: concepts=1
+- `100-bp-overlap` — 100 bp overlap — 1 grounded row(s); layers: concepts=1
+- `14-025-icd-9-diagnosis-codes` — 14,025 ICD-9 diagnosis codes — 1 grounded row(s); layers: concepts=1
+- `15-different-cancer-and-non-cancer-cell-lines` — 15 different cancer and non-cancer cell lines — 1 grounded row(s); layers: concepts=1
+- `16-base-fragment` — 16-base fragment — 1 grounded row(s); layers: concepts=1
+- `16s-ribosomal-rnas` — 16S ribosomal RNAs — 1 grounded row(s); layers: concepts=1
+- `16s-rrna` — 16S rRNA — 1 grounded row(s); layers: concepts=1
+- `180-other-resources` — 180 other resources — 1 grounded row(s); layers: concepts=1
+- `1d-feature-vector` — 1D feature vector — 1 grounded row(s); layers: concepts=1
+- `2-2-million` — 2.2 million — 1 grounded row(s); layers: concepts=1
+- `2-4-per-year-rate` — 2.4% per year rate — 1 grounded row(s); layers: concepts=1
+- `2-exon-circle` — 2-exon circle — 1 grounded row(s); layers: concepts=1
+- `2-trend-tests` — χ 2 /trend tests — 1 grounded row(s); layers: concepts=1
+- `2-way-anova` — 2-way ANOVA — 1 grounded row(s); layers: concepts=1
+- `20-per-sample` — $20 per sample — 1 grounded row(s); layers: concepts=1
+- `216-221-adult-patients` — 216,221 adult patients — 1 grounded row(s); layers: concepts=1
+- `22-078-stations` — 22,078 stations — 1 grounded row(s); layers: concepts=1
+- `25-item-checklist` — 25 item checklist — 1 grounded row(s); layers: concepts=1
+- `27-item-checklist` — 27-item checklist — 2 grounded row(s); layers: concepts=2
+- `28-factor-logistic-regression-model` — 28-factor logistic regression model — 1 grounded row(s); layers: concepts=1
+- `29-891-base-pair-cov-genome` — 29,891-base-pair CoV genome — 1 grounded row(s); layers: concepts=1
+- `2d-depictions` — 2D depictions — 1 grounded row(s); layers: concepts=1
+- `2d-feature-maps` — 2D feature maps — 1 grounded row(s); layers: concepts=1
+- `2d-materials` — 2D materials — 1 grounded row(s); layers: concepts=1
+- `2d-object` — 2D object — 1 grounded row(s); layers: concepts=1
+- `3-000-images-hour` — 3,000 images/hour — 1 grounded row(s); layers: concepts=1
+- `3-c-threshold` — 3 °C threshold — 1 grounded row(s); layers: concepts=1
+- `3-genes-with-strong-prior-evidence-of-circularization` — 3 genes with strong prior evidence of circularization — 1 grounded row(s); layers: concepts=1
+- `3-ribosomal-otus` — 3% ribosomal OTUs — 1 grounded row(s); layers: concepts=1
+- `3-single-stranded-region-of-greater-than-7-nucleotides` — 3′ single stranded region of greater than 7 nucleotides — 1 grounded row(s); layers: concepts=1
+- `3-to-5-exoribonuclease` — 3′ to 5′ exoribonuclease — 2 grounded row(s); layers: concepts=2
+- `30-day-unplanned-readmission` — 30-day unplanned readmission — 1 grounded row(s); layers: concepts=1
+- `30-sub-types` — 30 sub-types — 1 grounded row(s); layers: concepts=1
+- `31-provinces-and-autonomous-regions` — 31 provinces and autonomous regions — 1 grounded row(s); layers: concepts=1
+- `350-usmle-items` — 350 USMLE items — 1 grounded row(s); layers: concepts=1
+- `353-cpg-sites` — 353 CpG sites — 1 grounded row(s); layers: concepts=1
+- `384-well-plates` — 384-well plates — 1 grounded row(s); layers: concepts=1
+- `3c-model` — 3C model — 1 grounded row(s); layers: concepts=1
+- `3d-coordinates-of-all-heavy-atoms` — 3D coordinates of all heavy atoms — 1 grounded row(s); layers: concepts=1
+- `3d-depictions` — 3D depictions — 1 grounded row(s); layers: concepts=1
+- `3d-molecular-viewer` — 3D molecular viewer — 1 grounded row(s); layers: concepts=1
+- `3d-neighborhoods` — 3D neighborhoods — 1 grounded row(s); layers: concepts=1
+- `3d-structure` — 3D-structure — 1 grounded row(s); layers: concepts=1
+- `4c-model` — 4C model — 1 grounded row(s); layers: concepts=1
+- `4e-cognition` — 4E cognition — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `5-2-exon-scramble` — 5–2 exon scramble — 1 grounded row(s); layers: concepts=1
+- `5-c-scale` — 5-C scale — 1 grounded row(s); layers: concepts=1
+- `5-star-based-system` — 5-star-based system — 1 grounded row(s); layers: concepts=1
+- `50-quantile` — 50% quantile — 1 grounded row(s); layers: concepts=1
+- `50-tissue-culture-infective-dose` — 50% tissue-culture-infective dose — 1 grounded row(s); layers: concepts=1
+- `54-306-images-of-14-different-crops-having-26-plant-diseases` — 54,306 images of 14 different crops having 26 plant diseases — 1 grounded row(s); layers: concepts=1
+- `5a-model` — 5A model — 1 grounded row(s); layers: concepts=1
+- `5c-scale` — 5C scale — 1 grounded row(s); layers: concepts=1
+- `6-point-scale` — 6-point scale — 1 grounded row(s); layers: concepts=1
+- `63-unique-locations` — 63 unique locations — 1 grounded row(s); layers: concepts=1
+- `64-bit-integer` — 64-bit integer — 1 grounded row(s); layers: concepts=1
+- `7-bp-3-overhang` — 7 bp 3′ overhang — 1 grounded row(s); layers: concepts=1
+- `7-symptoms` — 7 symptoms — 1 grounded row(s); layers: concepts=1
+- `73-public-pages` — 73 public pages — 1 grounded row(s); layers: concepts=1
+- `76-nt-paired-end-reads` — 76-nt paired-end reads — 1 grounded row(s); layers: concepts=1
+- `79-6-sequence-identity` — 79.6% sequence identity — 1 grounded row(s); layers: concepts=1
+- `8-7-million-species` — 8.7 million species — 1 grounded row(s); layers: concepts=1
+- `80-power` — 80% power — 1 grounded row(s); layers: concepts=1
+- `86-of-existing-species-on-earth` — 86% of existing species on Earth — 1 grounded row(s); layers: concepts=1
+- `9-isoforms-with-scrambled-exons` — 9 isoforms with scrambled exons — 1 grounded row(s); layers: concepts=1
+- `90-confidence-region` — 90% confidence region — 1 grounded row(s); layers: concepts=1
+- `91-of-species-in-the-ocean` — 91% of species in the ocean — 1 grounded row(s); layers: concepts=1
+- `94-4-identical` — 94.4% identical — 1 grounded row(s); layers: concepts=1
+- `95` — 95% — 1 grounded row(s); layers: concepts=1
+- `95-confidence-intervals-cis` — 95% confidence intervals (CIs) — 1 grounded row(s); layers: concepts=1
+- `96-identical-at-the-whole-genome-level` — 96% identical at the whole-genome level — 1 grounded row(s); layers: concepts=1
+- `96-unique-location-year-combinations` — 96 unique location-year combinations — 1 grounded row(s); layers: concepts=1
+- `983-longitudinal-plasma-samples` — 983 longitudinal plasma samples — 1 grounded row(s); layers: concepts=1
+- `a-characteristic-of-individuals-clearly-predisposed-to-and-n` — a characteristic of individuals clearly predisposed to, and not simply at risk of, an IFD — 1 grounded row(s); layers: concepts=1
+- `a-clinically-significant-form-of-psychological-distress` — a clinically significant form of psychological distress — 1 grounded row(s); layers: concepts=1
+- `a-form-of-rcd-that-is-sufficient-to-activate-an-adaptive-imm` — a form of RCD that is sufficient to activate an adaptive immune response in immunocompetent syngeneic hosts — 1 grounded row(s); layers: concepts=1
+- `a-genetic-continuum-between-species` — a genetic continuum between species — 1 grounded row(s); layers: concepts=1
+- `a-high-throughput-platform-for-accurate-genome-based-taxonom` — a high-throughput platform for accurate genome-based taxonomy — 1 grounded row(s); layers: concepts=1
+- `a-highly-stringent-approach` — a highly stringent approach — 1 grounded row(s); layers: concepts=1
+- `a-history-of-residence-in-an-endemic-area` — a history of residence in an endemic area — 1 grounded row(s); layers: concepts=1
+- `a-host-factor` — a host factor — 1 grounded row(s); layers: concepts=1
+- `a-like` — a like — 1 grounded row(s); layers: concepts=1
+- `a-meaningful-discontinuity` — a meaningful discontinuity — 1 grounded row(s); layers: concepts=1
+- `a-positive-association-between-the-risk-factor-alcohol-and-a` — a positive association between the risk factor (alcohol) and an outcome (blood pressure) — 1 grounded row(s); layers: concepts=1
+- `a-priori-decision-rules` — a priori decision rules — 1 grounded row(s); layers: concepts=1
+- `a-priori-hypothesis` — a priori hypothesis — 1 grounded row(s); layers: concepts=1
+- `a-priori-thematic-saturation` — a priori thematic saturation — 1 grounded row(s); layers: concepts=1
+- `a-program-service-or-intervention-is-being-delivered-as-it-w` — a program service or intervention is being delivered as it was designed or written — 1 grounded row(s); layers: concepts=1
+- `a-research-method-that-provides-evidence-about-putative-caus` — a research method that provides evidence about putative causal relations between modifiable risk factors and disease — 1 grounded row(s); layers: concepts=1
+- `a-risk-factor` — a risk factor — 1 grounded row(s); layers: concepts=1
+- `a-share` — a share — 1 grounded row(s); layers: concepts=1
+- `a-short-hypervariable-region-of-the-small-subunit-ssu-rrna-g` — a short hypervariable region of the small subunit (SSU) rRNA gene — 1 grounded row(s); layers: concepts=1
+- `a-single-amino-acid-substitution` — a single amino acid substitution — 1 grounded row(s); layers: concepts=1
+- `a-single-gpu` — a single GPU — 1 grounded row(s); layers: concepts=1
+- `a-single-representative-genome` — a single representative genome — 1 grounded row(s); layers: concepts=1
+- `a1` — A1 — 1 grounded row(s); layers: content_tags.definitions=1
+- `aberrant-p53-expression` — aberrant p53 expression — 1 grounded row(s); layers: concepts=1
+- `abl1` — ABL1 — 1 grounded row(s); layers: concepts=1
+- `abnormal-drug-response` — Abnormal drug response — 1 grounded row(s); layers: concepts=1
+- `abr` — ABR — 1 grounded row(s); layers: content_tags.definitions=1
+- `absolute-fitness` — absolute fitness — 1 grounded row(s); layers: concepts=1
+- `absolute-lymphocyte-count` — absolute lymphocyte count — 1 grounded row(s); layers: concepts=1
+- `absolute-neutrophil-count` — absolute neutrophil count — 1 grounded row(s); layers: concepts=1
+- `absolute-risk` — absolute risk — 1 grounded row(s); layers: concepts=1
+- `absolute-sleeper-effect` — absolute sleeper effect — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `absorption-distribution-metabolism-and-excretion` — absorption, distribution, metabolism and excretion — 1 grounded row(s); layers: concepts=1
+- `absorption-in-the-primary-or-secondary-beam` — absorption in the primary or secondary beam — 1 grounded row(s); layers: concepts=1
+- `abstract-art` — abstract art — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `abstract-rating` — abstract rating — 1 grounded row(s); layers: concepts=1
+- `abstraction` — abstraction — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `abstraction-continuum` — abstraction continuum — 1 grounded row(s); layers: concepts=1
+- `abundance-based-greedy-clustering` — abundance-based greedy clustering — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `abundance-ubiquity-and-potential-developmental-regulation-of` — abundance, ubiquity, and potential developmental regulation of circular RNAs — 1 grounded row(s); layers: concepts=1
+- `abundant-amplicons` — abundant amplicons — 1 grounded row(s); layers: concepts=1
+- `acalculia` — acalculia — 1 grounded row(s); layers: content_tags.definitions=1
+- `acc` — ACC — 1 grounded row(s); layers: concepts=1
+- `accelerometers` — accelerometers — 1 grounded row(s); layers: concepts=1
+- `acceptability` — acceptability — 3 grounded row(s); layers: concepts=3
+- `acceptance` — acceptance — 1 grounded row(s); layers: concepts=1
+- `acceptor-exon` — acceptor exon — 1 grounded row(s); layers: concepts=1
+- `accessibility` — accessibility — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `accessible-dna-sites` — accessible DNA sites — 1 grounded row(s); layers: concepts=1
+- `accessible-sites` — accessible sites — 1 grounded row(s); layers: concepts=1
+- `accessors` — accessors — 1 grounded row(s); layers: concepts=1
+- `accessory-genes` — accessory genes — 1 grounded row(s); layers: concepts=1
+- `accidental-aberration-of-normal-splicing` — accidental aberration of normal splicing — 1 grounded row(s); layers: concepts=1
+- `account-more-consistent-with-their-existing-system-of-belief` — account more consistent with their existing system of beliefs — 1 grounded row(s); layers: concepts=1
+- `accountability` — accountability — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `accumulation-of-60-min-on-each-and-every-day-of-the-week` — accumulation of 60 min on each and every day of the week — 1 grounded row(s); layers: concepts=1
+- `accumulation-of-succinate` — accumulation of succinate — 1 grounded row(s); layers: concepts=1
+- `accuracy-concordance-and-insight-aci` — Accuracy, Concordance, and Insight (ACI) — 1 grounded row(s); layers: concepts=1
+- `accuracy-improvements` — accuracy improvements — 1 grounded row(s); layers: concepts=1
+- `accuracy-of-a-given-annotation` — accuracy of a given annotation — 1 grounded row(s); layers: concepts=1
+- `accuracy-of-some-quantities` — accuracy of some quantities — 1 grounded row(s); layers: concepts=1
+- `accuracy-score` — accuracy score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `accurate` — accurate — 2 grounded row(s); layers: concepts=2
+- `accurate-genomic-annotation-and-mapping` — accurate genomic annotation and mapping — 1 grounded row(s); layers: concepts=1
+- `accurate-quantification-of-high-molecular-weight-dna` — accurate quantification of high molecular weight DNA — 1 grounded row(s); layers: concepts=1
+- `accurate-responses` — accurate responses — 1 grounded row(s); layers: concepts=1
+- `ace2` — ACE2 — 1 grounded row(s); layers: concepts=1
+- `ace2-competition-elisa` — ACE2 competition ELISA — 1 grounded row(s); layers: concepts=1
+- `ace2-proteins` — ACE2 proteins — 1 grounded row(s); layers: concepts=1
+- `acmg-amp` — ACMG-AMP — 1 grounded row(s); layers: concepts=1
+- `acquisition` — acquisition — 1 grounded row(s); layers: concepts=1
+- `across-plate-and-across-batch-comparisons` — across-plate and across-batch comparisons — 1 grounded row(s); layers: concepts=1
+- `actant` — actant — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `action-models` — action models — 1 grounded row(s); layers: concepts=1
+- `action-unit` — action unit — 1 grounded row(s); layers: content_tags.definitions=1
+- `activating-and-inhibitory-receptors` — activating and inhibitory receptors — 1 grounded row(s); layers: concepts=1
+- `activation` — activation — 1 grounded row(s); layers: concepts=1
+- `activation-likelihood-estimation` — Activation Likelihood Estimation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `activation-of-the-transposase` — Activation of the transposase — 1 grounded row(s); layers: concepts=1
+- `active-and-silenced-regions` — active and silenced regions — 1 grounded row(s); layers: concepts=1
+- `active-inference` — active inference — 7 grounded row(s); layers: concepts=4, content_tags.definitions=3
+- `active-ingredient` — active ingredient — 1 grounded row(s); layers: concepts=1
+- `active-learning` — active learning — 2 grounded row(s); layers: concepts=2
+- `active-mobilization` — active mobilization — 1 grounded row(s); layers: content_tags.definitions=1
+- `active-surveillance` — active surveillance — 1 grounded row(s); layers: concepts=1
+- `activity-on-a-specific-substrate-in-a-specific-pathway` — activity on a specific substrate in a specific pathway — 1 grounded row(s); layers: concepts=1
+- `activity-units` — activity units — 1 grounded row(s); layers: concepts=1
+- `actual-evapotranspiration` — actual evapotranspiration — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `actual-pixel-values` — actual pixel values — 1 grounded row(s); layers: concepts=1
+- `actual-steps-taken-to-ensure-allocation-concealment` — actual steps taken to ensure allocation concealment — 1 grounded row(s); layers: concepts=1
+- `actual-uptake` — actual uptake — 1 grounded row(s); layers: concepts=1
+- `acute-effects` — acute effects — 1 grounded row(s); layers: concepts=1
+- `acute-infection` — acute infection — 1 grounded row(s); layers: concepts=1
+- `acyclic` — acyclic — 1 grounded row(s); layers: concepts=1
+- `ad-hoc-irrigation` — ad hoc irrigation — 1 grounded row(s); layers: content_tags.definitions=1
+- `adaptation-of-smiles` — adaptation of SMILES — 1 grounded row(s); layers: concepts=1
+- `adaptations` — adaptations — 1 grounded row(s); layers: concepts=1
+- `adapter-dimers` — adapter dimers — 1 grounded row(s); layers: concepts=1
+- `adapter-read-through` — adapter read-through — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `adapter-sequence` — adapter sequence — 1 grounded row(s); layers: concepts=1
+- `adapterremoval` — AdapterRemoval — 1 grounded row(s); layers: concepts=1
+- `adapters` — adapters — 1 grounded row(s); layers: concepts=1
+- `adapters-are-added-in-bulk` — adapters are added in bulk — 1 grounded row(s); layers: concepts=1
+- `adaptive-anticancer-immunity` — adaptive anticancer immunity — 1 grounded row(s); layers: concepts=1
+- `adaptive-approach` — adaptive approach — 1 grounded row(s); layers: concepts=1
+- `adaptive-immune-response` — adaptive immune response — 1 grounded row(s); layers: concepts=1
+- `adaptive-immune-system` — adaptive immune system — 1 grounded row(s); layers: concepts=1
+- `adaptive-trial-design` — adaptive trial design — 1 grounded row(s); layers: concepts=1
+- `addiction` — addiction — 1 grounded row(s); layers: concepts=1
+- `additional-detailed-reaction-information` — additional detailed reaction information — 1 grounded row(s); layers: concepts=1
+- `additional-information` — additional information — 1 grounded row(s); layers: concepts=1
+- `additional-quality-control` — additional quality control — 1 grounded row(s); layers: concepts=1
+- `additive-effects-model` — additive effects model — 1 grounded row(s); layers: concepts=1
+- `additive-interaction` — additive interaction — 1 grounded row(s); layers: content_tags.definitions=1
+- `additive-manufacturing` — additive manufacturing — 1 grounded row(s); layers: content_tags.definitions=1
+- `additives` — additives — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `adherence-to-the-protocol` — adherence to the protocol — 1 grounded row(s); layers: concepts=1
+- `adjusted-odds-of-depression` — adjusted odds of depression — 1 grounded row(s); layers: concepts=1
+- `adjusted-ors` — adjusted ORs — 1 grounded row(s); layers: concepts=1
+- `adjusted-rand-index` — adjusted Rand index — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `adjustment-to-aic` — adjustment to AIC — 1 grounded row(s); layers: concepts=1
+- `adjuvanticity` — adjuvanticity — 1 grounded row(s); layers: concepts=1
+- `adjuvants` — adjuvants — 1 grounded row(s); layers: concepts=1
+- `adme` — ADME — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `adme-t` — ADME/T — 1 grounded row(s); layers: concepts=1
+- `administering-the-survey` — administering the survey — 1 grounded row(s); layers: concepts=1
+- `admissible-values-of-the-spins` — admissible values of the spins — 1 grounded row(s); layers: concepts=1
+- `admission-within-30-days-after-discharge` — admission within 30 days after discharge — 1 grounded row(s); layers: concepts=1
+- `adolescents` — adolescents — 1 grounded row(s); layers: concepts=1
+- `adoption` — adoption — 2 grounded row(s); layers: concepts=2
+- `adoptive-cell-transfer` — adoptive cell transfer — 1 grounded row(s); layers: concepts=1
+- `adults` — adults — 1 grounded row(s); layers: concepts=1
+- `advanced-search` — advanced search — 1 grounded row(s); layers: concepts=1
+- `advances-in-next-generation-sequencing` — Advances in next-generation sequencing — 1 grounded row(s); layers: concepts=1
+- `adverse-drug-response` — adverse drug response — 1 grounded row(s); layers: concepts=1
+- `adverse-event` — adverse event — 1 grounded row(s); layers: concepts=1
+- `aef` — AEF — 1 grounded row(s); layers: concepts=1
+- `aerial-photographs` — aerial photographs — 1 grounded row(s); layers: concepts=1
+- `aerobic-mvpa` — aerobic MVPA — 1 grounded row(s); layers: concepts=1
+- `aesthetic-attributes` — aesthetic attributes — 1 grounded row(s); layers: concepts=1
+- `aesthetics` — aesthetics — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `aetiology` — aetiology — 1 grounded row(s); layers: concepts=1
+- `aews` — aEWS — 1 grounded row(s); layers: concepts=1
+- `affect-question` — affect question — 1 grounded row(s); layers: concepts=1
+- `affective-empathy` — affective empathy — 1 grounded row(s); layers: content_tags.definitions=1
+- `affective-niche` — affective niche — 1 grounded row(s); layers: concepts=1
+- `affective-well-being` — affective well-being — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `affiliated-package` — affiliated package — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `affinity` — affinity — 1 grounded row(s); layers: concepts=1
+- `affordance` — affordance — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `affordances` — affordances — 1 grounded row(s); layers: concepts=1
+- `age-10-year-categories` — age (10-year categories) — 1 grounded row(s); layers: concepts=1
+- `age-acceleration` — age acceleration — 1 grounded row(s); layers: concepts=1
+- `age-correlation` — age correlation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `age-dependent-cpg-signatures` — age-dependent CpG signatures — 1 grounded row(s); layers: concepts=1
+- `age-of-onset` — age of onset — 1 grounded row(s); layers: concepts=1
+- `age-prediction` — age prediction — 1 grounded row(s); layers: concepts=1
+- `agency` — agency — 7 grounded row(s); layers: concepts=5, content_tags.definitions=2
+- `agenda-setting` — agenda setting — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `agent` — agent — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `aggregated-dataset` — aggregated dataset — 1 grounded row(s); layers: concepts=1
+- `aggregation-of-people-around-common-interests-worldviews-and` — aggregation of people around common interests, worldviews and narratives — 1 grounded row(s); layers: concepts=1
+- `agile-science` — Agile Science — 1 grounded row(s); layers: concepts=1
+- `aging-clock` — aging clock — 1 grounded row(s); layers: concepts=1
+- `agreement` — agreement — 2 grounded row(s); layers: concepts=2
+- `agreement-between-the-two-independent-sample-groups` — agreement between the two independent sample groups — 1 grounded row(s); layers: concepts=1
+- `agricultural-fields` — agricultural fields — 1 grounded row(s); layers: concepts=1
+- `agricultural-intensification` — agricultural intensification — 1 grounded row(s); layers: concepts=1
+- `agricultural-statistics` — agricultural statistics — 1 grounded row(s); layers: concepts=1
+- `ai-algorithm` — AI algorithm — 1 grounded row(s); layers: concepts=1
+- `ai-failure-mode-analysis` — AI failure mode analysis — 1 grounded row(s); layers: concepts=1
+- `ai-system` — AI system — 1 grounded row(s); layers: concepts=1
+- `ai-systems` — AI systems — 1 grounded row(s); layers: concepts=1
+- `aic` — AIC — 1 grounded row(s); layers: concepts=1
+- `aic-activity` — AIC activity — 1 grounded row(s); layers: concepts=1
+- `aimless` — AIMLESS — 1 grounded row(s); layers: concepts=1
+- `aims-to-improve-an-entity-by-triggering-significant-changes-` — aims to improve an entity by triggering significant changes to its properties through combinations of information, computing, communication, and connectivity technologies — 1 grounded row(s); layers: concepts=1
+- `airborne-transmission` — airborne transmission — 1 grounded row(s); layers: concepts=1
+- `ais` — AIS — 1 grounded row(s); layers: content_tags.definitions=1
+- `akaike-information-criterion` — Akaike Information Criterion — 1 grounded row(s); layers: concepts=1
+- `akaike-s-information-criterion` — Akaike's Information Criterion — 1 grounded row(s); layers: concepts=1
+- `akaike-weight` — Akaike weight — 1 grounded row(s); layers: concepts=1
+- `akt-mtor-axis` — AKT/mTOR axis — 1 grounded row(s); layers: content_tags.definitions=1
+- `alcohol-wet-state` — alcohol-wet state — 1 grounded row(s); layers: concepts=1
+- `ale` — ALE — 1 grounded row(s); layers: content_tags.definitions=1
+- `alert-confidence` — alert confidence — 1 grounded row(s); layers: concepts=1
+- `alert-fatigue` — alert fatigue — 1 grounded row(s); layers: concepts=1
+- `alexnet` — AlexNet — 1 grounded row(s); layers: concepts=1
+- `algae` — algae — 1 grounded row(s); layers: concepts=1
+- `algorithm` — algorithm — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `algorithmic-political-bias` — algorithmic political bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `algorithmic-route` — “algorithmic” route — 1 grounded row(s); layers: concepts=1
+- `algorithms` — algorithms — 1 grounded row(s); layers: concepts=1
+- `algorithms-tools-and-workflows` — algorithms, tools, and workflows — 1 grounded row(s); layers: concepts=1
+- `aligning-variants-to-protein-features` — Aligning variants to protein features — 1 grounded row(s); layers: concepts=1
+- `alignment` — Alignment — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `alignment-problems` — alignment problems — 1 grounded row(s); layers: concepts=1
+- `alignment-scores` — alignment scores — 1 grounded row(s); layers: concepts=1
+- `all-atom-accuracy` — all-atom accuracy — 1 grounded row(s); layers: concepts=1
+- `all-cause-mortality` — all-cause mortality — 1 grounded row(s); layers: concepts=1
+- `all-ensemble` — All Ensemble — 1 grounded row(s); layers: concepts=1
+- `all-five-elements-need-to-be-measured` — all five elements need to be measured — 1 grounded row(s); layers: concepts=1
+- `all-immunity-will-be-lost` — all immunity will be lost — 1 grounded row(s); layers: concepts=1
+- `all-ngs-based-assays` — all NGS based assays — 1 grounded row(s); layers: concepts=1
+- `all-other-detections` — all other detections — 1 grounded row(s); layers: concepts=1
+- `all-other-human-coronaviruses` — all other human coronaviruses — 1 grounded row(s); layers: concepts=1
+- `all-predicted-linear-sequences` — all predicted linear sequences — 1 grounded row(s); layers: concepts=1
+- `all-subsets-selection` — all-subsets selection — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `all-the-items-are-addressed` — all the items are addressed — 1 grounded row(s); layers: concepts=1
+- `all-the-rna-species-that-we-had-predicted-to-be-circular` — All the RNA species that we had predicted to be circular — 1 grounded row(s); layers: concepts=1
+- `allbitsset-function` — $allBitsSet function — 1 grounded row(s); layers: concepts=1
+- `allele-specific-protein-dna-binding` — allele-specific protein-DNA binding — 1 grounded row(s); layers: concepts=1
+- `allocation-concealment` — allocation concealment — 1 grounded row(s); layers: content_tags.definitions=1
+- `allochthonous-microorganisms` — allochthonous microorganisms — 1 grounded row(s); layers: concepts=1
+- `alpha-diversity` — alpha diversity — 1 grounded row(s); layers: concepts=1
+- `alpha-satellites` — alpha satellites — 1 grounded row(s); layers: concepts=1
+- `alphafold` — AlphaFold — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `alphafold-db` — AlphaFold DB — 1 grounded row(s); layers: concepts=1
+- `alphafold-db-web-pages` — AlphaFold DB web pages — 1 grounded row(s); layers: concepts=1
+- `alphafold-protein-structure-database` — AlphaFold Protein Structure Database — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `alston-criteria` — Alston criteria — 1 grounded row(s); layers: concepts=1
+- `altaz` — AltAz — 1 grounded row(s); layers: concepts=1
+- `alternate-nucleotide-proportion` — alternate nucleotide proportion — 1 grounded row(s); layers: concepts=1
+- `alternate-scoring-schemes` — alternate scoring schemes — 1 grounded row(s); layers: concepts=1
+- `alternative-algorithm` — alternative algorithm — 1 grounded row(s); layers: concepts=1
+- `alternative-information-sources` — alternative information sources — 1 grounded row(s); layers: concepts=1
+- `alternative-narrative` — alternative narrative — 1 grounded row(s); layers: concepts=1
+- `alternative-parents` — Alternative Parents — 1 grounded row(s); layers: concepts=1
+- `alternative-promoter` — alternative promoter — 1 grounded row(s); layers: concepts=1
+- `alternative-splicing` — alternative splicing — 2 grounded row(s); layers: concepts=2
+- `alveolar-damage` — alveolar damage — 1 grounded row(s); layers: concepts=1
+- `alzheimer-s-disease` — Alzheimer's disease — 1 grounded row(s); layers: concepts=1
+- `amazon-web-services` — Amazon Web Services — 1 grounded row(s); layers: concepts=1
+- `amber` — Amber — 2 grounded row(s); layers: concepts=2
+- `amensalism` — amensalism — 1 grounded row(s); layers: concepts=1
+- `amino-acid-sequences` — amino acid sequences — 1 grounded row(s); layers: concepts=1
+- `aminopeptidase-n-apn` — aminopeptidase N (APN) — 1 grounded row(s); layers: concepts=1
+- `amnesic` — amnesic — 1 grounded row(s); layers: concepts=1
+- `amoeba-polarizable-force-field` — AMOEBA polarizable force field — 1 grounded row(s); layers: concepts=1
+- `amphetamine` — amphetamine — 1 grounded row(s); layers: concepts=1
+- `amphisome` — amphisome — 1 grounded row(s); layers: concepts=1
+- `amplicon-sequence-variants-asvs` — amplicon sequence variants (ASVs) — 1 grounded row(s); layers: concepts=1
+- `amplicon-sequencing` — amplicon sequencing — 1 grounded row(s); layers: concepts=1
+- `amplicon-sequencing-error` — amplicon sequencing error — 1 grounded row(s); layers: concepts=1
+- `amplification-of-noise` — amplification of noise — 1 grounded row(s); layers: concepts=1
+- `amygdala` — amygdala — 1 grounded row(s); layers: concepts=1
+- `an` — AN — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `an-association-between-a-specific-gene` — an association between a specific gene — 1 grounded row(s); layers: concepts=1
+- `an-energy-of-a-certain-atom-type-a-located-at-a-position-r-i` — an energy of a certain atom type A , located at a position r in the molecule M — 1 grounded row(s); layers: concepts=1
+- `an-expert-curated-authoritative-resource-for-prokaryotic-nom` — an expert-curated authoritative resource for prokaryotic nomenclature — 1 grounded row(s); layers: concepts=1
+- `anal-swabs` — anal swabs — 1 grounded row(s); layers: concepts=1
+- `analogical-code` — Analogical Code — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `analysis` — analysis — 1 grounded row(s); layers: concepts=1
+- `analysis-of-two-dimensional-slices` — analysis of two-dimensional slices — 1 grounded row(s); layers: concepts=1
+- `analysis-pipelines` — analysis pipelines — 1 grounded row(s); layers: concepts=1
+- `analysis-results` — analysis results — 1 grounded row(s); layers: concepts=1
+- `analysis-times` — analysis times — 1 grounded row(s); layers: concepts=1
+- `analytic-thinking` — analytic thinking — 1 grounded row(s); layers: concepts=1
+- `analytical-observational-research` — analytical observational research — 1 grounded row(s); layers: concepts=1
+- `analytical-pipeline` — analytical pipeline — 1 grounded row(s); layers: concepts=1
+- `analytical-specificity` — analytical specificity — 1 grounded row(s); layers: concepts=1
+- `analytical-workflows` — analytical workflows — 1 grounded row(s); layers: concepts=1
+- `anchor-centered-sub-images` — anchor-centered sub-images — 1 grounded row(s); layers: concepts=1
+- `anchor-point` — anchor point — 1 grounded row(s); layers: concepts=1
+- `anchor-points` — anchor points — 1 grounded row(s); layers: concepts=1
+- `ancillary` — ancillary — 1 grounded row(s); layers: concepts=1
+- `ancillary-data` — ancillary data — 1 grounded row(s); layers: concepts=1
+- `ancillary-variables` — ancillary variables — 1 grounded row(s); layers: concepts=1
+- `angiotensin-converting-enzyme-2-ace2-receptor` — angiotensin-converting enzyme 2 (ACE2) receptor — 1 grounded row(s); layers: concepts=1
+- `animal-experiments` — animal experiments — 1 grounded row(s); layers: concepts=1
+- `animal-id` — animal ID — 1 grounded row(s); layers: concepts=1
+- `animal-models-of-disease` — animal models of disease — 1 grounded row(s); layers: concepts=1
+- `animal-size` — animal size — 1 grounded row(s); layers: concepts=1
+- `anisotropic-cutoffs` — Anisotropic cutoffs — 1 grounded row(s); layers: concepts=1
+- `anisotropic-data` — anisotropic data — 1 grounded row(s); layers: concepts=1
+- `anisotropy` — anisotropy — 1 grounded row(s); layers: concepts=1
+- `anna-karenina-principle` — Anna Karenina principle — 1 grounded row(s); layers: concepts=1
+- `annotated-exon-boundaries` — annotated exon boundaries — 1 grounded row(s); layers: concepts=1
+- `annotated-genomic-ranges` — annotated genomic ranges — 1 grounded row(s); layers: concepts=1
+- `annotation-and-visualization-tools` — annotation and visualization tools — 1 grounded row(s); layers: concepts=1
+- `annotation-coverage` — annotation coverage — 1 grounded row(s); layers: concepts=1
+- `annotation-extension` — annotation extension — 1 grounded row(s); layers: concepts=1
+- `annotation-groups` — annotation groups — 1 grounded row(s); layers: concepts=1
+- `annotation-level` — annotation level — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `annotation-of-reads` — annotation of reads — 1 grounded row(s); layers: concepts=1
+- `annotation-rate` — annotation rate — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `annotations` — annotations — 1 grounded row(s); layers: concepts=1
+- `annual-crop-census-reports` — annual crop census reports — 1 grounded row(s); layers: concepts=1
+- `annual-trend-coefficient` — annual trend coefficient — 1 grounded row(s); layers: concepts=1
+- `anomaly-method` — anomaly method — 1 grounded row(s); layers: concepts=1
+- `anomia` — anomia — 1 grounded row(s); layers: concepts=1
+- `anonymity-and-confidentiality` — anonymity and confidentiality — 1 grounded row(s); layers: concepts=1
+- `anp` — ANP — 1 grounded row(s); layers: concepts=1
+- `answer-explanation-concordance` — answer-explanation concordance — 1 grounded row(s); layers: concepts=1
+- `antagonism` — antagonism — 2 grounded row(s); layers: concepts=2
+- `antagonistic-interaction` — antagonistic interaction — 1 grounded row(s); layers: content_tags.definitions=1
+- `anterior-n1` — anterior N1 — 1 grounded row(s); layers: content_tags.definitions=1
+- `anthropocene` — Anthropocene — 1 grounded row(s); layers: concepts=1
+- `anthropocentric-categories` — anthropocentric categories — 1 grounded row(s); layers: concepts=1
+- `anthropogenic-microbiome-shifts` — anthropogenic microbiome shifts — 1 grounded row(s); layers: concepts=1
+- `anti-psychotic-medications` — anti-psychotic medications — 1 grounded row(s); layers: concepts=1
+- `antibiotic-resistance-genes` — antibiotic resistance genes — 1 grounded row(s); layers: concepts=1
+- `antibodies` — antibodies — 1 grounded row(s); layers: concepts=1
+- `antibody-kinetics` — antibody kinetics — 1 grounded row(s); layers: concepts=1
+- `antibody-responses` — Antibody responses — 1 grounded row(s); layers: concepts=1
+- `antibody-titers` — antibody titers — 1 grounded row(s); layers: concepts=1
+- `antibody-titres` — antibody titres — 1 grounded row(s); layers: concepts=1
+- `antigen-escape` — antigen escape — 1 grounded row(s); layers: concepts=1
+- `antigen-presentation` — antigen presentation — 1 grounded row(s); layers: concepts=1
+- `antigen-presenting-cells` — antigen-presenting cells — 1 grounded row(s); layers: concepts=1
+- `antigenicity` — antigenicity — 1 grounded row(s); layers: concepts=1
+- `anxiety` — anxiety — 1 grounded row(s); layers: concepts=1
+- `any-intensity-of-physical-activity` — any intensity of physical activity — 1 grounded row(s); layers: concepts=1
+- `aortic-aneurysm` — Aortic aneurysm — 1 grounded row(s); layers: concepts=1
+- `apache-solr` — Apache Solr — 1 grounded row(s); layers: concepts=1
+- `ape-ki` — Ape KI — 1 grounded row(s); layers: concepts=1
+- `api` — API — 2 grounded row(s); layers: concepts=2
+- `aplpy` — APLpy — 1 grounded row(s); layers: concepts=1
+- `apoptosis-in-senescent-cells` — apoptosis in senescent cells — 1 grounded row(s); layers: concepts=1
+- `apoptotic-bodies` — apoptotic bodies — 1 grounded row(s); layers: concepts=1
+- `appearance` — appearance — 1 grounded row(s); layers: concepts=1
+- `appearance-based-approach` — appearance-based approach — 1 grounded row(s); layers: concepts=1
+- `appearance-based-id-models` — appearance-based ID models — 1 grounded row(s); layers: concepts=1
+- `appearance-of-plasma-antibodies` — appearance of plasma antibodies — 1 grounded row(s); layers: concepts=1
+- `applicability-domains` — applicability domains — 1 grounded row(s); layers: concepts=1
+- `applicability-of-the-findings` — applicability of the findings — 1 grounded row(s); layers: concepts=1
+- `application-programming-interface` — application programming interface — 3 grounded row(s); layers: concepts=3
+- `application-programming-interface-api` — application programming interface (API) — 1 grounded row(s); layers: concepts=1
+- `application-programming-interfaces` — Application Programming Interfaces — 2 grounded row(s); layers: concepts=2
+- `application-programming-interfaces-apis` — application programming interfaces (APIs) — 1 grounded row(s); layers: concepts=1
+- `appreciation` — appreciation — 1 grounded row(s); layers: concepts=1
+- `approach-specific-algorithms` — approach-specific algorithms — 1 grounded row(s); layers: concepts=1
+- `appropriate-and-inappropriate-modifications` — appropriate and inappropriate modifications — 1 grounded row(s); layers: concepts=1
+- `appropriate-recommendations` — appropriate recommendations — 1 grounded row(s); layers: concepts=1
+- `appropriateness` — appropriateness — 1 grounded row(s); layers: concepts=1
+- `appropriateness-of-the-methods` — appropriateness of the methods — 1 grounded row(s); layers: concepts=1
+- `appropriateness-of-therapy` — appropriateness of therapy — 1 grounded row(s); layers: concepts=1
+- `approximal-surfaces` — approximal surfaces — 1 grounded row(s); layers: concepts=1
+- `approximate-match` — approximate match — 1 grounded row(s); layers: concepts=1
+- `approximately-maximum-likelihood-method` — approximately-maximum-likelihood method — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `appveyor` — Appveyor — 1 grounded row(s); layers: concepts=1
+- `arabic-code` — Arabic Code — 1 grounded row(s); layers: concepts=1
+- `arba` — ARBA — 1 grounded row(s); layers: concepts=1
+- `arba-rules` — ARBA rules — 1 grounded row(s); layers: concepts=1
+- `arbitrary-choice` — arbitrary choice — 1 grounded row(s); layers: concepts=1
+- `archaea` — archaea — 1 grounded row(s); layers: concepts=1
+- `archaeome` — archaeome — 1 grounded row(s); layers: concepts=1
+- `area` — area — 1 grounded row(s); layers: concepts=1
+- `area-32` — area 32 — 1 grounded row(s); layers: content_tags.definitions=1
+- `area-under-the-receiver-operator-curve` — area under the receiver operator curve — 1 grounded row(s); layers: concepts=1
+- `argo-floats` — Argo floats — 1 grounded row(s); layers: concepts=1
+- `armored-cars` — armored CARs — 1 grounded row(s); layers: concepts=1
+- `arousal` — arousal — 1 grounded row(s); layers: content_tags.definitions=1
+- `array-aware-functions` — array-aware functions — 1 grounded row(s); layers: concepts=1
+- `array-programming` — Array programming — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `artefacts-in-map-calculation` — artefacts in map calculation — 1 grounded row(s); layers: concepts=1
+- `article-cloze-effect` — article-cloze effect — 1 grounded row(s); layers: concepts=1
+- `articles-and-annotations` — articles and annotations — 1 grounded row(s); layers: concepts=1
+- `articulation-point` — articulation point — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `artifacts` — artifacts — 1 grounded row(s); layers: concepts=1
+- `artifacts-of-reverse-transcription` — artifacts of reverse transcription — 2 grounded row(s); layers: concepts=2
+- `artificial-cell-derived-vesicles` — Artificial cell‐derived vesicles — 1 grounded row(s); layers: concepts=1
+- `artificial-correlation` — artificial correlation — 1 grounded row(s); layers: concepts=1
+- `artificial-uncertainty` — artificial uncertainty — 1 grounded row(s); layers: concepts=1
+- `artisanal-sector` — artisanal sector — 1 grounded row(s); layers: concepts=1
+- `as-little-redundancy-as-possible` — as little redundancy as possible — 1 grounded row(s); layers: concepts=1
+- `assay-quality` — assay quality — 1 grounded row(s); layers: concepts=1
+- `assay-selection` — Assay selection — 1 grounded row(s); layers: concepts=1
+- `assay-threshold-adjustment` — assay threshold adjustment — 1 grounded row(s); layers: concepts=1
+- `assay-thresholds` — assay thresholds — 1 grounded row(s); layers: concepts=1
+- `assembled-contigs` — assembled contigs — 1 grounded row(s); layers: concepts=1
+- `assembly-differences` — assembly differences — 1 grounded row(s); layers: concepts=1
+- `assigned-to-the-same-species` — assigned to the same species — 1 grounded row(s); layers: concepts=1
+- `association-between-2019-ncov-and-the-disease` — association between 2019-nCoV and the disease — 1 grounded row(s); layers: concepts=1
+- `association-between-the-disease-and-the-presence-of-this-vir` — association between the disease and the presence of this virus — 1 grounded row(s); layers: concepts=1
+- `association-rule-based-annotator-arba` — Association-Rule-Based Annotator (ARBA) — 1 grounded row(s); layers: concepts=1
+- `associative` — associative — 1 grounded row(s); layers: content_tags.definitions=1
+- `associative-memory` — associative memory — 1 grounded row(s); layers: content_tags.definitions=1
+- `assumption-of-translation-invariance` — assumption of translation invariance — 1 grounded row(s); layers: concepts=1
+- `assurances-of-concealment` — assurances of concealment — 1 grounded row(s); layers: concepts=1
+- `astrocyte` — astrocyte — 1 grounded row(s); layers: concepts=1
+- `astronomy` — astronomy — 1 grounded row(s); layers: concepts=1
+- `astropy` — astropy — 1 grounded row(s); layers: concepts=1
+- `astropy-core-package` — astropy core package — 1 grounded row(s); layers: concepts=1
+- `astropy-packages` — Astropy packages — 1 grounded row(s); layers: concepts=1
+- `astropy-project` — Astropy Project — 1 grounded row(s); layers: concepts=1
+- `astropy-project-s-community` — Astropy Project’s community — 1 grounded row(s); layers: concepts=1
+- `astropy-proposal-for-enhancement` — Astropy Proposal for Enhancement — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `astropy-stats-package` — astropy.stats package — 1 grounded row(s); layers: concepts=1
+- `astropy-visualization-subpackage` — astropy.visualization subpackage — 1 grounded row(s); layers: concepts=1
+- `astropy-visualization-wcsaxes` — astropy.visualization.wcsaxes — 1 grounded row(s); layers: concepts=1
+- `asvs` — ASVs — 1 grounded row(s); layers: concepts=1
+- `asymptomatic-infection` — asymptomatic infection — 1 grounded row(s); layers: concepts=1
+- `asymptomatic-mild-severe-critical-or-death` — asymptomatic, mild, severe, critical or death — 1 grounded row(s); layers: concepts=1
+- `asymptotic-regression-models` — asymptotic regression models — 1 grounded row(s); layers: concepts=1
+- `at-least-three-distinct-gene-product-activities-linked-into-` — at least three distinct gene product activities linked into a causal chain — 1 grounded row(s); layers: concepts=1
+- `atac-seq` — ATAC-seq — 1 grounded row(s); layers: concepts=1
+- `atmospheric-co-2` — atmospheric CO 2 — 1 grounded row(s); layers: concepts=1
+- `atom-feature-vector` — atom feature vector — 1 grounded row(s); layers: concepts=1
+- `atomic-accuracy` — atomic accuracy — 1 grounded row(s); layers: concepts=1
+- `atomic-energy-contributions` — atomic energy contributions — 1 grounded row(s); layers: concepts=1
+- `atomic-energy-partitioning` — atomic energy partitioning — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `atomic-features` — atomic features — 1 grounded row(s); layers: concepts=1
+- `atomic-projections` — atomic projections — 1 grounded row(s); layers: concepts=1
+- `atoms` — atoms — 2 grounded row(s); layers: concepts=2
+- `attention` — attention — 11 grounded row(s); layers: concepts=9, content_tags.definitions=2
+- `attention-based-tann` — attention-based TANN — 1 grounded row(s); layers: concepts=1
+- `attention-economy` — attention economy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `attention-time` — attention time — 1 grounded row(s); layers: concepts=1
+- `attentional-control` — attentional control — 1 grounded row(s); layers: concepts=1
+- `attentional-focus` — attentional focus — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `attentional-processing-style` — attentional processing style — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `attentive-fp` — Attentive FP — 1 grounded row(s); layers: concepts=1
+- `attentive-model` — Attentive model — 1 grounded row(s); layers: concepts=1
+- `attribution-mechanisms` — attribution mechanisms — 1 grounded row(s); layers: concepts=1
+- `attribution-methods` — attribution methods — 1 grounded row(s); layers: concepts=1
+- `attribution-of-intentions` — attribution of intentions — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `attribution-techniques` — attribution techniques — 1 grounded row(s); layers: concepts=1
+- `attrition` — attrition — 1 grounded row(s); layers: concepts=1
+- `atypical-features` — atypical features — 1 grounded row(s); layers: concepts=1
+- `auc-prc` — AUC-PRC — 1 grounded row(s); layers: concepts=1
+- `auc-roc` — AUC-ROC — 1 grounded row(s); layers: concepts=1
+- `audit-and-feedback` — audit and feedback — 1 grounded row(s); layers: concepts=1
+- `auditory-cortex` — auditory cortex — 2 grounded row(s); layers: concepts=2
+- `auditory-imagery` — auditory imagery — 1 grounded row(s); layers: concepts=1
+- `auditory-sensory-memory` — auditory sensory memory — 1 grounded row(s); layers: concepts=1
+- `auditory-verbal-code` — Auditory-Verbal Code — 1 grounded row(s); layers: content_tags.definitions=1
+- `augmentation` — augmentation — 1 grounded row(s); layers: content_tags.definitions=1
+- `augmented-early-warning-score` — augmented Early Warning Score — 1 grounded row(s); layers: concepts=1
+- `auroc` — AUROC — 1 grounded row(s); layers: concepts=1
+- `autobox-add` — autobox_add — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `autobox-ligand` — autobox_ligand — 1 grounded row(s); layers: concepts=1
+- `autochthonous-community` — autochthonous community — 1 grounded row(s); layers: concepts=1
+- `autodock-vina` — AutoDock Vina — 1 grounded row(s); layers: concepts=1
+- `automated` — automated — 1 grounded row(s); layers: concepts=1
+- `automated-analysis` — automated analysis — 1 grounded row(s); layers: concepts=1
+- `automated-decision-making` — automated decision-making — 1 grounded row(s); layers: content_tags.definitions=1
+- `automated-descriptions-of-gene-function` — automated descriptions of gene function — 1 grounded row(s); layers: concepts=1
+- `automated-functional-annotation-of-genes` — automated functional annotation of genes — 1 grounded row(s); layers: concepts=1
+- `automated-gff-decoration` — automated GFF decoration — 1 grounded row(s); layers: concepts=1
+- `automated-hg19-blacklist` — automated hg19 blacklist — 1 grounded row(s); layers: concepts=1
+- `automated-microscopes` — automated microscopes — 1 grounded row(s); layers: concepts=1
+- `automated-model-building` — automated model-building — 1 grounded row(s); layers: concepts=1
+- `automated-model-building-procedures` — automated model-building procedures — 1 grounded row(s); layers: concepts=1
+- `automated-pathway-visualization` — automated pathway visualization — 1 grounded row(s); layers: concepts=1
+- `automated-procedure` — automated procedure — 1 grounded row(s); layers: concepts=1
+- `automated-robot-crawling-phase` — automated robot crawling phase — 1 grounded row(s); layers: concepts=1
+- `automated-systems` — automated systems — 1 grounded row(s); layers: concepts=1
+- `automated-tests` — automated tests — 1 grounded row(s); layers: concepts=1
+- `automatic-annotation` — Automatic annotation — 1 grounded row(s); layers: concepts=1
+- `automatic-annotation-pipelines` — automatic annotation pipelines — 1 grounded row(s); layers: concepts=1
+- `automatic-classification` — automatic classification — 1 grounded row(s); layers: concepts=1
+- `automatic-mode` — automatic mode — 1 grounded row(s); layers: concepts=1
+- `automatic-orthologue-mapping` — automatic orthologue mapping — 1 grounded row(s); layers: concepts=1
+- `automatic-procedure` — automatic procedure — 1 grounded row(s); layers: concepts=1
+- `automation` — automation — 1 grounded row(s); layers: concepts=1
+- `automation-bias` — automation bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `autonomous-agency` — autonomous agency — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `autophagosome` — autophagosome — 1 grounded row(s); layers: concepts=1
+- `autophagy` — Autophagy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `autopoiesis` — autopoiesis — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `auxiliary-side-chain-loss` — auxiliary side-chain loss — 1 grounded row(s); layers: concepts=1
+- `availability-of-the-trial-protocol` — availability of the trial protocol — 1 grounded row(s); layers: concepts=1
+- `avalanche-of-data` — avalanche of data — 1 grounded row(s); layers: concepts=1
+- `average-age-acceleration` — Average age acceleration — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `average-alignment-qualities` — average alignment qualities — 1 grounded row(s); layers: concepts=1
+- `average-daily-gain` — average daily gain — 1 grounded row(s); layers: content_tags.definitions=1
+- `average-nucleotide-identity` — average nucleotide identity — 1 grounded row(s); layers: concepts=1
+- `average-of-60-min-day` — average of 60 min/day — 1 grounded row(s); layers: concepts=1
+- `average-of-the-latest-five-years-of-reported-data` — average of the latest five years of reported data — 1 grounded row(s); layers: concepts=1
+- `average-pooling` — Average pooling — 1 grounded row(s); layers: concepts=1
+- `average-radiation-damage` — average radiation damage — 1 grounded row(s); layers: concepts=1
+- `aws` — AWS — 1 grounded row(s); layers: concepts=1
+- `axial-attention` — axial attention — 1 grounded row(s); layers: concepts=1
+- `b-cells` — B cells — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `babelomics` — Babelomics — 1 grounded row(s); layers: concepts=1
+- `back-splicing` — back-splicing — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `back-to-the-roots` — back to the roots — 1 grounded row(s); layers: concepts=1
+- `backbone-accuracy` — backbone accuracy — 1 grounded row(s); layers: concepts=1
+- `backend-knowledgebase` — backend knowledgebase — 1 grounded row(s); layers: concepts=1
+- `backfire-effect` — backfire effect — 1 grounded row(s); layers: concepts=1
+- `background` — background — 1 grounded row(s); layers: concepts=1
+- `background-correction` — background correction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `background-estimates` — background estimates — 1 grounded row(s); layers: concepts=1
+- `background-noise` — background noise — 1 grounded row(s); layers: concepts=1
+- `background-noise-level-of-dysfunctional-splicing` — background “noise” level of dysfunctional splicing — 1 grounded row(s); layers: concepts=1
+- `backtranslated` — backtranslated — 1 grounded row(s); layers: concepts=1
+- `bacteria` — bacteria — 1 grounded row(s); layers: concepts=1
+- `bacterial-taxa` — bacterial taxa — 1 grounded row(s); layers: concepts=1
+- `bacteriome` — bacteriome — 1 grounded row(s); layers: concepts=1
+- `bad-news` — bad news — 1 grounded row(s); layers: concepts=1
+- `balance-and-functional-exercises` — balance and functional exercises — 1 grounded row(s); layers: concepts=1
+- `bam-file` — BAM file — 1 grounded row(s); layers: concepts=1
+- `band` — band — 1 grounded row(s); layers: content_tags.definitions=1
+- `bandwidth-for-distribution-of-genomic-data` — bandwidth for distribution of genomic data — 1 grounded row(s); layers: concepts=1
+- `barcode-adapter` — barcode adapter — 1 grounded row(s); layers: concepts=1
+- `barcodes` — barcodes — 1 grounded row(s); layers: concepts=1
+- `barcoding-of-adapters` — barcoding of adapters — 1 grounded row(s); layers: concepts=1
+- `barley` — barley — 1 grounded row(s); layers: concepts=1
+- `baroclinic-instabilities` — baroclinic instabilities — 1 grounded row(s); layers: concepts=1
+- `barriers` — barriers — 2 grounded row(s); layers: concepts=2
+- `base-call-quality` — base-call quality — 1 grounded row(s); layers: concepts=1
+- `base-calling-accuracy` — base calling accuracy — 1 grounded row(s); layers: concepts=1
+- `baseline-catch-times-series` — baseline catch times series — 1 grounded row(s); layers: concepts=1
+- `baseline-high-resolution-climatic-maps` — baseline high-resolution climatic maps — 1 grounded row(s); layers: concepts=1
+- `baseline-performance` — baseline performance — 1 grounded row(s); layers: concepts=1
+- `baseline-serum-creatinine-level` — baseline serum creatinine level — 1 grounded row(s); layers: concepts=1
+- `basic-local-alignment-search-tool-blast` — Basic Local Alignment Search Tool (BLAST) — 1 grounded row(s); layers: concepts=1
+- `basic-model` — basic model — 1 grounded row(s); layers: concepts=1
+- `batch-effects` — batch effects — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `batch-normalization` — Batch normalization — 1 grounded row(s); layers: concepts=1
+- `batch-number` — batch number — 1 grounded row(s); layers: concepts=1
+- `batch-processing` — batch processing — 1 grounded row(s); layers: concepts=1
+- `bats` — bats — 1 grounded row(s); layers: concepts=1
+- `bayesian-algorithm` — Bayesian algorithm — 1 grounded row(s); layers: concepts=1
+- `bayesian-analysis` — Bayesian analysis — 1 grounded row(s); layers: concepts=1
+- `bayesian-approach` — Bayesian approach — 1 grounded row(s); layers: concepts=1
+- `bayesian-blocks` — Bayesian Blocks — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `bbb` — BBB — 1 grounded row(s); layers: concepts=1
+- `be-matrix` — BE-matrix — 1 grounded row(s); layers: concepts=1
+- `beauty` — beauty — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `behavior-incentive-design` — behavior incentive design — 1 grounded row(s); layers: concepts=1
+- `behavioral-flexibility` — Behavioral flexibility — 2 grounded row(s); layers: content_tags.definitions=2
+- `behavioral-interventions` — behavioral interventions — 1 grounded row(s); layers: concepts=1
+- `behavioral-quantification` — behavioral quantification — 1 grounded row(s); layers: concepts=1
+- `behavioral-residue` — behavioral residue — 1 grounded row(s); layers: concepts=1
+- `behavioral-sufficiency` — Behavioral Sufficiency — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `behaviour` — behaviour — 1 grounded row(s); layers: concepts=1
+- `behaviour-change` — behaviour change — 1 grounded row(s); layers: concepts=1
+- `behavioural-priming` — behavioural priming — 1 grounded row(s); layers: concepts=1
+- `belief-in-conspiracy-theories-inventory` — Belief in Conspiracy Theories Inventory — 1 grounded row(s); layers: concepts=1
+- `belief-synchronization` — belief synchronization — 1 grounded row(s); layers: concepts=1
+- `benchmark-datasets` — Benchmark datasets — 1 grounded row(s); layers: concepts=1
+- `benchmark-for-future-assessments-of-serological-platforms` — benchmark for future assessments of serological platforms — 1 grounded row(s); layers: concepts=1
+- `benchmark-suite` — benchmark suite — 1 grounded row(s); layers: concepts=1
+- `benchmarking-universal-single-copy-orthologs` — Benchmarking Universal Single-Copy Orthologs — 1 grounded row(s); layers: concepts=1
+- `beneficial-host-microbe-symbiosis` — beneficial host-microbe symbiosis — 1 grounded row(s); layers: concepts=1
+- `benefits-being-balanced-with-harms` — benefits being balanced with harms — 1 grounded row(s); layers: concepts=1
+- `benjamini-hochberg-method` — Benjamini-Hochberg method — 1 grounded row(s); layers: concepts=1
+- `benjamini-hochberg-p-value-correction-algorithm` — Benjamini-Hochberg p -value correction algorithm — 1 grounded row(s); layers: concepts=1
+- `bereavement` — bereavement — 1 grounded row(s); layers: concepts=1
+- `bern-carbon-cycle-model` — Bern carbon cycle model — 1 grounded row(s); layers: concepts=1
 - `bert` — BERT — 1 grounded row(s); layers: concepts=1
+- `bespoke-parsers` — bespoke parsers — 1 grounded row(s); layers: concepts=1
+- `best-annotated-proteome` — best annotated proteome — 1 grounded row(s); layers: concepts=1
+- `best-estimate` — best estimate — 1 grounded row(s); layers: concepts=1
+- `best-fit-linear-non-compounding-rates-of-yield-change` — best-fit linear, non-compounding rates of yield change — 1 grounded row(s); layers: concepts=1
+- `best-frequency` — best frequency — 2 grounded row(s); layers: content_tags.definitions=2
+- `best-management-practices` — best management practices — 1 grounded row(s); layers: concepts=1
+- `best-of-both-worlds` — best of both worlds — 1 grounded row(s); layers: concepts=1
+- `beta-diversity` — beta diversity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `betacoronavirus` — Betacoronavirus — 1 grounded row(s); layers: concepts=1
+- `betrayal` — betrayal — 1 grounded row(s); layers: concepts=1
+- `between-studies-variance` — between-studies variance — 1 grounded row(s); layers: concepts=1
+- `biallelic-gbs-markers` — biallelic GBS markers — 1 grounded row(s); layers: concepts=1
+- `bias-in-recovered-parameters` — bias in recovered parameters — 1 grounded row(s); layers: concepts=1
+- `bias-offset` — bias offset — 1 grounded row(s); layers: concepts=1
+- `biased-beliefs` — biased beliefs — 1 grounded row(s); layers: concepts=1
+- `biased-parameter-estimates` — biased parameter estimates — 1 grounded row(s); layers: concepts=1
+- `biased-results` — biased results — 1 grounded row(s); layers: concepts=1
+- `biases-and-heuristics` — biases and heuristics — 1 grounded row(s); layers: concepts=1
+- `biconcave-or-cup-like-shape` — biconcave or cup-like shape — 1 grounded row(s); layers: concepts=1
+- `biennial-challenge` — biennial challenge — 1 grounded row(s); layers: concepts=1
+- `bifactor-modeling` — bifactor modeling — 2 grounded row(s); layers: concepts=2
+- `big-fantastic-database-bfd` — Big Fantastic Database (BFD) — 1 grounded row(s); layers: concepts=1
+- `bigg-reactions` — BiGG reactions — 1 grounded row(s); layers: concepts=1
+- `biggest-connected-structure` — biggest connected structure — 1 grounded row(s); layers: concepts=1
+- `bigsmiles` — BigSMILES — 1 grounded row(s); layers: concepts=1
+- `bilateral` — bilateral — 1 grounded row(s); layers: concepts=1
+- `bilinear-interpolation` — bilinear interpolation — 2 grounded row(s); layers: concepts=2
+- `bilingual-context` — bilingual context — 1 grounded row(s); layers: concepts=1
+- `bimodal` — bimodal — 1 grounded row(s); layers: concepts=1
+- `binary-protein-interactions` — binary protein interactions — 1 grounded row(s); layers: concepts=1
+- `binding-affinity` — binding affinity — 1 grounded row(s); layers: concepts=1
+- `binding-site` — binding site — 1 grounded row(s); layers: concepts=1
+- `binomial-beta-models` — Binomial-Beta models — 1 grounded row(s); layers: concepts=1
+- `binomial-test-of-segregation` — binomial test of segregation — 1 grounded row(s); layers: concepts=1
+- `bio-formats` — Bio-Formats — 1 grounded row(s); layers: concepts=1
+- `bioactive` — bioactive — 1 grounded row(s); layers: concepts=1
+- `bioactivity-data` — bioactivity data — 1 grounded row(s); layers: concepts=1
+- `bioavailability-radar` — Bioavailability Radar — 1 grounded row(s); layers: concepts=1
+- `bioavailability-score` — Bioavailability Score — 1 grounded row(s); layers: concepts=1
+- `biochemical-assays` — biochemical assays — 1 grounded row(s); layers: concepts=1
+- `biochemical-reactions` — biochemical reactions — 1 grounded row(s); layers: concepts=1
+- `bioconductor` — Bioconductor — 2 grounded row(s); layers: concepts=2
+- `bioconductor-infrastructure` — Bioconductor infrastructure — 1 grounded row(s); layers: concepts=1
+- `bioconductor-project` — Bioconductor project — 1 grounded row(s); layers: concepts=1
+- `biocurator-reviewed-selected-go-annotations` — biocurator-reviewed, selected GO annotations — 1 grounded row(s); layers: concepts=1
+- `biodiversity` — biodiversity — 1 grounded row(s); layers: concepts=1
+- `biodiversity-ratios` — biodiversity ratios — 1 grounded row(s); layers: concepts=1
+- `biofilm-formation` — biofilm formation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `biofuel-consumption` — biofuel consumption — 1 grounded row(s); layers: concepts=1
+- `biogenesis-of-circular-rna` — biogenesis of circular RNA — 1 grounded row(s); layers: concepts=1
+- `biogenesis-pathways` — biogenesis pathways — 1 grounded row(s); layers: concepts=1
+- `biogeochemical-cycles` — biogeochemical cycles — 1 grounded row(s); layers: concepts=1
+- `bioimage-analysis-software` — bioimage analysis software — 1 grounded row(s); layers: concepts=1
+- `bioinformatics` — bioinformatics — 1 grounded row(s); layers: concepts=1
+- `biological-agency` — biological agency — 1 grounded row(s); layers: concepts=1
+- `biological-context` — biological context — 1 grounded row(s); layers: concepts=1
+- `biological-correlation` — biological correlation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `biological-data` — biological data — 1 grounded row(s); layers: concepts=1
+- `biological-databases` — biological databases — 1 grounded row(s); layers: concepts=1
+- `biological-impact-of-the-environment` — biological impact of the environment — 1 grounded row(s); layers: concepts=1
+- `biological-interpretation` — biological interpretation — 1 grounded row(s); layers: concepts=1
+- `biological-plausibility` — Biological Plausibility — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `biological-process` — biological process — 1 grounded row(s); layers: concepts=1
+- `biological-replicates` — biological replicates — 1 grounded row(s); layers: concepts=1
+- `biological-substrate-specificity-range` — biological substrate specificity range — 1 grounded row(s); layers: concepts=1
+- `biological-validations` — biological validations — 1 grounded row(s); layers: concepts=1
+- `biological-variation` — biological variation — 1 grounded row(s); layers: concepts=1
+- `biologically-relevant-and-true-signals` — biologically relevant and true signals — 1 grounded row(s); layers: concepts=1
+- `biomarker-expression` — biomarker expression — 1 grounded row(s); layers: concepts=1
+- `biome-distributions` — biome distributions — 1 grounded row(s); layers: concepts=1
+- `bioorthogonal-noncanonical-amino-acid-tagging-boncat` — bioorthogonal noncanonical amino acid tagging (BONCAT) — 1 grounded row(s); layers: concepts=1
+- `biophysical-relevance` — biophysical relevance — 1 grounded row(s); layers: concepts=1
+- `biosafety-requirements` — biosafety requirements — 1 grounded row(s); layers: concepts=1
+- `biosphere-integrity` — biosphere integrity — 1 grounded row(s); layers: concepts=1
+- `bipartite-graph` — bipartite graph — 2 grounded row(s); layers: concepts=2
+- `bipartite-network` — bipartite network — 1 grounded row(s); layers: concepts=1
+- `bipartite-network-of-pages-and-users` — bipartite network of pages and users — 1 grounded row(s); layers: concepts=1
+- `biphasic` — biphasic — 1 grounded row(s); layers: content_tags.definitions=1
+- `birth-weight` — birth weight — 1 grounded row(s); layers: concepts=1
+- `bit-scores` — bit scores — 1 grounded row(s); layers: concepts=1
+- `bit-strings` — bit strings — 1 grounded row(s); layers: concepts=1
+- `bitmap` — bitmap — 1 grounded row(s); layers: concepts=1
+- `bitwise-xor` — bitwise-XOR — 1 grounded row(s); layers: concepts=1
+- `bivariate-regression-analysis` — bivariate regression analysis — 1 grounded row(s); layers: concepts=1
+- `black-box` — black box — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `black-hole-binary-coalescence` — black hole binary coalescence — 1 grounded row(s); layers: concepts=1
+- `black-soldier-fly` — black soldier fly — 1 grounded row(s); layers: content_tags.definitions=1
+- `blacklist-filtered-set` — blacklist-filtered set — 1 grounded row(s); layers: concepts=1
+- `blacklist-regions` — blacklist regions — 1 grounded row(s); layers: concepts=1
+- `bland-altman-plot` — Bland–Altman plot — 1 grounded row(s); layers: concepts=1
+- `blast` — BLAST — 1 grounded row(s); layers: concepts=1
+- `blast-scores` — BLAST scores — 1 grounded row(s); layers: concepts=1
+- `blastx-like-mode` — blastx-like mode — 1 grounded row(s); layers: concepts=1
+- `blind-spot` — blind spot — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `blinded-to-allocation` — blinded to allocation — 1 grounded row(s); layers: concepts=1
+- `block-structure` — block structure — 1 grounded row(s); layers: concepts=1
 - `blockchain` — blockchain — 1 grounded row(s); layers: content_tags.definitions=1
+- `blocs` — blocs — 1 grounded row(s); layers: concepts=1
+- `blood` — blood — 1 grounded row(s); layers: concepts=1
+- `blood-brain-barrier` — blood-brain barrier — 1 grounded row(s); layers: concepts=1
+- `blood-plasma-and-serum-sample-collection` — blood (plasma and serum) sample collection — 1 grounded row(s); layers: concepts=1
+- `body-schema` — body schema — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `boiled-egg` — BOILED-Egg — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `boltzmann-family` — Boltzmann family — 1 grounded row(s); layers: concepts=1
+- `boltzmann-machine` — Boltzmann Machine — 1 grounded row(s); layers: concepts=1
+- `bona-fide-evidence-of-scrambled-exons` — bona fide evidence of scrambled exons — 1 grounded row(s); layers: concepts=1
+- `bond-feature-vector` — bond feature vector — 1 grounded row(s); layers: concepts=1
+- `bond-features` — bond features — 1 grounded row(s); layers: concepts=1
+- `bonds` — bonds — 1 grounded row(s); layers: concepts=1
+- `boosted-time-based-decision-stumps` — boosted time-based decision stumps — 1 grounded row(s); layers: concepts=1
+- `bootstrap` — bootstrap — 1 grounded row(s); layers: concepts=1
+- `bootstrapped-samples` — bootstrapped samples — 1 grounded row(s); layers: concepts=1
+- `bootstrapping` — bootstrapping — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `border-duties` — border duties — 1 grounded row(s); layers: concepts=1
+- `bot-score` — bot score — 1 grounded row(s); layers: content_tags.definitions=1
+- `both-sh-like-local-supports-and-approximate-likelihood-ratio` — both SH-like local supports and approximate likelihood ratio test (aLRT) supports — 1 grounded row(s); layers: concepts=1
+- `both-strands-of-a-target-genome` — both strands of a target genome — 1 grounded row(s); layers: concepts=1
+- `bottom-up` — bottom-up — 1 grounded row(s); layers: concepts=1
+- `boundaries-of-the-domain` — boundaries of the domain — 1 grounded row(s); layers: concepts=1
+- `boundary-conditions` — boundary conditions — 1 grounded row(s); layers: concepts=1
+- `boundary-shift` — boundary shift — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `bounded-confidence-model-bcm` — Bounded confidence model (BCM) — 1 grounded row(s); layers: concepts=1
+- `bouts-of-at-least-10-min` — bouts of at least 10 min — 1 grounded row(s); layers: concepts=1
+- `bow-tie` — bow-tie — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `bowtie-2` — Bowtie 2 — 1 grounded row(s); layers: concepts=1
+- `bowtie2` — Bowtie2 — 1 grounded row(s); layers: concepts=1
+- `bps` — BPs — 1 grounded row(s); layers: concepts=1
+- `bracken` — Bracken — 1 grounded row(s); layers: concepts=1
+- `bradyrhizobium-elkanii` — Bradyrhizobium elkanii — 1 grounded row(s); layers: concepts=1
+- `braf` — BRAF — 1 grounded row(s); layers: concepts=1
+- `brain` — brain — 1 grounded row(s); layers: concepts=1
+- `brain-body-world-system` — brain-body-world system — 1 grounded row(s); layers: concepts=1
+- `brain-hacking` — brain-hacking — 1 grounded row(s); layers: concepts=1
+- `brain-region` — brain region — 1 grounded row(s); layers: concepts=1
+- `branch-lengths` — branch lengths — 1 grounded row(s); layers: concepts=1
+- `bray-curtis-distances` — Bray-Curtis distances — 1 grounded row(s); layers: concepts=1
+- `breadth-first` — breadth-first — 1 grounded row(s); layers: concepts=1
+- `breadth-first-search` — breadth-first search — 1 grounded row(s); layers: concepts=1
+- `breakpoints` — breakpoints — 1 grounded row(s); layers: concepts=1
+- `breathing-difficulties-dyspnoea` — breathing difficulties (dyspnoea) — 1 grounded row(s); layers: concepts=1
+- `brent-s-method` — Brent's method — 1 grounded row(s); layers: concepts=1
+- `bribery` — bribery — 1 grounded row(s); layers: concepts=1
+- `bridge-tie` — bridge tie — 1 grounded row(s); layers: concepts=1
+- `broad-and-equitable-population-based-impact` — broad and equitable population-based impact — 1 grounded row(s); layers: concepts=1
+- `broad-annotation-coverage` — broad annotation coverage — 1 grounded row(s); layers: concepts=1
+- `broad-definitions` — broad definitions — 1 grounded row(s); layers: concepts=1
+- `broad-sense-heritability` — broad sense heritability — 1 grounded row(s); layers: concepts=1
+- `broad-specificity-enzymes-and-transporters` — broad specificity enzymes and transporters — 1 grounded row(s); layers: concepts=1
+- `broad-spectrum-antiviral-drugs-and-vaccines` — broad-spectrum antiviral drugs and vaccines — 1 grounded row(s); layers: concepts=1
+- `broadcasting` — broadcasting — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `bronchoalveolar-lavage-fluid` — bronchoalveolar lavage fluid — 1 grounded row(s); layers: concepts=1
+- `buccaneer-refmac-pipeline` — Buccaneer / REFMAC pipeline — 1 grounded row(s); layers: concepts=1
+- `bugfix-releases` — bugfix releases — 1 grounded row(s); layers: concepts=1
+- `built-environments` — built environments — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `built-in-feature` — built-in feature — 1 grounded row(s); layers: concepts=1
+- `burnout` — burnout — 1 grounded row(s); layers: content_tags.definitions=1
+- `burnout-syndrome` — burnout syndrome — 1 grounded row(s); layers: content_tags.definitions=1
+- `burrows-wheeler-alignment-tool-bwa` — Burrows-Wheeler alignment tool (BWA) — 1 grounded row(s); layers: concepts=1
+- `busco` — BUSCO — 1 grounded row(s); layers: concepts=1
+- `business-rules` — business rules — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `bwa` — BWA — 2 grounded row(s); layers: concepts=2
+- `c-code` — C code — 1 grounded row(s); layers: concepts=1
+- `c-or-fortran-memory-order` — C or Fortran memory order — 1 grounded row(s); layers: concepts=1
+- `cachexia` — cachexia — 1 grounded row(s); layers: concepts=1
+- `cadd` — CADD — 1 grounded row(s); layers: concepts=1
+- `caffe` — Caffe — 1 grounded row(s); layers: concepts=1
+- `calculation` — calculation — 1 grounded row(s); layers: concepts=1
+- `calculation-time` — calculation time — 1 grounded row(s); layers: concepts=1
+- `calculations` — Calculations — 1 grounded row(s); layers: concepts=1
+- `calculator` — Calculator — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `calculator-class` — Calculator class — 1 grounded row(s); layers: concepts=1
+- `calibrated-version-of-chronological-age` — calibrated version of chronological age — 1 grounded row(s); layers: concepts=1
+- `calibration-function` — calibration function — 1 grounded row(s); layers: concepts=1
+- `calibration-uncertainties` — calibration uncertainties — 1 grounded row(s); layers: concepts=1
+- `camera-function` — camera function — 1 grounded row(s); layers: concepts=1
+- `campaigns-designed-to-confuse-the-public` — campaigns designed to confuse the public — 1 grounded row(s); layers: concepts=1
+- `camsap1` — CAMSAP1 — 1 grounded row(s); layers: concepts=1
+- `cancer-cell-lines` — cancer cell lines — 1 grounded row(s); layers: concepts=1
+- `cancer-registries` — cancer registries — 1 grounded row(s); layers: concepts=1
+- `cancer-samples` — cancer samples — 1 grounded row(s); layers: concepts=1
+- `cancer-tissue` — cancer tissue — 1 grounded row(s); layers: concepts=1
+- `cancer-tissues` — cancer tissues — 1 grounded row(s); layers: concepts=1
+- `cancer-vaccines` — cancer vaccines — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `candidate-biomarker-selection` — candidate biomarker selection — 1 grounded row(s); layers: concepts=1
+- `candidate-windows` — candidate windows — 1 grounded row(s); layers: concepts=1
+- `candidatus-species` — Candidatus species — 1 grounded row(s); layers: concepts=1
+- `canonical` — canonical — 1 grounded row(s); layers: content_tags.definitions=1
+- `canonical-linear-rna` — canonical linear RNA — 1 grounded row(s); layers: concepts=1
+- `canonical-linear-transcripts` — canonical linear transcripts — 1 grounded row(s); layers: concepts=1
+- `canonical-order` — canonical order — 1 grounded row(s); layers: concepts=1
+- `canonical-pre-mrna-splicing` — canonical pre-mRNA splicing — 1 grounded row(s); layers: concepts=1
+- `canonical-smiles` — canonical SMILES — 2 grounded row(s); layers: concepts=2
+- `canonical-splicing-acceptor` — canonical splicing acceptor — 1 grounded row(s); layers: concepts=1
+- `canonical-tautomer` — canonical tautomer — 1 grounded row(s); layers: concepts=1
+- `cap-and-trade` — cap-and-trade — 1 grounded row(s); layers: concepts=1
+- `cap-independent-translation` — Cap-independent translation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `capability-opportunity-and-motivation` — capability, opportunity and motivation — 1 grounded row(s); layers: concepts=1
+- `capacity` — capacity — 1 grounded row(s); layers: content_tags.definitions=1
+- `capi` — CAPI — 1 grounded row(s); layers: concepts=1
+- `car-t-cell-therapies` — CAR-T-cell therapies — 1 grounded row(s); layers: concepts=1
+- `carbon-emissions` — carbon emissions — 1 grounded row(s); layers: concepts=1
+- `carbon-fee` — carbon fee — 1 grounded row(s); layers: concepts=1
+- `carbon-free-energies` — carbon-free energies — 1 grounded row(s); layers: concepts=1
+- `carbon-tax` — carbon tax — 1 grounded row(s); layers: concepts=1
+- `cardiorespiratory-fitness` — cardiorespiratory fitness — 1 grounded row(s); layers: concepts=1
+- `cardiovascular-mortality` — cardiovascular mortality — 1 grounded row(s); layers: concepts=1
+- `care-delivery` — care delivery — 1 grounded row(s); layers: concepts=1
+- `carrier-concentration-n` — carrier concentration, n — 1 grounded row(s); layers: concepts=1
+- `cars` — CARs — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cascade-of-events` — cascade of events — 1 grounded row(s); layers: concepts=1
+- `cascades-of-reshares` — cascades of reshares — 1 grounded row(s); layers: concepts=1
+- `cascading-effects-across-trophic-levels` — cascading effects across trophic levels — 1 grounded row(s); layers: concepts=1
+- `cascading-effects-on-food-webs` — cascading effects on food webs — 1 grounded row(s); layers: concepts=1
+- `case-control` — case-control — 1 grounded row(s); layers: concepts=1
+- `cash` — cash — 1 grounded row(s); layers: concepts=1
+- `casp` — CASP — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `casp-assessment` — CASP assessment — 1 grounded row(s); layers: concepts=1
+- `casp14` — CASP14 — 1 grounded row(s); layers: concepts=1
+- `cat` — CAT — 1 grounded row(s); layers: concepts=1
+- `catalase-like-activity` — catalase-like activity — 1 grounded row(s); layers: content_tags.definitions=1
+- `catalogue-of-life` — Catalogue of Life — 1 grounded row(s); layers: concepts=1
+- `catalytic-activity-branch` — catalytic activity branch — 1 grounded row(s); layers: concepts=1
+- `catch` — Catch — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `catch-by-foreign-fleets` — catch by foreign fleets — 1 grounded row(s); layers: concepts=1
+- `catch-reconstruction` — catch reconstruction — 1 grounded row(s); layers: concepts=1
+- `catch-trajectories` — catch trajectories — 1 grounded row(s); layers: concepts=1
+- `categorical-labels` — categorical labels — 1 grounded row(s); layers: concepts=1
+- `categorical-perception` — categorical perception — 2 grounded row(s); layers: content_tags.definitions=2
+- `categories` — categories — 1 grounded row(s); layers: concepts=1
+- `categorization` — categorization — 1 grounded row(s); layers: concepts=1
+- `categorization-based-on-the-abstract-alone` — categorization based on the abstract alone — 1 grounded row(s); layers: concepts=1
+- `category` — category — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `causal-flow-representation` — causal flow representation — 1 grounded row(s); layers: concepts=1
 - `causal-inference` — causal inference — 1 grounded row(s); layers: concepts=1
+- `causal-links` — causal links — 1 grounded row(s); layers: concepts=1
+- `causal-mechanisms` — causal mechanisms — 1 grounded row(s); layers: concepts=1
 - `causal-model` — causal model — 1 grounded row(s); layers: concepts=1
-- `consciousness` — consciousness — 1 grounded row(s); layers: concepts=1
-- `controlled-vocabulary` — controlled vocabulary — 1 grounded row(s); layers: content_tags.definitions=1
+- `causal-modeling` — causal modeling — 1 grounded row(s); layers: concepts=1
+- `causal-networks` — causal networks — 1 grounded row(s); layers: concepts=1
+- `causal-pathways` — causal pathways — 1 grounded row(s); layers: concepts=1
+- `causal-processes` — causal processes — 1 grounded row(s); layers: concepts=1
+- `causal-relations` — causal relations — 2 grounded row(s); layers: concepts=2
+- `causal-relationships` — causal relationships — 1 grounded row(s); layers: concepts=1
+- `causative-pathogen` — causative pathogen — 1 grounded row(s); layers: concepts=1
+- `causative-relationship` — causative relationship — 1 grounded row(s); layers: concepts=1
+- `cause-effect-power` — cause–effect power — 1 grounded row(s); layers: concepts=1
+- `cautious-acceptor` — cautious acceptor — 1 grounded row(s); layers: concepts=1
+- `cazy-terms` — CAZy terms — 1 grounded row(s); layers: concepts=1
+- `cc-1-2` — CC 1/2 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cd4-count` — CD4+ count — 1 grounded row(s); layers: concepts=1
+- `cd47` — CD47 — 1 grounded row(s); layers: concepts=1
+- `cd47-antibodies` — CD47 antibodies — 1 grounded row(s); layers: concepts=1
+- `cdc1s` — cDC1s — 1 grounded row(s); layers: concepts=1
+- `cdc2s` — cDC2s — 1 grounded row(s); layers: concepts=1
+- `cdk` — CDK — 1 grounded row(s); layers: concepts=1
+- `cdr1as` — CDR1as — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cell` — cell — 1 grounded row(s); layers: concepts=1
+- `cell-area-measurements` — cell area measurements — 1 grounded row(s); layers: concepts=1
+- `cell-assemblies` — cell assemblies — 1 grounded row(s); layers: content_tags.definitions=1
+- `cell-cell-adhesion` — cell-cell adhesion — 1 grounded row(s); layers: concepts=1
+- `cell-count` — cell count — 1 grounded row(s); layers: concepts=1
+- `cell-cycle` — cell cycle — 1 grounded row(s); layers: concepts=1
+- `cell-cycle-stage` — cell cycle stage — 1 grounded row(s); layers: concepts=1
+- `cell-entry-receptor` — cell entry receptor — 1 grounded row(s); layers: concepts=1
+- `cell-image-analysis` — cell image analysis — 1 grounded row(s); layers: concepts=1
+- `cell-morphology` — cell morphology — 1 grounded row(s); layers: concepts=1
+- `cell-painting` — Cell Painting — 1 grounded row(s); layers: concepts=1
+- `cell-passage-number` — cell passage number — 1 grounded row(s); layers: concepts=1
+- `cell-passaging` — cell passaging — 1 grounded row(s); layers: concepts=1
+- `cell-physiology` — cell physiology — 1 grounded row(s); layers: concepts=1
+- `cell-proliferation` — cell proliferation — 1 grounded row(s); layers: concepts=1
+- `cell-receptor-for-sars-cov` — cell receptor for SARS-CoV — 1 grounded row(s); layers: concepts=1
+- `cell-segmentation-algorithms` — cell segmentation algorithms — 1 grounded row(s); layers: concepts=1
+- `cell-shape` — cell shape — 1 grounded row(s); layers: concepts=1
+- `cell-type-agnostic-signal` — cell-type agnostic signal — 1 grounded row(s); layers: concepts=1
+- `cell-type-composition` — cell type composition — 1 grounded row(s); layers: concepts=1
+- `cell-type-effects` — cell-type effects — 1 grounded row(s); layers: concepts=1
+- `cell-type-specific` — cell-type specific — 1 grounded row(s); layers: concepts=1
+- `cell-type-specific-preferences` — cell type-specific preferences — 1 grounded row(s); layers: concepts=1
+- `cell-types` — cell types — 1 grounded row(s); layers: concepts=1
+- `cellprofiler` — CellProfiler — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `cellprofiler-2-2` — CellProfiler 2.2 — 1 grounded row(s); layers: concepts=1
+- `cellprofiler-3-0` — CellProfiler 3.0 — 1 grounded row(s); layers: concepts=1
+- `cellprofiler-analyst` — CellProfiler Analyst — 1 grounded row(s); layers: concepts=1
+- `cellprofiler-plugins` — CellProfiler-plugins — 1 grounded row(s); layers: concepts=1
+- `cellular-component` — cellular component — 1 grounded row(s); layers: concepts=1
+- `cellular-function` — cellular function — 1 grounded row(s); layers: concepts=1
+- `cellular-proliferation` — cellular proliferation — 1 grounded row(s); layers: concepts=1
+- `cellular-senescence` — cellular senescence — 1 grounded row(s); layers: concepts=1
+- `cellular-signaling-networks` — cellular signaling networks — 1 grounded row(s); layers: concepts=1
+- `central-collection-point` — central collection point — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `central-coordinating-mechanism` — central coordinating mechanism — 1 grounded row(s); layers: concepts=1
+- `central-executive` — central executive — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `central-hub` — central hub — 1 grounded row(s); layers: concepts=1
+- `central-nervous-system` — central nervous system — 1 grounded row(s); layers: concepts=1
+- `centralised-testing` — centralised testing — 1 grounded row(s); layers: concepts=1
+- `centroid-based-algorithm` — centroid-based algorithm — 1 grounded row(s); layers: concepts=1
+- `certainty` — certainty — 1 grounded row(s); layers: concepts=1
+- `certainty-of-evidence` — certainty of evidence — 1 grounded row(s); layers: concepts=1
+- `cgr` — CGR — 1 grounded row(s); layers: concepts=1
+- `chain-of-thought` — chain-of-thought — 1 grounded row(s); layers: concepts=1
+- `chains-of-2-to-50-aas` — chains of 2 to 50 AAs — 1 grounded row(s); layers: concepts=1
+- `chance-level` — chance level — 1 grounded row(s); layers: content_tags.definitions=1
+- `change-in-climate-zones` — change in climate zones — 1 grounded row(s); layers: concepts=1
+- `changed-inchis` — changed InChIs — 1 grounded row(s); layers: concepts=1
+- `changes-in-actual-biomes` — changes in actual biomes — 1 grounded row(s); layers: concepts=1
+- `changing-eligibility` — changing eligibility — 1 grounded row(s); layers: concepts=1
+- `chaotic-behavior` — chaotic behavior — 1 grounded row(s); layers: concepts=1
+- `chapman-richards` — Chapman-Richards — 1 grounded row(s); layers: concepts=1
+- `characteristic-microbial-community` — characteristic microbial community — 1 grounded row(s); layers: concepts=1
+- `charge-carrier-density` — charge carrier density — 1 grounded row(s); layers: concepts=1
+- `charmm` — CHARMM — 1 grounded row(s); layers: concepts=1
+- `chart-position` — chart position — 1 grounded row(s); layers: concepts=1
+- `chatgpt` — ChatGPT — 1 grounded row(s); layers: concepts=1
+- `chebi` — ChEBI — 1 grounded row(s); layers: concepts=1
+- `chebi-ontology-of-chemical-entities` — ChEBI ontology of chemical entities — 1 grounded row(s); layers: concepts=1
+- `chec-seq` — ChEC-seq — 1 grounded row(s); layers: concepts=1
+- `checker` — Checker — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `checklist` — checklist — 1 grounded row(s); layers: concepts=1
+- `checklist-of-13-items` — checklist of 13 items — 1 grounded row(s); layers: concepts=1
+- `checklist-of-items` — checklist of items — 1 grounded row(s); layers: concepts=1
+- `chelsa-v1-2` — CHELSA V1.2 — 1 grounded row(s); layers: concepts=1
+- `chembl-26` — ChEMBL 26 — 1 grounded row(s); layers: concepts=1
+- `chembl-chemical-structure-curation-pipeline` — ChEMBL chemical structure curation pipeline — 1 grounded row(s); layers: concepts=1
+- `chembl-database` — ChEMBL database — 1 grounded row(s); layers: concepts=1
+- `chembl-identifier` — ChEMBL identifier — 1 grounded row(s); layers: concepts=1
+- `chembl-literature-set` — ChEMBL literature set — 1 grounded row(s); layers: concepts=1
+- `chemical-bonds` — chemical bonds — 1 grounded row(s); layers: concepts=1
+- `chemical-curation-pipeline` — chemical curation pipeline — 1 grounded row(s); layers: concepts=1
+- `chemical-data-sources` — chemical data sources — 1 grounded row(s); layers: concepts=1
+- `chemical-effects` — chemical effects — 1 grounded row(s); layers: concepts=1
+- `chemical-entity-participants` — chemical entity participants — 1 grounded row(s); layers: concepts=1
+- `chemical-fingerprints` — chemical fingerprints — 1 grounded row(s); layers: concepts=1
+- `chemical-ontology` — chemical ontology — 1 grounded row(s); layers: concepts=1
+- `chemical-ontology-chebi` — chemical ontology ChEBI — 1 grounded row(s); layers: concepts=1
+- `chemical-reaction-centered-representation` — chemical reaction-centered representation — 1 grounded row(s); layers: concepts=1
+- `chemical-representation` — chemical representation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `chemical-structures` — chemical structures — 2 grounded row(s); layers: concepts=2
+- `chemical-transformations` — chemical transformations — 1 grounded row(s); layers: concepts=1
+- `cheminformatics` — cheminformatics — 1 grounded row(s); layers: concepts=1
+- `chemodynamic-therapy` — chemodynamic therapy — 1 grounded row(s); layers: content_tags.definitions=1
+- `chemont` — ChemOnt — 1 grounded row(s); layers: concepts=1
+- `chi-descriptor` — Chi descriptor — 1 grounded row(s); layers: concepts=1
+- `children` — children — 1 grounded row(s); layers: concepts=1
+- `chimeras` — Chimeras — 1 grounded row(s); layers: concepts=1
+- `chimpanzee-tissues` — chimpanzee tissues — 1 grounded row(s); layers: concepts=1
+- `chimpanzees` — chimpanzees — 1 grounded row(s); layers: concepts=1
+- `chinese-citizens-aged-18-years-old` — Chinese citizens aged≥18 years old — 1 grounded row(s); layers: concepts=1
+- `chinese-version-of-generalized-anxiety-disorder-scale-gad-7` — Chinese version of generalized anxiety disorder scale (GAD-7) — 1 grounded row(s); layers: concepts=1
+- `chip-seq` — ChIP-seq — 1 grounded row(s); layers: concepts=1
+- `chip-seq-input-based-filtering` — ChIP-seq input based filtering — 1 grounded row(s); layers: concepts=1
+- `chirality` — chirality — 1 grounded row(s); layers: concepts=1
+- `choice` — choice — 1 grounded row(s); layers: content_tags.definitions=1
+- `choice-of-database` — choice of database — 1 grounded row(s); layers: concepts=1
+- `choice-of-parameters` — choice of parameters — 1 grounded row(s); layers: concepts=1
+- `chpclim-v1` — CHPclim V1 — 1 grounded row(s); layers: concepts=1
+- `chromatin-based-filtering` — chromatin-based filtering — 1 grounded row(s); layers: concepts=1
+- `chromatin-immunoprecipitation-followed-by-genome-sequencing-` — chromatin immunoprecipitation followed by genome sequencing (ChIP-seq) — 1 grounded row(s); layers: concepts=1
+- `chromatin-profiling-by-tagmentation` — chromatin profiling by tagmentation — 1 grounded row(s); layers: concepts=1
+- `chromatin-protein` — chromatin protein — 1 grounded row(s); layers: concepts=1
+- `chromista` — Chromista — 1 grounded row(s); layers: concepts=1
+- `chronic-hepatitis` — Chronic hepatitis — 1 grounded row(s); layers: concepts=1
+- `chronic-kidney-disease` — chronic kidney disease — 1 grounded row(s); layers: content_tags.definitions=1
+- `chronic-neutrophilic-leukemia` — chronic neutrophilic leukemia — 1 grounded row(s); layers: content_tags.definitions=1
+- `chronic-traumatic-encephalopathy` — chronic traumatic encephalopathy — 1 grounded row(s); layers: content_tags.definitions=1
+- `chronological-age` — chronological age — 1 grounded row(s); layers: concepts=1
+- `cht` — CHT — 1 grounded row(s); layers: concepts=1
+- `chuckles` — CHUCKLES — 1 grounded row(s); layers: concepts=1
+- `circle` — circle — 1 grounded row(s); layers: concepts=1
+- `circos-plot` — Circos plot — 1 grounded row(s); layers: concepts=1
+- `circrna-abundance` — circRNA abundance — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `circrnas` — circRNAs — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `circular-economy` — circular economy — 1 grounded row(s); layers: content_tags.definitions=1
+- `circular-fraction` — circular fraction — 1 grounded row(s); layers: content_tags.definitions=1
+- `circular-isoforms` — circular isoforms — 1 grounded row(s); layers: concepts=1
+- `circular-rna-hypothesis` — circular RNA hypothesis — 1 grounded row(s); layers: concepts=1
+- `circular-rnas` — circular RNAs — 2 grounded row(s); layers: concepts=2
+- `circular-splicing` — circular splicing — 1 grounded row(s); layers: concepts=1
+- `circularized-exons` — circularized exons — 1 grounded row(s); layers: concepts=1
+- `cirs-7` — ciRS-7 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `citizen-science` — citizen science — 1 grounded row(s); layers: concepts=1
+- `civil-liability` — civil liability — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ckd273` — CKD273 — 1 grounded row(s); layers: content_tags.definitions=1
+- `ckdtree` — cKDTree — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cladogenesis` — cladogenesis — 1 grounded row(s); layers: concepts=1
+- `clarity-completeness-and-transparency-of-reporting` — clarity, completeness, and transparency of reporting — 1 grounded row(s); layers: concepts=1
+- `class` — class — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `class-incremental-learning` — class-incremental learning — 1 grounded row(s); layers: content_tags.definitions=1
+- `class-of-statistical-methods` — class of statistical methods — 1 grounded row(s); layers: concepts=1
+- `classic-genomics-assays` — classic genomics assays — 1 grounded row(s); layers: concepts=1
+- `classic-psychedelics` — classic psychedelics — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `classic-scaling-method` — classic scaling method — 1 grounded row(s); layers: concepts=1
+- `classic-theories` — classic theories — 1 grounded row(s); layers: concepts=1
+- `classical-activation` — Classical activation — 1 grounded row(s); layers: concepts=1
+- `classical-or-conventional-dcs` — classical or conventional DCs — 1 grounded row(s); layers: concepts=1
+- `classification` — classification — 1 grounded row(s); layers: concepts=1
+- `classification-accuracy` — classification accuracy — 2 grounded row(s); layers: concepts=2
+- `classification-accuracy-ca` — classification accuracy (CA) — 1 grounded row(s); layers: concepts=1
+- `classification-and-naming` — classification and naming — 1 grounded row(s); layers: concepts=1
+- `classification-from-above` — classification from above — 1 grounded row(s); layers: concepts=1
+- `classification-from-below` — classification from below — 1 grounded row(s); layers: concepts=1
+- `classification-of-different-cell-types` — classification of different cell types — 1 grounded row(s); layers: concepts=1
+- `classification-or-regression-methods` — classification or regression methods — 1 grounded row(s); layers: concepts=1
+- `classification-tasks` — classification tasks — 1 grounded row(s); layers: concepts=1
+- `classification-tree` — classification tree — 1 grounded row(s); layers: concepts=1
+- `classifypixels-unet` — ClassifyPixels-Unet — 1 grounded row(s); layers: concepts=1
+- `classyfire` — ClassyFire — 2 grounded row(s); layers: concepts=2
+- `clavien-dindo-classification` — Clavien-Dindo classification — 1 grounded row(s); layers: concepts=1
+- `clean-energies` — clean energies — 1 grounded row(s); layers: concepts=1
+- `clearing-more-land-for-agriculture` — clearing more land for agriculture — 1 grounded row(s); layers: concepts=1
+- `cleavage-under-targets-and-tagmentation` — Cleavage Under Targets and Tagmentation — 1 grounded row(s); layers: concepts=1
+- `clec-2` — CLEC-2 — 1 grounded row(s); layers: content_tags.definitions=1
+- `cli` — CLI — 1 grounded row(s); layers: concepts=1
+- `cli-benchmark-test` — CLI benchmark test — 1 grounded row(s); layers: concepts=1
+- `climate` — climate — 1 grounded row(s); layers: concepts=1
+- `climate-and-forecast-metadata-standards` — Climate and Forecast metadata standards — 1 grounded row(s); layers: concepts=1
+- `climate-carbon-feedbacks` — climate-carbon feedbacks — 1 grounded row(s); layers: concepts=1
+- `climate-change` — climate change — 1 grounded row(s); layers: concepts=1
+- `climate-crowdfunding` — climate crowdfunding — 1 grounded row(s); layers: content_tags.definitions=1
+- `climate-envelope-models` — climate envelope models — 1 grounded row(s); layers: concepts=1
+- `climate-forcing` — climate forcing — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `climate-impacts` — climate impacts — 1 grounded row(s); layers: concepts=1
+- `climate-models` — Climate models — 1 grounded row(s); layers: concepts=1
+- `climate-of-disengagement-from-mainstream-society` — climate of disengagement from mainstream society — 1 grounded row(s); layers: concepts=1
+- `climate-research-unit-time-series-data-version-4-0` — Climate Research Unit time series data version 4.0 — 1 grounded row(s); layers: concepts=1
+- `climate-services` — climate services — 1 grounded row(s); layers: content_tags.definitions=1
+- `climate-system-inertia` — Climate system inertia — 1 grounded row(s); layers: concepts=1
+- `climate-variables` — climate variables — 1 grounded row(s); layers: concepts=1
+- `climatic-water-balance-model` — climatic water-balance model — 1 grounded row(s); layers: concepts=1
+- `climatic-water-deficit` — climatic water deficit — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `climatically-aided-interpolation` — climatically aided interpolation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `climatological-forecast` — climatological forecast — 1 grounded row(s); layers: concepts=1
+- `clinical-decision-making` — clinical decision-making — 1 grounded row(s); layers: concepts=1
+- `clinical-decision-support` — clinical decision support — 1 grounded row(s); layers: concepts=1
+- `clinical-decision-support-systems` — clinical decision support systems — 1 grounded row(s); layers: concepts=1
+- `clinical-differential-diagnosis` — clinical differential diagnosis — 1 grounded row(s); layers: concepts=1
+- `clinical-health-literacy` — clinical health literacy — 1 grounded row(s); layers: concepts=1
+- `clinical-medical-and-pharmacological-researchers` — clinical, medical and pharmacological researchers — 1 grounded row(s); layers: concepts=1
+- `clinical-outcome` — Clinical outcome — 1 grounded row(s); layers: concepts=1
+- `clinical-outcomes` — clinical outcomes — 1 grounded row(s); layers: concepts=1
+- `clinical-reasoning` — clinical reasoning — 1 grounded row(s); layers: concepts=1
+- `clinical-risk` — clinical risk — 1 grounded row(s); layers: concepts=1
+- `clinical-serology-assays` — clinical serology assays — 1 grounded row(s); layers: concepts=1
+- `clinical-significance` — clinical significance — 1 grounded row(s); layers: concepts=1
+- `clinical-terminologies` — clinical terminologies — 1 grounded row(s); layers: concepts=1
+- `clinical-utility` — clinical utility — 1 grounded row(s); layers: concepts=1
+- `clinical-working-definitions-of-iei` — clinical working definitions of IEI — 1 grounded row(s); layers: concepts=1
+- `clinically-significant-impairment` — clinically significant impairment — 1 grounded row(s); layers: concepts=1
+- `clinically-similar-but-numerically-distinct` — clinically similar but numerically distinct — 1 grounded row(s); layers: concepts=1
+- `clinicians-teachers-or-human-resources-staff` — clinicians, teachers, or human resources staff — 1 grounded row(s); layers: concepts=1
+- `clinics-schools-or-worksites` — clinics, schools, or worksites — 1 grounded row(s); layers: concepts=1
+- `clinvar` — ClinVar — 1 grounded row(s); layers: concepts=1
+- `clock-cpgs` — clock CpGs — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `clonal-or-oligoclonal-b-cell-responses` — clonal or oligoclonal B cell responses — 1 grounded row(s); layers: concepts=1
+- `clonal-replacement` — clonal replacement — 1 grounded row(s); layers: concepts=1
+- `close-phylogenetic-relationship-to-ratg13` — close phylogenetic relationship to RaTG13 — 1 grounded row(s); layers: concepts=1
+- `close-to-standard` — close to standard — 1 grounded row(s); layers: concepts=1
+- `closed-loop-system` — closed-loop system — 1 grounded row(s); layers: concepts=1
+- `closed-reference-methods` — closed-reference methods — 1 grounded row(s); layers: concepts=1
+- `closed-vocabulary` — closed vocabulary — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `closest-relative` — closest relative — 1 grounded row(s); layers: concepts=1
+- `closest-relative-of-2019-ncov` — closest relative of 2019-nCoV — 1 grounded row(s); layers: concepts=1
+- `closing-yield-gaps` — closing yield gaps — 1 grounded row(s); layers: concepts=1
+- `clostridioides-difficile-infection` — Clostridioides difficile infection — 1 grounded row(s); layers: concepts=1
+- `cloud-based-large-scale-image-processing` — cloud-based, large-scale image processing — 1 grounded row(s); layers: concepts=1
+- `cloud-computing` — cloud computing — 1 grounded row(s); layers: concepts=1
+- `cloze-probability` — cloze probability — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `clumped-objects` — clumped objects — 1 grounded row(s); layers: concepts=1
+- `cluster-based-mst` — cluster-based MST — 1 grounded row(s); layers: concepts=1
+- `cluster-based-mst-methods` — cluster-based MST methods — 1 grounded row(s); layers: concepts=1
+- `cluster-randomised-trials` — cluster randomised trials — 1 grounded row(s); layers: concepts=1
+- `cluster-randomized-trials` — cluster-randomized trials — 1 grounded row(s); layers: concepts=1
+- `cluster-subpackage` — cluster subpackage — 1 grounded row(s); layers: concepts=1
+- `clustering-accuracy` — clustering accuracy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `clustering-threshold` — clustering threshold — 1 grounded row(s); layers: concepts=1
+- `cmip5-archive` — CMIP5 archive — 1 grounded row(s); layers: concepts=1
+- `cnn-scoring` — CNN scoring — 1 grounded row(s); layers: concepts=1
+- `cnnaffinity` — CNNaffinity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cnns` — CNNs — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `cnnscore` — CNNscore — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cns-cryptococcosis` — CNS cryptococcosis — 1 grounded row(s); layers: concepts=1
+- `co-2-fertilization` — CO 2 fertilization — 1 grounded row(s); layers: concepts=1
+- `co-evolutionary-principles` — co-evolutionary principles — 1 grounded row(s); layers: concepts=1
+- `co-evolved-beneficial-host-microbe-interactions` — co-evolved beneficial host-microbe interactions — 1 grounded row(s); layers: concepts=1
+- `co-localize` — co-localize — 1 grounded row(s); layers: content_tags.definitions=1
+- `co-occurrence-analyses` — co-occurrence analyses — 1 grounded row(s); layers: concepts=1
+- `co-precipitation` — co-precipitation — 1 grounded row(s); layers: content_tags.definitions=1
+- `co-selection` — co-selection — 1 grounded row(s); layers: concepts=1
+- `co-stimulatory-domain` — co-stimulatory domain — 1 grounded row(s); layers: concepts=1
+- `coagulopathy` — coagulopathy — 1 grounded row(s); layers: concepts=1
+- `coalescence-of-two-black-holes` — coalescence of two black holes — 1 grounded row(s); layers: concepts=1
+- `cochleagram` — cochleagram — 2 grounded row(s); layers: content_tags.definitions=2
+- `cochlear-scaled-correlation` — cochlear-scaled correlation — 2 grounded row(s); layers: content_tags.definitions=2
+- `coconut` — COCONUT — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `code-hooks` — Code hooks — 1 grounded row(s); layers: concepts=1
+- `code-lists` — code lists — 1 grounded row(s); layers: concepts=1
+- `code-review` — code review — 2 grounded row(s); layers: concepts=2
+- `code-saturation` — code saturation — 1 grounded row(s); layers: concepts=1
+- `codes` — codes — 1 grounded row(s); layers: concepts=1
+- `codes-or-algorithms` — codes or algorithms — 1 grounded row(s); layers: concepts=1
+- `coding-of-exposures-and-outcomes` — coding of exposures and outcomes — 1 grounded row(s); layers: concepts=1
+- `coding-regions` — coding regions — 1 grounded row(s); layers: concepts=1
+- `coding-sheet` — coding sheet — 1 grounded row(s); layers: concepts=1
+- `coefficient-of-determination-r-2` — coefficient of determination, R 2 — 1 grounded row(s); layers: concepts=1
+- `coefficient-of-stability` — coefficient of stability — 1 grounded row(s); layers: concepts=1
+- `coefficient-of-variation` — coefficient of variation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `coefficient-of-variation-of-dnam-age` — coefficient of variation of DNAm age — 1 grounded row(s); layers: concepts=1
+- `coercion` — coercion — 1 grounded row(s); layers: concepts=1
+- `coevolution` — coevolution — 1 grounded row(s); layers: concepts=1
+- `cog-functional-categories` — COG functional categories — 1 grounded row(s); layers: concepts=1
+- `cognate-linear-rna` — cognate linear RNA — 1 grounded row(s); layers: concepts=1
+- `cognition` — cognition — 1 grounded row(s); layers: concepts=1
+- `cognitive-archaeology` — cognitive archaeology — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cognitive-burden` — cognitive burden — 1 grounded row(s); layers: concepts=1
+- `cognitive-control` — cognitive control — 2 grounded row(s); layers: concepts=2
+- `cognitive-empathy` — cognitive empathy — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `cognitive-interviewing` — Cognitive interviewing — 1 grounded row(s); layers: concepts=1
+- `cognitive-liberty` — cognitive liberty — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cognitive-participation` — cognitive participation — 1 grounded row(s); layers: concepts=1
+- `cognitive-penetrability` — cognitive penetrability — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cognitive-well-being` — cognitive well-being — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cognitivism` — cognitivism — 1 grounded row(s); layers: concepts=1
+- `cohen-kappa` — Cohen kappa — 1 grounded row(s); layers: concepts=1
+- `cohen-s-coefficient-kappa` — Cohen's coefficient kappa — 1 grounded row(s); layers: concepts=1
+- `coherence` — coherence — 1 grounded row(s); layers: concepts=1
+- `cohort-analytics` — cohort analytics — 1 grounded row(s); layers: concepts=1
+- `cohort-studies` — cohort studies — 1 grounded row(s); layers: concepts=1
+- `coincidence` — coincidence — 1 grounded row(s); layers: content_tags.definitions=1
+- `collaborative-memory` — collaborative memory — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `collapsed-or-under-represented` — collapsed or under-represented — 1 grounded row(s); layers: concepts=1
+- `collection` — collection — 1 grounded row(s); layers: concepts=1
+- `collection-of-genomes-and-genes` — collection of genomes and genes — 1 grounded row(s); layers: concepts=1
+- `collection-of-self-describing-machine-independent-binary-dat` — collection of self-describing, machine-independent binary data formats and software tools — 1 grounded row(s); layers: concepts=1
+- `collections-of-protein-families` — collections of protein families — 1 grounded row(s); layers: concepts=1
+- `collective-action` — collective action — 1 grounded row(s); layers: concepts=1
+- `collective-behavior-of-populations` — collective behavior of populations — 1 grounded row(s); layers: concepts=1
+- `collective-genome-of-microorganisms` — collective genome of microorganisms — 1 grounded row(s); layers: concepts=1
+- `collective-intelligence` — collective intelligence — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `collective-memory` — collective memory — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `collective-responsibility` — collective responsibility — 1 grounded row(s); layers: concepts=1
+- `collective-variable` — collective variable — 1 grounded row(s); layers: concepts=1
+- `collinearity` — collinearity — 1 grounded row(s); layers: concepts=1
+- `colonization-resistance` — colonization resistance — 1 grounded row(s); layers: concepts=1
+- `color` — color — 1 grounded row(s); layers: concepts=1
+- `color-deconvolution` — color deconvolution — 1 grounded row(s); layers: concepts=1
+- `com-b` — COM-B — 1 grounded row(s); layers: concepts=1
+- `combination-of-depression-and-anxiety-cda` — combination of depression and anxiety (CDA) — 1 grounded row(s); layers: concepts=1
+- `combinatorial-index-c` — combinatorial index C — 1 grounded row(s); layers: concepts=1
+- `combinatorial-space-of-circular-isoforms` — combinatorial space of circular isoforms — 1 grounded row(s); layers: concepts=1
+- `combined-coverage-of-the-rule-based-annotation-systems` — combined coverage of the rule-based annotation systems — 1 grounded row(s); layers: concepts=1
+- `combined-lottery-incentives` — combined lottery incentives — 1 grounded row(s); layers: concepts=1
+- `combined-positive-score` — combined positive score — 1 grounded row(s); layers: concepts=1
+- `combined-signal-to-noise-ratio` — combined signal-to-noise ratio — 1 grounded row(s); layers: concepts=1
+- `command-line-interface` — command-line interface — 1 grounded row(s); layers: concepts=1
+- `commensalism` — commensalism — 1 grounded row(s); layers: concepts=1
+- `comment` — comment — 1 grounded row(s); layers: concepts=1
+- `commercial-redistribution` — commercial redistribution — 1 grounded row(s); layers: concepts=1
+- `commercial-software` — commercial software — 2 grounded row(s); layers: concepts=2
+- `common-adapter` — common adapter — 1 grounded row(s); layers: concepts=1
+- `common-benchmark-challenge` — common benchmark challenge — 1 grounded row(s); layers: concepts=1
+- `common-cold` — common cold — 1 grounded row(s); layers: concepts=1
+- `common-coordinates` — common coordinates — 1 grounded row(s); layers: concepts=1
+- `common-data-model` — Common Data Model — 1 grounded row(s); layers: concepts=1
+- `common-data-models-cdm` — common data models (CDM) — 1 grounded row(s); layers: concepts=1
+- `common-framework-for-gnn` — common framework for GNN — 1 grounded row(s); layers: concepts=1
+- `common-scaffold` — common scaffold — 1 grounded row(s); layers: concepts=1
+- `common-scale` — common scale — 1 grounded row(s); layers: concepts=1
+- `common-sense` — common sense — 1 grounded row(s); layers: concepts=1
+- `communicating-the-scientific-consensus` — Communicating the scientific consensus — 1 grounded row(s); layers: concepts=1
+- `communication` — communication — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `communities-or-larger-systems` — communities or larger systems — 1 grounded row(s); layers: concepts=1
+- `community` — community — 2 grounded row(s); layers: concepts=2
+- `community-contribution` — community contribution — 1 grounded row(s); layers: concepts=1
+- `community-contributors` — community contributors — 1 grounded row(s); layers: concepts=1
+- `community-driven-metadata-tracking-framework` — community-driven metadata tracking framework — 1 grounded row(s); layers: concepts=1
+- `community-matrix` — community matrix — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `community-size` — community size — 1 grounded row(s); layers: concepts=1
+- `community-submission` — Community submission — 1 grounded row(s); layers: concepts=1
+- `community-types` — community types — 1 grounded row(s); layers: concepts=1
+- `comodulation-masking-release` — comodulation masking release — 1 grounded row(s); layers: concepts=1
+- `comorbidities` — comorbidities — 1 grounded row(s); layers: concepts=1
+- `compact-hash-table` — compact hash table — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `compact-hash-table-cht` — compact hash table (CHT) — 1 grounded row(s); layers: concepts=1
+- `comparative-analyses` — comparative analyses — 1 grounded row(s); layers: concepts=1
+- `compensation` — compensation — 1 grounded row(s); layers: content_tags.definitions=1
+- `compensatory-internet-use` — compensatory internet use — 1 grounded row(s); layers: concepts=1
+- `compensatory-plasticity` — compensatory plasticity — 1 grounded row(s); layers: content_tags.definitions=1
+- `competing-endogenous-rna` — competing endogenous RNA — 1 grounded row(s); layers: content_tags.definitions=1
+- `competition` — competition — 1 grounded row(s); layers: concepts=1
+- `compiled-dependencies` — compiled dependencies — 1 grounded row(s); layers: concepts=1
+- `complacency` — complacency — 1 grounded row(s); layers: concepts=1
+- `complement` — complement — 1 grounded row(s); layers: concepts=1
+- `complete` — complete — 1 grounded row(s); layers: concepts=1
+- `complete-animals` — complete animals — 1 grounded row(s); layers: concepts=1
+- `complete-clear-and-transparent-information` — complete, clear, and transparent information — 1 grounded row(s); layers: concepts=1
+- `complete-code-and-data` — complete code and data — 1 grounded row(s); layers: concepts=1
+- `complete-compendium-of-all-known-protein-sequence-data` — complete compendium of all known protein sequence data — 1 grounded row(s); layers: concepts=1
+- `complete-duplicated-fragmented-and-potentially-missing-genes` — complete, duplicated, fragmented, and potentially missing genes — 1 grounded row(s); layers: concepts=1
+- `complete-package` — complete package — 1 grounded row(s); layers: concepts=1
+- `complete-proteome-detector` — Complete Proteome Detector — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `complete-renal-recovery` — Complete renal recovery — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `complete-reporting` — Complete reporting — 1 grounded row(s); layers: concepts=1
+- `complete-reporting-of-all-prisma-2020-items` — Complete reporting of all PRISMA 2020 items — 1 grounded row(s); layers: concepts=1
+- `complete-set-of-proteins-believed-to-be-expressed-by-an-orga` — complete set of proteins believed to be expressed by an organism — 1 grounded row(s); layers: concepts=1
+- `completed-questionnaires` — completed questionnaires — 1 grounded row(s); layers: concepts=1
+- `complex` — complex — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `complex-behaviors` — complex behaviors — 1 grounded row(s); layers: concepts=1
+- `complex-decision-making` — complex decision-making — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `complex-formation` — complex formation — 1 grounded row(s); layers: concepts=1
+- `complex-interactions` — complex interactions — 1 grounded row(s); layers: concepts=1
+- `complex-narrative` — complex narrative — 1 grounded row(s); layers: concepts=1
+- `complex-phenomena` — complex phenomena — 1 grounded row(s); layers: concepts=1
+- `complex-representations` — complex representations — 1 grounded row(s); layers: concepts=1
+- `complex-terrain` — complex terrain — 1 grounded row(s); layers: concepts=1
+- `complexation` — complexation — 1 grounded row(s); layers: content_tags.definitions=1
+- `complexity-of-reality` — complexity of reality — 1 grounded row(s); layers: concepts=1
+- `complicated-grief` — complicated grief — 1 grounded row(s); layers: concepts=1
+- `complicated-or-prolonged-grief` — complicated, or prolonged, grief — 1 grounded row(s); layers: concepts=1
+- `component-process` — component-process — 1 grounded row(s); layers: concepts=1
+- `components` — components — 1 grounded row(s); layers: concepts=1
+- `composite-null-hypotheses` — composite null hypotheses — 1 grounded row(s); layers: concepts=1
+- `composite-reliability` — composite reliability — 1 grounded row(s); layers: concepts=1
+- `composition` — composition — 1 grounded row(s); layers: concepts=1
+- `composition-of-microbiota` — composition of microbiota — 1 grounded row(s); layers: concepts=1
+- `compound-feature` — compound feature — 1 grounded row(s); layers: concepts=1
+- `compound-word` — compound word — 1 grounded row(s); layers: concepts=1
+- `comprehensive-and-coherent-governance-and-policy-framework` — comprehensive and coherent governance and policy framework — 1 grounded row(s); layers: concepts=1
+- `comprehensive-assessment` — comprehensive assessment — 1 grounded row(s); layers: concepts=1
+- `comprehensive-high-quality-and-freely-accessible-set-of-prot` — comprehensive, high-quality and freely accessible set of protein sequences — 1 grounded row(s); layers: concepts=1
+- `comprehensive-phenotypic-description` — comprehensive phenotypic description — 1 grounded row(s); layers: concepts=1
+- `comprehensive-resource` — comprehensive resource — 2 grounded row(s); layers: concepts=2
+- `computable-number` — computable number — 1 grounded row(s); layers: content_tags.definitions=1
+- `computational-agents` — computational agents — 1 grounded row(s); layers: concepts=1
+- `computational-analysis` — computational analysis — 1 grounded row(s); layers: concepts=1
+- `computational-approaches` — computational approaches — 1 grounded row(s); layers: concepts=1
+- `computational-clustering` — computational clustering — 1 grounded row(s); layers: concepts=1
+- `computational-cost` — computational cost — 1 grounded row(s); layers: concepts=1
+- `computational-definitions` — computational definitions — 1 grounded row(s); layers: concepts=1
+- `computational-disease-models` — computational disease models — 1 grounded row(s); layers: concepts=1
+- `computational-efficiency` — computational efficiency — 1 grounded row(s); layers: concepts=1
+- `computational-genomics-pipelines` — computational genomics pipelines — 1 grounded row(s); layers: concepts=1
+- `computational-inference` — computational inference — 1 grounded row(s); layers: concepts=1
+- `computational-kernels` — computational kernels — 1 grounded row(s); layers: concepts=1
+- `computational-phenotype` — computational phenotype — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `computational-stakeholders` — computational stakeholders — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `computationally-predicted` — computationally predicted — 1 grounded row(s); layers: concepts=1
+- `computer-aided-drug-design` — computer-aided drug design — 1 grounded row(s); layers: concepts=1
+- `computer-algorithms` — computer algorithms — 1 grounded row(s); layers: concepts=1
+- `computer-models` — computer models — 1 grounded row(s); layers: concepts=1
+- `computer-vision-researchers` — computer vision researchers — 1 grounded row(s); layers: concepts=1
+- `computing-cluster` — computing cluster — 1 grounded row(s); layers: concepts=1
+- `computing-resources-necessary-for-distribution` — computing resources necessary for distribution — 1 grounded row(s); layers: concepts=1
+- `concanavalin-a-coated-paramagnetic-beads` — Concanavalin A-coated paramagnetic beads — 1 grounded row(s); layers: concepts=1
+- `concentrated` — concentrated — 1 grounded row(s); layers: concepts=1
+- `concept` — concept — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `concept-cells` — concept cells — 1 grounded row(s); layers: content_tags.definitions=1
+- `concept-mapping-exercise` — concept mapping exercise — 1 grounded row(s); layers: concepts=1
+- `concept-web-alliance` — Concept Web Alliance — 1 grounded row(s); layers: concepts=1
+- `conceptual-analogy` — conceptual analogy — 1 grounded row(s); layers: concepts=1
+- `conceptual-depth` — conceptual depth — 1 grounded row(s); layers: concepts=1
+- `conceptual-ecology-models` — conceptual ecology models — 1 grounded row(s); layers: concepts=1
+- `conceptual-framework` — conceptual framework — 2 grounded row(s); layers: concepts=2
+- `conceptual-knowledge` — conceptual knowledge — 1 grounded row(s); layers: concepts=1
+- `conceptual-structure` — conceptual structure — 1 grounded row(s); layers: concepts=1
+- `concise-annotation-models` — concise annotation models — 1 grounded row(s); layers: concepts=1
+- `concurrent-validity` — concurrent validity — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `condensed-versions-of-the-go` — condensed versions of the GO — 1 grounded row(s); layers: concepts=1
+- `conditional-gans` — Conditional GANs — 1 grounded row(s); layers: concepts=1
+- `conditional-r-2` — conditional R 2 — 1 grounded row(s); layers: concepts=1
+- `conditional-value-at-risk` — conditional value at risk — 1 grounded row(s); layers: content_tags.definitions=1
+- `conditionally-independent` — conditionally independent — 1 grounded row(s); layers: concepts=1
+- `conditioning` — conditioning — 1 grounded row(s); layers: concepts=1
+- `conduct` — Conduct — 1 grounded row(s); layers: concepts=1
+- `conduct-of-a-systematic-review` — conduct of a systematic review — 1 grounded row(s); layers: concepts=1
+- `cones-around-the-principal-axes` — cones around the principal axes — 1 grounded row(s); layers: concepts=1
+- `confidence` — confidence — 2 grounded row(s); layers: concepts=2
+- `confidence-in-the-correctness-and-accuracy` — confidence in the correctness and accuracy — 1 grounded row(s); layers: concepts=1
+- `confidence-levels` — confidence levels — 1 grounded row(s); layers: concepts=1
+- `confidence-map` — confidence map — 1 grounded row(s); layers: concepts=1
+- `confidence-measure` — confidence measure — 1 grounded row(s); layers: concepts=1
+- `configuration-files` — configuration files — 1 grounded row(s); layers: concepts=1
+- `configuration-of-incentives` — configuration of incentives — 1 grounded row(s); layers: concepts=1
+- `confirmatory` — confirmatory — 1 grounded row(s); layers: concepts=1
+- `confirmatory-factor-analysis` — confirmatory factor analysis — 1 grounded row(s); layers: concepts=1
+- `conformation` — conformation — 1 grounded row(s); layers: concepts=1
+- `conformational-space` — conformational space — 1 grounded row(s); layers: concepts=1
+- `confounder-adjusted-estimates` — confounder-adjusted estimates — 1 grounded row(s); layers: concepts=1
+- `confounding-by-indication` — confounding by indication — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `confounding-factors` — confounding factors — 1 grounded row(s); layers: concepts=1
+- `confounding-variables` — confounding variables — 1 grounded row(s); layers: concepts=1
+- `confusion` — confusion — 1 grounded row(s); layers: concepts=1
+- `congruency-effects` — congruency effects — 1 grounded row(s); layers: concepts=1
+- `congruent-prime-trials` — congruent prime trials — 1 grounded row(s); layers: concepts=1
+- `connectance` — connectance — 1 grounded row(s); layers: concepts=1
+- `connected-component` — connected component — 1 grounded row(s); layers: concepts=1
+- `connection-matrix` — connection matrix — 1 grounded row(s); layers: concepts=1
+- `connection-table` — connection table — 1 grounded row(s); layers: concepts=1
+- `connectivity-matrix` — connectivity matrix — 1 grounded row(s); layers: concepts=1
+- `connectivity-patterns` — connectivity patterns — 1 grounded row(s); layers: concepts=1
+- `connectome` — connectome — 1 grounded row(s); layers: content_tags.definitions=1
+- `conscious-representation` — conscious representation — 1 grounded row(s); layers: concepts=1
+- `consensus-asymptotic-number-of-taxa` — consensus asymptotic number of taxa — 1 grounded row(s); layers: concepts=1
+- `consensus-based-prediction-of-long-disorder` — consensus-based prediction of long disorder — 1 grounded row(s); layers: concepts=1
+- `consensus-correlation` — consensus correlation — 1 grounded row(s); layers: concepts=1
+- `consensus-log-p-o-w` — consensus log P o/w — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `consensus-of-the-read-clusters` — consensus of the read clusters — 1 grounded row(s); layers: concepts=1
+- `consensus-on-best-practices` — consensus on best practices — 1 grounded row(s); layers: concepts=1
+- `consensus-view` — consensus view — 1 grounded row(s); layers: concepts=1
+- `consent-and-coercion` — consent and coercion — 1 grounded row(s); layers: concepts=1
+- `conservative-estimate` — conservative estimate — 1 grounded row(s); layers: concepts=1
+- `conservative-estimates` — conservative estimates — 1 grounded row(s); layers: concepts=1
+- `consistency-across-the-systematic-review-report` — consistency across the systematic review report — 1 grounded row(s); layers: concepts=1
+- `consistency-of-labels` — consistency of labels — 1 grounded row(s); layers: concepts=1
+- `consistent-indexing` — consistent indexing — 1 grounded row(s); layers: concepts=1
+- `consistent-standards-for-microbiome-research` — consistent standards for microbiome research — 1 grounded row(s); layers: concepts=1
+- `consolidation` — consolidation — 1 grounded row(s); layers: concepts=1
+- `consort-database` — CONSORT database — 1 grounded row(s); layers: concepts=1
+- `consort-statement` — CONSORT Statement — 1 grounded row(s); layers: concepts=1
+- `conspiracist-belief` — conspiracist belief — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `conspiracist-facets` — conspiracist facets — 1 grounded row(s); layers: concepts=1
+- `conspiracy-mentality-questionnaire` — Conspiracy Mentality Questionnaire — 2 grounded row(s); layers: concepts=2
+- `conspiracy-mentality-scale` — Conspiracy Mentality Scale — 1 grounded row(s); layers: concepts=1
+- `conspiracy-news` — conspiracy news — 1 grounded row(s); layers: concepts=1
+- `conspiracy-theories` — conspiracy theories — 1 grounded row(s); layers: concepts=1
+- `constant-distance-behind-the-changing-optimum-phenotype` — constant distance behind the changing optimum phenotype — 1 grounded row(s); layers: concepts=1
+- `constant-genetic-and-phenotypic-variance` — constant genetic and phenotypic variance — 1 grounded row(s); layers: concepts=1
+- `constitutive-cost` — constitutive cost — 1 grounded row(s); layers: concepts=1
+- `constraints` — constraints — 1 grounded row(s); layers: concepts=1
+- `constraints-on-1-and-2` — constraints on Λ1 and Λ2 — 1 grounded row(s); layers: concepts=1
+- `construct` — construct — 1 grounded row(s); layers: concepts=1
+- `construct-irrelevant-variance` — construct-irrelevant variance — 1 grounded row(s); layers: concepts=1
+- `construct-underrepresentation` — construct underrepresentation — 1 grounded row(s); layers: concepts=1
+- `construct-validity` — construct validity — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `constructive-habits` — constructive habits — 1 grounded row(s); layers: concepts=1
+- `consumption` — consumption — 1 grounded row(s); layers: concepts=1
+- `consumption-patterns` — consumption patterns — 1 grounded row(s); layers: concepts=1
+- `contamination` — contamination — 1 grounded row(s); layers: concepts=1
+- `contemporary-data-publishing-environments` — contemporary data publishing environments — 1 grounded row(s); layers: concepts=1
+- `content-addressable` — content-addressable — 1 grounded row(s); layers: concepts=1
+- `content-bias` — content bias — 1 grounded row(s); layers: concepts=1
+- `content-blind` — content-blind — 1 grounded row(s); layers: concepts=1
+- `content-of-the-digital-object` — content of the digital object — 1 grounded row(s); layers: concepts=1
+- `content-relevance` — content relevance — 1 grounded row(s); layers: concepts=1
+- `content-representations` — content representations — 1 grounded row(s); layers: concepts=1
+- `content-validity` — content validity — 1 grounded row(s); layers: concepts=1
+- `content-validity-index` — content validity index — 1 grounded row(s); layers: concepts=1
+- `content-validity-ratio` — content validity ratio — 1 grounded row(s); layers: concepts=1
+- `context` — context — 5 grounded row(s); layers: concepts=2, content_tags.definitions=3
+- `context-dependent` — context-dependent — 1 grounded row(s); layers: concepts=1
+- `context-or-environment` — context or environment — 1 grounded row(s); layers: concepts=1
+- `contexts` — contexts — 1 grounded row(s); layers: concepts=1
+- `contextual-factors` — contextual factors — 1 grounded row(s); layers: concepts=1
+- `contextual-metadata` — contextual metadata — 1 grounded row(s); layers: concepts=1
+- `contig-n50-size` — contig N50 size — 1 grounded row(s); layers: concepts=1
+- `contiguous-exons-in-canonical-order` — contiguous exons in canonical order — 1 grounded row(s); layers: concepts=1
+- `contiguous-regions-of-abnormal-signal` — contiguous regions of abnormal signal — 1 grounded row(s); layers: concepts=1
+- `contingency-table` — contingency table — 1 grounded row(s); layers: concepts=1
+- `continuity-assumption` — continuity assumption — 1 grounded row(s); layers: concepts=1
+- `continuity-of-these-properties` — continuity of these properties — 1 grounded row(s); layers: concepts=1
+- `continuous-environmental-gradient` — continuous environmental gradient — 1 grounded row(s); layers: concepts=1
+- `continuous-integration` — continuous integration — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `continuous-integration-process` — continuous integration process — 1 grounded row(s); layers: concepts=1
+- `continuous-ranked-probability-score-crps` — continuous ranked probability score (CRPS) — 1 grounded row(s); layers: concepts=1
+- `continuous-testing` — continuous testing — 1 grounded row(s); layers: concepts=1
+- `continuously-adapting` — continuously adapting — 1 grounded row(s); layers: concepts=1
+- `continuously-evolving` — continuously evolving — 1 grounded row(s); layers: concepts=1
+- `contraction` — contraction — 1 grounded row(s); layers: concepts=1
+- `contracts-of-operation` — contracts of operation — 1 grounded row(s); layers: concepts=1
+- `contralateral` — contralateral — 1 grounded row(s); layers: concepts=1
+- `contributors-software-development-skills` — contributors’ software development skills — 1 grounded row(s); layers: concepts=1
+- `control` — control — 5 grounded row(s); layers: concepts=3, content_tags.definitions=2
+- `control-data-for-chip-seq` — control data for ChIP-seq — 1 grounded row(s); layers: concepts=1
+- `control-input-sequences` — control “input” sequences — 1 grounded row(s); layers: concepts=1
+- `control-overestimation` — control overestimation — 1 grounded row(s); layers: concepts=1
+- `control-pcr-assays` — Control PCR assays — 1 grounded row(s); layers: concepts=1
+- `control-problem` — control problem — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `controlled-and-real-world-learning-scenarios` — controlled and real-world learning scenarios — 1 grounded row(s); layers: concepts=1
+- `controlled-list` — controlled list — 1 grounded row(s); layers: concepts=1
+- `controlled-semantic-or-name-retrieval` — controlled semantic or name retrieval — 1 grounded row(s); layers: concepts=1
+- `controlled-vocabulary` — controlled vocabulary — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `convalescent-plasma` — convalescent plasma — 1 grounded row(s); layers: concepts=1
+- `convenience` — convenience — 1 grounded row(s); layers: concepts=1
+- `conventional-machine-learning-models` — conventional machine learning models — 1 grounded row(s); layers: concepts=1
+- `conventional-point-charge-force-fields` — conventional point charge force fields — 1 grounded row(s); layers: concepts=1
+- `convergence` — convergence — 1 grounded row(s); layers: content_tags.definitions=1
+- `convergent-validity` — convergent validity — 1 grounded row(s); layers: concepts=1
+- `convolution-operation` — convolution operation — 2 grounded row(s); layers: concepts=2
+- `convolutional-deep-belief-network-cdbn` — Convolutional Deep Belief Network (CDBN) — 1 grounded row(s); layers: concepts=1
+- `convolutional-layer` — convolutional layer — 1 grounded row(s); layers: concepts=1
+- `convolutional-layers` — convolutional layers — 1 grounded row(s); layers: concepts=1
+- `convolutional-neural-networks` — Convolutional neural networks — 2 grounded row(s); layers: concepts=2
+- `convolutional-neural-networks-cnns` — convolutional neural networks (CNNs) — 1 grounded row(s); layers: concepts=1
+- `convolve-the-whole-image` — convolve the whole image — 1 grounded row(s); layers: concepts=1
+- `cook-s-distance` — Cook’s distance — 1 grounded row(s); layers: concepts=1
+- `cooperation` — cooperation — 1 grounded row(s); layers: concepts=1
+- `coordinate-representations` — coordinate representations — 1 grounded row(s); layers: concepts=1
+- `coordinate-transformations` — coordinate transformations — 1 grounded row(s); layers: concepts=1
+- `coordinates` — coordinates — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `coordination-bonds` — coordination bonds — 1 grounded row(s); layers: concepts=1
+- `coping-strategy` — coping strategy — 1 grounded row(s); layers: concepts=1
+- `copy-number-variants` — copy number variants — 1 grounded row(s); layers: concepts=1
+- `core` — core — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `core-and-accessory-proteomes` — core and accessory proteomes — 1 grounded row(s); layers: concepts=1
+- `core-component` — core component — 1 grounded row(s); layers: concepts=1
+- `core-components` — core components — 1 grounded row(s); layers: concepts=1
+- `core-development-team` — core development team — 1 grounded row(s); layers: concepts=1
+- `core-functionality` — core functionality — 1 grounded row(s); layers: concepts=1
+- `core-infrastructure-for-sequence-analysis` — core infrastructure for sequence analysis — 1 grounded row(s); layers: concepts=1
+- `core-metadata-aware-operations` — core metadata-aware operations — 1 grounded row(s); layers: concepts=1
+- `core-microbiome` — core microbiome — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `core-microbiomes` — core microbiomes — 1 grounded row(s); layers: concepts=1
+- `core-of-the-infrastructure` — core of the infrastructure — 1 grounded row(s); layers: concepts=1
+- `core-outcome-set` — core outcome set — 1 grounded row(s); layers: content_tags.definitions=1
+- `core-scientific-infrastructure` — core scientific infrastructure — 1 grounded row(s); layers: concepts=1
+- `core-scientific-python-libraries` — core scientific Python libraries — 1 grounded row(s); layers: concepts=1
+- `coriell` — Coriell — 1 grounded row(s); layers: concepts=1
+- `corpus-consisting-of-546-790-3-1-640-370-sequences-of-3-gram` — corpus consisting of 546,790 × 3 = 1,640,370 sequences of 3-grams — 1 grounded row(s); layers: concepts=1
+- `corrected-item-total-correlation` — corrected item-total correlation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `correctly-merged` — correctly merged — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `correctness-of-preprocessing` — correctness of preprocessing — 1 grounded row(s); layers: concepts=1
+- `correctness-probabilities` — correctness probabilities — 1 grounded row(s); layers: concepts=1
+- `correlation-analysis` — correlation analysis — 1 grounded row(s); layers: concepts=1
+- `correlation-coefficient` — correlation coefficient — 1 grounded row(s); layers: concepts=1
+- `correlation-coefficients` — correlation coefficients — 1 grounded row(s); layers: concepts=1
+- `correspondence-analysis` — correspondence analysis — 1 grounded row(s); layers: concepts=1
+- `corrupted-values` — corrupted values — 1 grounded row(s); layers: concepts=1
+- `corruption-process` — corruption process — 1 grounded row(s); layers: concepts=1
+- `cortical-excitability` — cortical excitability — 1 grounded row(s); layers: concepts=1
+- `cortico-collicular-feedback` — cortico-collicular feedback — 1 grounded row(s); layers: concepts=1
+- `cosmic-distance-ladder` — cosmic distance ladder — 1 grounded row(s); layers: concepts=1
 - `cosmological-parameters` — cosmological parameters — 1 grounded row(s); layers: concepts=1
+- `cost` — cost — 1 grounded row(s); layers: concepts=1
+- `cost-analysis` — cost analysis — 1 grounded row(s); layers: content_tags.definitions=1
+- `cost-effective` — cost-effective — 1 grounded row(s); layers: concepts=1
+- `cost-of-plasticity` — cost of plasticity — 1 grounded row(s); layers: concepts=1
+- `cost-of-the-simulation` — cost of the simulation — 1 grounded row(s); layers: concepts=1
+- `costs` — costs — 1 grounded row(s); layers: concepts=1
+- `coulter-particle-counter` — Coulter particle counter — 1 grounded row(s); layers: concepts=1
+- `count-data` — count data — 1 grounded row(s); layers: concepts=1
+- `counterfactual-explanation` — counterfactual explanation — 1 grounded row(s); layers: content_tags.definitions=1
+- `countoverlaps` — countOverlaps — 1 grounded row(s); layers: concepts=1
+- `cov-species-classification` — CoV species classification — 1 grounded row(s); layers: concepts=1
+- `covariates` — covariates — 1 grounded row(s); layers: concepts=1
+- `coverage` — coverage — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `coverage-vectors` — coverage vectors — 1 grounded row(s); layers: concepts=1
+- `covert-preference` — covert preference — 1 grounded row(s); layers: concepts=1
+- `covid-19-disease-portal` — COVID-19 disease portal — 1 grounded row(s); layers: concepts=1
+- `covid-19-pneumonia` — COVID-19 pneumonia — 1 grounded row(s); layers: concepts=1
+- `covid-19-stressors` — COVID-19 stressors — 1 grounded row(s); layers: concepts=1
+- `covid-portal` — COVID portal — 1 grounded row(s); layers: concepts=1
+- `cpg-dinucleotides` — CpG dinucleotides — 1 grounded row(s); layers: concepts=1
+- `cpg-island-methylator-phenotype` — CpG island methylator phenotype — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cpg-shores` — CpG shores — 1 grounded row(s); layers: concepts=1
+- `cpu-based` — CPU-based — 1 grounded row(s); layers: concepts=1
+- `cpu-capabilities` — CPU capabilities — 1 grounded row(s); layers: concepts=1
+- `cpu-ram` — CPU RAM — 1 grounded row(s); layers: concepts=1
+- `cpus` — CPUs — 1 grounded row(s); layers: concepts=1
+- `cr` — CR — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `credit-based-publication-submission-interface` — credit-based publication submission interface — 1 grounded row(s); layers: concepts=1
+- `criteria-for-success` — criteria for success — 1 grounded row(s); layers: concepts=1
+- `criterion-validity` — Criterion validity — 1 grounded row(s); layers: concepts=1
+- `critical-appraisal` — critical appraisal — 1 grounded row(s); layers: concepts=1
+- `critical-assessment-of-structure-predictions` — Critical Assessment of Structure Predictions — 1 grounded row(s); layers: concepts=1
+- `critical-rate-of-environmental-change` — critical rate of environmental change — 1 grounded row(s); layers: concepts=1
+- `critical-threshold` — critical threshold — 1 grounded row(s); layers: concepts=1
+- `critiquerequest` — CritiqueRequest — 1 grounded row(s); layers: concepts=1
+- `crop-lands` — crop lands — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `crop-yields` — crop yields — 1 grounded row(s); layers: concepts=1
+- `cross-comparison-of-data` — cross-comparison of data — 1 grounded row(s); layers: concepts=1
+- `cross-correlation` — cross-correlation — 1 grounded row(s); layers: content_tags.definitions=1
+- `cross-different-aspects` — cross different aspects — 1 grounded row(s); layers: concepts=1
+- `cross-docking` — cross-docking — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cross-docking-dataset` — cross-docking dataset — 1 grounded row(s); layers: concepts=1
+- `cross-entropy-loss` — cross-entropy loss — 1 grounded row(s); layers: concepts=1
+- `cross-feeding` — cross-feeding — 1 grounded row(s); layers: concepts=1
+- `cross-feeding-experiments` — cross feeding experiments — 1 grounded row(s); layers: concepts=1
+- `cross-linking` — cross-linking — 1 grounded row(s); layers: concepts=1
+- `cross-loadings` — cross-loadings — 1 grounded row(s); layers: concepts=1
+- `cross-ontology-relationships` — cross-ontology relationships — 1 grounded row(s); layers: concepts=1
+- `cross-priming` — cross-priming — 1 grounded row(s); layers: concepts=1
+- `cross-reactivity` — cross-reactivity — 2 grounded row(s); layers: concepts=2
+- `cross-section-collaborations` — cross-section collaborations — 1 grounded row(s); layers: concepts=1
+- `cross-sectional-studies` — cross-sectional studies — 1 grounded row(s); layers: concepts=1
+- `cross-sectional-study` — cross-sectional study — 1 grounded row(s); layers: concepts=1
+- `cross-species-phenotype-matching` — cross-species phenotype matching — 1 grounded row(s); layers: concepts=1
+- `cross-validation` — cross validation — 2 grounded row(s); layers: concepts=2
+- `cross-validation-accuracy` — cross-validation accuracy — 1 grounded row(s); layers: concepts=1
+- `crossed-random-effect` — crossed random effect — 1 grounded row(s); layers: concepts=1
+- `crowd-sourced-correction` — crowd-sourced correction — 1 grounded row(s); layers: concepts=1
+- `crowded` — crowded — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `crowded-cell-samples` — crowded cell samples — 1 grounded row(s); layers: concepts=1
+- `crowded-out` — crowded out — 1 grounded row(s); layers: concepts=1
+- `crowding-agents` — crowding agents — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cru-ts4-0` — CRU Ts4.0 — 1 grounded row(s); layers: concepts=1
+- `cru-ts4-0-dataset` — CRU Ts4.0 dataset — 1 grounded row(s); layers: concepts=1
+- `cryocooling` — cryocooling — 1 grounded row(s); layers: concepts=1
+- `cryogenic-electron-microscopy-maps` — cryogenic electron microscopy maps — 1 grounded row(s); layers: concepts=1
+- `cryptic-multiple-testing` — cryptic multiple testing — 1 grounded row(s); layers: concepts=1
+- `cryptococcus-gattii` — Cryptococcus gattii — 1 grounded row(s); layers: concepts=1
+- `cryptococcus-neoformans` — Cryptococcus neoformans — 1 grounded row(s); layers: concepts=1
+- `crystal-rotation-angle` — crystal rotation angle — 1 grounded row(s); layers: concepts=1
+- `csc` — CSC — 1 grounded row(s); layers: concepts=1
+- `csf-1r-blockade` — CSF-1R blockade — 1 grounded row(s); layers: concepts=1
+- `csr` — CSR — 1 grounded row(s); layers: concepts=1
+- `ctcf-binding-sites` — CTCF binding sites — 1 grounded row(s); layers: concepts=1
+- `ctcfreads-object` — ctcfReads object — 1 grounded row(s); layers: concepts=1
+- `ctfiles` — CTfiles — 1 grounded row(s); layers: concepts=1
+- `ctla-4` — CTLA-4 — 1 grounded row(s); layers: concepts=1
+- `ctruncate` — CTRUNCATE — 1 grounded row(s); layers: concepts=1
+- `ctt` — CTT — 1 grounded row(s); layers: concepts=1
+- `cultivation-based-approaches` — cultivation-based approaches — 1 grounded row(s); layers: concepts=1
+- `cultural-affordance` — cultural affordance — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cultural-awareness` — cultural awareness — 1 grounded row(s); layers: concepts=1
+- `cultural-bias` — cultural bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cultural-competency` — cultural competency — 1 grounded row(s); layers: concepts=1
+- `cultural-drift` — cultural drift — 1 grounded row(s); layers: concepts=1
+- `cultural-prior` — cultural prior — 1 grounded row(s); layers: concepts=1
+- `cultural-safety` — cultural safety — 1 grounded row(s); layers: concepts=1
+- `cultural-stereotypes` — cultural stereotypes — 1 grounded row(s); layers: concepts=1
+- `culturally-safe-care` — culturally safe care — 1 grounded row(s); layers: concepts=1
+- `culture` — culture — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `culturomics` — culturomics — 1 grounded row(s); layers: concepts=1
+- `cumulative-completeness` — cumulative completeness — 1 grounded row(s); layers: concepts=1
+- `cumulative-effect-of-an-epigenetic-maintenance-system` — cumulative effect of an epigenetic maintenance system — 1 grounded row(s); layers: concepts=1
+- `cumulative-pfoa-serum-concentration` — cumulative PFOA serum concentration — 1 grounded row(s); layers: content_tags.definitions=1
+- `cumulative-pressure-map` — cumulative pressure map — 1 grounded row(s); layers: concepts=1
+- `cumulative-pressure-mapping` — cumulative pressure mapping — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cupy-arrays` — CuPy arrays — 1 grounded row(s); layers: concepts=1
+- `curated-gold-standards` — curated gold standards — 1 grounded row(s); layers: concepts=1
+- `curated-predictor-variables` — curated predictor variables — 1 grounded row(s); layers: concepts=1
+- `curation-of-evidence` — curation of evidence — 1 grounded row(s); layers: concepts=1
+- `curation-priorities` — curation priorities — 1 grounded row(s); layers: concepts=1
+- `current-rates` — current rates — 1 grounded row(s); layers: concepts=1
+- `current-scientific-knowledge` — current scientific knowledge — 1 grounded row(s); layers: concepts=1
+- `currently-valid-names` — currently valid names — 1 grounded row(s); layers: concepts=1
+- `curvilinear-dose-response-association` — curvilinear dose-response association — 1 grounded row(s); layers: concepts=1
+- `custom-analysis` — Custom Analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `custom-annotation-databases` — custom annotation databases — 1 grounded row(s); layers: concepts=1
+- `custom-code` — custom code — 1 grounded row(s); layers: concepts=1
+- `custom-comparative-scripts` — custom comparative scripts — 1 grounded row(s); layers: concepts=1
+- `custom-database-of-exon-exon-junctions` — custom database of exon-exon junctions — 1 grounded row(s); layers: concepts=1
+- `custom-forces` — custom forces — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `custom-integrators` — custom integrators — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `custom-programs` — custom programs — 1 grounded row(s); layers: concepts=1
+- `custom-translation-tables` — custom translation tables — 1 grounded row(s); layers: concepts=1
+- `custom-workflows` — custom workflows — 1 grounded row(s); layers: concepts=1
+- `cutadapt` — Cutadapt — 2 grounded row(s); layers: concepts=2
+- `cutoff-value-for-seroconversion` — cutoff value for seroconversion — 1 grounded row(s); layers: concepts=1
+- `cycle-threshold-ct` — cycle threshold, Ct — 1 grounded row(s); layers: concepts=1
+- `cyclegan` — CycleGAN — 1 grounded row(s); layers: content_tags.definitions=1
+- `cycles` — cycles — 1 grounded row(s); layers: concepts=1
+- `cyp` — CYP — 1 grounded row(s); layers: concepts=1
+- `cyp24a1` — CYP24A1 — 1 grounded row(s); layers: concepts=1
+- `cython-c-engine` — Cython/C engine — 1 grounded row(s); layers: concepts=1
+- `cytochromes-p450` — cytochromes P450 — 1 grounded row(s); layers: concepts=1
+- `cytokine-release-syndrome` — cytokine release syndrome — 1 grounded row(s); layers: concepts=1
+- `cytokine-therapies` — cytokine therapies — 1 grounded row(s); layers: concepts=1
+- `cytological-cytometric-profiling` — cytological/cytometric profiling — 1 grounded row(s); layers: concepts=1
+- `cytological-profiles` — cytological profiles — 1 grounded row(s); layers: concepts=1
+- `cytometry-by-time-of-flight` — cytometry by time-of-flight — 1 grounded row(s); layers: concepts=1
+- `cytomine` — Cytomine — 1 grounded row(s); layers: concepts=1
+- `cytopathogenic-effects` — cytopathogenic effects — 1 grounded row(s); layers: concepts=1
+- `cytoplasm` — cytoplasm — 1 grounded row(s); layers: concepts=1
+- `cytoscape` — Cytoscape — 1 grounded row(s); layers: concepts=1
+- `cytosine-5-methylation` — cytosine-5 methylation — 1 grounded row(s); layers: concepts=1
+- `cytosolic` — cytosolic — 1 grounded row(s); layers: concepts=1
+- `damage-associated-molecular-patterns-damps` — damage-associated molecular patterns (DAMPs) — 1 grounded row(s); layers: concepts=1
+- `damid` — DamID — 1 grounded row(s); layers: concepts=1
+- `danger-signals` — danger signals — 1 grounded row(s); layers: concepts=1
+- `dark-count-rate` — dark count rate — 1 grounded row(s); layers: content_tags.definitions=1
+- `dask` — dask — 2 grounded row(s); layers: concepts=2
+- `data` — data — 1 grounded row(s); layers: concepts=1
+- `data-augmentation` — data augmentation — 2 grounded row(s); layers: concepts=2
+- `data-citation-implementation-group` — Data Citation Implementation Group — 1 grounded row(s); layers: concepts=1
+- `data-cleaning-methods` — data cleaning methods — 1 grounded row(s); layers: concepts=1
+- `data-efficiency` — data efficiency — 1 grounded row(s); layers: concepts=1
+- `data-exclusion-set` — data exclusion set — 1 grounded row(s); layers: concepts=1
+- `data-integration-platform` — data integration platform — 1 grounded row(s); layers: concepts=1
+- `data-interchange-between-sites` — data interchange between sites — 1 grounded row(s); layers: concepts=1
+- `data-processing-statistics` — data-processing statistics — 1 grounded row(s); layers: concepts=1
+- `data-producers-and-publishers` — data producers and publishers — 1 grounded row(s); layers: concepts=1
+- `data-reduction` — data reduction — 2 grounded row(s); layers: concepts=2
+- `data-reliability` — data reliability — 1 grounded row(s); layers: concepts=1
+- `data-repositories` — data repositories — 1 grounded row(s); layers: concepts=1
+- `data-resources-tools-vocabularies-and-infrastructures` — data resources, tools, vocabularies and infrastructures — 1 grounded row(s); layers: concepts=1
+- `data-scaling-program` — data-scaling program — 1 grounded row(s); layers: concepts=1
+- `data-science-into-graduate-undergraduate-and-high-school-cur` — data science into graduate, undergraduate, and high-school curricula — 1 grounded row(s); layers: concepts=1
+- `data-seal-of-approval` — Data Seal of Approval — 1 grounded row(s); layers: concepts=1
+- `data-stewardship` — data stewardship — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `data-structure` — data structure — 1 grounded row(s); layers: concepts=1
+- `data-structures` — data structures — 1 grounded row(s); layers: concepts=1
+- `data-transformation` — data-transformation — 1 grounded row(s); layers: concepts=1
+- `data-type` — data type — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `data-visualization` — data visualization — 1 grounded row(s); layers: concepts=1
+- `data-voids` — data voids — 1 grounded row(s); layers: concepts=1
+- `dataarray` — DataArray — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `database` — database — 1 grounded row(s); layers: concepts=1
+- `database-of-all-scrambled-junctions` — database of all scrambled junctions — 1 grounded row(s); layers: concepts=1
+- `database-optimizations` — database optimizations — 1 grounded row(s); layers: concepts=1
+- `database-population` — database population — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `database-sequence` — database sequence — 1 grounded row(s); layers: concepts=1
+- `dataframe` — DataFrame — 2 grounded row(s); layers: concepts=2
+- `dataset` — dataset — 5 grounded row(s); layers: concepts=3, content_tags.definitions=2
+- `dataset-filtering` — dataset filtering — 1 grounded row(s); layers: concepts=1
+- `dataverse` — Dataverse — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `davies-test` — Davies test — 1 grounded row(s); layers: concepts=1
+- `day-27` — day 27 — 1 grounded row(s); layers: concepts=1
+- `dce` — DCE — 1 grounded row(s); layers: content_tags.definitions=1
+- `dd` — DD — 1 grounded row(s); layers: content_tags.definitions=1
+- `de-duplicated-by-individual` — de-duplicated by individual — 1 grounded row(s); layers: concepts=1
+- `de-intercalation` — de-intercalation — 1 grounded row(s); layers: concepts=1
+- `de-novo-assembly` — de novo assembly — 2 grounded row(s); layers: concepts=2
+- `de-novo-chimera-detection` — de novo chimera detection — 1 grounded row(s); layers: concepts=1
+- `de-novo-gene-prediction` — de novo gene prediction — 1 grounded row(s); layers: concepts=1
+- `de-novo-methods` — de novo methods — 1 grounded row(s); layers: concepts=1
+- `de-novo-multi-omic-cut-tag` — de novo “multi-OMIC” CUT&Tag — 1 grounded row(s); layers: concepts=1
+- `de-novo-otus` — de novo OTUs — 1 grounded row(s); layers: concepts=1
+- `de-novo-pfam-domain-annotation` — de novo PFAM domain annotation — 1 grounded row(s); layers: concepts=1
+- `dead-simple-owl-design-patterns-dosdps` — Dead Simple OWL Design Patterns (DOSDPs) — 1 grounded row(s); layers: concepts=1
+- `dead-time` — dead time — 1 grounded row(s); layers: content_tags.definitions=1
+- `dead-volume-requirements` — dead volume requirements — 1 grounded row(s); layers: concepts=1
+- `dead-volume-requirements-for-liquid-handling` — dead volume requirements for liquid handling — 1 grounded row(s); layers: concepts=1
+- `dearth-of-tested-theory` — dearth of tested theory — 1 grounded row(s); layers: concepts=1
+- `death` — death — 1 grounded row(s); layers: concepts=1
+- `debate-article` — debate article — 1 grounded row(s); layers: concepts=1
+- `decision-support` — decision support — 1 grounded row(s); layers: concepts=1
+- `decision-trees` — decision trees — 1 grounded row(s); layers: concepts=1
+- `declines-in-affective-well-being` — declines in affective well-being — 1 grounded row(s); layers: concepts=1
+- `declines-in-per-capita-harvested-rice` — declines in per capita harvested rice — 1 grounded row(s); layers: concepts=1
+- `declining-global-catches` — declining global catches — 1 grounded row(s); layers: concepts=1
+- `declining-industrial-catch` — declining industrial catch — 1 grounded row(s); layers: concepts=1
+- `decoy-effect` — decoy effect — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `decoy-read-pairs` — “decoy” read pairs — 1 grounded row(s); layers: concepts=1
+- `decrease-in-neural-activation` — decrease in neural activation — 1 grounded row(s); layers: concepts=1
+- `decreasing-antibody-levels` — decreasing antibody levels — 1 grounded row(s); layers: concepts=1
+- `decrement` — decrement — 1 grounded row(s); layers: concepts=1
+- `dedicated-portal` — dedicated portal — 1 grounded row(s); layers: concepts=1
+- `deductive-method` — deductive method — 1 grounded row(s); layers: concepts=1
+- `deductive-reasoning-process` — deductive reasoning process — 1 grounded row(s); layers: concepts=1
+- `deep-belief-network` — Deep Belief Network — 1 grounded row(s); layers: concepts=1
+- `deep-belief-networks` — Deep Belief Networks — 1 grounded row(s); layers: concepts=1
+- `deep-boltzmann-machines` — Deep Boltzmann Machines — 1 grounded row(s); layers: concepts=1
+- `deep-graph-library` — Deep Graph Library — 1 grounded row(s); layers: concepts=1
+- `deep-hierarchical-representation` — deep hierarchical representation — 1 grounded row(s); layers: concepts=1
+- `deep-learning-algorithm` — deep learning algorithm — 1 grounded row(s); layers: concepts=1
+- `deep-learning-dl` — Deep Learning (DL) — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `deep-learning-framework` — deep learning framework — 1 grounded row(s); layers: concepts=1
+- `deep-learning-methods` — deep learning methods — 1 grounded row(s); layers: concepts=1
+- `deep-learning-model` — deep learning model — 1 grounded row(s); layers: concepts=1
+- `deep-neural-network` — deep neural network — 1 grounded row(s); layers: content_tags.definitions=1
+- `deep-neural-network-based-structural-classification-tool` — deep neural network-based structural classification tool — 1 grounded row(s); layers: concepts=1
+- `deep-neural-networks` — deep neural networks — 1 grounded row(s); layers: concepts=1
+- `deep-phenotyping` — deep phenotyping — 1 grounded row(s); layers: content_tags.definitions=1
+- `deep-sequencing-of-rna` — deep sequencing of RNA — 1 grounded row(s); layers: concepts=1
+- `deep-structural-change` — deep, structural change — 1 grounded row(s); layers: concepts=1
+- `deep-tensor-neural-network-dtnn` — deep tensor neural network (DTNN) — 1 grounded row(s); layers: concepts=1
+- `deepface` — DeepFace — 1 grounded row(s); layers: concepts=1
+- `deeplabcut` — DeepLabCut — 1 grounded row(s); layers: concepts=1
+- `deepometry` — Deepometry — 1 grounded row(s); layers: concepts=1
+- `deepposekit` — DeepPoseKit — 1 grounded row(s); layers: concepts=1
+- `deepsmiles` — deepSMILES — 1 grounded row(s); layers: concepts=1
+- `def-pooling` — def-pooling — 1 grounded row(s); layers: concepts=1
+- `default-ensemble` — Default Ensemble — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `defection` — defection — 1 grounded row(s); layers: concepts=1
+- `deficiencies-in-research` — deficiencies in research — 1 grounded row(s); layers: concepts=1
+- `deficit-discourses` — deficit discourses — 1 grounded row(s); layers: concepts=1
+- `deficit-irrigation` — deficit irrigation — 1 grounded row(s); layers: content_tags.definitions=1
+- `defined-mock-community` — defined mock community — 1 grounded row(s); layers: concepts=1
+- `definitions-for-probable-invasive-fungal-disease` — definitions for probable invasive fungal disease — 1 grounded row(s); layers: concepts=1
+- `definitions-of-ifd-required-for-clinical-research` — definitions of IFD required for clinical research — 1 grounded row(s); layers: concepts=1
+- `degeneracy-between-mass-ratio` — degeneracy between mass ratio — 1 grounded row(s); layers: concepts=1
+- `deglycosylated-structure-representation` — deglycosylated structure representation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `degree-of-consistency` — degree of consistency — 1 grounded row(s); layers: concepts=1
+- `degree-of-trust` — degree of trust — 1 grounded row(s); layers: concepts=1
+- `delay-of-emissions-reductions-until-2020` — Delay of emissions reductions until 2020 — 1 grounded row(s); layers: concepts=1
+- `delayed-and-persistent-temporal-subtypes` — delayed and persistent temporal subtypes — 1 grounded row(s); layers: concepts=1
+- `deleting` — deleting — 1 grounded row(s); layers: concepts=1
+- `delphi-process` — Delphi process — 1 grounded row(s); layers: concepts=1
+- `demarcation-criteria` — demarcation criteria — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `demographic-properties` — demographic properties — 1 grounded row(s); layers: concepts=1
+- `dendritic-cells` — dendritic cells — 1 grounded row(s); layers: concepts=1
+- `density-functional-theory-dft` — density-functional theory (DFT) — 1 grounded row(s); layers: concepts=1
+- `density-independent` — density-independent — 1 grounded row(s); layers: concepts=1
+- `density-of-insight-doi` — density of insight (DOI) — 1 grounded row(s); layers: concepts=1
+- `density-of-states-dos-at-the-fermi-level-e-f` — density of states (DOS) at the Fermi level ( E F ) — 1 grounded row(s); layers: concepts=1
+- `deontic-cue` — deontic cue — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `deontic-value` — deontic value — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `deposits` — Deposits — 1 grounded row(s); layers: concepts=1
+- `depression` — depression — 1 grounded row(s); layers: concepts=1
+- `depressive-symptomatology` — depressive symptomatology — 1 grounded row(s); layers: concepts=1
+- `depth` — depth — 1 grounded row(s); layers: concepts=1
+- `depth-dimension` — depth dimension — 1 grounded row(s); layers: concepts=1
+- `depth-first` — depth-first — 1 grounded row(s); layers: concepts=1
+- `depth-first-df` — depth-first (DF) — 1 grounded row(s); layers: concepts=1
+- `depth-first-search` — depth-first search — 1 grounded row(s); layers: concepts=1
+- `depths-of-coverage` — depths of coverage — 1 grounded row(s); layers: concepts=1
+- `describing-the-certainty` — Describing the certainty — 1 grounded row(s); layers: concepts=1
+- `description` — description — 1 grounded row(s); layers: concepts=1
+- `descriptive-categories` — descriptive categories — 1 grounded row(s); layers: concepts=1
+- `descriptive-features` — descriptive features — 1 grounded row(s); layers: concepts=1
+- `descriptive-research` — descriptive research — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `descriptor` — Descriptor — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `descriptor-arithmetic` — descriptor arithmetic — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `descriptor-based-models` — descriptor-based models — 1 grounded row(s); layers: concepts=1
+- `descriptor-calculation-software-application` — descriptor-calculation software application — 1 grounded row(s); layers: concepts=1
+- `descriptor-class` — Descriptor class — 1 grounded row(s); layers: concepts=1
+- `descriptors` — descriptors — 1 grounded row(s); layers: concepts=1
+- `deseq` — DESeq — 1 grounded row(s); layers: concepts=1
+- `designing-and-conducting-randomised-trials` — designing and conducting randomised trials — 1 grounded row(s); layers: concepts=1
+- `desirable-health-behaviors` — desirable health behaviors — 1 grounded row(s); layers: concepts=1
+- `desirable-information` — desirable information — 1 grounded row(s); layers: content_tags.definitions=1
+- `desmond` — Desmond — 1 grounded row(s); layers: concepts=1
+- `detailed-or-specific-interventions` — Detailed or specific interventions — 1 grounded row(s); layers: concepts=1
+- `detection` — detection — 1 grounded row(s); layers: concepts=1
+- `detection-of-rare-circular-rna-isoforms` — detection of rare circular RNA isoforms — 1 grounded row(s); layers: concepts=1
+- `detection-statistic-value` — detection-statistic value — 1 grounded row(s); layers: concepts=1
+- `detector-gain` — detector gain — 1 grounded row(s); layers: concepts=1
+- `detector-noise` — detector noise — 1 grounded row(s); layers: concepts=1
+- `determinant-frameworks` — determinant frameworks — 1 grounded row(s); layers: concepts=1
+- `deterministic-linkage` — deterministic linkage — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `detourmatrix-descriptor` — DetourMatrix descriptor — 1 grounded row(s); layers: concepts=1
+- `detritusphere` — detritusphere — 1 grounded row(s); layers: concepts=1
+- `devaluation` — devaluation — 1 grounded row(s); layers: concepts=1
+- `development` — development — 1 grounded row(s); layers: concepts=1
+- `development-time` — development time — 1 grounded row(s); layers: content_tags.definitions=1
+- `deviance-information-criterion` — Deviance Information Criterion — 1 grounded row(s); layers: concepts=1
+- `dg-model` — DG model — 1 grounded row(s); layers: content_tags.definitions=1
+- `dhfr` — DHFR — 1 grounded row(s); layers: concepts=1
+- `diabetes-mellitus` — diabetes mellitus — 1 grounded row(s); layers: concepts=1
+- `diabetic-foot-ulcers` — diabetic foot ulcers — 1 grounded row(s); layers: concepts=1
+- `diagnoses` — diagnoses — 1 grounded row(s); layers: concepts=1
+- `diagnoses-of-pgd-before-6-mo-post-loss` — diagnoses of PGD before 6 mo post-loss — 1 grounded row(s); layers: concepts=1
+- `diagnostic-junctional-reads` — diagnostic junctional reads — 1 grounded row(s); layers: concepts=1
+- `diamond` — diamond — 1 grounded row(s); layers: concepts=1
+- `diamond-mode` — Diamond mode — 1 grounded row(s); layers: concepts=1
+- `diasorin-assay` — DiaSorin assay — 1 grounded row(s); layers: concepts=1
+- `dict-like-container` — dict-like container — 1 grounded row(s); layers: concepts=1
+- `didactic-education` — didactic education — 1 grounded row(s); layers: concepts=1
+- `didactics` — didactics — 1 grounded row(s); layers: concepts=1
+- `difference-in-each-participant-s-priming-between-the-same-an` — difference in each participant's priming between the Same and Reverse tasks — 1 grounded row(s); layers: concepts=1
+- `difference-in-mean-rts-between-novel-and-repeated-stimuli` — difference in mean RTs between Novel and Repeated stimuli — 1 grounded row(s); layers: concepts=1
+- `difference-maps` — difference maps — 1 grounded row(s); layers: concepts=1
+- `different-quality-and-completeness-metrics` — different quality and completeness metrics — 1 grounded row(s); layers: concepts=1
+- `different-standard-inchikeys` — different Standard InChIKeys — 1 grounded row(s); layers: concepts=1
+- `different-to-zero` — different to zero — 1 grounded row(s); layers: concepts=1
+- `differential-abundance` — differential abundance — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `differential-expression` — differential expression — 1 grounded row(s); layers: concepts=1
+- `differential-interference` — differential interference — 1 grounded row(s); layers: concepts=1
+- `differential-item-functioning` — differential item functioning — 1 grounded row(s); layers: concepts=1
+- `differential-language-analysis` — differential language analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `differential-splicing` — differential splicing — 1 grounded row(s); layers: concepts=1
+- `diffusion` — diffusion — 1 grounded row(s); layers: concepts=1
+- `diffusion-dissemination-implementation-continuum` — diffusion-dissemination-implementation continuum — 1 grounded row(s); layers: concepts=1
+- `digital-footprint` — digital footprint — 1 grounded row(s); layers: concepts=1
+- `digital-image-analytics-automation-quantitation-and-objectiv` — digital image analytics, automation, quantitation and objective screening of tissue samples — 1 grounded row(s); layers: concepts=1
+- `digital-numbers` — digital numbers — 1 grounded row(s); layers: concepts=1
+- `digital-object` — digital object — 1 grounded row(s); layers: concepts=1
+- `digital-pathology` — digital pathology — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `digital-psychiatry` — digital psychiatry — 1 grounded row(s); layers: content_tags.definitions=1
+- `digital-transformation` — digital transformation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `digital-wellbeing` — digital wellbeing — 1 grounded row(s); layers: concepts=1
+- `digitization` — digitization — 1 grounded row(s); layers: concepts=1
+- `dilemma-strength` — dilemma strength — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `diligent-adherence` — Diligent adherence — 1 grounded row(s); layers: concepts=1
+- `diluted-solutions` — diluted solutions — 1 grounded row(s); layers: concepts=1
+- `dimension-names` — dimension names — 1 grounded row(s); layers: concepts=1
+- `dimensional-reduction` — dimensional reduction — 1 grounded row(s); layers: concepts=1
+- `dimensionality` — dimensionality — 1 grounded row(s); layers: concepts=1
+- `dimensionality-reduction` — dimensionality reduction — 1 grounded row(s); layers: content_tags.definitions=1
+- `dimensions` — Dimensions — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `dimensions-variables-and-attributes` — dimensions, variables, and attributes — 1 grounded row(s); layers: concepts=1
+- `diminished-insight-and-indecision` — diminished insight and indecision — 1 grounded row(s); layers: concepts=1
+- `diminishing-marginal-utility-of-income` — diminishing marginal utility of income — 1 grounded row(s); layers: concepts=1
+- `diminishing-returns` — diminishing returns — 1 grounded row(s); layers: concepts=1
+- `dipeptidyl-peptidase-4-dpp4` — dipeptidyl peptidase 4 (DPP4) — 1 grounded row(s); layers: concepts=1
+- `dipole` — dipole — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `direct-and-indirect-human-pressures` — direct and indirect human pressures — 1 grounded row(s); layers: concepts=1
+- `direct-detection-of-the-virus` — direct detection of the virus — 1 grounded row(s); layers: concepts=1
+- `direct-effects` — direct effects — 1 grounded row(s); layers: concepts=1
+- `direct-feature-learning` — direct feature learning — 1 grounded row(s); layers: concepts=1
+- `direct-human-pressure` — direct human pressure — 1 grounded row(s); layers: concepts=1
+- `direct-influence-of-the-environment-on-individual-phenotypes` — direct influence of the environment on individual phenotypes — 1 grounded row(s); layers: concepts=1
+- `direct-interspecies-electron-transfer-diet` — Direct Interspecies Electron Transfer (DIET) — 1 grounded row(s); layers: concepts=1
+- `direct-predictions` — direct predictions — 1 grounded row(s); layers: concepts=1
+- `direct-pressure` — direct pressure — 1 grounded row(s); layers: concepts=1
+- `direct-response-technique` — Direct Response technique — 1 grounded row(s); layers: concepts=1
+- `direct-sequencing-approaches` — direct sequencing approaches — 1 grounded row(s); layers: concepts=1
+- `direct-social-interaction` — direct social interaction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `direct-translation` — direct translation — 1 grounded row(s); layers: concepts=1
+- `directed-connections` — directed connections — 1 grounded row(s); layers: concepts=1
+- `directed-generative-model` — directed generative model — 1 grounded row(s); layers: concepts=1
+- `directed-tree` — directed tree — 1 grounded row(s); layers: concepts=1
+- `directed-weighted-graph` — directed weighted graph — 1 grounded row(s); layers: concepts=1
+- `directing-style` — directing style — 1 grounded row(s); layers: concepts=1
+- `disability` — disability — 1 grounded row(s); layers: concepts=1
+- `disaster` — disaster — 1 grounded row(s); layers: content_tags.definitions=1
+- `discarded-bycatch` — discarded bycatch — 1 grounded row(s); layers: concepts=1
+- `discards` — discards — 1 grounded row(s); layers: concepts=1
+- `discord-promoting-content` — discord-promoting content — 1 grounded row(s); layers: concepts=1
+- `discordance-between-assays` — discordance between assays — 1 grounded row(s); layers: concepts=1
+- `discovery-and-re-usability-problem` — discovery and re-usability problem — 1 grounded row(s); layers: concepts=1
+- `discovery-transparency-and-replicability` — discovery, transparency, and replicability — 1 grounded row(s); layers: concepts=1
+- `discrete-strategies` — discrete strategies — 1 grounded row(s); layers: concepts=1
+- `discriminability` — discriminability — 1 grounded row(s); layers: content_tags.definitions=1
+- `discriminant-validity` — discriminant validity — 2 grounded row(s); layers: concepts=2
 - `discrimination` — discrimination — 1 grounded row(s); layers: concepts=1
-- `distributed-representation` — distributed representation — 1 grounded row(s); layers: content_tags.definitions=1
+- `discriminatory-factors` — discriminatory factors — 1 grounded row(s); layers: concepts=1
+- `disease` — disease — 2 grounded row(s); layers: concepts=2
+- `disease-categories` — disease categories — 1 grounded row(s); layers: concepts=1
+- `disease-centric-access-points` — disease-centric access points — 1 grounded row(s); layers: concepts=1
+- `disease-entities` — disease entities — 1 grounded row(s); layers: concepts=1
+- `disease-hpo-phenotype-annotations-hpoa` — disease HPO phenotype annotations (HPOA) — 1 grounded row(s); layers: concepts=1
+- `disease-registries` — disease registries — 1 grounded row(s); layers: concepts=1
+- `disease-related-amino-acid-variant` — disease-related amino-acid variant — 1 grounded row(s); layers: concepts=1
+- `disease-severity` — disease severity — 1 grounded row(s); layers: concepts=1
+- `disease-specific-survival` — disease-specific survival — 1 grounded row(s); layers: concepts=1
+- `disease-state` — disease state — 1 grounded row(s); layers: concepts=1
+- `disease-surveillance` — disease surveillance — 1 grounded row(s); layers: concepts=1
+- `diseases` — diseases — 1 grounded row(s); layers: concepts=1
+- `disillusionment` — disillusionment — 1 grounded row(s); layers: content_tags.definitions=1
+- `disincentives` — disincentives — 1 grounded row(s); layers: concepts=1
+- `disinformation-and-false-reports` — disinformation and false reports — 1 grounded row(s); layers: concepts=1
+- `disordered-proteins` — disordered proteins — 1 grounded row(s); layers: content_tags.definitions=1
+- `disordered-systems` — disordered systems — 1 grounded row(s); layers: concepts=1
+- `dispatches-operations` — dispatches operations — 1 grounded row(s); layers: concepts=1
+- `dispersal` — dispersal — 1 grounded row(s); layers: concepts=1
+- `dispersion-parameter` — dispersion parameter — 1 grounded row(s); layers: concepts=1
+- `disprot` — DisProt — 1 grounded row(s); layers: concepts=1
+- `disseminated-cryptococcosis` — disseminated cryptococcosis — 1 grounded row(s); layers: concepts=1
+- `dissemination` — dissemination — 1 grounded row(s); layers: concepts=1
+- `dissent` — dissent — 1 grounded row(s); layers: concepts=1
+- `distal` — distal — 1 grounded row(s); layers: concepts=1
+- `distance` — distance — 1 grounded row(s); layers: concepts=1
+- `distance-based-greedy-clustering` — distance-based greedy clustering — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `distance-degeneracy` — distance degeneracy — 1 grounded row(s); layers: concepts=1
+- `distance-effect` — distance effect — 1 grounded row(s); layers: content_tags.definitions=1
+- `distance-matrix` — distance matrix — 1 grounded row(s); layers: concepts=1
+- `distance-measurement` — distance measurement — 1 grounded row(s); layers: concepts=1
+- `distance-threshold` — distance threshold — 1 grounded row(s); layers: concepts=1
+- `distance-to-the-nearest-upstream-or-downstream-5-or-3-splice` — distance to the nearest upstream or downstream 5′ or 3′ splice site respectively — 1 grounded row(s); layers: concepts=1
+- `distant-homology-relationships` — distant homology relationships — 1 grounded row(s); layers: concepts=1
+- `distillation` — distillation — 1 grounded row(s); layers: content_tags.definitions=1
+- `distinct-antigenicity` — distinct antigenicity — 1 grounded row(s); layers: concepts=1
+- `distinct-functional-phenotypes` — distinct functional phenotypes — 1 grounded row(s); layers: concepts=1
+- `distinct-lineage` — distinct lineage — 1 grounded row(s); layers: concepts=1
+- `distinct-types-of-contents` — distinct types of contents — 1 grounded row(s); layers: concepts=1
+- `distogram` — distogram — 1 grounded row(s); layers: concepts=1
+- `distributed-arrays` — distributed arrays — 1 grounded row(s); layers: concepts=1
+- `distributed-cellprofiler` — Distributed-CellProfiler — 1 grounded row(s); layers: concepts=1
+- `distributed-representation` — distributed representation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `distributed-revision-control` — distributed revision control — 1 grounded row(s); layers: concepts=1
+- `distribution` — distribution — 1 grounded row(s); layers: concepts=1
+- `distribution-of-the-data` — distribution of the data — 1 grounded row(s); layers: concepts=1
+- `diverse-chromatin-components` — diverse chromatin components — 1 grounded row(s); layers: concepts=1
+- `diversity-loss` — diversity loss — 1 grounded row(s); layers: concepts=1
+- `diversity-of-life` — diversity of life — 1 grounded row(s); layers: concepts=1
+- `divided-attention` — divided attention — 1 grounded row(s); layers: content_tags.definitions=1
+- `dmsp-ols` — DMSP-OLS — 1 grounded row(s); layers: concepts=1
+- `dna` — DNA — 1 grounded row(s); layers: concepts=1
+- `dna-binding-transcription-factor-activity` — DNA-binding transcription factor activity — 1 grounded row(s); layers: concepts=1
+- `dna-content` — DNA content — 1 grounded row(s); layers: concepts=1
+- `dna-end-polishing-and-adapter-ligation` — DNA end polishing and adapter ligation — 1 grounded row(s); layers: concepts=1
+- `dna-extraction` — DNA extraction — 1 grounded row(s); layers: concepts=1
+- `dna-methylation` — DNA methylation — 1 grounded row(s); layers: concepts=1
+- `dna-methylation-age` — DNA methylation age — 1 grounded row(s); layers: concepts=1
+- `dna-methylation-levels` — DNA methylation levels — 1 grounded row(s); layers: concepts=1
+- `dna-sequence-based-analysis` — DNA sequence-based analysis — 1 grounded row(s); layers: concepts=1
+- `dna-staining-intensity` — DNA staining intensity — 1 grounded row(s); layers: concepts=1
+- `dnam-age` — DNAm age — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `dnase-seq-atac-seq-and-chip-seq-datasets` — DNase-seq, ATAC-seq, and ChIP-seq datasets — 1 grounded row(s); layers: concepts=1
+- `dnn` — DNN — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `dnr` — DNR — 1 grounded row(s); layers: content_tags.definitions=1
+- `dock1` — DOCK1 — 1 grounded row(s); layers: concepts=1
+- `docker-containers` — Docker containers — 1 grounded row(s); layers: concepts=1
+- `docker-image` — Docker image — 1 grounded row(s); layers: concepts=1
+- `document-oriented-nosql-database-program` — document-oriented NoSQL database program — 1 grounded row(s); layers: concepts=1
+- `domain-adaptation` — domain adaptation — 1 grounded row(s); layers: content_tags.definitions=1
+- `domain-specific-functionality` — domain-specific functionality — 1 grounded row(s); layers: concepts=1
+- `domain-specific-language` — domain specific language — 1 grounded row(s); layers: concepts=1
+- `domain-specific-llm` — domain-specific LLM — 1 grounded row(s); layers: concepts=1
+- `domain-specific-ontologies` — domain-specific ontologies — 1 grounded row(s); layers: concepts=1
+- `domain-specific-packages` — domain-specific packages — 1 grounded row(s); layers: concepts=1
+- `domain-x-containing-protein` — domain X containing protein — 1 grounded row(s); layers: concepts=1
+- `dominance` — dominance — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `dominant-markers` — dominant markers — 1 grounded row(s); layers: concepts=1
+- `donor-accession-numbers` — donor accession numbers — 1 grounded row(s); layers: concepts=1
 - `dopamine` — dopamine — 1 grounded row(s); layers: concepts=1
+- `double-encryption` — double encryption — 1 grounded row(s); layers: content_tags.definitions=1
+- `double-poly-a-selection` — double poly-A selection — 1 grounded row(s); layers: concepts=1
+- `double-precision` — Double Precision — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `downsampling` — downsampling — 1 grounded row(s); layers: concepts=1
+- `downsampling-blocks` — downsampling blocks — 1 grounded row(s); layers: concepts=1
+- `downsian-model` — Downsian model — 1 grounded row(s); layers: concepts=1
+- `downstream-5-splice-site` — downstream 5′ splice site — 1 grounded row(s); layers: concepts=1
+- `downstream-analyses` — downstream analyses — 1 grounded row(s); layers: concepts=1
+- `drama` — drama — 1 grounded row(s); layers: concepts=1
+- `drawbacks` — drawbacks — 1 grounded row(s); layers: concepts=1
+- `drilosphere` — drilosphere — 1 grounded row(s); layers: concepts=1
+- `drop-in-replacement` — drop-in replacement — 1 grounded row(s); layers: concepts=1
+- `dropout` — dropout — 1 grounded row(s); layers: concepts=1
+- `drosophila-brains` — Drosophila brains — 1 grounded row(s); layers: concepts=1
+- `drosophila-kc167-cells` — Drosophila Kc167 cells — 1 grounded row(s); layers: concepts=1
+- `drosophila-melanogaster` — Drosophila melanogaster — 1 grounded row(s); layers: concepts=1
+- `drude-particles` — Drude particles — 1 grounded row(s); layers: concepts=1
+- `drug-addiction` — drug addiction — 1 grounded row(s); layers: concepts=1
+- `drug-discovery` — drug discovery — 1 grounded row(s); layers: concepts=1
+- `drug-like-molecules` — drug-like molecules — 1 grounded row(s); layers: concepts=1
+- `drug-likeness` — drug-likeness — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `drug-negative` — drug-negative — 1 grounded row(s); layers: concepts=1
+- `drug-response-phenotypes` — drug response phenotypes — 1 grounded row(s); layers: concepts=1
+- `drugbank` — DrugBank — 1 grounded row(s); layers: concepts=1
+- `dry-cough` — dry cough — 1 grounded row(s); layers: concepts=1
+- `dryad-digital-repository` — Dryad Digital Repository — 1 grounded row(s); layers: concepts=1
+- `dtnn` — DTNN — 1 grounded row(s); layers: concepts=1
+- `dual-thermostat-langevin-integrator` — dual-thermostat Langevin integrator — 1 grounded row(s); layers: concepts=1
+- `dual-use` — dual use — 1 grounded row(s); layers: concepts=1
+- `duke-excluded-regions` — Duke Excluded Regions — 1 grounded row(s); layers: concepts=1
+- `dummy-dimensions-of-size-one` — dummy dimensions of size one — 1 grounded row(s); layers: concepts=1
+- `duplicates` — duplicates — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `duplications` — duplications — 1 grounded row(s); layers: concepts=1
+- `durability` — durability — 1 grounded row(s); layers: concepts=1
+- `dust-algorithm` — Dust algorithm — 1 grounded row(s); layers: concepts=1
+- `duty-to-act` — duty to act — 1 grounded row(s); layers: concepts=1
+- `dynamic-and-interactive-micro-ecosystem` — dynamic and interactive micro-ecosystem — 1 grounded row(s); layers: concepts=1
+- `dynamic-assessment` — dynamic assessment — 1 grounded row(s); layers: concepts=1
+- `dynamic-process` — dynamic process — 1 grounded row(s); layers: content_tags.definitions=1
+- `dynamic-range` — dynamic range — 1 grounded row(s); layers: concepts=1
+- `dynamic-range-of-the-assays` — dynamic range of the assays — 1 grounded row(s); layers: concepts=1
+- `dynamic-sink-pulse-response-function` — dynamic-sink pulse-response function — 1 grounded row(s); layers: concepts=1
+- `dynamical-system` — dynamical system — 1 grounded row(s); layers: concepts=1
+- `e-values` — e-values — 1 grounded row(s); layers: concepts=1
+- `ea-utils` — EA-Utils — 1 grounded row(s); layers: concepts=1
+- `each-gtdb-species-cluster` — Each GTDB species cluster — 1 grounded row(s); layers: concepts=1
+- `each-of-these-five-elements-represents-an-alternative-way-to` — each of these five elements represents an alternative way to measure fidelity — 1 grounded row(s); layers: concepts=1
+- `each-rna-sample-was-depleted-of-poly-a-rna` — Each RNA sample was depleted of poly(A) RNA — 1 grounded row(s); layers: concepts=1
+- `each-separate-molecular-substrate-tested-in-a-single-isolate` — each separate molecular substrate tested in a single, isolated experimental assay or result — 1 grounded row(s); layers: concepts=1
+- `early-acute-infection` — early acute infection — 1 grounded row(s); layers: concepts=1
+- `early-fusion` — early fusion — 2 grounded row(s); layers: content_tags.definitions=2
+- `early-stopping` — early stopping — 1 grounded row(s); layers: concepts=1
+- `earth-microbiome-project` — Earth Microbiome Project — 1 grounded row(s); layers: concepts=1
+- `earthlocation-class` — EarthLocation class — 1 grounded row(s); layers: concepts=1
+- `ec-numbers` — EC numbers — 1 grounded row(s); layers: concepts=1
+- `echo-chambers` — echo chambers — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `echo-responses` — echo responses — 1 grounded row(s); layers: content_tags.definitions=1
+- `echoic-memory` — echoic memory — 1 grounded row(s); layers: concepts=1
+- `ecological-distances` — ecological distances — 1 grounded row(s); layers: concepts=1
+- `ecological-information` — ecological information — 1 grounded row(s); layers: concepts=1
+- `ecological-niche` — ecological niche — 1 grounded row(s); layers: concepts=1
+- `ecological-psychology` — ecological psychology — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ecological-traps` — ecological traps — 1 grounded row(s); layers: concepts=1
+- `ecologically-important-traits` — ecologically important traits — 1 grounded row(s); layers: concepts=1
+- `economic-incentives` — economic incentives — 1 grounded row(s); layers: concepts=1
+- `economic-model` — economic model — 1 grounded row(s); layers: concepts=1
+- `economic-policy-response` — economic policy response — 1 grounded row(s); layers: content_tags.definitions=1
+- `economics` — economics — 1 grounded row(s); layers: concepts=1
+- `ecosystem-based-fisheries-management` — ecosystem-based fisheries management — 1 grounded row(s); layers: concepts=1
+- `ecosystem-disservice` — ecosystem disservice — 1 grounded row(s); layers: content_tags.definitions=1
+- `ecosystem-functioning` — ecosystem functioning — 1 grounded row(s); layers: concepts=1
+- `ecosystem-productivity` — ecosystem productivity — 1 grounded row(s); layers: concepts=1
+- `ecosystem-service` — ecosystem service — 1 grounded row(s); layers: content_tags.definitions=1
+- `ecosystem-services` — ecosystem services — 1 grounded row(s); layers: concepts=1
+- `ecotypes` — ecotypes — 1 grounded row(s); layers: concepts=1
+- `ecsv` — ECSV — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ectosome` — ectosome — 1 grounded row(s); layers: concepts=1
+- `ectosomes` — ectosomes — 1 grounded row(s); layers: concepts=1
+- `edge-features-matrix` — edge features matrix — 1 grounded row(s); layers: concepts=1
+- `edges` — edges — 1 grounded row(s); layers: concepts=1
+- `edges-of-the-graph` — edges of the graph — 1 grounded row(s); layers: concepts=1
+- `edges-or-corners` — edges or corners — 1 grounded row(s); layers: concepts=1
+- `edtech` — EdTech — 1 grounded row(s); layers: concepts=1
+- `education-of-attention` — education of attention — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `educational-level` — educational level — 1 grounded row(s); layers: concepts=1
+- `educational-neuroscience` — educational neuroscience — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `educational-outputs` — educational outputs — 1 grounded row(s); layers: concepts=1
+- `eeg` — EEG — 1 grounded row(s); layers: content_tags.definitions=1
+- `eezs` — EEZs — 1 grounded row(s); layers: concepts=1
+- `effect-of-one-activity-on-the-other` — effect of one activity on the other — 1 grounded row(s); layers: concepts=1
+- `effect-size` — effect size — 1 grounded row(s); layers: concepts=1
+- `effective-data-compression` — effective data compression — 1 grounded row(s); layers: concepts=1
+- `effective-stress` — effective stress — 1 grounded row(s); layers: content_tags.definitions=1
+- `effectiveness` — effectiveness — 2 grounded row(s); layers: concepts=2
+- `effectivity` — effectivity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `effects-of-outliers` — effects of outliers — 1 grounded row(s); layers: concepts=1
+- `efficacy-of-adoptive-cell-therapy` — efficacy of adoptive cell therapy — 1 grounded row(s); layers: concepts=1
+- `efficiency-of-conversion-of-ingested-food` — efficiency of conversion of ingested food — 1 grounded row(s); layers: content_tags.definitions=1
+- `efficiency-of-evaluation` — efficiency of evaluation — 1 grounded row(s); layers: concepts=1
+- `efficiency-of-the-main-study` — efficiency of the main study — 1 grounded row(s); layers: concepts=1
+- `efficient-evaluations` — efficient evaluations — 1 grounded row(s); layers: concepts=1
+- `efficient-implementation` — efficient implementation — 1 grounded row(s); layers: concepts=1
+- `effort-discounting` — effort discounting — 1 grounded row(s); layers: content_tags.definitions=1
+- `eggnog-database` — eggNOG database — 1 grounded row(s); layers: concepts=1
+- `eggnog-mapper` — eggNOG-mapper — 1 grounded row(s); layers: concepts=1
+- `eggnog-v5` — eggNOG v5 — 1 grounded row(s); layers: concepts=1
+- `eight-different-predictors` — eight different predictors — 1 grounded row(s); layers: concepts=1
+- `eight-point-1-2-dilution-series` — eight-point 1:2 dilution series — 1 grounded row(s); layers: concepts=1
+- `eight-weeks` — eight weeks — 1 grounded row(s); layers: concepts=1
+- `elastic-net` — elastic net — 1 grounded row(s); layers: concepts=1
+- `electric-infrastructure` — electric infrastructure — 1 grounded row(s); layers: concepts=1
+- `electrical-biasing` — electrical biasing — 1 grounded row(s); layers: concepts=1
+- `electrodermal-activity` — electrodermal activity — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `electromagnetic-counterpart` — electromagnetic counterpart — 1 grounded row(s); layers: concepts=1
+- `electron-beam-induced-specimen-damage` — electron beam-induced specimen damage — 1 grounded row(s); layers: concepts=1
+- `electron-density` — electron density — 1 grounded row(s); layers: concepts=1
+- `electron-energy-loss-spectroscopy-eels` — electron energy loss spectroscopy (EELS) — 1 grounded row(s); layers: concepts=1
+- `electron-microscopy` — electron microscopy — 2 grounded row(s); layers: concepts=2
+- `electronic-conductivity` — electronic conductivity — 1 grounded row(s); layers: concepts=1
+- `electronic-health-record-data-repositories` — electronic health record data repositories — 1 grounded row(s); layers: concepts=1
+- `electronic-health-record-ehr-data` — electronic health record (EHR) data — 1 grounded row(s); layers: concepts=1
+- `electronic-health-record-systems` — electronic health record systems — 1 grounded row(s); layers: concepts=1
+- `electronic-personhood` — electronic personhood — 1 grounded row(s); layers: concepts=1
+- `electronic-states-near-e-f` — electronic states near E F — 1 grounded row(s); layers: concepts=1
+- `element-of-a-go-cam` — element of a GO-CAM — 1 grounded row(s); layers: concepts=1
+- `elementary-feature-detectors` — elementary feature detectors — 1 grounded row(s); layers: concepts=1
+- `elementary-visual-features` — elementary visual features — 1 grounded row(s); layers: concepts=1
+- `elist` — EList — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `elistraw` — EListRaw — 1 grounded row(s); layers: concepts=1
+- `ellenberg-indicator` — Ellenberg indicator — 1 grounded row(s); layers: concepts=1
+- `elucidated-and-predicted-nps` — elucidated and predicted NPs — 1 grounded row(s); layers: concepts=1
+- `embodied-cognition` — embodied cognition — 1 grounded row(s); layers: concepts=1
+- `embryonic` — embryonic — 1 grounded row(s); layers: concepts=1
+- `emendations` — emendations — 1 grounded row(s); layers: concepts=1
+- `emergency-use-authorization-programme` — Emergency Use Authorization programme — 1 grounded row(s); layers: concepts=1
+- `emergent-phenomenon-argument` — Emergent Phenomenon argument — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `emissions-reduction` — emissions reduction — 1 grounded row(s); layers: concepts=1
+- `emotion` — emotion — 6 grounded row(s); layers: concepts=4, content_tags.definitions=2
+- `emotional-expression` — emotional expression — 1 grounded row(s); layers: concepts=1
+- `emotional-sharing` — emotional sharing — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `emotional-transportation` — emotional transportation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `empirical-bayes-procedures` — empirical Bayes procedures — 1 grounded row(s); layers: concepts=1
+- `empirical-climate-sensitivity` — empirical climate sensitivity — 1 grounded row(s); layers: concepts=1
+- `empirical-evaluations` — empirical evaluations — 1 grounded row(s); layers: concepts=1
+- `empirical-evidence` — empirical evidence — 2 grounded row(s); layers: concepts=2
+- `empirical-null-distribution` — empirical null distribution — 1 grounded row(s); layers: concepts=1
+- `empirical-scoring-functions` — empirical scoring functions — 1 grounded row(s); layers: concepts=1
+- `enablers` — enablers — 1 grounded row(s); layers: concepts=1
+- `encode-blacklist` — ENCODE blacklist — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `encode-consortium` — ENCODE consortium — 1 grounded row(s); layers: concepts=1
+- `encode-data-analysis-center-dac-blacklisted-regions` — ENCODE Data Analysis Center (DAC) blacklisted regions — 1 grounded row(s); layers: concepts=1
+- `encode-data-coordination-center` — ENCODE Data Coordination Center — 1 grounded row(s); layers: concepts=1
+- `encode-dcc-api` — ENCODE DCC API — 1 grounded row(s); layers: concepts=1
+- `encoder-decoder-framework` — encoder–decoder framework — 1 grounded row(s); layers: concepts=1
+- `encoding-of-a-chemical-compound` — encoding of a chemical compound — 1 grounded row(s); layers: concepts=1
+- `encrypted-access-controlled-and-audited-sandbox` — encrypted, access-controlled, and audited sandbox — 1 grounded row(s); layers: concepts=1
+- `end-to-end-structure-prediction` — end-to-end structure prediction — 1 grounded row(s); layers: concepts=1
+- `end-users-of-the-recommendations` — end users of the recommendations — 1 grounded row(s); layers: concepts=1
+- `endocrine-disrupting-chemicals-edcs` — Endocrine-disrupting chemicals (EDCs) — 1 grounded row(s); layers: concepts=1
+- `endorsement` — endorsement — 1 grounded row(s); layers: concepts=1
+- `endorsements` — endorsements — 1 grounded row(s); layers: concepts=1
+- `endosymbiotic-bacteria` — endosymbiotic bacteria — 1 grounded row(s); layers: concepts=1
+- `energetic-aspect` — energetic aspect — 1 grounded row(s); layers: concepts=1
+- `energy-density` — energy density — 1 grounded row(s); layers: content_tags.definitions=1
+- `energy-drift` — energy drift — 1 grounded row(s); layers: concepts=1
+- `energy-expenditure` — energy expenditure — 1 grounded row(s); layers: concepts=1
+- `energy-surplus` — energy surplus — 1 grounded row(s); layers: concepts=1
+- `energy-transformations` — energy transformations — 1 grounded row(s); layers: concepts=1
+- `engagement` — engagement — 1 grounded row(s); layers: content_tags.definitions=1
+- `english-language` — English language — 1 grounded row(s); layers: concepts=1
+- `enriched-biological-pathways` — enriched biological pathways — 1 grounded row(s); layers: concepts=1
+- `enriched-terms` — enriched terms — 1 grounded row(s); layers: concepts=1
+- `enrichment-analysis` — enrichment analysis — 1 grounded row(s); layers: concepts=1
+- `enrichment-clustering` — enrichment clustering — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `enrichment-heatmaps` — enrichment heatmaps — 1 grounded row(s); layers: concepts=1
+- `enrichment-networks` — enrichment networks — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ensemble` — ensemble — 1 grounded row(s); layers: concepts=1
+- `ensemble-learning-ml-algorithms` — ensemble learning ML algorithms — 1 grounded row(s); layers: concepts=1
+- `ensemble-of-32-climate-model-projections` — ensemble of 32 climate model projections — 1 grounded row(s); layers: concepts=1
+- `ensemble-of-four-high-resolution-topographically-corrected-c` — ensemble of four high-resolution, topographically-corrected climatic maps — 1 grounded row(s); layers: concepts=1
+- `ensemble-spread` — ensemble spread — 1 grounded row(s); layers: concepts=1
+- `ensembling` — ensembling — 2 grounded row(s); layers: concepts=2
+- `ensuing-scrutiny` — ensuing scrutiny — 1 grounded row(s); layers: concepts=1
+- `enterocloster-bolteae` — Enterocloster bolteae — 1 grounded row(s); layers: concepts=1
+- `enterotype` — enterotype — 1 grounded row(s); layers: concepts=1
+- `entertainment` — entertainment — 1 grounded row(s); layers: concepts=1
+- `entire-raw-ehr-records` — entire raw EHR records — 1 grounded row(s); layers: concepts=1
+- `entomophagy` — entomophagy — 1 grounded row(s); layers: content_tags.definitions=1
+- `entrez-gene-id-list` — Entrez Gene ID list — 1 grounded row(s); layers: concepts=1
+- `entry-receptor` — entry receptor — 1 grounded row(s); layers: concepts=1
+- `envelope` — envelope — 1 grounded row(s); layers: concepts=1
+- `environmental-conditions-of-the-habitat` — environmental conditions of the habitat — 1 grounded row(s); layers: concepts=1
+- `environmental-impact` — environmental impact — 1 grounded row(s); layers: concepts=1
+- `environmental-parameter` — environmental parameter — 1 grounded row(s); layers: concepts=1
+- `environmental-projections` — environmental projections — 1 grounded row(s); layers: concepts=1
+- `environmental-sensitivity-of-selection` — environmental sensitivity of selection — 1 grounded row(s); layers: concepts=1
+- `envision-2104-multilabel-plate-reader` — EnVision 2104 multilabel plate reader — 1 grounded row(s); layers: concepts=1
+- `enzyme-assisted-extraction` — enzyme-assisted extraction — 1 grounded row(s); layers: content_tags.definitions=1
+- `enzyme-linked-immunosorbent-assays-elisas` — enzyme-linked immunosorbent assays (ELISAs) — 1 grounded row(s); layers: concepts=1
+- `enzyme-sensitive-sites` — enzyme-sensitive sites — 1 grounded row(s); layers: content_tags.definitions=1
+- `enzyme-tethering-methods` — enzyme-tethering methods — 1 grounded row(s); layers: concepts=1
+- `enzyme-tethering-strategy` — enzyme-tethering strategy — 1 grounded row(s); layers: concepts=1
+- `epidemic-of-acute-respiratory-syndrome` — epidemic of acute respiratory syndrome — 1 grounded row(s); layers: concepts=1
+- `epigenetic-maintenance-system` — epigenetic maintenance system — 1 grounded row(s); layers: concepts=1
+- `epilepsies` — epilepsies — 1 grounded row(s); layers: concepts=1
+- `episodic` — episodic — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `episodic-buffer` — episodic buffer — 1 grounded row(s); layers: content_tags.definitions=1
+- `episodic-memory` — episodic memory — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `epistemic-value` — epistemic value — 1 grounded row(s); layers: concepts=1
+- `epithelial-mesenchymal-transition` — epithelial-mesenchymal transition — 1 grounded row(s); layers: content_tags.definitions=1
+- `epitope-masking` — epitope masking — 1 grounded row(s); layers: concepts=1
+- `epsc` — EPSC — 1 grounded row(s); layers: content_tags.definitions=1
+- `equal-quintile-approach` — equal quintile approach — 1 grounded row(s); layers: concepts=1
+- `equator` — EQUATOR — 1 grounded row(s); layers: content_tags.definitions=1
+- `equity` — equity — 1 grounded row(s); layers: concepts=1
+- `equivalence-factor` — equivalence factor — 1 grounded row(s); layers: concepts=1
+- `equivalence-principle` — equivalence principle — 1 grounded row(s); layers: concepts=1
+- `equivariant-attention-architecture` — equivariant attention architecture — 1 grounded row(s); layers: concepts=1
+- `equivariant-message-passing` — equivariant message passing — 1 grounded row(s); layers: concepts=1
+- `era5-reanalysis-dataset` — ERA5 reanalysis dataset — 1 grounded row(s); layers: concepts=1
+- `erd-s-r-nyi-random-graph` — Erdős–Rényi random graph — 1 grounded row(s); layers: concepts=1
+- `erring-on-the-side-of-least-drama` — erring on the side of least drama — 1 grounded row(s); layers: concepts=1
+- `error-correction` — error correction — 2 grounded row(s); layers: content_tags.definitions=2
+- `error-metric` — error metric — 1 grounded row(s); layers: concepts=1
+- `error-rate` — error rate — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ertl-functional-groups` — Ertl Functional Groups — 1 grounded row(s); layers: concepts=1
+- `es-cells` — ES cells — 1 grounded row(s); layers: concepts=1
+- `escapism` — escapism — 1 grounded row(s); layers: concepts=1
+- `escrt` — ESCRT — 1 grounded row(s); layers: concepts=1
+- `esol-model` — ESOL model — 1 grounded row(s); layers: concepts=1
+- `esrd` — ESRD — 1 grounded row(s); layers: concepts=1
+- `essential-information` — essential information — 1 grounded row(s); layers: content_tags.definitions=1
+- `essential-infrastructure` — essential infrastructure — 1 grounded row(s); layers: concepts=1
+- `estimated-treatment-effects` — estimated treatment effects — 1 grounded row(s); layers: concepts=1
+- `estrogen-receptor` — estrogen receptor — 1 grounded row(s); layers: concepts=1
+- `et-0` — ET 0 — 1 grounded row(s); layers: concepts=1
+- `ethical-dimensions-of-incentives` — ethical dimensions of incentives — 1 grounded row(s); layers: concepts=1
+- `ethological-validity` — ethological validity — 1 grounded row(s); layers: content_tags.definitions=1
+- `etiologic-criteria` — etiologic criteria — 1 grounded row(s); layers: concepts=1
+- `eubiosis` — eubiosis — 1 grounded row(s); layers: concepts=1
+- `euclidean-distance` — Euclidean distance — 1 grounded row(s); layers: concepts=1
+- `eukaryotes` — Eukaryotes — 1 grounded row(s); layers: concepts=1
+- `eukaryotic-ribosome` — eukaryotic ribosome — 1 grounded row(s); layers: concepts=1
+- `eukaryotic-species` — eukaryotic species — 1 grounded row(s); layers: concepts=1
+- `euphemism` — euphemism — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `euroimmun-assay` — EUROIMMUN assay — 1 grounded row(s); layers: concepts=1
+- `evaluation` — evaluation — 1 grounded row(s); layers: concepts=1
+- `evaluation-frameworks` — evaluation frameworks — 1 grounded row(s); layers: concepts=1
+- `evapotranspiration` — evapotranspiration — 1 grounded row(s); layers: content_tags.definitions=1
+- `evidence` — evidence — 2 grounded row(s); layers: concepts=2
+- `evidence-and-conclusion-ontology-eco` — Evidence and Conclusion Ontology (ECO) — 1 grounded row(s); layers: concepts=1
+- `evidence-base` — evidence base — 1 grounded row(s); layers: concepts=1
+- `evidence-based-practices` — evidence-based practices — 1 grounded row(s); layers: concepts=1
+- `evidence-based-public-health-recommendations` — evidence-based public health recommendations — 1 grounded row(s); layers: concepts=1
+- `evidence-code` — evidence code — 1 grounded row(s); layers: concepts=1
+- `evidence-for-each-assertion-in-the-model` — evidence for each assertion in the model — 1 grounded row(s); layers: concepts=1
+- `evidence-reviews` — evidence reviews — 1 grounded row(s); layers: concepts=1
+- `evident-and-concrete-indicators` — evident and concrete indicators — 1 grounded row(s); layers: concepts=1
+- `evocativeness` — evocativeness — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `evoformer` — Evoformer — 1 grounded row(s); layers: concepts=1
+- `evolution-of-these-characteristics` — evolution of these characteristics — 1 grounded row(s); layers: concepts=1
+- `evolutionarily-conserved-function` — evolutionarily conserved function — 1 grounded row(s); layers: concepts=1
+- `evolutionarily-related-proteins` — evolutionarily related proteins — 1 grounded row(s); layers: concepts=1
+- `evolutionary-conservation` — evolutionary conservation — 1 grounded row(s); layers: concepts=1
+- `evolutionary-history` — evolutionary history — 1 grounded row(s); layers: concepts=1
+- `evolutionary-not-revolutionary-changes` — evolutionary, not revolutionary, changes — 1 grounded row(s); layers: concepts=1
+- `evolutionary-potential` — evolutionary potential — 1 grounded row(s); layers: concepts=1
+- `evolved-role` — evolved role — 1 grounded row(s); layers: concepts=1
+- `evolving-guideline` — evolving guideline — 1 grounded row(s); layers: concepts=1
+- `evs` — EVs — 1 grounded row(s); layers: concepts=1
+- `exact-binomial-95-cis` — exact binomial 95% CIs — 1 grounded row(s); layers: concepts=1
+- `exact-neighbor-joining` — exact neighbor joining — 1 grounded row(s); layers: concepts=1
+- `example-of-good-reporting` — example of good reporting — 1 grounded row(s); layers: concepts=1
+- `exception` — Exception — 1 grounded row(s); layers: concepts=1
+- `excitatory-feedback` — excitatory feedback — 1 grounded row(s); layers: content_tags.definitions=1
+- `exclude-flag` — exclude flag — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `exclusive-economic-zones` — Exclusive Economic Zones — 1 grounded row(s); layers: concepts=1
+- `exclusive-regions-of-blacklists` — exclusive regions of “blacklists” — 1 grounded row(s); layers: concepts=1
+- `exclusivity` — exclusivity — 1 grounded row(s); layers: concepts=1
+- `execution-time` — execution time — 1 grounded row(s); layers: concepts=1
+- `executive-control` — executive control — 1 grounded row(s); layers: concepts=1
+- `executive-functions` — executive functions — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `exhaustiveness` — exhaustiveness — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `existing-functional-enrichment-analysis-portals` — existing functional enrichment analysis portals — 1 grounded row(s); layers: concepts=1
+- `existing-python-scientific-ecosystem` — existing Python scientific ecosystem — 1 grounded row(s); layers: concepts=1
+- `existing-specialized-tools` — existing specialized tools — 1 grounded row(s); layers: concepts=1
+- `existing-strategies` — existing strategies — 1 grounded row(s); layers: concepts=1
+- `exomiser` — Exomiser — 1 grounded row(s); layers: concepts=1
+- `exon-exon-junction` — exon-exon junction — 1 grounded row(s); layers: concepts=1
+- `exon-x-is-upstream-of-exon-y-but-x-y` — exon X is upstream of exon Y, but X≥Y — 1 grounded row(s); layers: concepts=1
+- `exosome-like-vesicles` — Exosome‐like vesicles — 1 grounded row(s); layers: concepts=1
+- `expanded-checklist` — expanded checklist — 1 grounded row(s); layers: concepts=1
+- `expanded-consort-figure` — Expanded CONSORT Figure — 1 grounded row(s); layers: concepts=1
+- `expanding-croplands` — expanding croplands — 1 grounded row(s); layers: concepts=1
+- `expectation` — expectation — 1 grounded row(s); layers: concepts=1
+- `expected-phenotype-of-a-given-genotype-as-a-function-of-the-` — expected phenotype of a given genotype as a function of the environment — 1 grounded row(s); layers: concepts=1
+- `expected-positional-error` — expected positional error — 1 grounded row(s); layers: concepts=1
+- `expected-value` — expected value — 1 grounded row(s); layers: concepts=1
+- `experience` — experience — 1 grounded row(s); layers: concepts=1
+- `experienced-curator` — experienced curator — 1 grounded row(s); layers: concepts=1
+- `experiment-level-data-storage-class` — experiment-level data storage class — 1 grounded row(s); layers: concepts=1
+- `experimental-conditions` — experimental conditions — 1 grounded row(s); layers: concepts=1
+- `experimental-data` — experimental data — 1 grounded row(s); layers: concepts=1
+- `experimental-effort` — experimental effort — 1 grounded row(s); layers: concepts=1
+- `experimental-evidence` — experimental evidence — 1 grounded row(s); layers: concepts=1
+- `experimental-methodological-and-statistical-design` — experimental, methodological, and statistical design — 1 grounded row(s); layers: concepts=1
+- `experimental-observations` — experimental observations — 1 grounded row(s); layers: concepts=1
+- `experimental-phases` — experimental phases — 1 grounded row(s); layers: concepts=1
+- `experimentally-determined-structures` — experimentally determined structures — 1 grounded row(s); layers: concepts=1
+- `experimentally-supported-gene-function-annotations` — experimentally supported gene function annotations — 1 grounded row(s); layers: concepts=1
+- `experimentally-supported-go-annotations` — experimentally supported GO annotations — 1 grounded row(s); layers: concepts=1
+- `experimentally-uncharacterized-proteins` — experimentally uncharacterized proteins — 1 grounded row(s); layers: concepts=1
+- `experimentally-verified` — experimentally verified — 1 grounded row(s); layers: concepts=1
+- `experiments` — experiments — 1 grounded row(s); layers: concepts=1
+- `expert-assessment` — expert assessment — 1 grounded row(s); layers: concepts=1
+- `expert-biocuration-team` — expert biocuration team — 1 grounded row(s); layers: concepts=1
+- `expert-curation` — Expert curation — 1 grounded row(s); layers: concepts=1
+- `expert-judges` — Expert judges — 1 grounded row(s); layers: concepts=1
+- `expert-opinion-approaches` — expert-opinion approaches — 1 grounded row(s); layers: concepts=1
+- `expert-panel` — expert panel — 1 grounded row(s); layers: concepts=1
+- `expert-recommendations-for-implementing-change-study` — Expert Recommendations for Implementing Change study — 1 grounded row(s); layers: concepts=1
+- `expert-review` — expert review — 1 grounded row(s); layers: concepts=1
+- `expert-tools` — expert tools — 1 grounded row(s); layers: concepts=1
+- `expired` — expired — 1 grounded row(s); layers: concepts=1
+- `explainability-of-predictions` — explainability of predictions — 1 grounded row(s); layers: concepts=1
+- `explanation-and-elaboration-paper` — explanation and elaboration paper — 1 grounded row(s); layers: concepts=1
+- `explanatory-and-elaboration-information` — explanatory and elaboration information — 1 grounded row(s); layers: concepts=1
+- `explanatory-processes` — explanatory processes — 1 grounded row(s); layers: concepts=1
+- `explicit` — explicit — 1 grounded row(s); layers: content_tags.definitions=1
+- `explicit-endorsement-with-quantification` — Explicit endorsement with quantification — 1 grounded row(s); layers: concepts=1
+- `explicit-endorsement-without-quantification` — Explicit endorsement without quantification — 1 grounded row(s); layers: concepts=1
+- `explicit-h-atoms` — explicit H atoms — 1 grounded row(s); layers: concepts=1
+- `explicit-hydrogen-atoms` — explicit hydrogen atoms — 1 grounded row(s); layers: concepts=1
+- `explicit-rejection-with-quantification` — Explicit rejection with quantification — 1 grounded row(s); layers: concepts=1
+- `explicit-rejection-without-quantification` — Explicit rejection without quantification — 1 grounded row(s); layers: concepts=1
+- `exploratory` — exploratory — 1 grounded row(s); layers: concepts=1
+- `exploratory-data-analysis` — exploratory data analysis — 1 grounded row(s); layers: concepts=1
+- `exploratory-factor-analysis` — exploratory factor analysis — 1 grounded row(s); layers: concepts=1
+- `exponential-function` — exponential function — 1 grounded row(s); layers: concepts=1
+- `exposure` — exposure — 1 grounded row(s); layers: concepts=1
+- `exposure-to-1-of-these-fungi` — Exposure to 1 of these fungi — 1 grounded row(s); layers: concepts=1
+- `exposure-to-mold-active-antifungals` — Exposure to mold-active antifungals — 1 grounded row(s); layers: concepts=1
+- `exposures-outcomes-confounders-and-effect-modifiers` — exposures, outcomes, confounders, and effect modifiers — 1 grounded row(s); layers: concepts=1
+- `express-analysis` — Express Analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `expression-signature` — expression signature — 1 grounded row(s); layers: concepts=1
+- `expressionset` — EXPRESSIONSET — 1 grounded row(s); layers: concepts=1
+- `extended-cognitive-system` — extended cognitive system — 1 grounded row(s); layers: concepts=1
+- `extensibility` — extensibility — 1 grounded row(s); layers: concepts=1
+- `extensible-platform` — extensible platform — 1 grounded row(s); layers: concepts=1
+- `extension` — extension — 1 grounded row(s); layers: concepts=1
+- `extension-of-the-vanilla-gcn-model` — extension of the vanilla GCN model — 1 grounded row(s); layers: concepts=1
+- `extensions` — extensions — 1 grounded row(s); layers: concepts=1
+- `extensive-information-for-feature-extraction` — extensive information for feature extraction — 1 grounded row(s); layers: concepts=1
+- `extent-to-which-the-program-is-implemented-consistently` — extent to which the program is implemented consistently — 1 grounded row(s); layers: concepts=1
+- `external-area-under-roc-curve` — external area under ROC curve — 1 grounded row(s); layers: concepts=1
+- `external-forcing-factors` — external forcing factors — 1 grounded row(s); layers: concepts=1
+- `external-ontologies` — external ontologies — 1 grounded row(s); layers: concepts=1
+- `external-or-internal-validation` — external or internal validation — 1 grounded row(s); layers: concepts=1
+- `external-plugins` — external plugins — 1 grounded row(s); layers: concepts=1
+- `external-review-group` — external review group — 1 grounded row(s); layers: concepts=1
+- `external-taxonomy-id-numbers` — external taxonomy ID numbers — 1 grounded row(s); layers: concepts=1
+- `external-testing` — external testing — 1 grounded row(s); layers: content_tags.definitions=1
+- `external-validity` — external validity — 2 grounded row(s); layers: concepts=2
+- `extinction-risk` — extinction risk — 1 grounded row(s); layers: concepts=1
+- `extracellular-particles` — Extracellular particles — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `extraction-of-latent-factors` — extraction of latent factors — 1 grounded row(s); layers: concepts=1
+- `extrapolated-polarization-approximation` — extrapolated polarization approximation — 1 grounded row(s); layers: concepts=1
+- `extrinsic-motivation` — extrinsic motivation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `extrinsic-rewards` — extrinsic rewards — 1 grounded row(s); layers: concepts=1
+- `f-expected` — F expected — 1 grounded row(s); layers: concepts=1
+- `f-random` — F random — 1 grounded row(s); layers: concepts=1
+- `f-score` — F-score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `f1-measure` — F1-measure — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `f1-score` — F1-Score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `fabrication` — fabrication — 1 grounded row(s); layers: concepts=1
+- `face-representation` — face representation — 1 grounded row(s); layers: concepts=1
+- `facebook` — Facebook — 1 grounded row(s); layers: concepts=1
+- `facebook-graph-api` — Facebook Graph API — 1 grounded row(s); layers: concepts=1
+- `facebook-use` — Facebook use — 1 grounded row(s); layers: concepts=1
+- `facilitation-of-component-processes` — facilitation of component processes — 1 grounded row(s); layers: concepts=1
+- `facs` — FACS — 1 grounded row(s); layers: content_tags.definitions=1
+- `factor-analysis` — Factor analysis — 1 grounded row(s); layers: concepts=1
+- `factor-loadings` — factor loadings — 1 grounded row(s); layers: concepts=1
+- `factor-targeted-tagmentation` — factor-targeted tagmentation — 1 grounded row(s); layers: concepts=1
+- `factorial-invariance` — factorial invariance — 1 grounded row(s); layers: concepts=1
+- `factors` — factors — 1 grounded row(s); layers: concepts=1
+- `failed-to-set-consistent-standards-for-microbiome-research` — failed to set consistent standards for microbiome research — 1 grounded row(s); layers: concepts=1
+- `failure-to-follow-through` — failure to follow through — 1 grounded row(s); layers: concepts=1
+- `fair` — FAIR — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `fair-data-and-model-management-facility` — FAIR data and model management facility — 1 grounded row(s); layers: concepts=1
+- `fair-data-principles` — FAIR data principles — 1 grounded row(s); layers: concepts=1
+- `fair-guiding-principles` — FAIR Guiding Principles — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `fair-principles` — FAIR principles — 1 grounded row(s); layers: concepts=1
+- `fairdom` — FAIRDOM — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `fairness` — fairness — 1 grounded row(s); layers: content_tags.definitions=1
-- `generative-model` — generative model — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `falconer` — Falconer — 1 grounded row(s); layers: concepts=1
+- `falff` — fALFF — 1 grounded row(s); layers: concepts=1
+- `false-alarm-rate-estimate` — false-alarm-rate estimate — 1 grounded row(s); layers: concepts=1
+- `false-alerts` — false alerts — 1 grounded row(s); layers: concepts=1
+- `false-belief` — false belief — 1 grounded row(s); layers: concepts=1
+- `false-beliefs` — false beliefs — 1 grounded row(s); layers: concepts=1
+- `false-discovery-rate` — false discovery rate — 4 grounded row(s); layers: concepts=4
+- `false-information` — false information — 1 grounded row(s); layers: concepts=1
+- `false-matches-or-missed-matches` — false matches or missed matches — 1 grounded row(s); layers: concepts=1
+- `false-negative-cases` — false-negative cases — 1 grounded row(s); layers: concepts=1
+- `false-negative-predictions` — false-negative predictions — 1 grounded row(s); layers: concepts=1
+- `false-negative-tests-per-million` — false negative tests per million — 1 grounded row(s); layers: concepts=1
+- `false-negatives` — false negatives — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `false-positive-and-negative-predictions` — false-positive and negative predictions — 1 grounded row(s); layers: concepts=1
+- `false-positive-circular-isoforms` — false positive circular isoforms — 1 grounded row(s); layers: concepts=1
+- `false-positive-evidence-of-circular-rna-isoforms` — false positive evidence of circular RNA isoforms — 1 grounded row(s); layers: concepts=1
+- `false-positive-negative-activities` — false positive/negative activities — 1 grounded row(s); layers: concepts=1
+- `false-positive-predictions` — false-positive predictions — 1 grounded row(s); layers: concepts=1
+- `false-positive-query-results` — false-positive query results — 1 grounded row(s); layers: concepts=1
+- `false-positive-rate` — false positive rate — 1 grounded row(s); layers: concepts=1
+- `false-positive-report-probability` — false positive report probability — 1 grounded row(s); layers: concepts=1
+- `false-positive-tests-per-million-tests` — false positive tests per million tests — 1 grounded row(s); layers: concepts=1
+- `false-positives` — false positives — 6 grounded row(s); layers: concepts=5, content_tags.definitions=1
+- `false-rumors` — false rumors — 1 grounded row(s); layers: concepts=1
+- `falsification` — falsification — 1 grounded row(s); layers: concepts=1
+- `familiarity` — familiarity — 1 grounded row(s); layers: concepts=1
+- `family-wise-error-rate` — Family Wise Error Rate — 1 grounded row(s); layers: concepts=1
+- `famsa` — FAMSA — 1 grounded row(s); layers: concepts=1
+- `fao` — FAO — 1 grounded row(s); layers: concepts=1
+- `far-transfer` — far transfer — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `fast-data-collection` — fast data collection — 1 grounded row(s); layers: concepts=1
+- `fast-feedbacks` — fast feedbacks — 1 grounded row(s); layers: content_tags.definitions=1
+- `fast-folding-phase` — fast folding phase — 1 grounded row(s); layers: concepts=1
+- `fast-healthcare-interoperability-resources-fhir-format` — Fast Healthcare Interoperability Resources (FHIR) format — 1 grounded row(s); layers: concepts=1
+- `fast-unifrac` — Fast UniFrac — 1 grounded row(s); layers: concepts=1
+- `faster-convergence` — faster convergence — 1 grounded row(s); layers: concepts=1
+- `faster-evolution` — faster evolution — 1 grounded row(s); layers: concepts=1
+- `faster-learning-times` — faster learning times — 1 grounded row(s); layers: concepts=1
+- `faster-or-more-efficient-processing` — faster or more efficient processing — 1 grounded row(s); layers: concepts=1
+- `fastme` — FastME — 1 grounded row(s); layers: concepts=1
+- `fastq` — FASTQ — 1 grounded row(s); layers: concepts=1
+- `fastq-files` — FASTQ files — 2 grounded row(s); layers: concepts=2
+- `fasttree-1-0` — FastTree 1.0 — 1 grounded row(s); layers: concepts=1
+- `fasttree-2` — FastTree 2 — 1 grounded row(s); layers: concepts=1
+- `fat1-and-hipk3` — FAT1 and HIPK3 — 1 grounded row(s); layers: concepts=1
+- `fatal-error` — fatal error — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `fatty-acid-productive-value` — fatty acid productive value — 1 grounded row(s); layers: content_tags.definitions=1
+- `fdr-based-thresholding` — FDR-based thresholding — 1 grounded row(s); layers: concepts=1
+- `fdr-of-025` — FDR of .025 — 1 grounded row(s); layers: concepts=1
+- `fear-anxiety-and-stigma` — fear, anxiety and stigma — 1 grounded row(s); layers: concepts=1
+- `fear-conditioning` — fear conditioning — 1 grounded row(s); layers: content_tags.definitions=1
+- `fear-of-missing-out` — fear of missing out — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `feasibility` — feasibility — 4 grounded row(s); layers: concepts=4
+- `feasibility-studies` — feasibility studies — 2 grounded row(s); layers: concepts=2
+- `feasibility-study` — feasibility study — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `feature-engineering` — feature engineering — 1 grounded row(s); layers: content_tags.definitions=1
+- `feature-extraction` — feature extraction — 1 grounded row(s); layers: content_tags.definitions=1
+- `feature-learning` — feature learning — 1 grounded row(s); layers: concepts=1
+- `feature-maps` — feature maps — 1 grounded row(s); layers: concepts=1
+- `feature-selection` — feature selection — 2 grounded row(s); layers: content_tags.definitions=2
+- `fecal-microbiota-transplantation` — fecal microbiota transplantation — 1 grounded row(s); layers: concepts=1
+- `feed-algorithm` — feed algorithm — 1 grounded row(s); layers: concepts=1
+- `feed-conversion-ratio` — feed conversion ratio — 1 grounded row(s); layers: content_tags.definitions=1
+- `feedback` — feedback — 3 grounded row(s); layers: concepts=3
+- `fence-sitter` — fence-sitter — 1 grounded row(s); layers: concepts=1
+- `fer` — FER — 1 grounded row(s); layers: content_tags.definitions=1
+- `fetal-movement` — fetal movement — 1 grounded row(s); layers: concepts=1
+- `fever` — fever — 2 grounded row(s); layers: concepts=2
+- `few-bad-apples` — few bad apples — 1 grounded row(s); layers: concepts=1
+- `few-elder-citizens-participation` — few elder citizens’ participation — 1 grounded row(s); layers: concepts=1
+- `fhir` — FHIR — 1 grounded row(s); layers: concepts=1
+- `fhir-outputs` — FHIR outputs — 1 grounded row(s); layers: concepts=1
+- `fhir-resource` — FHIR resource — 1 grounded row(s); layers: concepts=1
+- `fibrosis` — Fibrosis — 1 grounded row(s); layers: concepts=1
+- `fictional-narrative` — fictional narrative — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `fidelity` — fidelity — 2 grounded row(s); layers: concepts=2
+- `fidelity-to-an-intervention` — fidelity to an intervention — 1 grounded row(s); layers: concepts=1
+- `field-experiments` — field experiments — 1 grounded row(s); layers: concepts=1
+- `field-of-view` — field of view — 1 grounded row(s); layers: concepts=1
+- `field-programmable-gate-arrays` — field-programmable gate arrays — 1 grounded row(s); layers: concepts=1
+- `fiji` — Fiji — 2 grounded row(s); layers: concepts=2
+- `file-transfer-protocol-ftp-downloads` — File Transfer Protocol (FTP) downloads — 1 grounded row(s); layers: concepts=1
+- `fill-factor` — fill factor — 1 grounded row(s); layers: content_tags.definitions=1
+- `fillable-templates` — fillable templates — 1 grounded row(s); layers: concepts=1
+- `fillers` — fillers — 1 grounded row(s); layers: concepts=1
+- `filter-bias` — filter bias — 1 grounded row(s); layers: concepts=1
+- `final-black-hole-ringdown` — final black hole ringdown — 1 grounded row(s); layers: concepts=1
+- `final-discharge-diagnoses` — final discharge diagnoses — 1 grounded row(s); layers: concepts=1
+- `final-loss` — final loss — 1 grounded row(s); layers: concepts=1
+- `final-model` — final model — 1 grounded row(s); layers: concepts=1
+- `financial-incentive-schemes` — financial incentive schemes — 1 grounded row(s); layers: concepts=1
+- `financial-intermediaries` — financial intermediaries — 1 grounded row(s); layers: concepts=1
+- `financial-network` — financial network — 1 grounded row(s); layers: concepts=1
+- `financial-penalty` — financial penalty — 1 grounded row(s); layers: concepts=1
+- `financial-stability` — financial stability — 1 grounded row(s); layers: concepts=1
+- `findability` — findability — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `findable-accessible-interoperable-and-reusable` — Findable, Accessible, Interoperable and Reusable — 1 grounded row(s); layers: concepts=1
+- `findable-accessible-interoperable-and-reusable-fair-principl` — Findable, Accessible, Interoperable, and Reusable (FAIR) principles — 1 grounded row(s); layers: concepts=1
+- `fine-tuning` — fine-tuning — 1 grounded row(s); layers: concepts=1
+- `fingerprints` — fingerprints — 2 grounded row(s); layers: concepts=2
+- `finished-uvig` — finished UViG — 1 grounded row(s); layers: content_tags.definitions=1
+- `fire-frequency` — fire frequency — 1 grounded row(s); layers: concepts=1
+- `firing-rate` — firing rate — 2 grounded row(s); layers: concepts=2
+- `first-3-4-weeks-after-symptom-onset` — first 3–4 weeks after symptom onset — 1 grounded row(s); layers: concepts=1
+- `first-class-citizens` — first class citizens — 1 grounded row(s); layers: concepts=1
+- `first-dose-appointment` — first-dose appointment — 1 grounded row(s); layers: concepts=1
+- `first-pass` — first-pass — 1 grounded row(s); layers: concepts=1
+- `fish-clsm` — FISH-CLSM — 1 grounded row(s); layers: concepts=1
+- `fish-micro-autoradiography` — FISH-micro-autoradiography — 1 grounded row(s); layers: concepts=1
+- `fish-nanosims` — FISH-NanoSIMS — 1 grounded row(s); layers: concepts=1
+- `fish-raman-micro-spectroscopy` — FISH-Raman micro-spectroscopy — 1 grounded row(s); layers: concepts=1
+- `fishing-expeditions` — fishing expeditions — 1 grounded row(s); layers: concepts=1
+- `fission` — fission — 1 grounded row(s); layers: concepts=1
+- `fitted-anisotropic-scale-factor` — fitted anisotropic scale factor — 1 grounded row(s); layers: concepts=1
+- `fitters` — fitters — 1 grounded row(s); layers: concepts=1
+- `five-main-classes` — five main classes — 1 grounded row(s); layers: concepts=1
+- `five-or-more-medications` — five or more medications — 1 grounded row(s); layers: concepts=1
+- `five-patient-sera` — five patient sera — 1 grounded row(s); layers: concepts=1
+- `five-positively-worded-items` — five positively worded items — 1 grounded row(s); layers: concepts=1
+- `fixed-effects` — fixed effects — 1 grounded row(s); layers: concepts=1
+- `fixed-sequence-approaches` — fixed-sequence approaches — 1 grounded row(s); layers: concepts=1
+- `flanking-intron-length` — flanking intron length — 1 grounded row(s); layers: concepts=1
+- `flash-lidar` — flash LiDAR — 1 grounded row(s); layers: content_tags.definitions=1
+- `flexible-categorization` — flexible categorization — 1 grounded row(s); layers: content_tags.definitions=1
+- `flexible-data-structure` — flexible data structure — 1 grounded row(s); layers: concepts=1
+- `flexible-docking` — flexible docking — 1 grounded row(s); layers: concepts=1
+- `flexible-modular-image-analysis-pipelines` — flexible, modular image analysis pipelines — 1 grounded row(s); layers: concepts=1
+- `flexible-open-source-platform` — flexible, open-source platform — 1 grounded row(s); layers: concepts=1
+- `flourishing` — flourishing — 1 grounded row(s); layers: concepts=1
+- `flow-cytometry` — flow cytometry — 1 grounded row(s); layers: concepts=1
+- `flow-diagram` — flow diagram — 1 grounded row(s); layers: concepts=1
+- `flow-shift-based-tracking` — flow-shift-based tracking — 1 grounded row(s); layers: concepts=1
+- `flow-through-fraction` — flow-through fraction — 1 grounded row(s); layers: concepts=1
+- `fluorescence` — fluorescence — 1 grounded row(s); layers: content_tags.definitions=1
+- `fluorescence-intensity-measurements` — fluorescence intensity measurements — 1 grounded row(s); layers: concepts=1
+- `fluorescent-signal` — fluorescent signal — 1 grounded row(s); layers: concepts=1
+- `fluxnet-stations` — FLUXNET stations — 1 grounded row(s); layers: concepts=1
+- `flying-insect-biomass` — flying insect biomass — 1 grounded row(s); layers: concepts=1
+- `focal-aware-motor-seizure` — Focal aware motor seizure — 1 grounded row(s); layers: concepts=1
+- `focal-aware-seizure` — Focal aware seizure — 1 grounded row(s); layers: concepts=1
+- `focal-motor-seizure` — Focal motor seizure — 1 grounded row(s); layers: concepts=1
+- `focus-groups` — focus groups — 1 grounded row(s); layers: concepts=1
+- `fof` — FOF — 1 grounded row(s); layers: concepts=1
+- `follow-through-reminder` — follow-through reminder — 1 grounded row(s); layers: concepts=1
+- `food-environment` — food environment — 1 grounded row(s); layers: content_tags.definitions=1
+- `food-losses` — food losses — 1 grounded row(s); layers: content_tags.definitions=1
+- `food-microbiota` — food microbiota — 1 grounded row(s); layers: concepts=1
+- `food-security` — food security — 2 grounded row(s); layers: concepts=2
+- `food-webs` — food webs — 1 grounded row(s); layers: concepts=1
+- `force` — force — 1 grounded row(s); layers: concepts=1
+- `force-field` — force field — 1 grounded row(s); layers: concepts=1
+- `force-fields` — force fields — 1 grounded row(s); layers: concepts=1
+- `forces-and-energies` — forces and energies — 1 grounded row(s); layers: concepts=1
+- `forces-and-integrators` — forces and integrators — 1 grounded row(s); layers: concepts=1
+- `forces-with-novel-functional-forms` — forces with novel functional forms — 1 grounded row(s); layers: concepts=1
+- `forecast-model` — forecast model — 1 grounded row(s); layers: concepts=1
+- `forecast-uncertainty` — forecast uncertainty — 1 grounded row(s); layers: concepts=1
+- `foreign-catches` — foreign catches — 1 grounded row(s); layers: concepts=1
+- `forkhead-egfp` — Forkhead-EGFP — 1 grounded row(s); layers: concepts=1
+- `formal-governance-structures` — formal governance structures — 1 grounded row(s); layers: concepts=1
+- `format-agnostic` — format agnostic — 1 grounded row(s); layers: concepts=1
+- `fossil-fuel-phase-out` — fossil fuel phase out — 1 grounded row(s); layers: concepts=1
+- `foundation-model` — foundation model — 1 grounded row(s); layers: concepts=1
+- `foundation-models` — foundation models — 1 grounded row(s); layers: concepts=1
+- `four-high-throughput-commercial-sars-cov-2-antibody-immunoas` — four high-throughput commercial SARS-CoV-2 antibody immunoassays — 1 grounded row(s); layers: concepts=1
+- `four-metrics` — four metrics — 1 grounded row(s); layers: concepts=1
+- `four-phase-flow-diagram` — four-phase flow diagram — 1 grounded row(s); layers: concepts=1
+- `four-sequential-but-overlapping-phases` — four sequential but overlapping phases — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `fourier-shell-correlation` — Fourier shell correlation — 1 grounded row(s); layers: concepts=1
+- `fowler-noll-vo-1a-hash-function` — Fowler–Noll–Vo 1a hash function — 1 grounded row(s); layers: concepts=1
+- `fp` — FP — 1 grounded row(s); layers: concepts=1
+- `fp2-method` — FP2 method — 1 grounded row(s); layers: concepts=1
+- `fraction-of-reads-falling-within-the-called-peaks` — fraction of reads falling within the called peaks — 1 grounded row(s); layers: concepts=1
+- `fragment-libraries` — fragment libraries — 1 grounded row(s); layers: concepts=1
+- `fragmentation-kinetics` — fragmentation kinetics — 1 grounded row(s); layers: concepts=1
+- `fragmented-habitats` — fragmented habitats — 1 grounded row(s); layers: concepts=1
+- `fragmented-user-experience` — fragmented user experience — 1 grounded row(s); layers: concepts=1
+- `frame-aligned-point-error-fape` — frame-aligned point error (FAPE) — 1 grounded row(s); layers: concepts=1
+- `frame-classes` — Frame classes — 1 grounded row(s); layers: concepts=1
+- `frameshift-option` — frameshift option — 1 grounded row(s); layers: concepts=1
+- `framework` — framework — 2 grounded row(s); layers: concepts=2
+- `framework-descriptor` — Framework descriptor — 1 grounded row(s); layers: concepts=1
+- `framework-map` — framework map — 1 grounded row(s); layers: concepts=1
+- `frameworks` — frameworks — 1 grounded row(s); layers: concepts=1
+- `free-choice` — free choice — 1 grounded row(s); layers: concepts=1
+- `free-dna` — free DNA — 1 grounded row(s); layers: concepts=1
+- `free-energy-principle` — Free Energy Principle — 1 grounded row(s); layers: concepts=1
+- `free-text` — free text — 1 grounded row(s); layers: concepts=1
+- `free-text-notes` — free-text notes — 1 grounded row(s); layers: concepts=1
+- `free-will` — free will — 1 grounded row(s); layers: concepts=1
+- `freely-available-in-silico-adme-tools` — freely available in silico ADME tools — 1 grounded row(s); layers: concepts=1
+- `freezing` — freezing — 1 grounded row(s); layers: content_tags.definitions=1
+- `frequencies-of-features` — frequencies of features — 1 grounded row(s); layers: concepts=1
+- `frequency-of-misconduct` — frequency of misconduct — 1 grounded row(s); layers: concepts=1
+- `frequent-boosting` — frequent boosting — 1 grounded row(s); layers: concepts=1
+- `frequently-sme` — frequently SME — 1 grounded row(s); layers: concepts=1
+- `friction` — friction — 1 grounded row(s); layers: concepts=1
+- `frn` — FRN — 1 grounded row(s); layers: concepts=1
+- `frontoparietal-network` — frontoparietal network — 1 grounded row(s); layers: concepts=1
+- `full-connections` — full connections — 1 grounded row(s); layers: concepts=1
+- `full-connectivity` — full connectivity — 1 grounded row(s); layers: concepts=1
+- `full-dynamic-programming` — full dynamic programming — 1 grounded row(s); layers: concepts=1
+- `full-information-maximum-likelihood` — full information maximum likelihood — 1 grounded row(s); layers: concepts=1
+- `full-length-dereplication` — Full-length dereplication — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `full-length-genome-sequences` — full-length genome sequences — 1 grounded row(s); layers: concepts=1
+- `full-length-genome-sequences-of-2019-ncov` — full-length genome sequences of 2019-nCoV — 1 grounded row(s); layers: concepts=1
+- `full-length-sequencing` — full-length sequencing — 1 grounded row(s); layers: concepts=1
+- `full-proteome` — full proteome — 1 grounded row(s); layers: concepts=1
+- `full-system-latency` — full-system latency — 1 grounded row(s); layers: concepts=1
+- `full-text-reviews` — full-text reviews — 1 grounded row(s); layers: concepts=1
+- `fully-axiomatized-edition` — fully axiomatized edition — 1 grounded row(s); layers: concepts=1
+- `fully-connected-layers` — fully connected layers — 1 grounded row(s); layers: concepts=1
+- `fully-convolutional-neural-network` — fully-convolutional neural network — 1 grounded row(s); layers: concepts=1
+- `function` — function — 1 grounded row(s); layers: concepts=1
+- `functional-annotation-sources` — functional annotation sources — 1 grounded row(s); layers: concepts=1
+- `functional-capacity` — functional capacity — 1 grounded row(s); layers: concepts=1
+- `functional-conservation` — functional conservation — 1 grounded row(s); layers: concepts=1
+- `functional-core-microbiota` — functional core microbiota — 1 grounded row(s); layers: concepts=1
+- `functional-diversity-of-proteins` — functional diversity of proteins — 1 grounded row(s); layers: concepts=1
+- `functional-domains` — functional domains — 1 grounded row(s); layers: concepts=1
+- `functional-enrichment` — functional enrichment — 1 grounded row(s); layers: concepts=1
+- `functional-impact` — functional impact — 1 grounded row(s); layers: concepts=1
+- `functional-impact-of-human-variation` — functional impact of human variation — 1 grounded row(s); layers: concepts=1
+- `functional-information` — functional information — 2 grounded row(s); layers: concepts=2
+- `functional-items` — functional items — 1 grounded row(s); layers: concepts=1
+- `functional-predictions` — functional predictions — 1 grounded row(s); layers: concepts=1
+- `functional-profiles-of-metagenomic-samples` — functional profiles of metagenomic samples — 1 grounded row(s); layers: concepts=1
+- `functional-redundancy` — functional redundancy — 1 grounded row(s); layers: concepts=1
+- `functional-roles` — functional roles — 1 grounded row(s); layers: concepts=1
+- `functional-similarity` — functional similarity — 1 grounded row(s); layers: content_tags.definitions=1
+- `functional-unit` — functional unit — 1 grounded row(s); layers: content_tags.definitions=1
+- `functionalism` — functionalism — 1 grounded row(s); layers: concepts=1
+- `fundamental-building-blocks` — fundamental building blocks — 1 grounded row(s); layers: concepts=1
+- `funding-source` — funding source — 1 grounded row(s); layers: concepts=1
+- `fungal-highways` — fungal highways — 1 grounded row(s); layers: concepts=1
+- `fungi` — fungi — 2 grounded row(s); layers: concepts=2
+- `funnel-plot-based-methods` — funnel-plot-based methods — 1 grounded row(s); layers: concepts=1
+- `fusion-of-viral-and-host-membranes` — fusion of viral and host membranes — 1 grounded row(s); layers: concepts=1
+- `fusion-protein-loaded-with-sequencing-adapters` — fusion protein loaded with sequencing adapters — 1 grounded row(s); layers: concepts=1
+- `future-k-ppen-geiger-classification` — future Köppen-Geiger classification — 1 grounded row(s); layers: concepts=1
+- `future-projection` — future projection — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `future-research` — future research — 1 grounded row(s); layers: concepts=1
+- `fuzzy-boundary` — fuzzy boundary — 1 grounded row(s); layers: concepts=1
+- `fwer` — FWER — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `g-profiler` — g:Profiler — 1 grounded row(s); layers: concepts=1
+- `ga-based-thresholds` — GA-based thresholds — 1 grounded row(s); layers: concepts=1
+- `gab` — Gab — 1 grounded row(s); layers: concepts=1
+- `gad-7` — GAD-7 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gain` — gain — 1 grounded row(s); layers: concepts=1
+- `gain-control` — gain control — 2 grounded row(s); layers: content_tags.definitions=2
+- `gained-or-lost` — gained or lost — 1 grounded row(s); layers: concepts=1
+- `gains` — gains — 1 grounded row(s); layers: concepts=1
+- `gambles` — gambles — 1 grounded row(s); layers: concepts=1
+- `gambling-harm` — gambling harm — 1 grounded row(s); layers: concepts=1
+- `gamma-distribution` — gamma distribution — 1 grounded row(s); layers: concepts=1
+- `gamma-poisson` — gamma-Poisson — 2 grounded row(s); layers: concepts=2
+- `gan` — GaN — 1 grounded row(s); layers: concepts=1
+- `gappedalignments` — GappedAlignments — 1 grounded row(s); layers: concepts=1
+- `gaps-in-the-genome-assembly` — gaps in the genome assembly — 1 grounded row(s); layers: concepts=1
+- `gas-flaring` — gas flaring — 1 grounded row(s); layers: concepts=1
+- `gastroenterological-complications` — gastroenterological complications — 1 grounded row(s); layers: concepts=1
+- `gat` — GAT — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gaussian-weights` — Gaussian weights — 1 grounded row(s); layers: concepts=1
+- `gbs` — GBS — 1 grounded row(s); layers: concepts=1
+- `gbs-libraries` — GBS libraries — 1 grounded row(s); layers: concepts=1
+- `gcb` — GCB — 1 grounded row(s); layers: concepts=1
+- `gcb-scale` — GCB scale — 1 grounded row(s); layers: concepts=1
+- `gcn` — GCN — 1 grounded row(s); layers: concepts=1
+- `gdb-13-database` — GDB-13 database — 1 grounded row(s); layers: concepts=1
+- `gdb-7` — GDB-7 — 1 grounded row(s); layers: concepts=1
+- `gdb-9` — GDB-9 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gdm` — GDM — 1 grounded row(s); layers: concepts=1
+- `gdt` — GDT — 1 grounded row(s); layers: concepts=1
+- `genas-function` — genas function — 1 grounded row(s); layers: concepts=1
+- `gender` — gender — 1 grounded row(s); layers: concepts=1
+- `gender-bias` — gender bias — 1 grounded row(s); layers: concepts=1
+- `gene-activity-matrix` — gene-activity matrix — 1 grounded row(s); layers: content_tags.definitions=1
+- `gene-annotation` — gene annotation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gene-centric-subset-of-representative-proteins` — gene-centric subset of representative proteins — 1 grounded row(s); layers: concepts=1
+- `gene-disease-discovery` — gene-disease discovery — 1 grounded row(s); layers: concepts=1
+- `gene-duplications` — gene duplications — 1 grounded row(s); layers: concepts=1
+- `gene-expression-experiments` — gene expression experiments — 1 grounded row(s); layers: concepts=1
+- `gene-expression-levels` — gene expression levels — 1 grounded row(s); layers: concepts=1
+- `gene-expression-program` — gene expression program — 1 grounded row(s); layers: concepts=1
+- `gene-families` — gene families — 1 grounded row(s); layers: concepts=1
+- `gene-flow` — gene flow — 1 grounded row(s); layers: concepts=1
+- `gene-length-and-phylogenetic-distance-normalisation` — gene length and phylogenetic distance normalisation — 1 grounded row(s); layers: concepts=1
+- `gene-length-bias` — gene length bias — 1 grounded row(s); layers: concepts=1
+- `gene-ontology` — Gene Ontology — 1 grounded row(s); layers: concepts=1
+- `gene-ontology-go` — Gene Ontology (GO) — 1 grounded row(s); layers: concepts=1
+- `gene-ontology-labels` — Gene Ontology labels — 1 grounded row(s); layers: concepts=1
+- `gene-phenotype-associations` — gene-phenotype associations — 1 grounded row(s); layers: concepts=1
+- `gene-prediction` — gene prediction — 1 grounded row(s); layers: concepts=1
+- `gene-prediction-stage` — gene prediction stage — 1 grounded row(s); layers: concepts=1
+- `gene-products` — gene products — 1 grounded row(s); layers: concepts=1
+- `gene-set-analyses` — gene set analyses — 1 grounded row(s); layers: concepts=1
+- `gene-synteny` — gene synteny — 1 grounded row(s); layers: concepts=1
+- `gene-to-phenotype-associations` — gene-to-phenotype associations — 1 grounded row(s); layers: concepts=1
+- `gene-tree-species-tree-reconciliation` — gene-tree/species-tree reconciliation — 1 grounded row(s); layers: concepts=1
+- `general-ai` — general AI — 1 grounded row(s); layers: concepts=1
+- `general-approach` — general approach — 1 grounded row(s); layers: concepts=1
+- `general-latent-factor` — general latent factor — 1 grounded row(s); layers: concepts=1
+- `general-patient-population` — general patient population — 1 grounded row(s); layers: concepts=1
+- `general-purpose-data-repositories` — general-purpose data repositories — 1 grounded row(s); layers: concepts=1
+- `general-purpose-open-technologies` — general-purpose, open technologies — 1 grounded row(s); layers: concepts=1
+- `general-purpose-programming-language` — general-purpose programming language — 1 grounded row(s); layers: concepts=1
+- `general-purpose-representation` — general-purpose representation — 1 grounded row(s); layers: concepts=1
+- `generalisability` — generalisability — 1 grounded row(s); layers: concepts=1
+- `generalist` — generalist — 1 grounded row(s); layers: concepts=1
+- `generalist-adme-packages` — generalist ADME packages — 1 grounded row(s); layers: concepts=1
+- `generalistic-nps-database` — generalistic NPs database — 1 grounded row(s); layers: concepts=1
+- `generalization` — generalization — 1 grounded row(s); layers: concepts=1
+- `generalization-capability` — generalization capability — 1 grounded row(s); layers: concepts=1
+- `generalized-interoperability-technologies-and-standards` — generalized interoperability technologies and standards — 1 grounded row(s); layers: concepts=1
+- `generalized-least-squares` — Generalized Least Squares — 1 grounded row(s); layers: concepts=1
+- `generation-time` — generation time — 1 grounded row(s); layers: concepts=1
+- `generative-adversarial-nets` — Generative Adversarial Nets — 1 grounded row(s); layers: concepts=1
+- `generative-adverserial-networks-gans` — generative adverserial networks (GANs) — 1 grounded row(s); layers: concepts=1
+- `generative-model` — generative model — 5 grounded row(s); layers: concepts=3, content_tags.definitions=2
+- `generic-conspiracist-beliefs-scale` — Generic Conspiracist Beliefs Scale — 1 grounded row(s); layers: concepts=1
+- `generic-data-processing-pipeline` — generic data processing pipeline — 1 grounded row(s); layers: concepts=1
+- `generic-function` — generic function — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `generous-limit` — generous limit — 1 grounded row(s); layers: concepts=1
+- `genetic-evolution` — genetic evolution — 1 grounded row(s); layers: concepts=1
+- `genetic-positions` — genetic positions — 1 grounded row(s); layers: concepts=1
+- `genetic-variance` — genetic variance — 1 grounded row(s); layers: concepts=1
+- `genetic-variance-in-plasticity` — genetic variance in plasticity — 1 grounded row(s); layers: concepts=1
+- `genome` — genome — 1 grounded row(s); layers: concepts=1
+- `genome-and-transcriptome-annotation` — genome and transcriptome annotation — 1 grounded row(s); layers: concepts=1
+- `genome-complexity` — genome complexity — 1 grounded row(s); layers: concepts=1
+- `genome-fragment` — genome fragment — 1 grounded row(s); layers: content_tags.definitions=1
+- `genome-wide-architecture-and-regulation` — genome-wide architecture and regulation — 1 grounded row(s); layers: concepts=1
+- `genome-wide-association-studies-gwas` — genome-wide association studies (GWAS) — 1 grounded row(s); layers: concepts=1
+- `genome-wide-statistical-methods` — genome-wide statistical methods — 1 grounded row(s); layers: concepts=1
+- `genomic-and-metagenomic-workflows` — genomic and metagenomic workflows — 1 grounded row(s); layers: concepts=1
+- `genomic-assay-analysis-pipelines` — genomic assay analysis pipelines — 1 grounded row(s); layers: concepts=1
+- `genomic-coordinates` — genomic coordinates — 1 grounded row(s); layers: concepts=1
+- `genomic-data-analysis` — genomic data analysis — 1 grounded row(s); layers: concepts=1
+- `genomic-interpretation` — genomic interpretation — 1 grounded row(s); layers: concepts=1
+- `genomic-method-driven-definitions` — genomic/ method-driven definitions — 1 grounded row(s); layers: concepts=1
+- `genomic-rearrangement` — genomic rearrangement — 1 grounded row(s); layers: concepts=1
+- `genomic-selection` — genomic selection — 1 grounded row(s); layers: concepts=1
+- `genomic-sequence` — genomic sequence — 1 grounded row(s); layers: concepts=1
+- `genomic-stability` — genomic stability — 1 grounded row(s); layers: concepts=1
+- `genomicfeatures` — GenomicFeatures — 1 grounded row(s); layers: concepts=1
+- `genomicranges` — GenomicRanges — 1 grounded row(s); layers: concepts=1
+- `genotyping-by-sequencing-gbs` — genotyping-by-sequencing (GBS) — 1 grounded row(s); layers: concepts=1
+- `genuine-mixtures` — genuine mixtures — 1 grounded row(s); layers: concepts=1
+- `genuine-or-predicted-np` — genuine or predicted NP — 1 grounded row(s); layers: concepts=1
+- `genus` — genus — 1 grounded row(s); layers: concepts=1
+- `geodesic-distance` — geodesic distance — 1 grounded row(s); layers: concepts=1
+- `geographic-location` — geographic location — 1 grounded row(s); layers: concepts=1
+- `geographic-region` — geographic region — 1 grounded row(s); layers: concepts=1
+- `geographic-variation` — geographic variation — 1 grounded row(s); layers: concepts=1
+- `geometric-deep-learning` — geometric deep learning — 1 grounded row(s); layers: concepts=1
+- `geometric-information` — geometric information — 1 grounded row(s); layers: concepts=1
+- `geotiff-datasets` — GeoTIFF datasets — 1 grounded row(s); layers: concepts=1
+- `geotiff-format` — GeoTIFF format — 1 grounded row(s); layers: concepts=1
+- `gestational-diabetes-mellitus` — gestational diabetes mellitus — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gestational-weight-gain` — gestational weight gain — 1 grounded row(s); layers: concepts=1
+- `getparent` — GetParent — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gff-file` — GFF file — 1 grounded row(s); layers: concepts=1
+- `ggplot2` — ggplot2 — 1 grounded row(s); layers: concepts=1
+- `ghcn` — GHCN — 1 grounded row(s); layers: concepts=1
+- `giant-platelet` — giant platelet — 1 grounded row(s); layers: content_tags.definitions=1
+- `gimp` — GIMP — 1 grounded row(s); layers: concepts=1
+- `gisaid` — GISAID — 1 grounded row(s); layers: concepts=1
+- `glitch-subtraction-technique` — glitch subtraction technique — 1 grounded row(s); layers: concepts=1
+- `glm` — GLM — 1 grounded row(s); layers: content_tags.definitions=1
+- `glmnet` — glmnet — 1 grounded row(s); layers: concepts=1
+- `global-agricultural-calories` — global agricultural calories — 1 grounded row(s); layers: concepts=1
+- `global-agricultural-production` — global agricultural production — 1 grounded row(s); layers: concepts=1
+- `global-alignment` — global alignment — 1 grounded row(s); layers: concepts=1
+- `global-catches` — global catches — 1 grounded row(s); layers: concepts=1
+- `global-change-and-ecological-studies` — global-change and ecological studies — 1 grounded row(s); layers: concepts=1
+- `global-climate-model` — global climate model — 1 grounded row(s); layers: concepts=1
+- `global-crop-production` — global crop production — 1 grounded row(s); layers: concepts=1
+- `global-frame` — global frame — 1 grounded row(s); layers: concepts=1
+- `global-historical-climatology-network` — Global Historical Climatology Network — 1 grounded row(s); layers: concepts=1
+- `global-hyper-parameters` — global hyper-parameters — 1 grounded row(s); layers: concepts=1
+- `global-installed-base` — global installed base — 1 grounded row(s); layers: concepts=1
+- `global-interpretation-of-complex-omics-datasets` — global interpretation of complex OMICs datasets — 1 grounded row(s); layers: concepts=1
+- `global-laboratory-infrastructures` — global laboratory infrastructures — 1 grounded row(s); layers: concepts=1
+- `global-maps` — global maps — 1 grounded row(s); layers: concepts=1
+- `global-marine-fisheries-catches` — global marine fisheries catches — 1 grounded row(s); layers: concepts=1
+- `global-market-competition` — global market competition — 1 grounded row(s); layers: concepts=1
+- `global-model` — global model — 1 grounded row(s); layers: concepts=1
+- `global-names-index` — Global Names Index — 1 grounded row(s); layers: concepts=1
+- `global-overview` — global overview — 1 grounded row(s); layers: concepts=1
+- `global-pairwise-sequence-comparison` — global pairwise sequence comparison — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `global-pandemic` — global pandemic — 1 grounded row(s); layers: concepts=1
+- `global-parameters` — global parameters — 1 grounded row(s); layers: concepts=1
+- `global-patterns-dataset` — Global Patterns dataset — 1 grounded row(s); layers: concepts=1
+- `global-precedence-effect` — global precedence effect — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `global-rigid-body-frames` — global rigid body frames — 1 grounded row(s); layers: concepts=1
+- `global-species-richness` — global species richness — 1 grounded row(s); layers: concepts=1
+- `global-trends` — global trends — 1 grounded row(s); layers: concepts=1
+- `global-vegetation-distribution` — global vegetation distribution — 1 grounded row(s); layers: concepts=1
+- `global-warming-potential` — global warming potential — 1 grounded row(s); layers: content_tags.definitions=1
+- `glomerular-filtration-criteria` — Glomerular filtration criteria — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `glomerular-filtration-rate-criteria` — glomerular filtration rate criteria — 1 grounded row(s); layers: concepts=1
+- `glycolysis` — glycolysis — 1 grounded row(s); layers: concepts=1
+- `glycoside-hydrolases` — glycoside hydrolases — 1 grounded row(s); layers: concepts=1
+- `gnina` — Gnina — 1 grounded row(s); layers: concepts=1
+- `gnn` — GNN — 1 grounded row(s); layers: concepts=1
+- `gnns` — GNNs — 1 grounded row(s); layers: concepts=1
+- `gnotobiotic` — gnotobiotic — 1 grounded row(s); layers: concepts=1
+- `go-annotations` — GO annotations — 1 grounded row(s); layers: concepts=1
+- `go-bp` — GO BP — 1 grounded row(s); layers: concepts=1
+- `go-cams` — GO-CAMs — 1 grounded row(s); layers: concepts=1
+- `go-causal-activity-models` — GO Causal Activity Models — 1 grounded row(s); layers: concepts=1
+- `go-cc` — GO CC — 1 grounded row(s); layers: concepts=1
+- `go-evidence-code-abbreviations` — GO evidence code abbreviations — 1 grounded row(s); layers: concepts=1
+- `go-evidence-codes` — GO evidence codes — 1 grounded row(s); layers: concepts=1
+- `go-generic-subset` — GO Generic subset — 1 grounded row(s); layers: concepts=1
+- `go-internal-references-go-refs` — GO internal references (GO_REFs) — 1 grounded row(s); layers: concepts=1
+- `go-knowledgebase` — GO knowledgebase — 1 grounded row(s); layers: concepts=1
+- `go-mf-annotation` — GO MF annotation — 1 grounded row(s); layers: concepts=1
+- `go-subsets` — GO subsets — 1 grounded row(s); layers: concepts=1
+- `go-term` — GO term — 1 grounded row(s); layers: concepts=1
+- `goal-directed-social-network-topologies` — goal-directed social network topologies — 1 grounded row(s); layers: concepts=1
+- `gold-standard` — gold-standard — 5 grounded row(s); layers: concepts=4, content_tags.definitions=1
+- `gold-standard-approach` — gold standard approach — 1 grounded row(s); layers: concepts=1
+- `gold-standard-assessment` — gold-standard assessment — 1 grounded row(s); layers: concepts=1
+- `good-data-management` — good data management — 1 grounded row(s); layers: concepts=1
+- `good-data-management-and-stewardship-practice` — good Data Management and Stewardship practice — 1 grounded row(s); layers: concepts=1
+- `good-theory` — good theory — 1 grounded row(s); layers: concepts=1
+- `goodwill` — goodwill — 1 grounded row(s); layers: concepts=1
+- `gorillas` — gorillas — 1 grounded row(s); layers: concepts=1
+- `gpib-ix-v` — GPIb-IX-V — 1 grounded row(s); layers: content_tags.definitions=1
+- `gpt3-5` — GPT3.5 — 1 grounded row(s); layers: concepts=1
+- `gpu-and-distributed-computing` — GPU and distributed computing — 1 grounded row(s); layers: concepts=1
+- `gpu-based-training` — GPU-based training — 1 grounded row(s); layers: concepts=1
+- `gpu-ram` — GPU RAM — 1 grounded row(s); layers: concepts=1
+- `gpus` — GPUs — 1 grounded row(s); layers: concepts=1
+- `gpvi` — GPVI — 1 grounded row(s); layers: content_tags.definitions=1
+- `grade-framework` — GRADE framework — 1 grounded row(s); layers: concepts=1
+- `gradient` — gradient — 1 grounded row(s); layers: content_tags.definitions=1
+- `gradient-based-contrastive-divergence-algorithm` — gradient-based contrastive divergence algorithm — 1 grounded row(s); layers: concepts=1
+- `gradient-boosting` — gradient boosting — 1 grounded row(s); layers: concepts=1
+- `gradient-saliency` — gradient saliency — 1 grounded row(s); layers: concepts=1
+- `grading-of-recommendations-assessment-development-and-evalua` — Grading of Recommendations Assessment, Development and Evaluation (GRADE) method — 1 grounded row(s); layers: concepts=1
+- `grammatical-aspect` — grammatical aspect — 1 grounded row(s); layers: concepts=1
+- `grand-implementation-theory` — grand implementation theory — 1 grounded row(s); layers: concepts=1
+- `grandmother-cells` — grandmother cells — 1 grounded row(s); layers: content_tags.definitions=1
+- `granges` — GRanges — 1 grounded row(s); layers: concepts=1
+- `granges-class` — GRanges class — 1 grounded row(s); layers: concepts=1
+- `grangeslist` — GRangesList — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `granular-eco-terms` — granular ECO terms — 1 grounded row(s); layers: concepts=1
 - `graph` — graph — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `graph-attention-mechanism` — graph attention mechanism — 1 grounded row(s); layers: concepts=1
+- `graph-based-models` — graph-based models — 1 grounded row(s); layers: concepts=1
+- `graph-convolutions` — graph convolutions — 1 grounded row(s); layers: concepts=1
+- `graph-embedding` — graph embedding — 1 grounded row(s); layers: concepts=1
+- `graph-generative-models` — graph generative models — 1 grounded row(s); layers: concepts=1
+- `graph-inference-problem` — graph inference problem — 1 grounded row(s); layers: concepts=1
+- `graph-level-predictions` — graph-level predictions — 1 grounded row(s); layers: concepts=1
 - `graph-neural-network` — graph neural network — 1 grounded row(s); layers: content_tags.definitions=1
+- `graph-neural-networks` — graph neural networks — 1 grounded row(s); layers: concepts=1
+- `graph-structured-data` — graph-structured data — 1 grounded row(s); layers: concepts=1
+- `graph-t-sne` — graph t-SNE — 1 grounded row(s); layers: concepts=1
+- `graph-traversal-algorithm` — graph traversal algorithm — 1 grounded row(s); layers: concepts=1
+- `graphical-summaries-of-results` — graphical summaries of results — 1 grounded row(s); layers: concepts=1
+- `graphical-user-interface` — graphical user interface — 2 grounded row(s); layers: concepts=2
+- `graphics-processing-unit-gpu-minutes-to-gpu-hours` — graphics processing unit (GPU) minutes to GPU hours — 1 grounded row(s); layers: concepts=1
+- `graphics-processing-units` — graphics processing units — 1 grounded row(s); layers: concepts=1
+- `graphmap` — GraphMap — 1 grounded row(s); layers: concepts=1
+- `gravitational-wave-luminosity` — gravitational-wave luminosity — 1 grounded row(s); layers: concepts=1
+- `gravitational-wave-phase` — gravitational-wave phase — 1 grounded row(s); layers: concepts=1
+- `gravitational-wave-signal` — gravitational-wave signal — 1 grounded row(s); layers: concepts=1
+- `grch38-version-of-the-human-genome` — GRCh38 version of the human genome — 1 grounded row(s); layers: concepts=1
+- `great-plate-count-anomaly` — great plate count anomaly — 1 grounded row(s); layers: concepts=1
+- `greater-serological-responses` — greater serological responses — 1 grounded row(s); layers: concepts=1
+- `greater-than-a-threshold` — greater than a threshold — 1 grounded row(s); layers: concepts=1
+- `greedy-layer-wise-training-strategy` — greedy layer-wise training strategy — 1 grounded row(s); layers: concepts=1
+- `green-energy-transition` — green energy transition — 1 grounded row(s); layers: content_tags.definitions=1
+- `green-infrastructure` — green infrastructure — 1 grounded row(s); layers: content_tags.definitions=1
+- `greengenes` — Greengenes — 1 grounded row(s); layers: concepts=1
+- `gridded-population-of-the-world` — Gridded Population of the World — 1 grounded row(s); layers: concepts=1
+- `grief` — grief — 1 grounded row(s); layers: concepts=1
+- `groads` — gROADS — 1 grounded row(s); layers: concepts=1
+- `gromacs` — Gromacs — 1 grounded row(s); layers: concepts=1
+- `ground-truth` — ground truth — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `ground-truth-labels` — ground truth labels — 1 grounded row(s); layers: concepts=1
+- `group-1` — Group 1 — 1 grounded row(s); layers: concepts=1
+- `group-2` — Group 2 — 1 grounded row(s); layers: concepts=1
+- `group-3` — Group 3 — 1 grounded row(s); layers: concepts=1
+- `group-factor` — group factor — 1 grounded row(s); layers: concepts=1
+- `group-of-diverse-disorders` — group of diverse disorders — 1 grounded row(s); layers: concepts=1
+- `group-polarization` — group polarization — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `grouped-together-in-the-same-otu` — grouped together in the same OTU — 1 grounded row(s); layers: concepts=1
+- `grouping` — grouping — 1 grounded row(s); layers: concepts=1
+- `grouping-errors-together-with-the-error-free-sequence` — grouping errors together with the error-free sequence — 1 grounded row(s); layers: concepts=1
+- `growing-ecosystem-of-packages` — growing ecosystem of packages — 1 grounded row(s); layers: concepts=1
+- `growth-factors` — growth factors — 1 grounded row(s); layers: concepts=1
+- `growth-mindset` — growth mindset — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gsea` — GSEA — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gtr-g-substitution-model` — GTR+G substitution model — 1 grounded row(s); layers: concepts=1
+- `gtr-model` — GTR model — 1 grounded row(s); layers: concepts=1
+- `gtt` — GTT — 1 grounded row(s); layers: concepts=1
+- `guided-play` — guided play — 1 grounded row(s); layers: content_tags.definitions=1
+- `guideline-development-group` — Guideline Development Group — 1 grounded row(s); layers: concepts=1
+- `guiding-style` — guiding style — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `gut-feeling` — gut feeling — 1 grounded row(s); layers: concepts=1
+- `gut-liver` — gut-liver — 1 grounded row(s); layers: concepts=1
+- `h-e` — H&E — 1 grounded row(s); layers: concepts=1
+- `h-score` — H-score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `h3f3a` — H3F3A — 1 grounded row(s); layers: concepts=1
+- `h3k27me3` — H3K27me3 — 1 grounded row(s); layers: concepts=1
+- `h9-es-cells` — H9 ES Cells — 1 grounded row(s); layers: concepts=1
+- `habitat-and-topography` — habitat and topography — 1 grounded row(s); layers: concepts=1
+- `habitat-change` — habitat change — 1 grounded row(s); layers: concepts=1
+- `habitat-conversion` — habitat conversion — 1 grounded row(s); layers: concepts=1
+- `haemostasis` — haemostasis — 1 grounded row(s); layers: concepts=1
+- `hairball-networks` — hairball networks — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `hallucinatory-perception` — hallucinatory perception — 1 grounded row(s); layers: concepts=1
+- `hand-crafted-descriptors` — hand-crafted descriptors — 1 grounded row(s); layers: concepts=1
+- `hand-selection-of-variables` — hand-selection of variables — 1 grounded row(s); layers: concepts=1
+- `handcrafted-features` — handcrafted features — 2 grounded row(s); layers: concepts=2
+- `handed-out-surveys` — handed out surveys — 1 grounded row(s); layers: concepts=1
+- `haralick-and-gabor-texture-features` — Haralick and Gabor texture features — 1 grounded row(s); layers: concepts=1
+- `haralick-texture-features` — Haralick texture features — 1 grounded row(s); layers: concepts=1
+- `hard-thresholding` — hard thresholding — 1 grounded row(s); layers: concepts=1
+- `harm-minimisation` — harm minimisation — 1 grounded row(s); layers: concepts=1
+- `harm-reduction` — harm-reduction — 1 grounded row(s); layers: concepts=1
+- `harmonic-mean` — harmonic mean — 2 grounded row(s); layers: concepts=2
+- `harvested-areas` — harvested areas — 1 grounded row(s); layers: concepts=1
+- `hash-based-subsampling` — hash-based subsampling — 1 grounded row(s); layers: concepts=1
+- `hash-cells` — hash cells — 1 grounded row(s); layers: concepts=1
+- `hash-table` — hash table — 1 grounded row(s); layers: concepts=1
+- `hash-table-collisions` — hash table collisions — 1 grounded row(s); layers: concepts=1
+- `head-to-head-assessment` — head-to-head assessment — 1 grounded row(s); layers: concepts=1
+- `health-administrative-data` — health administrative data — 1 grounded row(s); layers: concepts=1
+- `health-behavior` — health behavior — 1 grounded row(s); layers: concepts=1
+- `health-benefits` — health benefits — 1 grounded row(s); layers: concepts=1
+- `health-care-delivery-processes` — health-care delivery processes — 1 grounded row(s); layers: concepts=1
+- `health-disparities` — health disparities — 1 grounded row(s); layers: concepts=1
+- `health-economic-evaluation` — health economic evaluation — 1 grounded row(s); layers: content_tags.definitions=1
+- `health-interventions` — health interventions — 1 grounded row(s); layers: concepts=1
+- `health-outcome` — Health outcome — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `health-outcomes` — health outcomes — 1 grounded row(s); layers: concepts=1
+- `health-related-quality-of-life` — health-related quality of life — 1 grounded row(s); layers: concepts=1
+- `health-risks` — health risks — 1 grounded row(s); layers: concepts=1
+- `health-social-and-behavioral-sciences` — health, social, and behavioral sciences — 1 grounded row(s); layers: concepts=1
+- `healthcare-quality` — healthcare quality — 1 grounded row(s); layers: concepts=1
+- `healthy-individuals` — healthy individuals — 1 grounded row(s); layers: concepts=1
+- `healthy-microbiota` — healthy microbiota — 1 grounded row(s); layers: concepts=1
+- `heavy-atoms` — heavy atoms — 1 grounded row(s); layers: concepts=1
+- `heavy-metals` — Heavy metals — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `heavy-tailed-consumption-patterns` — heavy–tailed consumption patterns — 1 grounded row(s); layers: concepts=1
+- `hela-cells` — HeLa cells — 2 grounded row(s); layers: concepts=2
+- `hela-cells-overexpressing-the-ace2-receptor` — HeLa cells overexpressing the ACE2 receptor — 1 grounded row(s); layers: concepts=1
+- `helm` — HELM — 1 grounded row(s); layers: concepts=1
+- `hematoxylin-and-eosin` — hematoxylin and eosin — 1 grounded row(s); layers: concepts=1
+- `hemisphere` — hemisphere — 1 grounded row(s); layers: concepts=1
+- `hepatic-bridging-fibrosis` — Hepatic bridging fibrosis — 1 grounded row(s); layers: concepts=1
+- `her2-neu-amplification` — HER2/neu amplification — 1 grounded row(s); layers: concepts=1
+- `herd-immunity` — herd immunity — 1 grounded row(s); layers: concepts=1
+- `heritability` — heritability — 1 grounded row(s); layers: concepts=1
+- `hesitant` — hesitant — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `hetero-complexes` — hetero-complexes — 1 grounded row(s); layers: concepts=1
+- `heterogeneity-and-dynamics-of-microbiomes` — heterogeneity and dynamics of microbiomes — 1 grounded row(s); layers: concepts=1
+- `heterogeneous-data` — heterogeneous data — 1 grounded row(s); layers: concepts=1
+- `heterogeneous-population` — heterogeneous population — 1 grounded row(s); layers: concepts=1
+- `heteroscedasticity` — heteroscedasticity — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `heterotypic-contacts` — heterotypic contacts — 1 grounded row(s); layers: concepts=1
+- `heuristic-approach` — heuristic approach — 1 grounded row(s); layers: concepts=1
+- `heuristics` — heuristics — 1 grounded row(s); layers: concepts=1
+- `hg19-refseq` — hg19 RefSeq — 1 grounded row(s); layers: concepts=1
+- `hg19-ucsc-knowngene-exon-boundaries` — hg19 UCSC ‘knowngene’ exon boundaries — 1 grounded row(s); layers: concepts=1
+- `hia` — HIA — 1 grounded row(s); layers: concepts=1
+- `hidden-knowledge` — hidden knowledge — 1 grounded row(s); layers: concepts=1
+- `hidden-markov-models-hmms` — hidden Markov models (HMMs) — 1 grounded row(s); layers: concepts=1
+- `hidden-units` — hidden units — 1 grounded row(s); layers: concepts=1
+- `hidden-variable` — hidden variable — 1 grounded row(s); layers: concepts=1
+- `hierarchical-chemical-classification` — hierarchical chemical classification — 1 grounded row(s); layers: concepts=1
+- `hierarchical-clustering` — hierarchical clustering — 1 grounded row(s); layers: concepts=1
+- `hierarchical-mixture` — hierarchical mixture — 1 grounded row(s); layers: concepts=1
+- `hierarchical-searches` — hierarchical searches — 1 grounded row(s); layers: concepts=1
+- `hierarchical-systems` — hierarchical systems — 1 grounded row(s); layers: concepts=1
+- `hierarchically-organized-transformations-of-the-image` — hierarchically organized transformations of the image — 1 grounded row(s); layers: concepts=1
+- `high-accuracy-protein-structure-predictions` — high-accuracy protein-structure predictions — 1 grounded row(s); layers: concepts=1
+- `high-agency-intervention` — high-agency intervention — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `high-backgrounds` — high backgrounds — 1 grounded row(s); layers: concepts=1
+- `high-computational-cost-of-inference` — high computational cost of inference — 1 grounded row(s); layers: concepts=1
+- `high-confidence-subset` — high-confidence subset — 1 grounded row(s); layers: concepts=1
+- `high-content-information` — high-content information — 1 grounded row(s); layers: concepts=1
+- `high-dimensional-images` — high dimensional images — 1 grounded row(s); layers: concepts=1
+- `high-diversity-large-genome-species` — high diversity, large genome species — 1 grounded row(s); layers: concepts=1
+- `high-entropy-alloy` — high-entropy alloy — 1 grounded row(s); layers: content_tags.definitions=1
+- `high-entropy-oxides` — high entropy oxides — 1 grounded row(s); layers: content_tags.definitions=1
+- `high-level-accessor-interface` — high-level accessor interface — 1 grounded row(s); layers: concepts=1
+- `high-level-reasoning` — high-level reasoning — 1 grounded row(s); layers: concepts=1
+- `high-odds-of-anxiety` — high odds of anxiety — 1 grounded row(s); layers: concepts=1
+- `high-performance-library` — high-performance library — 1 grounded row(s); layers: concepts=1
+- `high-propensities-for-intrinsic-disorder` — high propensities for intrinsic disorder — 1 grounded row(s); layers: concepts=1
+- `high-quality-digital-publications` — high quality digital publications — 1 grounded row(s); layers: concepts=1
+- `high-quality-outputs` — high quality outputs — 1 grounded row(s); layers: concepts=1
+- `high-read-depth-of-numts` — high read depth of NUMTs — 1 grounded row(s); layers: concepts=1
+- `high-reconstruction-error` — high reconstruction error — 1 grounded row(s); layers: concepts=1
+- `high-resolution-images` — high resolution images — 2 grounded row(s); layers: concepts=2
+- `high-resolution-sequencing-libraries` — high-resolution sequencing libraries — 1 grounded row(s); layers: concepts=1
+- `high-seas` — High Seas — 1 grounded row(s); layers: concepts=1
+- `high-spatial-resolution` — high spatial resolution — 2 grounded row(s); layers: concepts=2
+- `high-stakes-comprehensive-three-step-standardized-testing-pr` — high-stakes, comprehensive three-step standardized testing program — 1 grounded row(s); layers: concepts=1
+- `high-throughput-3d-analysis` — high-throughput 3D analysis — 1 grounded row(s); layers: concepts=1
+- `high-throughput-biology-laboratories` — high-throughput biology laboratories — 1 grounded row(s); layers: concepts=1
+- `high-throughput-biomarker-evaluation` — high-throughput biomarker evaluation — 1 grounded row(s); layers: concepts=1
+- `high-throughput-pipeline` — high-throughput pipeline — 1 grounded row(s); layers: concepts=1
+- `high-throughput-sequencing` — High-throughput sequencing — 1 grounded row(s); layers: concepts=1
+- `high-throughput-technology` — high-throughput technology — 1 grounded row(s); layers: concepts=1
+- `highcharts` — HighCharts — 1 grounded row(s); layers: concepts=1
+- `higher-classification-throughput` — higher classification throughput — 1 grounded row(s); layers: concepts=1
+- `higher-frequency-of-sme` — higher frequency of SME — 1 grounded row(s); layers: concepts=1
+- `higher-level-data-analysis-functionality` — higher-level data analysis functionality — 1 grounded row(s); layers: concepts=1
+- `higher-level-scientific-libraries` — higher level scientific libraries — 1 grounded row(s); layers: concepts=1
+- `higher-level-taxa` — higher-level taxa — 1 grounded row(s); layers: concepts=1
+- `higher-order-cognitions` — higher-order cognitions — 1 grounded row(s); layers: concepts=1
+- `higher-order-features` — higher order features — 1 grounded row(s); layers: concepts=1
+- `higher-price` — higher price — 1 grounded row(s); layers: concepts=1
+- `higher-ratios-of-spike-rbd-and-s1-domains-compared-to-n-anti` — higher ratios of spike RBD and S1 domains compared to N antigen — 1 grounded row(s); layers: concepts=1
+- `higher-sensitivity` — higher sensitivity — 1 grounded row(s); layers: concepts=1
+- `higher-taxa` — higher taxa — 1 grounded row(s); layers: concepts=1
+- `higher-taxon-approach` — higher taxon approach — 1 grounded row(s); layers: concepts=1
+- `higher-taxonomic-classification` — higher taxonomic classification — 1 grounded row(s); layers: concepts=1
+- `higher-trophic-levels` — higher trophic levels — 1 grounded row(s); layers: concepts=1
+- `highly-sensitive-or-personally-identifiable-data` — highly sensitive or personally-identifiable data — 1 grounded row(s); layers: concepts=1
+- `highly-structured-circular-rnas` — highly structured circular RNAs — 1 grounded row(s); layers: concepts=1
+- `hijack-various-host-cellular-processes` — hijack various host cellular processes — 1 grounded row(s); layers: concepts=1
+- `hinge` — hinge — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `hipk3-gene` — HIPK3 gene — 1 grounded row(s); layers: concepts=1
+- `hipk3-mrna` — HIPK3 mRNA — 1 grounded row(s); layers: concepts=1
+- `hippocampus` — hippocampus — 1 grounded row(s); layers: concepts=1
+- `histone-lactylation` — histone lactylation — 1 grounded row(s); layers: concepts=1
+- `histone-modifications` — histone modifications — 1 grounded row(s); layers: concepts=1
+- `historical-manifold-of-states` — historical manifold of states — 1 grounded row(s); layers: concepts=1
+- `historical-negative-control-samples` — historical negative control samples — 1 grounded row(s); layers: concepts=1
+- `historical-obsolete-sequences` — historical obsolete sequences — 1 grounded row(s); layers: concepts=1
+- `hit-rate` — hit rate — 1 grounded row(s); layers: content_tags.definitions=1
+- `hiv` — HIV — 1 grounded row(s); layers: concepts=1
+- `hiv-replication-inhibition-ability` — HIV replication inhibition ability — 1 grounded row(s); layers: concepts=1
+- `hmm-based-searches` — HMM-based searches — 1 grounded row(s); layers: concepts=1
+- `hmmer3` — HMMER3 — 1 grounded row(s); layers: concepts=1
+- `hnn` — HNN — 1 grounded row(s); layers: concepts=1
+- `hole-board` — hole-board — 1 grounded row(s); layers: content_tags.definitions=1
+- `holobiont-theory` — holobiont theory — 1 grounded row(s); layers: concepts=1
+- `holocene` — Holocene — 1 grounded row(s); layers: content_tags.definitions=1
+- `homeostasis` — homeostasis — 1 grounded row(s); layers: concepts=1
+- `homogeneous-self-dual-formulation` — homogeneous self-dual formulation — 1 grounded row(s); layers: concepts=1
+- `homologous-structures-templates` — homologous structures (templates) — 1 grounded row(s); layers: concepts=1
+- `homology-based-approaches` — homology-based approaches — 1 grounded row(s); layers: concepts=1
+- `homology-detection` — homology detection — 1 grounded row(s); layers: concepts=1
+- `homology-relationships` — homology relationships — 1 grounded row(s); layers: concepts=1
+- `homomorphic-encryption-systems` — Homomorphic encryption systems — 1 grounded row(s); layers: concepts=1
+- `homophily` — homophily — 1 grounded row(s); layers: concepts=1
+- `horace` — HORACE — 1 grounded row(s); layers: concepts=1
+- `horizontal-gene-transfer-hgt` — horizontal gene transfer (HGT) — 1 grounded row(s); layers: concepts=1
+- `horizontal-gene-transfers` — horizontal gene transfers — 1 grounded row(s); layers: concepts=1
+- `horse-anti-sars-cov-serum` — horse anti-SARS-CoV serum — 1 grounded row(s); layers: concepts=1
+- `hospital-score` — HOSPITAL score — 1 grounded row(s); layers: concepts=1
+- `hospitalized-covid-19-patients` — hospitalized COVID-19 patients — 1 grounded row(s); layers: concepts=1
+- `host-component` — host component — 1 grounded row(s); layers: concepts=1
+- `host-genomes` — host genomes — 1 grounded row(s); layers: concepts=1
+- `host-microbe-coevolution` — host-microbe coevolution — 1 grounded row(s); layers: concepts=1
+- `host-symbiont-branch` — host–symbiont branch — 1 grounded row(s); layers: concepts=1
+- `hot-moments` — hot moments — 1 grounded row(s); layers: concepts=1
+- `hotline-online-consultation-online-course-and-outpatient-con` — hotline, online consultation, online course and outpatient consultation — 1 grounded row(s); layers: concepts=1
+- `how-well-it-succeeds` — how well it succeeds — 1 grounded row(s); layers: concepts=1
+- `hpo-ontology` — HPO ontology — 1 grounded row(s); layers: concepts=1
+- `hpo-orphanet-rare-disease-ontology-ordo` — HPO-Orphanet Rare Disease Ontology (ORDO) — 1 grounded row(s); layers: concepts=1
+- `hpoas` — HPOAs — 1 grounded row(s); layers: concepts=1
+- `html-report` — HTML report — 1 grounded row(s); layers: concepts=1
+- `hub-species` — hub species — 1 grounded row(s); layers: concepts=1
+- `hubble-constant` — Hubble constant — 1 grounded row(s); layers: concepts=1
+- `huh7-cells` — Huh7 cells — 1 grounded row(s); layers: concepts=1
+- `human-action-bias` — human action bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `human-adjudication` — human adjudication — 1 grounded row(s); layers: concepts=1
+- `human-ai-interactions` — human-AI interactions — 1 grounded row(s); layers: concepts=1
+- `human-beings` — human beings — 1 grounded row(s); layers: concepts=1
+- `human-centered-design` — human centered design — 1 grounded row(s); layers: concepts=1
+- `human-disturbance` — human disturbance — 1 grounded row(s); layers: concepts=1
+- `human-dominated-landscape` — human-dominated landscape — 1 grounded row(s); layers: concepts=1
+- `human-driven` — human-driven — 1 grounded row(s); layers: concepts=1
+- `human-error` — human error — 1 grounded row(s); layers: concepts=1
+- `human-footprint` — Human Footprint — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `human-footprint-map` — Human Footprint map — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `human-footprint-maps` — Human Footprint maps — 1 grounded row(s); layers: concepts=1
+- `human-footprint-performance` — Human Footprint performance — 1 grounded row(s); layers: concepts=1
+- `human-gastrointestinal-absorption` — human gastrointestinal absorption — 1 grounded row(s); layers: concepts=1
+- `human-genome` — human genome — 1 grounded row(s); layers: concepts=1
+- `human-in-the-loop-workflow` — human-in-the-loop workflow — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `human-labeling-precision` — human-labeling precision — 1 grounded row(s); layers: concepts=1
+- `human-learning-process` — human learning process — 1 grounded row(s); layers: concepts=1
+- `human-microbiome` — human microbiome — 1 grounded row(s); layers: concepts=1
+- `human-microbiome-project` — Human Microbiome Project — 1 grounded row(s); layers: concepts=1
+- `human-orthologs` — human orthologs — 1 grounded row(s); layers: concepts=1
+- `human-phenotype-ontology-hpo` — Human Phenotype Ontology (HPO) — 1 grounded row(s); layers: concepts=1
+- `human-phenotypes` — human phenotypes — 1 grounded row(s); layers: concepts=1
+- `human-population-density` — human population density — 1 grounded row(s); layers: concepts=1
+- `human-pressures` — human pressures — 1 grounded row(s); layers: concepts=1
+- `human-pressures-on-the-environment` — Human pressures on the environment — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `human-readable` — human readable — 1 grounded row(s); layers: concepts=1
+- `human-readable-rules` — human-readable rules — 1 grounded row(s); layers: concepts=1
+- `human-readable-summaries` — human readable summaries — 1 grounded row(s); layers: concepts=1
+- `human-responsibility` — human responsibility — 1 grounded row(s); layers: concepts=1
+- `human-scored-image-analysis` — human-scored image analysis — 1 grounded row(s); layers: concepts=1
+- `human-setting` — human setting — 1 grounded row(s); layers: concepts=1
+- `human-to-human-contact` — human-to-human contact — 1 grounded row(s); layers: concepts=1
+- `humidity` — humidity — 1 grounded row(s); layers: concepts=1
+- `humoral-immunity` — humoral immunity — 1 grounded row(s); layers: concepts=1
+- `hungry-ghost` — Hungry Ghost — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `hyaluronan` — hyaluronan — 1 grounded row(s); layers: content_tags.definitions=1
+- `hyaluronic-acid` — hyaluronic acid — 1 grounded row(s); layers: content_tags.definitions=1
+- `hyb` — HYB — 1 grounded row(s); layers: content_tags.definitions=1
+- `hybrid` — hybrid — 1 grounded row(s); layers: content_tags.definitions=1
+- `hybrid-approach` — hybrid approach — 1 grounded row(s); layers: concepts=1
+- `hybrid-modeling` — hybrid modeling — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `hydraulic-vulnerability-segmentation` — hydraulic vulnerability segmentation — 1 grounded row(s); layers: content_tags.definitions=1
+- `hydrophobicity` — hydrophobicity — 1 grounded row(s); layers: concepts=1
+- `hyperactive-tn5-transposase` — hyperactive Tn5 transposase — 1 grounded row(s); layers: concepts=1
+- `hyperbolic-tangent` — hyperbolic tangent — 1 grounded row(s); layers: concepts=1
+- `hyperexponential-function` — hyperexponential function — 1 grounded row(s); layers: concepts=1
+- `hypergeometric-test` — hypergeometric test — 1 grounded row(s); layers: concepts=1
+- `hypergraphs` — hypergraphs — 1 grounded row(s); layers: concepts=1
+- `hyperkalemia` — Hyperkalemia — 1 grounded row(s); layers: concepts=1
+- `hypernatural-monitoring` — hypernatural monitoring — 1 grounded row(s); layers: concepts=1
+- `hyperparameters` — hyperparameters — 1 grounded row(s); layers: concepts=1
+- `hypervalent-nitro-groups` — hypervalent nitro groups — 1 grounded row(s); layers: concepts=1
+- `hypothesis-generation` — hypothesis generation — 1 grounded row(s); layers: concepts=1
+- `hypothesized-factor-structure` — hypothesized factor structure — 1 grounded row(s); layers: concepts=1
+- `hypothetical-scrambled-transcript` — hypothetical scrambled transcript — 1 grounded row(s); layers: concepts=1
+- `i` — I /σ — 1 grounded row(s); layers: concepts=1
+- `iadpsg` — IADPSG — 1 grounded row(s); layers: concepts=1
+- `iba` — IBA — 1 grounded row(s); layers: concepts=1
+- `ic-shell` — IC shell — 1 grounded row(s); layers: content_tags.definitions=1
+- `icans` — ICANS — 1 grounded row(s); layers: concepts=1
+- `icd` — ICD — 1 grounded row(s); layers: concepts=1
+- `icd-driven-immunity` — ICD-driven immunity — 1 grounded row(s); layers: concepts=1
+- `icd-unrelated-immunostimulation` — ICD-unrelated immunostimulation — 1 grounded row(s); layers: concepts=1
+- `ice-sheet-disintegration` — ice sheet disintegration — 1 grounded row(s); layers: concepts=1
+- `iceberg-effect` — iceberg effect — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `icm` — ICM — 1 grounded row(s); layers: concepts=1
+- `iconic-memory` — iconic memory — 1 grounded row(s); layers: content_tags.definitions=1
+- `ictv-statutes` — ICTV Statutes — 1 grounded row(s); layers: concepts=1
+- `icu` — ICU — 1 grounded row(s); layers: concepts=1
+- `icy` — Icy — 1 grounded row(s); layers: concepts=1
+- `id-errors` — ID errors — 1 grounded row(s); layers: concepts=1
+- `identical-weights` — identical weights — 1 grounded row(s); layers: concepts=1
+- `identification-of-these-regions-and-subsequent-filtering` — identification of these regions and subsequent filtering — 1 grounded row(s); layers: concepts=1
+- `identifier` — identifier — 1 grounded row(s); layers: concepts=1
+- `identity-switches` — identity switches — 1 grounded row(s); layers: concepts=1
+- `identity-tracking` — identity tracking — 1 grounded row(s); layers: concepts=1
+- `identity-tracking-problem` — identity-tracking problem — 1 grounded row(s); layers: concepts=1
+- `igg-and-igm-titres` — IgG and IgM titres — 1 grounded row(s); layers: concepts=1
+- `igg-assays` — IgG assays — 1 grounded row(s); layers: concepts=1
+- `ihc` — IHC — 1 grounded row(s); layers: concepts=1
+- `il-13` — IL-13 — 1 grounded row(s); layers: concepts=1
+- `il-2` — IL-2 — 1 grounded row(s); layers: concepts=1
+- `il-4` — IL-4 — 1 grounded row(s); layers: concepts=1
+- `il-4-and-il-13` — IL-4 and IL-13 — 1 grounded row(s); layers: concepts=1
+- `ileus` — ileus — 1 grounded row(s); layers: concepts=1
+- `illegal-fishing` — illegal fishing — 1 grounded row(s); layers: concepts=1
+- `illumina-27k` — Illumina 27K — 1 grounded row(s); layers: concepts=1
+- `illumina-450k` — Illumina 450K — 1 grounded row(s); layers: concepts=1
+- `illumina-quality-score` — Illumina quality score — 1 grounded row(s); layers: concepts=1
+- `illumination-correction` — illumination correction — 1 grounded row(s); layers: concepts=1
+- `illusion-of-high-correlation` — illusion of high correlation — 1 grounded row(s); layers: concepts=1
+- `ilogp` — iLOGP — 1 grounded row(s); layers: concepts=1
+- `image-analysis-software` — image analysis software — 1 grounded row(s); layers: concepts=1
+- `image-classification-models` — image classification models — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `image-cytometry` — image cytometry — 1 grounded row(s); layers: concepts=1
+- `image-number` — image number — 1 grounded row(s); layers: concepts=1
+- `image-processing` — image processing — 1 grounded row(s); layers: concepts=1
+- `image-segmentation-models` — image segmentation models — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `image-to-image-translation` — image-to-image translation — 1 grounded row(s); layers: concepts=1
+- `imagej` — ImageJ — 2 grounded row(s); layers: concepts=2
+- `imagej-nih-image` — ImageJ/NIH Image — 1 grounded row(s); layers: concepts=1
+- `imagenet-challenge-for-object-recognition` — ImageNet challenge for object recognition — 1 grounded row(s); layers: concepts=1
+- `imagenet-large-scale-visual-recognition-challenge-ilsvrc` — ImageNet Large Scale Visual Recognition Challenge (ILSVRC) — 1 grounded row(s); layers: concepts=1
+- `imex-consortium` — IMEx Consortium — 1 grounded row(s); layers: concepts=1
+- `imlygic` — Imlygic — 1 grounded row(s); layers: concepts=1
+- `immanent-narrative` — immanent narrative — 1 grounded row(s); layers: concepts=1
+- `immediacy-of-an-incentive` — immediacy of an incentive — 1 grounded row(s); layers: concepts=1
+- `immediate-financial-incentive` — immediate financial incentive — 1 grounded row(s); layers: concepts=1
+- `immersion` — immersion — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `immune-checkpoint-inhibitors` — immune checkpoint inhibitors — 1 grounded row(s); layers: concepts=1
+- `immune-checkpoints` — immune checkpoints — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `immune-responses` — immune responses — 1 grounded row(s); layers: concepts=1
+- `immune-surveillance` — immune surveillance — 1 grounded row(s); layers: concepts=1
+- `immunisation-advocates` — immunisation advocates — 1 grounded row(s); layers: concepts=1
+- `immunity-to-infection` — immunity to infection — 1 grounded row(s); layers: concepts=1
+- `immunocompetent-syngeneic-hosts` — immunocompetent syngeneic hosts — 1 grounded row(s); layers: concepts=1
+- `immunodeficient-mice` — immunodeficient mice — 1 grounded row(s); layers: concepts=1
+- `immunofluorescence-microscopy` — immunofluorescence microscopy — 1 grounded row(s); layers: concepts=1
+- `immunogenic-cell-death-icd` — immunogenic cell death (ICD) — 1 grounded row(s); layers: concepts=1
+- `immunoglobulins` — immunoglobulins — 1 grounded row(s); layers: concepts=1
+- `immunohistochemically-stained` — immunohistochemically-stained — 1 grounded row(s); layers: concepts=1
+- `immunological-assays` — immunological assays — 1 grounded row(s); layers: concepts=1
+- `immunological-correlates-of-protection` — immunological correlates of protection — 1 grounded row(s); layers: concepts=1
+- `immunological-memory` — immunological memory — 1 grounded row(s); layers: concepts=1
+- `immunomodulation` — immunomodulation — 1 grounded row(s); layers: concepts=1
+- `immunosenescence` — immunosenescence — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `immunosuppression` — immunosuppression — 1 grounded row(s); layers: concepts=1
+- `immunosuppressive-microenvironment` — immunosuppressive microenvironment — 1 grounded row(s); layers: concepts=1
+- `immunotherapy` — immunotherapy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `impact-of-the-presence-or-absence-of-a-descriptor` — impact of the presence or absence of a descriptor — 1 grounded row(s); layers: concepts=1
+- `impacts-on-natural-systems` — ‘impacts’ on natural systems — 1 grounded row(s); layers: concepts=1
+- `impaired-glucose-tolerance` — impaired glucose tolerance — 1 grounded row(s); layers: concepts=1
+- `implementation` — implementation — 2 grounded row(s); layers: concepts=2
+- `implementation-and-sustainability-infrastructure` — implementation and sustainability infrastructure — 1 grounded row(s); layers: concepts=1
+- `implementation-choices` — implementation choices — 1 grounded row(s); layers: concepts=1
+- `implementation-efforts` — implementation efforts — 1 grounded row(s); layers: concepts=1
+- `implementation-frameworks` — implementation frameworks — 1 grounded row(s); layers: concepts=1
+- `implementation-outcomes` — implementation outcomes — 2 grounded row(s); layers: concepts=2
+- `implementation-practice` — implementation practice — 1 grounded row(s); layers: concepts=1
+- `implementation-process` — implementation process — 1 grounded row(s); layers: concepts=1
+- `implementation-relevant-measures` — implementation-relevant measures — 1 grounded row(s); layers: concepts=1
+- `implementation-science` — implementation science — 1 grounded row(s); layers: concepts=1
+- `implementation-theories` — implementation theories — 1 grounded row(s); layers: concepts=1
+- `implementation-theory` — implementation theory — 1 grounded row(s); layers: concepts=1
+- `important-changes-to-methods-after-trial-commencement` — important changes to methods after trial commencement — 1 grounded row(s); layers: concepts=1
+- `important-sites` — important sites — 1 grounded row(s); layers: concepts=1
+- `important-yet-neglected-variable` — important yet neglected variable — 1 grounded row(s); layers: concepts=1
+- `imprecision` — imprecision — 1 grounded row(s); layers: concepts=1
+- `improper-conceptualization-and-definition-of-the-domain-s` — improper conceptualization and definition of the domain(s) — 1 grounded row(s); layers: concepts=1
+- `improved-bioinformatic-and-statistical-methods` — improved bioinformatic and statistical methods — 1 grounded row(s); layers: concepts=1
+- `improved-computational-approach` — improved computational approach — 1 grounded row(s); layers: concepts=1
+- `improved-implementation-strategies` — improved implementation strategies — 1 grounded row(s); layers: concepts=1
+- `imputation` — imputation — 1 grounded row(s); layers: concepts=1
+- `in-hospital-mortality` — in-hospital mortality — 1 grounded row(s); layers: concepts=1
+- `in-house-physics-based-methods` — in-house physics-based methods — 1 grounded row(s); layers: concepts=1
+- `in-memory-data-model` — in-memory data model — 1 grounded row(s); layers: concepts=1
+- `in-person-meeting` — in-person meeting — 1 grounded row(s); layers: concepts=1
+- `in-section` — in-section — 1 grounded row(s); layers: concepts=1
+- `in-silico-rolling-circle` — ‘in silico’ rolling circle — 1 grounded row(s); layers: concepts=1
+- `in-situ-vacuum-annealing` — in situ vacuum annealing — 1 grounded row(s); layers: concepts=1
+- `in-vitro-assays-focusing-on-cancer-cells` — in vitro assays focusing on cancer cells — 1 grounded row(s); layers: concepts=1
+- `in-vivo-biochemical-reactions` — in vivo biochemical reactions — 1 grounded row(s); layers: concepts=1
+- `in-vivo-models` — in vivo models — 1 grounded row(s); layers: concepts=1
+- `inaccurate-estimation-of-taxon-relative-abundances` — inaccurate estimation of taxon relative abundances — 1 grounded row(s); layers: concepts=1
+- `inaccurate-interpretation` — inaccurate interpretation — 1 grounded row(s); layers: concepts=1
+- `inaccurate-responses` — inaccurate responses — 1 grounded row(s); layers: concepts=1
+- `inborn-errors-of-immunity-iei` — Inborn errors of immunity (IEI) — 1 grounded row(s); layers: concepts=1
+- `incentive-design` — incentive design — 1 grounded row(s); layers: concepts=1
+- `incentives` — Incentives — 1 grounded row(s); layers: concepts=1
+- `inception-problem` — inception problem — 1 grounded row(s); layers: concepts=1
+- `inchi` — InChI — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `inchi-keys-without-stereochemistry` — InChI keys without stereochemistry — 1 grounded row(s); layers: concepts=1
+- `inchikey` — InChIKey — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `inchikey-collision` — InChIKey collision — 1 grounded row(s); layers: concepts=1
+- `inchikeys` — InChIKeys — 1 grounded row(s); layers: concepts=1
+- `incident-beam-intensity` — incident-beam intensity — 1 grounded row(s); layers: concepts=1
+- `inclination-angle` — inclination angle — 1 grounded row(s); layers: concepts=1
+- `inclusion-threshold` — inclusion threshold — 1 grounded row(s); layers: concepts=1
+- `incomplete-and-poor-quality-proteomes` — incomplete and poor-quality proteomes — 1 grounded row(s); layers: concepts=1
+- `incomplete-catalogue-of-exon-boundaries` — incomplete catalogue of exon boundaries — 1 grounded row(s); layers: concepts=1
+- `incomplete-datasets` — incomplete datasets — 1 grounded row(s); layers: concepts=1
+- `incomplete-inventories` — incomplete inventories — 1 grounded row(s); layers: concepts=1
+- `incomplete-or-unclear-reporting` — incomplete or unclear reporting — 1 grounded row(s); layers: concepts=1
+- `incongruent-prime-trials` — incongruent prime trials — 1 grounded row(s); layers: concepts=1
+- `inconsistencies-in-the-underlying-annotation` — inconsistencies in the underlying annotation — 1 grounded row(s); layers: concepts=1
+- `inconsistency` — inconsistency — 1 grounded row(s); layers: concepts=1
+- `incorrect-biological-conclusions` — incorrect biological conclusions — 1 grounded row(s); layers: concepts=1
+- `incorrect-w-c-pairs` — incorrect (w, c) pairs — 1 grounded row(s); layers: concepts=1
+- `incorrectly-classified-k-mers` — incorrectly classified k -mers — 1 grounded row(s); layers: concepts=1
+- `increase-production` — increase production — 1 grounded row(s); layers: concepts=1
+- `increase-the-visibility-of-a-given-information` — increase the visibility of a given information — 1 grounded row(s); layers: concepts=1
+- `increased-muscle-strengthening-activities` — increased muscle-strengthening activities — 1 grounded row(s); layers: concepts=1
+- `increased-risk-of-lung-cancer` — increased risk of lung cancer — 1 grounded row(s); layers: concepts=1
+- `increased-time-in-aerobic-mvpa` — increased time in aerobic MVPA — 1 grounded row(s); layers: concepts=1
+- `increasing-human-population` — increasing human population — 1 grounded row(s); layers: concepts=1
+- `increasing-payoffs` — increasing payoffs — 1 grounded row(s); layers: concepts=1
+- `independent-sample-b` — independent sample B — 1 grounded row(s); layers: concepts=1
+- `independent-validation-set` — independent validation set — 1 grounded row(s); layers: concepts=1
+- `indeterminate-responses` — indeterminate responses — 1 grounded row(s); layers: concepts=1
+- `indeterminist` — indeterminist — 1 grounded row(s); layers: concepts=1
+- `index` — index — 1 grounded row(s); layers: content_tags.definitions=1
+- `indexing` — indexing — 1 grounded row(s); layers: concepts=1
+- `indicator-taxa` — indicator taxa — 1 grounded row(s); layers: concepts=1
+- `indigenous-language-translations-of-the-hpo` — indigenous language translations of the HPO — 1 grounded row(s); layers: concepts=1
+- `indigenous-languages` — indigenous languages — 1 grounded row(s); layers: concepts=1
+- `indirect-elisa` — indirect ELISA — 1 grounded row(s); layers: concepts=1
+- `indirect-exposure-to-mass-trauma` — indirect exposure to mass trauma — 1 grounded row(s); layers: concepts=1
+- `indirect-links` — indirect links — 1 grounded row(s); layers: concepts=1
+- `indirectness` — indirectness — 1 grounded row(s); layers: concepts=1
+- `individual-behavior` — individual behavior — 1 grounded row(s); layers: concepts=1
+- `individual-cells` — individual cells — 1 grounded row(s); layers: concepts=1
+- `individual-interviews` — individual interviews — 1 grounded row(s); layers: concepts=1
+- `individual-level` — individual-level — 1 grounded row(s); layers: concepts=1
+- `individual-level-risk-assessment` — individual-level risk assessment — 1 grounded row(s); layers: concepts=1
+- `individual-modules` — individual modules — 1 grounded row(s); layers: concepts=1
+- `individual-neurons` — individual neurons — 1 grounded row(s); layers: concepts=1
+- `individual-pressure-layers` — individual pressure layers — 1 grounded row(s); layers: concepts=1
+- `individual-residues` — individual residues — 1 grounded row(s); layers: concepts=1
+- `individual-resilience` — individual resilience — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `individually-randomised-two-group-parallel-trials` — individually randomised, two group, parallel trials — 1 grounded row(s); layers: concepts=1
+- `individually-reviewed` — individually reviewed — 1 grounded row(s); layers: concepts=1
+- `induced-cost` — induced cost — 1 grounded row(s); layers: concepts=1
+- `induced-dipole` — induced dipole — 1 grounded row(s); layers: concepts=1
+- `induced-pluripotent-stem-cells` — induced pluripotent stem cells — 1 grounded row(s); layers: concepts=1
+- `inductive-method` — inductive method — 1 grounded row(s); layers: concepts=1
+- `inductive-thematic-saturation` — inductive thematic saturation — 1 grounded row(s); layers: concepts=1
+- `industrial-catches` — industrial catches — 1 grounded row(s); layers: concepts=1
+- `industrial-fisheries` — industrial fisheries — 1 grounded row(s); layers: concepts=1
+- `inert-fillers` — inert fillers — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `inference-in-the-dbm` — inference in the DBM — 1 grounded row(s); layers: concepts=1
+- `inference-latency` — inference latency — 1 grounded row(s); layers: concepts=1
+- `inference-speeds` — inference speeds — 1 grounded row(s); layers: concepts=1
+- `inferior-colliculus` — inferior colliculus — 1 grounded row(s); layers: concepts=1
+- `inferior-frontal-gyrus` — inferior frontal gyrus — 1 grounded row(s); layers: concepts=1
+- `inferior-frontal-regions` — inferior frontal regions — 1 grounded row(s); layers: concepts=1
+- `inferred-from-biological-ancestor` — inferred from biological ancestor — 1 grounded row(s); layers: concepts=1
+- `inferred-from-electronic-annotation-iea-evidence-code` — Inferred from Electronic Annotation (IEA) evidence code — 1 grounded row(s); layers: concepts=1
+- `inflammageing` — inflammageing — 1 grounded row(s); layers: concepts=1
+- `inflammasome` — inflammasome — 1 grounded row(s); layers: content_tags.definitions=1
+- `inflammation` — inflammation — 2 grounded row(s); layers: concepts=2
+- `inflammatory-cell-staining` — inflammatory cell staining — 1 grounded row(s); layers: concepts=1
+- `inflammatory-mediators` — inflammatory mediators — 1 grounded row(s); layers: concepts=1
+- `infodemics-team` — ‘infodemics’ team — 1 grounded row(s); layers: concepts=1
+- `information` — information — 1 grounded row(s); layers: concepts=1
+- `information-based-communities` — information-based communities — 1 grounded row(s); layers: concepts=1
+- `information-borrowing` — information borrowing — 1 grounded row(s); layers: concepts=1
+- `information-campaigns` — information campaigns — 1 grounded row(s); layers: concepts=1
+- `information-content` — information content — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `information-might-reach-a-large-number-of-individuals` — information might reach a large number of individuals — 1 grounded row(s); layers: concepts=1
+- `information-seeking` — information seeking — 1 grounded row(s); layers: concepts=1
+- `information-transfer-to-proteins-in-related-species` — information transfer to proteins in related species — 1 grounded row(s); layers: concepts=1
+- `informational-blends` — informational blends — 1 grounded row(s); layers: concepts=1
+- `informational-redundancy` — informational redundancy — 1 grounded row(s); layers: concepts=1
+- `informative-and-dense-representation` — informative and dense representation — 1 grounded row(s); layers: concepts=1
+- `informative-and-nonredundant-go-terms` — informative and nonredundant GO terms — 1 grounded row(s); layers: concepts=1
+- `informative-molecular-representations` — informative molecular representations — 1 grounded row(s); layers: concepts=1
+- `infrequent-behaviors` — infrequent behaviors — 1 grounded row(s); layers: concepts=1
+- `ingroup-bias` — ingroup bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `inhibition-of-these-isoenzymes` — Inhibition of these isoenzymes — 1 grounded row(s); layers: concepts=1
+- `inhibitory-control` — inhibitory control — 1 grounded row(s); layers: concepts=1
+- `initial-class-imbalance` — initial class imbalance — 1 grounded row(s); layers: concepts=1
+- `innate-immune-cells` — innate immune cells — 2 grounded row(s); layers: concepts=2
+- `innate-immune-system` — innate immune system — 1 grounded row(s); layers: concepts=1
+- `inner-norms` — inner norms — 1 grounded row(s); layers: concepts=1
+- `innovation-attributes` — innovation attributes — 1 grounded row(s); layers: concepts=1
+- `inpatient-mortality` — inpatient mortality — 1 grounded row(s); layers: concepts=1
+- `input-chip-seq-samples` — input ChIP-seq samples — 1 grounded row(s); layers: concepts=1
+- `input-dna-for-chip-seq` — input DNA for ChIP-seq — 1 grounded row(s); layers: concepts=1
+- `input-output-i-o-hardware` — input/output (I/O) hardware — 1 grounded row(s); layers: concepts=1
+- `input-pipelines` — input pipelines — 1 grounded row(s); layers: concepts=1
+- `input-read-depth` — input read depth — 1 grounded row(s); layers: concepts=1
+- `input-units` — input units — 1 grounded row(s); layers: concepts=1
+- `input-vector` — input vector — 1 grounded row(s); layers: concepts=1
+- `input-volume` — input volume — 1 grounded row(s); layers: concepts=1
+- `inputs-to-the-educational-production-function` — inputs to the educational production function — 1 grounded row(s); layers: concepts=1
+- `insdc-source-databases` — INSDC source databases — 1 grounded row(s); layers: concepts=1
+- `insect-diversity-and-abundance` — insect diversity and abundance — 1 grounded row(s); layers: concepts=1
+- `insert-length` — insert length — 1 grounded row(s); layers: concepts=1
+- `inspectability` — inspectability — 1 grounded row(s); layers: content_tags.definitions=1
+- `instance` — instance — 2 grounded row(s); layers: content_tags.definitions=2
+- `instance-theory` — instance theory — 1 grounded row(s); layers: concepts=1
+- `institutional-memory` — institutional memory — 1 grounded row(s); layers: concepts=1
+- `institutional-racism` — institutional racism — 1 grounded row(s); layers: concepts=1
+- `institutional-review-board` — Institutional Review Board — 1 grounded row(s); layers: concepts=1
+- `institutionalization-of-intervention-activities` — institutionalization of intervention activities — 1 grounded row(s); layers: concepts=1
+- `instrument-to-evaluate-the-quality-of-observational-research` — instrument to evaluate the quality of observational research — 1 grounded row(s); layers: concepts=1
+- `instrumental-instabilities` — instrumental instabilities — 1 grounded row(s); layers: concepts=1
+- `insufficient-clinical-meta-data` — insufficient clinical meta-data — 1 grounded row(s); layers: concepts=1
+- `integral-conserved-and-regulated-feature-of-the-gene-express` — integral, conserved, and regulated feature of the gene expression program — 1 grounded row(s); layers: concepts=1
+- `integral-regression` — integral regression — 1 grounded row(s); layers: concepts=1
+- `integrate-subpackage` — integrate subpackage — 1 grounded row(s); layers: concepts=1
+- `integrated-information` — integrated information — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `integrative-approaches` — integrative approaches — 1 grounded row(s); layers: concepts=1
+- `integrative-facility` — integrative facility — 1 grounded row(s); layers: concepts=1
+- `integrity` — integrity — 1 grounded row(s); layers: concepts=1
+- `intel-mkl` — Intel MKL — 1 grounded row(s); layers: concepts=1
+- `intensity-bin` — intensity bin — 1 grounded row(s); layers: concepts=1
+- `intensive-agriculture` — intensive agriculture — 1 grounded row(s); layers: concepts=1
+- `intensive-care-unit-icu` — intensive care unit (ICU) — 1 grounded row(s); layers: concepts=1
+- `intention-to-deceive` — intention to deceive — 1 grounded row(s); layers: concepts=1
+- `intentionality` — intentionality — 1 grounded row(s); layers: content_tags.definitions=1
+- `inter-flake-resistance` — inter-flake resistance — 1 grounded row(s); layers: concepts=1
+- `inter-item-correlations` — Inter-item correlations — 1 grounded row(s); layers: concepts=1
+- `interaction-effects` — interaction effects — 1 grounded row(s); layers: concepts=1
+- `interaction-energy` — interaction energy — 1 grounded row(s); layers: concepts=1
+- `interaction-network` — interaction network — 1 grounded row(s); layers: concepts=1
+- `interaction-sites` — interaction sites — 1 grounded row(s); layers: concepts=1
+- `interactional-asymmetry` — interactional asymmetry — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `interactive-labeling` — interactive labeling — 1 grounded row(s); layers: concepts=1
+- `interactome-analysis` — interactome analysis — 1 grounded row(s); layers: concepts=1
+- `interannual-variability` — interannual variability — 1 grounded row(s); layers: concepts=1
+- `intercalants` — intercalants — 1 grounded row(s); layers: concepts=1
+- `intergenerational-effects` — intergenerational effects — 1 grounded row(s); layers: concepts=1
+- `interior-point-optimizer` — interior-point optimizer — 1 grounded row(s); layers: concepts=1
+- `interleukin-14` — interleukin-14 — 1 grounded row(s); layers: concepts=1
+- `intermediate-feature-maps` — intermediate feature maps — 1 grounded row(s); layers: concepts=1
+- `intermediate-files` — intermediate files — 1 grounded row(s); layers: concepts=1
+- `intermediate-outcomes` — intermediate outcomes — 1 grounded row(s); layers: concepts=1
+- `intermittent-and-variable-rewards` — intermittent and variable rewards — 1 grounded row(s); layers: concepts=1
+- `internal-and-external-validity` — internal and external validity — 1 grounded row(s); layers: concepts=1
+- `internal-cognitive-models` — internal cognitive models — 1 grounded row(s); layers: concepts=1
+- `internal-consistency-measures` — internal consistency measures — 1 grounded row(s); layers: concepts=1
+- `internal-distributed-computation-platforms` — internal distributed computation platforms — 1 grounded row(s); layers: concepts=1
+- `internal-dynamics` — internal dynamics — 1 grounded row(s); layers: concepts=1
+- `internal-pilot-studies` — internal pilot studies — 1 grounded row(s); layers: concepts=1
+- `internal-representation` — internal representation — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `internal-ribosome-entry-site` — internal ribosome entry site — 1 grounded row(s); layers: content_tags.definitions=1
+- `internal-taxonomy-representation` — internal taxonomy representation — 1 grounded row(s); layers: concepts=1
+- `internal-validation` — internal validation — 1 grounded row(s); layers: concepts=1
+- `internally-consistent-items` — internally consistent items — 1 grounded row(s); layers: concepts=1
+- `international-code-of-virus-classification-and-nomenclature` — International Code of Virus Classification and Nomenclature — 1 grounded row(s); layers: concepts=1
+- `international-committee-on-nomenclature-of-viruses` — International Committee on Nomenclature of Viruses — 1 grounded row(s); layers: concepts=1
+- `international-committee-on-taxonomy-of-viruses` — International Committee on Taxonomy of Viruses — 1 grounded row(s); layers: concepts=1
+- `international-league-against-epilepsy-ilae-guidelines` — International League Against Epilepsy (ILAE) guidelines — 1 grounded row(s); layers: concepts=1
+- `interneurons` — Interneurons — 1 grounded row(s); layers: content_tags.definitions=1
+- `interoperability` — interoperability — 5 grounded row(s); layers: concepts=3, content_tags.definitions=2
+- `interoperability-layer` — interoperability layer — 1 grounded row(s); layers: concepts=1
+- `interpersonal` — interpersonal — 1 grounded row(s); layers: concepts=1
+- `interpersonal-trust` — interpersonal trust — 1 grounded row(s); layers: concepts=1
+- `interpro` — InterPro — 1 grounded row(s); layers: concepts=1
+- `interquartile-range` — interquartile range — 1 grounded row(s); layers: concepts=1
+- `intersection` — intersection — 1 grounded row(s); layers: concepts=1
+- `interval-based-likelihood-ratio` — interval-based likelihood ratio — 1 grounded row(s); layers: content_tags.definitions=1
+- `intervention` — intervention — 1 grounded row(s); layers: concepts=1
+- `intervention-modularity` — intervention modularity — 1 grounded row(s); layers: concepts=1
+- `intra-chain-or-homotypic-contacts` — intra-chain or homotypic contacts — 1 grounded row(s); layers: concepts=1
+- `intra-class-correlation-coefficient` — intra-class correlation coefficient — 1 grounded row(s); layers: concepts=1
+- `intra-flake-carrier-concentration` — intra-flake carrier concentration — 1 grounded row(s); layers: concepts=1
+- `intra-flake-metallic-conductivity` — intra-flake metallic conductivity — 1 grounded row(s); layers: concepts=1
+- `intra-individual` — intra-individual — 1 grounded row(s); layers: concepts=1
+- `intragenic-rearrangements` — intragenic rearrangements — 1 grounded row(s); layers: concepts=1
+- `intraluminal-vesicles` — intraluminal vesicles — 1 grounded row(s); layers: concepts=1
+- `intrapersonal` — intrapersonal — 1 grounded row(s); layers: concepts=1
+- `intratumoral-genomic-heterogeneity` — intratumoral genomic heterogeneity — 1 grounded row(s); layers: concepts=1
+- `intrinsic-changes-in-the-methylome` — intrinsic changes in the methylome — 1 grounded row(s); layers: concepts=1
+- `intrinsic-disorder-specific-functions` — intrinsic disorder-specific functions — 1 grounded row(s); layers: concepts=1
+- `intrinsic-information` — intrinsic information — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `intrinsic-motivation` — intrinsic motivation — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `intrinsic-rate-of-increase` — intrinsic rate of increase — 1 grounded row(s); layers: concepts=1
+- `intrinsically-disordered-id-protein-regions` — intrinsically disordered (ID) protein regions — 1 grounded row(s); layers: concepts=1
+- `intrinsically-disordered-proteins-ontology-idpo` — Intrinsically Disordered Proteins Ontology (IDPO) — 1 grounded row(s); layers: concepts=1
+- `intrinsically-disordered-regions-idrs` — intrinsically disordered regions (IDRs) — 1 grounded row(s); layers: concepts=1
+- `intron-2` — intron 2 — 1 grounded row(s); layers: concepts=1
+- `intron-retention` — intron-retention — 1 grounded row(s); layers: concepts=1
+- `introspection` — introspection — 1 grounded row(s); layers: concepts=1
+- `invalidated-by-later-experimental-data` — invalidated by later experimental data — 1 grounded row(s); layers: concepts=1
+- `invalidation-of-the-scale` — invalidation of the scale — 1 grounded row(s); layers: concepts=1
+- `invariant` — invariant — 1 grounded row(s); layers: content_tags.definitions=1
+- `invariant-convolutions` — invariant convolutions — 1 grounded row(s); layers: concepts=1
+- `invariant-point-attention` — invariant point attention — 1 grounded row(s); layers: concepts=1
+- `invariant-re-cut-site` — invariant RE cut-site — 1 grounded row(s); layers: concepts=1
+- `invariant-to-transformations` — invariant to transformations — 1 grounded row(s); layers: concepts=1
+- `invasive-species` — invasive species — 1 grounded row(s); layers: concepts=1
+- `inventory-totals` — inventory totals — 1 grounded row(s); layers: concepts=1
+- `inverse-materials-design` — inverse materials design — 1 grounded row(s); layers: concepts=1
+- `inverse-scale` — inverse scale — 1 grounded row(s); layers: concepts=1
+- `inverse-variance-weighted-regression` — inverse variance weighted regression — 1 grounded row(s); layers: concepts=1
+- `investor-protection` — investor protection — 1 grounded row(s); layers: concepts=1
+- `ion-activity` — ion activity — 1 grounded row(s); layers: content_tags.definitions=1
+- `ionisation-states` — ionisation states — 1 grounded row(s); layers: concepts=1
+- `ipa-module` — IPA module — 1 grounded row(s); layers: concepts=1
+- `ips-cells` — iPS cells — 1 grounded row(s); layers: concepts=1
+- `ipsilateral` — ipsilateral — 2 grounded row(s); layers: concepts=2
+- `ipython` — IPython — 1 grounded row(s); layers: concepts=1
+- `ir-microspectroscopy` — IR microspectroscopy — 1 grounded row(s); layers: content_tags.definitions=1
+- `iranges` — IRanges — 1 grounded row(s); layers: concepts=1
+- `iranges-class` — IRanges class — 1 grounded row(s); layers: concepts=1
+- `ires` — IRES — 1 grounded row(s); layers: concepts=1
+- `irreversible-climate-changes` — irreversible climate changes — 1 grounded row(s); layers: concepts=1
+- `irreversible-consequences` — irreversible consequences — 1 grounded row(s); layers: concepts=1
+- `irrigated-agriculture` — irrigated agriculture — 1 grounded row(s); layers: content_tags.definitions=1
+- `irt` — IRT — 1 grounded row(s); layers: concepts=1
+- `is-a` — is_a — 1 grounded row(s); layers: content_tags.definitions=1
+- `is-a-part-of-regulates-negatively-regulates-and-positively-r` — is a, part of, regulates, negatively regulates, and positively regulates relationships — 1 grounded row(s); layers: concepts=1
+- `isa` — ISA — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `isi-web-of-science` — ISI Web of Science — 1 grounded row(s); layers: concepts=1
+- `isoforms` — isoforms — 1 grounded row(s); layers: concepts=1
+- `isolated-clusters` — isolated clusters — 1 grounded row(s); layers: concepts=1
+- `isolated-private-data-collections` — isolated, private data collections — 1 grounded row(s); layers: concepts=1
+- `isomorphism` — isomorphism — 1 grounded row(s); layers: concepts=1
+- `isotemporal-substitution` — isotemporal substitution — 1 grounded row(s); layers: concepts=1
+- `isotope-probing-techniques` — isotope-probing techniques — 1 grounded row(s); layers: concepts=1
+- `isotopes` — isotopes — 1 grounded row(s); layers: concepts=1
+- `isotype` — isotype — 1 grounded row(s); layers: concepts=1
+- `issue-attention` — issue attention — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `issues-in-the-assembly` — issues in the assembly — 1 grounded row(s); layers: concepts=1
+- `itc` — ITC — 1 grounded row(s); layers: content_tags.definitions=1
+- `item-development` — item development — 1 grounded row(s); layers: concepts=1
+- `item-difficulty-index` — item difficulty index — 1 grounded row(s); layers: concepts=1
+- `item-discrimination-index` — item discrimination index — 1 grounded row(s); layers: concepts=1
+- `item-easiness` — item easiness — 1 grounded row(s); layers: concepts=1
+- `item-effectiveness-test` — item-effectiveness test — 1 grounded row(s); layers: concepts=1
+- `item-information` — item information — 1 grounded row(s); layers: concepts=1
+- `item-level-imputation` — item-level imputation — 1 grounded row(s); layers: concepts=1
+- `item-reduction` — item reduction — 1 grounded row(s); layers: concepts=1
+- `item-reduction-analysis` — item reduction analysis — 1 grounded row(s); layers: concepts=1
+- `items` — items — 1 grounded row(s); layers: concepts=1
+- `items-deemed-absolutely-fundamental` — items deemed absolutely fundamental — 1 grounded row(s); layers: concepts=1
+- `iterated-algorithmic-bias` — iterated algorithmic bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `iterated-learning` — iterated learning — 1 grounded row(s); layers: concepts=1
+- `iterative-model` — iterative model — 1 grounded row(s); layers: concepts=1
+- `iterative-process` — iterative process — 1 grounded row(s); layers: concepts=1
+- `iterative-refinement` — iterative refinement — 1 grounded row(s); layers: concepts=1
+- `iterative-self-consistent-field-calculation` — iterative self-consistent field calculation — 1 grounded row(s); layers: concepts=1
+- `iupac` — IUPAC — 1 grounded row(s); layers: concepts=1
+- `iupac-names` — IUPAC names — 1 grounded row(s); layers: concepts=1
+- `jags` — JAGS — 1 grounded row(s); layers: concepts=1
+- `janus-automated-liquid-handler` — Janus automated liquid handler — 1 grounded row(s); layers: concepts=1
+- `janus-kinase` — Janus kinase — 1 grounded row(s); layers: concepts=1
+- `japanese-55-year-reanalysis` — Japanese 55-year Reanalysis — 1 grounded row(s); layers: concepts=1
+- `java-11` — Java 11 — 1 grounded row(s); layers: concepts=1
+- `jax` — JAX — 1 grounded row(s); layers: concepts=1
+- `jcog-pc-criteria` — JCOG PC criteria — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `jinja2-package` — Jinja2 package — 1 grounded row(s); layers: concepts=1
+- `jitter` — jitter — 1 grounded row(s); layers: concepts=1
+- `job-requirements` — job requirements — 1 grounded row(s); layers: concepts=1
+- `joint-declaration-of-data-citation-principles` — Joint Declaration of Data Citation Principles — 1 grounded row(s); layers: concepts=1
+- `joint-distribution` — joint distribution — 1 grounded row(s); layers: concepts=1
+- `joint-distribution-of-all-data-sets` — joint distribution of all data sets — 1 grounded row(s); layers: concepts=1
+- `joint-fine-tuning` — joint fine-tuning — 1 grounded row(s); layers: concepts=1
+- `joint-optimization` — joint optimization — 1 grounded row(s); layers: concepts=1
+- `joint-probability-distribution` — joint probability distribution — 1 grounded row(s); layers: concepts=1
+- `journal-editors` — journal editors — 1 grounded row(s); layers: concepts=1
+- `jra-55` — JRA-55 — 1 grounded row(s); layers: concepts=1
+- `jukes-cantor` — Jukes Cantor — 1 grounded row(s); layers: concepts=1
+- `junctional` — junctional — 1 grounded row(s); layers: concepts=1
+- `junctional-read` — junctional read — 1 grounded row(s); layers: concepts=1
+- `junctional-read-counts` — junctional read counts — 1 grounded row(s); layers: concepts=1
+- `jupyter` — Jupyter — 1 grounded row(s); layers: concepts=1
+- `just-in-time-compilation` — just-in-time compilation — 1 grounded row(s); layers: concepts=1
+- `k-mers` — k -mers — 1 grounded row(s); layers: concepts=1
+- `k-nearest-neighbor-search` — k -nearest-neighbor search — 1 grounded row(s); layers: concepts=1
+- `k-ppen-geiger-climate-classification` — Köppen-Geiger climate classification — 1 grounded row(s); layers: concepts=1
+- `k-ras` — K-RAS — 1 grounded row(s); layers: concepts=1
+- `kaiju` — Kaiju — 1 grounded row(s); layers: concepts=1
+- `kaplan-meier-method` — Kaplan Meier method — 1 grounded row(s); layers: concepts=1
+- `kappa-coefficients` — kappa coefficients — 1 grounded row(s); layers: concepts=1
+- `kappa-similarities` — Kappa similarities — 1 grounded row(s); layers: concepts=1
+- `kappa-statistic` — Kappa statistic — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `kegg-drug-database` — KEGG-drug database — 1 grounded row(s); layers: concepts=1
+- `keloid` — keloid — 1 grounded row(s); layers: content_tags.definitions=1
+- `kendall-rank-correlation-coefficient` — Kendall rank correlation coefficient — 1 grounded row(s); layers: concepts=1
+- `kernel-based-learning` — Kernel-based learning — 1 grounded row(s); layers: concepts=1
+- `kernel-trick` — kernel trick — 1 grounded row(s); layers: concepts=1
+- `kernels` — kernels — 1 grounded row(s); layers: concepts=1
+- `key-evaluation-metric` — key evaluation metric — 1 grounded row(s); layers: concepts=1
+- `key-factors-and-interactions` — key factors and interactions — 1 grounded row(s); layers: concepts=1
+- `key-value-pairs` — key-value pairs — 1 grounded row(s); layers: concepts=1
+- `keystone-species` — keystone species — 1 grounded row(s); layers: concepts=1
+- `kidney-precision-medicine-project-kpmp` — Kidney Precision Medicine Project (KPMP) — 1 grounded row(s); layers: concepts=1
+- `kidney-tissue-atlas-ontology-ktao` — Kidney Tissue Atlas Ontology (KTAO) — 1 grounded row(s); layers: concepts=1
+- `kids-lung-register` — Kids Lung Register — 1 grounded row(s); layers: concepts=1
+- `kingdom` — Kingdom — 1 grounded row(s); layers: concepts=1
+- `knime` — KNIME — 1 grounded row(s); layers: concepts=1
+- `knitr` — knitr — 1 grounded row(s); layers: concepts=1
+- `knots` — knots — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `knowing-how-their-data-is-being-analyzed` — knowing how their data is being analyzed — 1 grounded row(s); layers: concepts=1
+- `knowledge` — knowledge — 1 grounded row(s); layers: concepts=1
+- `knowledge-based-scoring-functions` — knowledge based scoring functions — 1 grounded row(s); layers: concepts=1
+- `knowledge-discovery-and-innovation` — knowledge discovery and innovation — 1 grounded row(s); layers: concepts=1
+- `knowledge-transfer-and-use` — knowledge transfer and use — 1 grounded row(s); layers: concepts=1
+- `known-experimentally-characterized-proteins` — known experimentally characterized proteins — 1 grounded row(s); layers: concepts=1
+- `known-negative-pre-pandemic-samples` — known negative pre-pandemic samples — 1 grounded row(s); layers: concepts=1
+- `known-negative-samples` — known negative samples — 1 grounded row(s); layers: concepts=1
+- `known-positive-samples` — known positive samples — 1 grounded row(s); layers: concepts=1
+- `known-positive-samples-from-patients-who-had-previously-had-` — known positive samples from patients who had previously had laboratory-confirmed SARS–CoV–2 infection — 1 grounded row(s); layers: concepts=1
+- `koch-s-postulates` — Koch’s postulates — 1 grounded row(s); layers: concepts=1
+- `kolmogorov-smirnoff-test` — Kolmogorov-Smirnoff test — 1 grounded row(s); layers: concepts=1
+- `kotlin` — Kotlin — 1 grounded row(s); layers: concepts=1
+- `kraken` — Kraken — 1 grounded row(s); layers: concepts=1
+- `kraken-1` — Kraken 1 — 1 grounded row(s); layers: concepts=1
+- `kraken-2` — Kraken 2 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `kraken-2-database` — Kraken 2 database — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `kraken-2x` — Kraken 2X — 1 grounded row(s); layers: concepts=1
+- `krakenuniq` — KrakenUniq — 1 grounded row(s); layers: concepts=1
+- `kullback-leibler-distance` — Kullback–Leibler distance — 1 grounded row(s); layers: concepts=1
+- `label-feedback-hypothesis` — label‐feedback hypothesis — 1 grounded row(s); layers: concepts=1
+- `labeled-multi-dimensional-array` — labeled, multi-dimensional array — 1 grounded row(s); layers: concepts=1
+- `labeling-training-and-inference` — labeling, training and inference — 1 grounded row(s); layers: concepts=1
+- `labelled-arrays` — labelled arrays — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `labels` — labels — 1 grounded row(s); layers: concepts=1
+- `laboratory-confirmed-infections` — laboratory-confirmed infections — 1 grounded row(s); layers: concepts=1
+- `laboratory-confirmed-sars-cov-2-infection` — laboratory-confirmed SARS-CoV-2 infection — 1 grounded row(s); layers: concepts=1
+- `laboratory-values` — laboratory values — 1 grounded row(s); layers: concepts=1
+- `lack-methodological-rigour` — lack methodological rigour — 1 grounded row(s); layers: concepts=1
+- `lack-of-clarity-in-the-abstracts` — lack of clarity in the abstracts — 1 grounded row(s); layers: concepts=1
+- `lack-of-empirical-evidence-or-any-consensus` — lack of empirical evidence or any consensus — 1 grounded row(s); layers: concepts=1
+- `land-use-composition` — land use composition — 1 grounded row(s); layers: concepts=1
+- `landings` — landings — 1 grounded row(s); layers: concepts=1
+- `landmark-localization-errors` — landmark-localization errors — 1 grounded row(s); layers: concepts=1
+- `landmark-localization-task` — landmark-localization task — 1 grounded row(s); layers: concepts=1
+- `language` — language — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `language-exposure` — language exposure — 1 grounded row(s); layers: concepts=1
+- `language-impairment` — language impairment — 1 grounded row(s); layers: concepts=1
+- `language-of-feedback` — language of feedback — 1 grounded row(s); layers: concepts=1
+- `lanthanides` — lanthanides — 1 grounded row(s); layers: concepts=1
+- `lapse-rate` — lapse rate — 1 grounded row(s); layers: content_tags.definitions=1
+- `large-decrease-in-performance` — large decrease in performance — 1 grounded row(s); layers: concepts=1
+- `large-direct-and-indirect-subsidies` — large direct and indirect subsidies — 1 grounded row(s); layers: concepts=1
+- `large-expected-demand-growth-in-food` — large expected demand growth in food — 1 grounded row(s); layers: concepts=1
+- `large-heterogeneity-of-information` — large heterogeneity of information — 1 grounded row(s); layers: concepts=1
+- `large-high-quality-publicly-available-labelled-datasets` — large, high-quality, publicly available labelled datasets — 1 grounded row(s); layers: concepts=1
+- `large-improvement-in-speed` — large improvement in speed — 1 grounded row(s); layers: concepts=1
 - `large-language-model` — large language model — 1 grounded row(s); layers: concepts=1
-- `maximum-likelihood` — maximum likelihood — 1 grounded row(s); layers: content_tags.definitions=1
+- `large-network` — large network — 1 grounded row(s); layers: concepts=1
+- `large-number-of-parameters` — large number of parameters — 1 grounded row(s); layers: concepts=1
+- `large-scale-datasets` — large-scale datasets — 1 grounded row(s); layers: concepts=1
+- `large-scale-experiment` — large-scale experiment — 1 grounded row(s); layers: concepts=1
+- `large-scale-factors` — large-scale factors — 1 grounded row(s); layers: concepts=1
+- `large-scale-machine-learning-systems` — large-scale machine learning systems — 1 grounded row(s); layers: concepts=1
+- `large-single-sample-set-of-more-than-1500-samples` — large, single sample set of more than 1500 samples — 1 grounded row(s); layers: concepts=1
+- `large-test-suite` — large test suite — 1 grounded row(s); layers: concepts=1
+- `large-volumes-of-relatively-messy-data` — large volumes of relatively messy data — 1 grounded row(s); layers: concepts=1
+- `larger-initial-amounts-of-viral-antigen` — larger initial amounts of viral antigen — 1 grounded row(s); layers: concepts=1
+- `larger-pathways-modules-or-processes` — larger pathways, modules, or processes — 1 grounded row(s); layers: concepts=1
+- `largest-connect-component` — largest connect component — 1 grounded row(s); layers: concepts=1
+- `late-fusion` — late fusion — 2 grounded row(s); layers: content_tags.definitions=2
+- `latency` — latency — 1 grounded row(s); layers: content_tags.definitions=1
+- `latent-daily-biomass` — latent daily biomass — 1 grounded row(s); layers: concepts=1
+- `latent-representation` — latent representation — 1 grounded row(s); layers: concepts=1
+- `latent-topic-model` — latent topic model — 1 grounded row(s); layers: concepts=1
+- `latent-variables` — latent variables — 1 grounded row(s); layers: concepts=1
+- `laterality-indexes` — laterality indexes — 1 grounded row(s); layers: content_tags.definitions=1
+- `latest-sample-from-each-individual` — latest sample from each individual — 1 grounded row(s); layers: concepts=1
+- `law-of-contagion` — law of contagion — 1 grounded row(s); layers: content_tags.definitions=1
+- `layer-by-layer-greedy-learning-strategy` — layer-by-layer greedy learning strategy — 1 grounded row(s); layers: concepts=1
+- `layered-architecture` — layered architecture — 1 grounded row(s); layers: concepts=1
+- `lca` — LCA — 1 grounded row(s); layers: concepts=1
+- `lcas` — LCAs — 1 grounded row(s); layers: concepts=1
+- `lcic` — LCIC — 1 grounded row(s); layers: content_tags.definitions=1
+- `lddt` — lDDT — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `lddt-c` — lDDT-Cα — 1 grounded row(s); layers: concepts=1
+- `lddt-metric` — lDDT metric — 1 grounded row(s); layers: concepts=1
+- `leading-fold-change` — leading fold change — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `leadlikeness` — leadlikeness — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `leads` — leads — 1 grounded row(s); layers: concepts=1
+- `leaky-gut` — leaky gut — 1 grounded row(s); layers: content_tags.definitions=1
+- `leaky-integration` — leaky integration — 1 grounded row(s); layers: concepts=1
+- `leap` — LEAP — 1 grounded row(s); layers: concepts=1
+- `learned-feature` — learned feature — 1 grounded row(s); layers: concepts=1
+- `learned-fingerprints` — learned fingerprints — 1 grounded row(s); layers: concepts=1
+- `learning-collaboratives` — learning collaboratives — 1 grounded row(s); layers: concepts=1
+- `learning-module` — learning module — 1 grounded row(s); layers: concepts=1
+- `learning-process` — learning process — 1 grounded row(s); layers: concepts=1
+- `least-squares-regression-models` — Least Squares Regression models — 1 grounded row(s); layers: concepts=1
+- `leave-one-data-set-out-cross-validation` — leave-one-data-set-out cross-validation — 1 grounded row(s); layers: concepts=1
+- `legacy-harms` — legacy harms — 1 grounded row(s); layers: concepts=1
+- `legacy-hpo-data` — legacy HPO data — 1 grounded row(s); layers: concepts=1
+- `legacy-pipeline` — legacy pipeline — 1 grounded row(s); layers: concepts=1
+- `legal-capacity-to-act` — legal capacity to act — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `legal-subjectivity` — legal subjectivity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `legislation` — legislation — 1 grounded row(s); layers: concepts=1
+- `length-of-hospital-stay-and-subsequent-healthcare-visits` — length of hospital stay and subsequent healthcare visits — 1 grounded row(s); layers: concepts=1
+- `length-of-stay` — length of stay — 1 grounded row(s); layers: concepts=1
+- `length-of-stay-at-least-7-days` — length of stay at least 7 days — 1 grounded row(s); layers: concepts=1
+- `length-threshold` — length threshold — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `less-computational-overhead` — less computational overhead — 1 grounded row(s); layers: concepts=1
+- `less-data` — less data — 1 grounded row(s); layers: concepts=1
+- `less-never-and-once-in-a-while-sometimes-and-frequently-ofte` — “less” (“never” and “once in a while”), “sometimes” and “frequently” (“often” and “very often”) — 1 grounded row(s); layers: concepts=1
+- `less-sme` — less SME — 1 grounded row(s); layers: concepts=1
+- `less-specific` — less specific — 1 grounded row(s); layers: concepts=1
+- `leukotrienes` — leukotrienes — 1 grounded row(s); layers: concepts=1
+- `level-of-biological-organization` — level of biological organization — 1 grounded row(s); layers: concepts=1
+- `level-of-medical-expertise` — level of medical expertise — 1 grounded row(s); layers: concepts=1
+- `level-of-review` — level of review — 1 grounded row(s); layers: concepts=1
+- `levels-of-granularity` — levels of granularity — 1 grounded row(s); layers: concepts=1
+- `lexical-representations` — lexical representations — 1 grounded row(s); layers: concepts=1
+- `library-size-threshold` — library size threshold — 1 grounded row(s); layers: concepts=1
+- `lidar` — LIDAR — 1 grounded row(s); layers: content_tags.definitions=1
+- `life-cycle` — life cycle — 1 grounded row(s); layers: concepts=1
+- `life-cycle-assessment` — life cycle assessment — 1 grounded row(s); layers: content_tags.definitions=1
+- `lifestyle-microbiota-human-health-connection` — lifestyle-microbiota-human health connection — 1 grounded row(s); layers: concepts=1
+- `lift-over-from-an-old-assembly` — lift over from an old assembly — 1 grounded row(s); layers: concepts=1
+- `ligandbox-database` — LigandBox database — 1 grounded row(s); layers: concepts=1
+- `lightly-digested-open-chromatin-assays` — lightly digested open chromatin assays — 1 grounded row(s); layers: concepts=1
+- `lightweight-flexible-and-modular-components` — lightweight, flexible, and modular components — 1 grounded row(s); layers: concepts=1
+- `like` — like — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `likelihood` — likelihood — 1 grounded row(s); layers: concepts=1
+- `likelihood-of-success-of-the-main-study` — likelihood of success of the main study — 1 grounded row(s); layers: concepts=1
+- `likelihood-ratio-test` — likelihood ratio test — 1 grounded row(s); layers: concepts=1
+- `likelihood-vectors` — likelihood vectors — 1 grounded row(s); layers: concepts=1
+- `likely-aetiological-agent` — likely aetiological agent — 1 grounded row(s); layers: concepts=1
+- `likert-type-response-scales` — Likert-type response scales — 1 grounded row(s); layers: concepts=1
+- `limited-functional-description` — limited functional description — 1 grounded row(s); layers: concepts=1
+- `limma` — limma — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `lims` — LIMS — 1 grounded row(s); layers: concepts=1
+- `lineage-specific-scopes` — lineage-specific scopes — 1 grounded row(s); layers: concepts=1
+- `linear-combinations-of-b-spline-basis-elements` — linear combinations of B-spline basis elements — 1 grounded row(s); layers: concepts=1
+- `linear-correlation-coefficient` — linear correlation coefficient — 1 grounded row(s); layers: concepts=1
+- `linear-isoform-abundance` — linear isoform abundance — 1 grounded row(s); layers: concepts=1
+- `linear-isoforms` — linear isoforms — 1 grounded row(s); layers: concepts=1
+- `linear-mixed-effects-models` — linear mixed effects models — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `linear-model` — linear model — 1 grounded row(s); layers: concepts=1
+- `linear-models` — linear models — 1 grounded row(s); layers: concepts=1
+- `linear-molecules` — linear molecules — 1 grounded row(s); layers: concepts=1
+- `linear-notations` — linear notations — 1 grounded row(s); layers: concepts=1
+- `linear-poly-adenylated-rna-molecules` — linear, poly-adenylated RNA molecules — 1 grounded row(s); layers: concepts=1
+- `linear-probing` — linear probing — 1 grounded row(s); layers: concepts=1
+- `linear-reaction-norm` — linear reaction norm — 1 grounded row(s); layers: concepts=1
+- `linear-regression` — linear regression — 2 grounded row(s); layers: concepts=2
+- `linear-regression-coefficient-of-determination-r-2` — linear regression coefficient of determination R 2 — 1 grounded row(s); layers: concepts=1
+- `linear-regression-results` — linear regression results — 1 grounded row(s); layers: concepts=1
+- `linear-representations` — linear representations — 1 grounded row(s); layers: concepts=1
+- `linear-rna-molecules` — linear RNA molecules — 1 grounded row(s); layers: concepts=1
+- `linear-sequence` — linear sequence — 1 grounded row(s); layers: concepts=1
+- `linearly-interpolated` — linearly interpolated — 1 grounded row(s); layers: concepts=1
+- `linguistic-prediction` — linguistic prediction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `linguistic-relativity` — linguistic relativity — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `linguistic-semantics` — linguistic semantics — 1 grounded row(s); layers: concepts=1
+- `link-function` — link function — 1 grounded row(s); layers: concepts=1
+- `linkage-between-databases` — linkage between databases — 1 grounded row(s); layers: concepts=1
+- `linkage-bias` — linkage bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `linkage-error` — linkage error — 1 grounded row(s); layers: concepts=1
+- `linkage-rates` — linkage rates — 1 grounded row(s); layers: concepts=1
+- `linnaean-system-of-classification` — Linnaean system of classification — 1 grounded row(s); layers: concepts=1
+- `liquid-handling-failures` — liquid handling failures — 1 grounded row(s); layers: concepts=1
+- `list-of-prokaryotic-names-with-standing-in-nomenclature` — List of Prokaryotic Names with Standing in Nomenclature — 1 grounded row(s); layers: concepts=1
+- `list-of-variants-relative-to-a-reference-collection` — list of variants relative to a reference collection — 1 grounded row(s); layers: concepts=1
+- `listed-companies-in-separate-countries-and-their-direct-shar` — listed companies in separate countries and their direct shareholders — 1 grounded row(s); layers: concepts=1
+- `literacy-in-general` — literacy in general — 1 grounded row(s); layers: concepts=1
+- `literary-fiction` — literary fiction — 1 grounded row(s); layers: concepts=1
+- `literate-programming-framework` — literate-programming framework — 1 grounded row(s); layers: concepts=1
+- `literature-reference` — literature reference — 1 grounded row(s); layers: concepts=1
+- `literature-review` — literature review — 1 grounded row(s); layers: concepts=1
+- `literature-reviewed-for-the-general-populations` — literature reviewed for the general populations — 1 grounded row(s); layers: concepts=1
+- `live-sars-cov-2` — live SARS-CoV-2 — 1 grounded row(s); layers: concepts=1
+- `living-document` — living document — 2 grounded row(s); layers: concepts=2
+- `living-organisms` — living organisms — 1 grounded row(s); layers: concepts=1
+- `living-systematic-reviews` — living systematic reviews — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `lmics` — LMICs — 1 grounded row(s); layers: concepts=1
+- `lmms` — LMMs — 1 grounded row(s); layers: concepts=1
+- `ln-model` — LN model — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `local-accuracy-of-a-prediction` — local accuracy of a prediction — 1 grounded row(s); layers: concepts=1
+- `local-alignment` — local alignment — 1 grounded row(s); layers: concepts=1
+- `local-attentional-bias` — local attentional bias — 1 grounded row(s); layers: concepts=1
+- `local-coalescence-rate-density` — local coalescence rate density — 1 grounded row(s); layers: concepts=1
+- `local-concentration-of-antibody` — local concentration of antibody — 1 grounded row(s); layers: concepts=1
+- `local-connectivities-between-neurons` — local connectivities between neurons — 1 grounded row(s); layers: concepts=1
+- `local-entomofauna` — local entomofauna — 1 grounded row(s); layers: concepts=1
+- `local-genomic-rearrangements` — local genomic rearrangements — 1 grounded row(s); layers: concepts=1
+- `local-mucosal-antibody-production` — local mucosal antibody production — 1 grounded row(s); layers: concepts=1
+- `local-receptive-fields` — local receptive fields — 1 grounded row(s); layers: concepts=1
+- `local-seafood-market` — local seafood market — 1 grounded row(s); layers: concepts=1
+- `local-stability` — local stability — 1 grounded row(s); layers: concepts=1
+- `local-structural-feature` — local structural feature — 1 grounded row(s); layers: concepts=1
+- `local-support-values` — local support values — 1 grounded row(s); layers: concepts=1
+- `location-specific-random-effect` — location-specific random effect — 1 grounded row(s); layers: concepts=1
+- `lockdown-of-wuhan` — lockdown of Wuhan — 1 grounded row(s); layers: concepts=1
+- `lockdown-stringency-index` — lockdown stringency index — 1 grounded row(s); layers: content_tags.definitions=1
+- `loess-method` — loess method — 1 grounded row(s); layers: concepts=1
+- `log-2-counts-per-million` — log 2 counts per million — 1 grounded row(s); layers: concepts=1
+- `log-2-fold-change` — log 2 -fold-change — 1 grounded row(s); layers: concepts=1
+- `log-k-p` — log K p — 1 grounded row(s); layers: concepts=1
+- `log-normal-distribution` — log normal distribution — 1 grounded row(s); layers: concepts=1
+- `log-p-o-w` — log P o/w — 1 grounded row(s); layers: concepts=1
+- `log-rank-tests` — log-rank tests — 1 grounded row(s); layers: concepts=1
+- `log-s` — log S — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `logic-models` — logic models — 1 grounded row(s); layers: concepts=1
+- `logical-and-mathematical-procedure` — logical and mathematical procedure — 1 grounded row(s); layers: concepts=1
+- `logical-inference` — logical inference — 1 grounded row(s); layers: concepts=1
+- `logical-partitioning` — logical partitioning — 1 grounded row(s); layers: concepts=1
+- `logistic-function` — logistic function — 1 grounded row(s); layers: concepts=1
+- `logistic-regression-analyses` — Logistic regression analyses — 1 grounded row(s); layers: concepts=1
+- `logistic-regression-layer` — logistic regression layer — 1 grounded row(s); layers: concepts=1
+- `logit-transformed` — logit transformed — 1 grounded row(s); layers: concepts=1
+- `logs` — logs — 1 grounded row(s); layers: concepts=1
+- `loinc` — LOINC — 1 grounded row(s); layers: concepts=1
+- `loinc2hpo` — LOINC2HPO — 1 grounded row(s); layers: concepts=1
+- `loneliness` — loneliness — 1 grounded row(s); layers: concepts=1
+- `long-length-of-stay` — long length of stay — 1 grounded row(s); layers: concepts=1
+- `long-term-behavior-change` — long-term behavior change — 1 grounded row(s); layers: concepts=1
+- `long-term-care` — long-term care — 1 grounded row(s); layers: concepts=1
+- `long-term-effectiveness` — long-term effectiveness — 1 grounded row(s); layers: concepts=1
+- `long-term-memory` — long term memory — 1 grounded row(s); layers: content_tags.definitions=1
+- `long-term-monthly-normals` — long-term monthly normals — 1 grounded row(s); layers: concepts=1
+- `long-term-support` — Long-term support — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `long-term-sustainability` — long-term sustainability — 1 grounded row(s); layers: concepts=1
+- `longest-path-problem` — longest path problem — 1 grounded row(s); layers: concepts=1
+- `longitudinal-patterns-of-phenotypic-features` — longitudinal patterns of phenotypic features — 1 grounded row(s); layers: concepts=1
+- `longitudinal-prospective-clinical-studies` — Longitudinal prospective clinical studies — 1 grounded row(s); layers: concepts=1
+- `longitudinal-records-at-single-sites` — longitudinal records at single sites — 1 grounded row(s); layers: concepts=1
+- `longitudinal-studies` — longitudinal studies — 1 grounded row(s); layers: concepts=1
+- `loocv` — LOOCV — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `lorentz-invariance` — Lorentz invariance — 1 grounded row(s); layers: concepts=1
+- `losing-energy-due-to-the-emission-of-gravitational-waves` — losing energy due to the emission of gravitational waves — 1 grounded row(s); layers: concepts=1
+- `loss` — loss — 1 grounded row(s); layers: concepts=1
+- `loss-function` — loss function — 1 grounded row(s); layers: content_tags.definitions=1
+- `loss-of-information` — loss of information — 2 grounded row(s); layers: concepts=2
+- `loss-of-institutional-memory` — loss of institutional memory — 1 grounded row(s); layers: concepts=1
+- `loss-to-follow-up` — loss to follow-up — 1 grounded row(s); layers: concepts=1
+- `losses` — losses — 1 grounded row(s); layers: concepts=1
+- `lossless` — lossless — 1 grounded row(s); layers: concepts=1
+- `lottery-incentives` — lottery incentives — 1 grounded row(s); layers: concepts=1
+- `low-agency-intervention` — low-agency intervention — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `low-cell-numbers` — low cell numbers — 1 grounded row(s); layers: concepts=1
+- `low-complexity-nucleotide-sequences` — low-complexity nucleotide sequences — 1 grounded row(s); layers: concepts=1
+- `low-complexity-sequences` — low-complexity sequences — 1 grounded row(s); layers: concepts=1
+- `low-copy-genomic-regions` — “low-copy” genomic regions — 1 grounded row(s); layers: concepts=1
+- `low-dose-direct-detection-dd-eels` — low-dose direct detection (DD) EELS — 1 grounded row(s); layers: concepts=1
+- `low-grade-chronic-systemic-inflammation` — low-grade chronic systemic inflammation — 1 grounded row(s); layers: content_tags.definitions=1
+- `low-income-groups` — low-income groups — 1 grounded row(s); layers: concepts=1
+- `low-input-sample-volumes` — low input sample volumes — 1 grounded row(s); layers: concepts=1
+- `low-latency-binary-coalescence-search` — low-latency binary-coalescence search — 1 grounded row(s); layers: concepts=1
+- `low-level-cython-interfaces` — low-level Cython interfaces — 1 grounded row(s); layers: concepts=1
+- `low-mappability-low-map-annotations` — low-mappability (Low Map.) annotations — 1 grounded row(s); layers: concepts=1
+- `low-quality-cells` — low-quality cells — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `low-quality-outputs` — low quality outputs — 1 grounded row(s); layers: concepts=1
+- `low-rmsd-poses` — low RMSD poses — 1 grounded row(s); layers: concepts=1
+- `low-sequencing-depths` — low sequencing depths — 1 grounded row(s); layers: concepts=1
+- `low-signals` — low signals — 1 grounded row(s); layers: concepts=1
+- `low-yields` — low yields — 1 grounded row(s); layers: concepts=1
+- `lower-bound-of-our-confidence-interval` — lower bound of our confidence interval — 1 grounded row(s); layers: concepts=1
+- `lower-bound-on-the-likelihood` — lower bound on the likelihood — 1 grounded row(s); layers: concepts=1
+- `lower-copy-regions` — lower copy regions — 1 grounded row(s); layers: concepts=1
+- `lower-frequency-with-which-misconduct-is-admitted-in-self-re` — lower frequency with which misconduct is admitted in self-reports — 1 grounded row(s); layers: concepts=1
+- `lower-level-taxa` — lower-level taxa — 1 grounded row(s); layers: concepts=1
+- `lower-levels` — lower levels — 1 grounded row(s); layers: concepts=1
+- `lower-order-mental-processes` — lower-order mental processes — 1 grounded row(s); layers: concepts=1
+- `lower-percentages-of-misconduct` — lower percentages of misconduct — 1 grounded row(s); layers: concepts=1
+- `lower-quality-experiments` — lower quality experiments — 1 grounded row(s); layers: concepts=1
+- `lowest-common-ancestor` — lowest common ancestor — 1 grounded row(s); layers: concepts=1
+- `lpar1` — LPAR1 — 1 grounded row(s); layers: concepts=1
+- `lpc` — LPC — 1 grounded row(s); layers: content_tags.definitions=1
+- `lpsn` — LPSN — 1 grounded row(s); layers: concepts=1
+- `lpta` — LPtA — 1 grounded row(s); layers: content_tags.definitions=1
+- `lsh-based-similarity-search` — LSH-based similarity search — 1 grounded row(s); layers: concepts=1
+- `lsps` — LSPS — 1 grounded row(s); layers: content_tags.definitions=1
+- `lstm` — LSTM — 1 grounded row(s); layers: content_tags.definitions=1
+- `ltp` — LTP — 1 grounded row(s); layers: content_tags.definitions=1
+- `luciferase-reporter-activity` — luciferase reporter activity — 1 grounded row(s); layers: concepts=1
+- `luminosity-distance` — luminosity distance — 1 grounded row(s); layers: concepts=1
+- `ly294002` — LY294002 — 1 grounded row(s); layers: concepts=1
+- `m-carouselicus` — M. carouselicus — 1 grounded row(s); layers: concepts=1
+- `m1-and-m2-signatures` — M1 and M2 signatures — 1 grounded row(s); layers: concepts=1
+- `m1-macrophages` — M1 macrophages — 1 grounded row(s); layers: concepts=1
+- `m1-response` — M1 response — 1 grounded row(s); layers: concepts=1
+- `m2-immune-response` — M2 immune response — 1 grounded row(s); layers: concepts=1
+- `m2-like-macrophage-polarization` — M2-like macrophage polarization — 1 grounded row(s); layers: concepts=1
+- `m2-macrophages` — M2 macrophages — 1 grounded row(s); layers: concepts=1
+- `m2-phenotype` — M2 phenotype — 1 grounded row(s); layers: concepts=1
+- `m2-polarization` — M2 polarization — 1 grounded row(s); layers: concepts=1
+- `ma-plots` — MA-plots — 1 grounded row(s); layers: concepts=1
+- `maccs` — MACCS — 1 grounded row(s); layers: concepts=1
+- `machine-actionability` — machine-actionability — 1 grounded row(s); layers: concepts=1
+- `machine-actionable` — machine actionable — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `machine-code` — machine code — 1 grounded row(s); layers: concepts=1
+- `machine-driven-activities` — machine-driven activities — 1 grounded row(s); layers: concepts=1
+- `machine-learned-potentials` — machine-learned potentials — 1 grounded row(s); layers: concepts=1
+- `machine-learning-algorithms` — machine learning algorithms — 1 grounded row(s); layers: concepts=1
+- `machine-learning-emulators` — machine learning emulators — 1 grounded row(s); layers: concepts=1
+- `machine-learning-ml` — Machine Learning (ML) — 1 grounded row(s); layers: concepts=1
+- `machine-learning-system` — machine learning system — 1 grounded row(s); layers: concepts=1
+- `machine-learning-techniques` — machine learning techniques — 1 grounded row(s); layers: concepts=1
+- `machine-readable-functional-annotations` — machine-readable functional annotations — 1 grounded row(s); layers: concepts=1
+- `macro-aggregates` — macro-aggregates — 1 grounded row(s); layers: concepts=1
+- `macro-ecological-patterns` — macro-ecological patterns — 1 grounded row(s); layers: concepts=1
+- `macro-ecology` — macro-ecology — 1 grounded row(s); layers: concepts=1
+- `macro-ecosystems` — macro-ecosystems — 1 grounded row(s); layers: concepts=1
+- `macro-policy` — macro policy — 1 grounded row(s); layers: concepts=1
+- `macrococcus-equipercicus` — Macrococcus equipercicus — 1 grounded row(s); layers: concepts=1
+- `macroecological-patterns` — macroecological patterns — 1 grounded row(s); layers: concepts=1
+- `macromolecular-crowding` — macromolecular crowding — 1 grounded row(s); layers: concepts=1
+- `macromolecules` — macromolecules — 1 grounded row(s); layers: concepts=1
+- `macrophage-polarization` — macrophage polarization — 1 grounded row(s); layers: concepts=1
+- `macrophages` — Macrophages — 2 grounded row(s); layers: concepts=2
+- `macroplatelet` — macroplatelet — 1 grounded row(s); layers: content_tags.definitions=1
+- `macroscale` — macroscale — 1 grounded row(s); layers: concepts=1
+- `mae` — MAE — 2 grounded row(s); layers: concepts=2
+- `mafft` — MAFFT — 1 grounded row(s); layers: concepts=1
+- `magnetic-handling-of-the-cells` — magnetic handling of the cells — 1 grounded row(s); layers: concepts=1
+- `mags-and-or-sags` — MAGs and/or SAGs — 1 grounded row(s); layers: concepts=1
+- `mailed-surveys` — mailed surveys — 1 grounded row(s); layers: concepts=1
+- `main-stream-scientific-news` — main stream scientific news — 1 grounded row(s); layers: concepts=1
+- `main-variations-of-the-data` — main variations of the data — 1 grounded row(s); layers: concepts=1
+- `maintainers` — maintainers — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `maintenance` — maintenance — 1 grounded row(s); layers: concepts=1
+- `maintenance-methyltransferases` — maintenance methyltransferases — 1 grounded row(s); layers: concepts=1
+- `maitotoxin` — maitotoxin — 1 grounded row(s); layers: concepts=1
+- `maize` — maize — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `major-differences-between-blacklists` — major differences between blacklists — 1 grounded row(s); layers: concepts=1
+- `major-releases` — major releases — 1 grounded row(s); layers: concepts=1
+- `majority-resampling` — majority resampling — 1 grounded row(s); layers: concepts=1
+- `malaise-traps` — Malaise traps — 1 grounded row(s); layers: concepts=1
+- `male-approach` — male approach — 1 grounded row(s); layers: concepts=1
+- `malist` — MAList — 1 grounded row(s); layers: concepts=1
+- `malnutrition` — malnutrition — 1 grounded row(s); layers: concepts=1
+- `malnutrition-related-to-chronic-disease-with-inflammation` — malnutrition related to chronic disease with inflammation — 1 grounded row(s); layers: concepts=1
+- `management` — Management — 1 grounded row(s); layers: concepts=1
+- `manifest-forms` — manifest forms — 1 grounded row(s); layers: concepts=1
+- `manifest-observable` — manifest/observable — 1 grounded row(s); layers: concepts=1
+- `manual-and-automatic-approaches` — manual and automatic approaches — 1 grounded row(s); layers: concepts=1
+- `manual-annotation` — manual annotation — 1 grounded row(s); layers: concepts=1
+- `manual-curation` — manual curation — 2 grounded row(s); layers: concepts=2
+- `manual-intervention` — manual intervention — 1 grounded row(s); layers: concepts=1
+- `manually-annotated-nuclei` — manually annotated nuclei — 1 grounded row(s); layers: concepts=1
+- `manually-reviewed` — manually reviewed — 1 grounded row(s); layers: concepts=1
+- `many-genes` — many genes — 1 grounded row(s); layers: concepts=1
+- `many-mitochondrial-genomes` — many mitochondrial genomes — 1 grounded row(s); layers: concepts=1
+- `map` — mAP — 1 grounded row(s); layers: concepts=1
+- `map-estimates` — MAP estimates — 1 grounded row(s); layers: concepts=1
+- `mappability` — mappability — 1 grounded row(s); layers: concepts=1
+- `maps-of-kottek-et-al` — maps of Kottek et al. — 1 grounded row(s); layers: concepts=1
+- `marfan-syndrome` — Marfan syndrome — 1 grounded row(s); layers: concepts=1
+- `marginal-r-2` — marginal R 2 — 1 grounded row(s); layers: concepts=1
+- `marine-and-terrestrial-microbiomes` — marine and terrestrial microbiomes — 1 grounded row(s); layers: concepts=1
+- `marine-species` — marine species — 1 grounded row(s); layers: concepts=1
+- `marital-status` — marital status — 1 grounded row(s); layers: concepts=1
+- `markerless-pose-estimation` — markerless pose estimation — 1 grounded row(s); layers: concepts=1
+- `markers` — markers — 1 grounded row(s); layers: concepts=1
+- `market-competition` — market competition — 1 grounded row(s); layers: concepts=1
+- `markov-blanket` — Markov blanket — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `markov-chain-monte-carlo` — Markov chain Monte Carlo — 1 grounded row(s); layers: concepts=1
+- `marraylm` — MArrayLM — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `martinotti-cell` — Martinotti cell — 1 grounded row(s); layers: content_tags.definitions=1
+- `masked-msa-loss` — masked MSA loss — 1 grounded row(s); layers: concepts=1
+- `masking` — masking — 1 grounded row(s); layers: concepts=1
+- `mass-communication` — mass communication — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mass-cytometry` — mass cytometry — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mass-media` — mass media — 1 grounded row(s); layers: concepts=1
+- `mass-ratio` — mass ratio — 1 grounded row(s); layers: concepts=1
+- `mass-spectrometry` — mass spectrometry — 1 grounded row(s); layers: concepts=1
+- `mass-spectrometry-proteomic-data` — mass spectrometry proteomic data — 1 grounded row(s); layers: concepts=1
+- `master-narrative` — master narrative — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `match-to-place` — match-to-place — 1 grounded row(s); layers: content_tags.definitions=1
+- `matched-deposit-contract` — matched deposit contract — 1 grounded row(s); layers: concepts=1
+- `matched-filtering` — matched filtering — 1 grounded row(s); layers: content_tags.definitions=1
+- `matched-poly-a-selected-and-poly-a-depleted-rna-fractions` — matched poly-A selected and poly-A depleted RNA fractions — 1 grounded row(s); layers: concepts=1
+- `matching-the-data-with-predicted-waveforms` — matching the data with predicted waveforms — 1 grounded row(s); layers: concepts=1
+- `material-engagement` — material engagement — 1 grounded row(s); layers: concepts=1
+- `material-engagement-theory` — Material Engagement Theory — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `maternal-fetal-interaction` — maternal-fetal interaction — 1 grounded row(s); layers: concepts=1
+- `maternal-movement` — maternal movement — 1 grounded row(s); layers: concepts=1
+- `mathematical-building-blocks` — mathematical building blocks — 1 grounded row(s); layers: concepts=1
+- `mathematical-creativity` — mathematical creativity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mathematical-expressions` — mathematical expressions — 1 grounded row(s); layers: concepts=1
+- `matlab` — MATLAB — 1 grounded row(s); layers: concepts=1
+- `matplotlib` — Matplotlib — 2 grounded row(s); layers: concepts=2
+- `matrix` — matrix — 1 grounded row(s); layers: concepts=1
+- `matrix-multiplication` — matrix multiplication — 1 grounded row(s); layers: concepts=1
+- `matrix-operations` — matrix operations — 1 grounded row(s); layers: concepts=1
+- `mature-amino-acid-chains` — mature amino-acid chains — 1 grounded row(s); layers: concepts=1
+- `max-pooling` — max pooling — 1 grounded row(s); layers: concepts=1
+- `maximum-contig-size` — maximum contig size — 1 grounded row(s); layers: concepts=1
+- `maximum-information` — Maximum Information — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `maximum-information-approach` — Maximum Information approach — 1 grounded row(s); layers: concepts=1
+- `maximum-intrinsic-rate-of-population-growth` — maximum intrinsic rate of population growth — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood` — maximum-likelihood — 1 grounded row(s); layers: content_tags.definitions=1
+- `maximum-likelihood-difference-maps` — maximum-likelihood difference maps — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood-estimates` — maximum-likelihood estimates — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood-estimations` — maximum likelihood estimations — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood-ml-approach` — maximum-likelihood (ML) approach — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood-phylogenetic-trees` — maximum likelihood phylogenetic trees — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood-scale-factor-d` — maximum-likelihood scale factor D — 1 grounded row(s); layers: concepts=1
+- `maximum-likelihood-training-approximation` — maximum likelihood training approximation — 1 grounded row(s); layers: concepts=1
+- `maximum-resolution` — maximum resolution — 1 grounded row(s); layers: concepts=1
+- `maximum-safety-thresholds` — maximum safety thresholds — 1 grounded row(s); layers: concepts=1
+- `mc-j` — MC-J — 1 grounded row(s); layers: concepts=1
+- `mc-nj` — MC-NJ — 1 grounded row(s); layers: concepts=1
+- `mcl-clustering-algorithm` — MCL clustering algorithm — 1 grounded row(s); layers: concepts=1
+- `mcl-inflation-parameter` — MCL inflation parameter — 1 grounded row(s); layers: concepts=1
+- `mcode` — MCODE — 1 grounded row(s); layers: concepts=1
+- `md5` — MD5 — 1 grounded row(s); layers: concepts=1
+- `mdrd-equation` — MDRD equation — 1 grounded row(s); layers: concepts=1
+- `mdscs` — MDSCs — 1 grounded row(s); layers: concepts=1
+- `mean-absolute-error` — mean absolute error — 1 grounded row(s); layers: concepts=1
+- `mean-annual-population-growth-rate-parameter` — mean annual population growth rate parameter — 1 grounded row(s); layers: concepts=1
+- `mean-average-precision` — mean average precision — 1 grounded row(s); layers: concepts=1
+- `mean-biases` — mean biases — 1 grounded row(s); layers: concepts=1
+- `mean-dispersion-relationship` — mean-dispersion relationship — 1 grounded row(s); layers: concepts=1
+- `mean-framewise-displacement` — Mean framewise displacement — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mean-phenotype` — mean phenotype — 1 grounded row(s); layers: concepts=1
+- `mean-platelet-volume` — mean platelet volume — 1 grounded row(s); layers: content_tags.definitions=1
+- `mean-squared-error-criterion` — mean squared error criterion — 1 grounded row(s); layers: concepts=1
+- `mean-variance-trend` — mean-variance trend — 1 grounded row(s); layers: concepts=1
+- `meaning` — meaning — 1 grounded row(s); layers: concepts=1
+- `meaningful-human-control` — meaningful human control — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `meaningful-information` — meaningful information — 1 grounded row(s); layers: content_tags.definitions=1
+- `measurable-effect` — measurable effect — 1 grounded row(s); layers: concepts=1
+- `measure-development` — measure development — 1 grounded row(s); layers: concepts=1
+- `measureimagefocus` — MeasureImageFocus — 1 grounded row(s); layers: concepts=1
+- `measureimageoverlap` — MeasureImageOverlap — 1 grounded row(s); layers: concepts=1
+- `measurement` — measurement — 1 grounded row(s); layers: concepts=1
+- `measurement-based-care` — measurement-based care — 1 grounded row(s); layers: concepts=1
+- `measurement-equivalence` — measurement equivalence — 2 grounded row(s); layers: concepts=2
+- `measurement-error` — measurement error — 2 grounded row(s); layers: concepts=2
+- `measurement-errors` — measurement errors — 1 grounded row(s); layers: concepts=1
+- `measurement-invariance` — measurement invariance — 1 grounded row(s); layers: concepts=1
+- `meat-and-dairy-consumption` — meat and dairy consumption — 1 grounded row(s); layers: concepts=1
+- `mechanical-ventilation` — mechanical ventilation — 1 grounded row(s); layers: concepts=1
+- `mechanism-discovery` — mechanism discovery — 1 grounded row(s); layers: concepts=1
+- `mechanism-for-creating-interactions` — mechanism for creating interactions — 1 grounded row(s); layers: concepts=1
+- `mechanisms-of-action` — mechanisms of action — 1 grounded row(s); layers: concepts=1
+- `mechanistic-convergence` — Mechanistic Convergence — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mechanistic-insights` — mechanistic insights — 1 grounded row(s); layers: concepts=1
+- `mechanistic-population-modelling` — mechanistic population modelling — 1 grounded row(s); layers: concepts=1
+- `mechanistic-understanding` — mechanistic understanding — 1 grounded row(s); layers: concepts=1
+- `media-bias-fact-check` — Media Bias/Fact Check — 1 grounded row(s); layers: concepts=1
+- `media-content` — media content — 1 grounded row(s); layers: concepts=1
+- `media-effect` — media effect — 1 grounded row(s); layers: concepts=1
+- `median-absolute-difference` — median absolute difference — 1 grounded row(s); layers: concepts=1
+- `median-of-all-available-scores` — median of all available scores — 1 grounded row(s); layers: concepts=1
+- `median-signal` — median signal — 1 grounded row(s); layers: concepts=1
+- `mediators` — mediators — 1 grounded row(s); layers: concepts=1
+- `medical-education` — medical education — 1 grounded row(s); layers: concepts=1
+- `medical-health-literacy` — medical health literacy — 1 grounded row(s); layers: concepts=1
+- `medication-compliance` — medication compliance — 1 grounded row(s); layers: concepts=1
+- `medicinal-chemistry-friendliness` — medicinal chemistry friendliness — 1 grounded row(s); layers: concepts=1
+- `medium-range` — medium-range — 1 grounded row(s); layers: concepts=1
+- `megahit` — MEGAHIT — 1 grounded row(s); layers: concepts=1
+- `membership-search` — membership search — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `membrane` — membrane — 1 grounded row(s); layers: concepts=1
+- `memory-b-and-t-cells` — memory B and T cells — 1 grounded row(s); layers: concepts=1
+- `memory-b-cell-populations` — memory B cell populations — 1 grounded row(s); layers: concepts=1
+- `memory-based-mode` — memory-based mode — 1 grounded row(s); layers: concepts=1
+- `memory-requirement` — memory requirement — 1 grounded row(s); layers: concepts=1
+- `memory-retention-bias` — memory retention bias — 1 grounded row(s); layers: concepts=1
+- `mendelian-randomisation` — Mendelian randomisation — 1 grounded row(s); layers: concepts=1
+- `mensa` — MENSA — 1 grounded row(s); layers: content_tags.definitions=1
+- `mental-health-problems` — mental health problems — 1 grounded row(s); layers: concepts=1
+- `mental-health-services` — mental health services — 1 grounded row(s); layers: concepts=1
+- `mental-health-status` — mental health status — 1 grounded row(s); layers: content_tags.definitions=1
+- `mental-illness` — mental illness — 1 grounded row(s); layers: content_tags.definitions=1
+- `mental-imagery` — mental imagery — 1 grounded row(s); layers: concepts=1
+- `mental-integrity` — mental integrity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mental-number-line` — mental number line — 1 grounded row(s); layers: content_tags.definitions=1
+- `mental-privacy` — mental privacy — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `mental-process` — mental process — 1 grounded row(s); layers: concepts=1
+- `mental-representation` — mental representation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mental-representations` — mental representations — 1 grounded row(s); layers: concepts=1
+- `mental-rotation` — mental rotation — 1 grounded row(s); layers: content_tags.definitions=1
+- `mentalizing` — mentalizing — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `merged-reflection-lists` — merged reflection lists — 1 grounded row(s); layers: concepts=1
+- `merging-data-from-many-crystals` — merging data from many crystals — 1 grounded row(s); layers: concepts=1
+- `merging-many-data-sets` — merging many data sets — 1 grounded row(s); layers: concepts=1
+- `mesh` — MeSH — 1 grounded row(s); layers: concepts=1
+- `message-frames` — message frames — 1 grounded row(s); layers: concepts=1
 - `message-passing` — message passing — 2 grounded row(s); layers: concepts=2
-- `meta-analysis` — meta-analysis — 1 grounded row(s); layers: concepts=1
+- `message-passing-graph-neural-networks` — Message Passing Graph Neural Networks — 1 grounded row(s); layers: concepts=1
+- `message-passing-phase` — message passing phase — 2 grounded row(s); layers: concepts=2
+- `messenger-rna` — messenger RNA — 1 grounded row(s); layers: concepts=1
+- `meta-analyses` — meta-analyses — 1 grounded row(s); layers: concepts=1
+- `meta-analysis-of-effect-estimates` — Meta-analysis of effect estimates — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `meta-analysis-of-multiple-gene-lists` — meta-analysis of multiple gene lists — 1 grounded row(s); layers: concepts=1
+- `meta-organism-concept` — meta-organism concept — 1 grounded row(s); layers: concepts=1
+- `meta-organisms` — meta-organisms — 1 grounded row(s); layers: concepts=1
+- `metabarcoding` — metabarcoding — 1 grounded row(s); layers: concepts=1
+- `metabolic-state` — metabolic state — 1 grounded row(s); layers: concepts=1
+- `metabolites` — metabolites — 1 grounded row(s); layers: concepts=1
+- `metabolomics` — metabolomics — 1 grounded row(s); layers: concepts=1
+- `metabolomics-analyses` — metabolomics analyses — 1 grounded row(s); layers: concepts=1
 - `metadata` — metadata — 5 grounded row(s); layers: concepts=4, content_tags.definitions=1
+- `metadata-repositories` — metadata repositories — 1 grounded row(s); layers: concepts=1
+- `metagenome-assembled-genomes` — metagenome-assembled genomes — 1 grounded row(s); layers: concepts=1
+- `metagenomeseq` — metagenomeSeq — 1 grounded row(s); layers: concepts=1
+- `metagenomics` — metagenomics — 3 grounded row(s); layers: concepts=3
+- `metagenomics-analysis` — metagenomics analysis — 1 grounded row(s); layers: concepts=1
+- `metal-additive-manufacturing` — metal additive manufacturing — 1 grounded row(s); layers: content_tags.definitions=1
+- `metallic-behavior` — metallic behavior — 1 grounded row(s); layers: concepts=1
+- `metaplasticity` — metaplasticity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `metaproteomics` — metaproteomics — 1 grounded row(s); layers: concepts=1
+- `metascape` — Metascape — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `metascape-and-david` — Metascape and DAVID — 1 grounded row(s); layers: concepts=1
+- `metasynthesis` — metasynthesis — 1 grounded row(s); layers: concepts=1
+- `metatranscriptomics` — metatranscriptomics — 1 grounded row(s); layers: concepts=1
+- `method` — method — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `method-for-differential-analysis-of-count-data` — method for differential analysis of count data — 1 grounded row(s); layers: concepts=1
+- `method-implemented-here` — method implemented here — 1 grounded row(s); layers: concepts=1
+- `methodological-differences` — methodological differences — 1 grounded row(s); layers: concepts=1
+- `methodological-individualism` — methodological individualism — 1 grounded row(s); layers: concepts=1
+- `methylation-sensitive-res` — methylation-sensitive REs — 1 grounded row(s); layers: concepts=1
+- `metropolis-acceptance-criterion` — Metropolis acceptance criterion — 1 grounded row(s); layers: concepts=1
+- `mfs` — MFs — 1 grounded row(s); layers: concepts=1
+- `michaelis-menten` — Michaelis-Menten — 1 grounded row(s); layers: concepts=1
+- `micro-aggregates` — micro-aggregates — 1 grounded row(s); layers: concepts=1
+- `micro-eukaryotes` — micro-eukaryotes — 1 grounded row(s); layers: concepts=1
+- `micro-expression` — micro-expression — 1 grounded row(s); layers: content_tags.definitions=1
+- `micro-f1-score` — micro-F1 score — 1 grounded row(s); layers: concepts=1
+- `microbes-with-beneficial-properties` — microbes with beneficial properties — 1 grounded row(s); layers: concepts=1
+- `microbial-co-occurrence-networks` — microbial co-occurrence networks — 1 grounded row(s); layers: concepts=1
+- `microbial-communities` — microbial communities — 1 grounded row(s); layers: concepts=1
+- `microbial-differential-abundance` — microbial differential abundance — 1 grounded row(s); layers: concepts=1
+- `microbial-diversity` — microbial diversity — 1 grounded row(s); layers: concepts=1
+- `microbial-functioning` — microbial functioning — 1 grounded row(s); layers: concepts=1
+- `microbial-hotspots` — microbial hotspots — 1 grounded row(s); layers: concepts=1
+- `microbial-inoculants` — microbial inoculants — 1 grounded row(s); layers: concepts=1
+- `microbial-isolates` — microbial isolates — 1 grounded row(s); layers: concepts=1
+- `microbial-metabolic-phenotypes` — microbial metabolic phenotypes — 1 grounded row(s); layers: concepts=1
+- `microbial-social-adaptations` — microbial social adaptations — 1 grounded row(s); layers: concepts=1
+- `microbial-strains` — microbial strains — 1 grounded row(s); layers: concepts=1
+- `microbial-structures` — microbial structures — 1 grounded row(s); layers: concepts=1
+- `microbial-vehicles` — microbial vehicles — 1 grounded row(s); layers: concepts=1
+- `microbiome` — microbiome — 1 grounded row(s); layers: concepts=1
+- `microbiome-census-data` — microbiome census data — 1 grounded row(s); layers: concepts=1
+- `microbiome-count-data` — microbiome count data — 1 grounded row(s); layers: concepts=1
+- `microbiome-management` — microbiome management — 1 grounded row(s); layers: concepts=1
+- `microbiome-standards` — microbiome standards — 1 grounded row(s); layers: concepts=1
+- `microbiome-transplants` — microbiome transplants — 1 grounded row(s); layers: concepts=1
+- `microbiomes` — microbiomes — 1 grounded row(s); layers: concepts=1
+- `microbiota-accessible-carbohydrates` — microbiota-accessible carbohydrates — 1 grounded row(s); layers: concepts=1
+- `microbiota-active-metabolites` — microbiota-active metabolites — 1 grounded row(s); layers: concepts=1
+- `microclimate-features` — microclimate features — 1 grounded row(s); layers: concepts=1
+- `microenvironmental-conditions` — microenvironmental conditions — 1 grounded row(s); layers: concepts=1
+- `microplastics` — microplastics — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `microrna-binding-sites` — microRNA binding sites — 1 grounded row(s); layers: concepts=1
+- `microscale` — microscale — 1 grounded row(s); layers: concepts=1
+- `microscopy` — microscopy — 2 grounded row(s); layers: concepts=2
+- `microwell` — microwell — 1 grounded row(s); layers: concepts=1
+- `mildest-illness` — mildest illness — 1 grounded row(s); layers: concepts=1
+- `mind-stuff` — mind-stuff — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mindspace-framework` — Mindspace framework — 1 grounded row(s); layers: concepts=1
+- `minikraken-database` — MiniKraken database — 1 grounded row(s); layers: concepts=1
+- `minimal-agency` — minimal agency — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `minimal-effective-doses` — minimal effective doses — 1 grounded row(s); layers: concepts=1
+- `minimal-set-of-community-agreed-guiding-principles-and-pract` — minimal set of community-agreed guiding principles and practices — 1 grounded row(s); layers: concepts=1
+- `minimal-set-of-nodes` — minimal set of nodes — 1 grounded row(s); layers: concepts=1
+- `minimize-function` — minimize function — 1 grounded row(s); layers: concepts=1
+- `minimizer-based-subsampling` — minimizer-based subsampling — 1 grounded row(s); layers: concepts=1
+- `minimizer-collisions` — minimizer collisions — 1 grounded row(s); layers: concepts=1
+- `minimizers` — minimizers — 1 grounded row(s); layers: concepts=1
+- `minimum-evolution` — minimum-evolution — 1 grounded row(s); layers: concepts=1
+- `minimum-library-size` — minimum library size — 1 grounded row(s); layers: concepts=1
+- `minimum-spanning-tree` — minimum spanning tree — 1 grounded row(s); layers: concepts=1
+- `minimum-weekly-thresholds` — minimum weekly thresholds — 1 grounded row(s); layers: concepts=1
+- `mining` — mining — 1 grounded row(s); layers: content_tags.definitions=1
+- `minor-and-major-polypharmacy` — minor and major polypharmacy — 1 grounded row(s); layers: concepts=1
+- `minp` — minP — 1 grounded row(s); layers: concepts=1
+- `mis-information-overload` — (mis)information overload — 1 grounded row(s); layers: concepts=1
+- `misclassification-bias` — misclassification bias — 1 grounded row(s); layers: concepts=1
+- `misinformation` — misinformation — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `mislabelling` — mislabelling — 1 grounded row(s); layers: concepts=1
+- `mismatch-negativity` — mismatch negativity — 1 grounded row(s); layers: concepts=1
+- `mismatch-responses` — mismatch responses — 2 grounded row(s); layers: content_tags.definitions=2
+- `misplaced-trust` — misplaced trust — 1 grounded row(s); layers: concepts=1
+- `missing-data` — missing data — 6 grounded row(s); layers: concepts=6
+- `missing-data-components` — missing data components — 1 grounded row(s); layers: concepts=1
+- `missing-information` — missing information — 1 grounded row(s); layers: concepts=1
+- `missing-patterns` — missing patterns — 1 grounded row(s); layers: concepts=1
+- `missingvaluebase` — MissingValueBase — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mitigating-synergism` — mitigating synergism — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mitochondrial-dna` — mitochondrial DNA — 1 grounded row(s); layers: concepts=1
+- `mitotic-age` — mitotic age — 1 grounded row(s); layers: concepts=1
+- `mixed-effects-generalized-linear-models` — mixed-effects generalized linear models — 1 grounded row(s); layers: concepts=1
+- `mixed-methods` — mixed-methods — 1 grounded row(s); layers: concepts=1
+- `mixed-methods-systematic-reviews` — mixed-methods systematic reviews — 1 grounded row(s); layers: concepts=1
+- `mixed-picture` — mixed picture — 1 grounded row(s); layers: concepts=1
+- `mixed-precision` — Mixed Precision — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mlh1` — MLH1 — 1 grounded row(s); layers: concepts=1
+- `mmn` — MMN — 2 grounded row(s); layers: content_tags.definitions=2
+- `mmr` — MMR — 1 grounded row(s); layers: content_tags.definitions=1
+- `mmseqs2` — MMseqs2 — 1 grounded row(s); layers: concepts=1
+- `mmseqs2-algorithm` — MMseqs2 algorithm — 1 grounded row(s); layers: concepts=1
+- `mmseqs2-mode` — MMseqs2 mode — 1 grounded row(s); layers: concepts=1
+- `mnemonic-alignment` — mnemonic alignment — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mnemonic-similarity` — mnemonic similarity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mobile-computing` — mobile computing — 1 grounded row(s); layers: concepts=1
+- `mobile-genetic-elements` — mobile genetic elements — 1 grounded row(s); layers: concepts=1
+- `mobile-health-applications` — mobile health applications — 1 grounded row(s); layers: concepts=1
+- `mock-enzyme-treatment` — mock enzyme treatment — 1 grounded row(s); layers: concepts=1
+- `model` — model — 3 grounded row(s); layers: concepts=3
+- `model-adequacy` — model adequacy — 1 grounded row(s); layers: concepts=1
+- `model-agnostic` — model-agnostic — 1 grounded row(s); layers: concepts=1
+- `model-architectures-and-training-methods` — model architectures and training methods — 1 grounded row(s); layers: concepts=1
+- `model-averaging` — model averaging — 1 grounded row(s); layers: concepts=1
+- `model-bias` — model bias — 1 grounded row(s); layers: concepts=1
+- `model-bounding-box` — Model.bounding_box — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `model-calibration` — model calibration — 1 grounded row(s); layers: concepts=1
+- `model-confidence` — model confidence — 1 grounded row(s); layers: concepts=1
+- `model-confidence-estimates` — model-confidence estimates — 1 grounded row(s); layers: concepts=1
+- `model-convergence-issues` — model convergence issues — 1 grounded row(s); layers: concepts=1
+- `model-fit` — model fit — 1 grounded row(s); layers: concepts=1
+- `model-microbiomes` — model microbiomes — 1 grounded row(s); layers: concepts=1
+- `model-of-evolution-and-population-growth` — model of evolution and population growth — 1 grounded row(s); layers: concepts=1
+- `model-organism-databases` — model organism databases — 1 grounded row(s); layers: concepts=1
+- `model-quality` — model quality — 1 grounded row(s); layers: concepts=1
+- `model-scale-mean-anomalies` — model-scale mean anomalies — 1 grounded row(s); layers: concepts=1
 - `model-selection` — model selection — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `model-spatial-biases` — model spatial biases — 1 grounded row(s); layers: concepts=1
+- `model-zoos` — model zoos — 1 grounded row(s); layers: concepts=1
+- `modeling` — modeling — 1 grounded row(s); layers: concepts=1
+- `models` — models — 1 grounded row(s); layers: concepts=1
+- `models-of-causal-influences` — models of causal influences — 1 grounded row(s); layers: concepts=1
+- `modes-of-action` — modes of action — 1 grounded row(s); layers: concepts=1
+- `modified-hospital` — modified HOSPITAL — 1 grounded row(s); layers: concepts=1
+- `modified-weibull` — modified Weibull — 1 grounded row(s); layers: concepts=1
+- `modular-image-analysis-software` — modular image analysis software — 1 grounded row(s); layers: concepts=1
 - `modularity` — modularity — 1 grounded row(s); layers: concepts=1
+- `modulation-index` — modulation index — 1 grounded row(s); layers: content_tags.definitions=1
+- `module` — module — 1 grounded row(s); layers: content_tags.definitions=1
+- `modules` — modules — 2 grounded row(s); layers: concepts=2
+- `moe` — MOE — 1 grounded row(s); layers: concepts=1
+- `mofc` — mOFC — 1 grounded row(s); layers: concepts=1
+- `mohammed-ali-effect` — Mohammed Ali effect — 1 grounded row(s); layers: concepts=1
+- `molecular-activity-of-proteins` — molecular activity of proteins — 1 grounded row(s); layers: concepts=1
+- `molecular-characteristics` — molecular characteristics — 1 grounded row(s); layers: concepts=1
+- `molecular-descriptors` — molecular descriptors — 4 grounded row(s); layers: concepts=4
+- `molecular-docking` — Molecular docking — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `molecular-dynamics-simulation` — molecular dynamics simulation — 1 grounded row(s); layers: concepts=1
+- `molecular-dynamics-simulation-toolkit` — molecular dynamics simulation toolkit — 1 grounded row(s); layers: concepts=1
+- `molecular-fingerprint` — molecular fingerprint — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `molecular-fragments` — molecular fragments — 1 grounded row(s); layers: concepts=1
+- `molecular-graph` — molecular graph — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `molecular-graph-representation` — molecular graph representation — 1 grounded row(s); layers: concepts=1
+- `molecular-graphs` — molecular graphs — 1 grounded row(s); layers: concepts=1
+- `molecular-mechanisms` — molecular mechanisms — 1 grounded row(s); layers: concepts=1
+- `molecular-pathway` — molecular pathway — 1 grounded row(s); layers: concepts=1
+- `molecular-pathways` — molecular pathways — 1 grounded row(s); layers: concepts=1
+- `molecular-properties` — molecular properties — 1 grounded row(s); layers: concepts=1
+- `molecular-property-modelling` — Molecular property modelling — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `molecular-property-prediction` — molecular property prediction — 1 grounded row(s); layers: concepts=1
+- `molecular-refractivity` — molecular refractivity — 1 grounded row(s); layers: concepts=1
+- `molecular-replacement` — molecular replacement — 1 grounded row(s); layers: concepts=1
+- `molecular-replacement-model` — molecular-replacement model — 1 grounded row(s); layers: concepts=1
+- `molecular-sieving` — molecular sieving — 1 grounded row(s); layers: content_tags.definitions=1
+- `molecular-simulation` — molecular simulation — 1 grounded row(s); layers: concepts=1
+- `molecular-sketcher` — molecular sketcher — 1 grounded row(s); layers: concepts=1
+- `molecular-structure` — molecular structure — 1 grounded row(s); layers: concepts=1
+- `molecular-weight` — molecular weight — 1 grounded row(s); layers: concepts=1
+- `molecularid-descriptor` — MolecularId descriptor — 1 grounded row(s); layers: concepts=1
+- `molecule` — molecule — 1 grounded row(s); layers: concepts=1
+- `molecules` — molecules — 1 grounded row(s); layers: concepts=1
+- `molfiles` — molfiles — 1 grounded row(s); layers: concepts=1
+- `molvs` — MolVS — 1 grounded row(s); layers: concepts=1
+- `monetary-reward` — monetary reward — 1 grounded row(s); layers: concepts=1
+- `mongodb` — MongoDB — 1 grounded row(s); layers: concepts=1
+- `monitoring-and-filtering-out-false-information` — monitoring and filtering out false information — 1 grounded row(s); layers: concepts=1
+- `monocytes` — monocytes — 1 grounded row(s); layers: concepts=1
+- `monological-belief-system` — monological belief system — 1 grounded row(s); layers: concepts=1
+- `monte-carlo-forecast` — Monte Carlo forecast — 1 grounded row(s); layers: concepts=1
+- `monte-carlo-sampling` — Monte Carlo sampling — 1 grounded row(s); layers: concepts=1
+- `monthly-anomalies` — monthly anomalies — 1 grounded row(s); layers: concepts=1
+- `mood` — mood — 1 grounded row(s); layers: content_tags.definitions=1
+- `moore-s-law` — Moore’s law — 1 grounded row(s); layers: concepts=1
+- `moral-agency` — moral agency — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `moral-concern` — moral concern — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `moral-patiency` — moral patiency — 1 grounded row(s); layers: concepts=1
+- `moral-responsibility` — moral responsibility — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `moral-status` — moral status — 1 grounded row(s); layers: concepts=1
+- `moral-zombie` — moral zombie — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `morbidity` — morbidity — 1 grounded row(s); layers: concepts=1
+- `mordred` — Mordred — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `more-accurate-and-stable-results-across-experiments` — more accurate and stable results across experiments — 1 grounded row(s); layers: concepts=1
+- `more-accurate-results` — more accurate results — 1 grounded row(s); layers: concepts=1
+- `more-distinct` — more distinct — 1 grounded row(s); layers: concepts=1
+- `more-efficient-use-of-current-arable-lands` — more efficient use of current arable lands — 1 grounded row(s); layers: concepts=1
+- `more-extensive-catalog-of-circular-rna` — more extensive catalog of circular RNA — 1 grounded row(s); layers: concepts=1
+- `more-granular-gene-sets` — more granular gene sets — 1 grounded row(s); layers: concepts=1
+- `more-recent-human-interactome-datasets` — more recent human interactome datasets — 1 grounded row(s); layers: concepts=1
+- `more-similar-to-ourselves` — more similar to ourselves — 1 grounded row(s); layers: concepts=1
+- `more-specific-than` — more specific than — 1 grounded row(s); layers: concepts=1
+- `more-than-99-9-identical-to-each-other` — more than 99.9% identical to each other — 1 grounded row(s); layers: concepts=1
+- `more-transmissible-between-humans` — more transmissible between humans — 1 grounded row(s); layers: concepts=1
+- `morpholibj` — MorphoLibJ — 1 grounded row(s); layers: concepts=1
+- `morphological-features` — morphological features — 2 grounded row(s); layers: concepts=2
+- `morphological-profiling-experiments` — morphological profiling experiments — 1 grounded row(s); layers: concepts=1
+- `morphology` — morphology — 1 grounded row(s); layers: concepts=1
+- `mortality-losses` — mortality losses — 1 grounded row(s); layers: concepts=1
+- `mosaic-nf1` — mosaic NF1 — 1 grounded row(s); layers: content_tags.definitions=1
+- `most-common-class` — most common class — 1 grounded row(s); layers: concepts=1
+- `most-dissimilar-rbnh` — most dissimilar RBNH — 1 grounded row(s); layers: concepts=1
+- `mothur` — mothur — 1 grounded row(s); layers: concepts=1
+- `motion-or-appearance-models` — motion or appearance models — 1 grounded row(s); layers: concepts=1
+- `motivations` — motivations — 1 grounded row(s); layers: concepts=1
+- `motor-evoked-potentials` — motor-evoked potentials — 1 grounded row(s); layers: concepts=1
+- `motor-output` — motor output — 1 grounded row(s); layers: concepts=1
+- `mouse-ace2` — mouse ACE2 — 1 grounded row(s); layers: concepts=1
+- `mpnn` — MPNN — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `mrc-framework-guidance` — MRC framework guidance — 1 grounded row(s); layers: concepts=1
+- `msa-depth` — MSA depth — 1 grounded row(s); layers: concepts=1
+- `msa-representation` — MSA representation — 1 grounded row(s); layers: concepts=1
+- `mtor` — MTOR — 1 grounded row(s); layers: concepts=1
+- `multi-animal-pose-tracking` — multi-animal pose tracking — 1 grounded row(s); layers: concepts=1
+- `multi-animal-pose-tracking-system` — multi-animal pose-tracking system — 1 grounded row(s); layers: concepts=1
+- `multi-dimensional-scaling` — multi-dimensional scaling — 1 grounded row(s); layers: concepts=1
+- `multi-level-contextual-factors` — multi-level contextual factors — 1 grounded row(s); layers: concepts=1
+- `multi-level-modularity-optimization-algorithm` — multi-level modularity optimization algorithm — 1 grounded row(s); layers: concepts=1
+- `multi-mapping-read-rates` — multi-mapping read rates — 1 grounded row(s); layers: concepts=1
+- `multi-model-inference` — multi-model inference — 1 grounded row(s); layers: concepts=1
+- `multi-omics` — multi-omics — 1 grounded row(s); layers: concepts=1
+- `multi-part-confidence-maps` — multi-part confidence maps — 1 grounded row(s); layers: concepts=1
+- `multi-sequence-alignments` — multi-sequence alignments — 1 grounded row(s); layers: concepts=1
+- `multi-species-assemblages` — multi-species assemblages — 1 grounded row(s); layers: concepts=1
+- `multi-task-datasets` — multi-task datasets — 1 grounded row(s); layers: concepts=1
+- `multi-tissue-age-predictor` — multi-tissue age predictor — 1 grounded row(s); layers: concepts=1
+- `multi-tissue-predictor-of-age` — multi-tissue predictor of age — 1 grounded row(s); layers: concepts=1
+- `multicellular-organisms` — multicellular organisms — 1 grounded row(s); layers: concepts=1
+- `multicellular-tumor-spheroid` — multicellular tumor spheroid — 1 grounded row(s); layers: content_tags.definitions=1
+- `multiclass-self-training-annotation-system` — multiclass, self-training annotation system — 1 grounded row(s); layers: concepts=1
+- `multicomponent-compounds` — multicomponent compounds — 1 grounded row(s); layers: concepts=1
+- `multicomponent-physical-activity` — multicomponent physical activity — 1 grounded row(s); layers: concepts=1
+- `multidimensional-arrays` — multidimensional arrays — 1 grounded row(s); layers: concepts=1
+- `multifunctionality` — multifunctionality — 1 grounded row(s); layers: content_tags.definitions=1
+- `multimodal-aspects-of-the-input-distribution` — multimodal aspects of the input distribution — 1 grounded row(s); layers: concepts=1
+- `multimodel-averaging` — multimodel averaging — 1 grounded row(s); layers: concepts=1
+- `multiorgan-failure` — multiorgan failure — 1 grounded row(s); layers: concepts=1
+- `multiparametric-single-cell-data` — multiparametric single cell data — 1 grounded row(s); layers: concepts=1
+- `multiple-bioactive-proteins-or-peptides` — multiple bioactive proteins or peptides — 1 grounded row(s); layers: concepts=1
+- `multiple-cell-types` — multiple cell-types — 1 grounded row(s); layers: concepts=1
+- `multiple-centers` — multiple centers — 1 grounded row(s); layers: concepts=1
+- `multiple-elements` — multiple elements — 1 grounded row(s); layers: concepts=1
+- `multiple-epitopes` — multiple epitopes — 1 grounded row(s); layers: concepts=1
+- `multiple-imputation` — multiple imputation — 2 grounded row(s); layers: concepts=2
+- `multiple-input-pipelines` — multiple input pipelines — 1 grounded row(s); layers: concepts=1
+- `multiple-layers-of-hidden-units` — multiple layers of hidden units — 1 grounded row(s); layers: concepts=1
+- `multiple-looks` — multiple-looks — 1 grounded row(s); layers: concepts=1
+- `multiple-medical-events` — multiple medical events — 1 grounded row(s); layers: concepts=1
+- `multiple-portals` — multiple portals — 1 grounded row(s); layers: concepts=1
+- `multiple-predictions` — multiple predictions — 1 grounded row(s); layers: concepts=1
+- `multiple-sclerosis` — multiple sclerosis — 1 grounded row(s); layers: concepts=1
+- `multiple-sequence-alignments-msas` — multiple sequence alignments (MSAs) — 1 grounded row(s); layers: concepts=1
+- `multiple-threads` — multiple threads — 2 grounded row(s); layers: concepts=2
+- `multiplex-sequencing` — multiplex sequencing — 1 grounded row(s); layers: concepts=1
+- `multiplicity` — multiplicity — 1 grounded row(s); layers: concepts=1
+- `multiplicity-of-infection-moi-of-0-5` — multiplicity of infection (MOI) of 0.5 — 1 grounded row(s); layers: concepts=1
+- `multipole-moment` — multipole moment — 1 grounded row(s); layers: concepts=1
+- `multiqc` — MultiQC — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `multiqc-ngi-plugin` — MultiQC_NGI plugin — 1 grounded row(s); layers: concepts=1
+- `multiscale-knn` — multiscale KNN — 1 grounded row(s); layers: concepts=1
+- `multivariable-logistic-regressions` — multivariable logistic regressions — 1 grounded row(s); layers: concepts=1
+- `multivesicular-bodies` — multivesicular bodies — 1 grounded row(s); layers: concepts=1
+- `multivesicular-body` — multivesicular body — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `murcko-frameworks` — Murcko frameworks — 1 grounded row(s); layers: concepts=1
+- `murine-systems` — murine systems — 1 grounded row(s); layers: concepts=1
+- `muscimol` — muscimol — 1 grounded row(s); layers: concepts=1
+- `muscular-fitness` — muscular fitness — 1 grounded row(s); layers: concepts=1
+- `music-perception` — music perception — 1 grounded row(s); layers: concepts=1
+- `musical-enculturation` — musical enculturation — 1 grounded row(s); layers: concepts=1
+- `musical-skill` — musical skill — 1 grounded row(s); layers: concepts=1
+- `mutable-targets` — mutable targets — 1 grounded row(s); layers: concepts=1
+- `mutations` — mutations — 1 grounded row(s); layers: concepts=1
+- `mutualism` — mutualism — 1 grounded row(s); layers: concepts=1
+- `muv` — MUV — 1 grounded row(s); layers: concepts=1
+- `mvpa-bouts-of-any-duration` — MVPA bouts of any duration — 1 grounded row(s); layers: concepts=1
+- `mxene` — MXene — 2 grounded row(s); layers: content_tags.definitions=2
+- `mxenes` — MXenes — 1 grounded row(s); layers: concepts=1
+- `mxnet` — mxnet — 1 grounded row(s); layers: concepts=1
+- `mycobiome` — mycobiome — 1 grounded row(s); layers: concepts=1
+- `myd88` — MyD88 — 1 grounded row(s); layers: concepts=1
+- `myeloid-lineage-cells` — myeloid lineage cells — 1 grounded row(s); layers: concepts=1
+- `myside-bias` — myside bias — 1 grounded row(s); layers: concepts=1
+- `n-dimensional-labeled-arrays` — N-dimensional labeled arrays — 1 grounded row(s); layers: concepts=1
+- `n-k` — n/k — 1 grounded row(s); layers: concepts=1
+- `n-specific-antibodies` — N-specific antibodies — 1 grounded row(s); layers: concepts=1
+- `n-terminal-domain` — N-terminal domain — 1 grounded row(s); layers: concepts=1
+- `n100m` — N100m — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `n400` — N400 — 1 grounded row(s); layers: concepts=1
+- `n400-amplitude` — N400 amplitude — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `named-dimensions` — named dimensions — 1 grounded row(s); layers: concepts=1
+- `names-and-attributes` — Names and attributes — 1 grounded row(s); layers: concepts=1
+- `nan` — NaN — 1 grounded row(s); layers: concepts=1
+- `nano-scale` — nano-scale — 1 grounded row(s); layers: concepts=1
+- `nanoplastics` — nanoplastics — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `nanozyme` — nanozyme — 3 grounded row(s); layers: content_tags.definitions=3
+- `narrative` — narrative — 1 grounded row(s); layers: concepts=1
+- `narrative-competence` — narrative competence — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `narrative-framework` — narrative framework — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `narrative-perspective` — narrative perspective — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `narrative-review` — narrative review — 1 grounded row(s); layers: concepts=1
+- `narrative-viewpoint` — narrative viewpoint — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `narrative-world` — narrative world — 1 grounded row(s); layers: concepts=1
+- `narrow-ai` — narrow AI — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `narrow-synonym` — narrow synonym — 1 grounded row(s); layers: concepts=1
+- `nasopharyngeal-swab` — nasopharyngeal swab — 1 grounded row(s); layers: concepts=1
+- `national-data` — national data — 1 grounded row(s); layers: concepts=1
+- `national-guidelines` — national guidelines — 1 grounded row(s); layers: concepts=1
+- `national-population-surveillance-systems` — national population surveillance systems — 1 grounded row(s); layers: concepts=1
+- `native-results` — native results — 1 grounded row(s); layers: concepts=1
+- `natural-anatomical-location` — natural anatomical location — 1 grounded row(s); layers: concepts=1
+- `natural-cubic-spline-based-regression-model` — natural cubic spline-based regression model — 1 grounded row(s); layers: concepts=1
+- `natural-infection` — natural infection — 1 grounded row(s); layers: concepts=1
 - `natural-language-processing` — natural language processing — 1 grounded row(s); layers: concepts=1
+- `natural-language-processing-nlp` — natural language processing (NLP) — 1 grounded row(s); layers: concepts=1
+- `natural-products` — Natural products — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `natural-reservoir-host` — natural reservoir host — 1 grounded row(s); layers: concepts=1
+- `natural-selection` — natural selection — 1 grounded row(s); layers: concepts=1
+- `naturalistic-sounds` — naturalistic sounds — 1 grounded row(s); layers: concepts=1
+- `naturally-selected-characters` — naturally selected characters — 1 grounded row(s); layers: concepts=1
+- `nature` — nature — 1 grounded row(s); layers: concepts=1
+- `nature-protection-areas` — nature protection areas — 1 grounded row(s); layers: concepts=1
+- `navigable-rivers` — navigable rivers — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `navigable-waterways` — navigable waterways — 1 grounded row(s); layers: concepts=1
+- `ncbi-taxonomy-identifier` — NCBI taxonomy identifier — 1 grounded row(s); layers: concepts=1
+- `ncc` — NCC — 1 grounded row(s); layers: content_tags.definitions=1
+- `nci-ctc` — NCI-CTC — 1 grounded row(s); layers: concepts=1
+- `near-universal-single-copy-orthologs` — near-universal single copy orthologs — 1 grounded row(s); layers: concepts=1
+- `nearest-neighbor-detection` — nearest neighbor detection — 1 grounded row(s); layers: concepts=1
+- `nearest-neighbor-interchanges` — nearest-neighbor interchanges — 1 grounded row(s); layers: concepts=1
+- `nearly-equal-numbers-of-pairs-with-ani-values-between-78-and` — nearly equal numbers of pairs with ANI values between 78% and 95% — 1 grounded row(s); layers: concepts=1
+- `necessary-conditions` — necessary conditions — 1 grounded row(s); layers: concepts=1
+- `need-for-a-new-definition` — need for a new definition — 1 grounded row(s); layers: concepts=1
+- `need-for-cognitive-closure` — need for cognitive closure — 1 grounded row(s); layers: concepts=1
+- `negative-bias` — negative bias — 1 grounded row(s); layers: concepts=1
+- `negative-binomial` — negative binomial — 2 grounded row(s); layers: concepts=2
+- `negative-binomial-based-software-packages` — negative binomial-based software packages — 1 grounded row(s); layers: concepts=1
 - `negative-binomial-model` — negative binomial model — 1 grounded row(s); layers: concepts=1
+- `negative-case-analysis` — negative case analysis — 1 grounded row(s); layers: concepts=1
+- `negative-d-r-d-t` — negative d R /d T — 1 grounded row(s); layers: concepts=1
+- `negative-examples` — negative examples — 1 grounded row(s); layers: concepts=1
+- `negative-exponential` — negative exponential — 1 grounded row(s); layers: concepts=1
+- `negative-feelings` — negative feelings — 1 grounded row(s); layers: concepts=1
+- `negative-samples` — negative samples — 1 grounded row(s); layers: concepts=1
+- `negative-transfer` — negative transfer — 1 grounded row(s); layers: content_tags.definitions=1
+- `negatively-related-cpgs` — negatively related CpGs — 1 grounded row(s); layers: concepts=1
+- `neighbor-joining` — neighbor joining — 1 grounded row(s); layers: concepts=1
+- `neighboring-units` — neighboring units — 1 grounded row(s); layers: concepts=1
+- `neocognitron` — Neocognitron — 1 grounded row(s); layers: concepts=1
+- `nested` — nested — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `nested-case-control-studies` — nested case-control studies — 1 grounded row(s); layers: concepts=1
+- `nested-factor-modeling` — nested factor modeling — 1 grounded row(s); layers: concepts=1
+- `nesting-rule` — nesting rule — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `netcdf` — NetCDF — 1 grounded row(s); layers: concepts=1
+- `netcdf-dataset` — netCDF dataset — 1 grounded row(s); layers: concepts=1
+- `network-common-data-form` — network Common Data Form — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `network-control` — network control — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `network-controllability` — network controllability — 1 grounded row(s); layers: concepts=1
 - `network-depth` — network depth — 1 grounded row(s); layers: concepts=1
+- `network-events` — network events — 1 grounded row(s); layers: content_tags.definitions=1
+- `network-meta-analyses` — network meta-analyses — 1 grounded row(s); layers: concepts=1
+- `network-of-relationships` — network of relationships — 1 grounded row(s); layers: concepts=1
 - `network-topology` — network topology — 1 grounded row(s); layers: concepts=1
-- `normalization` — normalization — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neural-connections` — neural connections — 1 grounded row(s); layers: concepts=1
+- `neural-elements` — neural elements — 1 grounded row(s); layers: concepts=1
+- `neural-networks` — neural networks — 2 grounded row(s); layers: concepts=2
+- `neural-similarity` — neural similarity — 1 grounded row(s); layers: concepts=1
+- `neuro-focused-rights` — neuro-focused rights — 1 grounded row(s); layers: concepts=1
+- `neuroaesthetics` — neuroaesthetics — 1 grounded row(s); layers: concepts=1
+- `neuroeconomics` — neuroeconomics — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neuroessentialism` — neuroessentialism — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neuroexceptionalism` — neuroexceptionalism — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neuromodesty` — neuromodesty — 1 grounded row(s); layers: concepts=1
+- `neuromyths` — neuromyths — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neuroplasticity` — neuroplasticity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neuroprediction` — neuroprediction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neuroright` — neuroright — 1 grounded row(s); layers: concepts=1
+- `neuroscience-of-art` — neuroscience of art — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neutralisation-and-pseudo-neutralisation-assays` — Neutralisation and pseudo-neutralisation assays — 1 grounded row(s); layers: concepts=1
+- `neutralised` — neutralised — 1 grounded row(s); layers: concepts=1
+- `neutralising-activity` — neutralising activity — 1 grounded row(s); layers: concepts=1
+- `neutralising-antibodies` — neutralising antibodies — 1 grounded row(s); layers: concepts=1
+- `neutralization` — Neutralization — 1 grounded row(s); layers: concepts=1
+- `neutralization-assay` — neutralization assay — 1 grounded row(s); layers: concepts=1
+- `neutralized-by-sera` — neutralized by sera — 1 grounded row(s); layers: concepts=1
+- `neutralizing-antibodies` — neutralizing antibodies — 1 grounded row(s); layers: concepts=1
+- `neutron-star-remnant` — neutron star remnant — 1 grounded row(s); layers: concepts=1
+- `neutrophil-to-lymphocyte-ratio-nlr` — Neutrophil-to-lymphocyte ratio (NLR) — 1 grounded row(s); layers: concepts=1
+- `neutrophils` — neutrophils — 2 grounded row(s); layers: concepts=2
+- `new-available-technology` — new available technology — 1 grounded row(s); layers: concepts=1
+- `new-force-fields` — new force fields — 1 grounded row(s); layers: concepts=1
+- `new-integration-algorithms` — new integration algorithms — 1 grounded row(s); layers: concepts=1
+- `new-methodology` — new methodology — 1 grounded row(s); layers: concepts=1
+- `new-pulmonary-infiltrates` — new pulmonary infiltrates — 1 grounded row(s); layers: concepts=1
+- `new-re-aim-figure` — new RE-AIM figure — 1 grounded row(s); layers: concepts=1
+- `new-reporting-guidance` — new reporting guidance — 1 grounded row(s); layers: concepts=1
+- `new-repository` — new repository — 1 grounded row(s); layers: concepts=1
+- `new-sampling-methods` — new sampling methods — 1 grounded row(s); layers: concepts=1
+- `new-simulation-protocols` — new simulation protocols — 1 grounded row(s); layers: concepts=1
+- `new-zealand` — New Zealand — 1 grounded row(s); layers: concepts=1
+- `newborn-screening` — newborn screening — 1 grounded row(s); layers: concepts=1
+- `newly-derived-high-resolution-present-day-k-ppen-geiger-clas` — newly derived high-resolution present-day Köppen-Geiger classification — 1 grounded row(s); layers: concepts=1
+- `news-51-score` — NEWS 51 score — 1 grounded row(s); layers: concepts=1
+- `news-media` — news media — 1 grounded row(s); layers: concepts=1
+- `next-generation-sequencing` — next-generation sequencing — 3 grounded row(s); layers: concepts=3
+- `next-generation-sequencing-data` — next-generation sequencing data — 1 grounded row(s); layers: concepts=1
+- `ngs` — NGS — 1 grounded row(s); layers: concepts=1
+- `nhst` — NHST — 1 grounded row(s); layers: concepts=1
+- `niche-modelling` — niche modelling — 1 grounded row(s); layers: concepts=1
+- `nightingale` — Nightingale — 1 grounded row(s); layers: concepts=1
+- `nihl` — NIHL — 1 grounded row(s); layers: concepts=1
+- `nihr` — NIHR — 1 grounded row(s); layers: concepts=1
+- `nine-steps` — nine steps — 1 grounded row(s); layers: concepts=1
+- `nist-rm-dna` — NIST RM DNA — 1 grounded row(s); layers: concepts=1
+- `nitrogen-conversion-efficiency` — nitrogen conversion efficiency — 1 grounded row(s); layers: content_tags.definitions=1
+- `nk-cells` — NK cells — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `no-periodontal-pockets-deeper-than-3-mm` — no periodontal pockets deeper than 3 mm — 1 grounded row(s); layers: concepts=1
+- `no-position` — No Position — 1 grounded row(s); layers: concepts=1
+- `no-position-classification` — ‘no position’ classification — 1 grounded row(s); layers: concepts=1
+- `no-report-paradigms` — no-report paradigms — 1 grounded row(s); layers: content_tags.definitions=1
+- `node-features-matrix` — node features matrix — 1 grounded row(s); layers: concepts=1
+- `node-level-embedding` — node-level embedding — 1 grounded row(s); layers: concepts=1
+- `nodes` — nodes — 1 grounded row(s); layers: concepts=1
+- `noetic-feeling` — noetic feeling — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `noise-correlations` — noise correlations — 1 grounded row(s); layers: content_tags.definitions=1
+- `noise-level` — noise level — 1 grounded row(s); layers: concepts=1
+- `noise-pollution` — noise pollution — 1 grounded row(s); layers: content_tags.definitions=1
+- `noise-ratio` — noise ratio — 2 grounded row(s); layers: content_tags.definitions=2
+- `noisy-student-self-distillation` — noisy student self-distillation — 1 grounded row(s); layers: concepts=1
+- `nomenclature` — nomenclature — 2 grounded row(s); layers: concepts=2
+- `nominal-landings-data` — nominal landings data — 1 grounded row(s); layers: concepts=1
+- `nominal-resolution` — nominal resolution — 1 grounded row(s); layers: concepts=1
+- `non-canonical-mode-of-rna-splicing` — non-canonical mode of RNA splicing — 1 grounded row(s); layers: concepts=1
+- `non-canonical-order` — non-canonical order — 1 grounded row(s); layers: concepts=1
+- `non-canonical-splicing-of-short-exons` — non-canonical splicing of short exons — 1 grounded row(s); layers: concepts=1
+- `non-co-2-forcings` — non-CO 2 forcings — 1 grounded row(s); layers: concepts=1
+- `non-coding-rna-species` — non-coding RNA species — 1 grounded row(s); layers: concepts=1
+- `non-compounding-linear-percentage-rate` — non-compounding linear percentage rate — 1 grounded row(s); layers: concepts=1
+- `non-covalent-bonding` — non-covalent bonding — 1 grounded row(s); layers: concepts=1
+- `non-gaussian-distributions` — non-Gaussian distributions — 1 grounded row(s); layers: concepts=1
+- `non-hotspots` — non-hotspots — 1 grounded row(s); layers: concepts=1
+- `non-ideal-crowed-solutions` — non-ideal crowed solutions — 1 grounded row(s); layers: concepts=1
+- `non-immunoprecipitated-chromatin` — non-immunoprecipitated chromatin — 1 grounded row(s); layers: concepts=1
+- `non-inferiority-trials` — non-inferiority trials — 1 grounded row(s); layers: concepts=1
+- `non-isomorphism` — non-isomorphism — 1 grounded row(s); layers: concepts=1
+- `non-lemniscal` — non-lemniscal — 1 grounded row(s); layers: content_tags.definitions=1
+- `non-linear-ocean-chemistry-feedbacks` — non-linear ocean chemistry feedbacks — 1 grounded row(s); layers: concepts=1
+- `non-linear-reaction-norms` — non-linear reaction norms — 1 grounded row(s); layers: concepts=1
+- `non-linearity` — non-linearity — 1 grounded row(s); layers: concepts=1
+- `non-metric-multidimensional-scaling` — non-metric multidimensional scaling — 1 grounded row(s); layers: concepts=1
+- `non-negative` — non-negative — 1 grounded row(s); layers: content_tags.definitions=1
+- `non-poly-adenylated-fractions` — non-poly-adenylated fractions — 1 grounded row(s); layers: concepts=1
+- `non-poly-adenylated-presumably-circular-molecules` — non-poly-adenylated, presumably circular, molecules — 1 grounded row(s); layers: concepts=1
+- `non-programmers` — non-programmers — 1 grounded row(s); layers: concepts=1
+- `non-redundant-groups` — non-redundant groups — 1 grounded row(s); layers: concepts=1
+- `non-response-bias` — non-response bias — 1 grounded row(s); layers: concepts=1
+- `non-self-reports` — non-self-reports — 1 grounded row(s); layers: concepts=1
+- `non-vesicular-extracellular-particles` — Non‐vesicular extracellular particles — 1 grounded row(s); layers: concepts=1
+- `non-zero-values` — non-zero values — 1 grounded row(s); layers: concepts=1
+- `nonexact-matches` — nonexact matches — 1 grounded row(s); layers: concepts=1
+- `nonexperimental-evidence-types` — nonexperimental evidence types — 1 grounded row(s); layers: concepts=1
+- `nonlemniscal` — nonlemniscal — 1 grounded row(s); layers: content_tags.definitions=1
+- `nonlinear` — nonlinear — 1 grounded row(s); layers: concepts=1
+- `nonobviousness` — nonobviousness — 1 grounded row(s); layers: concepts=1
+- `nonparametric` — nonparametric — 1 grounded row(s); layers: concepts=1
+- `nonphysiological-substrates` — nonphysiological substrates — 1 grounded row(s); layers: concepts=1
+- `nonreplication` — nonreplication — 1 grounded row(s); layers: concepts=1
+- `nonstreaming-counterparts` — nonstreaming counterparts — 1 grounded row(s); layers: concepts=1
+- `norm-of-reaction` — norm of reaction — 1 grounded row(s); layers: concepts=1
+- `normal-and-malignant-human-cells` — normal and malignant human cells — 1 grounded row(s); layers: concepts=1
+- `normal-controls` — normal controls — 1 grounded row(s); layers: concepts=1
+- `normal-grief` — normal grief — 1 grounded row(s); layers: concepts=1
+- `normal-leukocyte-cell-types` — normal leukocyte cell types — 1 grounded row(s); layers: concepts=1
+- `normal-primary-human-cells` — normal primary human cells — 1 grounded row(s); layers: concepts=1
+- `normal-variation` — normal variation — 1 grounded row(s); layers: concepts=1
+- `normalised-scores` — normalised scores — 1 grounded row(s); layers: concepts=1
+- `normalization` — normalization — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `normalization-constant` — normalization constant — 1 grounded row(s); layers: concepts=1
+- `normalization-process-theory` — Normalization Process Theory — 1 grounded row(s); layers: concepts=1
+- `normalized` — normalized — 1 grounded row(s); layers: concepts=1
+- `normalized-convolution` — normalized convolution — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `normalized-deviations` — normalized deviations — 1 grounded row(s); layers: concepts=1
+- `normalized-ehr-data` — normalized EHR data — 1 grounded row(s); layers: concepts=1
+- `normalized-intensities-e-2` — normalized intensities E 2 — 1 grounded row(s); layers: concepts=1
+- `normalizing-flows` — normalizing flows — 1 grounded row(s); layers: concepts=1
+- `normative-integration` — normative integration — 1 grounded row(s); layers: content_tags.definitions=1
+- `normativity` — normativity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `northern-blot` — Northern blot — 2 grounded row(s); layers: concepts=2
+- `not-thinking-for-speaking` — not-thinking-for-speaking — 1 grounded row(s); layers: concepts=1
+- `notations` — notations — 1 grounded row(s); layers: concepts=1
+- `notification` — notification — 2 grounded row(s); layers: concepts=2
+- `noun-cloze-effect` — noun-cloze effect — 1 grounded row(s); layers: concepts=1
+- `novel-384-well-elisa` — novel 384-well ELISA — 1 grounded row(s); layers: concepts=1
+- `novel-coronavirus-2019` — novel coronavirus 2019 — 1 grounded row(s); layers: concepts=1
+- `novel-coronavirus-disease-covid-19` — novel coronavirus disease (COVID-19) — 1 grounded row(s); layers: concepts=1
+- `novel-food` — novel food — 1 grounded row(s); layers: content_tags.definitions=1
+- `novel-metric-of-recent-gene-flow` — novel metric of recent gene flow — 1 grounded row(s); layers: concepts=1
+- `novel-score-transform` — novel score transform — 1 grounded row(s); layers: concepts=1
+- `novelty` — novelty — 1 grounded row(s); layers: concepts=1
+- `np-likeness-score` — NP-likeness score — 1 grounded row(s); layers: concepts=1
+- `npclassifier` — NPclassifier — 1 grounded row(s); layers: concepts=1
+- `nrf-model` — NRF model — 1 grounded row(s); layers: content_tags.definitions=1
+- `nuclear-boundary` — nuclear boundary — 1 grounded row(s); layers: concepts=1
+- `nuclear-fraction` — nuclear fraction — 1 grounded row(s); layers: concepts=1
+- `nuclear-membrane` — nuclear membrane — 1 grounded row(s); layers: concepts=1
+- `nuclear-mitochondrial-dna-segments` — nuclear mitochondrial DNA segments — 1 grounded row(s); layers: concepts=1
+- `nucleation` — nucleation — 1 grounded row(s); layers: concepts=1
+- `nuclei` — nuclei — 1 grounded row(s); layers: concepts=1
+- `nucleocapsid-antigen` — nucleocapsid antigen — 1 grounded row(s); layers: concepts=1
+- `nucleocapsid-n-protein` — nucleocapsid (N) protein — 1 grounded row(s); layers: concepts=1
+- `nucleocapsid-n-proteins` — nucleocapsid (N) proteins — 1 grounded row(s); layers: concepts=1
+- `nucleocapsid-protein` — nucleocapsid protein — 1 grounded row(s); layers: concepts=1
+- `nucleotide-sequence-data` — nucleotide sequence data — 1 grounded row(s); layers: concepts=1
+- `nucleus-interior` — nucleus interior — 1 grounded row(s); layers: concepts=1
+- `nucleus-size` — nucleus size — 1 grounded row(s); layers: concepts=1
+- `nudge` — nudge — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `nudges` — nudges — 1 grounded row(s); layers: concepts=1
+- `null-expected-rate-of-2-5` — null expected rate of 2.5% — 1 grounded row(s); layers: concepts=1
+- `null-model` — null model — 1 grounded row(s); layers: concepts=1
+- `num-mc-saved` — num_mc_saved — 1 grounded row(s); layers: concepts=1
+- `num-modes` — num_modes — 1 grounded row(s); layers: concepts=1
+- `numarray` — Numarray — 1 grounded row(s); layers: concepts=1
+- `number-needed-to-evaluate` — number needed to evaluate — 1 grounded row(s); layers: concepts=1
+- `number-of-drugs` — number of drugs — 1 grounded row(s); layers: concepts=1
+- `number-of-features-in-the-data-set-overlapping-each-position` — number of features in the data set overlapping each position in the genome — 1 grounded row(s); layers: concepts=1
+- `number-of-multimapping-reads-per-million-reads` — number of multimapping reads per million reads — 1 grounded row(s); layers: concepts=1
+- `number-of-mutations-per-cancer-sample` — number of mutations per cancer sample — 1 grounded row(s); layers: concepts=1
+- `number-of-reads-per-mappable-base` — number of reads per mappable base — 1 grounded row(s); layers: concepts=1
+- `number-sense` — number sense — 2 grounded row(s); layers: content_tags.definitions=2
+- `numeric` — Numeric — 1 grounded row(s); layers: concepts=1
+- `numerical-count` — numerical count — 1 grounded row(s); layers: concepts=1
+- `numerical-rank` — numerical rank — 1 grounded row(s); layers: concepts=1
+- `numpy` — NumPy — 4 grounded row(s); layers: concepts=4
+- `numpy-array` — NumPy array — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `numpy-ndarray-objects` — numpy.ndarray objects — 1 grounded row(s); layers: concepts=1
+- `nutrient-cycling` — nutrient cycling — 1 grounded row(s); layers: concepts=1
+- `nutrient-poor-heathland-sandy-grassland-and-dunes` — nutrient-poor heathland, sandy grassland, and dunes — 1 grounded row(s); layers: concepts=1
+- `nutrient-productive-value` — nutrient productive value — 1 grounded row(s); layers: content_tags.definitions=1
+- `nutrient-retention` — nutrient retention — 1 grounded row(s); layers: content_tags.definitions=1
+- `nutrient-rich-grasslands-margins-and-wasteland` — nutrient-rich grasslands, margins and wasteland — 1 grounded row(s); layers: concepts=1
+- `object` — object — 1 grounded row(s); layers: concepts=1
+- `object-based` — object-based — 1 grounded row(s); layers: concepts=1
+- `object-classifiers` — object classifiers — 1 grounded row(s); layers: concepts=1
+- `object-detection` — Object detection — 1 grounded row(s); layers: concepts=1
+- `object-identification` — object identification — 1 grounded row(s); layers: concepts=1
+- `object-keypoint-similarity` — object keypoint similarity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `object-oriented-paradigm` — object-oriented paradigm — 1 grounded row(s); layers: concepts=1
+- `object-oriented-programming-infrastructure` — object-oriented programming infrastructure — 1 grounded row(s); layers: concepts=1
+- `object-oriented-representation` — object-oriented representation — 1 grounded row(s); layers: concepts=1
+- `object-proposals` — object proposals — 1 grounded row(s); layers: concepts=1
+- `object-s-identity-or-category` — object's identity or category — 1 grounded row(s); layers: concepts=1
+- `objective-analysis` — objective analysis — 2 grounded row(s); layers: concepts=2
+- `objectively-measured-physical-activity` — objectively measured physical activity — 1 grounded row(s); layers: concepts=1
+- `observable-data` — observable data — 1 grounded row(s); layers: concepts=1
+- `observables` — observables — 1 grounded row(s); layers: concepts=1
+- `observation-level-random-effect` — observation-level random effect — 1 grounded row(s); layers: concepts=1
+- `observational-studies` — observational studies — 1 grounded row(s); layers: concepts=1
+- `observations` — observations — 1 grounded row(s); layers: concepts=1
+- `observed-area-weighted-global-yield` — observed area-weighted global yield — 1 grounded row(s); layers: concepts=1
+- `obsolete-database-content` — obsolete database content — 1 grounded row(s); layers: concepts=1
+- `occupation` — occupation — 1 grounded row(s); layers: concepts=1
+- `occupational-health-screening` — occupational health screening — 1 grounded row(s); layers: concepts=1
+- `ocd` — OCD — 1 grounded row(s); layers: concepts=1
+- `ocean-heat-content` — ocean heat content — 1 grounded row(s); layers: concepts=1
+- `oci-r` — OCI-r — 1 grounded row(s); layers: content_tags.definitions=1
+- `oddball-condition` — oddball condition — 2 grounded row(s); layers: content_tags.definitions=2
+- `of-distinct-circular-isoforms-detected-min-poss-isoforms-max` — (# of distinct circular isoforms detected – min. poss. isoforms)/(max. poss. isoforms – min. poss. isoforms) — 1 grounded row(s); layers: concepts=1
+- `official-reported-data` — official reported data — 1 grounded row(s); layers: concepts=1
+- `oks` — OKS — 1 grounded row(s); layers: concepts=1
+- `older-adults` — older adults — 1 grounded row(s); layers: concepts=1
+- `oligodendrocytes` — oligodendrocytes — 1 grounded row(s); layers: concepts=1
+- `omics-datasets` — OMICs datasets — 1 grounded row(s); layers: concepts=1
+- `omit-maps` — OMIT maps — 1 grounded row(s); layers: concepts=1
+- `omop2obo` — OMOP2OBO — 1 grounded row(s); layers: concepts=1
+- `on-target-off-tumor` — on-target off-tumor — 1 grounded row(s); layers: concepts=1
+- `oncolytic-virus-therapies` — oncolytic virus therapies — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `one-health-concept` — One Health concept — 1 grounded row(s); layers: concepts=1
+- `one-hot` — one-hot — 1 grounded row(s); layers: concepts=1
+- `one-layer-at-a-time` — one layer at a time — 1 grounded row(s); layers: concepts=1
+- `one-off-behaviors` — one off behaviors — 1 grounded row(s); layers: concepts=1
+- `one-outcome-per-study` — one outcome per study — 1 grounded row(s); layers: concepts=1
+- `one-panel-per-molecule` — one-panel-per-molecule — 1 grounded row(s); layers: concepts=1
+- `one-shot-learning` — one-shot learning — 1 grounded row(s); layers: concepts=1
+- `ones-that-are-vague` — ones that are vague — 1 grounded row(s); layers: concepts=1
+- `ongoing-audit-and-feedback` — ongoing audit and feedback — 1 grounded row(s); layers: concepts=1
+- `online-collaboration-portal` — online collaboration portal — 1 grounded row(s); layers: concepts=1
+- `online-collective-debates` — online collective debates — 1 grounded row(s); layers: concepts=1
+- `online-social-media` — online social media — 1 grounded row(s); layers: concepts=1
+- `online-social-networks-osn` — online social networks (OSN) — 1 grounded row(s); layers: concepts=1
+- `online-survey` — Online survey — 2 grounded row(s); layers: concepts=2
+- `ontological` — ontological — 1 grounded row(s); layers: concepts=1
+- `ontological-relation` — ontological relation — 1 grounded row(s); layers: content_tags.definitions=1
 - `ontology` — ontology — 1 grounded row(s); layers: content_tags.definitions=1
-- `overfitting` — overfitting — 2 grounded row(s); layers: concepts=2
+- `ontology-class` — ontology class — 1 grounded row(s); layers: concepts=1
+- `ontology-guided-machine-learning-approach` — ontology-guided machine-learning approach — 1 grounded row(s); layers: concepts=1
+- `opaqueness` — opaqueness — 1 grounded row(s); layers: concepts=1
+- `open-development` — Open development — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `open-development-process` — open development process — 1 grounded row(s); layers: concepts=1
+- `open-ended-oe-prompting` — open-ended (OE) prompting — 1 grounded row(s); layers: concepts=1
+- `open-microscopy-environment` — Open Microscopy Environment — 1 grounded row(s); layers: concepts=1
+- `open-phacts` — Open PHACTS — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `open-science-research-infrastructure` — open science research infrastructure — 1 grounded row(s); layers: concepts=1
+- `open-source-and-free-of-charge-multithreaded-64-bit-tool` — open source and free of charge multithreaded 64-bit tool — 1 grounded row(s); layers: concepts=1
+- `open-source-bioimage-analysis-software` — open source bioimage analysis software — 1 grounded row(s); layers: concepts=1
+- `open-source-biological-image-analysis-software-ecosystem` — open-source biological image analysis software ecosystem — 1 grounded row(s); layers: concepts=1
+- `open-source-data-repository-software` — open-source data repository software — 1 grounded row(s); layers: concepts=1
+- `open-source-packages` — open source packages — 1 grounded row(s); layers: concepts=1
+- `open-source-scientific-computing-library` — open-source scientific computing library — 1 grounded row(s); layers: concepts=1
+- `open-source-software-library` — open-source software library — 1 grounded row(s); layers: concepts=1
+- `open-source-software-package` — open-source software package — 1 grounded row(s); layers: concepts=1
+- `open-vocabulary` — open vocabulary — 1 grounded row(s); layers: concepts=1
+- `openbabel` — OpenBabel — 1 grounded row(s); layers: concepts=1
+- `openblas` — OpenBLAS — 1 grounded row(s); layers: concepts=1
+- `openchemlib` — OpenChemLib — 1 grounded row(s); layers: concepts=1
+- `openface` — OpenFace — 1 grounded row(s); layers: concepts=1
+- `openly-accessible-extensive-database` — openly accessible, extensive database — 1 grounded row(s); layers: concepts=1
+- `openmm` — OpenMM — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `openslide` — OpenSlide — 1 grounded row(s); layers: concepts=1
+- `opensmiles` — OpenSMILES — 1 grounded row(s); layers: concepts=1
+- `operational-definition` — operational definition — 1 grounded row(s); layers: concepts=1
+- `operational-extensions` — operational extensions — 1 grounded row(s); layers: concepts=1
+- `operational-taxonomic-units` — operational taxonomic units — 2 grounded row(s); layers: concepts=2
+- `operational-taxonomic-units-otus` — Operational taxonomic units (OTUs) — 1 grounded row(s); layers: concepts=1
+- `operators` — operators — 1 grounded row(s); layers: concepts=1
+- `opposing-domains-hypothesis` — opposing domains hypothesis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `opposing-sides-with-equal-attention` — opposing sides with equal attention — 1 grounded row(s); layers: concepts=1
+- `optical-character-recognition` — Optical Character Recognition — 1 grounded row(s); layers: concepts=1
+- `optical-density` — optical density — 1 grounded row(s); layers: concepts=1
+- `optical-flow` — optical flow — 1 grounded row(s); layers: concepts=1
+- `optimal-global-alignment` — optimal global alignment — 1 grounded row(s); layers: concepts=1
+- `optimal-global-sequence-alignment` — optimal global sequence alignment — 1 grounded row(s); layers: concepts=1
+- `optimal-hyperplane` — optimal hyperplane — 1 grounded row(s); layers: concepts=1
+- `optimal-ungapped-alignment` — optimal ungapped alignment — 1 grounded row(s); layers: concepts=1
+- `optimistic-p-values` — optimistic P -values — 1 grounded row(s); layers: concepts=1
+- `optimize-subpackage` — optimize subpackage — 1 grounded row(s); layers: concepts=1
+- `optimum-environment` — optimum environment — 1 grounded row(s); layers: concepts=1
+- `optimum-phenotype` — optimum phenotype — 1 grounded row(s); layers: concepts=1
+- `optional-descriptors` — optional descriptors — 1 grounded row(s); layers: concepts=1
+- `oral-swab-samples` — oral swab samples — 1 grounded row(s); layers: concepts=1
+- `oral-swabs` — oral swabs — 1 grounded row(s); layers: concepts=1
+- `orbital-inspiral` — orbital inspiral — 1 grounded row(s); layers: concepts=1
+- `orcid` — ORCID — 1 grounded row(s); layers: concepts=1
+- `order` — order — 1 grounded row(s); layers: concepts=1
+- `ordered-set-of-consecutive-integers` — ordered set of consecutive integers — 1 grounded row(s); layers: concepts=1
+- `ordinate` — ordinate — 1 grounded row(s); layers: concepts=1
+- `ordination` — ordination — 1 grounded row(s); layers: concepts=1
+- `orf-detection` — ORF detection — 1 grounded row(s); layers: concepts=1
+- `organism-environment-system` — organism-environment system — 1 grounded row(s); layers: concepts=1
+- `organism-specific-regions` — organism-specific regions — 1 grounded row(s); layers: concepts=1
+- `organismal-growth` — organismal growth — 1 grounded row(s); layers: concepts=1
+- `organizational` — organizational — 1 grounded row(s); layers: concepts=1
+- `organizational-level-barrier` — organizational-level barrier — 1 grounded row(s); layers: concepts=1
+- `organizational-level-moderators` — organizational-level moderators — 1 grounded row(s); layers: concepts=1
+- `orientation` — orientation — 1 grounded row(s); layers: concepts=1
+- `originally-proposed-phyloseq-class-structure` — originally-proposed phyloseq-class structure — 1 grounded row(s); layers: concepts=1
+- `originated-in-bats` — originated in bats — 1 grounded row(s); layers: concepts=1
+- `orphan-3-splice-site` — orphan 3′ splice site — 1 grounded row(s); layers: concepts=1
+- `orphanet` — Orphanet — 1 grounded row(s); layers: concepts=1
+- `orthobench` — OrthoBench — 1 grounded row(s); layers: concepts=1
+- `orthofinder` — OrthoFinder — 1 grounded row(s); layers: concepts=1
+- `orthogonal-omics-approaches` — orthogonal OMICs approaches — 1 grounded row(s); layers: concepts=1
+- `orthogroup` — orthogroup — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `orthogroup-graph` — orthogroup graph — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ortholog-mapping` — Ortholog mapping — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `orthologous-protein-products` — orthologous protein products — 1 grounded row(s); layers: concepts=1
+- `orthologs` — orthologs — 1 grounded row(s); layers: concepts=1
+- `orthologs-groups` — orthologs groups — 1 grounded row(s); layers: concepts=1
+- `orthologues` — orthologues — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `orthology` — orthology — 2 grounded row(s); layers: concepts=2
+- `orthology-assignment-tables` — orthology assignment tables — 1 grounded row(s); layers: concepts=1
+- `orthology-based-predictions` — orthology-based predictions — 1 grounded row(s); layers: concepts=1
+- `orthology-inference` — orthology inference — 1 grounded row(s); layers: concepts=1
+- `orthology-inference-stage` — orthology inference stage — 1 grounded row(s); layers: concepts=1
+- `orthomcl` — OrthoMCL — 1 grounded row(s); layers: concepts=1
+- `orthoxml` — OrthoXML — 1 grounded row(s); layers: concepts=1
+- `osteomyelitis` — osteomyelitis — 1 grounded row(s); layers: content_tags.definitions=1
+- `other-bioimaging-analysis-software` — other bioimaging analysis software — 1 grounded row(s); layers: concepts=1
+- `other-chatbots-or-conversational-systems` — other chatbots or conversational systems — 1 grounded row(s); layers: concepts=1
+- `other-condition-that-may-be-a-focus-of-clinical-attention` — other condition that may be a focus of clinical attention — 1 grounded row(s); layers: concepts=1
+- `other-coronavirus-receptors` — other coronavirus receptors — 1 grounded row(s); layers: concepts=1
+- `other-dsm-iv-and-icd-10-disorders` — other DSM-IV and ICD-10 disorders — 1 grounded row(s); layers: concepts=1
+- `other-fields-or-in-mixed-samples` — other fields or in mixed samples — 1 grounded row(s); layers: concepts=1
+- `other-forms-of-technological-change` — other forms of technological change — 1 grounded row(s); layers: concepts=1
+- `other-groups-of-biological-organisms` — other groups of biological organisms — 1 grounded row(s); layers: concepts=1
+- `other-health-interventions` — other health interventions — 1 grounded row(s); layers: concepts=1
+- `other-light-metals` — other “light” metals — 1 grounded row(s); layers: concepts=1
+- `other-ontologies` — other ontologies — 1 grounded row(s); layers: concepts=1
+- `other-possible-routes-of-transmission` — other possible routes of transmission — 1 grounded row(s); layers: concepts=1
+- `other-protocols` — other protocols — 1 grounded row(s); layers: concepts=1
+- `other-software-tools` — other software tools — 1 grounded row(s); layers: concepts=1
+- `other-tools` — other tools — 1 grounded row(s); layers: concepts=1
+- `othering` — othering — 1 grounded row(s); layers: concepts=1
+- `otu` — OTU — 1 grounded row(s); layers: concepts=1
+- `otu-clustering-applications` — OTU-clustering applications — 1 grounded row(s); layers: concepts=1
+- `otu-table` — otu_table — 1 grounded row(s); layers: concepts=1
+- `otubase` — OTUbase — 1 grounded row(s); layers: concepts=1
+- `otus` — OTUs — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `otus-clustering-sequences-at-a-3-genetic-difference` — OTUs clustering sequences at a 3% genetic difference — 1 grounded row(s); layers: concepts=1
+- `our-protocol` — our protocol — 1 grounded row(s); layers: concepts=1
+- `out-of-core-computation` — Out-of-core computation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `out-of-training-samples` — out-of-training samples — 1 grounded row(s); layers: concepts=1
+- `out-section` — out-section — 1 grounded row(s); layers: concepts=1
+- `outcome` — outcome — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `outcome-level` — outcome-level — 1 grounded row(s); layers: concepts=1
+- `outcomes-of-implementation-efforts` — outcomes of implementation efforts — 1 grounded row(s); layers: concepts=1
+- `outdated-portals` — outdated portals — 1 grounded row(s); layers: concepts=1
+- `outlier` — outlier — 2 grounded row(s); layers: concepts=2
+- `outlier-detection` — outlier detection — 1 grounded row(s); layers: concepts=1
+- `outlier-rejection` — outlier rejection — 1 grounded row(s); layers: concepts=1
+- `outlier-samples` — outlier samples — 1 grounded row(s); layers: concepts=1
+- `outpatients-and-asymptomatic-individuals` — outpatients and asymptomatic individuals — 1 grounded row(s); layers: concepts=1
+- `output-probability` — output probability — 1 grounded row(s); layers: concepts=1
+- `output-volume-of-neuron-activation` — output volume of neuron activation — 1 grounded row(s); layers: concepts=1
+- `over-glow` — over-glow — 1 grounded row(s); layers: concepts=1
+- `over-smoothing` — over-smoothing — 1 grounded row(s); layers: concepts=1
+- `over-squashing` — over-squashing — 1 grounded row(s); layers: concepts=1
+- `overall-genome-sequence-identity-of-96-2` — overall genome sequence identity of 96.2% — 1 grounded row(s); layers: concepts=1
+- `overall-literacy` — overall literacy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `overall-survival` — overall survival — 1 grounded row(s); layers: content_tags.definitions=1
+- `overdispersion` — overdispersion — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `overestimate-of-the-noise-background` — overestimate of the noise background — 1 grounded row(s); layers: concepts=1
+- `overfitting` — overfitting — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `overfitting-biases` — overfitting biases — 1 grounded row(s); layers: concepts=1
+- `overhead` — overhead — 1 grounded row(s); layers: concepts=1
+- `overlap-detection` — overlap detection — 1 grounded row(s); layers: concepts=1
+- `overparameterised-models` — overparameterised models — 1 grounded row(s); layers: concepts=1
+- `overrepresentation-of-numts` — overrepresentation of NUMTs — 1 grounded row(s); layers: concepts=1
+- `overweighting-of-small-probabilities` — overweighting of small probabilities — 1 grounded row(s); layers: concepts=1
+- `ovipositor-extrusion` — ovipositor extrusion — 1 grounded row(s); layers: concepts=1
+- `ownership` — Ownership — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ownership-network` — ownership network — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ownership-relations` — ownership relations — 1 grounded row(s); layers: concepts=1
+- `ownership-share` — ownership share — 1 grounded row(s); layers: concepts=1
+- `oxford-immunoassay` — Oxford immunoassay — 1 grounded row(s); layers: concepts=1
+- `oxphos` — OXPHOS — 1 grounded row(s); layers: concepts=1
+- `p-gp` — P-gp — 1 grounded row(s); layers: concepts=1
+- `p200m` — P200m — 1 grounded row(s); layers: concepts=1
+- `p2p` — P2p — 1 grounded row(s); layers: content_tags.definitions=1
+- `p3a` — P3a — 1 grounded row(s); layers: content_tags.definitions=1
+- `p4p` — P4P — 1 grounded row(s); layers: concepts=1
+- `p53-signaling` — p53 signaling — 1 grounded row(s); layers: concepts=1
+- `pa-tn5` — pA-Tn5 — 1 grounded row(s); layers: concepts=1
+- `padel-descriptor` — PaDEL-Descriptor — 1 grounded row(s); layers: concepts=1
+- `pae` — PAE — 1 grounded row(s); layers: concepts=1
+- `pafs` — PAFs — 1 grounded row(s); layers: concepts=1
+- `pages-promoting-contents-neglected-by-main-stream-media` — pages promoting contents neglected by main stream media — 1 grounded row(s); layers: concepts=1
+- `pains` — PAINS — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `paint-software-tool` — PAINT software tool — 1 grounded row(s); layers: concepts=1
+- `pair-awareness` — pair awareness — 1 grounded row(s); layers: concepts=1
+- `pair-representation` — pair representation — 1 grounded row(s); layers: concepts=1
+- `paired` — paired — 1 grounded row(s); layers: concepts=1
+- `paired-end-data` — paired-end data — 1 grounded row(s); layers: concepts=1
+- `paired-end-read` — paired-end read — 1 grounded row(s); layers: concepts=1
+- `paired-end-reads` — paired-end reads — 1 grounded row(s); layers: concepts=1
+- `paired-end-rna-seq-data` — paired-end RNA-seq data — 1 grounded row(s); layers: concepts=1
+- `paired-end-sequences` — paired-end sequences — 1 grounded row(s); layers: concepts=1
+- `paired-refinement` — paired-refinement — 1 grounded row(s); layers: concepts=1
+- `pairwise-confidence-prediction` — pairwise confidence prediction — 1 grounded row(s); layers: concepts=1
+- `pairwise-distances` — pairwise distances — 1 grounded row(s); layers: concepts=1
+- `pairwise-ecological-distances` — pairwise ecological distances — 1 grounded row(s); layers: concepts=1
+- `pairwise-evolutionary-correlations` — pairwise evolutionary correlations — 1 grounded row(s); layers: concepts=1
+- `pairwise-features` — pairwise features — 1 grounded row(s); layers: concepts=1
+- `pairwise-meta-analysis` — pairwise meta-analysis — 1 grounded row(s); layers: concepts=1
+- `pairwise-orthology-prediction` — pairwise orthology prediction — 1 grounded row(s); layers: concepts=1
+- `pairwise-orthology-relationships` — pairwise orthology relationships — 1 grounded row(s); layers: concepts=1
+- `pairwise-relationships` — pairwise relationships — 1 grounded row(s); layers: concepts=1
+- `pal2nal` — PAL2NAL — 1 grounded row(s); layers: concepts=1
+- `palindrome-mode` — palindrome mode — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pan-cov-pcr-primers` — pan-CoV PCR primers — 1 grounded row(s); layers: concepts=1
+- `pan-go-annotations` — PAN-GO annotations — 1 grounded row(s); layers: concepts=1
+- `pan-ig` — pan-Ig — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pan-proteomes` — pan proteomes — 1 grounded row(s); layers: concepts=1
+- `pancreatic-fistula` — pancreatic fistula — 1 grounded row(s); layers: concepts=1
+- `pancreatitis` — pancreatitis — 1 grounded row(s); layers: concepts=1
+- `pandas` — pandas — 1 grounded row(s); layers: concepts=1
+- `panel` — Panel — 1 grounded row(s); layers: concepts=1
+- `panther-resource` — PANTHER resource — 1 grounded row(s); layers: concepts=1
+- `papi` — PAPI — 1 grounded row(s); layers: concepts=1
+- `paradigm-shift` — paradigm shift — 1 grounded row(s); layers: concepts=1
+- `paradoxical-imitations-of-conspiracy-information-sources` — paradoxical imitations of conspiracy information sources — 1 grounded row(s); layers: concepts=1
+- `parallel-and-streaming-computation` — parallel and streaming computation — 1 grounded row(s); layers: concepts=1
+- `parallel-computing` — parallel computing — 2 grounded row(s); layers: concepts=2
+- `parallel-gpu-computing` — parallel GPU computing — 1 grounded row(s); layers: concepts=1
+- `parallel-i-o-hardware-and-algorithms` — parallel I/O hardware and algorithms — 1 grounded row(s); layers: concepts=1
+- `paralogs` — paralogs — 1 grounded row(s); layers: concepts=1
+- `paralogues` — paralogues — 1 grounded row(s); layers: concepts=1
+- `parameter` — parameter — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `parameter-accuracy` — parameter accuracy — 1 grounded row(s); layers: concepts=1
+- `parameter-restraint-terms` — Parameter restraint terms — 1 grounded row(s); layers: concepts=1
+- `parametric-distribution` — parametric distribution — 1 grounded row(s); layers: concepts=1
+- `parametric-distributions` — parametric distributions — 1 grounded row(s); layers: concepts=1
+- `parametric-empirical-bayes` — parametric empirical Bayes — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `parametrized-waveform-expansion` — parametrized waveform expansion — 1 grounded row(s); layers: concepts=1
+- `parasitism` — parasitism — 1 grounded row(s); layers: concepts=1
+- `parcellation` — parcellation — 1 grounded row(s); layers: concepts=1
+- `pareidolia` — pareidolia — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `parent-aggregation-process` — parent aggregation process — 1 grounded row(s); layers: concepts=1
+- `parent-datasets` — parent datasets — 1 grounded row(s); layers: concepts=1
+- `parent-structure` — parent structure — 1 grounded row(s); layers: concepts=1
+- `parental-recall` — parental recall — 1 grounded row(s); layers: concepts=1
+- `pareto-s-law` — Pareto’s law — 1 grounded row(s); layers: concepts=1
+- `parsed-data` — parsed data — 1 grounded row(s); layers: concepts=1
+- `part-affinity-fields` — part affinity fields — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `part-confidence-maps` — part confidence maps — 1 grounded row(s); layers: concepts=1
+- `part-grouping` — part grouping — 1 grounded row(s); layers: concepts=1
+- `part-grouping-problem` — part-grouping problem — 1 grounded row(s); layers: concepts=1
+- `part-localization-problem` — part-localization problem — 1 grounded row(s); layers: concepts=1
+- `partial-connectivity` — partial connectivity — 1 grounded row(s); layers: concepts=1
+- `partial-descriptions` — partial descriptions — 1 grounded row(s); layers: concepts=1
+- `partial-pooling` — partial pooling — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `partial-renal-recovery` — partial renal recovery — 1 grounded row(s); layers: concepts=1
+- `participatory-sense-making` — participatory sense-making — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `particle-physics` — particle physics — 1 grounded row(s); layers: concepts=1
+- `partition-coefficient-between-n-octanol-and-water` — partition coefficient between n -octanol and water — 1 grounded row(s); layers: concepts=1
+- `partitioning-around-medoids` — partitioning around medoids — 1 grounded row(s); layers: concepts=1
+- `passing-threshold` — passing threshold — 1 grounded row(s); layers: concepts=1
+- `pasture-lands` — pasture lands — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pathobiome` — pathobiome — 1 grounded row(s); layers: concepts=1
+- `pathogenicity-calculator` — pathogenicity calculator — 1 grounded row(s); layers: concepts=1
+- `pathogens-that-infect-a-host-organism` — pathogens that infect a host organism — 1 grounded row(s); layers: concepts=1
+- `pathognomonic-sign` — pathognomonic sign — 1 grounded row(s); layers: concepts=1
+- `pathway-diagrams` — pathway diagrams — 1 grounded row(s); layers: concepts=1
+- `patient-demographics` — patient demographics — 1 grounded row(s); layers: concepts=1
+- `patient-health-questionnaire-9` — Patient Health Questionnaire–9 — 1 grounded row(s); layers: concepts=1
+- `patient-health-questionnaire-9-item-depression-symptom-sever` — Patient Health Questionnaire 9-item depression symptom severity measure — 1 grounded row(s); layers: concepts=1
+- `patient-reported-outcome-data` — patient-reported outcome data — 1 grounded row(s); layers: concepts=1
+- `pattern-completion` — pattern completion — 1 grounded row(s); layers: content_tags.definitions=1
+- `pattern-of-splice-isoforms-of-circular-rnas` — pattern of splice isoforms of circular RNAs — 1 grounded row(s); layers: concepts=1
+- `pattern-recognition-receptors` — pattern recognition receptors — 1 grounded row(s); layers: concepts=1
+- `pattern-separation` — pattern separation — 1 grounded row(s); layers: content_tags.definitions=1
+- `pcr` — PCR — 1 grounded row(s); layers: concepts=1
+- `pcr-amplification` — PCR amplification — 1 grounded row(s); layers: concepts=1
+- `pcr-enrichment` — PCR enrichment — 1 grounded row(s); layers: concepts=1
+- `pcr-positive-for-covs` — PCR-positive for CoVs — 1 grounded row(s); layers: concepts=1
+- `pd-1` — PD-1 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pd-l1` — PD-L1 — 4 grounded row(s); layers: concepts=4
+- `pd-l1-score` — PD-L1 score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pdb` — PDB — 1 grounded row(s); layers: concepts=1
+- `pdbbind-refined-set-v-2019` — PDBbind refined set v.2019 — 1 grounded row(s); layers: concepts=1
+- `pdbfixer` — PDBFixer — 1 grounded row(s); layers: concepts=1
+- `peak-calling` — peak calling — 1 grounded row(s); layers: concepts=1
+- `peak-finding` — peak finding — 1 grounded row(s); layers: concepts=1
+- `peak-finding-algorithm` — peak-finding algorithm — 1 grounded row(s); layers: concepts=1
+- `pearson-coefficient` — Pearson coefficient — 1 grounded row(s); layers: concepts=1
+- `pearson-correlation-coefficient` — Pearson correlation coefficient — 1 grounded row(s); layers: concepts=1
+- `pebow-complex` — PeBoW complex — 1 grounded row(s); layers: content_tags.definitions=1
+- `pedigrees` — pedigrees — 1 grounded row(s); layers: concepts=1
+- `peer-initiatives` — peer initiatives — 1 grounded row(s); layers: concepts=1
+- `peff` — PEFF — 1 grounded row(s); layers: concepts=1
+- `penalized-regression-model` — penalized regression model — 1 grounded row(s); layers: concepts=1
+- `penalty-score` — penalty score — 1 grounded row(s); layers: concepts=1
+- `penetration` — penetration — 1 grounded row(s); layers: concepts=1
+- `people-living-with-chronic-conditions` — people living with chronic conditions — 1 grounded row(s); layers: concepts=1
+- `people-living-with-disability` — people living with disability — 1 grounded row(s); layers: concepts=1
+- `people-s-acceptance` — people’s acceptance — 1 grounded row(s); layers: concepts=1
+- `peptide-bond-geometry` — peptide bond geometry — 1 grounded row(s); layers: concepts=1
+- `peptide-identifications` — Peptide identifications — 1 grounded row(s); layers: concepts=1
+- `peptides` — Peptides — 1 grounded row(s); layers: concepts=1
+- `per-capita-harvested-production` — per capita harvested production — 1 grounded row(s); layers: concepts=1
+- `per-capita-rates` — per capita rates — 1 grounded row(s); layers: concepts=1
+- `per-isoform-fdr` — per-isoform FDR — 1 grounded row(s); layers: concepts=1
+- `per-range-metadata` — per-range metadata — 1 grounded row(s); layers: concepts=1
+- `per-residue-confidence-estimates` — per-residue confidence estimates — 1 grounded row(s); layers: concepts=1
+- `per-residue-estimates-of-its-reliability` — per-residue estimates of its reliability — 1 grounded row(s); layers: concepts=1
+- `per-sequence-accuracy` — per-sequence accuracy — 1 grounded row(s); layers: concepts=1
+- `perceived-variety` — perceived variety — 1 grounded row(s); layers: concepts=1
+- `percentage-of-all-cells-exhibiting-pd-l1-positivity` — percentage of all cells exhibiting PD-L1 positivity — 1 grounded row(s); layers: concepts=1
+- `percentage-of-blocking` — percentage of blocking — 1 grounded row(s); layers: concepts=1
+- `percentage-of-papers-taking-a-position-on-agw` — percentage of papers taking a position on AGW — 1 grounded row(s); layers: concepts=1
+- `percentage-of-respondents-that-recall-at-least-one-incident-` — percentage of respondents that recall at least one incident of misconduct — 1 grounded row(s); layers: concepts=1
+- `perceptual-contrast` — perceptual contrast — 1 grounded row(s); layers: concepts=1
+- `perceptual-facilitation` — perceptual facilitation — 1 grounded row(s); layers: concepts=1
+- `perceptual-identification` — perceptual identification — 1 grounded row(s); layers: concepts=1
+- `perceptual-memory` — perceptual memory — 1 grounded row(s); layers: content_tags.definitions=1
+- `perceptual-object` — perceptual object — 1 grounded row(s); layers: content_tags.definitions=1
+- `performance` — performance — 3 grounded row(s); layers: concepts=3
+- `performance-gains` — performance gains — 1 grounded row(s); layers: concepts=1
+- `performance-targets` — performance targets — 1 grounded row(s); layers: concepts=1
+- `periodic-convolutions` — periodic convolutions — 1 grounded row(s); layers: concepts=1
+- `periodic-validation-of-these-databases` — Periodic validation of these databases — 1 grounded row(s); layers: concepts=1
+- `periodontal-health` — periodontal health — 1 grounded row(s); layers: concepts=1
+- `peripheral-blood` — peripheral blood — 2 grounded row(s); layers: concepts=2
+- `peripheral-vascular-disease` — peripheral vascular disease — 1 grounded row(s); layers: content_tags.definitions=1
+- `permeability-glycoprotein` — permeability glycoprotein — 1 grounded row(s); layers: concepts=1
+- `permeabilized-cells` — permeabilized cells — 1 grounded row(s); layers: concepts=1
+- `permutation-or-re-sampling-based-inference` — permutation or re-sampling-based inference — 1 grounded row(s); layers: concepts=1
+- `peroxidase-like-activity` — peroxidase-like activity — 1 grounded row(s); layers: content_tags.definitions=1
+- `perpetual-reappraisal` — perpetual reappraisal — 1 grounded row(s); layers: concepts=1
+- `persistence-under-stronger-environmental-change` — persistence under stronger environmental change — 1 grounded row(s); layers: concepts=1
+- `persistent` — persistent — 1 grounded row(s); layers: content_tags.definitions=1
+- `persistent-activity` — persistent activity — 1 grounded row(s); layers: content_tags.definitions=1
+- `persistent-identifier` — persistent identifier — 1 grounded row(s); layers: concepts=1
+- `personal-asset` — personal asset — 1 grounded row(s); layers: concepts=1
+- `personal-pronoun` — personal pronoun — 1 grounded row(s); layers: concepts=1
+- `personal-protective-equipment` — personal protective equipment — 1 grounded row(s); layers: content_tags.definitions=1
+- `personal-resources` — personal resources — 1 grounded row(s); layers: concepts=1
+- `personality` — personality — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `personalized-input` — personalized input — 1 grounded row(s); layers: concepts=1
+- `personalized-medicine` — personalized medicine — 2 grounded row(s); layers: concepts=2
+- `pet` — PET — 1 grounded row(s); layers: content_tags.definitions=1
+- `pfaa` — PFAA — 1 grounded row(s); layers: content_tags.definitions=1
+- `pfam` — Pfam — 1 grounded row(s); layers: concepts=1
+- `pfam-clan-disambiguation` — PFAM clan disambiguation — 1 grounded row(s); layers: concepts=1
+- `pfam-domain-annotations` — PFAM domain annotations — 1 grounded row(s); layers: concepts=1
+- `pfas` — PFAS — 1 grounded row(s); layers: content_tags.definitions=1
+- `pfc` — PFC — 2 grounded row(s); layers: concepts=2
+- `pgd` — PGD — 1 grounded row(s); layers: concepts=1
+- `pgd-symptomatology` — PGD symptomatology — 1 grounded row(s); layers: concepts=1
+- `pgp` — PGP — 1 grounded row(s); layers: concepts=1
+- `pgsi` — PGSI — 1 grounded row(s); layers: concepts=1
+- `phages` — phages — 1 grounded row(s); layers: concepts=1
+- `phagocytic-clearance-by-macrophages` — phagocytic clearance by macrophages — 1 grounded row(s); layers: concepts=1
+- `phagocytosis` — phagocytosis — 1 grounded row(s); layers: concepts=1
+- `phagocytosis-in-tams` — phagocytosis in TAMs — 1 grounded row(s); layers: concepts=1
+- `pharmacokinetics` — pharmacokinetics — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pharmacokinetics-related-drug-drug-interactions` — pharmacokinetics-related drug-drug interactions — 1 grounded row(s); layers: concepts=1
+- `phase-error` — phase error — 1 grounded row(s); layers: concepts=1
+- `phase-precession` — phase precession — 2 grounded row(s); layers: content_tags.definitions=2
+- `phasing-errors` — phasing errors — 1 grounded row(s); layers: concepts=1
+- `phenotate` — Phenotate — 1 grounded row(s); layers: concepts=1
+- `phenotype` — phenotype — 1 grounded row(s); layers: concepts=1
+- `phenotype-annotation` — phenotype annotation — 1 grounded row(s); layers: content_tags.definitions=1
+- `phenotype-centric-studies` — phenotype-centric studies — 1 grounded row(s); layers: concepts=1
+- `phenotype-driven-genomic-diagnostics-software` — phenotype-driven genomic diagnostics software — 1 grounded row(s); layers: concepts=1
+- `phenotype-exchange` — phenotype exchange — 1 grounded row(s); layers: concepts=1
+- `phenotype-ontologies` — phenotype ontologies — 1 grounded row(s); layers: concepts=1
+- `phenotype-terms` — phenotype terms — 1 grounded row(s); layers: concepts=1
+- `phenotypic-abnormalities` — phenotypic abnormalities — 1 grounded row(s); layers: concepts=1
+- `phenotypic-criteria` — phenotypic criteria — 1 grounded row(s); layers: concepts=1
+- `phenotypic-feature` — phenotypic feature — 1 grounded row(s); layers: concepts=1
+- `phenotypic-features` — phenotypic features — 1 grounded row(s); layers: concepts=1
+- `phenotypic-plasticity` — phenotypic plasticity — 1 grounded row(s); layers: concepts=1
+- `phenotypic-similarity-approaches` — phenotypic similarity approaches — 1 grounded row(s); layers: concepts=1
+- `phenotypic-variance` — phenotypic variance — 1 grounded row(s); layers: concepts=1
+- `phi-structure` — Phi-structure — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `phonological-form` — phonological form — 2 grounded row(s); layers: concepts=2
+- `phonological-pre-activation` — phonological pre-activation — 1 grounded row(s); layers: concepts=1
+- `phospho-protein` — phospho-protein — 1 grounded row(s); layers: concepts=1
+- `phred-33` — phred+33 — 1 grounded row(s); layers: concepts=1
+- `phred-64` — phred+64 — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-and-covariation-relationships` — phylogenetic and covariation relationships — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-annotation-using-go-pan-go-project` — Phylogenetic Annotation using GO (PAN-GO) project — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-annotations` — Phylogenetic annotations — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-distance` — phylogenetic distance — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-resolution` — phylogenetic resolution — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-sequencing` — phylogenetic sequencing — 1 grounded row(s); layers: concepts=1
+- `phylogenetic-tree` — phylogenetic tree — 1 grounded row(s); layers: concepts=1
+- `phylogenies` — phylogenies — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `phyloseq` — phyloseq — 2 grounded row(s); layers: concepts=2
+- `phyloseq-class` — phyloseq class — 1 grounded row(s); layers: concepts=1
+- `phyloseq-constructor-method` — phyloseq-constructor method — 1 grounded row(s); layers: concepts=1
+- `phylotypes` — Phylotypes — 1 grounded row(s); layers: concepts=1
+- `phylum` — phylum — 1 grounded row(s); layers: concepts=1
+- `phyml` — PhyML — 1 grounded row(s); layers: concepts=1
+- `physical-activity` — physical activity — 1 grounded row(s); layers: concepts=1
+- `physical-activity-volume` — physical activity volume — 1 grounded row(s); layers: concepts=1
+- `physical-and-biological-knowledge` — physical and biological knowledge — 1 grounded row(s); layers: concepts=1
+- `physical-and-chemical-properties` — physical and chemical properties — 1 grounded row(s); layers: concepts=1
+- `physical-and-geometric-inductive-bias` — physical and geometric inductive bias — 1 grounded row(s); layers: concepts=1
+- `physical-effects` — physical effects — 1 grounded row(s); layers: concepts=1
+- `physical-existence` — physical existence — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `physical-functioning` — physical functioning — 1 grounded row(s); layers: concepts=1
+- `physical-interactions` — physical interactions — 1 grounded row(s); layers: concepts=1
+- `physician-adjudicators` — physician adjudicators — 1 grounded row(s); layers: concepts=1
+- `physicochemical-descriptors` — physicochemical descriptors — 1 grounded row(s); layers: concepts=1
+- `physicochemical-parameters` — physicochemical parameters — 1 grounded row(s); layers: concepts=1
+- `physicochemical-properties` — physicochemical properties — 1 grounded row(s); layers: concepts=1
+- `physics-based-scoring-functions` — physics based scoring functions — 1 grounded row(s); layers: concepts=1
+- `physiological-limit` — physiological limit — 1 grounded row(s); layers: concepts=1
+- `piece-meal-comparisons-between-pairs-of-treatments` — piece-meal comparisons between pairs of treatments — 1 grounded row(s); layers: concepts=1
+- `piecewise-polynomials` — piecewise polynomials — 1 grounded row(s); layers: concepts=1
+- `piezo1` — Piezo1 — 1 grounded row(s); layers: concepts=1
+- `pilot` — pilot — 1 grounded row(s); layers: concepts=1
+- `pilot-studies` — pilot studies — 2 grounded row(s); layers: concepts=2
+- `pilot-trial` — pilot trial — 1 grounded row(s); layers: concepts=1
+- `pipeline` — pipeline — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `pipeline-based-architecture` — pipeline-based architecture — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pipelines` — pipelines — 1 grounded row(s); layers: concepts=1
+- `plagiarism` — plagiarism — 1 grounded row(s); layers: concepts=1
+- `plain-neural-networks` — Plain neural networks — 1 grounded row(s); layers: concepts=1
+- `plane-wise-analysis` — plane-wise analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `plane-wise-rand-index` — plane-wise Rand index — 1 grounded row(s); layers: concepts=1
+- `planes` — planes — 1 grounded row(s); layers: concepts=1
+- `planetary-boundary-concept` — planetary boundary concept — 1 grounded row(s); layers: concepts=1
+- `planetary-health` — planetary health — 1 grounded row(s); layers: concepts=1
+- `planetary-health-concept` — planetary health concept — 1 grounded row(s); layers: concepts=1
+- `plant-based-diets` — plant-based diets — 1 grounded row(s); layers: concepts=1
+- `plant-biostimulant` — plant biostimulant — 2 grounded row(s); layers: content_tags.definitions=2
+- `plant-disease-severity` — plant disease severity — 1 grounded row(s); layers: content_tags.definitions=1
+- `plant-growth-regulators` — plant growth regulators — 1 grounded row(s); layers: concepts=1
+- `plant-holobiont` — plant holobiont — 1 grounded row(s); layers: concepts=1
+- `plant-phenotyping` — plant phenotyping — 1 grounded row(s); layers: content_tags.definitions=1
+- `plant-productivity` — plant productivity — 1 grounded row(s); layers: concepts=1
+- `plant-species-richness` — plant species richness — 1 grounded row(s); layers: concepts=1
+- `plantvillage-dataset` — PlantVillage dataset — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `plaque-stagnations-sites` — plaque stagnations sites — 1 grounded row(s); layers: concepts=1
+- `plasmablasts` — plasmablasts — 1 grounded row(s); layers: concepts=1
+- `plasmacytoid-dcs` — plasmacytoid DCs — 1 grounded row(s); layers: concepts=1
+- `plasmids` — plasmids — 1 grounded row(s); layers: concepts=1
+- `plasticity` — plasticity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `plasticizers` — plasticizers — 1 grounded row(s); layers: concepts=1
+- `plddt` — pLDDT — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pleasantness` — pleasantness — 1 grounded row(s); layers: content_tags.definitions=1
+- `plot-heatmap` — plot_heatmap — 1 grounded row(s); layers: concepts=1
+- `plot-network` — plot_network — 1 grounded row(s); layers: concepts=1
+- `plot-tree` — plot_tree — 1 grounded row(s); layers: concepts=1
+- `plugin` — plugin — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `plugin-interface` — plugin interface — 1 grounded row(s); layers: concepts=1
+- `plugin-system` — plugin system — 1 grounded row(s); layers: concepts=1
+- `plugins` — plugins — 1 grounded row(s); layers: concepts=1
+- `point-group` — point group — 1 grounded row(s); layers: concepts=1
+- `pointer-to-memory` — pointer to memory — 1 grounded row(s); layers: concepts=1
+- `pointless` — POINTLESS — 1 grounded row(s); layers: concepts=1
+- `poised-promoters` — poised promoters — 1 grounded row(s); layers: concepts=1
+- `poisson-distribution` — Poisson distribution — 1 grounded row(s); layers: concepts=1
+- `poisson-gamma` — Poisson-Gamma — 1 grounded row(s); layers: concepts=1
+- `poisson-model` — Poisson model — 1 grounded row(s); layers: concepts=1
+- `poisson-statistic-error-estimates` — Poisson-statistic error estimates — 1 grounded row(s); layers: concepts=1
+- `polar-surface-area` — polar surface area — 1 grounded row(s); layers: concepts=1
+- `polarization` — polarization — 1 grounded row(s); layers: concepts=1
+- `polarization-responses` — polarization responses — 1 grounded row(s); layers: concepts=1
+- `polarized-communities` — polarized communities — 1 grounded row(s); layers: concepts=1
+- `polarized-users` — polarized users — 1 grounded row(s); layers: concepts=1
+- `polarized-users-of-conspiracy-pages` — polarized users of conspiracy pages — 1 grounded row(s); layers: concepts=1
+- `polarized-users-of-scientific-news` — polarized users of scientific news — 1 grounded row(s); layers: concepts=1
+- `policy-makers` — policy makers — 1 grounded row(s); layers: concepts=1
+- `polished-louvain` — Polished Louvain — 1 grounded row(s); layers: concepts=1
+- `political-biases` — political biases — 1 grounded row(s); layers: concepts=1
+- `political-orientation` — political orientation — 1 grounded row(s); layers: concepts=1
+- `political-responsiveness` — political responsiveness — 1 grounded row(s); layers: concepts=1
+- `political-units` — political units — 1 grounded row(s); layers: concepts=1
+- `politicization` — politicization — 1 grounded row(s); layers: concepts=1
+- `pollination` — pollination — 1 grounded row(s); layers: concepts=1
+- `pollution` — pollution — 1 grounded row(s); layers: concepts=1
+- `poly-a-depleted-fraction` — poly-A depleted fraction — 1 grounded row(s); layers: concepts=1
+- `poly-a-rna` — poly(A) RNA — 1 grounded row(s); layers: concepts=1
+- `poly-a-selected-fractions` — poly-A selected fractions — 1 grounded row(s); layers: concepts=1
+- `poly-a-tails` — poly-A tails — 1 grounded row(s); layers: concepts=1
+- `polychoric-correlations` — polychoric correlations — 1 grounded row(s); layers: concepts=1
+- `polyclonal-anti-sars-cov-2-serological-response` — polyclonal anti-SARS-CoV-2 serological response — 1 grounded row(s); layers: concepts=1
+- `polycomb-group-target-genes` — Polycomb-group target genes — 1 grounded row(s); layers: concepts=1
+- `polymerase-chain-reaction` — polymerase chain reaction — 1 grounded row(s); layers: concepts=1
+- `polypeptides` — polypeptides — 1 grounded row(s); layers: concepts=1
+- `polyprotein` — polyprotein — 1 grounded row(s); layers: concepts=1
+- `polyprotein-cleavage-products` — polyprotein cleavage products — 1 grounded row(s); layers: concepts=1
+- `polysomes` — polysomes — 1 grounded row(s); layers: concepts=1
+- `pooled-analyses-of-cohort-studies` — pooled analyses of cohort studies — 1 grounded row(s); layers: concepts=1
+- `pooled-weighted-estimate` — pooled weighted estimate — 1 grounded row(s); layers: concepts=1
+- `pooling-layers` — pooling layers — 1 grounded row(s); layers: concepts=1
+- `pooling-of-pilot-and-main-study-data` — pooling of pilot and main study data — 1 grounded row(s); layers: concepts=1
+- `poor-clinical-outcomes` — poor clinical outcomes — 1 grounded row(s); layers: concepts=1
+- `poor-culture` — poor culture — 1 grounded row(s); layers: concepts=1
+- `poor-diet` — poor diet — 1 grounded row(s); layers: concepts=1
+- `poor-local-minima` — poor local minima — 1 grounded row(s); layers: concepts=1
+- `poor-local-optima` — poor local optima — 1 grounded row(s); layers: concepts=1
+- `poor-numbers` — poor numbers — 1 grounded row(s); layers: concepts=1
+- `poor-quality` — poor quality — 1 grounded row(s); layers: concepts=1
+- `poor-quality-input-data` — poor-quality input data — 1 grounded row(s); layers: concepts=1
+- `popcount` — popcount — 1 grounded row(s); layers: concepts=1
+- `popidium-monoazide-pma` — popidium monoazide (PMA) — 1 grounded row(s); layers: concepts=1
+- `population-approach` — population approach — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `population-exposure` — population exposure — 1 grounded row(s); layers: concepts=1
+- `population-extinction` — population extinction — 1 grounded row(s); layers: concepts=1
+- `population-growth` — population growth — 1 grounded row(s); layers: concepts=1
+- `population-impact` — population impact — 1 grounded row(s); layers: concepts=1
+- `population-level-surveillance` — population-level surveillance — 1 grounded row(s); layers: concepts=1
+- `population-levels-of-physical-activity` — population levels of physical activity — 1 grounded row(s); layers: concepts=1
+- `population-persistence` — population persistence — 1 grounded row(s); layers: concepts=1
+- `population-prevalences-of-5-10-20-and-50` — population prevalences of 5%, 10%, 20%, and 50% — 1 grounded row(s); layers: concepts=1
+- `population-sinks` — population sinks — 1 grounded row(s); layers: concepts=1
+- `population-structure` — population structure — 1 grounded row(s); layers: concepts=1
+- `population-studies` — population studies — 1 grounded row(s); layers: concepts=1
+- `population-wide-testing` — population-wide testing — 1 grounded row(s); layers: concepts=1
+- `populations-of-interest` — populations of interest — 1 grounded row(s); layers: concepts=1
+- `portion-of-the-terms` — portion of the terms — 1 grounded row(s); layers: concepts=1
+- `pose-estimation` — pose estimation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pose-estimation-accuracy` — pose-estimation accuracy — 1 grounded row(s); layers: concepts=1
+- `pose-score` — pose score — 1 grounded row(s); layers: concepts=1
+- `positional-ordering-of-dimensions` — positional ordering of dimensions — 1 grounded row(s); layers: concepts=1
+- `positional-relationship` — positional relationship — 1 grounded row(s); layers: concepts=1
+- `positive-and-negative-predictive-values` — Positive and negative predictive values — 2 grounded row(s); layers: concepts=2
+- `positive-bias` — positive bias — 1 grounded row(s); layers: concepts=1
+- `positive-cell-density-scores` — positive cell density scores — 1 grounded row(s); layers: concepts=1
+- `positive-controls` — positive controls — 1 grounded row(s); layers: concepts=1
+- `positive-feedback` — positive feedback — 1 grounded row(s); layers: concepts=1
 - `positive-predictive-value` — positive predictive value — 1 grounded row(s); layers: content_tags.definitions=1
+- `positive-predictive-value-and-sensitivity` — positive-predictive-value and sensitivity — 1 grounded row(s); layers: concepts=1
+- `positive-samples` — positive samples — 1 grounded row(s); layers: concepts=1
+- `positive-training-samples` — positive training samples — 1 grounded row(s); layers: concepts=1
+- `positively-related-cpgs` — positively related CpGs — 1 grounded row(s); layers: concepts=1
+- `post-clustering-stage` — post-clustering stage — 1 grounded row(s); layers: concepts=1
+- `post-fossil-fuel-world` — post-fossil fuel world — 1 grounded row(s); layers: concepts=1
+- `post-harvest-microbiota` — post-harvest microbiota — 1 grounded row(s); layers: concepts=1
+- `post-hoc-changes-to-thresholds` — post-hoc changes to thresholds — 1 grounded row(s); layers: concepts=1
+- `post-newtonian-results` — post-Newtonian results — 1 grounded row(s); layers: concepts=1
+- `post-perceptual` — post-perceptual — 2 grounded row(s); layers: content_tags.definitions=2
+- `post-translational-proteolytic-cleavage` — post-translational proteolytic cleavage — 1 grounded row(s); layers: concepts=1
+- `post-traumatic-stress-disorder-ptsd-symptoms` — post-traumatic stress disorder (PTSD) symptoms — 1 grounded row(s); layers: concepts=1
+- `postdiction` — postdiction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `posterior-distribution` — posterior distribution — 1 grounded row(s); layers: content_tags.definitions=1
+- `posterior-distributions` — posterior distributions — 2 grounded row(s); layers: concepts=2
+- `posterior-quality-scores` — posterior quality scores — 1 grounded row(s); layers: concepts=1
+- `posterior-variance-estimators` — posterior variance estimators — 1 grounded row(s); layers: concepts=1
+- `postural-aspect` — postural aspect — 1 grounded row(s); layers: concepts=1
+- `potential-aetiological-agents` — potential aetiological agents — 1 grounded row(s); layers: concepts=1
+- `potential-defects` — potential defects — 1 grounded row(s); layers: concepts=1
+- `potential-drawback` — potential drawback — 1 grounded row(s); layers: concepts=1
+- `potential-new-biological-insights` — potential new biological insights — 1 grounded row(s); layers: concepts=1
+- `potential-predictor-variables` — potential predictor variables — 1 grounded row(s); layers: concepts=1
+- `potential-scale-reduction-factor` — potential scale reduction factor — 1 grounded row(s); layers: concepts=1
+- `potential-to-infect-humans` — potential to infect humans — 1 grounded row(s); layers: concepts=1
+- `potential-water-loss` — potential water loss — 1 grounded row(s); layers: concepts=1
+- `potentiation` — potentiation — 1 grounded row(s); layers: concepts=1
+- `power` — power — 1 grounded row(s); layers: concepts=1
+- `power-to-detect-differentially-expressed-genes` — power to detect differentially expressed genes — 1 grounded row(s); layers: concepts=1
+- `powerlessness` — powerlessness — 1 grounded row(s); layers: content_tags.definitions=1
+- `practical-constructs` — practical constructs — 1 grounded row(s); layers: concepts=1
+- `practical-robust-implementation-and-sustainability-model-pri` — Practical, Robust, Implementation, and Sustainability Model (PRISM) — 1 grounded row(s); layers: concepts=1
+- `practice-with-feedback` — Practice with feedback — 1 grounded row(s); layers: concepts=1
+- `pragmatic-language-impairment` — pragmatic language impairment — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `pragmatic-uses-of-the-framework` — pragmatic uses of the framework — 1 grounded row(s); layers: concepts=1
+- `pragmatic-value` — pragmatic value — 1 grounded row(s); layers: concepts=1
+- `pre-calculated-mapping` — pre-calculated mapping — 1 grounded row(s); layers: concepts=1
+- `pre-conscious` — pre-conscious — 2 grounded row(s); layers: content_tags.definitions=2
+- `pre-defined-assay-thresholds` — pre-defined assay thresholds — 1 grounded row(s); layers: concepts=1
+- `pre-mrna-intermediate` — pre-mRNA intermediate — 1 grounded row(s); layers: concepts=1
+- `pre-mrnas` — pre-mRNAs — 1 grounded row(s); layers: concepts=1
+- `pre-pandemic-blood-samples` — pre-pandemic blood samples — 1 grounded row(s); layers: concepts=1
+- `pre-pandemic-samples-from-healthy-individuals-aged-at-least-` — pre-pandemic samples from healthy individuals aged at least 18 years — 1 grounded row(s); layers: concepts=1
+- `pre-release-dataset` — pre-release dataset — 1 grounded row(s); layers: concepts=1
+- `pre-testing` — pre-testing — 1 grounded row(s); layers: concepts=1
+- `pre-testing-questions` — pre-testing questions — 1 grounded row(s); layers: concepts=1
+- `pre-testing-the-questions` — pre-testing the questions — 1 grounded row(s); layers: concepts=1
+- `prebunking` — prebunking — 1 grounded row(s); layers: content_tags.definitions=1
+- `precede-proceed` — PRECEDE-PROCEED — 1 grounded row(s); layers: concepts=1
+- `precipitation-data-alone` — precipitation data alone — 1 grounded row(s); layers: concepts=1
+- `precis-2-dimensions` — PRECIS-2 dimensions — 1 grounded row(s); layers: concepts=1
 - `precision` — precision — 6 grounded row(s); layers: concepts=3, content_tags.definitions=3
+- `precision-agriculture` — precision agriculture — 2 grounded row(s); layers: content_tags.definitions=2
+- `precision-farming` — precision farming — 1 grounded row(s); layers: concepts=1
+- `precision-medicine` — precision medicine — 1 grounded row(s); layers: concepts=1
+- `precision-weighting` — precision-weighting — 1 grounded row(s); layers: concepts=1
+- `precision-weights` — precision weights — 1 grounded row(s); layers: concepts=1
+- `precomputed-orthology-assignments` — precomputed orthology assignments — 1 grounded row(s); layers: concepts=1
+- `precomputed-phylogenies` — precomputed phylogenies — 1 grounded row(s); layers: concepts=1
+- `predation` — predation — 1 grounded row(s); layers: concepts=1
+- `predicted-age` — predicted age — 1 grounded row(s); layers: concepts=1
+- `predicted-aligned-error` — Predicted Aligned Error — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `predicted-aligned-errors` — predicted aligned errors — 1 grounded row(s); layers: concepts=1
+- `predicted-atomic-coordinates` — predicted atomic coordinates — 1 grounded row(s); layers: concepts=1
+- `predicted-confidence-score` — predicted confidence score — 1 grounded row(s); layers: concepts=1
+- `predicted-local-distance-difference-test-plddt` — predicted local-distance difference test (pLDDT) — 1 grounded row(s); layers: concepts=1
+- `predicted-per-residue-scores` — predicted per-residue scores — 1 grounded row(s); layers: concepts=1
+- `predicted-rna-circle` — predicted RNA circle — 1 grounded row(s); layers: concepts=1
+- `prediction` — prediction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `prediction-error` — prediction error — 5 grounded row(s); layers: concepts=4, content_tags.definitions=1
+- `prediction-horizon-of-the-atmosphere` — prediction horizon of the atmosphere — 1 grounded row(s); layers: concepts=1
+- `prediction-inequality` — prediction inequality — 1 grounded row(s); layers: concepts=1
+- `prediction-of-outcomes` — prediction of outcomes — 1 grounded row(s); layers: concepts=1
+- `predictions` — predictions — 1 grounded row(s); layers: concepts=1
+- `predictive-accuracy` — predictive accuracy — 2 grounded row(s); layers: concepts=2
+- `predictive-coding` — Predictive Coding — 4 grounded row(s); layers: concepts=1, content_tags.definitions=3
+- `predictive-modeling` — Predictive modeling — 1 grounded row(s); layers: concepts=1
+- `predictive-models` — predictive models — 1 grounded row(s); layers: concepts=1
+- `predictive-processing` — predictive processing — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `predictive-validity` — Predictive validity — 1 grounded row(s); layers: concepts=1
+- `predictor-centering` — predictor centering — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `predictor-standardising` — predictor standardising — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `predominant-rna-isoform` — predominant RNA isoform — 1 grounded row(s); layers: concepts=1
+- `preference` — preference — 1 grounded row(s); layers: concepts=1
+- `preferential-antibody-targeting` — preferential antibody targeting — 1 grounded row(s); layers: concepts=1
+- `prefix-dereplication` — Prefix dereplication — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `prefrontal` — prefrontal — 1 grounded row(s); layers: content_tags.definitions=1
+- `pregnant-and-postpartum-women` — pregnant and postpartum women — 1 grounded row(s); layers: concepts=1
+- `premature-deaths` — premature deaths — 1 grounded row(s); layers: concepts=1
+- `preprint-servers` — preprint servers — 1 grounded row(s); layers: concepts=1
+- `preprocessing-merging-customizing-and-cleaning-datasets` — preprocessing, merging, customizing, and cleaning datasets — 1 grounded row(s); layers: concepts=1
+- `preprocessing-of-molecules` — preprocessing of molecules — 1 grounded row(s); layers: concepts=1
+- `prescriptions-for-designing-or-conducting-studies` — prescriptions for designing or conducting studies — 1 grounded row(s); layers: concepts=1
+- `presence-absence-genotype-table` — presence/absence genotype table — 1 grounded row(s); layers: concepts=1
+- `presence-of-antibodies` — presence of antibodies — 1 grounded row(s); layers: concepts=1
+- `presence-of-sars-cov-2-in-tested-plasma` — presence of SARS-CoV-2 in tested plasma — 1 grounded row(s); layers: concepts=1
+- `presence-or-absence-of-well-being` — presence or absence of well-being — 1 grounded row(s); layers: concepts=1
+- `present-bias` — present bias — 1 grounded row(s); layers: concepts=1
+- `present-day` — present-day — 1 grounded row(s); layers: concepts=1
+- `presenting-and-summarising-characteristics` — Presenting and summarising characteristics — 1 grounded row(s); layers: concepts=1
+- `presolve-routine` — presolve routine — 1 grounded row(s); layers: concepts=1
+- `prespecified-primary-and-secondary-outcomes` — prespecified primary and secondary outcomes — 1 grounded row(s); layers: concepts=1
+- `pressure-score` — pressure score — 1 grounded row(s); layers: concepts=1
+- `pressures-people-induce-on-their-local-natural-systems` — pressures people induce on their local natural systems — 1 grounded row(s); layers: concepts=1
+- `prestige-bias` — prestige bias — 1 grounded row(s); layers: concepts=1
+- `pretrained-deep-learning-models` — pretrained deep learning models — 1 grounded row(s); layers: concepts=1
+- `pretrained-parameters` — pretrained parameters — 1 grounded row(s); layers: concepts=1
+- `pretraining` — pretraining — 1 grounded row(s); layers: concepts=1
+- `prevalence` — prevalence — 1 grounded row(s); layers: concepts=1
+- `prevalences-of-20-or-lower` — prevalences of 20% or lower — 1 grounded row(s); layers: concepts=1
+- `previous-output-as-input` — previous output as input — 1 grounded row(s); layers: concepts=1
+- `previous-stimulus-response-instance` — previous stimulus–response “instance” — 1 grounded row(s); layers: concepts=1
+- `previous-work-on-large-control-networks` — Previous work on large control networks — 1 grounded row(s); layers: concepts=1
+- `price-signals` — price signals — 1 grounded row(s); layers: concepts=1
+- `primary` — primary — 1 grounded row(s); layers: concepts=1
+- `primary-amino-acid-sequence` — primary amino acid sequence — 1 grounded row(s); layers: concepts=1
+- `primary-analysis` — primary analysis — 1 grounded row(s); layers: concepts=1
+- `primary-and-secondary-icd-9-billing-diagnoses` — primary and secondary ICD-9 billing diagnoses — 1 grounded row(s); layers: concepts=1
+- `primary-care-databases` — primary care databases — 1 grounded row(s); layers: concepts=1
+- `primary-cells` — primary cells — 1 grounded row(s); layers: concepts=1
+- `primary-criteria` — primary criteria — 1 grounded row(s); layers: concepts=1
+- `primary-data` — primary data — 1 grounded row(s); layers: concepts=1
+- `primary-experimental-measurements` — primary experimental measurements — 1 grounded row(s); layers: concepts=1
+- `primary-feasibility-objectives` — primary feasibility objectives — 1 grounded row(s); layers: concepts=1
+- `primary-objects` — primary objects — 1 grounded row(s); layers: concepts=1
+- `primary-sequence` — primary sequence — 1 grounded row(s); layers: concepts=1
+- `primary-sequence-information-alone` — primary sequence information alone — 1 grounded row(s); layers: concepts=1
+- `prime-awareness` — prime awareness — 1 grounded row(s); layers: concepts=1
+- `primer-bias` — primer bias — 1 grounded row(s); layers: concepts=1
+- `primer-for-best-practices-for-scale-development` — primer for best practices for scale development — 1 grounded row(s); layers: concepts=1
+- `primer-free-rrna-gene-sequencing-approach` — primer-free rRNA gene sequencing approach — 1 grounded row(s); layers: concepts=1
+- `priming-susceptibility` — priming susceptibility — 1 grounded row(s); layers: concepts=1
+- `principal-component-analysis` — principal component analysis — 1 grounded row(s); layers: content_tags.definitions=1
+- `principal-components` — principal components — 1 grounded row(s); layers: concepts=1
+- `principal-directions-of-anisotropy` — principal directions of anisotropy — 1 grounded row(s); layers: concepts=1
+- `principle-of-confidence` — principle of confidence — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `prions` — prions — 1 grounded row(s); layers: concepts=1
+- `priority-areas` — priority areas — 1 grounded row(s); layers: concepts=1
+- `prism` — PRISM — 1 grounded row(s); layers: concepts=1
+- `prisma` — PRISMA — 1 grounded row(s); layers: concepts=1
+- `prisma-2009` — PRISMA 2009 — 1 grounded row(s); layers: concepts=1
+- `prisma-2009-statement` — PRISMA 2009 statement — 1 grounded row(s); layers: concepts=1
+- `prisma-2020-abstract-checklist` — PRISMA 2020 abstract checklist — 1 grounded row(s); layers: concepts=1
+- `prisma-2020-checklist` — PRISMA 2020 checklist — 1 grounded row(s); layers: concepts=1
+- `prisma-2020-statement` — PRISMA 2020 statement — 1 grounded row(s); layers: concepts=1
+- `prisma-for-protocols-prisma-p-2015-statement` — PRISMA for Protocols (PRISMA-P) 2015 statement — 1 grounded row(s); layers: concepts=1
+- `privacy` — privacy — 1 grounded row(s); layers: concepts=1
+- `pro-inflammatory-cytokine` — pro-inflammatory cytokine — 1 grounded row(s); layers: concepts=1
+- `pro-seq` — PRO-seq — 1 grounded row(s); layers: concepts=1
+- `probabilistic-forecasting` — probabilistic forecasting — 1 grounded row(s); layers: concepts=1
+- `probabilistic-generative-models` — probabilistic generative models — 1 grounded row(s); layers: concepts=1
+- `probabilistic-linkage` — probabilistic linkage — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `probabilistic-prediction` — probabilistic prediction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `probability-distribution-function` — probability distribution function — 1 grounded row(s); layers: concepts=1
+- `probability-distributions` — probability distributions — 1 grounded row(s); layers: concepts=1
+- `probability-of-the-term` — probability of the term — 1 grounded row(s); layers: concepts=1
+- `procedural` — procedural — 1 grounded row(s); layers: concepts=1
+- `procedural-memory` — procedural memory — 1 grounded row(s); layers: content_tags.definitions=1
+- `process` — Process — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `process-models` — process models — 1 grounded row(s); layers: concepts=1
+- `processes-or-events` — processes or events — 1 grounded row(s); layers: concepts=1
+- `processing-speed` — processing speed — 1 grounded row(s); layers: concepts=1
+- `processing-stages` — processing stages — 1 grounded row(s); layers: concepts=1
+- `prodigal` — Prodigal — 1 grounded row(s); layers: concepts=1
+- `product-term` — product term — 1 grounded row(s); layers: concepts=1
+- `products-of-the-implementation-strategy` — products of the implementation strategy — 1 grounded row(s); layers: concepts=1
+- `profile-alignment` — profile alignment — 1 grounded row(s); layers: concepts=1
+- `profiles-of-subtrees` — profiles of subtrees — 1 grounded row(s); layers: concepts=1
+- `progesterone-receptor` — progesterone receptor — 1 grounded row(s); layers: concepts=1
+- `prognosis` — prognosis — 1 grounded row(s); layers: concepts=1
+- `programmatic-access` — programmatic access — 1 grounded row(s); layers: concepts=1
+- `programme-theories` — programme theories — 1 grounded row(s); layers: concepts=1
+- `programmed-cell-death-ligand-1` — programmed cell death ligand 1 — 1 grounded row(s); layers: concepts=1
+- `programming-code` — programming code — 1 grounded row(s); layers: concepts=1
+- `programming-language` — programming language — 1 grounded row(s); layers: concepts=1
+- `progression-free-survival` — progression-free survival — 1 grounded row(s); layers: content_tags.definitions=1
+- `progressive-decrease` — progressive decrease — 1 grounded row(s); layers: concepts=1
+- `progressive-respiratory-failure` — progressive respiratory failure — 1 grounded row(s); layers: concepts=1
+- `proinflammatory-cytokines` — proinflammatory cytokines — 1 grounded row(s); layers: concepts=1
+- `project-and-sample-application-standard` — Project and Sample Application Standard — 1 grounded row(s); layers: concepts=1
+- `projected-climate-change-anomaly` — projected climate change anomaly — 1 grounded row(s); layers: concepts=1
+- `projected-demands` — projected demands — 1 grounded row(s); layers: concepts=1
+- `projected-future-conditions` — projected future conditions — 1 grounded row(s); layers: concepts=1
+- `prokaryotes` — Prokaryotes — 2 grounded row(s); layers: concepts=2
+- `prokka` — Prokka — 1 grounded row(s); layers: concepts=1
+- `proliferation` — proliferation — 1 grounded row(s); layers: concepts=1
+- `prolonged-length-of-stay` — prolonged length of stay — 1 grounded row(s); layers: concepts=1
+- `promising-choice-of-molecular-descriptor-calculation-softwar` — promising choice of molecular descriptor calculation software — 1 grounded row(s); layers: concepts=1
+- `promoting-accurate-information` — promoting accurate information — 1 grounded row(s); layers: concepts=1
+- `proof-of-concept-poc-study` — proof-of-concept (PoC) study — 1 grounded row(s); layers: concepts=1
+- `propagate-algorithm` — Propagate algorithm — 1 grounded row(s); layers: concepts=1
+- `proper-probabilistic-scoring-rule` — proper probabilistic scoring rule — 1 grounded row(s); layers: concepts=1
+- `properties-of-gravitational-wave-sources` — properties of gravitational-wave sources — 1 grounded row(s); layers: concepts=1
+- `proportion-of-explained-variance` — proportion of explained variance — 1 grounded row(s); layers: concepts=1
+- `proportion-of-the-splits-in-the-true-trees-that-are-recovere` — proportion of the splits in the true trees that are recovered — 1 grounded row(s); layers: concepts=1
+- `proportion-of-true-null-hypotheses` — proportion of true null hypotheses — 1 grounded row(s); layers: concepts=1
+- `proportions` — proportions — 1 grounded row(s); layers: concepts=1
+- `proprietary` — proprietary — 1 grounded row(s); layers: concepts=1
+- `proprietary-nature-of-the-code` — proprietary nature of the code — 1 grounded row(s); layers: concepts=1
+- `proptruenull-function` — propTrueNull function — 1 grounded row(s); layers: concepts=1
 - `prospect-theory` — prospect theory — 1 grounded row(s); layers: concepts=1
+- `prospective-consideration-of-the-items` — prospective consideration of the items — 1 grounded row(s); layers: concepts=1
+- `prospective-trials` — prospective trials — 1 grounded row(s); layers: concepts=1
+- `prospective-validation-cohort` — prospective validation cohort — 1 grounded row(s); layers: concepts=1
+- `proteases` — proteases — 1 grounded row(s); layers: concepts=1
+- `protein-a-micrococcal-nuclease-pa-mnase-fusion-protein` — Protein A/Micrococcal Nuclease (pA-MNase) fusion protein — 1 grounded row(s); layers: concepts=1
+- `protein-a-tn5-transposase-fusion-protein` — protein A-Tn5 transposase fusion protein — 1 grounded row(s); layers: concepts=1
+- `protein-annotations-and-domains` — protein annotations and domains — 1 grounded row(s); layers: concepts=1
+- `protein-backbone` — protein backbone — 1 grounded row(s); layers: concepts=1
+- `protein-binding` — protein binding — 1 grounded row(s); layers: concepts=1
+- `protein-binding-partner` — protein binding partner — 1 grounded row(s); layers: concepts=1
+- `protein-complexes` — protein complexes — 1 grounded row(s); layers: concepts=1
+- `protein-data-bank` — Protein Data Bank — 2 grounded row(s); layers: concepts=2
+- `protein-data-bank-pdb` — Protein Data Bank (PDB) — 1 grounded row(s); layers: concepts=1
+- `protein-domain-discovery` — protein domain discovery — 1 grounded row(s); layers: concepts=1
+- `protein-families-from-cog` — protein families from COG — 1 grounded row(s); layers: concepts=1
+- `protein-family` — protein family — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `protein-folding-problem` — protein folding problem — 1 grounded row(s); layers: concepts=1
+- `protein-functionality` — protein functionality — 1 grounded row(s); layers: concepts=1
+- `protein-localization` — protein localization — 1 grounded row(s); layers: concepts=1
+- `protein-physics` — protein physics — 1 grounded row(s); layers: concepts=1
+- `protein-prediction` — protein prediction — 1 grounded row(s); layers: concepts=1
+- `protein-protein-interaction-network-construction` — protein–protein interaction network construction — 1 grounded row(s); layers: concepts=1
+- `protein-sequence-fasta-file` — protein sequence FASTA file — 1 grounded row(s); layers: concepts=1
+- `protein-sequence-space` — protein-sequence space — 1 grounded row(s); layers: concepts=1
+- `protein-sequences` — protein sequences — 3 grounded row(s); layers: concepts=3
+- `protein-space` — protein-space — 1 grounded row(s); layers: concepts=1
+- `protein-stability` — protein stability — 1 grounded row(s); layers: concepts=1
+- `protein-structure` — protein structure — 1 grounded row(s); layers: concepts=1
+- `protein-structure-prediction` — protein structure prediction — 1 grounded row(s); layers: concepts=1
+- `protein-texture` — protein texture — 1 grounded row(s); layers: concepts=1
+- `protein-translocation` — protein translocation — 1 grounded row(s); layers: concepts=1
+- `proteins` — proteins — 3 grounded row(s); layers: concepts=3
+- `proteins-api` — Proteins API — 1 grounded row(s); layers: concepts=1
+- `proteome-completeness-and-quality` — proteome completeness and quality — 1 grounded row(s); layers: concepts=1
+- `proteome-redundancy-removal` — proteome redundancy removal — 1 grounded row(s); layers: concepts=1
+- `proteome-scale` — proteome-scale — 1 grounded row(s); layers: concepts=1
+- `proteomes` — proteomes — 1 grounded row(s); layers: concepts=1
+- `proteomexchange-consortium` — ProteomeXchange Consortium — 1 grounded row(s); layers: concepts=1
+- `protocol-before-implementing-the-study` — protocol before implementing the study — 1 grounded row(s); layers: concepts=1
+- `protocols` — protocols — 1 grounded row(s); layers: concepts=1
+- `prototypes` — prototypes — 1 grounded row(s); layers: concepts=1
+- `protvista-viewer` — ProtVista viewer — 1 grounded row(s); layers: concepts=1
+- `protvista-visualisation-tool` — ProtVista visualisation tool — 1 grounded row(s); layers: concepts=1
+- `provenance` — provenance — 1 grounded row(s); layers: concepts=1
+- `provider-behavior` — provider behavior — 1 grounded row(s); layers: concepts=1
+- `provider-habit` — provider habit — 1 grounded row(s); layers: concepts=1
+- `provisional-subtype` — provisional subtype — 1 grounded row(s); layers: content_tags.definitions=1
+- `proxies` — proxies — 1 grounded row(s); layers: concepts=1
+- `proximal` — proximal — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `proximal-versus-distal` — proximal versus distal — 1 grounded row(s); layers: concepts=1
+- `proxy-feature` — proxy feature — 1 grounded row(s); layers: concepts=1
+- `psa` — PSA — 1 grounded row(s); layers: concepts=1
+- `pseudo-random-number-generator` — pseudo random number generator — 1 grounded row(s); layers: concepts=1
+- `pseudocapacitance` — pseudocapacitance — 1 grounded row(s); layers: content_tags.definitions=1
+- `pseudoenzymes` — pseudoenzymes — 1 grounded row(s); layers: concepts=1
+- `pseudorandom-numbers` — pseudorandom numbers — 1 grounded row(s); layers: concepts=1
+- `pseudoreplication` — pseudoreplication — 1 grounded row(s); layers: concepts=1
+- `pseudotyped-lentiviral-neutralization-assays` — pseudotyped lentiviral neutralization assays — 1 grounded row(s); layers: concepts=1
+- `pseudotyped-viruses` — pseudotyped viruses — 1 grounded row(s); layers: concepts=1
+- `pseudovirus-neutralization-assays` — Pseudovirus neutralization assays — 1 grounded row(s); layers: concepts=1
+- `psi-extended-fasta-format` — PSI Extended FASTA Format — 1 grounded row(s); layers: concepts=1
+- `psilocybin` — psilocybin — 1 grounded row(s); layers: concepts=1
+- `psychic-numbing` — psychic numbing — 1 grounded row(s); layers: concepts=1
+- `psychological-continuity` — psychological continuity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `psychological-crisis-intervention` — psychological crisis intervention — 1 grounded row(s); layers: concepts=1
+- `psychological-mechanisms-of-action` — psychological mechanisms of action — 1 grounded row(s); layers: concepts=1
+- `psychological-ownership` — psychological ownership — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `psychological-resilience` — psychological resilience — 1 grounded row(s); layers: content_tags.definitions=1
+- `psychology` — psychology — 1 grounded row(s); layers: concepts=1
+- `psychometric-properties` — psychometric properties — 1 grounded row(s); layers: concepts=1
+- `psychometrically-strong-and-pragmatic-measures` — psychometrically strong and pragmatic measures — 1 grounded row(s); layers: concepts=1
+- `psychosocial-well-being` — psychosocial well-being — 1 grounded row(s); layers: concepts=1
+- `ptm` — pTM — 1 grounded row(s); layers: concepts=1
+- `pubchem` — PubChem — 1 grounded row(s); layers: concepts=1
+- `pubchem-fingerprints` — PubChem fingerprints — 2 grounded row(s); layers: concepts=2
+- `pubchem-standardiser` — PubChem standardiser — 1 grounded row(s); layers: concepts=1
+- `public-accountability` — public accountability — 1 grounded row(s); layers: content_tags.definitions=1
+- `public-health` — Public health — 1 grounded row(s); layers: concepts=1
+- `public-health-emergency` — public health emergency — 1 grounded row(s); layers: concepts=1
+- `public-health-impact` — public health impact — 1 grounded row(s); layers: concepts=1
+- `public-opinion` — public opinion — 1 grounded row(s); layers: concepts=1
+- `public-support-for-climate-policy` — public support for climate policy — 1 grounded row(s); layers: concepts=1
+- `public-trust` — public trust — 1 grounded row(s); layers: content_tags.definitions=1
+- `publication-bias` — publication bias — 2 grounded row(s); layers: concepts=2
+- `publicly-accessible-repositories` — publicly accessible repositories — 1 grounded row(s); layers: concepts=1
+- `published-examples-of-transparent-reporting` — published examples of transparent reporting — 1 grounded row(s); layers: concepts=1
+- `pubmed-biorxiv-and-medrxiv` — PubMed, BioRxiv, and MedRxiv — 1 grounded row(s); layers: concepts=1
+- `pubmedgpt` — PubMedGPT — 1 grounded row(s); layers: concepts=1
+- `pull-requests` — pull requests — 1 grounded row(s); layers: concepts=1
+- `pulse-of-co-2` — pulse of CO 2 — 1 grounded row(s); layers: concepts=1
+- `pump` — pump — 1 grounded row(s); layers: content_tags.definitions=1
+- `pupil-dilation` — pupil dilation — 1 grounded row(s); layers: concepts=1
+- `pure-culture` — pure culture — 1 grounded row(s); layers: concepts=1
+- `pure-python-implementation` — pure-Python implementation — 1 grounded row(s); layers: concepts=1
+- `purely-data-driven-prediction` — purely-data driven prediction — 1 grounded row(s); layers: concepts=1
+- `purified-proteins` — purified proteins — 1 grounded row(s); layers: concepts=1
+- `putative-cognate-gene-pairs` — putative cognate gene-pairs — 1 grounded row(s); layers: concepts=1
+- `putative-in-paralogs` — putative in-paralogs — 1 grounded row(s); layers: concepts=1
+- `pv` — PV− — 1 grounded row(s); layers: concepts=1
+- `python` — Python — 1 grounded row(s); layers: concepts=1
+- `python-package` — python package — 1 grounded row(s); layers: concepts=1
+- `python-programming-language` — Python programming language — 1 grounded row(s); layers: concepts=1
+- `python-scripting-language` — Python scripting language — 1 grounded row(s); layers: concepts=1
+- `python-wheel` — Python wheel — 1 grounded row(s); layers: concepts=1
+- `pytorch` — PyTorch — 2 grounded row(s); layers: concepts=2
+- `q-value` — q -value — 1 grounded row(s); layers: concepts=1
+- `qaic` — QAIC — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `qc-metrics` — QC metrics — 1 grounded row(s); layers: concepts=1
+- `qiime` — QIIME — 1 grounded row(s); layers: concepts=1
+- `qpcr` — qPCR — 1 grounded row(s); layers: concepts=1
+- `qpcr-based-approaches` — qPCR-based approaches — 1 grounded row(s); layers: concepts=1
+- `qpcr-based-detection-method` — qPCR-based detection method — 1 grounded row(s); layers: concepts=1
+- `qsar` — QSAR — 1 grounded row(s); layers: concepts=1
+- `qseq-files` — qseq files — 1 grounded row(s); layers: concepts=1
+- `qspr-model` — QSPR model — 1 grounded row(s); layers: concepts=1
+- `qualitative-cut-offs` — qualitative cut-offs — 1 grounded row(s); layers: concepts=1
+- `qualitative-re-aim-assessments` — qualitative RE-AIM assessments — 1 grounded row(s); layers: concepts=1
+- `qualitative-studies` — qualitative studies — 1 grounded row(s); layers: concepts=1
+- `quality-and-reproducibility-of-research` — quality and reproducibility of research — 1 grounded row(s); layers: concepts=1
+- `quality-assessment-instrument` — quality assessment instrument — 1 grounded row(s); layers: concepts=1
+- `quality-control` — quality control — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `quality-control-metric` — quality control metric — 1 grounded row(s); layers: concepts=1
+- `quality-control-pipeline` — quality control pipeline — 1 grounded row(s); layers: concepts=1
+- `quality-control-step` — quality control step — 1 grounded row(s); layers: concepts=1
+- `quality-factor` — quality factor — 1 grounded row(s); layers: content_tags.definitions=1
+- `quality-filtering-alternatives` — quality filtering alternatives — 1 grounded row(s); layers: concepts=1
+- `quality-of-evidence` — quality of evidence — 1 grounded row(s); layers: concepts=1
+- `quality-of-reports-of-randomised-trials` — quality of reports of randomised trials — 1 grounded row(s); layers: concepts=1
+- `quality-score` — quality score — 1 grounded row(s); layers: concepts=1
+- `quality-score-of-zero` — quality score of zero — 1 grounded row(s); layers: concepts=1
+- `quality-scores` — quality scores — 1 grounded row(s); layers: concepts=1
+- `quantile` — quantile — 1 grounded row(s); layers: concepts=1
+- `quantile-normalized` — quantile normalized — 1 grounded row(s); layers: concepts=1
+- `quantitative-and-qualitative-studies` — quantitative and qualitative studies — 1 grounded row(s); layers: concepts=1
+- `quantitative-cellular-map` — quantitative cellular map — 1 grounded row(s); layers: concepts=1
+- `quantitative-evidence` — quantitative evidence — 1 grounded row(s); layers: concepts=1
+- `quantitative-law-of-effect` — quantitative law of effect — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `quantitative-measures` — quantitative measures — 1 grounded row(s); layers: concepts=1
+- `quantitative-models` — quantitative models — 1 grounded row(s); layers: concepts=1
+- `quantitative-reproducible-image-analysis-workflows` — quantitative, reproducible image analysis workflows — 1 grounded row(s); layers: concepts=1
+- `quantitative-structure-property-relationship` — Quantitative structure–property relationship — 1 grounded row(s); layers: concepts=1
+- `quantitative-structure-property-relationships` — quantitative structure–property relationships — 1 grounded row(s); layers: concepts=1
+- `quantitative-trait` — quantitative trait — 1 grounded row(s); layers: concepts=1
+- `quantitative-weights` — quantitative weights — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `quantity-input` — quantity_input() — 1 grounded row(s); layers: concepts=1
+- `quantity-objects` — Quantity objects — 1 grounded row(s); layers: concepts=1
+- `queensland-definition` — Queensland definition — 1 grounded row(s); layers: concepts=1
+- `question-explanation-writing-process` — question-explanation writing process — 1 grounded row(s); layers: concepts=1
+- `questionable-research-practices` — questionable research practices — 1 grounded row(s); layers: concepts=1
+- `questions-using-the-word-falsification-or-fabrication` — questions using the word “falsification” or “fabrication” — 1 grounded row(s); layers: concepts=1
+- `quorom` — QUOROM — 1 grounded row(s); layers: content_tags.definitions=1
+- `quorum-sensing-qs` — quorum sensing (QS) — 1 grounded row(s); layers: concepts=1
+- `quota-management` — quota management — 1 grounded row(s); layers: concepts=1
+- `qupath` — QuPath — 1 grounded row(s); layers: concepts=1
+- `r` — R — 1 grounded row(s); layers: concepts=1
+- `r-based-open-source-software-development-project` — R-based open-source software development project — 1 grounded row(s); layers: concepts=1
+- `r-bioconductor-package` — R/Bioconductor package — 1 grounded row(s); layers: concepts=1
+- `r-bioconductor-software-package` — R/Bioconductor software package — 1 grounded row(s); layers: concepts=1
+- `r-cryst` — R cryst — 1 grounded row(s); layers: concepts=1
+- `r-factors` — R factors — 1 grounded row(s); layers: concepts=1
+- `r-flavored-markdown` — R flavored markdown — 1 grounded row(s); layers: concepts=1
+- `r-free` — R free — 1 grounded row(s); layers: concepts=1
+- `r-l-model` — R ¯ L model — 1 grounded row(s); layers: concepts=1
+- `r-m-s-d-95` — r.m.s.d. 95 — 1 grounded row(s); layers: concepts=1
+- `r-meas` — R meas — 1 grounded row(s); layers: concepts=1
+- `r-merge` — R merge — 1 grounded row(s); layers: concepts=1
+- `r-p-i-m` — R p.i.m. — 1 grounded row(s); layers: concepts=1
+- `r-square` — R-Square — 1 grounded row(s); layers: concepts=1
+- `r-work` — R work — 1 grounded row(s); layers: concepts=1
+- `rad-library-preparation-procedure` — RAD library preparation procedure — 1 grounded row(s); layers: concepts=1
+- `rad-tags` — RAD tags — 1 grounded row(s); layers: concepts=1
+- `radiation-damage` — radiation damage — 1 grounded row(s); layers: concepts=1
+- `radiation-damage-correction` — radiation-damage correction — 1 grounded row(s); layers: concepts=1
+- `radiation-dose` — radiation dose — 1 grounded row(s); layers: concepts=1
+- `radiations` — radiations — 1 grounded row(s); layers: concepts=1
+- `radical-predictive-processing` — radical predictive processing — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `railways` — railways — 1 grounded row(s); layers: concepts=1
+- `raising-factor` — raising factor — 1 grounded row(s); layers: concepts=1
+- `raman-activated-cell-sorting-racs` — Raman activated cell sorting (RACS) — 1 grounded row(s); layers: concepts=1
+- `random-coefficients-models` — random coefficients models — 1 grounded row(s); layers: concepts=1
+- `random-effects-model` — random effects model — 1 grounded row(s); layers: concepts=1
+- `random-error` — random error — 2 grounded row(s); layers: concepts=2
 - `random-forest` — random forest — 1 grounded row(s); layers: content_tags.definitions=1
+- `random-hexamer-primers` — random hexamer primers — 1 grounded row(s); layers: concepts=1
+- `random-initialization` — random initialization — 1 grounded row(s); layers: concepts=1
+- `random-intercept` — random intercept — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `random-response-rr-technique` — Random-Response (RR) technique — 1 grounded row(s); layers: concepts=1
+- `random-search` — random search — 1 grounded row(s); layers: concepts=1
+- `random-seed` — random seed — 1 grounded row(s); layers: concepts=1
+- `random-seeds` — random seeds — 1 grounded row(s); layers: concepts=1
+- `random-selection` — random selection — 1 grounded row(s); layers: concepts=1
+- `random-slopes` — random slopes — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `random-space` — random space — 1 grounded row(s); layers: concepts=1
+- `random-subsampling-without-replacement` — random subsampling without replacement — 1 grounded row(s); layers: concepts=1
+- `random-trees-classifier` — random trees classifier — 1 grounded row(s); layers: concepts=1
+- `randomisation-bias` — randomisation bias — 1 grounded row(s); layers: concepts=1
+- `randomised-trials` — randomised trials — 2 grounded row(s); layers: concepts=2
+- `randomized` — randomized — 1 grounded row(s); layers: concepts=1
+- `randomized-smiles` — randomized SMILES — 1 grounded row(s); layers: concepts=1
+- `randomly-set-ones` — randomly set ones — 1 grounded row(s); layers: concepts=1
+- `randomly-sheared-dna-regions` — randomly sheared DNA regions — 1 grounded row(s); layers: concepts=1
+- `randomly-shuffling-the-labels-of-3-grams` — randomly shuffling the labels of 3-grams — 1 grounded row(s); layers: concepts=1
+- `range` — range — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `range-of-in-vivo-substrate-specificity` — range of in vivo substrate specificity — 1 grounded row(s); layers: concepts=1
+- `range-operations` — range operations — 1 grounded row(s); layers: concepts=1
+- `rank-based-tests` — rank-based tests — 1 grounded row(s); layers: concepts=1
+- `rank-level-positive-predictive-value` — rank-level positive predictive value — 1 grounded row(s); layers: concepts=1
+- `rank-level-sensitivity` — rank-level sensitivity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rapid-assessment` — rapid assessment — 1 grounded row(s); layers: concepts=1
+- `rapid-binary-coalescence-reanalysis` — rapid binary-coalescence reanalysis — 1 grounded row(s); layers: concepts=1
+- `rapid-iterative-use-and-analysis` — Rapid, iterative use and analysis — 1 grounded row(s); layers: concepts=1
+- `rapid-phasedown-of-fossil-fuel-emissions` — rapid phasedown of fossil fuel emissions — 1 grounded row(s); layers: concepts=1
+- `rare-amplicons` — rare amplicons — 1 grounded row(s); layers: concepts=1
+- `rare-circular-isoforms` — rare circular isoforms — 1 grounded row(s); layers: concepts=1
+- `rare-diseases` — rare diseases — 1 grounded row(s); layers: concepts=1
+- `rare-earth-elements` — rare earth elements — 1 grounded row(s); layers: concepts=1
+- `rare-taxa` — rare taxa — 1 grounded row(s); layers: concepts=1
+- `rarefaction` — rarefaction — 2 grounded row(s); layers: concepts=2
+- `rarefying` — rarefying — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rasch-model-analysis` — Rasch model analysis — 1 grounded row(s); layers: concepts=1
+- `rate-categories` — rate categories — 1 grounded row(s); layers: concepts=1
+- `rate-of-biomass-change` — rate of biomass change — 1 grounded row(s); layers: concepts=1
+- `rate-of-environmental-change` — rate of environmental change — 1 grounded row(s); layers: concepts=1
+- `rate-of-evolution` — rate of evolution — 1 grounded row(s); layers: concepts=1
+- `rate-of-falls` — rate of falls — 1 grounded row(s); layers: concepts=1
+- `raters` — raters — 1 grounded row(s); layers: concepts=1
+- `raters-themselves-endorsed-the-scientific-consensus-on-agw` — raters themselves endorsed the scientific consensus on AGW — 1 grounded row(s); layers: concepts=1
+- `ratg13` — RaTG13 — 1 grounded row(s); layers: concepts=1
+- `rating-bias` — rating bias — 1 grounded row(s); layers: concepts=1
+- `rating-disagreements` — rating disagreements — 1 grounded row(s); layers: concepts=1
+- `ratio-of-circular-to-linear-transcripts` — ratio of circular to linear transcripts — 1 grounded row(s); layers: concepts=1
+- `ratio-of-production-to-population` — ratio of production to population — 1 grounded row(s); layers: concepts=1
+- `ratio-of-respondents-to-items` — ratio of respondents to items — 1 grounded row(s); layers: concepts=1
+- `rational-account` — rational account — 1 grounded row(s); layers: concepts=1
+- `rational-choice` — rational choice — 1 grounded row(s); layers: concepts=1
+- `rationale-for-a-pilot-study` — rationale for a pilot study — 1 grounded row(s); layers: concepts=1
+- `rationale-for-its-inclusion` — rationale for its inclusion — 1 grounded row(s); layers: concepts=1
+- `raw-abundance-counts` — raw abundance counts — 1 grounded row(s); layers: concepts=1
+- `raw-data` — raw data — 1 grounded row(s); layers: concepts=1
+- `raw-images` — raw images — 1 grounded row(s); layers: concepts=1
+- `raw-sequence-data` — raw sequence data — 1 grounded row(s); layers: concepts=1
+- `raws` — RAWS — 1 grounded row(s); layers: concepts=1
+- `raxml` — RAxML — 1 grounded row(s); layers: concepts=1
+- `rbd-ace2-blocking` — RBD-ACE2 blocking — 1 grounded row(s); layers: concepts=1
+- `rbd-domains` — RBD domains — 1 grounded row(s); layers: concepts=1
+- `rbd-igg` — RBD IgG — 1 grounded row(s); layers: concepts=1
+- `rbd-igm` — RBD IgM — 1 grounded row(s); layers: concepts=1
+- `rbd-igm-and-iga` — RBD IgM and IgA — 1 grounded row(s); layers: concepts=1
+- `rbd-n` — RBD/N — 1 grounded row(s); layers: concepts=1
+- `rbd-specific-igg` — RBD-specific IgG — 1 grounded row(s); layers: concepts=1
+- `rbf-gaussian-kernel-function` — RBF Gaussian kernel function — 1 grounded row(s); layers: concepts=1
+- `rbnh` — RBNH — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rcd` — RCD — 1 grounded row(s); layers: concepts=1
+- `rcts` — RCTs — 1 grounded row(s); layers: concepts=1
+- `rdkit` — RDKit — 2 grounded row(s); layers: concepts=2
+- `re-aim` — RE-AIM — 1 grounded row(s); layers: concepts=1
+- `re-aim-dimensions` — RE-AIM dimensions — 1 grounded row(s); layers: concepts=1
+- `re-aim-framework` — RE-AIM framework — 1 grounded row(s); layers: concepts=1
+- `reach` — reach — 1 grounded row(s); layers: concepts=1
+- `react-js` — React.js — 1 grounded row(s); layers: concepts=1
+- `reaction-centre` — reaction centre — 1 grounded row(s); layers: concepts=1
+- `reaction-fingerprints` — reaction fingerprints — 1 grounded row(s); layers: concepts=1
+- `reaction-participants` — reaction participants — 1 grounded row(s); layers: concepts=1
+- `reaction-smiles` — Reaction SMILES — 1 grounded row(s); layers: concepts=1
+- `reactive` — reactive — 1 grounded row(s); layers: concepts=1
+- `reactive-oxygen-species` — reactive oxygen species — 1 grounded row(s); layers: content_tags.definitions=1
+- `read-alignments` — read alignments — 1 grounded row(s); layers: concepts=1
+- `read-counts` — read counts — 1 grounded row(s); layers: concepts=1
+- `read-depth` — read depth — 1 grounded row(s); layers: concepts=1
+- `read-out-operation` — read-out operation — 1 grounded row(s); layers: concepts=1
+- `read-preprocessing` — read preprocessing — 1 grounded row(s); layers: concepts=1
+- `read-preprocessing-tools` — read preprocessing tools — 1 grounded row(s); layers: concepts=1
+- `read-trimming-and-filtering` — read trimming and filtering — 1 grounded row(s); layers: concepts=1
+- `readmissions` — readmissions — 1 grounded row(s); layers: concepts=1
+- `readout-phase` — readout phase — 2 grounded row(s); layers: concepts=2
+- `readouts` — Readouts — 1 grounded row(s); layers: concepts=1
+- `reads-mapping-to-these-sequences` — reads mapping to these sequences — 1 grounded row(s); layers: concepts=1
+- `reads-with-sequencing-errors` — reads with sequencing errors — 1 grounded row(s); layers: concepts=1
+- `real-time-analysis` — real-time analysis — 1 grounded row(s); layers: concepts=1
+- `real-time-prediction-system` — real-time prediction system — 1 grounded row(s); layers: concepts=1
+- `real-time-rt-pcr` — real-time RT-PCR — 2 grounded row(s); layers: concepts=2
+- `real-time-training` — real-time training — 1 grounded row(s); layers: concepts=1
+- `real-world-biological-problems` — real-world biological problems — 1 grounded row(s); layers: concepts=1
+- `realized-state` — realized ‘state’ — 1 grounded row(s); layers: concepts=1
+- `reanalysis-datasets` — Reanalysis datasets — 1 grounded row(s); layers: concepts=1
+- `reasons-responsiveness` — reasons-responsiveness — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `recalculation-of-the-sample-size` — recalculation of the sample size — 1 grounded row(s); layers: concepts=1
 - `recall` — recall — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `receiver-operating-characteristic-roc-curves` — Receiver operating characteristic (ROC) curves — 1 grounded row(s); layers: concepts=1
+- `receiver-operating-curves` — receiver-operating curves — 1 grounded row(s); layers: concepts=1
+- `receiver-operator-characteristic-roc-curves` — receiver operator characteristic (ROC) curves — 1 grounded row(s); layers: concepts=1
+- `recent-pdb-sequences` — recent PDB sequences — 1 grounded row(s); layers: concepts=1
+- `recently-class-switched-b-cells` — recently class-switched B cells — 1 grounded row(s); layers: concepts=1
+- `reception-response` — reception response — 1 grounded row(s); layers: concepts=1
+- `receptor-binding-domain-of-the-s-gene` — receptor-binding domain of the S gene — 1 grounded row(s); layers: concepts=1
+- `receptor-binding-domain-rbd` — receptor binding domain (RBD) — 1 grounded row(s); layers: concepts=1
+- `receptor-binding-motif` — receptor-binding motif — 1 grounded row(s); layers: concepts=1
+- `receptor-binding-spike-protein` — receptor-binding spike protein — 1 grounded row(s); layers: concepts=1
+- `reciprocal-adaptation-of-lineages-in-response-to-one-another` — reciprocal adaptation of lineages in response to one another — 1 grounded row(s); layers: concepts=1
+- `reciprocal-best-blast-hit` — reciprocal best BLAST hit — 1 grounded row(s); layers: concepts=1
+- `recognition-memory` — recognition memory — 1 grounded row(s); layers: concepts=1
+- `recognized-files` — recognized files — 1 grounded row(s); layers: concepts=1
+- `recombinant-antibodies` — recombinant antibodies — 1 grounded row(s); layers: concepts=1
+- `recombination-events` — recombination events — 1 grounded row(s); layers: concepts=1
+- `recommendations` — recommendations — 1 grounded row(s); layers: concepts=1
+- `recommendations-on-the-reporting-of-research` — Recommendations on the reporting of research — 1 grounded row(s); layers: concepts=1
+- `reconstructed-catches` — reconstructed catches — 1 grounded row(s); layers: concepts=1
+- `reconstructed-domestic-catches` — reconstructed domestic catches — 1 grounded row(s); layers: concepts=1
+- `reconstruction-error` — reconstruction error — 1 grounded row(s); layers: concepts=1
+- `record` — Record — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `record-checklist` — RECORD checklist — 1 grounded row(s); layers: concepts=1
+- `records` — records — 1 grounded row(s); layers: content_tags.definitions=1
+- `recreational-catches` — recreational catches — 1 grounded row(s); layers: concepts=1
+- `recreational-screen-time` — recreational screen time — 1 grounded row(s); layers: concepts=1
+- `recruitment-and-maturation-of-antigen-presenting-cells-apcs` — recruitment and maturation of antigen-presenting cells (APCs) — 1 grounded row(s); layers: concepts=1
+- `recruitment-strategies` — recruitment strategies — 1 grounded row(s); layers: concepts=1
+- `recurrent-neural-networks` — recurrent neural networks — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `recycling` — recycling — 1 grounded row(s); layers: concepts=1
+- `red-teaming` — red teaming — 1 grounded row(s); layers: concepts=1
+- `reddit` — Reddit — 1 grounded row(s); layers: concepts=1
+- `redefinition-of-the-taxonomy-based-on-the-phylogeny` — redefinition of the taxonomy based on the phylogeny — 1 grounded row(s); layers: concepts=1
+- `redocking` — redocking — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `redshift-measurement` — redshift measurement — 1 grounded row(s); layers: concepts=1
+- `reduced-amino-acid-alphabet` — reduced amino acid alphabet — 1 grounded row(s); layers: concepts=1
+- `reduced-interferometer-response-at-high-frequencies` — reduced interferometer response at high frequencies — 1 grounded row(s); layers: concepts=1
+- `reducing-the-number-of-items` — reducing the number of items — 1 grounded row(s); layers: concepts=1
+- `reduction-in-insect-abundance` — reduction in insect abundance — 1 grounded row(s); layers: concepts=1
+- `reduction-in-rnaemia` — Reduction in RNAemia — 1 grounded row(s); layers: concepts=1
+- `reductionist-experimental-models` — reductionist experimental models — 1 grounded row(s); layers: concepts=1
+- `reductions` — reductions — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `redundancy` — redundancy — 1 grounded row(s); layers: concepts=1
+- `redundant-proteome-sequences` — redundant proteome sequences — 1 grounded row(s); layers: concepts=1
+- `reference` — reference — 1 grounded row(s); layers: concepts=1
+- `reference-based-alignment` — reference-based alignment — 1 grounded row(s); layers: concepts=1
+- `reference-based-detection` — reference-based detection — 1 grounded row(s); layers: concepts=1
+- `reference-evapotranspiration` — reference evapotranspiration — 1 grounded row(s); layers: concepts=1
+- `reference-framework-for-multiscale-biomedical-data-integrati` — reference framework for multiscale biomedical data integration and analysis — 1 grounded row(s); layers: concepts=1
+- `reference-genome-sequence` — reference genome sequence — 1 grounded row(s); layers: concepts=1
+- `reference-map` — reference map — 1 grounded row(s); layers: concepts=1
+- `reference-materials` — Reference Materials — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `reference-proteome` — Reference Proteome — 1 grounded row(s); layers: concepts=1
+- `reference-proteome-set` — Reference Proteome set — 1 grounded row(s); layers: concepts=1
+- `reference-sequence` — reference sequence — 2 grounded row(s); layers: concepts=2
+- `reference-sequences` — reference sequences — 1 grounded row(s); layers: concepts=1
+- `reference-standard` — reference standard — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `reference-systems-frames` — reference systems/frames — 1 grounded row(s); layers: concepts=1
+- `reference-tags` — reference tags — 1 grounded row(s); layers: concepts=1
+- `reference-tone-cloud` — reference tone cloud — 1 grounded row(s); layers: content_tags.definitions=1
+- `reference-values` — reference values — 2 grounded row(s); layers: concepts=2
+- `refinement` — refinement — 1 grounded row(s); layers: concepts=1
+- `refinement-phase` — refinement phase — 1 grounded row(s); layers: concepts=1
+- `reflecting` — reflecting — 1 grounded row(s); layers: concepts=1
+- `reflection-intensities` — reflection intensities — 1 grounded row(s); layers: concepts=1
+- `reflective` — reflective — 1 grounded row(s); layers: concepts=1
+- `reflective-decision-making` — reflective decision making — 1 grounded row(s); layers: concepts=1
+- `reflexive-monitoring` — reflexive monitoring — 1 grounded row(s); layers: concepts=1
+- `refmac` — REFMAC — 1 grounded row(s); layers: concepts=1
+- `reforestation` — Reforestation — 1 grounded row(s); layers: concepts=1
+- `refseq` — RefSeq — 1 grounded row(s); layers: concepts=1
+- `regime-of-attention` — regime of attention — 1 grounded row(s); layers: concepts=1
+- `regime-of-expectations` — regime of expectations — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `region-of-interest` — region of interest — 1 grounded row(s); layers: concepts=1
+- `regional-fisheries-management-organizations` — Regional Fisheries Management Organizations — 1 grounded row(s); layers: concepts=1
+- `regional-homogeneity` — Regional Homogeneity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `registration-procedure` — registration procedure — 1 grounded row(s); layers: concepts=1
+- `regression-model` — regression model — 1 grounded row(s); layers: concepts=1
+- `regression-splines` — regression splines — 1 grounded row(s); layers: concepts=1
+- `regression-tasks` — regression tasks — 1 grounded row(s); layers: concepts=1
+- `regular-expressions` — regular expressions — 1 grounded row(s); layers: concepts=1
+- `regularization-techniques` — regularization techniques — 1 grounded row(s); layers: concepts=1
+- `regulating-style-or-terminology` — regulating style or terminology — 1 grounded row(s); layers: concepts=1
+- `regulatory-approvals-for-emergency-use` — regulatory approvals for emergency use — 1 grounded row(s); layers: concepts=1
+- `regulatory-control` — regulatory control — 1 grounded row(s); layers: concepts=1
+- `regulatory-regions` — regulatory regions — 1 grounded row(s); layers: concepts=1
+- `regulatory-t-cells` — regulatory T cells — 1 grounded row(s); layers: concepts=1
+- `rehearsal` — rehearsal — 1 grounded row(s); layers: concepts=1
+- `reimplementing-it-in-c` — reimplementing it in C++ — 1 grounded row(s); layers: concepts=1
+- `reinfection` — reinfection — 1 grounded row(s); layers: concepts=1
+- `reinforcement-and-supervised-learning-methods` — reinforcement and supervised learning methods — 1 grounded row(s); layers: concepts=1
+- `reinforcing-ones` — reinforcing ones — 1 grounded row(s); layers: concepts=1
+- `rejections` — rejections — 1 grounded row(s); layers: concepts=1
+- `related-synonym` — related synonym — 1 grounded row(s); layers: concepts=1
+- `relational-database` — relational database — 1 grounded row(s); layers: concepts=1
+- `relations-ontology` — Relations Ontology — 1 grounded row(s); layers: concepts=1
+- `relative-abundance` — relative abundance — 1 grounded row(s); layers: concepts=1
+- `relative-and-absolute-effect-sizes` — relative and absolute effect sizes — 1 grounded row(s); layers: concepts=1
+- `relative-b-factors` — relative B factors — 1 grounded row(s); layers: concepts=1
+- `relative-length-of-the-flanking-intron` — relative length of the flanking intron — 1 grounded row(s); layers: concepts=1
+- `relative-portfolio-risk` — relative portfolio risk — 1 grounded row(s); layers: content_tags.definitions=1
+- `relative-risk` — relative risk — 1 grounded row(s); layers: concepts=1
+- `reliability` — reliability — 6 grounded row(s); layers: concepts=4, content_tags.definitions=2
+- `reliability-and-validity` — reliability and validity — 1 grounded row(s); layers: concepts=1
+- `reliability-of-relative-domain-positions-and-orientations` — reliability of relative domain positions and orientations — 1 grounded row(s); layers: concepts=1
+- `reliability-studies` — reliability studies — 1 grounded row(s); layers: concepts=1
+- `reliable` — reliable — 1 grounded row(s); layers: concepts=1
+- `relic-dna` — relic DNA — 1 grounded row(s); layers: concepts=1
+- `religion` — religion — 1 grounded row(s); layers: concepts=1
+- `religious-belief` — religious belief — 1 grounded row(s); layers: concepts=1
+- `religious-practice` — religious practice — 1 grounded row(s); layers: concepts=1
+- `relu` — ReLU — 1 grounded row(s); layers: content_tags.definitions=1
+- `remote-machines-that-already-have-data` — remote machines that already have data — 1 grounded row(s); layers: concepts=1
+- `remote-sensing` — remote sensing — 1 grounded row(s); layers: concepts=1
+- `removal-of-blacklists` — removal of blacklists — 1 grounded row(s); layers: concepts=1
+- `removing-the-support-for-python-2` — removing the support for Python 2 — 1 grounded row(s); layers: concepts=1
+- `removing-this-non-specific-signal` — Removing this non-specific signal — 1 grounded row(s); layers: concepts=1
+- `renal-function` — renal function — 1 grounded row(s); layers: concepts=1
+- `repeat-verification-of-sensitivity-and-specificity` — repeat verification of sensitivity and specificity — 1 grounded row(s); layers: concepts=1
+- `repertoire-of-genes-expressing-circular-rna` — repertoire of genes expressing circular RNA — 1 grounded row(s); layers: concepts=1
+- `repetition` — repetition — 1 grounded row(s); layers: concepts=1
+- `repetition-suppression` — repetition suppression — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `repetitive-regions` — repetitive regions — 1 grounded row(s); layers: concepts=1
+- `repetitive-regions-of-genomes` — repetitive regions of genomes — 1 grounded row(s); layers: concepts=1
+- `replay` — replay — 2 grounded row(s); layers: content_tags.definitions=2
+- `replication` — replication — 1 grounded row(s); layers: concepts=1
+- `replication-and-review-updates` — replication and review updates — 1 grounded row(s); layers: concepts=1
+- `replicators` — replicators — 1 grounded row(s); layers: concepts=1
+- `report` — report — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `report-fictitiously` — report fictitiously — 1 grounded row(s); layers: concepts=1
+- `report-toolbox` — report toolbox — 1 grounded row(s); layers: concepts=1
+- `reported-catches` — reported catches — 1 grounded row(s); layers: concepts=1
+- `reported-fao-data` — reported FAO data — 1 grounded row(s); layers: concepts=1
+- `reporting` — Reporting — 1 grounded row(s); layers: concepts=1
+- `reporting-an-assessment-of-possible-publication-bias` — reporting an assessment of possible publication bias — 1 grounded row(s); layers: concepts=1
+- `reporting-guidance` — reporting guidance — 1 grounded row(s); layers: concepts=1
+- `reporting-guideline` — reporting guideline — 1 grounded row(s); layers: concepts=1
+- `reporting-of-codes-algorithms` — Reporting of codes/algorithms — 1 grounded row(s); layers: concepts=1
+- `reporting-quality` — reporting quality — 3 grounded row(s); layers: concepts=3
+- `reports` — reports — 1 grounded row(s); layers: concepts=1
+- `representation` — representation — 7 grounded row(s); layers: concepts=6, content_tags.definitions=1
+- `representation-learning` — representation learning — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `representation-objects` — Representation objects — 1 grounded row(s); layers: concepts=1
+- `representational-art` — representational art — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `representative-proteome` — representative proteome — 1 grounded row(s); layers: concepts=1
+- `representativeness` — representativeness — 1 grounded row(s); layers: concepts=1
+- `representativeness-of-the-sample` — representativeness of the sample — 1 grounded row(s); layers: concepts=1
+- `reproducible-configuration-system` — reproducible configuration system — 1 grounded row(s); layers: concepts=1
+- `reproducible-research` — reproducible research — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `reproductive-unit` — reproductive unit — 1 grounded row(s); layers: concepts=1
+- `required-accuracy` — required accuracy — 1 grounded row(s); layers: concepts=1
+- `required-free-3-end` — required free 3′ end — 1 grounded row(s); layers: concepts=1
+- `rereplication` — rereplication — 1 grounded row(s); layers: concepts=1
+- `rescoring` — rescoring — 1 grounded row(s); layers: concepts=1
+- `research-category` — research category — 1 grounded row(s); layers: concepts=1
+- `research-community` — research community — 1 grounded row(s); layers: concepts=1
+- `research-design` — research design — 1 grounded row(s); layers: concepts=1
+- `research-finding` — research finding — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `research-practice-gap` — research-practice gap — 1 grounded row(s); layers: concepts=1
+- `research-was-of-good-quality` — research was of good quality — 1 grounded row(s); layers: concepts=1
+- `research-waste` — research waste — 1 grounded row(s); layers: concepts=1
+- `researcher-personal-id` — researcher personal ID — 1 grounded row(s); layers: concepts=1
+- `resident-state` — resident state — 1 grounded row(s); layers: concepts=1
+- `residual-confounding` — residual confounding — 2 grounded row(s); layers: concepts=2
+- `residual-variance-of-daily-log-biomass` — residual variance of daily log-biomass — 1 grounded row(s); layers: concepts=1
+- `residual-variances` — residual variances — 2 grounded row(s); layers: concepts=2
+- `residue-gas` — residue gas — 1 grounded row(s); layers: concepts=1
+- `residues-in-proximity` — residues in proximity — 1 grounded row(s); layers: concepts=1
+- `resistance-to-a-drug` — resistance to a drug — 1 grounded row(s); layers: concepts=1
+- `resistant-to-rnaser-degradation` — resistant to RNaseR degradation — 1 grounded row(s); layers: concepts=1
+- `resolution` — resolution — 1 grounded row(s); layers: concepts=1
+- `resolution-bins` — resolution bins — 1 grounded row(s); layers: concepts=1
+- `resolution-cutoff` — resolution cutoff — 1 grounded row(s); layers: concepts=1
+- `resolution-cutoff-levels` — resolution-cutoff levels — 1 grounded row(s); layers: concepts=1
+- `resolution-integration-paradox` — resolution-integration paradox — 1 grounded row(s); layers: concepts=1
+- `resource-of-genomic-regions` — resource of genomic regions — 1 grounded row(s); layers: concepts=1
+- `resources` — Resources — 1 grounded row(s); layers: concepts=1
+- `respiratory-disorders` — respiratory disorders — 1 grounded row(s); layers: concepts=1
+- `respiratory-failure` — respiratory failure — 1 grounded row(s); layers: concepts=1
+- `respondent-bias` — respondent bias — 1 grounded row(s); layers: concepts=1
+- `response-hand` — response hand — 1 grounded row(s); layers: concepts=1
+- `response-latency` — response latency — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `response-rates` — response rates — 1 grounded row(s); layers: concepts=1
+- `response-repetition` — response repetition — 1 grounded row(s); layers: concepts=1
+- `response-reversal` — response reversal — 1 grounded row(s); layers: concepts=1
+- `response-threshold` — response threshold — 2 grounded row(s); layers: content_tags.definitions=2
+- `rest` — REST — 1 grounded row(s); layers: concepts=1
+- `rest-api` — REST API — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `restful-application-programming-interface` — RESTful Application Programming Interface — 1 grounded row(s); layers: concepts=1
+- `restricted-boltzmann-machine` — Restricted Boltzmann Machine — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `restricted-boltzmann-machine-rbm` — Restricted Boltzmann Machine (RBM) — 1 grounded row(s); layers: concepts=1
+- `restriction-enzymes-res` — restriction enzymes (REs) — 1 grounded row(s); layers: concepts=1
+- `result` — Result — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `resulting-dataset` — resulting dataset — 1 grounded row(s); layers: concepts=1
+- `results` — results — 1 grounded row(s); layers: concepts=1
+- `results-matching-interpretations` — results matching interpretations — 1 grounded row(s); layers: concepts=1
+- `results-of-systematic-reviews` — results of systematic reviews — 1 grounded row(s); layers: concepts=1
+- `retained-intron-circle` — retained-intron circle — 1 grounded row(s); layers: concepts=1
+- `retention-interval` — retention interval — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `retrieval` — retrieval — 1 grounded row(s); layers: concepts=1
+- `retrieval-of-the-associated-response` — retrieval of the associated response — 1 grounded row(s); layers: concepts=1
+- `retrospective-study` — retrospective study — 1 grounded row(s); layers: concepts=1
+- `retrosynthesis` — retrosynthesis — 1 grounded row(s); layers: concepts=1
+- `return-current` — return current — 1 grounded row(s); layers: content_tags.definitions=1
+- `reusability` — Reusability — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `revealed-preference` — revealed preference — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `reverse-bias` — reverse bias — 1 grounded row(s); layers: concepts=1
+- `review-updates` — review updates — 1 grounded row(s); layers: concepts=1
+- `reviewed-entries` — reviewed entries — 1 grounded row(s); layers: concepts=1
+- `reviewed-uniprotkb-swiss-prot-entries` — reviewed UniProtKB/Swiss-Prot entries — 1 grounded row(s); layers: concepts=1
+- `revised-conceptual-framework` — revised conceptual framework — 1 grounded row(s); layers: concepts=1
+- `revised-flow-diagrams` — revised flow diagrams — 1 grounded row(s); layers: concepts=1
+- `revised-thresholds-for-galactomannan` — revised thresholds for galactomannan — 1 grounded row(s); layers: concepts=1
+- `reward` — reward — 4 grounded row(s); layers: concepts=4
+- `reward-anticipation` — reward anticipation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `reward-motivation` — reward motivation — 1 grounded row(s); layers: concepts=1
+- `reward-points` — reward points — 1 grounded row(s); layers: concepts=1
 - `reward-prediction-error` — reward prediction error — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rewards` — rewards — 1 grounded row(s); layers: concepts=1
+- `rf` — RF — 1 grounded row(s); layers: concepts=1
+- `rf-size` — RF size — 1 grounded row(s); layers: concepts=1
+- `rfam` — RFAM — 1 grounded row(s); layers: concepts=1
+- `rglist` — RGList — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rhamm` — RHAMM — 1 grounded row(s); layers: content_tags.definitions=1
+- `rhea-database-of-reactions` — Rhea database of reactions — 1 grounded row(s); layers: concepts=1
+- `rhea-knowledgebase` — Rhea knowledgebase — 1 grounded row(s); layers: concepts=1
+- `rhinolophus-affinis` — Rhinolophus affinis — 1 grounded row(s); layers: concepts=1
+- `rhizosphere` — rhizosphere — 1 grounded row(s); layers: concepts=1
+- `rhombic-dodecahedron` — rhombic dodecahedron — 1 grounded row(s); layers: concepts=1
+- `ribominus` — RiboMinus — 1 grounded row(s); layers: concepts=1
+- `ribosomal-rna` — ribosomal RNA — 1 grounded row(s); layers: concepts=1
+- `ribosomal-sequence-variant` — ribosomal sequence variant — 1 grounded row(s); layers: concepts=1
+- `rice` — rice — 1 grounded row(s); layers: concepts=1
+- `rich-club-phenomenon` — rich-club phenomenon — 1 grounded row(s); layers: concepts=1
+- `rich-metadata` — rich metadata — 1 grounded row(s); layers: concepts=1
+- `rifle-classification` — RIFLE classification — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rights-inflation` — rights inflation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rigid-protein-target` — rigid protein target — 1 grounded row(s); layers: concepts=1
+- `rigid-structure` — rigid structure — 1 grounded row(s); layers: concepts=1
+- `rigorous-evaluation` — Rigorous evaluation — 1 grounded row(s); layers: concepts=1
+- `rinchi` — RInChI — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ringdown-of-a-black-hole` — ringdown of a black hole — 1 grounded row(s); layers: concepts=1
+- `rising-carbon-fee` — rising carbon fee — 1 grounded row(s); layers: concepts=1
+- `rising-demands-for-crop-production` — rising demands for crop production — 1 grounded row(s); layers: concepts=1
+- `risk-assessment` — risk assessment — 1 grounded row(s); layers: concepts=1
+- `risk-frame` — risk frame — 1 grounded row(s); layers: concepts=1
+- `risk-of-an-excessive-number-of-reviews-addressing-the-same-q` — risk of an excessive number of reviews addressing the same question — 1 grounded row(s); layers: concepts=1
+- `risk-perceptions` — risk perceptions — 1 grounded row(s); layers: concepts=1
+- `risk-to-human-health` — risk to human health — 1 grounded row(s); layers: concepts=1
+- `ritual-specialist` — ritual specialist — 1 grounded row(s); layers: concepts=1
+- `rivers` — Rivers — 1 grounded row(s); layers: concepts=1
+- `rle` — Rle — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rle-normalization` — RLE normalization — 1 grounded row(s); layers: concepts=1
+- `rmsd` — RMSD — 1 grounded row(s); layers: concepts=1
+- `rmse` — RMSE — 6 grounded row(s); layers: concepts=3, content_tags.definitions=3
+- `rna-circles` — RNA circles — 1 grounded row(s); layers: concepts=1
+- `rna-dependent-rna-polymerase` — RNA-dependent RNA polymerase — 1 grounded row(s); layers: concepts=1
+- `rna-dependent-rna-polymerase-rdrp` — RNA-dependent RNA polymerase (RdRp) — 1 grounded row(s); layers: concepts=1
+- `rna-polymerase-ii` — RNA Polymerase II — 1 grounded row(s); layers: concepts=1
+- `rna-secondary-structure` — RNA secondary structure — 1 grounded row(s); layers: concepts=1
 - `rna-seq` — RNA-seq — 1 grounded row(s); layers: concepts=1
+- `rna-seq-filtering` — RNA-seq filtering — 1 grounded row(s); layers: concepts=1
+- `rna-sequencing` — RNA sequencing — 1 grounded row(s); layers: concepts=1
+- `rnase-r` — RNase R — 1 grounded row(s); layers: concepts=1
+- `rnase-r-resistance` — RNase R resistance — 1 grounded row(s); layers: content_tags.definitions=1
+- `rnaser` — RNaseR — 2 grounded row(s); layers: concepts=2
+- `rnaser-digestion` — RNaseR digestion — 1 grounded row(s); layers: concepts=1
+- `rnf19b` — RNF19B — 1 grounded row(s); layers: concepts=1
+- `roads` — roads — 1 grounded row(s); layers: concepts=1
+- `robot` — robot — 1 grounded row(s); layers: concepts=1
+- `robust-biological-inference` — robust biological inference — 1 grounded row(s); layers: concepts=1
+- `robust-conclusions` — robust conclusions — 1 grounded row(s); layers: concepts=1
+- `robust-maintainable-software` — robust, maintainable software — 1 grounded row(s); layers: concepts=1
+- `robust-statistical-functions` — robust statistical functions — 1 grounded row(s); layers: concepts=1
+- `robust-statistics` — Robust statistics — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `robustified-shrinkage-strategy` — robustified shrinkage strategy — 1 grounded row(s); layers: concepts=1
+- `robustly-designed-interventions` — robustly designed interventions — 1 grounded row(s); layers: concepts=1
+- `role-play-rehearsal` — role play/rehearsal — 1 grounded row(s); layers: concepts=1
+- `rolling-circle-amplification` — rolling circle amplification — 1 grounded row(s); layers: concepts=1
+- `root-mean-square-average-of-the-log-fold-changes` — root-mean-square average of the log-fold-changes — 1 grounded row(s); layers: concepts=1
+- `rotated-form` — rotated form — 1 grounded row(s); layers: concepts=1
+- `rotation-tests` — rotation tests — 1 grounded row(s); layers: concepts=1
+- `rotational-and-translation-symmetries` — rotational and translation symmetries — 1 grounded row(s); layers: concepts=1
+- `rotations-and-translations` — rotations and translations — 1 grounded row(s); layers: concepts=1
+- `routine-detection` — routine detection — 1 grounded row(s); layers: concepts=1
+- `routinely-collected-health-data` — routinely collected health data — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `roxygen2` — roxygen2 — 1 grounded row(s); layers: concepts=1
+- `rpkm` — RPKM — 1 grounded row(s); layers: concepts=1
+- `rrna` — rRNA — 1 grounded row(s); layers: concepts=1
+- `rrna-content` — rRNA content — 1 grounded row(s); layers: concepts=1
+- `rrt-pcr-confirmed-sars-cov-2-infection` — rRT-PCR-confirmed SARS-CoV-2 infection — 1 grounded row(s); layers: concepts=1
+- `rs-in-parts-of-the-pfc` — RS in parts of the PFC — 1 grounded row(s); layers: concepts=1
+- `rs-in-the-fusiform-cortex` — RS in the fusiform cortex — 1 grounded row(s); layers: concepts=1
+- `rs-in-the-pfc` — RS in the PFC — 1 grounded row(s); layers: concepts=1
+- `rt-pcr-positivity` — RT-PCR positivity — 1 grounded row(s); layers: concepts=1
+- `rule-based-filters` — rule-based filters — 1 grounded row(s); layers: concepts=1
+- `rule-mining-techniques` — rule mining techniques — 1 grounded row(s); layers: concepts=1
+- `rule-of-five` — rule-of-five — 1 grounded row(s); layers: concepts=1
+- `rumor` — rumor — 1 grounded row(s); layers: concepts=1
+- `run-length-encoded-vector` — run-length encoded vector — 1 grounded row(s); layers: concepts=1
+- `runaway` — runaway — 1 grounded row(s); layers: content_tags.definitions=1
+- `runoff` — runoff — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `rural-area` — rural area — 1 grounded row(s); layers: concepts=1
+- `s1` — S1 — 1 grounded row(s); layers: concepts=1
+- `s1-n` — S1/N — 1 grounded row(s); layers: concepts=1
+- `sa-score` — SA Score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `saas-system` — SAAS system — 1 grounded row(s); layers: concepts=1
+- `sage-vaccine-hesitancy-scale` — SAGE Vaccine Hesitancy Scale — 1 grounded row(s); layers: concepts=1
+- `salience` — salience — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `salt-form` — salt form — 1 grounded row(s); layers: concepts=1
+- `salts` — salts — 1 grounded row(s); layers: concepts=1
+- `same-calculations` — same calculations — 1 grounded row(s); layers: concepts=1
+- `same-equation-of-state` — same equation of state — 1 grounded row(s); layers: concepts=1
+- `same-incident` — same incident — 1 grounded row(s); layers: concepts=1
+- `same-modeling-algorithm` — same modeling algorithm — 1 grounded row(s); layers: concepts=1
+- `same-sample-sets` — same sample sets — 1 grounded row(s); layers: concepts=1
+- `same-species-sarsr-cov` — same species, SARSr-CoV — 1 grounded row(s); layers: concepts=1
+- `sample-data` — sample data — 1 grounded row(s); layers: concepts=1
+- `sample-metadata` — sample metadata — 1 grounded row(s); layers: concepts=1
+- `sample-numbers` — sample numbers — 1 grounded row(s); layers: concepts=1
+- `sample-proportions` — sample proportions — 1 grounded row(s); layers: concepts=1
+- `sample-read-counts` — sample read counts — 1 grounded row(s); layers: concepts=1
+- `sample-representation` — sample representation — 1 grounded row(s); layers: concepts=1
+- `sample-size` — sample size — 4 grounded row(s); layers: concepts=4
+- `sample-size-or-power-calculations` — sample size or power calculations — 1 grounded row(s); layers: concepts=1
+- `sample-volumes` — sample volumes — 1 grounded row(s); layers: concepts=1
+- `sample-wise-distances` — sample-wise distances — 1 grounded row(s); layers: concepts=1
+- `samples-from-individuals-aged-at-least-18-years-with-laborat` — samples from individuals aged at least 18 years with laboratory-confirmed SARS-CoV-2 infection — 1 grounded row(s); layers: concepts=1
+- `samples-taken-at-least-30-days-post-symptom-onset` — samples taken at least 30 days post symptom onset — 1 grounded row(s); layers: concepts=1
+- `sampling` — sampling — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sampling-and-survey-administration` — sampling and survey administration — 1 grounded row(s); layers: concepts=1
+- `sampling-depth-of-the-rna-sequences` — sampling depth of the RNA sequences — 1 grounded row(s); layers: concepts=1
+- `sampling-time-points` — sampling time points — 1 grounded row(s); layers: concepts=1
+- `sampling-variance` — sampling variance — 1 grounded row(s); layers: concepts=1
+- `sanderson-and-colleagues` — Sanderson and colleagues — 1 grounded row(s); layers: concepts=1
+- `sanger-sequencing` — Sanger sequencing — 1 grounded row(s); layers: concepts=1
+- `sarbecovirus-subgenus` — Sarbecovirus subgenus — 1 grounded row(s); layers: concepts=1
+- `sars-cov` — SARS-CoV — 1 grounded row(s); layers: concepts=1
+- `sars-cov-2` — SARS-CoV-2 — 3 grounded row(s); layers: concepts=3
+- `sars-cov-2-igg-antibodies` — SARS-CoV-2 IgG antibodies — 1 grounded row(s); layers: concepts=1
+- `sars-cov-2-infection-upon-re-exposure` — SARS-CoV-2-infection upon re-exposure — 1 grounded row(s); layers: concepts=1
+- `sars-cov-2-rbd` — SARS-CoV-2 RBD — 1 grounded row(s); layers: concepts=1
+- `sars-cov-2-specific-antibodies` — SARS-CoV-2-specific antibodies — 1 grounded row(s); layers: concepts=1
+- `sars-cov-2-total-assay` — SARS-CoV-2 Total assay — 1 grounded row(s); layers: concepts=1
+- `sars-cov-rbd` — SARS-CoV RBD — 1 grounded row(s); layers: concepts=1
+- `sars-related-coronaviruses-sarsr-covs` — SARS-related coronaviruses (SARSr-CoVs) — 1 grounded row(s); layers: concepts=1
+- `sarsr-cov` — SARSr-CoV — 1 grounded row(s); layers: concepts=1
+- `sarsr-covs` — SARSr-CoVs — 1 grounded row(s); layers: concepts=1
+- `satellite-account` — satellite account — 1 grounded row(s); layers: content_tags.definitions=1
+- `saturating-activation-functions` — saturating activation functions — 1 grounded row(s); layers: concepts=1
+- `scala` — SCALA — 1 grounded row(s); layers: concepts=1
+- `scalability-of-predictive-models` — scalability of predictive models — 1 grounded row(s); layers: concepts=1
+- `scalable-data-structures` — scalable data structures — 1 grounded row(s); layers: concepts=1
+- `scalable-elisa` — scalable ELISA — 1 grounded row(s); layers: concepts=1
+- `scalar-quantity` — scalar quantity — 1 grounded row(s); layers: concepts=1
+- `scalar-stress` — scalar stress — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `scale-construction` — scale construction — 1 grounded row(s); layers: concepts=1
+- `scale-development` — scale development — 1 grounded row(s); layers: concepts=1
+- `scale-development-and-validation` — scale development and validation — 1 grounded row(s); layers: concepts=1
+- `scale-evaluation` — scale evaluation — 1 grounded row(s); layers: concepts=1
+- `scale-factors` — scale factors — 1 grounded row(s); layers: concepts=1
+- `scale-model` — scale model — 1 grounded row(s); layers: concepts=1
+- `scale-scores` — scale scores — 1 grounded row(s); layers: concepts=1
+- `scale-up` — scale-up — 1 grounded row(s); layers: concepts=1
+- `scale-validity` — Scale validity — 1 grounded row(s); layers: concepts=1
+- `scales-that-may-either-be-deficient` — scales that may either be deficient — 1 grounded row(s); layers: concepts=1
+- `scaling` — scaling — 1 grounded row(s); layers: content_tags.definitions=1
+- `scenario-rcp8-5` — scenario RCP8.5 — 1 grounded row(s); layers: concepts=1
+- `schema` — schema — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `schizotypy` — schizotypy — 1 grounded row(s); layers: concepts=1
+- `scholarly-digital-research-objects` — scholarly digital research objects — 1 grounded row(s); layers: concepts=1
+- `science` — science — 1 grounded row(s); layers: concepts=1
+- `science-of-behavior-change` — Science of Behavior Change — 1 grounded row(s); layers: concepts=1
+- `science-of-implementation` — science of implementation — 1 grounded row(s); layers: concepts=1
+- `scientific` — Scientific — 1 grounded row(s); layers: concepts=1
+- `scientific-algorithms` — scientific algorithms — 1 grounded row(s); layers: concepts=1
+- `scientific-data` — Scientific data — 1 grounded row(s); layers: concepts=1
+- `scientific-features` — scientific features — 1 grounded row(s); layers: concepts=1
+- `scientific-fraud` — scientific fraud — 1 grounded row(s); layers: concepts=1
+- `scientific-misconduct` — scientific misconduct — 1 grounded row(s); layers: concepts=1
+- `scientific-python-community` — scientific Python community — 1 grounded row(s); layers: concepts=1
+- `scientific-python-ecosystem` — scientific Python ecosystem — 1 grounded row(s); layers: concepts=1
+- `scientific-reticence` — scientific reticence — 1 grounded row(s); layers: concepts=1
+- `scikit` — scikit — 1 grounded row(s); layers: concepts=1
+- `scikit-learn` — scikit-learn — 1 grounded row(s); layers: concepts=1
+- `scipy` — SciPy — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `scipy-ecosystem` — SciPy ecosystem — 1 grounded row(s); layers: concepts=1
+- `scipy-library` — SciPy library — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `scipy-lowlevelcallable` — scipy.LowLevelCallable — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `scipy-optimize-differential-evolution` — scipy.optimize.differential_evolution — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `scope-and-quality-of-included-studies` — scope and quality of included studies — 1 grounded row(s); layers: concepts=1
+- `scoping-review` — scoping review — 1 grounded row(s); layers: content_tags.definitions=1
+- `scoping-reviews` — scoping reviews — 1 grounded row(s); layers: concepts=1
+- `score-of-10-or-greater` — score of 10 or greater — 1 grounded row(s); layers: concepts=1
+- `scoring` — scoring — 1 grounded row(s); layers: concepts=1
+- `scoring-function` — scoring function — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `scrambled-exon-order` — scrambled exon order — 1 grounded row(s); layers: concepts=1
+- `scrambled-exons` — scrambled exons — 1 grounded row(s); layers: concepts=1
+- `scrambled-junction` — scrambled junction — 1 grounded row(s); layers: concepts=1
+- `screener` — screener — 1 grounded row(s); layers: concepts=1
+- `screening` — screening — 1 grounded row(s); layers: content_tags.definitions=1
+- `script-based-interface` — script-based interface — 1 grounded row(s); layers: concepts=1
+- `scripting-functionality` — scripting functionality — 1 grounded row(s); layers: concepts=1
+- `scythe-sickle` — Scythe/Sickle — 1 grounded row(s); layers: concepts=1
+- `sdadd` — SdAdd — 1 grounded row(s); layers: concepts=1
+- `sdas` — SdAs — 1 grounded row(s); layers: concepts=1
+- `sdb` — SdB — 1 grounded row(s); layers: concepts=1
+- `sdfac` — SdFac — 1 grounded row(s); layers: concepts=1
+- `sea-level-rise` — sea level rise — 1 grounded row(s); layers: concepts=1
+- `search-background` — search background — 1 grounded row(s); layers: concepts=1
+- `search-strategy` — search strategy — 1 grounded row(s); layers: concepts=1
+- `seasonal-insect-biomass-profiles` — seasonal insect biomass profiles — 1 grounded row(s); layers: concepts=1
+- `seasonal-phenology` — seasonal phenology — 1 grounded row(s); layers: concepts=1
+- `seasonal-total-flying-insect-biomass` — seasonal total flying insect biomass — 1 grounded row(s); layers: concepts=1
+- `seasonality-of-monthly-air-temperature-and-precipitation` — seasonality of monthly air temperature and precipitation — 1 grounded row(s); layers: concepts=1
+- `seasonally-weighted-estimate` — seasonally weighted estimate — 1 grounded row(s); layers: concepts=1
+- `secondary-analyses` — secondary analyses — 1 grounded row(s); layers: concepts=1
+- `secondary-anti-rabbit-antibody` — secondary anti-rabbit antibody — 1 grounded row(s); layers: concepts=1
+- `secondary-beam-correction` — secondary beam correction — 1 grounded row(s); layers: concepts=1
+- `secondary-infections` — secondary infections — 1 grounded row(s); layers: concepts=1
+- `secondary-metabolites` — secondary metabolites — 1 grounded row(s); layers: concepts=1
+- `secondary-objects` — secondary objects — 1 grounded row(s); layers: concepts=1
+- `secretory-iga` — secretory IgA — 1 grounded row(s); layers: concepts=1
+- `security` — security — 1 grounded row(s); layers: concepts=1
+- `sedentary-behaviour` — sedentary behaviour — 2 grounded row(s); layers: concepts=2
+- `sedentary-lifestyle` — sedentary lifestyle — 1 grounded row(s); layers: concepts=1
+- `sedentary-time` — sedentary time — 1 grounded row(s); layers: concepts=1
+- `seductive-allure` — seductive allure — 1 grounded row(s); layers: concepts=1
+- `seed-and-extend` — seed and extend — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `seed-and-extend-heuristic` — seed-and-extend heuristic — 1 grounded row(s); layers: concepts=1
+- `seed-microbiota` — seed microbiota — 1 grounded row(s); layers: concepts=1
+- `seed-priming` — seed priming — 1 grounded row(s); layers: content_tags.definitions=1
+- `segmentation` — segmentation — 1 grounded row(s); layers: concepts=1
+- `segmentation-masks` — segmentation masks — 1 grounded row(s); layers: concepts=1
+- `segmented-filamentous-bacteria` — segmented filamentous bacteria — 1 grounded row(s); layers: concepts=1
+- `segmented-objects-agreed-with-ground-truth` — segmented objects agreed with ground truth — 1 grounded row(s); layers: concepts=1
+- `segmented-regression` — segmented regression — 1 grounded row(s); layers: concepts=1
+- `segregation` — segregation — 1 grounded row(s); layers: concepts=1
+- `seizure-subontology` — seizure subontology — 1 grounded row(s); layers: concepts=1
+- `seizures` — seizures — 1 grounded row(s); layers: concepts=1
+- `selection` — selection — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `selection-bias` — selection bias — 1 grounded row(s); layers: concepts=1
+- `selection-pressures` — selection pressures — 1 grounded row(s); layers: concepts=1
+- `selective-attention` — selective attention — 1 grounded row(s); layers: content_tags.definitions=1
+- `selective-exposure` — Selective exposure — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `selective-laser-melting` — selective laser melting — 1 grounded row(s); layers: content_tags.definitions=1
+- `selective-reporting-of-complete-studies` — Selective reporting of complete studies — 1 grounded row(s); layers: concepts=1
+- `selective-reward` — selective reward — 1 grounded row(s); layers: concepts=1
+- `selective-search` — selective search — 1 grounded row(s); layers: concepts=1
+- `selectively-propagate-annotations` — selectively propagate annotations — 1 grounded row(s); layers: concepts=1
+- `selectivity` — selectivity — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `self-contradiction` — self-contradiction — 1 grounded row(s); layers: concepts=1
+- `self-distillation` — self-distillation — 1 grounded row(s); layers: concepts=1
+- `self-individuation` — self-individuation — 1 grounded row(s); layers: concepts=1
+- `self-media-and-netizens` — self-media and netizens — 1 grounded row(s); layers: concepts=1
+- `self-rated-health` — self-rated health — 1 grounded row(s); layers: concepts=1
+- `self-rating` — self-rating — 1 grounded row(s); layers: concepts=1
+- `self-reflection-reflecting` — self-reflection/reflecting — 1 grounded row(s); layers: concepts=1
+- `self-regulation` — self-regulation — 1 grounded row(s); layers: content_tags.definitions=1
+- `self-regulatory` — self-regulatory — 1 grounded row(s); layers: concepts=1
+- `self-reported-methods` — self-reported methods — 1 grounded row(s); layers: concepts=1
+- `self-reports` — self-reports — 1 grounded row(s); layers: concepts=1
+- `semantic` — semantic — 1 grounded row(s); layers: concepts=1
+- `semantic-consistency` — semantic consistency — 1 grounded row(s); layers: concepts=1
+- `semantic-content` — semantic content — 1 grounded row(s); layers: concepts=1
+- `semantic-control` — semantic control — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `semantic-extension` — semantic extension — 1 grounded row(s); layers: concepts=1
+- `semantic-integration` — semantic integration — 1 grounded row(s); layers: concepts=1
+- `semantic-interoperability` — semantic interoperability — 2 grounded row(s); layers: concepts=2
+- `semantic-memory` — semantic memory — 2 grounded row(s); layers: concepts=2
+- `semantic-objects` — semantic objects — 1 grounded row(s); layers: concepts=1
+- `semantic-representation` — semantic representation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `semantic-segmentation` — semantic segmentation — 1 grounded row(s); layers: concepts=1
+- `semantic-similarity` — semantic similarity — 1 grounded row(s); layers: concepts=1
+- `senescent-cells` — senescent cells — 1 grounded row(s); layers: concepts=1
+- `senolytic-drugs` — senolytic drugs — 1 grounded row(s); layers: concepts=1
+- `sense-making` — sense-making — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `sense-or-antisense-circular-rna` — sense or antisense circular RNA — 1 grounded row(s); layers: concepts=1
+- `sense-orientation` — sense orientation — 1 grounded row(s); layers: concepts=1
+- `sensitive-data` — sensitive data — 1 grounded row(s); layers: concepts=1
+- `sensitivity` — sensitivity — 6 grounded row(s); layers: concepts=6
+- `sensitivity-analysis` — sensitivity analysis — 2 grounded row(s); layers: concepts=2
+- `sensitivity-and-specificity` — sensitivity and specificity — 1 grounded row(s); layers: concepts=1
+- `sensitivity-at-the-species-level` — sensitivity at the species level — 1 grounded row(s); layers: concepts=1
+- `sensor-technology` — sensor technology — 1 grounded row(s); layers: concepts=1
+- `sensorimotor-agency` — sensorimotor agency — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sensorimotor-exploration` — sensorimotor exploration — 1 grounded row(s); layers: concepts=1
+- `sensory-memory` — sensory memory — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `sensory-register` — sensory register — 1 grounded row(s); layers: concepts=1
 - `sentiment-analysis` — sentiment analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `separable` — separable — 1 grounded row(s); layers: content_tags.definitions=1
+- `sequence-abundance` — sequence abundance — 1 grounded row(s); layers: concepts=1
+- `sequence-capture-approaches` — sequence capture approaches — 1 grounded row(s); layers: concepts=1
+- `sequence-degeneracy-at-exon-boundaries` — sequence degeneracy at exon boundaries — 1 grounded row(s); layers: concepts=1
+- `sequence-identity` — sequence identity — 1 grounded row(s); layers: concepts=1
+- `sequence-mapping-step` — sequence-mapping step — 1 grounded row(s); layers: concepts=1
+- `sequence-of-bits` — sequence of bits — 1 grounded row(s); layers: concepts=1
+- `sequence-of-the-receptor-binding-domain-of-the-s-gene` — sequence of the receptor-binding domain of the S gene — 1 grounded row(s); layers: concepts=1
+- `sequence-redundancy` — sequence redundancy — 1 grounded row(s); layers: concepts=1
+- `sequence-similarity-searches` — sequence similarity searches — 1 grounded row(s); layers: concepts=1
+- `sequence-similarity-threshold` — sequence similarity threshold — 1 grounded row(s); layers: concepts=1
+- `sequence-tags` — sequence tags — 1 grounded row(s); layers: concepts=1
+- `sequencing-adapters` — sequencing adapters — 1 grounded row(s); layers: concepts=1
+- `sequencing-capacity` — sequencing capacity — 1 grounded row(s); layers: concepts=1
+- `sequencing-depth` — sequencing depth — 1 grounded row(s); layers: concepts=1
+- `sequencing-errors` — sequencing errors — 1 grounded row(s); layers: concepts=1
+- `sequencing-facility` — sequencing facility — 1 grounded row(s); layers: concepts=1
+- `sequencing-reads` — sequencing reads — 2 grounded row(s); layers: concepts=2
+- `sequential-hierarchies` — sequential hierarchies — 1 grounded row(s); layers: concepts=1
+- `sequential-order-from-the-5-to-3-end` — sequential order from the 5′ to 3′ end — 1 grounded row(s); layers: concepts=1
+- `serial-recall` — serial recall — 1 grounded row(s); layers: concepts=1
+- `serialization-and-i-o` — serialization and I/O — 1 grounded row(s); layers: concepts=1
+- `serious-forms-of-scientific-misconduct` — serious forms of scientific misconduct — 1 grounded row(s); layers: concepts=1
+- `seroconversion` — seroconversion — 1 grounded row(s); layers: concepts=1
+- `seroconverted-by-week-2` — seroconverted by week 2 — 1 grounded row(s); layers: concepts=1
+- `serological-testing-resource` — serological testing resource — 1 grounded row(s); layers: concepts=1
+- `serology` — Serology — 1 grounded row(s); layers: concepts=1
+- `seroprevalence-studies` — seroprevalence studies — 1 grounded row(s); layers: concepts=1
+- `serum-creatinine` — serum creatinine — 1 grounded row(s); layers: concepts=1
+- `serum-igg` — serum IgG — 1 grounded row(s); layers: concepts=1
+- `serum-neutralization-assays` — serum-neutralization assays — 1 grounded row(s); layers: concepts=1
+- `service-user` — service user — 1 grounded row(s); layers: content_tags.definitions=1
+- `set` — SET — 1 grounded row(s); layers: concepts=1
+- `set-of-genes-derived-from-a-single-gene-in-the-last-common-a` — set of genes derived from a single gene in the last common ancestor — 1 grounded row(s); layers: concepts=1
+- `set-of-relations` — set of relations — 1 grounded row(s); layers: concepts=1
+- `sets-a-number-of-inputs-to-zero` — sets a number of inputs to zero — 1 grounded row(s); layers: concepts=1
+- `setting-specific-policy-actions` — setting specific policy actions — 1 grounded row(s); layers: concepts=1
+- `setuptools-entry-points` — setuptools entry points — 1 grounded row(s); layers: concepts=1
+- `seven-conserved-replicase-domains` — seven conserved replicase domains — 1 grounded row(s); layers: concepts=1
+- `seven-major-iterations` — seven major iterations — 1 grounded row(s); layers: concepts=1
+- `seven-sections` — seven sections — 1 grounded row(s); layers: concepts=1
+- `several-checklist-items` — several checklist items — 1 grounded row(s); layers: concepts=1
+- `severe-acute-respiratory-syndrome-coronavirus-2` — Severe acute respiratory syndrome coronavirus 2 — 1 grounded row(s); layers: concepts=1
+- `severe-viral-pneumonia` — severe viral pneumonia — 1 grounded row(s); layers: concepts=1
+- `severity` — severity — 1 grounded row(s); layers: concepts=1
+- `severity-of-the-perceived-problem` — severity of the perceived problem — 1 grounded row(s); layers: concepts=1
+- `sexually-selected-characters` — sexually selected characters — 1 grounded row(s); layers: concepts=1
+- `sh-test` — SH test — 1 grounded row(s); layers: concepts=1
+- `sha-1` — SHA-1 — 1 grounded row(s); layers: concepts=1
+- `shadowing` — shadowing — 1 grounded row(s); layers: concepts=1
+- `shap-value` — SHAP value — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `shape` — shape — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `shapiro-time-delay` — Shapiro time delay — 1 grounded row(s); layers: concepts=1
+- `shapley-additive-explanations` — SHapley Additive exPlanations — 1 grounded row(s); layers: concepts=1
+- `shared-ancestry` — shared ancestry — 1 grounded row(s); layers: concepts=1
+- `shared-attention` — shared attention — 1 grounded row(s); layers: concepts=1
+- `shared-beliefs-interests-worldviews-and-narratives` — shared beliefs, interests, worldviews and narratives — 1 grounded row(s); layers: concepts=1
+- `shared-memory` — shared memory — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `shared-plots` — shared plots — 1 grounded row(s); layers: concepts=1
+- `shared-prediction` — shared prediction — 1 grounded row(s); layers: concepts=1
+- `shared-variance` — shared variance — 1 grounded row(s); layers: concepts=1
+- `shared-words` — shared words — 1 grounded row(s); layers: concepts=1
+- `shareholders-becoming-very-powerful` — shareholders becoming very powerful — 1 grounded row(s); layers: concepts=1
+- `sharp-spatial-or-elevation-gradients` — sharp spatial or elevation gradients — 1 grounded row(s); layers: concepts=1
+- `shifted-non-overlapping-words` — shifted non-overlapping words — 1 grounded row(s); layers: concepts=1
+- `short-map` — short map — 1 grounded row(s); layers: concepts=1
+- `short-or-long-lived-plasma-cells` — short- or long-lived plasma cells — 1 grounded row(s); layers: concepts=1
+- `short-partial-adapter-sequences` — short partial adapter sequences — 1 grounded row(s); layers: concepts=1
+- `short-read-technologies` — short-read technologies — 1 grounded row(s); layers: concepts=1
+- `short-term-store` — short-term store — 1 grounded row(s); layers: concepts=1
+- `shotgun` — shotgun — 1 grounded row(s); layers: concepts=1
+- `shrinkage` — shrinkage — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `shrunken` — shrunken — 1 grounded row(s); layers: concepts=1
+- `sialic-acid-binding-activity` — sialic-acid-binding activity — 1 grounded row(s); layers: concepts=1
+- `side-chain` — side chain — 1 grounded row(s); layers: concepts=1
+- `side-chains` — side chains — 1 grounded row(s); layers: concepts=1
+- `siemens-assay` — Siemens assay — 1 grounded row(s); layers: concepts=1
+- `signal-accumulation` — signal accumulation — 1 grounded row(s); layers: concepts=1
+- `signal-artifact-regions` — signal-artifact regions — 1 grounded row(s); layers: concepts=1
+- `signal-strength` — signal strength — 1 grounded row(s); layers: concepts=1
+- `signal-subpackage` — signal subpackage — 1 grounded row(s); layers: concepts=1
+- `signal-to-noise-ratio` — signal-to-noise ratio — 1 grounded row(s); layers: concepts=1
+- `signature-of-existing-in-multiple-copies` — signature of existing in multiple copies — 1 grounded row(s); layers: concepts=1
+- `significant-amount-of-input-sequencing-data-from-different-s` — significant amount of input sequencing data from different sources — 1 grounded row(s); layers: concepts=1
+- `significant-background-noise` — significant background noise — 1 grounded row(s); layers: concepts=1
+- `significant-enrichment-of-signal` — significant enrichment of signal — 1 grounded row(s); layers: concepts=1
+- `significant-insights` — significant insights — 1 grounded row(s); layers: concepts=1
+- `significant-variations-in-the-rates-of-yield-change` — significant variations in the rates of yield change — 1 grounded row(s); layers: concepts=1
+- `silencing` — silencing — 1 grounded row(s); layers: concepts=1
+- `silva` — SILVA — 1 grounded row(s); layers: concepts=1
+- `similarity-equal-to-or-greater-than-the-value-specified-with` — similarity equal to or greater than the value specified with the id option — 1 grounded row(s); layers: concepts=1
+- `similarity-measure` — similarity measure — 1 grounded row(s); layers: concepts=1
+- `simm-dataset` — SIMM dataset — 1 grounded row(s); layers: concepts=1
+- `simple-linear-iterative-clustering` — simple linear iterative clustering — 1 grounded row(s); layers: concepts=1
+- `simple-mode` — simple mode — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `simple-rmse-loss` — simple RMSE loss — 1 grounded row(s); layers: concepts=1
+- `simple-searches` — simple searches — 1 grounded row(s); layers: concepts=1
+- `simple-terminology` — simple terminology — 1 grounded row(s); layers: concepts=1
+- `simplified-hydroponics` — simplified hydroponics — 1 grounded row(s); layers: content_tags.definitions=1
+- `simplot-analysis` — Simplot analysis — 1 grounded row(s); layers: concepts=1
+- `simulated-data` — simulated data — 1 grounded row(s); layers: concepts=1
+- `simulated-sequencing-errors` — simulated sequencing errors — 1 grounded row(s); layers: concepts=1
+- `simulation` — simulation — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `simulation-a` — Simulation A — 1 grounded row(s); layers: concepts=1
+- `simulation-b` — Simulation B — 1 grounded row(s); layers: concepts=1
+- `simulation-engines` — simulation engines — 1 grounded row(s); layers: concepts=1
+- `simultaneous-principal-curves` — simultaneous principal curves — 1 grounded row(s); layers: concepts=1
+- `sina-weibo-zhihu-douban-wechat` — Sina weibo, Zhihu, Douban, WeChat — 1 grounded row(s); layers: concepts=1
+- `single` — single — 1 grounded row(s); layers: concepts=1
+- `single-advance-or-technology` — single advance or technology — 1 grounded row(s); layers: concepts=1
+- `single-animal-pose-estimation` — single-animal pose estimation — 1 grounded row(s); layers: concepts=1
+- `single-animal-pose-estimation-problem` — single-animal pose-estimation problem — 1 grounded row(s); layers: concepts=1
+- `single-blacklist` — single blacklist — 1 grounded row(s); layers: concepts=1
+- `single-bucket-model` — single bucket model — 1 grounded row(s); layers: concepts=1
+- `single-cell-genomics` — single-cell genomics — 1 grounded row(s); layers: concepts=1
+- `single-cell-platforms` — single-cell platforms — 1 grounded row(s); layers: concepts=1
+- `single-cell-rna-sequencing` — single-cell RNA sequencing — 1 grounded row(s); layers: concepts=1
+- `single-cell-technologies` — single-cell technologies — 1 grounded row(s); layers: concepts=1
+- `single-cells` — single cells — 1 grounded row(s); layers: concepts=1
+- `single-command` — single command — 1 grounded row(s); layers: concepts=1
+- `single-data-element` — single data element — 1 grounded row(s); layers: concepts=1
+- `single-data-structure` — single data structure — 1 grounded row(s); layers: concepts=1
+- `single-flake-mxene-devices` — single-flake MXene devices — 1 grounded row(s); layers: concepts=1
+- `single-molecule-sequencing-technologies` — single-molecule sequencing technologies — 1 grounded row(s); layers: concepts=1
+- `single-nucleotide-differences` — single-nucleotide differences — 1 grounded row(s); layers: concepts=1
+- `single-nucleotide-polymorphisms-snps` — single nucleotide polymorphisms (SNPs) — 1 grounded row(s); layers: concepts=1
+- `single-patient-biomarker-score` — single patient biomarker score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `single-photon-avalanche-diode` — single-photon avalanche diode — 1 grounded row(s); layers: content_tags.definitions=1
+- `single-precision` — Single Precision — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `single-precision-floating-point` — single-precision floating point — 1 grounded row(s); layers: concepts=1
+- `single-report` — single report — 1 grounded row(s); layers: concepts=1
+- `single-task-datasets` — single-task datasets — 1 grounded row(s); layers: concepts=1
+- `single-tube` — single tube — 1 grounded row(s); layers: concepts=1
+- `single-weak-base` — single weak base — 1 grounded row(s); layers: concepts=1
+- `singletons` — singletons — 1 grounded row(s); layers: concepts=1
+- `site-specific-data-harmonization` — site-specific data harmonization — 1 grounded row(s); layers: concepts=1
+- `sitting` — sitting — 1 grounded row(s); layers: concepts=1
+- `six-major-open-reading-frames-orfs` — six major open-reading frames (ORFs) — 1 grounded row(s); layers: concepts=1
+- `six-reading-frames` — six reading frames — 1 grounded row(s); layers: concepts=1
+- `size-factors` — size factors — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `size-judgement-decision` — size-judgement decision — 1 grounded row(s); layers: concepts=1
+- `size-selection-step` — size selection step — 1 grounded row(s); layers: concepts=1
+- `sizeable-datasets` — sizeable datasets — 1 grounded row(s); layers: concepts=1
+- `skewed-tolerance-curves` — skewed tolerance curves — 1 grounded row(s); layers: concepts=1
+- `skill` — skill — 1 grounded row(s); layers: concepts=1
+- `skills` — skills — 1 grounded row(s); layers: concepts=1
+- `skin-permeability-coefficient` — skin permeability coefficient — 1 grounded row(s); layers: concepts=1
+- `skycoord-class` — SkyCoord class — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sleap` — SLEAP — 1 grounded row(s); layers: concepts=1
+- `slic-superpixel-segmentation` — SLIC superpixel segmentation — 1 grounded row(s); layers: concepts=1
+- `sliding-window` — Sliding Window — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sliding-window-approach` — Sliding Window approach — 1 grounded row(s); layers: concepts=1
+- `sliding-window-minimum-algorithm` — sliding window minimum algorithm — 1 grounded row(s); layers: concepts=1
+- `slingshot` — Slingshot — 1 grounded row(s); layers: concepts=1
+- `slope-b` — slope B — 2 grounded row(s); layers: concepts=2
+- `slot` — slot — 1 grounded row(s); layers: content_tags.definitions=1
+- `slow-feedbacks` — slow feedbacks — 1 grounded row(s); layers: content_tags.definitions=1
+- `slow-i-o-disk-operations` — slow I/O disk operations — 1 grounded row(s); layers: concepts=1
+- `slow-phase` — slow phase — 1 grounded row(s); layers: concepts=1
+- `small-bowel-obstruction` — small bowel obstruction — 1 grounded row(s); layers: concepts=1
+- `small-circular-rnas` — small circular RNAs — 1 grounded row(s); layers: concepts=1
+- `small-clinical-trial` — small clinical trial — 1 grounded row(s); layers: concepts=1
+- `small-fraction-of-the-mappable-chromosome` — small fraction of the mappable chromosome — 1 grounded row(s); layers: concepts=1
+- `small-incentives` — small incentives — 1 grounded row(s); layers: concepts=1
+- `small-molecule-compounds` — small molecule compounds — 1 grounded row(s); layers: concepts=1
+- `small-molecules` — small molecules — 1 grounded row(s); layers: concepts=1
+- `small-national-samples` — small national samples — 1 grounded row(s); layers: concepts=1
+- `small-portion-of-the-genome` — small portion of the genome — 1 grounded row(s); layers: concepts=1
+- `small-protists` — small protists — 1 grounded row(s); layers: concepts=1
+- `small-rna-circles` — small RNA circles — 1 grounded row(s); layers: concepts=1
+- `small-scale-fisheries` — small-scale fisheries — 1 grounded row(s); layers: concepts=1
+- `smaller-hash-tables` — smaller hash tables — 1 grounded row(s); layers: concepts=1
+- `smart` — SMART — 1 grounded row(s); layers: concepts=1
+- `smart-contract` — smart contract — 1 grounded row(s); layers: content_tags.definitions=1
+- `smartphone-addiction` — smartphone addiction — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `smarts` — SMARTS — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `smiles` — SMILES — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
+- `smiles-codes` — SMILES codes — 1 grounded row(s); layers: concepts=1
+- `smiles-like-format` — SMILES-like format — 1 grounded row(s); layers: concepts=1
+- `smina` — Smina — 1 grounded row(s); layers: concepts=1
+- `smirks` — SMIRKS — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `smoking` — smoking — 1 grounded row(s); layers: concepts=1
+- `smoothed-version-of-permutation` — smoothed version of permutation — 1 grounded row(s); layers: concepts=1
+- `snarc` — SNARC — 1 grounded row(s); layers: content_tags.definitions=1
+- `snatac-seq` — snATAC-seq — 1 grounded row(s); layers: content_tags.definitions=1
+- `snotel` — SNOTEL — 1 grounded row(s); layers: concepts=1
+- `snow-water-equivalent` — snow water equivalent — 1 grounded row(s); layers: concepts=1
+- `social-behaviors` — social behaviors — 1 grounded row(s); layers: concepts=1
+- `social-channel-capacity` — social channel capacity — 1 grounded row(s); layers: concepts=1
+- `social-comparison` — social comparison — 1 grounded row(s); layers: concepts=1
+- `social-conformity` — social conformity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `social-context` — social context — 1 grounded row(s); layers: concepts=1
+- `social-desirability` — social desirability — 1 grounded row(s); layers: concepts=1
+- `social-expectations` — social expectations — 1 grounded row(s); layers: concepts=1
+- `social-inequalities` — social inequalities — 1 grounded row(s); layers: concepts=1
+- `social-leap-estimates-animal-poses` — Social LEAP Estimates Animal Poses — 1 grounded row(s); layers: concepts=1
+- `social-media` — social media — 1 grounded row(s); layers: concepts=1
+- `social-memory` — social memory — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `social-norms` — social norms — 1 grounded row(s); layers: concepts=1
+- `social-or-educational-interventions` — social or educational interventions — 1 grounded row(s); layers: concepts=1
+- `social-reinforcement` — social reinforcement — 1 grounded row(s); layers: concepts=1
+- `social-role` — social role — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `social-shadow` — social shadow — 1 grounded row(s); layers: concepts=1
+- `socialization-of-hallucinations` — socialization of hallucinations — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `socioeconomic-status` — socioeconomic status — 1 grounded row(s); layers: content_tags.definitions=1
+- `sociological-factors` — sociological factors — 1 grounded row(s); layers: concepts=1
+- `soft-masking` — soft-masking — 1 grounded row(s); layers: concepts=1
+- `soil-carbon` — soil carbon — 1 grounded row(s); layers: concepts=1
+- `soil-moisture` — soil moisture — 1 grounded row(s); layers: concepts=1
+- `solvents` — solvents — 1 grounded row(s); layers: concepts=1
+- `somatic-mutations` — somatic mutations — 1 grounded row(s); layers: concepts=1
+- `somatostatin` — somatostatin — 1 grounded row(s); layers: content_tags.definitions=1
+- `source-of-trust` — source of trust — 1 grounded row(s); layers: concepts=1
+- `source-population` — source population — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sourcenaturalproduct` — SourceNaturalProduct — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sources-of-uncertainty` — sources of uncertainty — 1 grounded row(s); layers: concepts=1
+- `soybean` — soybean — 1 grounded row(s); layers: concepts=1
+- `space-group` — space group — 1 grounded row(s); layers: concepts=1
+- `space-time-continuum` — space-time continuum — 1 grounded row(s); layers: concepts=1
+- `spaced-seed` — spaced seed — 1 grounded row(s); layers: concepts=1
+- `sparql-api` — SPARQL API — 1 grounded row(s); layers: concepts=1
+- `sparql-endpoint` — SPARQL endpoint — 1 grounded row(s); layers: concepts=1
+- `sparse` — sparse — 1 grounded row(s); layers: concepts=1
+- `sparse-arrays` — sparse arrays — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sparse-coding` — sparse coding — 2 grounded row(s); layers: content_tags.definitions=2
+- `sparse-formats` — sparse formats — 1 grounded row(s); layers: concepts=1
+- `sparse-matrices` — sparse matrices — 1 grounded row(s); layers: concepts=1
+- `sparse-matrix-data-structures` — sparse matrix data structures — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `sparse-matrix-operations` — sparse matrix operations — 1 grounded row(s); layers: concepts=1
+- `spatial` — spatial — 1 grounded row(s); layers: concepts=1
+- `spatial-ability` — spatial ability — 1 grounded row(s); layers: content_tags.definitions=1
+- `spatial-dimensions` — spatial dimensions — 1 grounded row(s); layers: concepts=1
+- `spatial-heterogeneity` — spatial heterogeneity — 1 grounded row(s); layers: concepts=1
+- `spatial-information-of-neighboring-pixels` — spatial information of neighboring pixels — 1 grounded row(s); layers: concepts=1
+- `spatial-pyramid-pooling` — spatial pyramid pooling — 1 grounded row(s); layers: concepts=1
+- `spatial-strain` — spatial strain — 1 grounded row(s); layers: concepts=1
+- `spatial-structuring` — spatial structuring — 1 grounded row(s); layers: concepts=1
+- `spatial-subsampling` — spatial subsampling — 1 grounded row(s); layers: concepts=1
+- `spatial-transcriptomics` — spatial transcriptomics — 1 grounded row(s); layers: concepts=1
+- `spatial-variation` — spatial variation — 1 grounded row(s); layers: concepts=1
+- `spatial-visualization` — spatial visualization — 1 grounded row(s); layers: content_tags.definitions=1
+- `spatially-disjoint-from` — spatially_disjoint_from — 1 grounded row(s); layers: content_tags.definitions=1
+- `spatio-temporal-covariance-structure` — spatio-temporal covariance structure — 1 grounded row(s); layers: concepts=1
+- `spatio-temporal-geostatistical-models` — spatio-temporal geostatistical models — 1 grounded row(s); layers: concepts=1
+- `spearman-correlations` — Spearman correlations — 1 grounded row(s); layers: concepts=1
+- `spearman-s-correlation-coefficients` — Spearman’s correlation coefficients — 1 grounded row(s); layers: concepts=1
+- `special-purpose-intensively-curated-data-archive` — special-purpose, intensively-curated data archive — 1 grounded row(s); layers: concepts=1
+- `specialist` — specialist — 1 grounded row(s); layers: concepts=1
+- `specialized-arrays` — specialized arrays — 1 grounded row(s); layers: concepts=1
+- `specialized-expertize` — specialized expertize — 1 grounded row(s); layers: concepts=1
+- `specialized-formal-data-structures` — specialized, formal data structures — 1 grounded row(s); layers: concepts=1
+- `species-accumulation-curves` — species accumulation curves — 1 grounded row(s); layers: concepts=1
+- `species-and-vegetation-distribution-modeling` — species and vegetation distribution modeling — 1 grounded row(s); layers: concepts=1
+- `species-concept` — species concept — 1 grounded row(s); layers: concepts=1
+- `species-discovery-rates` — species discovery rates — 1 grounded row(s); layers: concepts=1
+- `species-estimates-are-conservative` — species estimates are conservative — 1 grounded row(s); layers: concepts=1
+- `species-neutral-categories` — species-neutral categories — 1 grounded row(s); layers: concepts=1
+- `species-ranges` — species ranges — 1 grounded row(s); layers: concepts=1
+- `specific-antibody` — specific antibody — 1 grounded row(s); layers: concepts=1
+- `specific-conspiracy-theories` — specific conspiracy theories — 1 grounded row(s); layers: concepts=1
+- `specific-ecological-niches` — specific ecological niches — 1 grounded row(s); layers: concepts=1
+- `specific-feature` — specific feature — 1 grounded row(s); layers: concepts=1
+- `specific-isoforms` — specific isoforms — 1 grounded row(s); layers: concepts=1
+- `specific-microbiomes` — specific microbiomes — 1 grounded row(s); layers: concepts=1
+- `specific-taxonomic-groups` — specific taxonomic groups — 1 grounded row(s); layers: concepts=1
+- `specific-to-each-genome-assembly` — specific to each genome assembly — 1 grounded row(s); layers: concepts=1
+- `specific-treatments` — specific treatments — 1 grounded row(s); layers: concepts=1
+- `specific-types-of-antibody` — specific types of antibody — 1 grounded row(s); layers: concepts=1
+- `specific-variants` — specific variants — 1 grounded row(s); layers: concepts=1
+- `specification` — specification — 1 grounded row(s); layers: concepts=1
+- `specificity` — specificity — 8 grounded row(s); layers: concepts=7, content_tags.definitions=1
+- `specificity-of-appraisal` — specificity of appraisal — 1 grounded row(s); layers: concepts=1
+- `specificity-or-sensitivity` — specificity or sensitivity — 1 grounded row(s); layers: concepts=1
+- `specificity-score` — specificity score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `specified-controls-and-calibrants` — specified controls and calibrants — 1 grounded row(s); layers: concepts=1
+- `spectro-temporal-excitation-pattern` — spectro-temporal excitation pattern — 1 grounded row(s); layers: concepts=1
+- `speech` — speech — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `speed-of-gravity` — speed of gravity — 1 grounded row(s); layers: concepts=1
+- `spherical-harmonic-terms` — spherical harmonic terms — 1 grounded row(s); layers: concepts=1
+- `sphericity-restraint` — sphericity restraint — 1 grounded row(s); layers: concepts=1
+- `spheroid` — spheroid — 1 grounded row(s); layers: concepts=1
+- `spike` — spike — 2 grounded row(s); layers: concepts=2
+- `spike-ins` — spike-ins — 1 grounded row(s); layers: concepts=1
+- `spike-protein-based` — spike-protein based — 1 grounded row(s); layers: concepts=1
+- `spike-protein-based-targets` — spike protein-based targets — 1 grounded row(s); layers: concepts=1
+- `spike-pseudotyped-lentivirus-neutralization` — spike-pseudotyped lentivirus neutralization — 1 grounded row(s); layers: concepts=1
+- `spike-sorting` — spike-sorting — 2 grounded row(s); layers: content_tags.definitions=2
+- `spike-surface-glycoprotein` — spike surface glycoprotein — 1 grounded row(s); layers: concepts=1
+- `spill-over` — spill-over — 1 grounded row(s); layers: content_tags.definitions=1
+- `spin-orbit-and-spin-spin-couplings` — spin-orbit and spin-spin couplings — 1 grounded row(s); layers: concepts=1
+- `spinal-cord-injury` — spinal cord injury — 1 grounded row(s); layers: concepts=1
+- `splice-acceptor-from-an-upstream-exon` — splice acceptor from an upstream exon — 1 grounded row(s); layers: concepts=1
+- `splice-donor-and-acceptor-usage` — splice donor and acceptor usage — 1 grounded row(s); layers: concepts=1
+- `splice-donor-from-a-downstream-exon` — splice donor from a downstream exon — 1 grounded row(s); layers: concepts=1
+- `splice-isoform-proteins` — splice isoform proteins — 1 grounded row(s); layers: concepts=1
+- `splice-site-donor-and-acceptor-pair` — splice site donor and acceptor pair — 1 grounded row(s); layers: concepts=1
+- `spliced-transcripts` — spliced transcripts — 1 grounded row(s); layers: concepts=1
+- `splicing-processes` — splicing processes — 1 grounded row(s); layers: concepts=1
+- `spline-curves` — spline curves — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `split-apply-combine` — Split-apply-combine — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `split-the-data-into-three-parts` — split the data into three parts — 1 grounded row(s); layers: concepts=1
+- `spoken-words` — spoken words — 1 grounded row(s); layers: concepts=1
+- `spontaneous-activity` — spontaneous activity — 1 grounded row(s); layers: concepts=1
+- `spot-sma-longitudinal-pediatric-data-resource` — SPOT SMA Longitudinal Pediatric Data Resource — 1 grounded row(s); layers: concepts=1
+- `spread-ensemble-standard-deviation-to-error-rmse-ratio` — spread (ensemble standard deviation) to error (RMSE) ratio — 1 grounded row(s); layers: concepts=1
+- `spring-framework` — Spring framework — 1 grounded row(s); layers: concepts=1
+- `spurious-correlations` — spurious correlations — 1 grounded row(s); layers: concepts=1
+- `squared-distances` — squared distances — 1 grounded row(s); layers: concepts=1
+- `sr101` — SR101 — 1 grounded row(s); layers: content_tags.definitions=1
+- `sse2-instructions` — SSE2 instructions — 1 grounded row(s); layers: concepts=1
+- `stability-and-resilience-of-microbial-networks` — stability and resilience of microbial networks — 1 grounded row(s); layers: concepts=1
+- `stabilization` — stabilization — 1 grounded row(s); layers: content_tags.definitions=1
+- `stabilizing-selection` — stabilizing selection — 1 grounded row(s); layers: concepts=1
+- `stable-and-permanent-members` — stable and permanent members — 1 grounded row(s); layers: concepts=1
+- `stable-and-traceable-identifiers` — stable and traceable identifiers — 1 grounded row(s); layers: concepts=1
+- `stable-array-programming-interface` — stable array programming interface — 1 grounded row(s); layers: concepts=1
+- `stable-proteome-identifiers` — stable proteome identifiers — 1 grounded row(s); layers: concepts=1
+- `stable-three-dimensional-structure` — stable three-dimensional structure — 1 grounded row(s); layers: concepts=1
+- `stable-urls` — stable URLs — 1 grounded row(s); layers: concepts=1
+- `stacking-rbms` — stacking RBMs — 1 grounded row(s); layers: concepts=1
+- `staff-and-setting-levels` — staff and setting levels — 1 grounded row(s); layers: concepts=1
+- `stain-separation` — stain separation — 1 grounded row(s); layers: concepts=1
+- `stakeholder-buy-in` — stakeholder buy-in — 1 grounded row(s); layers: concepts=1
+- `standard` — standard — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `standard-8-weekly-uniprot-release-cycle` — standard 8-weekly UniProt release cycle — 1 grounded row(s); layers: concepts=1
+- `standard-api-for-tensor-computation` — standard API for tensor computation — 1 grounded row(s); layers: concepts=1
+- `standard-database-identifiers` — standard database identifiers — 1 grounded row(s); layers: concepts=1
+- `standard-deviation` — standard deviation — 1 grounded row(s); layers: concepts=1
+- `standard-error-estimates` — standard error estimates — 1 grounded row(s); layers: concepts=1
+- `standard-errors` — standard errors — 1 grounded row(s); layers: concepts=1
+- `standard-inchi` — Standard InChI — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `standard-methodologies` — standard methodologies — 1 grounded row(s); layers: concepts=1
+- `standard-set-of-1000-pairs-of-random-longitudes-latitudes` — standard set of 1000 pairs of random longitudes/latitudes — 1 grounded row(s); layers: concepts=1
+- `standardised-data-extraction-protocols` — standardised data extraction protocols — 1 grounded row(s); layers: concepts=1
+- `standardization-of-microbiome-studies` — standardization of microbiome studies — 1 grounded row(s); layers: concepts=1
+- `standardized-consistent-manner` — standardized, consistent manner — 1 grounded row(s); layers: concepts=1
+- `standardized-data-model` — standardized data model — 1 grounded row(s); layers: concepts=1
+- `standardized-experimental-settings` — standardized experimental settings — 1 grounded row(s); layers: concepts=1
+- `standardized-measurement-protocol` — standardized measurement protocol — 1 grounded row(s); layers: concepts=1
+- `standardized-phenotypic-patient-information` — standardized phenotypic patient information — 1 grounded row(s); layers: concepts=1
+- `standardized-pressures` — standardized pressures — 1 grounded row(s); layers: concepts=1
+- `standardized-protocol-to-measure-total-insect-biomass-using-` — standardized protocol to measure total insect biomass using Malaise traps — 1 grounded row(s); layers: concepts=1
+- `standardized-sampling-scheme` — standardized sampling scheme — 1 grounded row(s); layers: concepts=1
+- `standardizer` — Standardizer — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `standards-for-reporting-implementation-studies-stari` — Standards for Reporting Implementation Studies (StaRI) — 1 grounded row(s); layers: concepts=1
+- `star-topology` — star topology — 1 grounded row(s); layers: concepts=1
+- `stari` — StaRI — 1 grounded row(s); layers: concepts=1
+- `stat1` — STAT1 — 1 grounded row(s); layers: concepts=1
+- `stata-version-13-0-program` — STATA version 13.0 program — 1 grounded row(s); layers: concepts=1
+- `state-updating` — state updating — 1 grounded row(s); layers: concepts=1
+- `static-reports` — static reports — 1 grounded row(s); layers: concepts=1
+- `station-density` — station density — 1 grounded row(s); layers: concepts=1
+- `station-observations` — station observations — 1 grounded row(s); layers: concepts=1
+- `statistical-analysis` — statistical analysis — 1 grounded row(s); layers: concepts=1
+- `statistical-approach` — statistical approach — 1 grounded row(s); layers: concepts=1
+- `statistical-averages-of-alignment-quality-scores` — statistical averages of alignment quality scores — 1 grounded row(s); layers: concepts=1
+- `statistical-dependencies-between-the-inputs` — statistical dependencies between the inputs — 1 grounded row(s); layers: concepts=1
+- `statistical-estimates` — Statistical estimates — 1 grounded row(s); layers: concepts=1
+- `statistical-learning` — statistical learning — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `statistical-power` — statistical power — 1 grounded row(s); layers: concepts=1
-- `supervised-learning` — supervised learning — 1 grounded row(s); layers: concepts=1
-- `systematic-review` — systematic review — 1 grounded row(s); layers: content_tags.definitions=1
+- `statistical-power-and-accuracy` — statistical power and accuracy — 1 grounded row(s); layers: concepts=1
+- `statistical-significance` — statistical significance — 1 grounded row(s); layers: concepts=1
+- `statistical-synthesis` — Statistical synthesis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `stats-subpackage` — stats subpackage — 1 grounded row(s); layers: concepts=1
+- `steady-state-in-blood-or-other-fluid` — steady state in blood or other fluid — 1 grounded row(s); layers: concepts=1
+- `steady-state-level-within-a-cell` — steady-state level within a cell — 1 grounded row(s); layers: concepts=1
+- `steering-council` — steering council — 1 grounded row(s); layers: concepts=1
+- `stellate` — stellate — 1 grounded row(s); layers: content_tags.definitions=1
+- `step-1` — Step 1 — 1 grounded row(s); layers: concepts=1
+- `step-2ck` — Step 2CK — 1 grounded row(s); layers: concepts=1
+- `step-3` — Step 3 — 1 grounded row(s); layers: concepts=1
+- `stepwise-deletion` — stepwise deletion — 1 grounded row(s); layers: concepts=1
+- `stereo-mismatch` — stereo mismatch — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `stereocentres` — stereocentres — 1 grounded row(s); layers: concepts=1
+- `stereochemistry` — stereochemistry — 1 grounded row(s); layers: concepts=1
+- `stereoisomers` — stereoisomers — 1 grounded row(s); layers: concepts=1
+- `stereotyped` — stereotyped — 1 grounded row(s); layers: concepts=1
+- `steroid-receptors` — steroid receptors — 1 grounded row(s); layers: concepts=1
+- `stg` — STG — 1 grounded row(s); layers: content_tags.definitions=1
+- `stimulus-degradation` — stimulus degradation — 1 grounded row(s); layers: concepts=1
+- `stimulus-domain` — stimulus domain — 1 grounded row(s); layers: concepts=1
+- `stimulus-onset-asynchrony` — stimulus onset asynchrony — 1 grounded row(s); layers: concepts=1
+- `stimulus-repetition` — stimulus repetition — 1 grounded row(s); layers: concepts=1
+- `stimulus-response-associations` — stimulus–response associations — 1 grounded row(s); layers: concepts=1
+- `stimulus-response-learning` — stimulus–response learning — 1 grounded row(s); layers: concepts=1
+- `stimulus-specific-adaptation` — stimulus-specific adaptation — 3 grounded row(s); layers: content_tags.definitions=3
+- `stochastic-background-of-gravitational-waves` — stochastic background of gravitational waves — 1 grounded row(s); layers: concepts=1
+- `stochastic-global-optimizer` — stochastic global optimizer — 1 grounded row(s); layers: concepts=1
+- `stochastic-hidden-variables` — stochastic hidden variables — 1 grounded row(s); layers: concepts=1
+- `stochastic-maximum-likelihood-sml` — stochastic maximum likelihood (SML) — 1 grounded row(s); layers: concepts=1
+- `stochastic-pooling` — stochastic pooling — 1 grounded row(s); layers: concepts=1
+- `stochastic-visible-variables` — stochastic visible variables — 1 grounded row(s); layers: concepts=1
+- `stochastically-corrupted` — stochastically corrupted — 1 grounded row(s); layers: concepts=1
+- `stock-rebuilding` — stock rebuilding — 1 grounded row(s); layers: concepts=1
+- `stoichiometry` — stoichiometry — 1 grounded row(s); layers: concepts=1
+- `storage` — storage — 1 grounded row(s); layers: concepts=1
+- `storage-requirements` — storage requirements — 1 grounded row(s); layers: concepts=1
+- `storytelling` — storytelling — 1 grounded row(s); layers: concepts=1
+- `stouffer-s-method` — Stouffer’s method — 1 grounded row(s); layers: concepts=1
+- `strain` — strain — 1 grounded row(s); layers: content_tags.definitions=1
+- `strain-exclusion-approach` — strain-exclusion approach — 1 grounded row(s); layers: concepts=1
+- `strand-directionality` — strand directionality — 1 grounded row(s); layers: concepts=1
+- `strategy-mechanism-linkages` — strategy-mechanism linkages — 1 grounded row(s); layers: concepts=1
+- `streaming-algorithms` — “streaming” algorithms — 1 grounded row(s); layers: concepts=1
+- `strega` — STREGA — 1 grounded row(s); layers: concepts=1
+- `strength-of-stabilizing-selection` — strength of stabilizing selection — 1 grounded row(s); layers: concepts=1
+- `strength-of-the-recommendations` — strength of the recommendations — 1 grounded row(s); layers: concepts=1
+- `stress-distance` — stress distance — 1 grounded row(s); layers: content_tags.definitions=1
+- `stress-driven-rcd` — stress-driven RCD — 1 grounded row(s); layers: concepts=1
+- `stress-response` — stress response — 1 grounded row(s); layers: concepts=1
+- `stressor` — stressor — 1 grounded row(s); layers: concepts=1
+- `stressor-score` — stressor score — 1 grounded row(s); layers: concepts=1
+- `strict-alignment-criteria` — strict alignment criteria — 1 grounded row(s); layers: concepts=1
+- `strict-regulations` — strict regulations — 1 grounded row(s); layers: concepts=1
+- `stricta` — STRICTA — 1 grounded row(s); layers: content_tags.definitions=1
+- `strides` — strides — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `striking-plumage-differences` — striking plumage differences — 1 grounded row(s); layers: concepts=1
+- `stringent-conditions` — stringent conditions — 1 grounded row(s); layers: concepts=1
+- `strobe` — STROBE — 1 grounded row(s); layers: concepts=1
+- `strobe-statement` — STROBE statement — 1 grounded row(s); layers: concepts=1
+- `stroma` — stroma — 1 grounded row(s); layers: concepts=1
+- `strong-agreement` — strong agreement — 1 grounded row(s); layers: concepts=1
+- `strong-autonomy` — strong autonomy — 1 grounded row(s); layers: concepts=1
+- `strong-differential-abundance` — strong differential abundance — 1 grounded row(s); layers: concepts=1
+- `strong-enhancers` — strong enhancers — 1 grounded row(s); layers: concepts=1
+- `strong-or-conditional` — strong or conditional — 1 grounded row(s); layers: concepts=1
+- `strong-prediction-view` — strong prediction view — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `strong-reflections` — strong reflections — 1 grounded row(s); layers: concepts=1
+- `strongly-connected-component` — strongly connected component — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `strongly-supported` — strongly supported — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `structural-alert` — Structural Alert — 1 grounded row(s); layers: concepts=1
+- `structural-bioinformatics-research` — structural bioinformatics research — 1 grounded row(s); layers: concepts=1
+- `structural-coverage` — structural coverage — 2 grounded row(s); layers: concepts=2
+- `structural-elements` — structural elements — 1 grounded row(s); layers: concepts=1
+- `structural-equation-modeling` — structural equation modeling — 1 grounded row(s); layers: concepts=1
+- `structural-equation-modelling` — structural equation modelling — 1 grounded row(s); layers: content_tags.definitions=1
+- `structural-feature` — structural feature — 1 grounded row(s); layers: concepts=1
+- `structural-keys` — structural keys — 1 grounded row(s); layers: concepts=1
+- `structural-proteins` — structural proteins — 1 grounded row(s); layers: concepts=1
+- `structural-resemblance` — structural resemblance — 1 grounded row(s); layers: concepts=1
+- `structural-states` — structural states — 1 grounded row(s); layers: concepts=1
+- `structural-uncertainty` — structural uncertainty — 1 grounded row(s); layers: concepts=1
+- `structure` — structure — 2 grounded row(s); layers: content_tags.definitions=2
+- `structure-amplitudes-f` — structure amplitudes | F | — 1 grounded row(s); layers: concepts=1
+- `structure-determination` — structure determination — 1 grounded row(s); layers: concepts=1
+- `structure-factor-amplitudes` — structure-factor amplitudes — 1 grounded row(s); layers: concepts=1
+- `structure-module` — structure module — 1 grounded row(s); layers: concepts=1
+- `structure-of-the-control-network` — structure of the control network — 1 grounded row(s); layers: concepts=1
+- `structure-prediction` — structure prediction — 1 grounded row(s); layers: concepts=1
+- `structured-predictors-variables` — structured predictors variables — 1 grounded row(s); layers: concepts=1
+- `structured-vocabularies` — structured vocabularies — 1 grounded row(s); layers: concepts=1
+- `student-evaluations` — student evaluations — 1 grounded row(s); layers: concepts=1
+- `studies-aiming-to-assess-whether-a-future-rct-is-do-able` — studies aiming to assess whether a future RCT is do-able — 1 grounded row(s); layers: concepts=1
+- `study-groups` — study groups — 1 grounded row(s); layers: concepts=1
+- `study-level` — study-level — 1 grounded row(s); layers: concepts=1
+- `study-plans` — study plans — 1 grounded row(s); layers: concepts=1
+- `study-population` — study population — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `study-protocol` — study protocol — 1 grounded row(s); layers: concepts=1
+- `sub-climates-s-dry-summer` — sub-climates s (dry summer) — 1 grounded row(s); layers: concepts=1
+- `sub-sequences` — sub sequences — 1 grounded row(s); layers: concepts=1
+- `subcellular-compartment` — subcellular compartment — 1 grounded row(s); layers: concepts=1
+- `subcellular-structures` — subcellular structures — 1 grounded row(s); layers: concepts=1
+- `subclass` — subclass — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `subcommittee` — subcommittee — 1 grounded row(s); layers: concepts=1
+- `subject` — subject — 1 grounded row(s); layers: content_tags.definitions=1
+- `subject-head-motion` — subject head motion — 1 grounded row(s); layers: concepts=1
+- `subjective-bias` — subjective bias — 1 grounded row(s); layers: concepts=1
+- `subjective-category-boundary` — subjective category boundary — 1 grounded row(s); layers: content_tags.definitions=1
+- `subjectivity` — subjectivity — 1 grounded row(s); layers: concepts=1
+- `subjectivity-in-rating-the-abstracts` — subjectivity in rating the abstracts — 1 grounded row(s); layers: concepts=1
+- `submodules` — Submodules — 1 grounded row(s); layers: concepts=1
+- `subnode` — subnode — 1 grounded row(s); layers: concepts=1
+- `suboptimal-downstream-analyses` — suboptimal downstream analyses — 1 grounded row(s); layers: concepts=1
+- `suboptimal-outcomes` — suboptimal outcomes — 1 grounded row(s); layers: concepts=1
+- `subordinate-taxa` — subordinate taxa — 1 grounded row(s); layers: concepts=1
+- `subpackages` — subpackages — 1 grounded row(s); layers: concepts=1
+- `subpixel-refinement` — subpixel refinement — 1 grounded row(s); layers: concepts=1
+- `subpopulation` — subpopulation — 1 grounded row(s); layers: concepts=1
+- `subpopulations` — subpopulations — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `subsampled` — subsampled — 1 grounded row(s); layers: concepts=1
+- `subsampling` — subsampling — 1 grounded row(s); layers: concepts=1
+- `subsistence-fisheries` — subsistence fisheries — 1 grounded row(s); layers: concepts=1
+- `substance-misuse` — substance misuse — 1 grounded row(s); layers: concepts=1
+- `substructure-fingerprints` — substructure fingerprints — 1 grounded row(s); layers: concepts=1
+- `substructure-searches` — substructure searches — 1 grounded row(s); layers: concepts=1
+- `subtle-phenotypes` — subtle phenotypes — 1 grounded row(s); layers: concepts=1
+- `subtree-pruning-regrafting` — subtree-pruning-regrafting — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `subtree-skipping` — subtree skipping — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `success-bias` — success bias — 1 grounded row(s); layers: concepts=1
+- `success-of-blinding` — success of blinding — 1 grounded row(s); layers: concepts=1
+- `success-rate` — success rate — 1 grounded row(s); layers: concepts=1
+- `suction-traps` — suction traps — 1 grounded row(s); layers: concepts=1
+- `sufficient-details-to-allow-replication` — sufficient details to allow replication — 1 grounded row(s); layers: concepts=1
+- `sugar-removal-utility` — Sugar Removal Utility — 1 grounded row(s); layers: concepts=1
+- `suite-of-members-shared-among-microbial-consortia-from-simil` — suite of members shared among microbial consortia from similar habitats — 1 grounded row(s); layers: concepts=1
+- `summarizedexperiment` — SummarizedExperiment — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `summarizeoverlaps` — summarizeOverlaps — 1 grounded row(s); layers: concepts=1
+- `summation-of-the-vector-representation-of-overlapping-3-gram` — summation of the vector representation of overlapping 3-grams — 1 grounded row(s); layers: concepts=1
+- `summed-score-below-13` — summed score below 13 — 1 grounded row(s); layers: concepts=1
+- `super-entity` — super-entity — 1 grounded row(s); layers: concepts=1
+- `supercapacitor` — supercapacitor — 1 grounded row(s); layers: content_tags.definitions=1
+- `superfamily-family-and-subfamily-levels` — superfamily, family and subfamily levels — 1 grounded row(s); layers: concepts=1
+- `superior-invariant-features` — superior invariant features — 1 grounded row(s); layers: concepts=1
+- `supernode` — supernode — 1 grounded row(s); layers: concepts=1
+- `superorganism` — superorganism — 1 grounded row(s); layers: concepts=1
+- `supervised-fashion` — supervised fashion — 1 grounded row(s); layers: concepts=1
+- `supervised-human-review-phase` — supervised human review phase — 1 grounded row(s); layers: concepts=1
+- `supervised-learning` — supervised learning — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `supervised-task` — supervised task — 1 grounded row(s); layers: concepts=1
+- `support-vector-machine` — support vector machine — 1 grounded row(s); layers: concepts=1
+- `supporter-model` — Supporter model — 1 grounded row(s); layers: concepts=1
+- `supporting-evidence` — supporting evidence — 1 grounded row(s); layers: concepts=1
+- `supraliminal` — supraliminal — 1 grounded row(s); layers: concepts=1
+- `surechembl` — SureChEMBL — 1 grounded row(s); layers: concepts=1
+- `surface-carbon-reservoirs` — surface carbon reservoirs — 1 grounded row(s); layers: concepts=1
+- `surface-chemistry` — surface chemistry — 1 grounded row(s); layers: concepts=1
+- `surface-de-functionalization` — surface de-functionalization — 1 grounded row(s); layers: concepts=1
+- `surface-functionalization` — surface functionalization — 1 grounded row(s); layers: concepts=1
+- `surface-learning` — surface learning — 1 grounded row(s); layers: content_tags.definitions=1
+- `surface-reflectance` — surface reflectance — 1 grounded row(s); layers: content_tags.definitions=1
+- `surrogate-biomarkers-of-icd` — surrogate biomarkers of ICD — 1 grounded row(s); layers: concepts=1
+- `surrogate-markers` — surrogate markers — 1 grounded row(s); layers: concepts=1
+- `surveillance-and-active-cases` — surveillance and active cases — 1 grounded row(s); layers: concepts=1
+- `survey` — survey — 1 grounded row(s); layers: concepts=1
+- `survey-data` — survey data — 1 grounded row(s); layers: concepts=1
+- `susceptibility-to-rnaser` — susceptibility to RNaseR — 1 grounded row(s); layers: concepts=1
+- `suspense` — suspense — 1 grounded row(s); layers: concepts=1
+- `sustainability` — sustainability — 2 grounded row(s); layers: concepts=2
+- `sustainability-after-original-research-funded-is-completed` — sustainability after original research funded is completed — 1 grounded row(s); layers: concepts=1
+- `sustainable-development` — sustainable development — 1 grounded row(s); layers: concepts=1
+- `sustainable-healthy-diet` — sustainable healthy diet — 1 grounded row(s); layers: content_tags.definitions=1
+- `sustainable-intensification` — sustainable intensification — 1 grounded row(s); layers: concepts=1
+- `sustained-attention` — sustained attention — 1 grounded row(s); layers: content_tags.definitions=1
+- `sustained-behaviors` — sustained behaviors — 1 grounded row(s); layers: concepts=1
+- `sustained-environmental-change` — sustained environmental change — 1 grounded row(s); layers: concepts=1
+- `sustained-funding` — sustained funding — 1 grounded row(s); layers: concepts=1
+- `sustained-national-public-education-communication-strategy` — sustained national public education communication strategy — 1 grounded row(s); layers: concepts=1
+- `sustainment` — sustainment — 1 grounded row(s); layers: concepts=1
+- `svm` — SVM — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `svm-classifier` — SVM classifier — 1 grounded row(s); layers: concepts=1
+- `swear-word` — swear word — 1 grounded row(s); layers: concepts=1
+- `sweave` — Sweave — 1 grounded row(s); layers: concepts=1
+- `swissadme` — SwissADME — 1 grounded row(s); layers: concepts=1
+- `swissadme-web-tool` — SwissADME web tool — 1 grounded row(s); layers: concepts=1
+- `swissdrugdesign-program` — SwissDrugDesign program — 1 grounded row(s); layers: concepts=1
+- `swissdrugdesign-web-tools` — SwissDrugDesign web tools — 1 grounded row(s); layers: concepts=1
+- `switch-from-one-functional-phenotype-to-another` — switch from one functional phenotype to another — 1 grounded row(s); layers: concepts=1
+- `syllables` — syllables — 1 grounded row(s); layers: content_tags.definitions=1
+- `symbionts-in-go` — Symbionts in GO — 1 grounded row(s); layers: concepts=1
+- `symbiotic-fungal-associations` — symbiotic fungal associations — 1 grounded row(s); layers: concepts=1
+- `symbolic-representation-of-a-molecule` — symbolic representation of a molecule — 1 grounded row(s); layers: concepts=1
+- `symmetric-or-libertarian-paternalism` — symmetric or libertarian paternalism — 1 grounded row(s); layers: concepts=1
+- `symmetry-related-reflections` — symmetry-related reflections — 1 grounded row(s); layers: concepts=1
+- `symptom-severity` — symptom severity — 1 grounded row(s); layers: concepts=1
+- `symptom-to-sample-timings` — symptom-to-sample timings — 1 grounded row(s); layers: concepts=1
+- `symptoms-of-pgd` — Symptoms of PGD — 1 grounded row(s); layers: concepts=1
+- `synergism` — synergism — 2 grounded row(s); layers: concepts=2
+- `synergistic-interaction` — synergistic interaction — 1 grounded row(s); layers: content_tags.definitions=1
+- `synonyms` — synonyms — 1 grounded row(s); layers: concepts=1
+- `synthetic-accessibility` — synthetic accessibility — 1 grounded row(s); layers: concepts=1
+- `synthetic-images` — synthetic images — 1 grounded row(s); layers: concepts=1
+- `synthetic-long-read-sequencing` — synthetic long-read sequencing — 1 grounded row(s); layers: concepts=1
+- `synthetic-microbiota` — synthetic microbiota — 1 grounded row(s); layers: concepts=1
+- `synthetic-solid-particles-or-polymeric-matrices-with-regular` — synthetic solid particles or polymeric matrices, with regular or irregular shape and with size ranging from 1 μm to 5 mm, of either primary or secondary manufacturing origin, which are insoluble in water — 1 grounded row(s); layers: concepts=1
+- `systematic-comprehensive-review-of-the-literature` — systematic, comprehensive review of the literature — 1 grounded row(s); layers: concepts=1
+- `systematic-data-integration-software` — systematic data integration software — 1 grounded row(s); layers: concepts=1
+- `systematic-effects` — systematic effects — 1 grounded row(s); layers: concepts=1
+- `systematic-measurement-biases` — systematic measurement biases — 1 grounded row(s); layers: concepts=1
+- `systematic-review-methodologists` — Systematic review methodologists — 1 grounded row(s); layers: concepts=1
+- `systematic-review-protocols` — systematic review protocols — 1 grounded row(s); layers: concepts=1
+- `systematic-review-registration` — systematic review registration — 1 grounded row(s); layers: concepts=1
+- `systematic-reviews` — systematic reviews — 3 grounded row(s); layers: concepts=3
+- `systematic-uncertainties` — systematic uncertainties — 1 grounded row(s); layers: concepts=1
+- `systematics` — Systematics — 1 grounded row(s); layers: concepts=1
+- `systemic-risk` — systemic risk — 1 grounded row(s); layers: concepts=1
+- `systems-approach` — systems approach — 1 grounded row(s); layers: concepts=1
+- `systems-level-studies` — systems-level studies — 1 grounded row(s); layers: concepts=1
+- `t-cell-exhaustion` — T-cell exhaustion — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `t-cell-memory` — T cell memory — 1 grounded row(s); layers: concepts=1
+- `t-cell-recruitment-and-activity` — T cell recruitment and activity — 1 grounded row(s); layers: concepts=1
+- `t-cell-responses` — T cell responses — 1 grounded row(s); layers: concepts=1
+- `t-cells` — T cells — 1 grounded row(s); layers: concepts=1
+- `tab-delimited-spreadsheet-format` — tab-delimited spreadsheet format — 1 grounded row(s); layers: concepts=1
+- `tabular-and-gff-files` — tabular and GFF files — 1 grounded row(s); layers: concepts=1
+- `talimogene-laherparepvec` — talimogene laherparepvec — 1 grounded row(s); layers: concepts=1
+- `tams` — TAMs — 1 grounded row(s); layers: concepts=1
+- `tams-polarized-in-the-m1-state` — TAMs polarized in the M1 state — 1 grounded row(s); layers: concepts=1
+- `tams-polarized-in-the-m2-state` — TAMs polarized in the M2 state — 1 grounded row(s); layers: concepts=1
+- `tandem-cars` — tandem CARs — 1 grounded row(s); layers: concepts=1
+- `tandem-duplication-hypothesis` — tandem duplication hypothesis — 1 grounded row(s); layers: concepts=1
+- `target-class` — target class — 1 grounded row(s); layers: concepts=1
+- `target-cognate-rmsd` — target-cognate RMSD — 1 grounded row(s); layers: concepts=1
+- `target-output` — target output — 1 grounded row(s); layers: concepts=1
+- `target-population-judges` — target population judges — 1 grounded row(s); layers: concepts=1
+- `target-taxa` — target taxa — 1 grounded row(s); layers: concepts=1
+- `target-threshold-effect` — target threshold effect — 1 grounded row(s); layers: content_tags.definitions=1
+- `targeted-mutants` — targeted mutants — 1 grounded row(s); layers: concepts=1
+- `targeting-motif` — targeting motif — 1 grounded row(s); layers: content_tags.definitions=1
+- `task` — task — 2 grounded row(s); layers: content_tags.definitions=2
+- `task-changes` — task changes — 1 grounded row(s); layers: concepts=1
+- `task-incremental-learning` — task-incremental learning — 1 grounded row(s); layers: content_tags.definitions=1
+- `task-specific-representations` — task-specific representations — 1 grounded row(s); layers: concepts=1
+- `tau` — tau — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `tautomers` — tautomers — 1 grounded row(s); layers: concepts=1
+- `taxa` — taxa — 1 grounded row(s); layers: concepts=1
+- `taxa-that-are-highly-indicative-of-a-particular-experimental` — taxa that are highly indicative of a particular experimental treatment or environmental condition — 1 grounded row(s); layers: concepts=1
+- `taxes-and-subsidies` — taxes and subsidies — 1 grounded row(s); layers: concepts=1
+- `taxonomic-communities` — taxonomic communities — 1 grounded row(s); layers: concepts=1
+- `taxonomic-effort` — taxonomic effort — 1 grounded row(s); layers: concepts=1
+- `taxonomic-experts` — taxonomic experts — 1 grounded row(s); layers: concepts=1
+- `taxonomic-labels` — taxonomic labels — 1 grounded row(s); layers: concepts=1
+- `taxonomic-placements` — taxonomic placements — 1 grounded row(s); layers: concepts=1
+- `taxonomic-rank` — taxonomic rank — 1 grounded row(s); layers: concepts=1
+- `taxonomic-scope` — taxonomic scope — 1 grounded row(s); layers: concepts=1
+- `taxonomic-specificity` — taxonomic specificity — 1 grounded row(s); layers: concepts=1
+- `taxonomic-units` — taxonomic units — 1 grounded row(s); layers: concepts=1
+- `taxonomies` — Taxonomies — 1 grounded row(s); layers: concepts=1
+- `tcr-t-therapy` — TCR-T therapy — 1 grounded row(s); layers: concepts=1
+- `teaching-effectiveness` — teaching effectiveness — 1 grounded row(s); layers: concepts=1
+- `team-of-volunteers` — team of volunteers — 1 grounded row(s); layers: concepts=1
+- `technical-artifacts` — technical artifacts — 2 grounded row(s); layers: concepts=2
+- `technical-duplicate` — technical duplicate — 1 grounded row(s); layers: concepts=1
+- `technical-literature` — technical literature — 1 grounded row(s); layers: concepts=1
+- `technical-replicates` — technical replicates — 1 grounded row(s); layers: concepts=1
+- `technical-sequences` — technical sequences — 1 grounded row(s); layers: concepts=1
+- `technofossils` — technofossils — 1 grounded row(s); layers: concepts=1
+- `technological-networks` — technological networks — 1 grounded row(s); layers: concepts=1
+- `technostress` — technostress — 1 grounded row(s); layers: content_tags.definitions=1
+- `television-viewing` — television viewing — 1 grounded row(s); layers: concepts=1
+- `temperature-dependent-resistance-measurements` — temperature-dependent resistance measurements — 1 grounded row(s); layers: concepts=1
+- `template` — template — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `template-based-methods` — template-based methods — 1 grounded row(s); layers: concepts=1
+- `template-entries` — template entries — 1 grounded row(s); layers: concepts=1
+- `template-modelling-score-tm-score` — template modelling score (TM-score) — 1 grounded row(s); layers: concepts=1
+- `template-switching` — template switching — 2 grounded row(s); layers: concepts=2
+- `template-waveforms` — template waveforms — 1 grounded row(s); layers: concepts=1
+- `templated-ontology-design-patterns` — templated ontology design patterns — 1 grounded row(s); layers: concepts=1
+- `temporal-accumulation-curves-of-higher-taxa` — temporal accumulation curves of higher taxa — 1 grounded row(s); layers: concepts=1
+- `temporal-bandwidth` — temporal bandwidth — 1 grounded row(s); layers: content_tags.definitions=1
+- `temporal-coding` — temporal coding — 1 grounded row(s); layers: content_tags.definitions=1
+- `temporal-dynamics` — temporal dynamics — 1 grounded row(s); layers: concepts=1
+- `temporal-integration` — temporal integration — 1 grounded row(s); layers: concepts=1
+- `temporal-models` — temporal models — 1 grounded row(s); layers: concepts=1
+- `temporal-order` — temporal order — 1 grounded row(s); layers: concepts=1
+- `temporal-sampling-rate` — temporal sampling rate — 1 grounded row(s); layers: concepts=1
+- `temporal-tracking` — temporal tracking — 1 grounded row(s); layers: concepts=1
+- `temporal-uncertainty` — temporal uncertainty — 1 grounded row(s); layers: concepts=1
+- `temporal-window` — temporal window — 1 grounded row(s); layers: concepts=1
+- `tenfold-higher-frequency` — tenfold higher frequency — 1 grounded row(s); layers: concepts=1
+- `tens-of-thousands-of-predictors` — tens of thousands of predictors — 1 grounded row(s); layers: concepts=1
+- `tensor-processing-unit-tpu-v3` — Tensor Processing Unit (TPU) v3 — 1 grounded row(s); layers: concepts=1
+- `tensor-processing-units` — tensor processing units — 1 grounded row(s); layers: concepts=1
+- `tensorflow` — TensorFlow — 3 grounded row(s); layers: concepts=3
+- `tensors` — tensors — 1 grounded row(s); layers: concepts=1
+- `terminological-entities-ontology-terms` — terminological entities (ontology terms) — 1 grounded row(s); layers: concepts=1
+- `terminological-knowledge-bases` — terminological knowledge bases — 1 grounded row(s); layers: concepts=1
+- `terminological-variation` — terminological variation — 1 grounded row(s); layers: concepts=1
+- `terminology` — terminology — 1 grounded row(s); layers: concepts=1
+- `terms` — terms — 1 grounded row(s); layers: concepts=1
+- `terraclimate` — TerraClimate — 1 grounded row(s); layers: concepts=1
+- `terraclimate-dataset` — TerraClimate dataset — 1 grounded row(s); layers: concepts=1
+- `tertiary-lymphoid-structures` — tertiary lymphoid structures — 1 grounded row(s); layers: concepts=1
+- `test` — test — 1 grounded row(s); layers: concepts=1
+- `test-coverage` — test coverage — 1 grounded row(s); layers: concepts=1
+- `test-data` — test data — 1 grounded row(s); layers: concepts=1
+- `test-mode` — test mode — 1 grounded row(s); layers: concepts=1
+- `test-of-dimensionality` — test of dimensionality — 1 grounded row(s); layers: concepts=1
+- `test-set` — test set — 1 grounded row(s); layers: content_tags.definitions=1
+- `test-suite` — test suite — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `testable-explanations` — testable explanations — 1 grounded row(s); layers: concepts=1
+- `testable-theories` — testable theories — 1 grounded row(s); layers: concepts=1
+- `testing-overhead` — testing overhead — 1 grounded row(s); layers: concepts=1
+- `testresults` — TestResults — 1 grounded row(s); layers: concepts=1
+- `tests-of-dimensionality` — tests of dimensionality — 1 grounded row(s); layers: concepts=1
+- `tests-of-reliability` — tests of reliability — 1 grounded row(s); layers: concepts=1
+- `tests-of-validity` — tests of validity — 1 grounded row(s); layers: concepts=1
+- `tetanus-toxin-light-chain` — tetanus toxin light chain — 1 grounded row(s); layers: content_tags.definitions=1
+- `tetrachoric-correlations` — tetrachoric correlations — 1 grounded row(s); layers: concepts=1
+- `tetraterpene-derivative` — tetraterpene derivative — 1 grounded row(s); layers: concepts=1
+- `text-indexing` — text indexing — 1 grounded row(s); layers: concepts=1
+- `texture` — texture — 1 grounded row(s); layers: concepts=1
+- `the-addition-of-non-representative-genomes` — The addition of non-representative genomes — 1 grounded row(s); layers: concepts=1
+- `the-availability-of-genome-sequences-of-type-strains` — the availability of genome sequences of type strains — 1 grounded row(s); layers: concepts=1
+- `the-balanced-ani-score-bas` — the Balanced ANI Score (BAS) — 1 grounded row(s); layers: concepts=1
+- `the-capacity-to-use-printed-and-written-information-to-funct` — the capacity to use printed and written information to function in society — 1 grounded row(s); layers: concepts=1
+- `the-chinese-version-of-who-five-well-being-index-who-5` — The Chinese version of WHO-Five Well-Being Index (WHO-5) — 1 grounded row(s); layers: concepts=1
+- `the-classification` — The classification — 1 grounded row(s); layers: concepts=1
+- `the-confounding-factor-smoking` — The confounding factor (smoking) — 1 grounded row(s); layers: concepts=1
+- `the-depth-of-pyrosequencing-resolution` — the depth of pyrosequencing resolution — 1 grounded row(s); layers: concepts=1
+- `the-disturbance` — The disturbance — 1 grounded row(s); layers: concepts=1
+- `the-entire-ssu-rrna-gene` — the entire SSU rRNA gene — 1 grounded row(s); layers: concepts=1
+- `the-factors-leading-to-progression` — the factors leading to progression — 1 grounded row(s); layers: concepts=1
+- `the-fidelity-with-which-an-intervention-is-implemented` — the fidelity with which an intervention is implemented — 1 grounded row(s); layers: concepts=1
+- `the-icg-r` — The ICG-R — 1 grounded row(s); layers: concepts=1
+- `the-inclusion-criterion` — The inclusion criterion — 1 grounded row(s); layers: concepts=1
+- `the-integration-by-congruence` — the integration by congruence — 1 grounded row(s); layers: concepts=1
+- `the-mendelian-randomisation-estimate` — the Mendelian randomisation estimate — 1 grounded row(s); layers: concepts=1
+- `the-outcome-of-interest` — the outcome of interest — 1 grounded row(s); layers: concepts=1
+- `the-power-elite` — The power elite — 1 grounded row(s); layers: concepts=1
+- `the-preferred-reporting-items-for-systematic-reviews-and-met` — The Preferred Reporting Items for Systematic reviews and Meta-Analyses (PRISMA) statement published in 2009 — 1 grounded row(s); layers: concepts=1
+- `the-presence-of-an-effective-publication` — the presence of an effective publication — 1 grounded row(s); layers: concepts=1
+- `the-rater-version-of-the-inventory-of-complicated-grief` — the rater version of the Inventory of Complicated Grief — 1 grounded row(s); layers: concepts=1
+- `the-ratio-of-the-proportional-change-in-the-rt-d-r-d-t-to-th` — the ratio of the proportional change in the RT d R /d T to the proportional change in the RT resistance — 1 grounded row(s); layers: concepts=1
+- `the-stringent-selection-of-sequences` — The stringent selection of sequences — 1 grounded row(s); layers: concepts=1
+- `the-subcategories-of-content-frequency-duration-and-coverage` — the subcategories of content, frequency, duration and coverage — 1 grounded row(s); layers: concepts=1
+- `the-symptoms-proposed-by-the-consensus-panel` — the symptoms proposed by the consensus panel — 1 grounded row(s); layers: concepts=1
+- `the-triggers-of-disease-onset` — the triggers of disease onset — 1 grounded row(s); layers: concepts=1
+- `the-utility-of-the-gm-test` — the utility of the GM test — 1 grounded row(s); layers: concepts=1
+- `theano` — theano — 1 grounded row(s); layers: concepts=1
+- `theatre-of-activity` — theatre of activity — 1 grounded row(s); layers: concepts=1
+- `thematic-classification-and-abstraction` — thematic classification and abstraction — 1 grounded row(s); layers: concepts=1
+- `themes` — themes — 1 grounded row(s); layers: concepts=1
+- `theoretical-analysis` — theoretical analysis — 1 grounded row(s); layers: concepts=1
+- `theoretical-investigation` — theoretical investigation — 1 grounded row(s); layers: concepts=1
+- `theory` — theory — 1 grounded row(s); layers: concepts=1
+- `theory-ladder-climbing` — theory ladder climbing — 1 grounded row(s); layers: concepts=1
+- `theory-of-diffusion` — Theory of Diffusion — 1 grounded row(s); layers: concepts=1
+- `theory-of-planned-behavior` — Theory of Planned Behavior — 1 grounded row(s); layers: concepts=1
+- `theory-of-the-disappearing-microbiota` — theory of the disappearing microbiota — 1 grounded row(s); layers: concepts=1
+- `theory-of-the-doors` — Theory of the Doors — 1 grounded row(s); layers: concepts=1
+- `therapeutic-window` — therapeutic window — 1 grounded row(s); layers: concepts=1
+- `therapy` — therapy — 1 grounded row(s); layers: concepts=1
+- `thermal-fluctuations-at-room-temperature` — thermal fluctuations at room temperature — 1 grounded row(s); layers: concepts=1
+- `thermal-inertia` — thermal inertia — 1 grounded row(s); layers: concepts=1
+- `thermal-tolerance-curves` — thermal tolerance curves — 1 grounded row(s); layers: concepts=1
+- `thermally-activated-inter-flake-hopping-process` — thermally activated inter-flake hopping process — 1 grounded row(s); layers: concepts=1
+- `thermodynamic-or-kinetic-simulation` — thermodynamic or kinetic simulation — 1 grounded row(s); layers: concepts=1
+- `thermogravimetric-analysis-with-mass-spectroscopy-tga-ms` — thermogravimetric analysis with mass spectroscopy (TGA-MS) — 1 grounded row(s); layers: concepts=1
+- `these-22-symptoms` — these 22 symptoms — 1 grounded row(s); layers: concepts=1
+- `these-samples` — these samples — 1 grounded row(s); layers: concepts=1
+- `theta` — theta — 1 grounded row(s); layers: content_tags.definitions=1
+- `theta-sequence` — theta sequence — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `thin-wrapper` — thin wrapper — 1 grounded row(s); layers: concepts=1
+- `thinging` — thinging — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `think-aloud-studies` — think-aloud studies — 1 grounded row(s); layers: concepts=1
+- `thinking-for-speaking` — thinking-for-speaking — 1 grounded row(s); layers: concepts=1
+- `third-party` — third party — 1 grounded row(s); layers: concepts=1
+- `third-party-libraries` — third-party libraries — 1 grounded row(s); layers: concepts=1
+- `third-testing-dataset` — third, testing, dataset — 1 grounded row(s); layers: concepts=1
+- `this-glim-diagnosis-category` — this GLIM diagnosis category — 1 grounded row(s); layers: concepts=1
+- `thoroughness-of-the-conduct-of-the-systematic-review` — thoroughness of the conduct of the systematic review — 1 grounded row(s); layers: concepts=1
+- `those-that-influence-clinical-practice` — those that influence clinical practice — 1 grounded row(s); layers: concepts=1
+- `three-clause-berkeley-software-distribution-bsd-license` — three-clause Berkeley Software Distribution (BSD) license — 1 grounded row(s); layers: concepts=1
+- `three-components` — three components — 1 grounded row(s); layers: concepts=1
+- `three-dimensional-3d-image-stacks` — three-dimensional (3D) image stacks — 1 grounded row(s); layers: concepts=1
+- `three-dimensional-image-set` — three-dimensional image set — 1 grounded row(s); layers: concepts=1
+- `three-dimensional-structure` — three-dimensional structure — 1 grounded row(s); layers: concepts=1
+- `three-editions-of-the-ontology` — three editions of the ontology — 1 grounded row(s); layers: concepts=1
+- `three-key-assumptions` — three key assumptions — 1 grounded row(s); layers: concepts=1
+- `three-levels-of-population-hierarchy` — three levels of population hierarchy — 1 grounded row(s); layers: concepts=1
+- `three-main-patterns-of-response` — three main patterns of response — 1 grounded row(s); layers: concepts=1
+- `three-main-stages` — three main stages — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `three-parameter-non-linear-regression-inhibitor-curve` — three-parameter non-linear regression inhibitor curve — 1 grounded row(s); layers: concepts=1
+- `three-phases` — three phases — 1 grounded row(s); layers: concepts=1
+- `three-sequences` — three sequences — 1 grounded row(s); layers: concepts=1
+- `three-short-insertions` — three short insertions — 1 grounded row(s); layers: concepts=1
+- `three-step-strategy` — three-step strategy — 1 grounded row(s); layers: concepts=1
+- `threshold-adjustment` — threshold adjustment — 1 grounded row(s); layers: concepts=1
+- `threshold-rule` — threshold rule — 1 grounded row(s); layers: concepts=1
+- `threshold-values` — threshold values — 1 grounded row(s); layers: concepts=1
+- `thresholds` — thresholds — 1 grounded row(s); layers: concepts=1
+- `ticking-rate` — ticking rate — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `tightly-knit-group-of-corporations` — tightly-knit group of corporations — 1 grounded row(s); layers: concepts=1
+- `tile-based-whole-slide-image-viewer` — tile-based whole slide image viewer — 1 grounded row(s); layers: concepts=1
+- `tils` — TILs — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `time-aware-neural-network-models` — time-aware neural network models — 1 grounded row(s); layers: concepts=1
+- `time-between-hospital-admission-and-discharge` — time between hospital admission and discharge — 1 grounded row(s); layers: concepts=1
+- `time-biologists-spend-tuning-classical-image-processing-algo` — time biologists spend tuning classical image processing algorithms — 1 grounded row(s); layers: concepts=1
+- `time-class` — Time class — 1 grounded row(s); layers: concepts=1
+- `time-constant` — time constant — 1 grounded row(s); layers: content_tags.definitions=1
+- `time-cost-and-effort` — time, cost and effort — 1 grounded row(s); layers: concepts=1
+- `time-frame` — time frame — 1 grounded row(s); layers: concepts=1
+- `time-taken-to-perform-uniref50-clustering` — time taken to perform UniRef50 clustering — 1 grounded row(s); layers: concepts=1
+- `time-used` — time used — 1 grounded row(s); layers: concepts=1
+- `time-variations-of-the-mass-quadrupole-moment` — time variations of the mass quadrupole moment — 1 grounded row(s); layers: concepts=1
+- `timescale` — timescale — 1 grounded row(s); layers: concepts=1
+- `timing-phase-and-amplitude-of-the-source` — timing, phase, and amplitude of the source — 1 grounded row(s); layers: concepts=1
+- `tinnitus` — tinnitus — 1 grounded row(s); layers: content_tags.definitions=1
+- `tip-of-the-iceberg` — tip of the iceberg — 1 grounded row(s); layers: concepts=1
+- `tissue-areas` — tissue areas — 1 grounded row(s); layers: concepts=1
+- `tissue-microarrays` — tissue microarrays — 1 grounded row(s); layers: concepts=1
+- `tit-for-tat` — tit-for-tat — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `tmas` — TMAs — 1 grounded row(s); layers: concepts=1
+- `tmm-normalization` — TMM normalization — 1 grounded row(s); layers: concepts=1
+- `tnc-network` — TNC network — 1 grounded row(s); layers: concepts=1
+- `token` — token — 1 grounded row(s); layers: concepts=1
+- `tokens` — tokens — 1 grounded row(s); layers: concepts=1
+- `tolerance-breadth` — tolerance breadth — 1 grounded row(s); layers: concepts=1
+- `tolerance-curve` — tolerance curve — 1 grounded row(s); layers: concepts=1
+- `tone-clouds` — tone clouds — 2 grounded row(s); layers: content_tags.definitions=2
+- `tone-evoked-response-magnitude` — tone-evoked response magnitude — 1 grounded row(s); layers: content_tags.definitions=1
+- `tonotopy` — tonotopy — 1 grounded row(s); layers: content_tags.definitions=1
+- `tool` — tool — 2 grounded row(s); layers: concepts=2
+- `toolbox-of-technologies` — toolbox of technologies — 1 grounded row(s); layers: concepts=1
+- `top-0-1-of-signal` — top 0.1% of signal — 1 grounded row(s); layers: concepts=1
+- `top-1-of-all-signal` — top 1% of all signal — 1 grounded row(s); layers: concepts=1
+- `top-5-of-hits` — top 5 % of hits — 1 grounded row(s); layers: concepts=1
+- `top-down` — top–down — 1 grounded row(s); layers: concepts=1
+- `top-down-feedback` — top-down feedback — 1 grounded row(s); layers: concepts=1
+- `top-down-remote-sensing` — top-down remote sensing — 1 grounded row(s); layers: concepts=1
+- `top-holders` — top holders — 1 grounded row(s); layers: concepts=1
+- `top1` — Top1 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `tophat2` — TopHat2 — 1 grounded row(s); layers: concepts=1
+- `topic` — topic — 1 grounded row(s); layers: content_tags.definitions=1
+- `topic-searches` — topic searches — 1 grounded row(s); layers: concepts=1
+- `topics` — topics — 1 grounded row(s); layers: concepts=1
+- `topn` — TopN — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `topographic-effects` — topographic effects — 1 grounded row(s); layers: concepts=1
+- `topological-accuracy` — topological accuracy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `topological-polar-surface-area` — topological polar surface area — 1 grounded row(s); layers: concepts=1
+- `topology` — topology — 1 grounded row(s); layers: concepts=1
+- `topology-of-the-rna-molecules` — topology of the RNA molecules — 1 grounded row(s); layers: concepts=1
+- `total-antibody` — total antibody — 1 grounded row(s); layers: concepts=1
+- `total-antibody-assays` — total antibody assays — 1 grounded row(s); layers: concepts=1
+- `total-catch` — total catch — 1 grounded row(s); layers: concepts=1
+- `total-catch-times-series` — total catch times series — 1 grounded row(s); layers: concepts=1
+- `total-energy` — total energy — 1 grounded row(s); layers: concepts=1
+- `total-errors-per-million-tests` — total errors per million tests — 1 grounded row(s); layers: concepts=1
+- `total-insect-biomass` — total insect biomass — 1 grounded row(s); layers: concepts=1
+- `total-number-of-reads-spanning-back-spliced-junctions` — total number of reads spanning back-spliced junctions — 1 grounded row(s); layers: concepts=1
+- `toxcast` — ToxCast — 1 grounded row(s); layers: concepts=1
+- `toxic-or-other-unwanted-adverse-effects` — toxic or other unwanted adverse effects — 1 grounded row(s); layers: concepts=1
+- `tp-tp-fp` — TP/(TP + FP) — 1 grounded row(s); layers: concepts=1
+- `tp-tp-vp-fn-fp` — TP/(TP + VP + FN + FP) — 1 grounded row(s); layers: concepts=1
+- `tp53` — TP53 — 1 grounded row(s); layers: concepts=1
+- `tpsa` — TPSA — 1 grounded row(s); layers: concepts=1
+- `trace` — trace — 1 grounded row(s); layers: content_tags.definitions=1
+- `tracer-genomic-dna` — tracer genomic DNA — 1 grounded row(s); layers: concepts=1
+- `tracker-tool` — tracker tool — 1 grounded row(s); layers: concepts=1
+- `trade-off` — trade-off — 1 grounded row(s); layers: content_tags.definitions=1
+- `trade-off-between-tolerance-breadth-and-maximum-fitness` — trade-off between tolerance breadth and maximum fitness — 1 grounded row(s); layers: concepts=1
+- `traditional-clinically-used-predictive-models` — traditional, clinically-used predictive models — 1 grounded row(s); layers: concepts=1
+- `traditional-focus-on-internal-over-external-validity` — traditional focus on internal over external validity — 1 grounded row(s); layers: concepts=1
+- `traditional-linear-models` — traditional linear models — 1 grounded row(s); layers: concepts=1
+- `traditional-pathologist-assessment` — traditional pathologist assessment — 1 grounded row(s); layers: concepts=1
+- `traditional-predictive-model-modified-liu` — traditional predictive model (modified Liu) — 1 grounded row(s); layers: concepts=1
+- `trained-laboratory-staff` — trained laboratory staff — 1 grounded row(s); layers: concepts=1
+- `training` — training — 1 grounded row(s); layers: concepts=1
+- `training-and-test-datasets` — training and test datasets — 1 grounded row(s); layers: concepts=1
+- `training-and-test-sets` — training and test sets — 1 grounded row(s); layers: concepts=1
+- `training-data` — training data — 2 grounded row(s); layers: concepts=2
+- `training-dataset` — training dataset — 1 grounded row(s); layers: concepts=1
+- `training-examples` — training examples — 1 grounded row(s); layers: concepts=1
+- `training-of-alphafold` — training of AlphaFold — 1 grounded row(s); layers: concepts=1
+- `training-package` — training package — 1 grounded row(s); layers: concepts=1
+- `trajectory-of-192-intermediate-structures` — trajectory of 192 intermediate structures — 1 grounded row(s); layers: concepts=1
+- `trans-splicing` — trans-splicing — 1 grounded row(s); layers: concepts=1
+- `transcript-structures` — transcript structures — 1 grounded row(s); layers: concepts=1
+- `transcriptdb` — TranscriptDb — 1 grounded row(s); layers: concepts=1
+- `transcription-factor-orthogroups` — transcription factor orthogroups — 1 grounded row(s); layers: concepts=1
+- `transcription-factors` — transcription factors — 2 grounded row(s); layers: concepts=2
+- `transcription-initiation-within-the-first-intron` — transcription initiation within the first intron — 1 grounded row(s); layers: concepts=1
+- `transcription-regulator-activity` — transcription regulator activity — 1 grounded row(s); layers: concepts=1
+- `transcriptional-noise` — transcriptional noise — 1 grounded row(s); layers: concepts=1
+- `transcripts` — transcripts — 1 grounded row(s); layers: concepts=1
+- `transfer` — transfer — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `transgenic-lines` — transgenic lines — 1 grounded row(s); layers: concepts=1
+- `transient-microbiota` — transient microbiota — 1 grounded row(s); layers: concepts=1
+- `transition-rate-matrix` — transition rate matrix — 1 grounded row(s); layers: concepts=1
+- `translated-search-mode` — translated search mode — 1 grounded row(s); layers: concepts=1
+- `translation-invariant-generative-model` — translation invariant generative model — 1 grounded row(s); layers: concepts=1
+- `translation-of-scientific-advances-into-practice` — translation of scientific advances into practice — 1 grounded row(s); layers: concepts=1
+- `translation-scale-and-rotation` — translation, scale, and rotation — 1 grounded row(s); layers: concepts=1
+- `translational-invariance` — translational invariance — 1 grounded row(s); layers: concepts=1
+- `translational-invariances` — translational invariances — 1 grounded row(s); layers: concepts=1
+- `transmission-electron-microscope-tem` — transmission electron microscope (TEM) — 1 grounded row(s); layers: concepts=1
+- `transmission-of-the-virus` — transmission of the virus — 1 grounded row(s); layers: concepts=1
+- `transmission-routine` — transmission routine — 1 grounded row(s); layers: concepts=1
+- `transnational-corporations` — transnational corporations — 1 grounded row(s); layers: concepts=1
 - `transparency` — transparency — 1 grounded row(s); layers: content_tags.definitions=1
+- `transparency-and-accountability` — transparency and accountability — 1 grounded row(s); layers: concepts=1
+- `transparency-of-reporting` — transparency of reporting — 1 grounded row(s); layers: concepts=1
+- `transparency-of-research-reporting` — transparency of research reporting — 1 grounded row(s); layers: concepts=1
+- `transparent` — transparent — 1 grounded row(s); layers: concepts=1
+- `transparent-complete-and-accurate-account` — transparent, complete, and accurate account — 1 grounded row(s); layers: concepts=1
+- `transparent-reporting` — transparent reporting — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `transportation` — transportation — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `transposome` — transposome — 1 grounded row(s); layers: concepts=1
+- `trap-exposure-period` — trap exposure period — 1 grounded row(s); layers: concepts=1
+- `travisci` — TravisCI — 1 grounded row(s); layers: concepts=1
+- `treatment-effects` — treatment effects — 1 grounded row(s); layers: concepts=1
+- `treatment-with-antibiotics-for-three-days` — treatment with antibiotics for three days — 1 grounded row(s); layers: concepts=1
+- `tree-of-parzen-estimators` — Tree of Parzen Estimators — 1 grounded row(s); layers: concepts=1
+- `trend-reversal` — trend reversal — 1 grounded row(s); layers: concepts=1
+- `trial-registers` — trial registers — 1 grounded row(s); layers: concepts=1
+- `triangle-inequality` — triangle inequality — 1 grounded row(s); layers: concepts=1
+- `triangle-multiplicative-update` — triangle multiplicative update — 1 grounded row(s); layers: concepts=1
+- `triclinic-boxes` — triclinic boxes — 1 grounded row(s); layers: concepts=1
+- `trimeric-spike-protein` — trimeric spike protein — 1 grounded row(s); layers: concepts=1
+- `trimmomatic` — Trimmomatic — 1 grounded row(s); layers: concepts=1
+- `trinarization` — trinarization — 1 grounded row(s); layers: concepts=1
+- `triple-code-model` — Triple Code Model — 1 grounded row(s); layers: content_tags.definitions=1
+- `triple-g` — triple G — 1 grounded row(s); layers: concepts=1
+- `triplet-loss-function` — triplet loss function — 1 grounded row(s); layers: concepts=1
+- `triplicate` — triplicate — 1 grounded row(s); layers: concepts=1
+- `tripling-of-human-interactome-coverage` — tripling of human interactome coverage — 1 grounded row(s); layers: concepts=1
+- `troll-information` — troll information — 1 grounded row(s); layers: concepts=1
+- `troll-posts` — troll posts — 1 grounded row(s); layers: concepts=1
+- `tropical-cyclogenesis` — tropical cyclogenesis — 1 grounded row(s); layers: concepts=1
+- `true-negative-orthologue-assignments` — true negative orthologue assignments — 1 grounded row(s); layers: concepts=1
+- `true-prevalence-of-scientific-misconduct` — true prevalence of scientific misconduct — 1 grounded row(s); layers: concepts=1
+- `true-protein` — true protein — 1 grounded row(s); layers: content_tags.definitions=1
+- `true-score` — true score — 1 grounded row(s); layers: concepts=1
+- `trust-among-institutions-scientists-and-the-public` — trust among institutions, scientists, and the public — 1 grounded row(s); layers: concepts=1
+- `trust-an-information-someway-consistent-with-their-system-of` — trust an information someway consistent with their system of beliefs — 1 grounded row(s); layers: concepts=1
+- `trusted-data-provenances` — trusted data provenances — 1 grounded row(s); layers: concepts=1
+- `trustworthiness-of-coding` — trustworthiness of coding — 1 grounded row(s); layers: concepts=1
+- `trustworthy` — trustworthy — 1 grounded row(s); layers: concepts=1
+- `tsp` — TSP — 1 grounded row(s); layers: concepts=1
+- `tumor-associated-macrophage` — tumor-associated macrophage — 1 grounded row(s); layers: content_tags.definitions=1
+- `tumor-associated-macrophages` — tumor-associated macrophages — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `tumor-epithelial` — tumor epithelial — 1 grounded row(s); layers: concepts=1
+- `tumor-epithelial-cells` — tumor epithelial cells — 1 grounded row(s); layers: concepts=1
+- `tumor-epithelium` — tumor epithelium — 1 grounded row(s); layers: concepts=1
+- `tumor-free-mice` — tumor-free mice — 1 grounded row(s); layers: concepts=1
+- `tumor-identification` — tumor identification — 1 grounded row(s); layers: concepts=1
+- `tumor-infiltrating-b-cells` — tumor-infiltrating B cells — 1 grounded row(s); layers: concepts=1
+- `tumor-infiltrating-immune-cells` — tumor-infiltrating immune cells — 1 grounded row(s); layers: concepts=1
+- `tumor-macrophages` — tumor macrophages — 1 grounded row(s); layers: concepts=1
+- `tumor-microenvironment` — tumor microenvironment — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
+- `tumor-morphology` — tumor morphology — 1 grounded row(s); layers: concepts=1
+- `tumor-progression` — tumor progression — 1 grounded row(s); layers: concepts=1
+- `tumor-proportion-score` — tumor proportion score — 1 grounded row(s); layers: concepts=1
+- `tumor-reactive-t-cells` — tumor-reactive T cells — 1 grounded row(s); layers: concepts=1
+- `tumor-samples` — tumor samples — 1 grounded row(s); layers: concepts=1
+- `tumor-stroma` — tumor stroma — 1 grounded row(s); layers: concepts=1
+- `tumor-stromal-percentage` — tumor stromal percentage — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `tuna-and-other-large-pelagic-fishes` — tuna and other large pelagic fishes — 1 grounded row(s); layers: concepts=1
+- `tuple` — tuple — 1 grounded row(s); layers: concepts=1
+- `turgor-loss-point` — turgor loss point — 1 grounded row(s); layers: content_tags.definitions=1
+- `turnover` — turnover — 1 grounded row(s); layers: concepts=1
+- `two-and-three-dimensional-descriptors` — two- and three-dimensional descriptors — 1 grounded row(s); layers: concepts=1
+- `two-dimensional-structure` — two-dimensional structure — 1 grounded row(s); layers: concepts=1
+- `two-expected-underlying-distributions` — two expected underlying distributions — 1 grounded row(s); layers: concepts=1
+- `two-fields` — two fields — 1 grounded row(s); layers: concepts=1
+- `two-primary-principles` — two primary principles — 1 grounded row(s); layers: concepts=1
+- `two-stimulus-comparison-tasks` — two-stimulus comparison tasks — 1 grounded row(s); layers: concepts=1
+- `type-i-error` — Type-I error — 1 grounded row(s); layers: concepts=1
+- `type-i-error-rates` — Type I error rates — 1 grounded row(s); layers: concepts=1
+- `type-ii-error-rates` — Type II error rates — 1 grounded row(s); layers: concepts=1
+- `type-ii-restriction-endonuclease` — type II restriction endonuclease — 1 grounded row(s); layers: concepts=1
+- `type-ivc-bhlh-transcription-factors` — type IVc bHLH transcription factors — 1 grounded row(s); layers: concepts=1
+- `type-of-data` — type of data — 1 grounded row(s); layers: concepts=1
+- `type-of-experimental-evidence` — type of experimental evidence — 1 grounded row(s); layers: concepts=1
+- `typical-assessment-criteria` — typical assessment criteria — 1 grounded row(s); layers: concepts=1
+- `typical-coronavirus-morphology` — typical coronavirus morphology — 1 grounded row(s); layers: concepts=1
+- `typical-removal-of-signals-from-duplicate-reads` — typical removal of signals from duplicate reads — 1 grounded row(s); layers: concepts=1
 - `u-net` — U-Net — 1 grounded row(s); layers: concepts=1
+- `uchime-algorithm` — UCHIME algorithm — 1 grounded row(s); layers: concepts=1
+- `ucsc-knowngene-transcriptome` — UCSC knowngene transcriptome — 1 grounded row(s); layers: concepts=1
+- `uk-mhra-guidance` — UK MHRA guidance — 1 grounded row(s); layers: concepts=1
+- `ullmann` — Ullmann — 1 grounded row(s); layers: concepts=1
+- `ultra-large-2d-images` — ultra-large 2D images — 1 grounded row(s); layers: concepts=1
+- `ultracentrifugation` — Ultracentrifugation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `ultrathin-sections` — ultrathin sections — 1 grounded row(s); layers: concepts=1
+- `umap-tool` — Umap tool — 1 grounded row(s); layers: concepts=1
+- `un-annotated-antisense-circular-rna` — un-annotated antisense circular RNA — 1 grounded row(s); layers: concepts=1
+- `unadjusted-estimates` — unadjusted estimates — 1 grounded row(s); layers: concepts=1
+- `unannotated-repeats` — unannotated repeats — 1 grounded row(s); layers: concepts=1
+- `unbiased-transmission` — unbiased transmission — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `uncertain` — Uncertain — 2 grounded row(s); layers: concepts=2
+- `uncertainty` — uncertainty — 2 grounded row(s); layers: concepts=2
+- `uncertainty-about-inputs` — uncertainty about inputs — 1 grounded row(s); layers: concepts=1
+- `uncertainty-estimates` — uncertainty estimates — 1 grounded row(s); layers: concepts=1
+- `uncharacterized-protein-names` — uncharacterized protein names — 1 grounded row(s); layers: concepts=1
+- `uncomplicated-grief` — uncomplicated grief — 1 grounded row(s); layers: concepts=1
+- `unconscious` — unconscious — 1 grounded row(s); layers: concepts=1
+- `uncorrupted-input` — uncorrupted input — 1 grounded row(s); layers: concepts=1
+- `uncorrupted-ones` — uncorrupted ones — 1 grounded row(s); layers: concepts=1
+- `underestimates` — underestimates — 1 grounded row(s); layers: concepts=1
+- `underlying-evidence` — underlying evidence — 1 grounded row(s); layers: concepts=1
+- `underlying-genome-database` — underlying genome database — 1 grounded row(s); layers: concepts=1
+- `underreporting` — underreporting — 1 grounded row(s); layers: concepts=1
+- `underspecified-structural-conditions` — underspecified structural conditions — 1 grounded row(s); layers: concepts=1
+- `understanding-about-what-happened` — understanding about what happened — 1 grounded row(s); layers: concepts=1
+- `undirected-connections` — undirected connections — 1 grounded row(s); layers: concepts=1
+- `undirected-graph` — undirected graph — 1 grounded row(s); layers: concepts=1
+- `undirected-graphical-model` — undirected graphical model — 1 grounded row(s); layers: concepts=1
+- `unet` — UNet — 1 grounded row(s); layers: concepts=1
+- `unexpected-changes` — unexpected changes — 1 grounded row(s); layers: concepts=1
+- `unexpected-readmissions-within-30-days` — unexpected readmissions within 30 days — 1 grounded row(s); layers: concepts=1
+- `unfiltered-set-of-peaks` — unfiltered set of peaks — 1 grounded row(s); layers: concepts=1
+- `unfounded-fears` — unfounded fears — 1 grounded row(s); layers: concepts=1
+- `unhealthy-ones` — unhealthy ones — 1 grounded row(s); layers: concepts=1
+- `uniclust30` — Uniclust30 — 1 grounded row(s); layers: concepts=1
+- `unidentified-pneumonia-disease-outbreak` — unidentified pneumonia disease outbreak — 1 grounded row(s); layers: concepts=1
+- `unified-memory` — unified memory — 1 grounded row(s); layers: concepts=1
+- `unified-phenotype-ontology-upheno` — Unified Phenotype Ontology (uPheno) — 1 grounded row(s); layers: concepts=1
+- `unifire` — UniFire — 1 grounded row(s); layers: concepts=1
+- `uniform-criteria` — uniform criteria — 1 grounded row(s); layers: concepts=1
+- `uniformly-across-each-transcript` — uniformly across each transcript — 1 grounded row(s); layers: concepts=1
+- `union` — union — 1 grounded row(s); layers: concepts=1
+- `uniprot` — UniProt — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `uniprot-accession` — UniProt accession — 1 grounded row(s); layers: concepts=1
+- `uniprot-archive` — UniProt Archive — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `uniprot-interaction-viewer` — UniProt interaction viewer — 1 grounded row(s); layers: concepts=1
+- `uniprot-knowledgebase` — UniProt Knowledgebase — 1 grounded row(s); layers: concepts=1
+- `uniprot-reference-proteome` — UniProt reference proteome — 1 grounded row(s); layers: concepts=1
+- `uniprot-rule-markup-language` — UniProt Rule Markup Language — 1 grounded row(s); layers: concepts=1
+- `unique-identifier` — unique identifier — 1 grounded row(s); layers: concepts=1
+- `unique-short-dna-sequences` — unique, short DNA sequences — 1 grounded row(s); layers: concepts=1
+- `unique-study-barcodes` — unique study barcodes — 1 grounded row(s); layers: concepts=1
+- `uniquely-aligned-reads` — uniquely aligned reads — 1 grounded row(s); layers: concepts=1
+- `uniquenaturalproduct` — UniqueNaturalProduct — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `uniqueness-for-a-chemical-structure` — uniqueness for a chemical structure — 1 grounded row(s); layers: concepts=1
+- `uniref-databases` — UniRef databases — 1 grounded row(s); layers: concepts=1
+- `uniref-protein-sequence-clusters` — UniRef protein sequence clusters — 1 grounded row(s); layers: concepts=1
+- `uniref50-clustering` — UniRef50 clustering — 1 grounded row(s); layers: concepts=1
+- `uniref90` — UniRef90 — 1 grounded row(s); layers: concepts=1
+- `unirule-system` — UniRule system — 1 grounded row(s); layers: concepts=1
+- `united-medical-language-system-umls` — United Medical Language System (UMLS) — 1 grounded row(s); layers: concepts=1
+- `united-nation-s-medium-variant-projections` — United Nation's medium variant projections — 1 grounded row(s); layers: concepts=1
+- `united-states-medical-licensing-exam-usmle` — United States Medical Licensing Exam (USMLE) — 1 grounded row(s); layers: concepts=1
+- `universal-computing-machine` — universal computing machine — 1 grounded row(s); layers: content_tags.definitions=1
+- `universal-protein-resource` — Universal Protein Resource — 1 grounded row(s); layers: concepts=1
+- `univocity` — univocity — 1 grounded row(s); layers: concepts=1
+- `unlabeled-data` — unlabeled data — 1 grounded row(s); layers: concepts=1
+- `unlabeled-n-dimensional-arrays` — Unlabeled, N-dimensional arrays — 1 grounded row(s); layers: concepts=1
+- `unlabelled-sequence-data` — unlabelled sequence data — 1 grounded row(s); layers: concepts=1
+- `unmappable-regions-of-the-genome` — unmappable regions of the genome — 1 grounded row(s); layers: concepts=1
+- `unmeasured-confounding` — unmeasured confounding — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `unmeasured-factors` — unmeasured factors — 1 grounded row(s); layers: concepts=1
+- `unmerged-reflection-lists` — unmerged reflection lists — 1 grounded row(s); layers: concepts=1
+- `unmodified-adapters` — unmodified adapters — 1 grounded row(s); layers: concepts=1
+- `unobserved-behavior` — unobserved behavior — 1 grounded row(s); layers: concepts=1
+- `unrealistically-smooth-fields` — unrealistically smooth fields — 1 grounded row(s); layers: concepts=1
+- `unreported-catches` — unreported catches — 1 grounded row(s); layers: concepts=1
+- `unrepresentative-sampling` — unrepresentative sampling — 1 grounded row(s); layers: concepts=1
+- `unreviewed-entries` — unreviewed entries — 1 grounded row(s); layers: concepts=1
+- `unreviewed-uniprotkb-trembl-entries` — unreviewed UniProtKB/TrEMBL entries — 1 grounded row(s); layers: concepts=1
+- `unsubstantiated-claims` — unsubstantiated claims — 1 grounded row(s); layers: concepts=1
+- `unsubstantiated-rumors` — unsubstantiated rumors — 1 grounded row(s); layers: concepts=1
+- `unsupervised` — unsupervised — 1 grounded row(s); layers: content_tags.definitions=1
+- `unsupervised-learning` — unsupervised learning — 1 grounded row(s); layers: content_tags.definitions=1
+- `unsupervised-pretraining` — unsupervised pretraining — 1 grounded row(s); layers: concepts=1
+- `unwanted-noise` — unwanted noise — 1 grounded row(s); layers: concepts=1
+- `unweighted-approach` — unweighted approach — 1 grounded row(s); layers: concepts=1
+- `up-posterior` — up-posterior — 1 grounded row(s); layers: concepts=1
+- `up-to-date-reporting-guidance` — Up-to-date reporting guidance — 1 grounded row(s); layers: concepts=1
+- `updated-phyloseq-class` — updated phyloseq-class — 1 grounded row(s); layers: concepts=1
+- `upper-bound-of-the-90-confidence-interval` — upper bound of the 90% confidence interval — 1 grounded row(s); layers: concepts=1
+- `urban-area` — urban area — 1 grounded row(s); layers: concepts=1
+- `urine-output-criteria` — urine output criteria — 1 grounded row(s); layers: concepts=1
+- `use-case` — use case — 1 grounded row(s); layers: concepts=1
+- `usearch` — USEARCH — 1 grounded row(s); layers: concepts=1
+- `useful-number` — useful number — 1 grounded row(s); layers: concepts=1
+- `user-centered-design-process` — user-centered design process — 1 grounded row(s); layers: concepts=1
+- `user-friendly-tools-and-aids` — user-friendly tools and aids — 1 grounded row(s); layers: concepts=1
+- `user-selection-criteria` — user selection criteria — 1 grounded row(s); layers: concepts=1
+- `using-two-gpus` — using two GPUs — 1 grounded row(s); layers: concepts=1
+- `usual-care` — usual care — 1 grounded row(s); layers: concepts=1
+- `utility-of-money` — utility of money — 1 grounded row(s); layers: concepts=1
+- `v2000-molfile` — V2000 molfile — 1 grounded row(s); layers: concepts=1
+- `vaccination` — vaccination — 1 grounded row(s); layers: concepts=1
+- `vaccination-acceptors` — vaccination acceptors — 1 grounded row(s); layers: concepts=1
+- `vaccination-assays` — vaccination assays — 1 grounded row(s); layers: concepts=1
+- `vaccination-intentions` — vaccination intentions — 1 grounded row(s); layers: concepts=1
+- `vaccination-rates` — vaccination rates — 1 grounded row(s); layers: concepts=1
+- `vaccination-strategies` — vaccination strategies — 1 grounded row(s); layers: concepts=1
+- `vaccine-confidence-index` — Vaccine Confidence Index — 1 grounded row(s); layers: concepts=1
+- `vaccine-effectiveness` — vaccine effectiveness — 1 grounded row(s); layers: content_tags.definitions=1
+- `vaccine-efficacy` — vaccine efficacy — 1 grounded row(s); layers: content_tags.definitions=1
+- `vaccine-hesitancy` — vaccine hesitancy — 6 grounded row(s); layers: concepts=2, content_tags.definitions=4
+- `vaccine-induced-immune-responses` — vaccine-induced immune responses — 1 grounded row(s); layers: concepts=1
+- `vaccine-related-antibodies` — vaccine-related antibodies — 1 grounded row(s); layers: concepts=1
+- `vaccine-uptake` — vaccine uptake — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `vaccine-willingness` — vaccine willingness — 1 grounded row(s); layers: content_tags.definitions=1
+- `valid-instrumental-variables` — Valid instrumental variables — 1 grounded row(s); layers: concepts=1
+- `valid-trials` — valid trials — 1 grounded row(s); layers: content_tags.definitions=1
+- `validated` — validated — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `validation-cohort` — validation cohort — 1 grounded row(s); layers: concepts=1
+- `validation-dataset` — validation dataset — 1 grounded row(s); layers: concepts=1
+- `validation-studies` — validation studies — 1 grounded row(s); layers: concepts=1
+- `validity` — validity — 2 grounded row(s); layers: concepts=2
+- `value-at-risk` — value at risk — 1 grounded row(s); layers: content_tags.definitions=1
+- `vanilla-gcn-model` — vanilla GCN model — 1 grounded row(s); layers: concepts=1
+- `vanishing-gradient-problem` — vanishing gradient problem — 1 grounded row(s); layers: concepts=1
+- `variable-length-barcodes` — variable length barcodes — 1 grounded row(s); layers: concepts=1
+- `variables` — variables — 1 grounded row(s); layers: concepts=1
+- `variance-components-analysis` — variance components analysis — 1 grounded row(s); layers: concepts=1
+- `variance-in-outcomes` — variance in outcomes — 1 grounded row(s); layers: concepts=1
+- `variance-inflation-factor` — variance inflation factor — 2 grounded row(s); layers: concepts=2
+- `variance-stabilization` — variance stabilization — 1 grounded row(s); layers: concepts=1
+- `variance-stabilizing-transformations` — variance-stabilizing transformations — 1 grounded row(s); layers: concepts=1
+- `variant-prioritization` — variant prioritization — 1 grounded row(s); layers: concepts=1
+- `variants-in-the-chrna5-gene` — Variants in the CHRNA5 gene — 1 grounded row(s); layers: concepts=1
 - `variational-autoencoder` — variational autoencoder — 1 grounded row(s); layers: content_tags.definitions=1
-- `working-memory` — working memory — 1 grounded row(s); layers: concepts=1
+- `variational-autoencoders` — variational autoencoders — 1 grounded row(s); layers: concepts=1
+- `variational-lower-bound` — variational lower bound — 1 grounded row(s); layers: concepts=1
+- `various-feature-maps` — various feature maps — 1 grounded row(s); layers: concepts=1
+- `varying-dependent-quantities` — varying/dependent quantities — 1 grounded row(s); layers: concepts=1
+- `vector-autoregression` — vector autoregression — 1 grounded row(s); layers: concepts=1
+- `vector-of-size-100` — vector of size 100 — 1 grounded row(s); layers: concepts=1
+- `vector-representations-of-reactions` — vector representations of reactions — 1 grounded row(s); layers: concepts=1
+- `vectorisation` — vectorisation — 1 grounded row(s); layers: concepts=1
+- `vectorization` — vectorization — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `vegetation-changes` — vegetation changes — 1 grounded row(s); layers: concepts=1
+- `velvet` — Velvet — 1 grounded row(s); layers: concepts=1
+- `venn-diagram` — Venn diagram — 1 grounded row(s); layers: concepts=1
+- `vento-foggia` — Vento-Foggia — 1 grounded row(s); layers: concepts=1
+- `ventral-striatum` — ventral striatum — 1 grounded row(s); layers: concepts=1
+- `ventral-visual-processing-stream` — ventral visual processing stream — 1 grounded row(s); layers: concepts=1
+- `verbal-conditioning` — verbal conditioning — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `verbal-label` — verbal label — 1 grounded row(s); layers: concepts=1
+- `vero-e6` — Vero E6 — 1 grounded row(s); layers: concepts=1
+- `vertical-transmission` — vertical transmission — 1 grounded row(s); layers: concepts=1
+- `vertices` — vertices — 1 grounded row(s); layers: concepts=1
+- `very-low-confidence-plddt-scores` — very low confidence pLDDT scores — 1 grounded row(s); layers: concepts=1
+- `very-weak-anomalous-signal-from-sulfur` — very weak anomalous signal from sulfur — 1 grounded row(s); layers: concepts=1
+- `view` — view — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `vina` — Vina — 1 grounded row(s); layers: concepts=1
+- `violation-loss-term` — violation loss term — 1 grounded row(s); layers: concepts=1
+- `viral-antibody-levels` — viral antibody levels — 1 grounded row(s); layers: concepts=1
+- `viral-attachment` — viral attachment — 1 grounded row(s); layers: concepts=1
+- `viral-clearance` — viral clearance — 1 grounded row(s); layers: concepts=1
+- `viral-entry-into-host-cells` — viral entry into host cells — 1 grounded row(s); layers: concepts=1
+- `viral-igg-positive-samples` — viral IgG-positive samples — 1 grounded row(s); layers: concepts=1
+- `viral-load` — viral load — 2 grounded row(s); layers: concepts=2
+- `viral-metagenomes` — viral metagenomes — 1 grounded row(s); layers: concepts=1
+- `viral-pneumonia` — viral pneumonia — 1 grounded row(s); layers: concepts=1
+- `viral-protein-seroconversion` — viral-protein seroconversion — 1 grounded row(s); layers: concepts=1
+- `viral-proteomes` — viral proteomes — 1 grounded row(s); layers: concepts=1
+- `viral-read-data` — viral read data — 1 grounded row(s); layers: concepts=1
+- `viral-rna-measurements` — viral RNA measurements — 1 grounded row(s); layers: concepts=1
+- `viral-rnaemia` — viral RNAemia — 1 grounded row(s); layers: concepts=1
+- `viral-shotgun-metagenomes` — viral shotgun metagenomes — 1 grounded row(s); layers: concepts=1
+- `viral-spike-receptor-binding-domain-rbd` — viral spike receptor binding domain (RBD) — 1 grounded row(s); layers: concepts=1
+- `viral-transport-medium` — viral transport medium — 1 grounded row(s); layers: concepts=1
+- `viroids` — viroids — 1 grounded row(s); layers: concepts=1
+- `virome` — virome — 1 grounded row(s); layers: concepts=1
+- `virtual-screening` — Virtual screening — 2 grounded row(s); layers: concepts=2
+- `virtual-sites` — virtual sites — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `virus` — virus — 1 grounded row(s); layers: concepts=1
+- `virus-genome` — virus genome — 1 grounded row(s); layers: concepts=1
+- `virus-induced-pneumonia` — virus-induced pneumonia — 1 grounded row(s); layers: concepts=1
+- `virus-infectivity-studies` — virus infectivity studies — 1 grounded row(s); layers: concepts=1
+- `virus-neutralization-test` — virus neutralization test — 1 grounded row(s); layers: concepts=1
+- `virus-specific-igg-antibodies` — virus-specific IgG antibodies — 1 grounded row(s); layers: concepts=1
+- `viruses` — viruses — 1 grounded row(s); layers: concepts=1
+- `visibility-of-body-parts` — visibility of body parts — 1 grounded row(s); layers: concepts=1
+- `visible-units` — visible units — 1 grounded row(s); layers: concepts=1
+- `visible-variable` — visible variable — 1 grounded row(s); layers: concepts=1
+- `visual-analysis` — visual analysis — 1 grounded row(s); layers: concepts=1
+- `visual-assets` — visual assets — 1 grounded row(s); layers: concepts=1
+- `visual-control` — visual control — 1 grounded row(s); layers: concepts=1
+- `visual-cortex` — visual cortex — 1 grounded row(s); layers: concepts=1
+- `visual-mismatch-negativity` — visual mismatch negativity — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `visual-score` — visual score — 1 grounded row(s); layers: concepts=1
+- `visual-system-s-structure` — visual system's structure — 1 grounded row(s); layers: concepts=1
+- `visually-interpret-human-pressures` — visually interpret human pressures — 1 grounded row(s); layers: concepts=1
+- `vital-preliminary-step` — vital preliminary step — 1 grounded row(s); layers: concepts=1
+- `vocal-minority` — vocal minority — 1 grounded row(s); layers: concepts=1
+- `volatile-compounds` — volatile compounds — 1 grounded row(s); layers: concepts=1
+- `volume-of-space` — volume of space — 1 grounded row(s); layers: concepts=1
+- `volume-of-the-crystal-illuminated` — volume of the crystal illuminated — 1 grounded row(s); layers: concepts=1
+- `volumetric-analysis` — volumetric analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `voom-function` — voom function — 1 grounded row(s); layers: concepts=1
+- `voom-methodology` — voom methodology — 1 grounded row(s); layers: concepts=1
+- `voting-probability` — voting-probability — 1 grounded row(s); layers: concepts=1
+- `voucher-based-incentive-programmes` — voucher-based incentive programmes — 1 grounded row(s); layers: concepts=1
+- `vouchers` — vouchers — 1 grounded row(s); layers: concepts=1
+- `vs-profiles` — VS profiles — 1 grounded row(s); layers: concepts=1
+- `vsearch` — VSEARCH — 1 grounded row(s); layers: concepts=1
+- `w-dry-winter` — w (dry winter) — 1 grounded row(s); layers: concepts=1
+- `wall-clock-time` — wall-clock time — 1 grounded row(s); layers: concepts=1
+- `warning-flag` — warning flag — 1 grounded row(s); layers: concepts=1
+- `waste-of-financial-and-human-resources` — waste of financial and human resources — 1 grounded row(s); layers: concepts=1
+- `water-balance-model` — water balance model — 1 grounded row(s); layers: concepts=1
+- `water-balance-models` — Water balance models — 1 grounded row(s); layers: concepts=1
+- `water-solubility` — Water Solubility — 1 grounded row(s); layers: concepts=1
+- `watershed-method` — watershed method — 1 grounded row(s); layers: concepts=1
+- `wbm` — WBM — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `wbm-runoff-data` — WBM runoff data — 1 grounded row(s); layers: concepts=1
+- `weak-autonomy` — weak autonomy — 1 grounded row(s); layers: concepts=1
+- `weak-data` — weak data — 1 grounded row(s); layers: concepts=1
+- `weak-high-resolution-data` — weak high-resolution data — 1 grounded row(s); layers: concepts=1
+- `weak-noisy-data` — weak noisy data — 1 grounded row(s); layers: concepts=1
+- `weak-or-inconsistent-regions-of-data` — weak or inconsistent regions of data — 1 grounded row(s); layers: concepts=1
+- `weak-promoters` — weak promoters — 1 grounded row(s); layers: concepts=1
+- `wealth` — wealth — 1 grounded row(s); layers: concepts=1
+- `weather-stations` — weather stations — 1 grounded row(s); layers: concepts=1
+- `web-application` — web application — 2 grounded row(s); layers: concepts=2
+- `web-based-databases` — web-based databases — 1 grounded row(s); layers: concepts=1
+- `web-based-portal` — web-based portal — 1 grounded row(s); layers: concepts=1
+- `web-based-system` — web-based system — 1 grounded row(s); layers: concepts=1
+- `web-interface` — web interface — 1 grounded row(s); layers: concepts=1
+- `web-ontology-language-owl-ontology` — Web Ontology Language (OWL) ontology — 1 grounded row(s); layers: concepts=1
+- `web-resource` — web resource — 1 grounded row(s); layers: concepts=1
+- `web-services` — web services — 1 grounded row(s); layers: concepts=1
+- `weekly-range` — weekly range — 1 grounded row(s); layers: concepts=1
+- `weight-loss` — Weight loss — 2 grounded row(s); layers: concepts=2
+- `weighted-approach` — weighted approach — 1 grounded row(s); layers: concepts=1
+- `weighted-average-of-the-353-clock-cpgs` — weighted average of the 353 clock CpGs — 1 grounded row(s); layers: concepts=1
+- `well-conducted-trials` — well conducted trials — 1 grounded row(s); layers: concepts=1
+- `wellcome-global-monitor` — Wellcome Global Monitor — 1 grounded row(s); layers: concepts=1
+- `wenjuanxing-platform` — Wenjuanxing platform — 1 grounded row(s); layers: concepts=1
+- `western-european-low-altitude-nature-protection-areas` — Western European low-altitude nature protection areas — 1 grounded row(s); layers: concepts=1
+- `what-the-data-are-to-be-used-for` — what the data are to be used for — 1 grounded row(s); layers: concepts=1
+- `wheat` — wheat — 1 grounded row(s); layers: concepts=1
+- `who` — WHO — 1 grounded row(s); layers: concepts=1
+- `who-5` — WHO-5 — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `who-guidelines-on-physical-activity-and-sedentary-behaviour` — WHO guidelines on physical activity and sedentary behaviour — 1 grounded row(s); layers: concepts=1
+- `who-handbook-for-guidelines-development` — WHO Handbook for Guidelines Development — 1 grounded row(s); layers: concepts=1
+- `whole-genome-alignment` — Whole genome alignment — 1 grounded row(s); layers: concepts=1
+- `whole-genome-duplication-events` — whole genome duplication events — 1 grounded row(s); layers: concepts=1
+- `whole-genome-sequencing-wgs-filtering` — whole genome sequencing (WGS) filtering — 1 grounded row(s); layers: concepts=1
+- `whole-population-data` — whole-population data — 1 grounded row(s); layers: concepts=1
+- `whole-protein-docking` — whole protein docking — 1 grounded row(s); layers: concepts=1
+- `whole-slide-image-analysis` — whole slide image analysis — 1 grounded row(s); layers: concepts=1
+- `whole-slide-images` — whole slide images — 1 grounded row(s); layers: concepts=1
+- `whole-slide-scanners` — whole slide scanners — 1 grounded row(s); layers: concepts=1
+- `whole-volume` — whole-volume — 1 grounded row(s); layers: concepts=1
+- `whole-volume-algorithms` — Whole-volume algorithms — 1 grounded row(s); layers: concepts=1
+- `wider-adoption-of-metascape` — wider adoption of Metascape — 1 grounded row(s); layers: concepts=1
+- `widespread-circular-rna-expression` — widespread circular RNA expression — 1 grounded row(s); layers: concepts=1
+- `widespread-rollout-of-vaccines` — widespread rollout of vaccines — 1 grounded row(s); layers: concepts=1
+- `wilcoxon-rank-sum-testing` — Wilcoxon rank sum testing — 1 grounded row(s); layers: concepts=1
+- `wilcoxon-sign-rank-test` — Wilcoxon sign-rank test — 1 grounded row(s); layers: concepts=1
+- `wild-type` — wild-type — 1 grounded row(s); layers: concepts=1
+- `wilderness` — Wilderness — 1 grounded row(s); layers: concepts=1
+- `willed-action` — willed action — 1 grounded row(s); layers: concepts=1
+- `window-function` — window function — 1 grounded row(s); layers: concepts=1
+- `wireless-sensor-network` — wireless sensor network — 1 grounded row(s); layers: content_tags.definitions=1
+- `within-20-kb` — within 20 kb — 1 grounded row(s); layers: concepts=1
+- `wm` — WM — 1 grounded row(s); layers: content_tags.definitions=1
+- `word-cloud` — word cloud — 1 grounded row(s); layers: concepts=1
+- `words` — Words — 1 grounded row(s); layers: concepts=1
+- `words-shared-by-the-query-and-target-sequences` — words shared by the query and target sequences — 1 grounded row(s); layers: concepts=1
+- `work-up-to-detection-ratio` — work-up-to-detection ratio — 1 grounded row(s); layers: concepts=1
+- `workflows` — workflows — 1 grounded row(s); layers: concepts=1
+- `working-memory` — working memory — 7 grounded row(s); layers: concepts=3, content_tags.definitions=4
+- `workshop-training` — workshop training — 1 grounded row(s); layers: concepts=1
+- `world-geodetic-reference-system-1984` — World Geodetic Reference System 1984 — 1 grounded row(s); layers: concepts=1
+- `world-s-register-of-marine-species` — World's Register of Marine Species — 1 grounded row(s); layers: concepts=1
+- `world-taxonomist-database` — World Taxonomist Database — 1 grounded row(s); layers: concepts=1
+- `worldclim-dataset` — WorldClim dataset — 1 grounded row(s); layers: concepts=1
+- `worldclim-v1-and-v2` — WorldClim V1 and V2 — 1 grounded row(s); layers: concepts=1
+- `worldview-backfire-effect` — worldview backfire effect — 1 grounded row(s); layers: content_tags.definitions=1
+- `worst-case-scenario` — worst-case scenario — 1 grounded row(s); layers: concepts=1
+- `wortmannin` — wortmannin — 1 grounded row(s); layers: concepts=1
+- `written-consent` — written consent — 1 grounded row(s); layers: concepts=1
+- `wurcs` — WURCS — 1 grounded row(s); layers: concepts=1
+- `wwpdb` — wwPDB — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `x-ray-diffraction-images` — X-ray diffraction images — 1 grounded row(s); layers: concepts=1
+- `xarray` — xarray — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `xarray-plotting-functionality` — xarray plotting functionality — 1 grounded row(s); layers: concepts=1
+- `xgboost` — XGBoost — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `xla-compiler` — XLA compiler — 1 grounded row(s); layers: concepts=1
+- `y-offset` — y-offset — 1 grounded row(s); layers: content_tags.definitions=1
+- `yank` — YANK — 1 grounded row(s); layers: concepts=1
+- `yield-difference` — yield difference — 1 grounded row(s); layers: content_tags.definitions=1
+- `yield-gains` — yield gains — 1 grounded row(s); layers: concepts=1
+- `yield-improvements` — yield improvements — 1 grounded row(s); layers: concepts=1
+- `zernike-shape-features` — Zernike shape features — 1 grounded row(s); layers: concepts=1
+- `zero-inflated-gaussian` — zero-inflated Gaussian — 1 grounded row(s); layers: concepts=1
+- `zfand6` — ZFAND6 — 1 grounded row(s); layers: concepts=1
 
 ## Complete runtime abbreviation class
 
@@ -97,7 +7328,7 @@ wording limited to the audited rights-cleared paper set.
 - `aime` — AIME [all-caps-short-form] — no corpus-attested public expansion
 - `aimless` — AIMLESS [all-caps-short-form] — no corpus-attested public expansion
 - `ais` — AIS [all-caps-short-form] — no corpus-attested public expansion
-- `ale` — ALE [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `ale` — ALE [all-caps-short-form] — Activation Likelihood Estimation — Meta-analysis of fMRI studies related to mathematical creativity (2025)
 - `ampa` — AMPA [all-caps-short-form] — no corpus-attested public expansion
 - `ampar` — AMPAR [all-caps-short-form] — no corpus-attested public expansion
 - `an` — AN [all-caps-short-form] — no corpus-attested public expansion
@@ -106,14 +7337,13 @@ wording limited to the audited rights-cleared paper set.
 - `anndata` — ANNDATA [all-caps-short-form] — no corpus-attested public expansion
 - `anova` — ANOVA [all-caps-short-form] — analysis of variance — Losing the Big Picture: How Religion May Control Visual Attention (2008); analysis of variance — COVID-19 vaccine hesitancy in the UK: the Oxford coronavirus explanations, attitudes, and narratives survey (Oceans) II (2020); analysis of variance — DNA methylation age of human tissues and cell types (2013); analysis of variance — Psychological characteristics associated with COVID-19 vaccine hesitancy and resistance in Ireland and the United Kingdom (2021); one-way analysis of variance — An Exploration on Greenhouse Gas and Ammonia Production by Insect Species Suitable for Animal or Human Consumption (2010); one-way analysis of variance — Susceptibility to misinformation about COVID-19 around the world (2020); statistical methods — Human Emotion Recognition: Review of Sensors and Methods (2020); two-way analysis of variance — An Exploration on Greenhouse Gas and Ammonia Production by Insect Species Suitable for Animal or Human Consumption (2010); ambiguous across corpus records
 - `anp` — ANP [all-caps-short-form] — alternate nucleotide proportion — Software for Computing and Annotating Genomic Ranges (2013)
-- `api` — API [all-caps-short-form] — application program interface — The spread of low-credibility content by social bots (2018); application programing interface — xarray: N-D labeled Arrays and Datasets in Python (2017); application programming interface — Array programming with NumPy (2020); application programming interface — Software for Computing and Annotating Genomic Ranges (2013); Application Programming Interface — Misinformation and the US Ebola communication crisis: analyzing the veracity and content of social media messages related to a fear-inducing infectious disease outbreak (2020); application programming interface — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021); application programming interface — Beyond Mechanical Recycling: Giving New Life to Plastic Waste (2020); Application Programming Interfaces — Blockchain Technology for Healthcare: Facilitating the Transition to Patient-Driven Interoperability (2018); application programming interfaces — SLEAP: A deep learning system for multi-animal pose tracking (2022); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `api` — API [all-caps-short-form] — application program interface — The spread of low-credibility content by social bots (2018); application programing interface — xarray: N-D labeled Arrays and Datasets in Python (2017); application programming interface — Array programming with NumPy (2020); application programming interface — Software for Computing and Annotating Genomic Ranges (2013); Application Programming Interface — Misinformation and the US Ebola communication crisis: analyzing the veracity and content of social media messages related to a fear-inducing infectious disease outbreak (2020); application programming interface — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021); application programming interface — Beyond Mechanical Recycling: Giving New Life to Plastic Waste (2020); Application Programming Interfaces — UniProt: the universal protein knowledgebase in 2021 (2020); Application Programming Interfaces — Blockchain Technology for Healthcare: Facilitating the Transition to Patient-Driven Interoperability (2018); application programming interfaces — SLEAP: A deep learning system for multi-animal pose tracking (2022); RESTful Application Programming Interface — UniProt: the universal protein knowledgebase in 2021 (2020); ambiguous across corpus records
 - `arachne` — ARACHNE [all-caps-short-form] — no corpus-attested public expansion
 - `arba` — ARBA [all-caps-short-form] — no corpus-attested public expansion
 - `arcs` — ARCS [all-caps-short-form] — no corpus-attested public expansion
 - `artag` — ARTAG [all-caps-short-form] — no corpus-attested public expansion
 - `arx` — ARX [all-caps-short-form] — no corpus-attested public expansion
 - `asvab` — ASVAB [all-caps-short-form] — no corpus-attested public expansion
-- `atlas` — ATLAS [all-caps-short-form] — no corpus-attested public expansion
 - `auc` — AUC [all-caps-short-form] — no corpus-attested public expansion
 - `auc-prc` — AUC-PRC [all-caps-short-form] — no corpus-attested public expansion
 - `auc-roc` — AUC-ROC [all-caps-short-form] — no corpus-attested public expansion
@@ -132,7 +7362,7 @@ wording limited to the audited rights-cleared paper set.
 - `bia` — BIA [all-caps-short-form] — no corpus-attested public expansion
 - `bic` — BIC [all-caps-short-form] — Bayesian Information Criterion — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018)
 - `blast` — BLAST [all-caps-short-form] — Basic Local Alignment Search Tool — A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species (2011)
-- `bold` — BOLD [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `bold` — BOLD [all-caps-short-form] — blood oxygen level dependent — Mind and material engagement (2018); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `braf` — BRAF [all-caps-short-form] — no corpus-attested public expansion
 - `bsfl` — BSFL [all-caps-short-form] — Black soldier fly larvae — Review of Black Soldier Fly (Hermetia illucens) as Animal Feed and Human Food (2017)
 - `bsn1` — BSN1 [all-caps-short-form] — no corpus-attested public expansion
@@ -167,7 +7397,7 @@ wording limited to the audited rights-cleared paper set.
 - `cd44` — CD44 [all-caps-short-form] — no corpus-attested public expansion
 - `cd47` — CD47 [all-caps-short-form] — no corpus-attested public expansion
 - `cd8a` — CD8A [all-caps-short-form] — no corpus-attested public expansion
-- `cdk` — CDK [all-caps-short-form] — Chemistry Development Kit — Mordred: a molecular descriptor calculator (2018); cyclin-dependent kinase — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020); ambiguous across corpus records
+- `cdk` — CDK [all-caps-short-form] — Chemistry Development Kit — Mordred: a molecular descriptor calculator (2018); cyclin-dependent kinase — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020); cyclin-dependent kinases — Circular RNAs function as ceRNAs to regulate and control human cancer progression (2018); ambiguous across corpus records
 - `cel-nos` — CEL-NOS [all-caps-short-form] — chronic eosinophilic leukemia not otherwise specified — The 2016 WHO classification and diagnostic criteria for myeloproliferative neoplasms: document summary and in-depth discussion (2018)
 - `cell-ranger` — CELL RANGER [all-caps-short-form] — no corpus-attested public expansion
 - `cf` — CF [all-caps-short-form] — Collaborative Filtering — Evolution and impact of bias in human and machine learning algorithm interaction (2020); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
@@ -201,7 +7431,8 @@ wording limited to the audited rights-cleared paper set.
 - `co2` — CO2 [all-caps-short-form] — no corpus-attested public expansion
 - `coconut` — COCONUT [all-caps-short-form] — Natural products — COCONUT online: Collection of Open Natural Products database (2021)
 - `cod` — COD [all-caps-short-form] — chemical oxygen demand — Environmental effects of COVID-19 pandemic and potential strategies of sustainability (2020)
-- `consort` — CONSORT [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `com-b` — COM-B [all-caps-short-form] — no corpus-attested public expansion
+- `consort` — CONSORT [all-caps-short-form] — Consolidated Standards of Reporting Trials — CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials (2010); CONSORT statement — The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement (2007); ambiguous across corpus records
 - `cos-star` — COS-STAR [all-caps-short-form] — no corpus-attested public expansion
 - `covid-19` — COVID-19 [all-caps-short-form] — global pandemic — Global assessment of environment, health and economic impact of the novel coronavirus (COVID-19) (2020)
 - `cp` — CP [all-caps-short-form] — crude protein — Feed Conversion, Survival and Development, and Composition of Four Insect Species on Diets Composed of Food By-Products (2015); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
@@ -209,7 +7440,7 @@ wording limited to the audited rights-cleared paper set.
 - `cpdi` — CPDI [all-caps-short-form] — no corpus-attested public expansion
 - `cpu` — CPU [all-caps-short-form] — central processing unit — Array programming with NumPy (2020); central processing unit — Highly accurate protein structure prediction with AlphaFold (2021); central processing unit — A Brief Review of Facial Emotion Recognition Based on Visual Information (2018); central processing units — CellProfiler 3.0: Next-generation image processing for biology (2018); central processing units — SLEAP: A deep learning system for multi-animal pose tracking (2022); ambiguous across corpus records
 - `cpu-ram` — CPU RAM [all-caps-short-form] — no corpus-attested public expansion
-- `cr` — CR [all-caps-short-form] — no corpus-attested public expansion
+- `cr` — CR [all-caps-short-form] — cytokine release syndrome — Cytokine release syndrome (2018)
 - `cra` — CRA [all-caps-short-form] — no corpus-attested public expansion
 - `creb` — CREB [all-caps-short-form] — no corpus-attested public expansion
 - `crt` — CRT [all-caps-short-form] — analytic thinking — Why Do You Believe in God? Relationships between Religious Belief, Analytic Thinking, Mentalizing and Moral Concern (2016); Cognitive Reflection Task — Psychological characteristics associated with COVID-19 vaccine hesitancy and resistance in Ireland and the United Kingdom (2021); ambiguous across corpus records
@@ -225,7 +7456,6 @@ wording limited to the audited rights-cleared paper set.
 - `cyp` — CYP [all-caps-short-form] — cytochromes P450 — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `cyp24a1` — CYP24A1 [all-caps-short-form] — no corpus-attested public expansion
 - `cytof` — CyTOF [corpus-attested-abbreviation] — cytometry by time-of-flight — The history and advances in cancer immunotherapy: understanding the characteristics of tumor-infiltrating immune cells and their therapeutic implications (2020)
-- `d` — d [single-letter] — arbitrary units — Circular non-coding RNA ANRIL modulates ribosomal RNA maturation and atherosclerosis in humans (2016); biological replicates — Circular non-coding RNA ANRIL modulates ribosomal RNA maturation and atherosclerosis in humans (2016); cell types — Expanded identification and characterization of mammalian circular RNAs (2014); MEMS mirror — MEMS Mirrors for LiDAR: A Review (2020); other tools — Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3 (2021); poised promoters — DNA methylation age of human tissues and cell types (2013); taxonomic scope — eggNOG-mapper v2: Functional Annotation, Orthology Assignments, and Domain Prediction at the Metagenomic Scale (2021); trust in authorities — The Effects of Anti-Vaccine Conspiracy Theories on Vaccination Intentions (2014); ambiguous across corpus records
 - `dce` — DCE [all-caps-short-form] — no corpus-attested public expansion
 - `dcfh-da` — DCFH-DA [all-caps-short-form] — no corpus-attested public expansion
 - `dcic` — DCIC [all-caps-short-form] — no corpus-attested public expansion
@@ -266,16 +7496,16 @@ wording limited to the audited rights-cleared paper set.
 - `er-sam` — ER-SAM [all-caps-short-form] — no corpus-attested public expansion
 - `era5` — ERA5 [all-caps-short-form] — no corpus-attested public expansion
 - `ercc` — ERCC [all-caps-short-form] — External RNA Controls Consortium — A step-by-step workflow for low-level analysis of single-cell RNA-seq data with Bioconductor (2016)
-- `erp` — ERP [all-caps-short-form] — event-related potential — The Neuroscience of Growth Mindset and Intrinsic Motivation (2018); Event-related potential — Large-scale replication study reveals a limit on probabilistic prediction in language comprehension (2018); event-related potentials — Towards new human rights in the age of neuroscience and neurotechnology (2017); event-related potentials — Neuroprediction and A.I. in Forensic Psychiatry and Criminal Justice: A Neurolaw Perspective (2020); ambiguous across corpus records
+- `erp` — ERP [all-caps-short-form] — event-related potential — The Neuroscience of Growth Mindset and Intrinsic Motivation (2018); Event-related potential — Large-scale replication study reveals a limit on probabilistic prediction in language comprehension (2018); event-related potentials — Towards new human rights in the age of neuroscience and neurotechnology (2017); event-related potentials — Neurolinguistic Relativity: How Language Flexes Human Perception and Cognition (2016); event-related potentials — Neuroprediction and A.I. in Forensic Psychiatry and Criminal Justice: A Neurolaw Perspective (2020); Event‐related potentials — Neurolinguistic Relativity: How Language Flexes Human Perception and Cognition (2016); ambiguous across corpus records
 - `escrt` — ESCRT [all-caps-short-form] — no corpus-attested public expansion
 - `esrd` — ESRD [all-caps-short-form] — end-stage renal disease — Inflammation-Related Mechanisms in Chronic Kidney Disease Prediction, Progression, and Outcome (2018)
 - `et-0` — ET 0 [all-caps-short-form] — reference evapotranspiration — TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 (2018)
 - `evs` — EVs [corpus-attested-abbreviation] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate
 - `exafs` — EXAFS [all-caps-short-form] — no corpus-attested public expansion
 - `exp` — EXP [all-caps-short-form] — no corpus-attested public expansion
-- `f` — F [single-letter] — strong enhancers — DNA methylation age of human tissues and cell types (2013)
+- `f` — F [single-letter] — no corpus-attested public expansion
 - `facs` — FACS [all-caps-short-form] — Facial Action Coding System — Human Emotion Recognition: Review of Sensors and Methods (2020); facial action coding system — A Brief Review of Facial Emotion Recognition Based on Visual Information (2018)
-- `fair` — FAIR [all-caps-short-form] — Findable, Accessible, Interoperable and Reusable — The FAIR Guiding Principles for scientific data management and stewardship (2016); 1 additional expansion row(s) withheld by rights gate
+- `fair` — FAIR [all-caps-short-form] — Findable, Accessible, Interoperable and Reusable — UniProt: the universal protein knowledgebase in 2021 (2020); Findable, Accessible, Interoperable and Reusable — The FAIR Guiding Principles for scientific data management and stewardship (2016)
 - `fairdom` — FAIRDOM [all-caps-short-form] — no corpus-attested public expansion
 - `famsa` — FAMSA [all-caps-short-form] — no corpus-attested public expansion
 - `fao` — FAO [all-caps-short-form] — fatty acid oxidation — Macrophages in immunoregulation and therapeutics (2023)
@@ -288,31 +7518,32 @@ wording limited to the audited rights-cleared paper set.
 - `flim-fret` — FLIM-FRET [all-caps-short-form] — no corpus-attested public expansion
 - `flotilla` — FLOTILLA [all-caps-short-form] — no corpus-attested public expansion
 - `fof` — FOF [all-caps-short-form] — no corpus-attested public expansion
-- `fp` — FP [all-caps-short-form] — False Positive — Machine Learning in Agriculture: A Comprehensive Updated Review (2021); false positive — SLEAP: A deep learning system for multi-animal pose tracking (2022); false positive — A Review of Emotion Recognition Using Physiological Signals (2018); False Positive — Improved metagenomic analysis with Kraken 2 (2019); molecular fingerprint — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); ambiguous across corpus records
+- `fp` — FP [all-caps-short-form] — False Positive — Machine Learning in Agriculture: A Comprehensive Updated Review (2021); False positive — Optimizing taxonomic classification of marker-gene amplicon sequences with QIIME 2’s q2-feature-classifier plugin (2018); false positive — SLEAP: A deep learning system for multi-animal pose tracking (2022); false positive — A Review of Emotion Recognition Using Physiological Signals (2018); False positive — Improved metagenomic analysis with Kraken 2 (2019); molecular fingerprint — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); ambiguous across corpus records
 - `fp2` — FP2 [all-caps-short-form] — no corpus-attested public expansion
 - `fpga` — FPGA [all-caps-short-form] — field-programmable gate array — A large-scale microelectromechanical-systems-based silicon photonics LiDAR (2022); field-programmable gate arrays — Array programming with NumPy (2020); ambiguous across corpus records
+- `frn` — FRN [all-caps-short-form] — feedback-related negativity — Neurolinguistic Relativity: How Language Flexes Human Perception and Cognition (2016); feedback‐related negativity — Neurolinguistic Relativity: How Language Flexes Human Perception and Cognition (2016); ambiguous across corpus records
 - `fs` — FS [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `fsv` — FSV [all-caps-short-form] — no corpus-attested public expansion
 - `fvb` — FVB [all-caps-short-form] — no corpus-attested public expansion
 - `fwer` — FWER [all-caps-short-form] — family wise error rate — GOATOOLS: A Python library for Gene Ontology analyses (2018); Family Wise Error Rate — phyloseq: An R Package for Reproducible Interactive Analysis and Graphics of Microbiome Census Data (2013)
-- `g` — g [single-letter] — co-production — An Exploration on Greenhouse Gas and Ammonia Production by Insect Species Suitable for Animal or Human Consumption (2010); standard error — How Many Species Are There on Earth and in the Ocean? (2011); ambiguous across corpus records
+- `g` — g [single-letter] — no corpus-attested public expansion
 - `gaba` — GABA [all-caps-short-form] — no corpus-attested public expansion
 - `gaba-a` — GABA A [all-caps-short-form] — no corpus-attested public expansion
 - `gad-2` — GAD-2 [all-caps-short-form] — no corpus-attested public expansion
 - `gad-7` — GAD-7 [all-caps-short-form] — no corpus-attested public expansion
 - `gad67` — GAD67 [all-caps-short-form] — no corpus-attested public expansion
-- `gan` — GAN [all-caps-short-form] — generative adversarial network — GNINA 1.0: molecular docking with deep learning (2021); Generative Adversarial Networks — Plant diseases and pests detection based on deep learning: a review (2021); generative adversarial networks — Graph neural networks for materials science and chemistry (2022); generative adversarial networks — Data augmentation using generative adversarial networks (CycleGAN) to improve generalizability in CT segmentation tasks (2019); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `gan` — GaN [corpus-attested-abbreviation] — Generative Adversarial Nets — Plant Disease Detection and Classification by Deep Learning (2019)
 - `gat` — GAT [all-caps-short-form] — no corpus-attested public expansion
 - `gbs` — GBS [all-caps-short-form] — no corpus-attested public expansion
 - `gcb` — GCB [all-caps-short-form] — no corpus-attested public expansion
 - `gcn` — GCN [all-caps-short-form] — convolutional networks — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021); Graph convolutional networks — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021); ambiguous across corpus records
 - `gdb-7` — GDB-7 [all-caps-short-form] — no corpus-attested public expansion
 - `gdb-9` — GDB-9 [all-caps-short-form] — no corpus-attested public expansion
-- `gdm` — GDM [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `gdm` — GDM [all-caps-short-form] — gestational diabetes mellitus — Gestational diabetes and pregnancy outcomes - a systematic review of the World Health Organization (WHO) and the International Association of Diabetes in Pregnancy Study Groups (IADPSG) diagnostic criteria (2012)
 - `gdt` — GDT [all-caps-short-form] — global distance test — Highly accurate protein structure prediction with AlphaFold (2021)
 - `geci` — GECI [all-caps-short-form] — no corpus-attested public expansion
 - `gem` — GEM [all-caps-short-form] — no corpus-attested public expansion
-- `genes` — genes [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `genes` — genes [corpus-attested-abbreviation] — replicators — Microbiome definition re-visited: old concepts and new challenges (2020)
 - `gepia2` — GEPIA2 [all-caps-short-form] — no corpus-attested public expansion
 - `gepr-3` — GEPR-3 [all-caps-short-form] — no corpus-attested public expansion
 - `ghcn` — GHCN [all-caps-short-form] — Global Historical Climatology Network — TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 (2018)
@@ -330,7 +7561,7 @@ wording limited to the audited rights-cleared paper set.
 - `go-bp` — GO BP [all-caps-short-form] — no corpus-attested public expansion
 - `go-cc` — GO CC [all-caps-short-form] — no corpus-attested public expansion
 - `go-cam` — GO-CAM [all-caps-short-form] — no corpus-attested public expansion
-- `go-cams` — GO-CAMs [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `go-cams` — GO-CAMs [corpus-attested-abbreviation] — GO Causal Activity Models — The Gene Ontology knowledgebase in 2023 (2023)
 - `goals` — goals [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `goatools` — GOATOOLS [all-caps-short-form] — no corpus-attested public expansion
 - `gp4-3` — GP4.3 [all-caps-short-form] — no corpus-attested public expansion
@@ -367,20 +7598,20 @@ wording limited to the audited rights-cleared paper set.
 - `iadpsg` — IADPSG [all-caps-short-form] — no corpus-attested public expansion
 - `iba` — IBA [all-caps-short-form] — no corpus-attested public expansion
 - `ibd` — IBD [all-caps-short-form] — Inflammatory Bowel Disease — Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3 (2021); inflammatory bowel disease — Macrophages in immunoregulation and therapeutics (2023)
-- `ic` — IC [all-caps-short-form] — information content — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); information content — Semantic Similarity in Biomedical Ontologies (2009); information content — REVIGO Summarizes and Visualizes Long Lists of Gene Ontology Terms (2011); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `ic` — IC [all-caps-short-form] — inferior colliculus — Tonotopic Organization in the Depth of Human Inferior Colliculus (2013); information content — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); information content — Semantic Similarity in Biomedical Ontologies (2009); information content — REVIGO Summarizes and Visualizes Long Lists of Gene Ontology Terms (2011); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `icans` — ICANS [all-caps-short-form] — no corpus-attested public expansion
 - `icd` — ICD [all-caps-short-form] — immunogenic cell death — Macrophages in immunoregulation and therapeutics (2023); immunogenic cell death — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020)
 - `icm` — ICM [all-caps-short-form] — independent cluster model — Best Practices for Developing and Validating Scales for Health, Social, and Behavioral Research: A Primer (2018); integrated crop management — Biostimulant Properties of Seaweed Extracts in Plants: Implications towards Sustainable Crop Production (2021); ambiguous across corpus records
 - `icp-aes` — ICP-AES [all-caps-short-form] — inductively coupled plasma atomic emission spectroscopy — Grain structure control during metal 3D printing by high-intensity ultrasound (2020); inductively coupled plasma atomic emission spectroscopy — Aqueous rechargeable zinc/sodium vanadate batteries with enhanced performance from simultaneous insertion of dual carriers (2018); inductively coupled plasma-atomic emission spectroscopy — Grain structure control during metal 3D printing by high-intensity ultrasound (2020); ambiguous across corpus records
 - `icr` — ICR [all-caps-short-form] — no corpus-attested public expansion
 - `icsd` — ICSD [all-caps-short-form] — Inorganic Crystal Structure Database — Graph neural networks for materials science and chemistry (2022)
-- `ictv` — ICTV [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `ictv` — ICTV [all-caps-short-form] — International Committee on Taxonomy of Viruses — Virus taxonomy: the database of the International Committee on Taxonomy of Viruses (ICTV) (2018); International Committee on Taxonomy of Viruses — Minimum Information about an Uncultivated Virus Genome (MIUViG) (2018)
 - `icu` — ICU [all-caps-short-form] — intensive care unit — Expert consensus and recommendations on safety criteria for active mobilization of mechanically ventilated critically ill adults (2014)
-- `ies-r` — IES-R [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
-- `ifg` — IFG [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `ies-r` — IES-R [all-caps-short-form] — Impact of Event Scale-Revised — Immediate Psychological Responses and Associated Factors during the Initial Stage of the 2019 Coronavirus Disease (COVID-19) Epidemic among the Genera (2020)
+- `ifg` — IFG [all-caps-short-form] — inferior frontal gyrus — Meta-analysis of fMRI studies related to mathematical creativity (2025)
 - `ifj` — IFJ [all-caps-short-form] — no corpus-attested public expansion
-- `ihc` — IHC [all-caps-short-form] — immunohistochemically-stained — QuPath: Open source software for digital pathology image analysis (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
-- `iit` — IIT [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `ihc` — IHC [all-caps-short-form] — immunohistochemical — Circular RNA circNRIP1 acts as a microRNA-149-5p sponge to promote gastric cancer progression via the AKT1/mTOR pathway (2019); immunohistochemically-stained — QuPath: Open source software for digital pathology image analysis (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `iit` — IIT [all-caps-short-form] — integrated information theory — An Informal Internet Survey on the Current State of Consciousness Science (2018); Integrated Information Theory — Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms (2023)
 - `il-13` — IL-13 [all-caps-short-form] — no corpus-attested public expansion
 - `il-2` — IL-2 [all-caps-short-form] — no corpus-attested public expansion
 - `il-4` — IL-4 [all-caps-short-form] — no corpus-attested public expansion
@@ -388,7 +7619,7 @@ wording limited to the audited rights-cleared paper set.
 - `int` — INT [all-caps-short-form] — no corpus-attested public expansion
 - `int-int` — INT-INT [all-caps-short-form] — no corpus-attested public expansion
 - `ios` — IOS [all-caps-short-form] — Internet of Services — Hydroponic Solutions for Soilless Production Systems: Issues and Opportunities in a Smart Agriculture Perspective (2019)
-- `iou` — IOU [all-caps-short-form] — Intersection of Union — DeepFruits: A Fruit Detection System Using Deep Neural Networks (2016); Intersection over Union — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); Intersection over Union — UAV-YOLOv8: A Small-Object-Detection Model Based on Improved YOLOv8 for UAV Aerial Photography Scenarios (2023); Intersection-over-Union — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `iou` — IOU [all-caps-short-form] — Intersection of Union — DeepFruits: A Fruit Detection System Using Deep Neural Networks (2016); Intersection over Union — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); Intersection over Union — UAV-YOLOv8: A Small-Object-Detection Model Based on Improved YOLOv8 for UAV Aerial Photography Scenarios (2023); Intersection-over-Union — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); Intersection-over-Union — UAV-YOLOv8: A Small-Object-Detection Model Based on Improved YOLOv8 for UAV Aerial Photography Scenarios (2023); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `ipah` — IPAH [all-caps-short-form] — no corpus-attested public expansion
 - `ipl` — IPL [all-caps-short-form] — no corpus-attested public expansion
 - `ips` — IPS [all-caps-short-form] — Induced pluripotent stem — DNA methylation age of human tissues and cell types (2013)
@@ -401,7 +7632,7 @@ wording limited to the audited rights-cleared paper set.
 - `ish` — ISH [all-caps-short-form] — no corpus-attested public expansion
 - `isi` — ISI [all-caps-short-form] — Insomnia Severity Index — COVID-19 Pandemic and Lockdown Measures Impact on Mental Health Among the General Population in Italy (2020); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `isn` — ISN [all-caps-short-form] — no corpus-attested public expansion
-- `it` — IT [all-caps-short-form] — information theory — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018); Interaction Theory — 4E Music Pedagogy and the Principles of Self-Organization (2018); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `it` — IT [all-caps-short-form] — information theory — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018); information-theory — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018); Interaction Theory — 4E Music Pedagogy and the Principles of Self-Organization (2018); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `itc` — ITC [all-caps-short-form] — no corpus-attested public expansion
 - `itd` — ITD [all-caps-short-form] — no corpus-attested public expansion
 - `iupac` — IUPAC [all-caps-short-form] — no corpus-attested public expansion
@@ -410,7 +7641,7 @@ wording limited to the audited rights-cleared paper set.
 - `jnd` — JND [all-caps-short-form] — no corpus-attested public expansion
 - `jra-55` — JRA-55 [all-caps-short-form] — no corpus-attested public expansion
 - `jrf` — JRF [all-caps-short-form] — no corpus-attested public expansion
-- `k` — k [single-letter] — Cohen's coefficient kappa — Best Practices for Developing and Validating Scales for Health, Social, and Behavioral Research: A Primer (2018); positively related CpGs — DNA methylation age of human tissues and cell types (2013); ambiguous across corpus records
+- `k` — k [single-letter] — no corpus-attested public expansion
 - `k-ras` — K-RAS [all-caps-short-form] — no corpus-attested public expansion
 - `kitti` — KITTI [all-caps-short-form] — no corpus-attested public expansion
 - `knime` — KNIME [all-caps-short-form] — no corpus-attested public expansion
@@ -452,7 +7683,7 @@ wording limited to the audited rights-cleared paper set.
 - `manova` — MANOVA [all-caps-short-form] — no corpus-attested public expansion
 - `map` — mAP [corpus-attested-abbreviation] — mean average precision — SLEAP: A deep learning system for multi-animal pose tracking (2022); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `mapk6` — MAPK6 [all-caps-short-form] — no corpus-attested public expansion
-- `masking` — masking [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `masking` — masking [corpus-attested-abbreviation] — success of blinding — CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials (2010)
 - `mast` — MAST [all-caps-short-form] — no corpus-attested public expansion
 - `matlab` — MATLAB [all-caps-short-form] — no corpus-attested public expansion
 - `mc-j` — MC-J [all-caps-short-form] — no corpus-attested public expansion
@@ -472,17 +7703,16 @@ wording limited to the audited rights-cleared paper set.
 - `merfish` — MERFISH [all-caps-short-form] — no corpus-attested public expansion
 - `mettl14` — METTL14 [all-caps-short-form] — no corpus-attested public expansion
 - `mettl3` — METTL3 [all-caps-short-form] — no corpus-attested public expansion
-- `mg` — MG [all-caps-short-form] — no corpus-attested public expansion
 - `mgb` — MGB [all-caps-short-form] — no corpus-attested public expansion
 - `mid` — MID [all-caps-short-form] — no corpus-attested public expansion
 - `mimag` — MIMAG [all-caps-short-form] — no corpus-attested public expansion
 - `mirca` — MIRCA [all-caps-short-form] — comet assay — Minimum Information for Reporting on the Comet Assay (MIRCA): recommendations for describing comet assay procedures and results (2020)
 - `misag` — MISAG [all-caps-short-form] — no corpus-attested public expansion
 - `misev2018` — MISEV2018 [all-caps-short-form] — no corpus-attested public expansion
-- `ml` — ML [all-caps-short-form] — likelihood — FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments (2010); Machine Learning — Machine Learning in Agriculture: A Comprehensive Updated Review (2021); machine learning — Accountable Artificial Intelligence: Holding Algorithms to Account (2020); machine learning — Molecular representations in AI-driven drug discovery: a review and practical guide (2020); Machine Learning — When Doctors and AI Interact: on Human Responsibility for Artificial Risks (2022); machine learning — Transfer learning: a friendly introduction (2022); machine learning — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021); Machine learning — GNINA 1.0: molecular docking with deep learning (2021); machine learning — From What to How: An Initial Review of Publicly Available AI Ethics Tools, Methods and Research to Translate Principles into Practices (2019); machine learning — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023); machine learning — Algorithmic Political Bias in Artificial Intelligence Systems (2022); Machine Learning — Precision Agriculture Techniques and Practices: From Considerations to Applications (2019); machine learning — Deep learning in mental health outcome research: a scoping review (2020); maximum likelihood — GTDB-Tk v2: memory friendly classification with the genome taxonomy database (2022); maximum likelihood — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018); maximum likelihood — FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments (2010); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `ml` — ML [all-caps-short-form] — likelihood — FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments (2010); Machine Learning — Machine Learning in Agriculture: A Comprehensive Updated Review (2021); machine learning — Accountable Artificial Intelligence: Holding Algorithms to Account (2020); machine learning — Molecular representations in AI-driven drug discovery: a review and practical guide (2020); Machine Learning — When Doctors and AI Interact: on Human Responsibility for Artificial Risks (2022); machine learning — Transfer learning: a friendly introduction (2022); machine learning — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021); Machine learning — GNINA 1.0: molecular docking with deep learning (2021); machine learning — From What to How: An Initial Review of Publicly Available AI Ethics Tools, Methods and Research to Translate Principles into Practices (2019); machine learning — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023); machine learning — Algorithmic Political Bias in Artificial Intelligence Systems (2022); Machine Learning — Precision Agriculture Techniques and Practices: From Considerations to Applications (2019); machine learning — Deep learning in mental health outcome research: a scoping review (2020); maximum likelihood — GTDB-Tk v2: memory friendly classification with the genome taxonomy database (2022); maximum likelihood — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018); maximum likelihood — FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments (2010); maximum-likelihood — GTDB-Tk v2: memory friendly classification with the genome taxonomy database (2022); maximum-likelihood — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `mld` — MLD [all-caps-short-form] — no corpus-attested public expansion
 - `mlh1` — MLH1 [all-caps-short-form] — no corpus-attested public expansion
-- `mmn` — MMN [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `mmn` — MMN [all-caps-short-form] — mismatch negativity — Have We Forgotten Auditory Sensory Memory? Retention Intervals in Studies of Nonverbal Auditory Working Memory (2016)
 - `mmp-9` — MMP-9 [all-caps-short-form] — no corpus-attested public expansion
 - `mmr` — MMR [all-caps-short-form] — no corpus-attested public expansion
 - `mnist` — MNIST [all-caps-short-form] — no corpus-attested public expansion
@@ -493,7 +7723,7 @@ wording limited to the audited rights-cleared paper set.
 - `mri` — MRI [all-caps-short-form] — magnetic resonance image — Revised diagnostic criteria for neurofibromatosis type 1 and Legius syndrome: an international consensus recommendation (2021); magnetic resonance imaging — Several lines of antioxidant defense against oxidative stress: antioxidant enzymes, nanomaterials with multiple enzyme-mimicking activities, and low-molecular-weight antioxidants (2024); magnetic resonance imaging — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023); ambiguous across corpus records
 - `ms` — MS [all-caps-short-form] — mass spectrometry — Inflammation-Related Mechanisms in Chronic Kidney Disease Prediction, Progression, and Outcome (2018); mass spectroscopy — Control of MXenes’ electronic properties through termination and intercalation (2019); ambiguous across corpus records
 - `ms-coco` — MS COCO [all-caps-short-form] — no corpus-attested public expansion
-- `mse` — MSe [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `mse` — MSE [all-caps-short-form] — Mean Squared Error — Machine Learning in Agriculture: A Comprehensive Updated Review (2021); mean-squared error — Machine Learning in Agriculture: A Comprehensive Updated Review (2021); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `msi` — MSI [all-caps-short-form] — no corpus-attested public expansion
 - `mso` — MSO [all-caps-short-form] — no corpus-attested public expansion
 - `mss` — MSS [all-caps-short-form] — no corpus-attested public expansion
@@ -504,20 +7734,20 @@ wording limited to the audited rights-cleared paper set.
 - `muv` — MUV [all-caps-short-form] — maximum unbiased validation — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021)
 - `mvpa` — MVPA [all-caps-short-form] — multi-voxel pattern analysis — Neuroprediction and A.I. in Forensic Psychiatry and Criminal Justice: A Neurolaw Perspective (2020); physical activity — World Health Organization 2020 guidelines on physical activity and sedentary behaviour (2020); ambiguous across corpus records
 - `myocytes` — myocytes [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
-- `n` — N [single-letter] — age acceleration — DNA methylation age of human tissues and cell types (2013); n/k — Gravitational Radiation from Post-Newtonian Sources and Inspiralling Compact Binaries (2014); sample size — Stress, Burnout, Anxiety and Depression among Teachers: A Scoping Review (2022); ambiguous across corpus records
+- `n` — N [single-letter] — sample size — Stress, Burnout, Anxiety and Depression among Teachers: A Scoping Review (2022)
 - `n190-p190` — N190/P190 [all-caps-short-form] — no corpus-attested public expansion
 - `ncc` — NCC [all-caps-short-form] — no corpus-attested public expansion
 - `nci-ctc` — NCI-CTC [all-caps-short-form] — no corpus-attested public expansion
 - `ncl` — NCL [all-caps-short-form] — no corpus-attested public expansion
 - `nf2` — NF2 [all-caps-short-form] — no corpus-attested public expansion
 - `nfa` — NFA [all-caps-short-form] — no corpus-attested public expansion
-- `ngs` — NGS [all-caps-short-form] — next-generation sequencing — Trimmomatic: a flexible trimmer for Illumina sequence data (2014); Next-generation sequencing — A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species (2011); 1 additional expansion row(s) withheld by rights gate
+- `ngs` — NGS [all-caps-short-form] — next-generation sequencing — Trimmomatic: a flexible trimmer for Illumina sequence data (2014); Next-generation sequencing — A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species (2011); next-generation sequencing — A pneumonia outbreak associated with a new coronavirus of probable bat origin (2020)
 - `nhst` — NHST [all-caps-short-form] — no corpus-attested public expansion
 - `nihl` — NIHL [all-caps-short-form] — no corpus-attested public expansion
 - `nihr` — NIHR [all-caps-short-form] — no corpus-attested public expansion
 - `nisq` — NISQ [all-caps-short-form] — no corpus-attested public expansion
 - `nist-rm-dna` — NIST RM DNA [all-caps-short-form] — no corpus-attested public expansion
-- `nlr` — NLR [all-caps-short-form] — neutrophil-to-lymphocyte ratio — Systemic inflammation markers and cancer incidence in the UK Biobank (2021); neutrophil-to-lymphocyte ratio — Systemic Immune Inflammation Index (SII), System Inflammation Response Index (SIRI) and Risk of All-Cause Mortality and Cardiovascular Mortality: A 20-Year Follow-Up Cohort Study of 42,875 US Adults (2023); Nod-like receptors — Macrophages in immunoregulation and therapeutics (2023); NOD-like receptors — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020); Nod-like receptors — Inflammation-Related Mechanisms in Chronic Kidney Disease Prediction, Progression, and Outcome (2018); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `nlr` — NLR [all-caps-short-form] — neutrophil-to-lymphocyte ratio — Baseline neutrophil-to-lymphocyte ratio (NLR) and derived NLR could predict overall survival in patients with advanced melanoma treated with nivolumab (2018); neutrophil-to-lymphocyte ratio — Systemic inflammation markers and cancer incidence in the UK Biobank (2021); neutrophil-to-lymphocyte ratio — Systemic Immune Inflammation Index (SII), System Inflammation Response Index (SIRI) and Risk of All-Cause Mortality and Cardiovascular Mortality: A 20-Year Follow-Up Cohort Study of 42,875 US Adults (2023); Nod-like receptors — Macrophages in immunoregulation and therapeutics (2023); NOD-like receptors — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020); Nod-like receptors — Inflammation-Related Mechanisms in Chronic Kidney Disease Prediction, Progression, and Outcome (2018); ambiguous across corpus records
 - `nlrp6` — NLRP6 [all-caps-short-form] — no corpus-attested public expansion
 - `nmda` — NMDA [all-caps-short-form] — no corpus-attested public expansion
 - `nmo` — NMO [all-caps-short-form] — no corpus-attested public expansion
@@ -541,19 +7771,19 @@ wording limited to the audited rights-cleared paper set.
 - `orb` — ORB [all-caps-short-form] — no corpus-attested public expansion
 - `orcid` — ORCID [all-caps-short-form] — no corpus-attested public expansion
 - `ordination` — ordination [corpus-attested-abbreviation] — dimensional reduction — phyloseq: An R Package for Reproducible Interactive Analysis and Graphics of Microbiome Census Data (2013)
-- `otu` — OTU [all-caps-short-form] — operational taxonomic unit — Revisions to the Classification, Nomenclature, and Diversity of Eukaryotes (2018); operational taxonomic units — TYGS is an automated high-throughput platform for state-of-the-art genome-based taxonomy (2019); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
-- `otus` — OTUs [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `otu` — OTU [all-caps-short-form] — operational taxonomic unit — Revisions to the Classification, Nomenclature, and Diversity of Eukaryotes (2018); operational taxonomic unit — Exact sequence variants should replace operational taxonomic units in marker-gene data analysis (2017); operational taxonomic units — Exact sequence variants should replace operational taxonomic units in marker-gene data analysis (2017); operational taxonomic units — TYGS is an automated high-throughput platform for state-of-the-art genome-based taxonomy (2019); ambiguous across corpus records
+- `otus` — OTUs [corpus-attested-abbreviation] — operational taxonomic units — Exact sequence variants should replace operational taxonomic units in marker-gene data analysis (2017)
 - `owl` — OWL [all-caps-short-form] — Ontology Web Language — Uberon, an integrative multi-species anatomy ontology (2012)
 - `owl2-dl` — OWL2-DL [all-caps-short-form] — no corpus-attested public expansion
 - `oxphos` — OXPHOS [all-caps-short-form] — no corpus-attested public expansion
-- `p` — P [single-letter] — age acceleration — DNA methylation age of human tissues and cell types (2013)
+- `p` — P [single-letter] — no corpus-attested public expansion
 - `p4p` — P4P [all-caps-short-form] — Pay-for-performance — Changing health behaviors using financial incentives: a review from behavioral economics (2019)
 - `pa` — PA [all-caps-short-form] — physical activity — Effects of COVID-19 Home Confinement on Eating Behaviour and Physical Activity: Results of the ECLB-COVID19 International Online Survey (2020); precision agriculture — Hydroponic Solutions for Soilless Production Systems: Issues and Opportunities in a Smart Agriculture Perspective (2019); Precision Agriculture — Precision Agriculture Techniques and Practices: From Considerations to Applications (2019); ambiguous across corpus records
 - `pac` — PAC [all-caps-short-form] — no corpus-attested public expansion
 - `pae` — PAE [all-caps-short-form] — Predicted Aligned Error — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021)
 - `pafs` — PAFs [corpus-attested-abbreviation] — part affinity fields — SLEAP: A deep learning system for multi-animal pose tracking (2022)
 - `paga` — PAGA [all-caps-short-form] — no corpus-attested public expansion
-- `pah` — PAH [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `pah` — PAH [all-caps-short-form] — polycyclic aromatic hydrocarbons — Microplastics in Seafood and the Implications for Human Health (2018)
 - `pains` — PAINS [all-caps-short-form] — no corpus-attested public expansion
 - `pairs` — PAIRS [all-caps-short-form] — no corpus-attested public expansion
 - `pal2nal` — PAL2NAL [all-caps-short-form] — no corpus-attested public expansion
@@ -569,9 +7799,9 @@ wording limited to the audited rights-cleared paper set.
 - `pet` — PET [all-caps-short-form] — positron emission tomography — Single-photon avalanche diode imagers in biophotonics: review and outlook (2019); positron emission tomography — The first NINDS/NIBIB consensus meeting to define neuropathological criteria for the diagnosis of chronic traumatic encephalopathy (2015); positron emission tomography — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023); positron emission tomography — A Review of Mid-Infrared and Near-Infrared Imaging: Principles, Concepts and Applications in Plant Tissue Analysis (2017)
 - `pfaa` — PFAA [all-caps-short-form] — no corpus-attested public expansion
 - `pfas` — PFAS [all-caps-short-form] — no corpus-attested public expansion
-- `pfc` — PFC [all-caps-short-form] — prefrontal cortex — Collective minds: social network topology shapes collective cognition (2021); 3 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `pfc` — PFC [all-caps-short-form] — prefrontal cortex — What, If Anything, Is Rodent Prefrontal Cortex? (2018); prefrontal cortex — Priming, Response Learning and Repetition Suppression (2008); prefrontal cortex — Collective minds: social network topology shapes collective cognition (2021); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `pfhs` — PFHS [all-caps-short-form] — no corpus-attested public expansion
-- `pfoa` — PFOA [all-caps-short-form] — perfluorooctanoic acid — Perfluorooctanoic Acid (PFOA) Exposures and Incident Cancers among Adults Living Near a Chemical Plant (2013)
+- `pfoa` — PFOA [all-caps-short-form] — perfluorooctanoic acid — Perfluorooctanoic Acid (PFOA) Exposures and Incident Cancers among Adults Living Near a Chemical Plant (2013); perfluorooctanoic acid — Short-chain perfluoroalkyl acids: environmental concerns and a regulatory strategy under REACH (2018)
 - `pfos` — PFOS [all-caps-short-form] — no corpus-attested public expansion
 - `pgd` — PGD [all-caps-short-form] — no corpus-attested public expansion
 - `pgp` — PGP [all-caps-short-form] — no corpus-attested public expansion
@@ -585,13 +7815,13 @@ wording limited to the audited rights-cleared paper set.
 - `pointless` — POINTLESS [all-caps-short-form] — no corpus-attested public expansion
 - `polarization` — polarization [corpus-attested-abbreviation] — isolated clusters — Science vs Conspiracy: Collective Narratives in the Age of Misinformation (2015)
 - `ppbp` — PPBP [all-caps-short-form] — no corpus-attested public expansion
-- `ppc` — PPC [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate
+- `ppc` — PPC [all-caps-short-form] — posterior parietal cortex — Task-phase-specific dynamics of basal forebrain neuronal ensembles (2014); 1 additional expansion row(s) withheld by rights gate
 - `ppi` — PPI [all-caps-short-form] — no corpus-attested public expansion
 - `ppmi` — PPMI [all-caps-short-form] — no corpus-attested public expansion
 - `pppd` — PPPD [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
-- `ppv` — PPV [all-caps-short-form] — positive predictive value — Revised diagnostic criteria for neurofibromatosis type 1 and Legius syndrome: an international consensus recommendation (2021); positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); rank-level positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `ppv` — PPV [all-caps-short-form] — positive predictive value — Why Most Published Research Findings Are False (2005); positive predictive value — Revised diagnostic criteria for neurofibromatosis type 1 and Legius syndrome: an international consensus recommendation (2021); positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); rank-level positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); ambiguous across corpus records
 - `prism` — PRISM [all-caps-short-form] — no corpus-attested public expansion
-- `prisma` — PRISMA [all-caps-short-form] — Preferred Reporting Items for Systematic reviews and Meta-Analyses — Impact of Educational Technology on Teacher Stress and Anxiety: A Literature Review (2021); Preferred Reporting Items for Systematic reviews and Meta-Analyses — The PRISMA 2020 statement: an updated guideline for reporting systematic reviews (2021); 1 additional expansion row(s) withheld by rights gate
+- `prisma` — PRISMA [all-caps-short-form] — Preferred Reporting Items for Systematic reviews and Meta-Analyses — Impact of Educational Technology on Teacher Stress and Anxiety: A Literature Review (2021); Preferred Reporting Items for Systematic reviews and Meta-Analyses — Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement (2009); Preferred Reporting Items for Systematic reviews and Meta-Analyses — The PRISMA 2020 statement: an updated guideline for reporting systematic reviews (2021)
 - `prisma-2009` — PRISMA 2009 [all-caps-short-form] — no corpus-attested public expansion
 - `psa` — PSA [all-caps-short-form] — polar surface area — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `pspl` — PSPL [all-caps-short-form] — no corpus-attested public expansion
@@ -601,7 +7831,6 @@ wording limited to the audited rights-cleared paper set.
 - `pt-vcam1` — PT_VCAM1 [all-caps-short-form] — no corpus-attested public expansion
 - `ptfe` — PTFE [all-caps-short-form] — no corpus-attested public expansion
 - `ptz` — PTZ [all-caps-short-form] — no corpus-attested public expansion
-- `pv` — PV [all-caps-short-form] — partial voluming — SynthSeg: Segmentation of brain MRI scans of any contrast and resolution without retraining (2023); pathogenic variant — Revised diagnostic criteria for neurofibromatosis type 1 and Legius syndrome: an international consensus recommendation (2021); pathogenic variants — Revised diagnostic criteria for neurofibromatosis type 1 and Legius syndrome: an international consensus recommendation (2021); Polycythemia vera — The 2016 WHO classification and diagnostic criteria for myeloproliferative neoplasms: document summary and in-depth discussion (2018); ambiguous across corpus records
 - `pvd` — PVD [all-caps-short-form] — no corpus-attested public expansion
 - `pvod-pch` — PVOD/PCH [all-caps-short-form] — no corpus-attested public expansion
 - `pyr` — PYR [all-caps-short-form] — no corpus-attested public expansion
@@ -614,15 +7843,15 @@ wording limited to the audited rights-cleared paper set.
 - `qsar` — QSAR [all-caps-short-form] — Quantitative Structure–Activity Relationship — Molecular representations in AI-driven drug discovery: a review and practical guide (2020); quantitative structure–activity relationship — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021); quantitative structure–activity relationship — Mordred: a molecular descriptor calculator (2018)
 - `quorom` — QUOROM [all-caps-short-form] — no corpus-attested public expansion
 - `qx-314` — QX-314 [all-caps-short-form] — no corpus-attested public expansion
-- `r` — r [single-letter] — no corpus-attested public expansion
+- `r` — R [single-letter] — no corpus-attested public expansion
 - `r2` — R2 [corpus-attested-abbreviation] — R-Square — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021)
 - `ram` — RAM [all-caps-short-form] — random access memory — Improved metagenomic analysis with Kraken 2 (2019)
 - `raws` — RAWS [all-caps-short-form] — Remote Automated Weather Stations — TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 (2018); weather stations — TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 (2018); ambiguous across corpus records
 - `rbd-n` — RBD/N [all-caps-short-form] — no corpus-attested public expansion
 - `rbnh` — RBNH [all-caps-short-form] — no corpus-attested public expansion
 - `rcd` — RCD [all-caps-short-form] — regulated cell death — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020)
-- `rdf` — RDF [all-caps-short-form] — no corpus-attested public expansion
-- `recist` — RECIST [all-caps-short-form] — Response Evaluation Criteria In Solid Tumors — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023)
+- `re-aim` — RE-AIM [all-caps-short-form] — no corpus-attested public expansion
+- `recist` — RECIST [all-caps-short-form] — response evaluation criteria in solid tumors — Baseline neutrophil-to-lymphocyte ratio (NLR) and derived NLR could predict overall survival in patients with advanced melanoma treated with nivolumab (2018); Response Evaluation Criteria In Solid Tumors — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023)
 - `refmac` — REFMAC [all-caps-short-form] — no corpus-attested public expansion
 - `rem` — REM [all-caps-short-form] — no corpus-attested public expansion
 - `rest` — REST [all-caps-short-form] — no corpus-attested public expansion
@@ -647,24 +7876,25 @@ wording limited to the audited rights-cleared paper set.
 - `roi` — ROI [all-caps-short-form] — region of interest — Plant diseases and pests detection based on deep learning: a review (2021); Regions of Interest — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); ambiguous across corpus records
 - `rpkm` — RPKM [all-caps-short-form] — no corpus-attested public expansion
 - `rsp` — RSP [all-caps-short-form] — no corpus-attested public expansion
-- `s` — s [single-letter] — CONSORT extension — CONSORT 2025 statement: updated guideline for reporting randomised trials (2025); effect size — Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible (2014); mode of action — Synergistic Biostimulatory Action: Designing the Next Generation of Plant Biostimulants for Sustainable Agriculture (2018); musical goal — 4E Music Pedagogy and the Principles of Self-Organization (2018); narrative framework — An automated pipeline for the discovery of conspiracy and conspiracy theory narrative frameworks: Bridgegate, Pizzagate and storytelling on the web (2020); programming language — phyloseq: An R Package for Reproducible Interactive Analysis and Graphics of Microbiome Census Data (2013); research question — The REporting of studies Conducted using Observational Routinely-collected health Data (RECORD) Statement (2015); study population — The REporting of studies Conducted using Observational Routinely-collected health Data (RECORD) Statement (2015); ambiguous across corpus records
+- `s` — s [single-letter] — effect size — Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible (2014)
 - `s1-n` — S1/N [all-caps-short-form] — no corpus-attested public expansion
 - `s1bc` — S1BC [all-caps-short-form] — no corpus-attested public expansion
-- `sa` — SA [all-caps-short-form] — salicylic acid — ROS scavenging Mn 3 O 4 nanozymes for in vivo anti-inflammation (2018); smart agriculture — Hydroponic Solutions for Soilless Production Systems: Issues and Opportunities in a Smart Agriculture Perspective (2019); surface area — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); Synthetic Accessibility — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `sa` — SA [all-caps-short-form] — salicylic acid — ROS scavenging Mn 3 O 4 nanozymes for in vivo anti-inflammation (2018); smart agriculture — Hydroponic Solutions for Soilless Production Systems: Issues and Opportunities in a Smart Agriculture Perspective (2019); spatial ability — Which Cognitive Abilities Make the Difference? Predicting Academic Achievements in Advanced STEM Studies (2018); surface area — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); Synthetic Accessibility — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); ambiguous across corpus records
 - `sam` — SAM [all-caps-short-form] — Self-Assessment Manikin — A Review of Emotion Recognition Using Physiological Signals (2018); self-assessment manikins — A Review of Emotion Recognition Using Physiological Signals (2018); Sequence Alignment Map — CIRI: an efficient and unbiased algorithm for de novo circular RNA identification (2015); ambiguous across corpus records
 - `sarc-f` — SARC-F [all-caps-short-form] — no corpus-attested public expansion
 - `sars` — SARS [all-caps-short-form] — Severe Acute Respiratory Syndrome — Observed and Potential Impacts of the COVID-19 Pandemic on the Environment (2020); severe acute respiratory syndrome — The experiences of health-care providers during the COVID-19 crisis in China: a qualitative study (2020); Severe Acute Respiratory Syndrome — Levels and predictors of anxiety, depression and health anxiety during COVID-19 pandemic in Turkish society: The importance of gender (2020); severe acute respiratory syndrome — Impact of the COVID-19 Pandemic on Mental Health and Quality of Life among Local Residents in Liaoning Province, China: A Cross-Sectional Study (2020)
-- `sars-cov-2` — SARS-CoV-2 [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `sars-cov-2` — SARS-CoV-2 [corpus-attested-abbreviation] — Severe acute respiratory syndrome coronavirus 2 — Performance characteristics of five immunoassays for SARS-CoV-2: a head-to-head benchmark comparison (2020)
 - `scala` — SCALA [all-caps-short-form] — no corpus-attested public expansion
 - `scan` — SCAN [all-caps-short-form] — no corpus-attested public expansion
 - `scanpy` — SCANPY [all-caps-short-form] — no corpus-attested public expansion
 - `scfa` — SCFA [all-caps-short-form] — short-chain fatty acids — Inflammation-Related Mechanisms in Chronic Kidney Disease Prediction, Progression, and Outcome (2018); short-chain fatty acids — The International Scientific Association of Probiotics and Prebiotics (ISAPP) consensus statement on the definition and scope of postbiotics (2021)
 - `scrna-seq` — scRNA-seq [corpus-attested-abbreviation] — single-cell RNA sequencing — The history and advances in cancer immunotherapy: understanding the characteristics of tumor-infiltrating immune cells and their therapeutic implications (2020)
-- `sd` — SD [all-caps-short-form] — mean and standard deviation — High Rates of COVID-19 Vaccine Hesitancy and Its Association with Conspiracy Beliefs: A Study in Jordan and Kuwait among Other Arab Countries (2021); mean and standard deviation — Systemic Immune Inflammation Index (SII), System Inflammation Response Index (SIRI) and Risk of All-Cause Mortality and Cardiovascular Mortality: A 20-Year Follow-Up Cohort Study of 42,875 US Adults (2023); means and standard deviations — Depression, Anxiety and Stress during COVID-19: Associations with Changes in Physical Activity, Sleep, Tobacco and Alcohol Use in Australian Adults (2020); scale degree — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); standard deviation — High Rates of COVID-19 Vaccine Hesitancy and Its Association with Conspiracy Beliefs: A Study in Jordan and Kuwait among Other Arab Countries (2021); standard deviation — Systemic Immune Inflammation Index (SII), System Inflammation Response Index (SIRI) and Risk of All-Cause Mortality and Cardiovascular Mortality: A 20-Year Follow-Up Cohort Study of 42,875 US Adults (2023); Standard Deviation — CASME II: An Improved Spontaneous Micro-Expression Database and the Baseline Evaluation (2014); standard deviations — Learning loss due to school closures during the COVID-19 pandemic (2021); standard deviations — Depression, Anxiety and Stress during COVID-19: Associations with Changes in Physical Activity, Sleep, Tobacco and Alcohol Use in Australian Adults (2020); structure data — Molecular representations in AI-driven drug discovery: a review and practical guide (2020); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `sd` — SD [all-caps-short-form] — mean and standard deviation — High Rates of COVID-19 Vaccine Hesitancy and Its Association with Conspiracy Beliefs: A Study in Jordan and Kuwait among Other Arab Countries (2021); mean and standard deviation — Systemic Immune Inflammation Index (SII), System Inflammation Response Index (SIRI) and Risk of All-Cause Mortality and Cardiovascular Mortality: A 20-Year Follow-Up Cohort Study of 42,875 US Adults (2023); means and standard deviations — Depression, Anxiety and Stress during COVID-19: Associations with Changes in Physical Activity, Sleep, Tobacco and Alcohol Use in Australian Adults (2020); scale degree — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); stable disease — Baseline neutrophil-to-lymphocyte ratio (NLR) and derived NLR could predict overall survival in patients with advanced melanoma treated with nivolumab (2018); standard deviation — High Rates of COVID-19 Vaccine Hesitancy and Its Association with Conspiracy Beliefs: A Study in Jordan and Kuwait among Other Arab Countries (2021); standard deviation — Systemic Immune Inflammation Index (SII), System Inflammation Response Index (SIRI) and Risk of All-Cause Mortality and Cardiovascular Mortality: A 20-Year Follow-Up Cohort Study of 42,875 US Adults (2023); Standard Deviation — CASME II: An Improved Spontaneous Micro-Expression Database and the Baseline Evaluation (2014); standard deviations — Learning loss due to school closures during the COVID-19 pandemic (2021); standard deviations — Depression, Anxiety and Stress during COVID-19: Associations with Changes in Physical Activity, Sleep, Tobacco and Alcohol Use in Australian Adults (2020); structure data — Molecular representations in AI-driven drug discovery: a review and practical guide (2020); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `sdi` — SDI [all-caps-short-form] — no corpus-attested public expansion
 - `se` — SE [all-caps-short-form] — seaweed extract — Trends in Seaweed Extract Based Biostimulants: Manufacturing Process and Beneficial Effect on Soil-Plant Systems (2020); Seaweed extracts — Trends in Seaweed Extract Based Biostimulants: Manufacturing Process and Beneficial Effect on Soil-Plant Systems (2020); socioeconomic status — COVID-19 and vaccine hesitancy: A longitudinal study (2021); spectral entropy — A Review of Emotion Recognition Using Physiological Signals (2018); standard error — Acceptance of COVID-19 Vaccination during the COVID-19 Pandemic in China (2020); ambiguous across corpus records
 - `sef` — SEF [all-caps-short-form] — no corpus-attested public expansion
 - `sem` — SEM [all-caps-short-form] — electron microscopy — Macrophages in immunoregulation and therapeutics (2023); scanning electron microscope — High-entropy high-hardness metal carbides discovered by entropy descriptors (2018); Scanning electron microscope — Transition Metal Carbides and Nitrides in Energy Storage and Conversion (2016); Scanning electron microscopic — Nanocatalytic Tumor Therapy by Biomimetic Dual Inorganic Nanozyme‐Catalyzed Cascade Reaction (2018); scanning electron microscopy — Macrophages in immunoregulation and therapeutics (2023); scanning electron microscopy — MXene molecular sieving membranes for highly efficient gas separation (2018); scanning electron microscopy — In vivo guiding nitrogen-doped carbon nanozyme for tumor catalytic therapy (2018); scanning electron microscopy — Additive manufacturing of metals: a brief review of the characteristic microstructures and properties of steels, Ti-6Al-4V and high-entropy alloys (2017); Scanning electron microscopy — Polyaniline-intercalated manganese dioxide nanolayers as a high-performance cathode material for an aqueous zinc-ion battery (2018); scanning electron microscopy — High entropy oxides for reversible energy storage (2018); scanning electron microscopy — Grain structure control during metal 3D printing by high-intensity ultrasound (2020); scanning electron microscopy — Aqueous rechargeable zinc/sodium vanadate batteries with enhanced performance from simultaneous insertion of dual carriers (2018); standard error of the mean — A Review of Emotion Recognition Using Physiological Signals (2018); structural equation modeling — Best Practices for Developing and Validating Scales for Health, Social, and Behavioral Research: A Primer (2018); Structural equation modelling — COVID-19 vaccine hesitancy in the UK: the Oxford coronavirus explanations, attitudes, and narratives survey (Oceans) II (2020); ambiguous across corpus records
+- `set` — SET [all-caps-short-form] — single electron transfer — A Review on Metal- and Metal Oxide-Based Nanozymes: Properties, Mechanisms, and Applications (2021)
 - `seurat` — SEURAT [all-caps-short-form] — no corpus-attested public expansion
 - `sfa` — SFA [all-caps-short-form] — no corpus-attested public expansion
 - `sfc` — SFC [all-caps-short-form] — no corpus-attested public expansion
@@ -679,7 +7909,7 @@ wording limited to the audited rights-cleared paper set.
 - `smart` — SMART [all-caps-short-form] — no corpus-attested public expansion
 - `smarts` — SMARTS [all-caps-short-form] — no corpus-attested public expansion
 - `smct1` — SMCT1 [all-caps-short-form] — no corpus-attested public expansion
-- `sme` — SME [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `sme` — SME [all-caps-short-form] — social media exposure — Mental health problems and social media exposure during COVID-19 outbreak (2020); Social-media exposure — Mental health problems and social media exposure during COVID-19 outbreak (2020); ambiguous across corpus records
 - `smiles` — SMILES [all-caps-short-form] — Simplified Molecular Input Line Entry System — Molecular representations in AI-driven drug discovery: a review and practical guide (2020)
 - `smirks` — SMIRKS [all-caps-short-form] — no corpus-attested public expansion
 - `smote` — SMOTE [all-caps-short-form] — no corpus-attested public expansion
@@ -688,7 +7918,7 @@ wording limited to the audited rights-cleared paper set.
 - `snap` — SNAP [all-caps-short-form] — no corpus-attested public expansion
 - `snarc` — SNARC [all-caps-short-form] — no corpus-attested public expansion
 - `snotel` — SNOTEL [all-caps-short-form] — no corpus-attested public expansion
-- `soa` — SOA [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `soa` — SOA [all-caps-short-form] — stimulus onset asynchrony — Dissociating the time courses of the cross-modal semantic priming effects elicited by naturalistic sounds and spoken words (2018)
 - `som` — SOM [all-caps-short-form] — Self-Organized Maps — Precision Agriculture Techniques and Practices: From Considerations to Applications (2019); self-organizing map — Human Emotion Recognition: Review of Sensors and Methods (2020); ambiguous across corpus records
 - `sort` — SORT [all-caps-short-form] — no corpus-attested public expansion
 - `sparql` — SPARQL [all-caps-short-form] — no corpus-attested public expansion
@@ -709,7 +7939,7 @@ wording limited to the audited rights-cleared paper set.
 - `strega` — STREGA [all-caps-short-form] — no corpus-attested public expansion
 - `strf` — STRF [all-caps-short-form] — no corpus-attested public expansion
 - `stricta` — STRICTA [all-caps-short-form] — no corpus-attested public expansion
-- `strobe` — STROBE [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `strobe` — STROBE [all-caps-short-form] — STROBE statement — The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement (2007)
 - `study` — STUDY [all-caps-short-form] — no corpus-attested public expansion
 - `stut` — sTUT [corpus-attested-abbreviation] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `svhc` — SVHC [all-caps-short-form] — no corpus-attested public expansion
@@ -720,7 +7950,7 @@ wording limited to the audited rights-cleared paper set.
 - `tcm` — TCM [all-caps-short-form] — traditional Chinese medicine — Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): Extending the CONSORT Statement (2010)
 - `tei` — TEI [all-caps-short-form] — no corpus-attested public expansion
 - `tei-xml` — TEI XML [all-caps-short-form] — no corpus-attested public expansion
-- `ties` — ties [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `ties` — ties [corpus-attested-abbreviation] — Parameter restraint terms — How good are my data and what is the resolution? (2013)
 - `timer` — TIMER [all-caps-short-form] — no corpus-attested public expansion
 - `tl` — TL [all-caps-short-form] — Transfer Learning — Transfer learning: a friendly introduction (2022); Transfer learning — Plant diseases and pests detection based on deep learning: a review (2021)
 - `tmas` — TMAs [corpus-attested-abbreviation] — tissue microarrays — QuPath: Open source software for digital pathology image analysis (2017)
@@ -729,7 +7959,7 @@ wording limited to the audited rights-cleared paper set.
 - `tn1` — TN1 [all-caps-short-form] — no corpus-attested public expansion
 - `torc` — TORC [all-caps-short-form] — no corpus-attested public expansion
 - `tp53` — TP53 [all-caps-short-form] — no corpus-attested public expansion
-- `tpm` — TPM [all-caps-short-form] — no corpus-attested public expansion
+- `tpm` — TPM [all-caps-short-form] — transition probability matrix — Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms (2023)
 - `tpsa` — TPSA [all-caps-short-form] — topological polar surface area — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `trf` — TRF [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `tropomi` — TROPOMI [all-caps-short-form] — no corpus-attested public expansion
@@ -740,9 +7970,9 @@ wording limited to the audited rights-cleared paper set.
 - `uf` — UF [all-caps-short-form] — no corpus-attested public expansion
 - `umi` — UMI [all-caps-short-form] — unique molecular identifiers — A step-by-step workflow for low-level analysis of single-cell RNA-seq data with Bioconductor (2016)
 - `umts` — UMTS [all-caps-short-form] — no corpus-attested public expansion
-- `uniparc` — UniParc [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `uniparc` — UniParc [corpus-attested-abbreviation] — UniProt Archive — UniProt: the universal protein knowledgebase in 2021 (2020)
 - `uniprot` — UniProt [corpus-attested-abbreviation] — Universal Protein Resource — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021)
-- `uniprotkb` — UniProtKB [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `uniprotkb` — UniProtKB [corpus-attested-abbreviation] — UniProt Knowledgebase — UniProt: the universal protein knowledgebase in 2021 (2020)
 - `unite` — UNITE [all-caps-short-form] — no corpus-attested public expansion
 - `upclass` — UPCLASS [all-caps-short-form] — no corpus-attested public expansion
 - `uri` — URI [all-caps-short-form] — no corpus-attested public expansion
@@ -751,7 +7981,7 @@ wording limited to the audited rights-cleared paper set.
 - `vamp2` — VAMP2 [all-caps-short-form] — no corpus-attested public expansion
 - `van` — VAN [all-caps-short-form] — no corpus-attested public expansion
 - `vc` — VC [all-caps-short-form] — no corpus-attested public expansion
-- `vci` — VCI [all-caps-short-form] — Vaccine Confidence Index — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries (2021); 1 additional expansion row(s) withheld by rights gate
+- `vci` — VCI [all-caps-short-form] — Vaccine Confidence Index — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries (2021); Vaccine Confidence Index — Mapping global trends in vaccine confidence and investigating barriers to vaccine uptake: a large-scale retrospective temporal modelling study (2020)
 - `vgg16` — VGG16 [all-caps-short-form] — no corpus-attested public expansion
 - `vglut3` — VGLUT3 [all-caps-short-form] — no corpus-attested public expansion
 - `vid` — VID [all-caps-short-form] — no corpus-attested public expansion

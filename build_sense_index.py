@@ -358,6 +358,41 @@ def presentation_base_term(value: str) -> str:
     ).strip()
 
 
+
+# A one-letter parenthetical is a figure-panel marker far more often than a short form, and a
+# trailing (s) is a plural.  Both are exact tests, and both refuse rather than guess.
+_QUANTITY_HEADS = ("size", "number", "count", "rank")
+
+
+def _paren_s_is_an_inflection(short: str, expansion: str, evidence: str) -> bool:
+    """``population(s)`` pluralises a word; it does not abbreviate one."""
+    if short.strip().lower() != "s":
+        return False
+    words = re.findall(r"[A-Za-z]+", expansion or "")
+    if not words:
+        return False
+    # Tie the refusal to this expansion's own last word carrying the (s), not to any (s)
+    # anywhere in the passage.
+    return re.search(re.escape(words[-1]) + r"\s*\(\s*s\s*\)", evidence or "", re.I) is not None
+
+
+def _single_letter_paren_is_a_panel_label(short: str, expansion: str) -> bool:
+    """``(D) Distribution of ...`` is the fourth panel of a figure.
+
+    The words before it close panel (C) and expand nothing.  A single letter in parentheses
+    is accepted only when the expansion names a quantity -- ``sample size (N)`` -- which is
+    the one construction where a letter really is the short form of the words beside it.
+
+    Count characters, not letters: ``R2`` is two characters and ``R-Square`` is its correct
+    expansion.  Stripping digits first is how the first version of this test discarded it.
+    """
+    token = short.strip()
+    if len(token) != 1 or not token.isalpha():
+        return False
+    words = re.findall(r"[A-Za-z]+", expansion or "")
+    return not (words and words[-1].lower() in _QUANTITY_HEADS)
+
+
 def collect_abbreviation_expansions(
     records: list[dict[str, Any]],
     *,
@@ -386,6 +421,8 @@ def collect_abbreviation_expansions(
             or folded(clean_short) == folded(clean_expansion)
             or len(clean_expansion) <= len(clean_short)
         ):
+            return
+        if _paren_s_is_an_inflection(clean_short, clean_expansion, evidence) or                 _single_letter_paren_is_a_panel_label(clean_short, clean_expansion):
             return
         key = (folded(clean_expansion), paper_id)
         by_short[folded(clean_short)][key] = {
