@@ -95,11 +95,22 @@
           </div>
         </fieldset>
 
+        <!-- TWO QUESTIONS, TWO LEGENDS. These four radios lived under one legend, "Language and
+             scope", so a screen reader announced the same heading for both and a sighted reader
+             saw one block of four. It is the only place on this form where two groups shared a
+             heading, and it is the only question a test driving this form deliberately failed to
+             answer - twice - because the block looks like one question with four options. -->
         <fieldset>
-          <legend>Language and scope</legend>
+          <legend>What language is the full text in?</legend>
           <div class="choice-grid">
             <label class="choice"><input type="radio" name="language" value="english"><span>Full text is English</span></label>
             <label class="choice"><input type="radio" name="language" value="other"><span>Another language</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>What kind of item is it?</legend>
+          <div class="choice-grid">
             <label class="choice"><input type="radio" name="scope" value="paper"><span>Academic paper</span></label>
             <label class="choice"><input type="radio" name="scope" value="other"><span>Another kind of item</span></label>
           </div>
