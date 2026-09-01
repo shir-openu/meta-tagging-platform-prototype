@@ -47,12 +47,12 @@
     <div class="fee-case"><b>מאמר אחד · <span class="ltr">$2</span></b><span>דוגמת עמלת Stripe: ‏<span class="ltr">$0.36 (17.9%)</span>; נשארים <span class="ltr">$1.64</span>.</span></div>
     <div class="fee-case"><b>חבילה של עשרה מאמרים · <span class="ltr">$20</span></b><span>דוגמת עמלת Stripe: ‏<span class="ltr">$0.88 (4.4%)</span>; נשארים <span class="ltr">$19.12</span>.</span></div>
   </section>
-  <p class="fee-caveat">Google Pay הוא ארנק: Google אינה מוסיפה עמלה נפרדת, אך עמלת מעבד התשלומים עדיין חלה. ההמלצה היא לשמור על מחיר יחידה של שני דולר, אבל לקבוע חבילה מוגדרת של 10 מאמרים ב־20 דולר כמינימום הרגיל לתשלום, במקום זיכויים פתוחים. המספרים משתמשים בדוגמה האמריקאית התקנית הנוכחית של Stripe לכרטיס מקומי (<span class="ltr">2.9% + $0.30</span>), ואינם הבטחה ש־Stripe יהיה הספק שייבחר לעסק בישראל. מס וחשבוניות אינם כלולים כאן.</p>
+  <p class="fee-caveat">המספרים משתמשים בדוגמה תקנית של כרטיס מקומי (<span class="ltr">2.9% + $0.30</span>). הספק טרם נקבע, ומס וחשבוניות אינם כלולים כאן.</p>
 
   <div class="intake-grid">
     <section class="intake-panel" aria-labelledby="checkTitle">
       <h2 id="checkTitle">בדיקת המקור לפני תשלום</h2>
-      <p class="intro">הבדיקה בדפדפן אינה שולחת דבר. תוצאה חיובית פותחת הודעת דוא״ל מוכנה; שיר עדיין מאמתת את המקור לפני אישור זמני כלשהו.</p>
+      <p class="intro">הבדיקה בדפדפן אינה שולחת דבר. תוצאה חיובית פותחת הודעת דוא״ל מוכנה. כל מקור עובר אימות נוסף לפני אישור זמני כלשהו.</p>
 
       <form id="intakePreflight" class="preflight-form" novalidate>
         <label class="source-label" for="locator">DOI, קישור למאגר או כותרת המאמר</label>
@@ -61,13 +61,13 @@
         <fieldset>
           <legend>איזה מקור יש לכם?</legend>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI או קישור למקור<small>אנחנו מאתרים ומאמתים את הטקסט המלא.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI או קישור למקור<small>הטקסט המלא מאותר ומאומת.</small></span></label>
             <label class="choice"><input type="radio" name="source" value="mhtml"><span>יש קובץ MHTML<small>מצרפים אותו אחר כך לדוא״ל.</small></span></label>
             <label class="choice"><input type="radio" name="source" value="pdf"><span>יש רק PDF<small>תהליך העבודה הנוכחי מסרב לטקסט PDF.</small></span></label>
           </div>
           <label class="source-label" for="mhtml">קובץ MHTML אופציונלי</label>
           <input class="source-file" id="mhtml" name="mhtml" type="file" accept=".mhtml,.mht,message/rfc822">
-          <small class="field-note">הקובץ נשאר במכשיר. GitHub Pages אינו יכול לקבל אותו; מצרפים אותו ידנית רק לאחר שהבדיקה עוברת.</small>
+          <small class="field-note">הקובץ נשאר במכשיר. העמוד אינו יכול לקבל אותו; מצרפים אותו לדוא״ל, רק לאחר שהבדיקה עוברת.</small>
         </fieldset>
 
         <fieldset>
@@ -122,7 +122,7 @@
       <h2 id="flowTitle">מה קורה לשני הדולר</h2>
       <ol class="flow-list">
         <li><b>1 · בדיקת מקור</b><span>זהות, רישיון, טקסט מלא, שפה ואיכות טקסט. אין תשלום.</span></li>
-        <li><b>2 · קבלה ידנית</b><span>שיר מאשרת את המקור ואת מועד המסירה.</span></li>
+        <li><b>2 · קבלה ידנית</b><span>המקור מאושר ונקבע מועד מסירה.</span></li>
         <li><b>3 · אישור זמני של שני דולר</b><span>אישור בלבד. מועד פקיעת האישור אצל הספק קובע את לוח הזמנים.</span></li>
         <li><b>4 · תיוג ובדיקה</b><span>התגים המעוגנים במקור מופקים ונבדקים.</span></li>
         <li><b>5 · מסירה, ואז חיוב</b><span>שני הדולר נגבים רק כאשר התוצאה המתויגת נמסרת.</span></li>
@@ -142,14 +142,10 @@
   </section>
 
   <section class="server-note" aria-labelledby="serverTitle">
-    <h2 id="serverTitle">למה העמוד הזה אינו מעלה את הקובץ</h2>
-    <p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages הוא אחסון סטטי</a>; הוא יכול להציג את הבדיקה, אבל אינו יכול לקבל מאמר באופן פרטי או ליצור אישור תשלום. התוספת המזערית להעלאה ישירה היא נתיב שרת אחד ב־Vercel, מאומת ומוגבל בקצב, שמנפיק אסימון העלאה קצר־חיים, לצד מאגר Blob פרטי ופעולת מחיקה. שום סוד אינו שייך לעמוד הזה.</p>
-    <p><strong>תקציב האחסון המסחרי המזערי: בסיס של 20 דולר לחודש ל־Vercel Pro</strong>, הכולל זיכוי שימוש של 20 דולר; שימוש ב־Blob נמדד לפי אזור מעבר לזיכוי. תוכנית Hobby החינמית של Vercel מוגבלת לשימוש אישי ולא־מסחרי. קליטה ידנית בדוא״ל מוסיפה אפס עלות אחסון.</p>
-  </section>
-
-  <section class="source-list" aria-labelledby="sourcesTitle">
-    <h2 id="sourcesTitle">מקורות עדכניים לעמלות ולתשתית · נבדקו ב־1.9.2026</h2>
-    <p><a href="https://stripe.com/pricing">התמחור התקני של Stripe</a> · <a href="https://developers.google.com/pay/api/web/support/faq">שאלות ותשובות על עמלות Google Pay</a> · <a href="https://docs.stripe.com/payments/place-a-hold-on-a-payment-method">אישור וחיוב ב־Stripe</a> · <a href="https://vercel.com/pricing">תמחור Vercel</a> · <a href="https://vercel.com/docs/plans/hobby">מגבלת תוכנית Hobby</a> · <a href="https://vercel.com/docs/pricing/regional-pricing">תמחור אזורי של Vercel Blob</a></p>
+    <h2 id="serverTitle">למה הקובץ אינו נשלח מכאן</h2>
+    <p>העמוד הזה סטטי: הוא מריץ את בדיקת המקור בדפדפן שלכם, ואינו יכול לקבל מסמך
+       או להחזיק תשלום. שום דבר ממה שמוקלד או מצורף אינו עוזב את המכשיר מהעמוד הזה.
+       את המאמר שולחים בדוא״ל, לאחר שהבדיקה עוברת והמקור אושר.</p>
   </section>
 
   <footer class="pt-foot"><a href="index-he.html">פלטפורמת מטא־תיוג</a> · הדף הזה אינו גובה כרטיס; התשלום מסודר במייל לאחר האישור. <span class="pt-credit">&copy; Shir Sivroni</span></footer>

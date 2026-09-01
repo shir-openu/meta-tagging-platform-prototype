@@ -47,12 +47,12 @@
     <div class="fee-case"><b>One paper · $2</b><span>Stripe example fee: $0.36 (17.9%); $1.64 remains.</span></div>
     <div class="fee-case"><b>Ten-paper pack · $20</b><span>Stripe example fee: $0.88 (4.4%); $19.12 remains.</span></div>
   </section>
-  <p class="fee-caveat">Google Pay is a wallet: Google adds no separate fee, while the payment processor’s fee still applies. Recommendation: keep the $2 unit price, but make a defined 10-paper/$20 batch the normal paid minimum instead of open-ended credits. These figures use Stripe’s current US standard domestic-card example (2.9% + $0.30), not a promise that Stripe is the eventual Israel-supported provider. Tax and invoicing are not included here.</p>
+  <p class="fee-caveat">Figures use a standard domestic-card example of 2.9% + $0.30. The processor is not yet fixed, and tax and invoicing are not included.</p>
 
   <div class="intake-grid">
     <section class="intake-panel" aria-labelledby="checkTitle">
       <h2 id="checkTitle">Check the source before payment</h2>
-      <p class="intro">This browser check sends nothing. A pass opens a pre-filled email; Shir still verifies the source before any temporary hold.</p>
+      <p class="intro">This browser check sends nothing. A pass opens a pre-filled email. Every source is verified again before any temporary hold.</p>
 
       <form id="intakePreflight" class="preflight-form" novalidate>
         <label class="source-label" for="locator">DOI, repository URL or paper title</label>
@@ -61,13 +61,13 @@
         <fieldset>
           <legend>What source do you have?</legend>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI or source link<small>We locate and verify the full text.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI or source link<small>The full text is located and verified.</small></span></label>
             <label class="choice"><input type="radio" name="source" value="mhtml"><span>MHTML available<small>Attach it later in your email.</small></span></label>
             <label class="choice"><input type="radio" name="source" value="pdf"><span>PDF only<small>The current workflow refuses PDF text.</small></span></label>
           </div>
           <label class="source-label" for="mhtml">Optional MHTML file</label>
           <input class="source-file" id="mhtml" name="mhtml" type="file" accept=".mhtml,.mht,message/rfc822">
-          <small class="field-note">The file stays on your device. GitHub Pages cannot receive it; attach it manually only after this check passes.</small>
+          <small class="field-note">The file stays on your device. This page cannot receive it; attach it to the email, only after this check passes.</small>
         </fieldset>
 
         <fieldset>
@@ -126,7 +126,7 @@
       <h2 id="flowTitle">What happens to the $2</h2>
       <ol class="flow-list">
         <li><b>1 · Source check</b><span>Identity, licence, full text, language and text quality. No payment.</span></li>
-        <li><b>2 · Manual acceptance</b><span>Shir confirms the source and a delivery date.</span></li>
+        <li><b>2 · Manual acceptance</b><span>The source is confirmed and a delivery date set.</span></li>
         <li><b>3 · Temporary $2 hold</b><span>Authorization only. The provider’s real capture deadline controls the schedule.</span></li>
         <li><b>4 · Tag and review</b><span>Verbatim-grounded tags are produced and checked.</span></li>
         <li><b>5 · Deliver, then capture</b><span>The $2 is captured only when the tagged result is delivered.</span></li>
@@ -146,14 +146,10 @@
   </section>
 
   <section class="server-note" aria-labelledby="serverTitle">
-    <h2 id="serverTitle">Why this page does not upload the file</h2>
-    <p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages is static hosting</a>; it can show this check but cannot privately receive a paper or create a payment authorization. The minimum direct-upload addition is one authenticated, rate-limited Vercel server route that issues a short-lived upload token, plus a private Blob store and deletion callback. No secret belongs in this page.</p>
-    <p><strong>Minimum commercial hosting budget: $20/month base for Vercel Pro</strong>, including $20 of usage credit; Blob use is metered regionally after included credit. Vercel’s free Hobby plan is restricted to personal, non-commercial use. Manual email intake costs $0 incremental hosting.</p>
-  </section>
-
-  <section class="source-list" aria-labelledby="sourcesTitle">
-    <h2 id="sourcesTitle">Current fee and infrastructure sources · checked 2026-09-01</h2>
-    <p><a href="https://stripe.com/pricing">Stripe standard pricing</a> · <a href="https://developers.google.com/pay/api/web/support/faq">Google Pay fee FAQ</a> · <a href="https://docs.stripe.com/payments/place-a-hold-on-a-payment-method">Stripe authorization and capture</a> · <a href="https://vercel.com/pricing">Vercel pricing</a> · <a href="https://vercel.com/docs/plans/hobby">Vercel Hobby restriction</a> · <a href="https://vercel.com/docs/pricing/regional-pricing">Vercel regional Blob pricing</a></p>
+    <h2 id="serverTitle">Why the file is not uploaded here</h2>
+    <p>This page is static: it can run the source check in your browser, and it cannot receive
+       a document or hold a payment. Nothing you type or attach leaves your device from this
+       page. The paper is sent by email, after the check passes and the source is accepted.</p>
   </section>
 
   <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · This page takes no card; payment is arranged by email after acceptance. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
