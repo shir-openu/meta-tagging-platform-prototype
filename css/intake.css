@@ -195,3 +195,23 @@
 @media (prefers-reduced-motion: reduce) {
   .intake-page * { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* TEMPORARY -- Shir, 2026-09-01: "FOR NOW HIDE THE $2 BUTTON. KEEP IT LOCATED THERE AND WE
+   NEED ITS FUNCTIONS TO WORK. JUST HIDE IT FROM THE USERS AND MAKE IT TEMPORARILY
+   UNRESPONSIVE TO USER MOUSE CLICKS."
+
+   Nothing is deleted. The price lockup, the two fee cases, the fee note and the five-step
+   $2 flow all stay in the markup, in place, with their text and numbers intact; only this
+   block hides them. DELETE THIS BLOCK TO SHOW THE PRICE AGAIN -- there is no markup to
+   restore and no commit to revert.
+
+   pointer-events:none is redundant under display:none and is kept deliberately: if this is
+   ever softened to a dimmed-but-visible state, the click-proofing must not have to be
+   remembered a second time. */
+.payment-hidden .price-lockup,
+.payment-hidden .fee-math,
+.payment-hidden .fee-caveat,
+.payment-hidden .intake-flow { display: none !important; pointer-events: none !important; }
+
+/* One column while the flow panel is hidden, so the form does not sit in half a grid. */
+.payment-hidden .intake-grid { grid-template-columns: minmax(0, 1fr); }
