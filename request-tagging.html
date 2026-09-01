@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Request paper tagging — Meta-Tagging Platform</title>
-<meta name="description" content="Check whether a paper can enter the manual $1 meta-tagging service before any payment is requested.">
+<meta name="description" content="Check whether a paper can enter the manual $2 meta-tagging service before any payment is requested.">
 <link rel="alternate" hreflang="en" href="request-tagging.html">
 <link rel="alternate" hreflang="he" href="request-tagging-he.html">
 <link rel="stylesheet" href="css/shell.css?v=4ba5d57a">
@@ -38,16 +38,16 @@
     <h1 id="intakeTitle">Send a paper for us to tag</h1>
     <p>Every tag comes back with the exact source sentence it was read from. The first service is manual, English-only and limited to complete, selectable text with cleared rights.</p>
     <div class="price-lockup">
-      <span class="price">$1</span><span class="unit">per accepted paper</span>
+      <span class="price">$2</span><span class="unit">per accepted paper</span>
       <span class="outline-badge">no payment before preflight</span>
     </div>
   </section>
 
   <section class="fee-math" aria-label="Payment fee arithmetic">
-    <div class="fee-case"><b>One paper · $1</b><span>Stripe example fee: $0.33 (32.9%); $0.67 remains.</span></div>
-    <div class="fee-case"><b>Ten-paper pack · $10</b><span>Stripe example fee: $0.59 (5.9%); $9.41 remains.</span></div>
+    <div class="fee-case"><b>One paper · $2</b><span>Stripe example fee: $0.36 (17.9%); $1.64 remains.</span></div>
+    <div class="fee-case"><b>Ten-paper pack · $20</b><span>Stripe example fee: $0.88 (4.4%); $19.12 remains.</span></div>
   </section>
-  <p class="fee-caveat">Google Pay is a wallet: Google adds no separate fee, while the payment processor’s fee still applies. Recommendation: keep the $1 unit price, but make a defined 10-paper/$10 batch the normal paid minimum instead of open-ended credits. These figures use Stripe’s current US standard domestic-card example (2.9% + $0.30), not a promise that Stripe is the eventual Israel-supported provider. Tax and invoicing are not included here.</p>
+  <p class="fee-caveat">Google Pay is a wallet: Google adds no separate fee, while the payment processor’s fee still applies. Recommendation: keep the $2 unit price, but make a defined 10-paper/$20 batch the normal paid minimum instead of open-ended credits. These figures use Stripe’s current US standard domestic-card example (2.9% + $0.30), not a promise that Stripe is the eventual Israel-supported provider. Tax and invoicing are not included here.</p>
 
   <div class="intake-grid">
     <section class="intake-panel" aria-labelledby="checkTitle">
@@ -112,16 +112,16 @@
     </section>
 
     <aside class="intake-panel" aria-labelledby="flowTitle">
-      <h2 id="flowTitle">What happens to the $1</h2>
+      <h2 id="flowTitle">What happens to the $2</h2>
       <ol class="flow-list">
         <li><b>1 · Source check</b><span>Identity, licence, full text, language and text quality. No payment.</span></li>
         <li><b>2 · Manual acceptance</b><span>Shir confirms the source and a delivery date.</span></li>
-        <li><b>3 · Temporary $1 hold</b><span>Authorization only. The provider’s real capture deadline controls the schedule.</span></li>
+        <li><b>3 · Temporary $2 hold</b><span>Authorization only. The provider’s real capture deadline controls the schedule.</span></li>
         <li><b>4 · Tag and review</b><span>Verbatim-grounded tags are produced and checked.</span></li>
-        <li><b>5 · Deliver, then capture</b><span>The $1 is captured only when the tagged result is delivered.</span></li>
+        <li><b>5 · Deliver, then capture</b><span>The $2 is captured only when the tagged result is delivered.</span></li>
       </ol>
       <div class="flow-stop"><b>If the paper cannot be tagged</b><p>Before capture: cancel and release the hold. After capture: issue a full refund. Never substitute credits.</p></div>
-      <span class="test-only">payment connection intentionally absent</span>
+      <span class="test-only">accepting papers now · payment is arranged by email</span>
     </aside>
   </div>
 
@@ -145,7 +145,7 @@
     <p><a href="https://stripe.com/pricing">Stripe standard pricing</a> · <a href="https://developers.google.com/pay/api/web/support/faq">Google Pay fee FAQ</a> · <a href="https://docs.stripe.com/payments/place-a-hold-on-a-payment-method">Stripe authorization and capture</a> · <a href="https://vercel.com/pricing">Vercel pricing</a> · <a href="https://vercel.com/docs/plans/hobby">Vercel Hobby restriction</a> · <a href="https://vercel.com/docs/pricing/regional-pricing">Vercel regional Blob pricing</a></p>
   </section>
 
-  <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · No real payment is available on this test surface. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
+  <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · This page takes no card; payment is arranged by email after acceptance. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
 </main>
 
 <script src="js/intake.js?v=4ba5d57a"></script>

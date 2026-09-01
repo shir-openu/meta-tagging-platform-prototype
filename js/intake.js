@@ -29,7 +29,7 @@
       incomplete: "Choose one answer in every section and name the DOI, source URL or paper title. No payment has been taken or held.",
       refusedTitle: "We cannot accept this source",
       acceptedTitle: "This request can go to manual review",
-      accepted: "The answers pass this first screen. This is not final acceptance: Shir will verify the paper and reply before any $1 authorization hold. No payment has been taken or held.",
+      accepted: "The answers pass this first screen. This is not final acceptance: Shir will verify the paper and reply before any $2 authorization hold. No payment has been taken or held.",
       email: "Email this request",
       reasons: {
         PDF_ONLY: "The current safe workflow cannot use PDF text. No payment was requested. Send a DOI, repository URL or lawful MHTML source and we will recheck it.",
@@ -45,7 +45,7 @@
       incomplete: "בחרו תשובה אחת בכל חלק וציינו DOI, קישור למקור או כותרת מאמר. לא בוצע חיוב ולא נתפסה מסגרת אשראי.",
       refusedTitle: "אי אפשר לקבל את המקור הזה",
       acceptedTitle: "אפשר להעביר את הבקשה לבדיקה ידנית",
-      accepted: "התשובות עוברות את המסך הראשון. זו עדיין לא קבלה סופית: שיר תאמת את המאמר ותשיב לפני אישור זמני כלשהו של דולר אחד. לא בוצע חיוב ולא נתפסה מסגרת אשראי.",
+      accepted: "התשובות עוברות את המסך הראשון. זו עדיין לא קבלה סופית: שיר תאמת את המאמר ותשיב לפני אישור זמני כלשהו של שני דולר. לא בוצע חיוב ולא נתפסה מסגרת אשראי.",
       email: "שליחת הבקשה בדוא״ל",
       reasons: {
         PDF_ONLY: "תהליך העבודה הבטוח הנוכחי אינו יכול להשתמש בטקסט מתוך PDF. לא התבקש תשלום. שלחו DOI, קישור למאגר או מקור MHTML חוקי ונבדוק שוב.",
