@@ -7,6 +7,7 @@ Inputs (read only):
   data/term_corpus.json
 
 Outputs (derived and reproducible):
+  data/term_corpus.json (rights-sanitized in place after the project-wide term build)
   data/sense_index.json
   data/sense_index.inline.js
   data/sense_index_report.json
@@ -54,7 +55,7 @@ OUT_META_REPORT_MD = ROOT / "data" / "meta_render_report.md"
 sys.path.insert(0, str(PROJECT / "TOOLS"))
 from build_paper_edition import cleared_ids  # noqa: E402
 from build_concept_index import _normalised_is_attested, _paper_defined_acronym  # noqa: E402
-from live_quote_fields import is_live  # noqa: E402
+from live_quote_fields import is_live, iter_quote_fields  # noqa: E402
 
 DELIMITER = re.compile(r" (?:-|—) ")
 WRAPPERS = (("`", "`"), ('"', '"'), ("'", "'"), ("“", "”"), ("‘", "’"))
@@ -241,6 +242,46 @@ def atomic_text(path: Path, text: str) -> None:
             time.sleep(0.25)
 
 
+def rights_sanitize_term_corpus(
+    term_corpus: dict[str, Any],
+    records: list[dict[str, Any]],
+    cleared: set[str],
+) -> tuple[dict[str, Any], dict[str, int]]:
+    """Remove picker labels that reproduce a live quote from a redistribution-denied paper.
+
+    ``build_term_corpus.py`` indexes the complete internal tag layer. Most entries are
+    project-authored labels, but any source field can accidentally repeat its evidence verbatim;
+    statistic surfaces do so routinely, and real records also contain a definition term equal to
+    its evidence and a concept term equal to relation evidence. Use the project's shared live
+    quote enumerator rather than guessing the source field. Short notation (``N``, ``RAM``,
+    ``PFC``) remains enumerable because the quote gate starts at 25 characters. A shared slug does
+    not rescue exact denied wording.
+    """
+
+    denied_quote_labels: set[str] = set()
+    for record in records:
+        paper_id = str(record.get("id") or "")
+        if paper_id in cleared:
+            continue
+        for _path, quote, _holder in iter_quote_fields(record, min_len=25):
+            label = " ".join(str(quote or "").split())
+            if len(label) >= 25:
+                denied_quote_labels.add(label)
+
+    sanitized = dict(term_corpus)
+    terms = dict(term_corpus.get("terms") or {})
+    removed_now = 0
+    for term_slug, entry in list(terms.items()):
+        label = " ".join(str(entry[0] if entry else "").split())
+        if label in denied_quote_labels:
+            del terms[term_slug]
+            removed_now += 1
+    sanitized["terms"] = terms
+    return sanitized, {
+        "rights_removed_quote_picker_rows_this_build": removed_now,
+    }
+
+
 def parse_label(label: str) -> dict[str, Any]:
     matches = list(DELIMITER.finditer(label))
     if not matches:
@@ -384,16 +425,26 @@ def collect_abbreviation_expansions(
 def main() -> int:
     corpus_bytes = CORPUS.read_bytes()
     rights_bytes = RIGHTS.read_bytes()
-    term_corpus_bytes = TERM_CORPUS.read_bytes()
     concepts_bytes = CONCEPTS.read_bytes()
     corpus = json.loads(corpus_bytes.decode("utf-8"))
-    term_corpus = json.loads(term_corpus_bytes.decode("utf-8"))
     records = corpus["records"]
     cleared = set(cleared_ids())
     if not cleared:
         raise RuntimeError("cleared_ids() returned an empty set; refusing to build public quotes")
     if RIGHTS.read_bytes() != rights_bytes:
         raise RuntimeError("rights manifest changed while the allow-list was read; retry the build")
+
+    raw_term_corpus_bytes = TERM_CORPUS.read_bytes()
+    raw_term_corpus = json.loads(raw_term_corpus_bytes.decode("utf-8"))
+    term_corpus, term_rights_counts = rights_sanitize_term_corpus(
+        raw_term_corpus, records, cleared
+    )
+    term_corpus_text = json.dumps(
+        term_corpus, ensure_ascii=False, separators=(",", ":")
+    )
+    term_corpus_bytes = term_corpus_text.encode("utf-8")
+    if term_corpus_bytes != raw_term_corpus_bytes:
+        atomic_text(TERM_CORPUS, term_corpus_text)
 
     picker_by_fold: dict[str, list[tuple[str, str]]] = defaultdict(list)
     for term_slug, entry in term_corpus.get("terms", {}).items():
@@ -776,6 +827,7 @@ def main() -> int:
         "missing_citation_papers": len(missing_citation_papers),
         "missing_citation_sense_rows": sum(1 for row in sense_rows if not paper_rows[row["paper_id"]].get("citations")),
         "missing_quote_locators": missing_locators,
+        **term_rights_counts,
     }
 
     # The counts audit every corpus row.  Both the browser-facing index AND the report's row-level
@@ -1136,6 +1188,7 @@ wording limited to the audited rights-cleared paper set.
 | Complete abbreviation class | {counts['abbreviation_class_terms']:,} |
 | Abbreviations with public corpus-attested expansions | {counts['abbreviation_terms_with_public_expansions']:,} |
 | Rights-withheld expansion rows (count only) | {counts['abbreviation_withheld_expansion_rows']:,} |
+| Picker labels matching denied live quotes removed in this build | {counts['rights_removed_quote_picker_rows_this_build']:,} |
 
 ## Historical terms repaired by the three-layer route
 

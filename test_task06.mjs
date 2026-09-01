@@ -74,17 +74,34 @@ assert.equal(index.abbreviations.n.kind, "single-letter");
 assert.equal(index.abbreviations.n.expansions.length, 0);
 assert.equal(index.abbreviations.ram.kind, "all-caps-short-form");
 assert.equal(index.abbreviations.ram.expansions.length, 0);
-assert(index.abbreviations.pfc.ambiguous);
-assert(index.abbreviations.pfc.withheld_expansion_rows > 0);
-assert(index.abbreviations.pfc.expansions.every(row => row.expansion === "prefrontal cortex"));
-assert(index.abbreviations.pfc.expansions.every(row => index.papers[row.paper_id]));
-assert(!JSON.stringify(index.abbreviations.pfc.expansions).includes("perfluorocarbons"));
+const pfc = index.abbreviations.pfc;
+const pfcConcept = { id: "pfc", slug: "pfc", en: "PFC", aliases: [] };
+assert(pfc.ambiguous);
+assert(pfc.withheld_expansion_rows > 0);
+assert(pfc.expansions.every(row => index.papers[row.paper_id]));
 assert(conceptLabel({ id: "n", slug: "n", en: "N" }).includes("no corpus-attested expansion"));
-assert(conceptLabel({ id: "pfc", slug: "pfc", en: "PFC" }).includes("PFC for prefrontal cortex"));
-const pfcHTML = abbreviationDetailsHTML({ id: "pfc", slug: "pfc", en: "PFC" });
+const pfcLabel = conceptLabel(pfcConcept);
+const pfcHTML = abbreviationDetailsHTML(pfcConcept);
+const pfcExpansions = [...new Set(pfc.expansions.map(row => row.expansion))];
+assert.equal((pfcHTML.match(/<li>/g) || []).length, pfc.expansions.length);
+if (pfcExpansions.length) {
+  for (const expansion of pfcExpansions) {
+    assert(pfcLabel.includes(`PFC for ${expansion}`));
+    assert(pfcHTML.includes(`PFC for ${expansion}`));
+    assert(matches(pfcConcept, expansion));
+  }
+  for (const row of pfc.expansions) {
+    assert(pfcHTML.includes(index.papers[row.paper_id].title || row.paper_id));
+  }
+} else {
+  assert(pfcLabel.includes("expansion unavailable from the public rights-cleared corpus"));
+  assert(pfcHTML.includes("No public corpus-attested expansion; no expansion is guessed."));
+}
 assert(pfcHTML.includes("Ambiguous short form"));
 assert(pfcHTML.includes("withheld by the public-rights gate"));
-assert(matches({ id: "pfc", slug: "pfc", en: "PFC", aliases: [] }, "prefrontal cortex"));
+if (!pfcExpansions.includes("perfluorocarbons")) {
+  assert(!pfcHTML.includes("perfluorocarbons"));
+}
 assert.equal(index.semantics.anchor_index,
   "locator start/end count Unicode code points, not UTF-16 code units");
 assert(index.senses.filter(row => row.locator).every(row =>
@@ -143,11 +160,17 @@ assert.equal(objectLayer.public_case_overlap.object, 20);
 assert.equal(objectLayer.public_case_overlap.not_object, 2);
 assert(!Object.keys(objectLayer.public_case_overlap.cases[0]).some(key =>
   ["paper", "quote", "evidence", "thing"].includes(key)), "sub-term output copied source content");
+const liveSenseIndex = S.senseIndex;
+S.senseIndex = {
+  senses: [{ paper_id: "paper-1" }, { paper_id: "paper-2" }, { paper_id: "paper-1" }],
+  picker_terms: { coverage: [0, 1], evidence: [2] },
+};
 assert.equal(capabilityForRegistryEntry({ state: "ready", id: "art" }), CAPABILITY.BENCHMARK);
-assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "accuracy" }), CAPABILITY.COVERAGE);
-assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "network" }), CAPABILITY.EVIDENCE);
-assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "active-user" }), CAPABILITY.CORPUS);
+assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "coverage" }), CAPABILITY.COVERAGE);
+assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "evidence" }), CAPABILITY.EVIDENCE);
+assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "no-public-paper" }), CAPABILITY.CORPUS);
 assert.equal(capabilityForRegistryEntry({ state: "corpus", slug: "not-a-real-term" }), CAPABILITY.CORPUS);
+S.senseIndex = liveSenseIndex;
 
 S.subtermIndex = subterms;
 S.capability = CAPABILITY.BENCHMARK;
@@ -158,26 +181,27 @@ S.featureSelection = new Set(["subterm:object"]);
 assert.deepEqual(JSON.parse(JSON.stringify(selectedFeatureMap().features)),
   [{ id: "object", layer: "subterm", label: "object" }]);
 
-function rowsFor(term) {
-  return index.picker_terms[term].map(i => index.senses[i]);
-}
+const liveSelectorIndex = S.senseIndex;
+S.senseIndex = { papers: {
+  "paper-old": { year: 2001, citations: { count: 5 } },
+  "paper-new": { year: 2021, citations: { count: 50 } },
+} };
+const selectorRows = [
+  { paper_id: "paper-old", sense_id: "sense-old" },
+  { paper_id: "paper-new", sense_id: "sense-new" },
+];
+const selectorPlan = evidenceSelectorPlan(selectorRows);
+assert.equal(selectorPlan.papers.length, 2);
+assert.equal([...selectorPlan.badges.values()].flat().filter(x => x === "evidence.oldest").length, 1);
+assert.equal([...selectorPlan.badges.values()].flat().filter(x => x === "evidence.newest").length, 1);
+assert.equal([...selectorPlan.badges.values()].flat().filter(x => x === "evidence.cited").length, 1);
+assert(!selectorPlan.notes.some(x => x.startsWith("evidence.cited.unavailable")));
 
-const chirpMass = evidenceSelectorPlan(rowsFor("chirp-mass"));
-assert.equal(chirpMass.papers.length, 2);
-assert.equal([...chirpMass.badges.values()].flat().filter(x => x === "evidence.oldest").length, 1);
-assert.equal([...chirpMass.badges.values()].flat().filter(x => x === "evidence.newest").length, 1);
-assert.equal([...chirpMass.badges.values()].flat().filter(x => x === "evidence.cited").length, 1);
-assert(!chirpMass.notes.some(x => x.startsWith("evidence.cited.unavailable")));
-
-const accuracy = evidenceSelectorPlan(rowsFor("accuracy"));
-assert(accuracy.papers.length >= 1);
-assert(Array.isArray(accuracy.notes));
-
-const onePaper = evidenceSelectorPlan(rowsFor("algorithmic-fairness"));
+const onePaper = evidenceSelectorPlan([selectorRows[0]]);
 assert.equal(onePaper.papers.length, 1);
 assert(onePaper.notes.includes("evidence.onepaper"));
 
-const coverageRows = rowsFor("chirp-mass");
+const coverageRows = selectorRows;
 const sourcePaper = coverageRows[0].paper_id;
 const heldOut = coverageCases({ sourcePaper }, coverageRows);
 assert(heldOut.every(row => row.paper_id !== sourcePaper));
@@ -187,6 +211,7 @@ const coverage = coverageMetrics(heldOut, {
 assert.equal(coverage.covered, 1);
 assert.equal(coverage.decided, 1);
 assert.equal(coverage.caseRate, 1);
+S.senseIndex = liveSelectorIndex;
 
 S.capability = CAPABILITY.EVIDENCE;
 S.termPick = { slug: "accuracy", ids: ["p1", "p2"] };

@@ -1,8 +1,8 @@
 {
   "schema_version": "meta-render-browser-audit-2",
-  "generated_at": "2026-08-31T16:49:21.137Z",
+  "generated_at": "2026-09-01T11:12:45.512Z",
   "source": {
-    "page_url": "http://127.0.0.1:8765/define/index-en.html",
+    "page_url": "http://127.0.0.1:8766/define/index-en.html",
     "term_set": "data/concepts.json served by the audited page",
     "execution": "headless Chrome; production DOM and production score.js code paths",
     "browser_executable": "C:/Program Files/Google/Chrome/Application/chrome.exe"
@@ -12,40 +12,40 @@
     "historical_terms_removed_as_withdrawn_only": 1,
     "terms_expected": 473,
     "terms_exercised": 473,
-    "runtime_picker_terms": 20374,
-    "abbreviation_terms_expected": 667,
-    "abbreviation_terms_exercised": 667,
+    "runtime_picker_terms": 22102,
+    "abbreviation_terms_expected": 697,
+    "abbreviation_terms_exercised": 697,
     "abbreviation_presentation_failures": 0,
     "capability_tiers": {
       "benchmark-score": 2,
-      "attested-use-coverage": 21,
-      "evidence-only": 59,
-      "corpus-only": 391
+      "attested-use-coverage": 7,
+      "corpus-only": 421,
+      "evidence-only": 43
     },
     "capability_labels_true": 473,
-    "definition_cards_rendered": 82,
-    "correct_refusals": 391,
+    "definition_cards_rendered": 52,
+    "correct_refusals": 421,
     "selectors": {
       "oldest": {
         "not_applicable": 2,
-        "resolved": 80,
-        "suppressed": 391
+        "resolved": 50,
+        "suppressed": 421
       },
       "newest": {
         "not_applicable": 2,
-        "resolved": 80,
-        "suppressed": 391
+        "resolved": 50,
+        "suppressed": 421
       },
       "most_cited": {
         "not_applicable": 2,
-        "resolved": 80,
-        "suppressed": 391
+        "resolved": 50,
+        "suppressed": 421
       }
     },
     "user_definitions_accepted": 473,
     "plus_buttons_present": 473,
-    "user_definitions_scoreable": 23,
-    "user_definitions_correctly_unscoreable": 450,
+    "user_definitions_scoreable": 9,
+    "user_definitions_correctly_unscoreable": 464,
     "subterm_answers_available": 1,
     "subterm_answers_degraded": 472,
     "tier3_score_leaks": 0,
@@ -170,6 +170,16 @@
       "failures": []
     },
     {
+      "slug": "aews",
+      "label": "aEWS",
+      "kind": "corpus-attested-abbreviation",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "aEWS for augmented Early Warning Score",
+      "failures": []
+    },
+    {
       "slug": "aflow-pocc",
       "label": "AFLOW-POCC",
       "kind": "all-caps-short-form",
@@ -213,10 +223,10 @@
       "slug": "ai",
       "label": "AI",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 4,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 2,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "AI for A HIGHLY CONTESTED CONCEPT; AI for artificial intelligence; AI for Artificial Intelligence",
+      "rendered_label": "AI for Artificial Intelligence",
       "failures": []
     },
     {
@@ -263,10 +273,10 @@
       "slug": "ale",
       "label": "ALE",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "ALE for Activation Likelihood Estimation",
+      "rendered_label": "ALE — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -353,10 +363,10 @@
       "slug": "api",
       "label": "API",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 4,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 2,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "API for application programming interface; API for Application Programming Interfaces; API for RESTful Application Programming Interface",
+      "rendered_label": "API for application programming interface",
       "failures": []
     },
     {
@@ -383,10 +393,10 @@
       "slug": "arcs",
       "label": "ARCS",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "ARCS for satisfaction",
+      "rendered_label": "ARCS — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -460,6 +470,16 @@
       "failures": []
     },
     {
+      "slug": "auroc",
+      "label": "AUROC",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "AUROC — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "avcn",
       "label": "AVCN",
       "kind": "all-caps-short-form",
@@ -497,6 +517,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "BA0 — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "barcodes",
+      "label": "barcodes",
+      "kind": "corpus-attested-abbreviation",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "barcodes for unique, short DNA sequences",
       "failures": []
     },
     {
@@ -740,6 +770,16 @@
       "failures": []
     },
     {
+      "slug": "capi",
+      "label": "CAPI",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "CAPI — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "casme-ii",
       "label": "CASME II",
       "kind": "all-caps-short-form",
@@ -757,6 +797,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "CASP — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "casp14",
+      "label": "CASP14",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "CASP14 for structure prediction",
       "failures": []
     },
     {
@@ -783,10 +833,10 @@
       "slug": "caution",
       "label": "CAUTION",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "CAUTION for an unsafe observation",
+      "rendered_label": "CAUTION — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -1007,6 +1057,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "CHEERS 2022 — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "chelsa-v1-2",
+      "label": "CHELSA V1.2",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "CHELSA V1.2 — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -1253,10 +1313,10 @@
       "slug": "consort",
       "label": "CONSORT",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "CONSORT for Consolidated Standards of Reporting Trials; CONSORT for CONSORT statement",
+      "rendered_label": "CONSORT — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -1413,10 +1473,10 @@
       "slug": "ctcae",
       "label": "CTCAE",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "CTCAE for REVISED AND RENAMED the CTCAE version 3.0",
+      "rendered_label": "CTCAE — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -1437,6 +1497,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "CTRUNCATE — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "ctt",
+      "label": "CTT",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "CTT — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -1923,10 +1993,10 @@
       "slug": "evs",
       "label": "EVs",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 1,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 2,
       "ambiguous": false,
-      "rendered_label": "EVs for extracellular vesicles",
+      "rendered_label": "EVs — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -1973,10 +2043,10 @@
       "slug": "fair",
       "label": "FAIR",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "FAIR for Findable, Accessible, Interoperable and Reusable",
+      "rendered_label": "FAIR — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -1987,6 +2057,26 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "FAIRDOM — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "famsa",
+      "label": "FAMSA",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "FAMSA — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "fao",
+      "label": "FAO",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "FAO — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -2020,6 +2110,16 @@
       "failures": []
     },
     {
+      "slug": "fhir",
+      "label": "FHIR",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "FHIR — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "fish-clsm",
       "label": "FISH-CLSM",
       "kind": "all-caps-short-form",
@@ -2033,10 +2133,10 @@
       "slug": "fl",
       "label": "FL",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "FL for Federated learning",
+      "rendered_label": "FL — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -2203,10 +2303,10 @@
       "slug": "gan",
       "label": "GAN",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "GAN for Generative Adversarial Nets",
+      "rendered_label": "GAN — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -2217,6 +2317,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "GAT — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "gbs",
+      "label": "GBS",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "GBS — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -2263,10 +2373,20 @@
       "slug": "gdm",
       "label": "GDM",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
+      "ambiguous": false,
+      "rendered_label": "GDM — expansion unavailable from the public rights-cleared corpus",
+      "failures": []
+    },
+    {
+      "slug": "gdt",
+      "label": "GDT",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
       "withheld_expansion_rows": 0,
       "ambiguous": false,
-      "rendered_label": "GDM for gestational diabetes mellitus",
+      "rendered_label": "GDT — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -2293,10 +2413,10 @@
       "slug": "genes",
       "label": "genes",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "genes for replicators",
+      "rendered_label": "genes — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -2463,20 +2583,20 @@
       "slug": "go-cams",
       "label": "GO-CAMs",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "GO-CAMs for GO Causal Activity Models",
+      "rendered_label": "GO-CAMs — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
       "slug": "goals",
       "label": "goals",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "goals for selection",
+      "rendered_label": "goals — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -2507,6 +2627,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "GPGP — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "gpt3-5",
+      "label": "GPT3.5",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "GPT3.5 — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -2643,10 +2773,10 @@
       "slug": "hea",
       "label": "HEA",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 1,
       "ambiguous": true,
-      "rendered_label": "HEA for high-entropy alloy; HEA for High-entropy alloys",
+      "rendered_label": "HEA for high-entropy alloy",
       "failures": []
     },
     {
@@ -2677,6 +2807,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "HIA for human gastrointestinal absorption",
+      "failures": []
+    },
+    {
+      "slug": "hiv",
+      "label": "HIV",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "HIV — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -2737,6 +2877,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "HPLC — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "hpo",
+      "label": "HPO",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "HPO for Human Phenotype Ontology",
       "failures": []
     },
     {
@@ -2803,10 +2953,10 @@
       "slug": "ic",
       "label": "IC",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 3,
-      "withheld_expansion_rows": 1,
+      "public_expansion_rows": 2,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "IC for inferior colliculus; IC for information content",
+      "rendered_label": "IC for information content",
       "failures": []
     },
     {
@@ -2817,6 +2967,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "ICANS — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "icd",
+      "label": "ICD",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "ICD for immunogenic cell death",
       "failures": []
     },
     {
@@ -2863,30 +3023,40 @@
       "slug": "ictv",
       "label": "ICTV",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
+      "ambiguous": false,
+      "rendered_label": "ICTV — expansion unavailable from the public rights-cleared corpus",
+      "failures": []
+    },
+    {
+      "slug": "icu",
+      "label": "ICU",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
       "withheld_expansion_rows": 0,
       "ambiguous": false,
-      "rendered_label": "ICTV for International Committee on Taxonomy of Viruses",
+      "rendered_label": "ICU — no corpus-attested expansion",
       "failures": []
     },
     {
       "slug": "ies-r",
       "label": "IES-R",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "IES-R for Impact of Event Scale-Revised",
+      "rendered_label": "IES-R — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
       "slug": "ifg",
       "label": "IFG",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "IFG for inferior frontal gyrus",
+      "rendered_label": "IFG — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -2903,20 +3073,20 @@
       "slug": "ihc",
       "label": "IHC",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 1,
       "ambiguous": true,
-      "rendered_label": "IHC for immunohistochemical; IHC for immunohistochemically-stained",
+      "rendered_label": "IHC for immunohistochemically-stained",
       "failures": []
     },
     {
       "slug": "iit",
       "label": "IIT",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "IIT for integrated information theory",
+      "rendered_label": "IIT — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -2993,10 +3163,10 @@
       "slug": "iou",
       "label": "IOU",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 1,
       "ambiguous": true,
-      "rendered_label": "IOU for Intersection over Union; IOU for Intersection-over-Union",
+      "rendered_label": "IOU for Intersection-over-Union",
       "failures": []
     },
     {
@@ -3057,6 +3227,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "IRES for internal ribosome entry site",
+      "failures": []
+    },
+    {
+      "slug": "irt",
+      "label": "IRT",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "IRT — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -3147,6 +3327,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "IUPAC — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "jags",
+      "label": "JAGS",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "JAGS — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -3390,6 +3580,26 @@
       "failures": []
     },
     {
+      "slug": "loinc",
+      "label": "LOINC",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "LOINC — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "loinc2hpo",
+      "label": "LOINC2HPO",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "LOINC2HPO — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "loocv",
       "label": "LOOCV",
       "kind": "all-caps-short-form",
@@ -3510,6 +3720,16 @@
       "failures": []
     },
     {
+      "slug": "ly294002",
+      "label": "LY294002",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "LY294002 — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "m",
       "label": "M",
       "kind": "single-letter",
@@ -3583,10 +3803,10 @@
       "slug": "masking",
       "label": "masking",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "masking for success of blinding",
+      "rendered_label": "masking — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -3600,13 +3820,43 @@
       "failures": []
     },
     {
-      "slug": "mcmc",
-      "label": "MCMC",
+      "slug": "matlab",
+      "label": "MATLAB",
       "kind": "all-caps-short-form",
       "public_expansion_rows": 0,
       "withheld_expansion_rows": 0,
       "ambiguous": false,
-      "rendered_label": "MCMC — no corpus-attested expansion",
+      "rendered_label": "MATLAB — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "mc-j",
+      "label": "MC-J",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "MC-J — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "mc-nj",
+      "label": "MC-NJ",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "MC-NJ — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "mcmc",
+      "label": "MCMC",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "MCMC for Markov chain Monte Carlo",
       "failures": []
     },
     {
@@ -3843,10 +4093,10 @@
       "slug": "mmn",
       "label": "MMN",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "MMN for mismatch negativity",
+      "rendered_label": "MMN — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4053,10 +4303,10 @@
       "slug": "myocytes",
       "label": "myocytes",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "myocytes for muscle cells",
+      "rendered_label": "myocytes — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4134,7 +4384,7 @@
       "label": "NGS",
       "kind": "all-caps-short-form",
       "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
       "rendered_label": "NGS for next-generation sequencing",
       "failures": []
@@ -4193,10 +4443,10 @@
       "slug": "nlr",
       "label": "NLR",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 1,
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "NLR for neutrophil-to-lymphocyte ratio; NLR for to calculate",
+      "rendered_label": "NLR for neutrophil-to-lymphocyte ratio",
       "failures": []
     },
     {
@@ -4233,10 +4483,10 @@
       "slug": "nms",
       "label": "NMS",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "NMS for Non-maximum suppression",
+      "rendered_label": "NMS — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4370,6 +4620,16 @@
       "failures": []
     },
     {
+      "slug": "omop2obo",
+      "label": "OMOP2OBO",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "OMOP2OBO — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "oqmd",
       "label": "OQMD",
       "kind": "all-caps-short-form",
@@ -4423,20 +4683,20 @@
       "slug": "otu",
       "label": "OTU",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "OTU for operational taxonomic unit; OTU for operational taxonomic units",
+      "rendered_label": "OTU — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
       "slug": "otus",
       "label": "OTUs",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "OTUs for operational taxonomic units",
+      "rendered_label": "OTUs — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4533,10 +4793,10 @@
       "slug": "pah",
       "label": "PAH",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "PAH for polycyclic aromatic hydrocarbons",
+      "rendered_label": "PAH — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4567,6 +4827,16 @@
       "withheld_expansion_rows": 0,
       "ambiguous": false,
       "rendered_label": "PAL2NAL — no corpus-attested expansion",
+      "failures": []
+    },
+    {
+      "slug": "papi",
+      "label": "PAPI",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "PAPI — no corpus-attested expansion",
       "failures": []
     },
     {
@@ -4683,10 +4953,10 @@
       "slug": "pfc",
       "label": "PFC",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 2,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 4,
       "ambiguous": true,
-      "rendered_label": "PFC for prefrontal cortex",
+      "rendered_label": "PFC — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4793,10 +5063,10 @@
       "slug": "pmn-mdsc",
       "label": "PMN-MDSC",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "PMN-MDSC for granulocytic MDSC; PMN-MDSC for PHENOTYPICALLY DISTINCT FROM steady-state neutrophils",
+      "rendered_label": "PMN-MDSC — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4820,6 +5090,16 @@
       "failures": []
     },
     {
+      "slug": "polarization",
+      "label": "polarization",
+      "kind": "corpus-attested-abbreviation",
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "polarization for isolated clusters",
+      "failures": []
+    },
+    {
       "slug": "ppbp",
       "label": "PPBP",
       "kind": "all-caps-short-form",
@@ -4833,10 +5113,10 @@
       "slug": "ppc",
       "label": "PPC",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 1,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 2,
       "ambiguous": false,
-      "rendered_label": "PPC for posterior parietal cortex",
+      "rendered_label": "PPC — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -4873,20 +5153,30 @@
       "slug": "ppv",
       "label": "PPV",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 3,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 2,
+      "withheld_expansion_rows": 1,
       "ambiguous": true,
       "rendered_label": "PPV for positive predictive value; PPV for rank-level positive predictive value",
+      "failures": []
+    },
+    {
+      "slug": "prism",
+      "label": "PRISM",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "PRISM — no corpus-attested expansion",
       "failures": []
     },
     {
       "slug": "prisma",
       "label": "PRISMA",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "PRISMA for Preferred Reporting Items for Systematic reviews and Meta-Analyses",
+      "rendered_label": "PRISMA — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5170,6 +5460,16 @@
       "failures": []
     },
     {
+      "slug": "rcd",
+      "label": "RCD",
+      "kind": "all-caps-short-form",
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 0,
+      "ambiguous": false,
+      "rendered_label": "RCD — no corpus-attested expansion",
+      "failures": []
+    },
+    {
       "slug": "rdf",
       "label": "RDF",
       "kind": "all-caps-short-form",
@@ -5263,10 +5563,10 @@
       "slug": "rfsv",
       "label": "RFSV",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "RFSV for Rough FSV",
+      "rendered_label": "RFSV — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5303,10 +5603,10 @@
       "slug": "rl",
       "label": "RL",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "RL for representation learning",
+      "rendered_label": "RL — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5463,10 +5763,10 @@
       "slug": "sa",
       "label": "SA",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 1,
+      "withheld_expansion_rows": 1,
       "ambiguous": true,
-      "rendered_label": "SA for spatial ability; SA for synthetic accessibility",
+      "rendered_label": "SA for synthetic accessibility",
       "failures": []
     },
     {
@@ -5503,10 +5803,10 @@
       "slug": "sars-cov-2",
       "label": "SARS-CoV-2",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "SARS-CoV-2 for Severe acute respiratory syndrome coronavirus 2",
+      "rendered_label": "SARS-CoV-2 — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5563,10 +5863,10 @@
       "slug": "sd",
       "label": "SD",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "SD for same-different",
+      "rendered_label": "SD — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5753,10 +6053,10 @@
       "slug": "sme",
       "label": "SME",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 2,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 2,
       "ambiguous": true,
-      "rendered_label": "SME for social media exposure; SME for Social-media exposure",
+      "rendered_label": "SME — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5843,10 +6143,10 @@
       "slug": "soa",
       "label": "SOA",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "SOA for stimulus onset asynchrony",
+      "rendered_label": "SOA — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -5923,10 +6223,10 @@
       "slug": "srpbm",
       "label": "SRPBM",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "SRPBM for SRPBM=number of circular reads/number of mapped reads (units in billion)/read length",
+      "rendered_label": "SRPBM — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -6043,10 +6343,10 @@
       "slug": "strobe",
       "label": "STROBE",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "STROBE for STROBE statement",
+      "rendered_label": "STROBE — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -6153,10 +6453,10 @@
       "slug": "ties",
       "label": "ties",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "ties for Parameter restraint terms",
+      "rendered_label": "ties — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -6353,10 +6653,10 @@
       "slug": "uniparc",
       "label": "UniParc",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "UniParc for UniProt Archive",
+      "rendered_label": "UniParc — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -6373,10 +6673,10 @@
       "slug": "uniprotkb",
       "label": "UniProtKB",
       "kind": "corpus-attested-abbreviation",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "UniProtKB for UniProt Knowledgebase",
+      "rendered_label": "UniProtKB — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -6463,10 +6763,10 @@
       "slug": "vci",
       "label": "VCI",
       "kind": "all-caps-short-form",
-      "public_expansion_rows": 1,
-      "withheld_expansion_rows": 0,
+      "public_expansion_rows": 0,
+      "withheld_expansion_rows": 1,
       "ambiguous": false,
-      "rendered_label": "VCI for Vaccine Confidence Index",
+      "rendered_label": "VCI — expansion unavailable from the public rights-cleared corpus",
       "failures": []
     },
     {
@@ -6737,8 +7037,8 @@
       "registry_state": "ready",
       "selected_papers": 599,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
         "expected": "benchmark-score",
@@ -6841,10 +7141,10 @@
       "id": "deep learning",
       "label": "deep learning",
       "registry_state": "corpus",
-      "selected_papers": 90,
+      "selected_papers": 95,
       "senses": {
-        "count": 10,
-        "distinct_papers": 7
+        "count": 7,
+        "distinct_papers": 6
       },
       "capability": {
         "expected": "attested-use-coverage",
@@ -6854,7 +7154,7 @@
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 10,
+        "cards_rendered": 7,
         "empty_message": ""
       },
       "selectors": {
@@ -6903,43 +7203,37 @@
       "id": "word embedding",
       "label": "word embedding",
       "registry_state": "corpus",
-      "selected_papers": 11,
+      "selected_papers": 12,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -6963,10 +7257,10 @@
       "id": "machine learning",
       "label": "machine learning",
       "registry_state": "corpus",
-      "selected_papers": 148,
+      "selected_papers": 159,
       "senses": {
-        "count": 8,
-        "distinct_papers": 8
+        "count": 5,
+        "distinct_papers": 5
       },
       "capability": {
         "expected": "attested-use-coverage",
@@ -6976,7 +7270,7 @@
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 8,
+        "cards_rendered": 5,
         "empty_message": ""
       },
       "selectors": {
@@ -7079,43 +7373,37 @@
       "id": "reinforcement learning",
       "label": "reinforcement learning",
       "registry_state": "corpus",
-      "selected_papers": 32,
+      "selected_papers": 35,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -7193,7 +7481,7 @@
       "id": "channel capacity",
       "label": "channel capacity",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -7301,43 +7589,37 @@
       "id": "neural network",
       "label": "neural network",
       "registry_state": "corpus",
-      "selected_papers": 122,
+      "selected_papers": 128,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -7469,7 +7751,7 @@
       "id": "natural language processing",
       "label": "natural language processing",
       "registry_state": "corpus",
-      "selected_papers": 48,
+      "selected_papers": 56,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -7583,37 +7865,43 @@
       "id": "large language model",
       "label": "large language model",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -7745,7 +8033,7 @@
       "id": "social network",
       "label": "social network",
       "registry_state": "corpus",
-      "selected_papers": 28,
+      "selected_papers": 32,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8069,7 +8357,7 @@
       "id": "bayesian inference",
       "label": "Bayesian inference",
       "registry_state": "corpus",
-      "selected_papers": 17,
+      "selected_papers": 19,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8231,7 +8519,7 @@
       "id": "power law",
       "label": "power law",
       "registry_state": "corpus",
-      "selected_papers": 25,
+      "selected_papers": 26,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8285,7 +8573,7 @@
       "id": "annotation",
       "label": "annotation",
       "registry_state": "corpus",
-      "selected_papers": 97,
+      "selected_papers": 99,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8501,7 +8789,7 @@
       "id": "transformer",
       "label": "Transformer",
       "registry_state": "corpus",
-      "selected_papers": 13,
+      "selected_papers": 14,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8609,7 +8897,7 @@
       "id": "graph theory",
       "label": "graph theory",
       "registry_state": "corpus",
-      "selected_papers": 11,
+      "selected_papers": 13,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8723,7 +9011,7 @@
       "id": "genomics",
       "label": "genomics",
       "registry_state": "corpus",
-      "selected_papers": 66,
+      "selected_papers": 67,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -8833,190 +9121,6 @@
       "registry_state": "corpus",
       "selected_papers": 3,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
-      },
-      "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
-      },
-      "selectors": {
-        "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
-        },
-        "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
-        },
-        "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "correctly-unavailable",
-        "score_ui_rendered": false,
-        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "systematic review",
-      "label": "systematic review",
-      "registry_state": "corpus",
-      "selected_papers": 53,
-      "senses": {
-        "count": 7,
-        "distinct_papers": 5
-      },
-      "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 7,
-        "empty_message": ""
-      },
-      "selectors": {
-        "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
-        },
-        "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
-        },
-        "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "meta-analysis",
-      "label": "meta-analysis",
-      "registry_state": "corpus",
-      "selected_papers": 63,
-      "senses": {
-        "count": 4,
-        "distinct_papers": 2
-      },
-      "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 4,
-        "empty_message": ""
-      },
-      "selectors": {
-        "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
-        },
-        "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
-        },
-        "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "topic model",
-      "label": "topic model",
-      "registry_state": "corpus",
-      "selected_papers": 6,
-      "senses": {
         "count": 0,
         "distinct_papers": 0
       },
@@ -9066,10 +9170,10 @@
       "network_warnings": []
     },
     {
-      "id": "generative model",
-      "label": "generative model",
+      "id": "systematic review",
+      "label": "systematic review",
       "registry_state": "corpus",
-      "selected_papers": 20,
+      "selected_papers": 60,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -9126,10 +9230,184 @@
       "network_warnings": []
     },
     {
+      "id": "meta-analysis",
+      "label": "meta-analysis",
+      "registry_state": "corpus",
+      "selected_papers": 66,
+      "senses": {
+        "count": 1,
+        "distinct_papers": 1
+      },
+      "capability": {
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
+      },
+      "selectors": {
+        "oldest": {
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
+        },
+        "newest": {
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
+        },
+        "most_cited": {
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
+      "id": "topic model",
+      "label": "topic model",
+      "registry_state": "corpus",
+      "selected_papers": 8,
+      "senses": {
+        "count": 0,
+        "distinct_papers": 0
+      },
+      "capability": {
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+      },
+      "selectors": {
+        "oldest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "newest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "most_cited": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
+      "id": "generative model",
+      "label": "generative model",
+      "registry_state": "corpus",
+      "selected_papers": 24,
+      "senses": {
+        "count": 2,
+        "distinct_papers": 1
+      },
+      "capability": {
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 2,
+        "empty_message": ""
+      },
+      "selectors": {
+        "oldest": {
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
+        },
+        "newest": {
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
+        },
+        "most_cited": {
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
       "id": "style",
       "label": "style",
       "registry_state": "corpus",
-      "selected_papers": 86,
+      "selected_papers": 100,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -9237,7 +9515,7 @@
       "id": "political polarization",
       "label": "political polarization",
       "registry_state": "corpus",
-      "selected_papers": 3,
+      "selected_papers": 5,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -9729,7 +10007,7 @@
       "id": "community structure",
       "label": "community structure",
       "registry_state": "corpus",
-      "selected_papers": 11,
+      "selected_papers": 14,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -9837,9 +10115,9 @@
       "id": "discrimination",
       "label": "discrimination",
       "registry_state": "corpus",
-      "selected_papers": 173,
+      "selected_papers": 180,
       "senses": {
-        "count": 2,
+        "count": 1,
         "distinct_papers": 1
       },
       "capability": {
@@ -9850,7 +10128,7 @@
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
+        "cards_rendered": 1,
         "empty_message": ""
       },
       "selectors": {
@@ -9951,7 +10229,7 @@
       "id": "medical imaging",
       "label": "medical imaging",
       "registry_state": "corpus",
-      "selected_papers": 21,
+      "selected_papers": 22,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -10167,7 +10445,7 @@
       "id": "mutual information",
       "label": "mutual information",
       "registry_state": "corpus",
-      "selected_papers": 20,
+      "selected_papers": 21,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -10221,7 +10499,7 @@
       "id": "network analysis",
       "label": "network analysis",
       "registry_state": "corpus",
-      "selected_papers": 21,
+      "selected_papers": 23,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -10491,20 +10769,20 @@
       "id": "supervised learning",
       "label": "supervised learning",
       "registry_state": "corpus",
-      "selected_papers": 44,
+      "selected_papers": 46,
       "senses": {
-        "count": 6,
-        "distinct_papers": 5
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 6,
+        "cards_rendered": 1,
         "empty_message": ""
       },
       "selectors": {
@@ -10517,9 +10795,8 @@
         },
         "newest": {
           "status": "resolved",
-          "cards": 2,
+          "cards": 1,
           "labels": [
-            "Definition by the newest paper in your chosen corpus",
             "Definition by the newest paper in your chosen corpus"
           ]
         },
@@ -10534,18 +10811,16 @@
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -10662,7 +10937,7 @@
       "id": "graph",
       "label": "graph",
       "registry_state": "corpus",
-      "selected_papers": 142,
+      "selected_papers": 149,
       "senses": {
         "count": 3,
         "distinct_papers": 2
@@ -10726,18 +11001,18 @@
       "registry_state": "corpus",
       "selected_papers": 8,
       "senses": {
-        "count": 2,
-        "distinct_papers": 2
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
+        "cards_rendered": 1,
         "empty_message": ""
       },
       "selectors": {
@@ -10766,18 +11041,16 @@
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -10894,60 +11167,52 @@
       "id": "interpretability",
       "label": "interpretability",
       "registry_state": "corpus",
-      "selected_papers": 38,
+      "selected_papers": 41,
       "senses": {
-        "count": 2,
-        "distinct_papers": 2
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -11118,7 +11383,7 @@
       "id": "ontology",
       "label": "ontology",
       "registry_state": "corpus",
-      "selected_papers": 44,
+      "selected_papers": 47,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -11180,18 +11445,18 @@
       "registry_state": "corpus",
       "selected_papers": 7,
       "senses": {
-        "count": 3,
-        "distinct_papers": 2
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 3,
+        "cards_rendered": 1,
         "empty_message": ""
       },
       "selectors": {
@@ -11220,18 +11485,16 @@
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -11294,7 +11557,7 @@
       "id": "corpus",
       "label": "corpus",
       "registry_state": "corpus",
-      "selected_papers": 61,
+      "selected_papers": 69,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -11564,43 +11827,37 @@
       "id": "segregation",
       "label": "segregation",
       "registry_state": "corpus",
-      "selected_papers": 41,
+      "selected_papers": 45,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -12056,7 +12313,7 @@
       "id": "entropy",
       "label": "entropy",
       "registry_state": "corpus",
-      "selected_papers": 70,
+      "selected_papers": 74,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -12110,7 +12367,7 @@
       "id": "bit",
       "label": "bit",
       "registry_state": "corpus",
-      "selected_papers": 115,
+      "selected_papers": 119,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -12164,7 +12421,7 @@
       "id": "redundancy",
       "label": "redundancy",
       "registry_state": "corpus",
-      "selected_papers": 48,
+      "selected_papers": 52,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -12226,35 +12483,41 @@
       "registry_state": "corpus",
       "selected_papers": 1,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -12332,43 +12595,37 @@
       "id": "machine intelligence",
       "label": "machine intelligence",
       "registry_state": "corpus",
-      "selected_papers": 7,
+      "selected_papers": 8,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -12392,7 +12649,7 @@
       "id": "learning machine",
       "label": "learning machine",
       "registry_state": "corpus",
-      "selected_papers": 11,
+      "selected_papers": 12,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -12556,41 +12813,35 @@
       "registry_state": "corpus",
       "selected_papers": 3,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -12938,7 +13189,7 @@
       "id": "relation",
       "label": "relation",
       "registry_state": "corpus",
-      "selected_papers": 306,
+      "selected_papers": 332,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -12992,20 +13243,20 @@
       "id": "normalization",
       "label": "normalization",
       "registry_state": "corpus",
-      "selected_papers": 125,
+      "selected_papers": 126,
       "senses": {
-        "count": 6,
-        "distinct_papers": 4
+        "count": 2,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 6,
+        "cards_rendered": 2,
         "empty_message": ""
       },
       "selectors": {
@@ -13034,18 +13285,16 @@
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -13162,7 +13411,7 @@
       "id": "loss aversion",
       "label": "loss aversion",
       "registry_state": "corpus",
-      "selected_papers": 6,
+      "selected_papers": 7,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -13324,43 +13573,37 @@
       "id": "generative ai",
       "label": "generative AI",
       "registry_state": "corpus",
-      "selected_papers": 7,
+      "selected_papers": 8,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -13492,7 +13735,7 @@
       "id": "self-attention",
       "label": "self-attention",
       "registry_state": "corpus",
-      "selected_papers": 5,
+      "selected_papers": 7,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -13762,7 +14005,7 @@
       "id": "prompting",
       "label": "prompting",
       "registry_state": "corpus",
-      "selected_papers": 28,
+      "selected_papers": 31,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -13816,43 +14059,37 @@
       "id": "scaling",
       "label": "scaling",
       "registry_state": "corpus",
-      "selected_papers": 140,
+      "selected_papers": 143,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -14040,41 +14277,35 @@
       "registry_state": "corpus",
       "selected_papers": 3,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -14476,7 +14707,7 @@
       "id": "positive predictive value",
       "label": "positive predictive value",
       "registry_state": "corpus",
-      "selected_papers": 11,
+      "selected_papers": 13,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -14536,7 +14767,7 @@
       "id": "statistical power",
       "label": "statistical power",
       "registry_state": "corpus",
-      "selected_papers": 46,
+      "selected_papers": 48,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -14650,7 +14881,7 @@
       "id": "replication crisis",
       "label": "replication crisis",
       "registry_state": "corpus",
-      "selected_papers": 1,
+      "selected_papers": 2,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -14704,7 +14935,7 @@
       "id": "p-value",
       "label": "p-value",
       "registry_state": "corpus",
-      "selected_papers": 113,
+      "selected_papers": 121,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -14760,41 +14991,35 @@
       "registry_state": "corpus",
       "selected_papers": 9,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -14872,7 +15097,7 @@
       "id": "brain network",
       "label": "brain network",
       "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 10,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -15196,69 +15421,7 @@
       "id": "big data",
       "label": "big data",
       "registry_state": "corpus",
-      "selected_papers": 45,
-      "senses": {
-        "count": 2,
-        "distinct_papers": 2
-      },
-      "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
-      },
-      "selectors": {
-        "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
-        },
-        "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
-        },
-        "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "sequencing",
-      "label": "sequencing",
-      "registry_state": "corpus",
-      "selected_papers": 117,
+      "selected_papers": 47,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -15295,6 +15458,60 @@
           "labels": [
             "Definition by the most cited paper in your corpus"
           ]
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
+      "id": "sequencing",
+      "label": "sequencing",
+      "registry_state": "corpus",
+      "selected_papers": 123,
+      "senses": {
+        "count": 0,
+        "distinct_papers": 0
+      },
+      "capability": {
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+      },
+      "selectors": {
+        "oldest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "newest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "most_cited": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -15426,7 +15643,7 @@
       "id": "calibration",
       "label": "calibration",
       "registry_state": "corpus",
-      "selected_papers": 81,
+      "selected_papers": 84,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -15858,61 +16075,7 @@
       "id": "modularity",
       "label": "modularity",
       "registry_state": "corpus",
-      "selected_papers": 18,
-      "senses": {
-        "count": 0,
-        "distinct_papers": 0
-      },
-      "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
-      },
-      "selectors": {
-        "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
-        },
-        "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
-        },
-        "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "correctly-unavailable",
-        "score_ui_rendered": false,
-        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "interaction network",
-      "label": "interaction network",
-      "registry_state": "corpus",
-      "selected_papers": 11,
+      "selected_papers": 22,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -15949,6 +16112,60 @@
           "labels": [
             "Definition by the most cited paper in your corpus"
           ]
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
+      "id": "interaction network",
+      "label": "interaction network",
+      "registry_state": "corpus",
+      "selected_papers": 11,
+      "senses": {
+        "count": 0,
+        "distinct_papers": 0
+      },
+      "capability": {
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+      },
+      "selectors": {
+        "oldest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "newest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "most_cited": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -16080,7 +16297,7 @@
       "id": "cultural variation",
       "label": "cultural variation",
       "registry_state": "corpus",
-      "selected_papers": 2,
+      "selected_papers": 3,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -16134,60 +16351,52 @@
       "id": "generalizability",
       "label": "generalizability",
       "registry_state": "corpus",
-      "selected_papers": 44,
+      "selected_papers": 50,
       "senses": {
-        "count": 2,
-        "distinct_papers": 2
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -16304,7 +16513,7 @@
       "id": "latent dirichlet allocation",
       "label": "latent Dirichlet allocation",
       "registry_state": "corpus",
-      "selected_papers": 8,
+      "selected_papers": 10,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -16520,7 +16729,7 @@
       "id": "content analysis",
       "label": "content analysis",
       "registry_state": "corpus",
-      "selected_papers": 17,
+      "selected_papers": 20,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -16576,41 +16785,35 @@
       "registry_state": "corpus",
       "selected_papers": 1,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -16634,43 +16837,37 @@
       "id": "sentiment analysis",
       "label": "sentiment analysis",
       "registry_state": "corpus",
-      "selected_papers": 18,
+      "selected_papers": 20,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -16694,7 +16891,7 @@
       "id": "narrative structure",
       "label": "narrative structure",
       "registry_state": "corpus",
-      "selected_papers": 1,
+      "selected_papers": 4,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -16856,7 +17053,7 @@
       "id": "interference",
       "label": "interference",
       "registry_state": "corpus",
-      "selected_papers": 105,
+      "selected_papers": 106,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -17018,7 +17215,7 @@
       "id": "language production",
       "label": "language production",
       "registry_state": "corpus",
-      "selected_papers": 5,
+      "selected_papers": 6,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -17126,7 +17323,7 @@
       "id": "attitude",
       "label": "attitude",
       "registry_state": "corpus",
-      "selected_papers": 69,
+      "selected_papers": 75,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -17182,41 +17379,35 @@
       "registry_state": "corpus",
       "selected_papers": 2,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -17348,7 +17539,7 @@
       "id": "automaticity",
       "label": "automaticity",
       "registry_state": "corpus",
-      "selected_papers": 18,
+      "selected_papers": 19,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -17672,7 +17863,7 @@
       "id": "problem solving",
       "label": "problem solving",
       "registry_state": "corpus",
-      "selected_papers": 51,
+      "selected_papers": 56,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -17834,61 +18025,7 @@
       "id": "bert",
       "label": "BERT",
       "registry_state": "corpus",
-      "selected_papers": 10,
-      "senses": {
-        "count": 0,
-        "distinct_papers": 0
-      },
-      "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
-      },
-      "selectors": {
-        "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
-        },
-        "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
-        },
-        "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "correctly-unavailable",
-        "score_ui_rendered": false,
-        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "pretraining",
-      "label": "pretraining",
-      "registry_state": "corpus",
-      "selected_papers": 19,
+      "selected_papers": 13,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -17945,10 +18082,64 @@
       "network_warnings": []
     },
     {
+      "id": "pretraining",
+      "label": "pretraining",
+      "registry_state": "corpus",
+      "selected_papers": 20,
+      "senses": {
+        "count": 0,
+        "distinct_papers": 0
+      },
+      "capability": {
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+      },
+      "selectors": {
+        "oldest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "newest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "most_cited": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
       "id": "language model",
       "label": "language model",
       "registry_state": "corpus",
-      "selected_papers": 12,
+      "selected_papers": 14,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -18056,7 +18247,7 @@
       "id": "gradient descent",
       "label": "gradient descent",
       "registry_state": "corpus",
-      "selected_papers": 40,
+      "selected_papers": 41,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -18110,37 +18301,43 @@
       "id": "network depth",
       "label": "network depth",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -18334,58 +18531,50 @@
       "registry_state": "corpus",
       "selected_papers": 39,
       "senses": {
-        "count": 3,
-        "distinct_papers": 2
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 3,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -18394,7 +18583,61 @@
       "id": "regularization",
       "label": "regularization",
       "registry_state": "corpus",
-      "selected_papers": 51,
+      "selected_papers": 52,
+      "senses": {
+        "count": 0,
+        "distinct_papers": 0
+      },
+      "capability": {
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+      },
+      "selectors": {
+        "oldest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "newest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "most_cited": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
+      "id": "overfitting",
+      "label": "overfitting",
+      "registry_state": "corpus",
+      "selected_papers": 59,
       "senses": {
         "count": 2,
         "distinct_papers": 2
@@ -18408,68 +18651,6 @@
       "definitions": {
         "disposition": "grounded-senses-rendered",
         "cards_rendered": 2,
-        "empty_message": ""
-      },
-      "selectors": {
-        "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
-        },
-        "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
-        },
-        "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "overfitting",
-      "label": "overfitting",
-      "registry_state": "corpus",
-      "selected_papers": 57,
-      "senses": {
-        "count": 5,
-        "distinct_papers": 5
-      },
-      "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 5,
         "empty_message": ""
       },
       "selectors": {
@@ -19550,7 +19731,7 @@
       "id": "complex network",
       "label": "complex network",
       "registry_state": "corpus",
-      "selected_papers": 18,
+      "selected_papers": 21,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -20042,7 +20223,7 @@
       "id": "observational study",
       "label": "observational study",
       "registry_state": "corpus",
-      "selected_papers": 20,
+      "selected_papers": 23,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -20096,7 +20277,7 @@
       "id": "epidemiology",
       "label": "epidemiology",
       "registry_state": "corpus",
-      "selected_papers": 42,
+      "selected_papers": 44,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -20204,7 +20385,7 @@
       "id": "intuitive physics",
       "label": "intuitive physics",
       "registry_state": "corpus",
-      "selected_papers": 1,
+      "selected_papers": 3,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -20366,7 +20547,7 @@
       "id": "causal model",
       "label": "causal model",
       "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 10,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -20480,37 +20661,43 @@
       "id": "network topology",
       "label": "network topology",
       "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 11,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -20588,7 +20775,7 @@
       "id": "posterior distribution",
       "label": "posterior distribution",
       "registry_state": "corpus",
-      "selected_papers": 20,
+      "selected_papers": 23,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -20650,41 +20837,35 @@
       "registry_state": "corpus",
       "selected_papers": 3,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -20708,60 +20889,52 @@
       "id": "classification",
       "label": "classification",
       "registry_state": "corpus",
-      "selected_papers": 319,
+      "selected_papers": 340,
       "senses": {
-        "count": 2,
-        "distinct_papers": 2
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -20932,7 +21105,7 @@
       "id": "co-occurrence matrix",
       "label": "co-occurrence matrix",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -20986,7 +21159,7 @@
       "id": "weak ties",
       "label": "weak ties",
       "registry_state": "corpus",
-      "selected_papers": 2,
+      "selected_papers": 3,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -21040,7 +21213,7 @@
       "id": "information diffusion",
       "label": "information diffusion",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -21094,7 +21267,7 @@
       "id": "semantic change",
       "label": "semantic change",
       "registry_state": "corpus",
-      "selected_papers": 2,
+      "selected_papers": 3,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -21366,41 +21539,35 @@
       "registry_state": "corpus",
       "selected_papers": 2,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -21706,37 +21873,43 @@
       "id": "negative binomial model",
       "label": "negative binomial model",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -21760,7 +21933,7 @@
       "id": "statistical model",
       "label": "statistical model",
       "registry_state": "corpus",
-      "selected_papers": 15,
+      "selected_papers": 19,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -21922,37 +22095,43 @@
       "id": "consciousness",
       "label": "consciousness",
       "registry_state": "corpus",
-      "selected_papers": 71,
+      "selected_papers": 81,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -22030,7 +22209,7 @@
       "id": "hard problem",
       "label": "hard problem",
       "registry_state": "corpus",
-      "selected_papers": 6,
+      "selected_papers": 7,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -22084,7 +22263,7 @@
       "id": "subjective experience",
       "label": "subjective experience",
       "registry_state": "corpus",
-      "selected_papers": 12,
+      "selected_papers": 17,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -22138,69 +22317,7 @@
       "id": "working memory",
       "label": "working memory",
       "registry_state": "corpus",
-      "selected_papers": 95,
-      "senses": {
-        "count": 10,
-        "distinct_papers": 7
-      },
-      "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
-        "true_for_term": true
-      },
-      "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 10,
-        "empty_message": ""
-      },
-      "selectors": {
-        "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
-        },
-        "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
-        },
-        "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
-        }
-      },
-      "user_definition": {
-        "plus_button_present": true,
-        "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
-      },
-      "subterm_answer": {
-        "status": "degrades-honestly",
-        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
-      },
-      "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
-      "failures": [],
-      "console_errors": [],
-      "network_warnings": []
-    },
-    {
-      "id": "chunking",
-      "label": "chunking",
-      "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 97,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -22257,10 +22374,64 @@
       "network_warnings": []
     },
     {
+      "id": "chunking",
+      "label": "chunking",
+      "registry_state": "corpus",
+      "selected_papers": 9,
+      "senses": {
+        "count": 0,
+        "distinct_papers": 0
+      },
+      "capability": {
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
+        "true_for_term": true
+      },
+      "definitions": {
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+      },
+      "selectors": {
+        "oldest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "newest": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        },
+        "most_cited": {
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
+        }
+      },
+      "user_definition": {
+        "plus_button_present": true,
+        "accepted": true,
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
+      },
+      "subterm_answer": {
+        "status": "degrades-honestly",
+        "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
+      },
+      "tier3_score_guard_true": true,
+      "visible_score_panels": [],
+      "failures": [],
+      "console_errors": [],
+      "network_warnings": []
+    },
+    {
       "id": "information processing",
       "label": "information processing",
       "registry_state": "corpus",
-      "selected_papers": 110,
+      "selected_papers": 115,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -22314,7 +22485,7 @@
       "id": "information theory",
       "label": "information theory",
       "registry_state": "corpus",
-      "selected_papers": 17,
+      "selected_papers": 18,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -22638,7 +22809,7 @@
       "id": "latent variable",
       "label": "latent variable",
       "registry_state": "corpus",
-      "selected_papers": 18,
+      "selected_papers": 21,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -22974,37 +23145,43 @@
       "id": "dopamine",
       "label": "dopamine",
       "registry_state": "corpus",
-      "selected_papers": 26,
+      "selected_papers": 30,
       "senses": {
-        "count": 0,
-        "distinct_papers": 0
+        "count": 1,
+        "distinct_papers": 1
       },
       "capability": {
-        "expected": "corpus-only",
-        "rendered": "corpus-only",
-        "label": "CORPUS ONLY",
+        "expected": "evidence-only",
+        "rendered": "evidence-only",
+        "label": "EVIDENCE ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "correct-refusal-no-public-sense",
-        "cards_rendered": 0,
-        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
+        "disposition": "grounded-senses-rendered",
+        "cards_rendered": 1,
+        "empty_message": ""
       },
       "selectors": {
         "oldest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition of the oldest paper in your chosen corpus"
+          ]
         },
         "newest": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the newest paper in your chosen corpus"
+          ]
         },
         "most_cited": {
-          "status": "suppressed",
-          "reason": "no-public-sense",
-          "notes": []
+          "status": "resolved",
+          "cards": 1,
+          "labels": [
+            "Definition by the most cited paper in your corpus"
+          ]
         }
       },
       "user_definition": {
@@ -23298,7 +23475,7 @@
       "id": "clinical trial",
       "label": "clinical trial",
       "registry_state": "corpus",
-      "selected_papers": 32,
+      "selected_papers": 34,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -23352,7 +23529,7 @@
       "id": "evidence-based medicine",
       "label": "evidence-based medicine",
       "registry_state": "corpus",
-      "selected_papers": 7,
+      "selected_papers": 8,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -23406,43 +23583,37 @@
       "id": "social media",
       "label": "social media",
       "registry_state": "corpus",
-      "selected_papers": 68,
+      "selected_papers": 80,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -23574,7 +23745,7 @@
       "id": "robustness",
       "label": "robustness",
       "registry_state": "corpus",
-      "selected_papers": 143,
+      "selected_papers": 149,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -23630,41 +23801,35 @@
       "registry_state": "corpus",
       "selected_papers": 4,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -24666,7 +24831,7 @@
       "id": "global warming",
       "label": "global warming",
       "registry_state": "corpus",
-      "selected_papers": 16,
+      "selected_papers": 19,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -24828,7 +24993,7 @@
       "id": "semantic space",
       "label": "semantic space",
       "registry_state": "corpus",
-      "selected_papers": 6,
+      "selected_papers": 8,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -24936,7 +25101,7 @@
       "id": "cosine similarity",
       "label": "cosine similarity",
       "registry_state": "corpus",
-      "selected_papers": 7,
+      "selected_papers": 9,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -25154,41 +25319,35 @@
       "registry_state": "corpus",
       "selected_papers": 3,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -25374,7 +25533,7 @@
       "id": "entanglement",
       "label": "entanglement",
       "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 10,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -25650,7 +25809,7 @@
       "id": "protein sequence",
       "label": "protein sequence",
       "registry_state": "corpus",
-      "selected_papers": 10,
+      "selected_papers": 11,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -26094,7 +26253,7 @@
       "id": "optimal control",
       "label": "optimal control",
       "registry_state": "corpus",
-      "selected_papers": 4,
+      "selected_papers": 5,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -26202,7 +26361,7 @@
       "id": "dynamical system",
       "label": "dynamical system",
       "registry_state": "corpus",
-      "selected_papers": 13,
+      "selected_papers": 16,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -26528,41 +26687,35 @@
       "registry_state": "corpus",
       "selected_papers": 6,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -26804,41 +26957,35 @@
       "registry_state": "corpus",
       "selected_papers": 1,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -27024,7 +27171,7 @@
       "id": "maximum likelihood",
       "label": "maximum likelihood",
       "registry_state": "corpus",
-      "selected_papers": 66,
+      "selected_papers": 71,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -27084,7 +27231,7 @@
       "id": "goodness of fit",
       "label": "goodness of fit",
       "registry_state": "corpus",
-      "selected_papers": 22,
+      "selected_papers": 25,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -27192,7 +27339,7 @@
       "id": "model selection",
       "label": "model selection",
       "registry_state": "corpus",
-      "selected_papers": 17,
+      "selected_papers": 18,
       "senses": {
         "count": 2,
         "distinct_papers": 1
@@ -27414,7 +27561,7 @@
       "id": "benchmark",
       "label": "benchmark",
       "registry_state": "corpus",
-      "selected_papers": 90,
+      "selected_papers": 92,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -27576,43 +27723,37 @@
       "id": "feature learning",
       "label": "feature learning",
       "registry_state": "corpus",
-      "selected_papers": 10,
+      "selected_papers": 11,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -27636,7 +27777,7 @@
       "id": "dna sequence",
       "label": "DNA sequence",
       "registry_state": "corpus",
-      "selected_papers": 19,
+      "selected_papers": 20,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -27692,41 +27833,35 @@
       "registry_state": "corpus",
       "selected_papers": 3,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -27804,7 +27939,7 @@
       "id": "relevant information",
       "label": "relevant information",
       "registry_state": "corpus",
-      "selected_papers": 68,
+      "selected_papers": 72,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -28560,43 +28695,37 @@
       "id": "fairness",
       "label": "fairness",
       "registry_state": "corpus",
-      "selected_papers": 30,
+      "selected_papers": 34,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -28622,41 +28751,35 @@
       "registry_state": "corpus",
       "selected_papers": 2,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -28842,7 +28965,7 @@
       "id": "scalability",
       "label": "scalability",
       "registry_state": "corpus",
-      "selected_papers": 34,
+      "selected_papers": 35,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29004,7 +29127,7 @@
       "id": "computational social science",
       "label": "computational social science",
       "registry_state": "corpus",
-      "selected_papers": 3,
+      "selected_papers": 5,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29058,7 +29181,7 @@
       "id": "semantic network",
       "label": "semantic network",
       "registry_state": "corpus",
-      "selected_papers": 8,
+      "selected_papers": 9,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29112,7 +29235,7 @@
       "id": "prejudice",
       "label": "prejudice",
       "registry_state": "corpus",
-      "selected_papers": 20,
+      "selected_papers": 23,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29220,7 +29343,7 @@
       "id": "semantic processing",
       "label": "semantic processing",
       "registry_state": "corpus",
-      "selected_papers": 29,
+      "selected_papers": 31,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29706,7 +29829,7 @@
       "id": "self-control",
       "label": "self-control",
       "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 12,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29760,7 +29883,7 @@
       "id": "metacognition",
       "label": "metacognition",
       "registry_state": "corpus",
-      "selected_papers": 14,
+      "selected_papers": 16,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -29814,43 +29937,37 @@
       "id": "critical thinking",
       "label": "critical thinking",
       "registry_state": "corpus",
-      "selected_papers": 19,
+      "selected_papers": 21,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -29876,41 +29993,35 @@
       "registry_state": "corpus",
       "selected_papers": 16,
       "senses": {
-        "count": 3,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 3,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -30582,7 +30693,7 @@
       "id": "blocking",
       "label": "blocking",
       "registry_state": "corpus",
-      "selected_papers": 61,
+      "selected_papers": 63,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -30690,10 +30801,10 @@
       "id": "precision",
       "label": "precision",
       "registry_state": "corpus",
-      "selected_papers": 203,
+      "selected_papers": 212,
       "senses": {
-        "count": 6,
-        "distinct_papers": 4
+        "count": 5,
+        "distinct_papers": 3
       },
       "capability": {
         "expected": "attested-use-coverage",
@@ -30703,7 +30814,7 @@
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 6,
+        "cards_rendered": 5,
         "empty_message": ""
       },
       "selectors": {
@@ -30716,8 +30827,9 @@
         },
         "newest": {
           "status": "resolved",
-          "cards": 1,
+          "cards": 2,
           "labels": [
+            "Definition by the newest paper in your chosen corpus",
             "Definition by the newest paper in your chosen corpus"
           ]
         },
@@ -30752,10 +30864,10 @@
       "id": "recall",
       "label": "recall",
       "registry_state": "corpus",
-      "selected_papers": 177,
+      "selected_papers": 187,
       "senses": {
-        "count": 7,
-        "distinct_papers": 5
+        "count": 4,
+        "distinct_papers": 2
       },
       "capability": {
         "expected": "attested-use-coverage",
@@ -30765,7 +30877,7 @@
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 7,
+        "cards_rendered": 4,
         "empty_message": ""
       },
       "selectors": {
@@ -30816,58 +30928,50 @@
       "registry_state": "corpus",
       "selected_papers": 18,
       "senses": {
-        "count": 2,
-        "distinct_papers": 2
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "attested-use-coverage",
-        "rendered": "attested-use-coverage",
-        "label": "ATTESTED-USE COVERAGE",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
         "plus_button_present": true,
         "accepted": true,
-        "score_path": "attested-use-coverage",
-        "score_ui_rendered": true,
-        "evidence": "100%\ncoverage over decided senses\n100%\nmean coverage by paper\n1/1\nsenses covered\n0\nuncertain"
+        "score_path": "correctly-unavailable",
+        "score_ui_rendered": false,
+        "evidence": "You can save the definition, but this term has no more than one paper with a publishable grounded sense, so no coverage test is available."
       },
       "subterm_answer": {
         "status": "degrades-honestly",
         "text": "This term has no reviewed criteria layer. The tool will not invent an answer from the wording."
       },
       "tier3_score_guard_true": true,
-      "visible_score_panels": [
-        "#stage2 .coverage-summary"
-      ],
+      "visible_score_panels": [],
       "failures": [],
       "console_errors": [],
       "network_warnings": []
@@ -31476,10 +31580,10 @@
       "id": "metadata",
       "label": "metadata",
       "registry_state": "corpus",
-      "selected_papers": 69,
+      "selected_papers": 70,
       "senses": {
-        "count": 6,
-        "distinct_papers": 5
+        "count": 5,
+        "distinct_papers": 4
       },
       "capability": {
         "expected": "attested-use-coverage",
@@ -31489,7 +31593,7 @@
       },
       "definitions": {
         "disposition": "grounded-senses-rendered",
-        "cards_rendered": 6,
+        "cards_rendered": 5,
         "empty_message": ""
       },
       "selectors": {
@@ -31502,9 +31606,8 @@
         },
         "newest": {
           "status": "resolved",
-          "cards": 2,
+          "cards": 1,
           "labels": [
-            "Definition by the newest paper in your chosen corpus",
             "Definition by the newest paper in your chosen corpus"
           ]
         },
@@ -31647,7 +31750,7 @@
       "id": "research infrastructure",
       "label": "research infrastructure",
       "registry_state": "corpus",
-      "selected_papers": 1,
+      "selected_papers": 2,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -31863,7 +31966,7 @@
       "id": "canon",
       "label": "canon",
       "registry_state": "corpus",
-      "selected_papers": 9,
+      "selected_papers": 10,
       "senses": {
         "count": 0,
         "distinct_papers": 0
@@ -32133,7 +32236,7 @@
       "id": "transparency",
       "label": "transparency",
       "registry_state": "corpus",
-      "selected_papers": 66,
+      "selected_papers": 70,
       "senses": {
         "count": 1,
         "distinct_papers": 1
@@ -32193,43 +32296,37 @@
       "id": "categorization",
       "label": "categorization",
       "registry_state": "corpus",
-      "selected_papers": 88,
+      "selected_papers": 94,
       "senses": {
-        "count": 1,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 1,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {
@@ -32253,43 +32350,37 @@
       "id": "visualization",
       "label": "visualization",
       "registry_state": "corpus",
-      "selected_papers": 143,
+      "selected_papers": 151,
       "senses": {
-        "count": 2,
-        "distinct_papers": 1
+        "count": 0,
+        "distinct_papers": 0
       },
       "capability": {
-        "expected": "evidence-only",
-        "rendered": "evidence-only",
-        "label": "EVIDENCE ONLY",
+        "expected": "corpus-only",
+        "rendered": "corpus-only",
+        "label": "CORPUS ONLY",
         "true_for_term": true
       },
       "definitions": {
-        "disposition": "grounded-senses-rendered",
-        "cards_rendered": 2,
-        "empty_message": ""
+        "disposition": "correct-refusal-no-public-sense",
+        "cards_rendered": 0,
+        "empty_message": "No grounded sense can yet be bound safely to this term. You can still write and save your own definition, but there is no source we can attribute a default definition to."
       },
       "selectors": {
         "oldest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition of the oldest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "newest": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the newest paper in your chosen corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         },
         "most_cited": {
-          "status": "resolved",
-          "cards": 1,
-          "labels": [
-            "Definition by the most cited paper in your corpus"
-          ]
+          "status": "suppressed",
+          "reason": "no-public-sense",
+          "notes": []
         }
       },
       "user_definition": {

@@ -11,6 +11,7 @@ from build_sense_index import (
     abbreviation_kind,
     collect_abbreviation_expansions,
     collect_grounded_rows,
+    rights_sanitize_term_corpus,
 )
 
 
@@ -70,6 +71,53 @@ class AbbreviationClassTests(unittest.TestCase):
 
         record["senses"][0]["evidence"] = "The paper uses PFC but gives no full form here."
         self.assertNotIn("pfc", collect_abbreviation_expansions([record]))
+
+
+class TermCorpusRightsTests(unittest.TestCase):
+    def test_denied_long_statistic_surface_is_removed_but_short_form_remains(self) -> None:
+        long_surface = "The overall alpha level was set at 0.05"
+        payload = {
+            "order": ["denied-paper"],
+            "papers": {},
+            "terms": {
+                "the-overall-alpha-level-was-set-at-0-05": [long_surface, [0], [0]],
+                "ram": ["RAM", [0], [0]],
+            },
+        }
+        records = [{
+            "id": "denied-paper",
+            "content_tags": {"statistics": [
+                {"surface": long_surface, "evidence": long_surface},
+                {"surface": "RAM"},
+            ]},
+        }]
+
+        sanitized, counts = rights_sanitize_term_corpus(payload, records, set())
+
+        self.assertNotIn("the-overall-alpha-level-was-set-at-0-05", sanitized["terms"])
+        self.assertIn("ram", sanitized["terms"])
+        self.assertEqual(counts["rights_removed_quote_picker_rows_this_build"], 1)
+
+    def test_cleared_matching_slug_does_not_rescue_denied_quote_wording(self) -> None:
+        denied = "A result was significant under the alpha criterion"
+        public = "A-result was significant under the alpha criterion"
+        term_slug = "a-result-was-significant-under-the-alpha-criterion"
+        payload = {
+            "order": ["denied-paper", "cleared-paper"],
+            "papers": {},
+            "terms": {term_slug: [denied, [0, 1], [0, 1]]},
+        }
+        records = [
+            {"id": "denied-paper", "content_tags": {"definitions": [
+                {"term": denied, "text": "a definition", "evidence": denied},
+            ]}},
+            {"id": "cleared-paper", "content_tags": {"key_terms": [{"term": public}]}},
+        ]
+
+        sanitized, counts = rights_sanitize_term_corpus(payload, records, {"cleared-paper"})
+
+        self.assertNotIn(term_slug, sanitized["terms"])
+        self.assertEqual(counts["rights_removed_quote_picker_rows_this_build"], 1)
 
 
 if __name__ == "__main__":

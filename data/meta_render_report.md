@@ -1,6 +1,6 @@
 # Meta-render audit report
 
-Generated 2026-08-31T16:46:32+00:00. This report audits the complete runtime picker, with public expansion
+Generated 2026-09-01T11:09:19+00:00. This report audits the complete runtime picker, with public expansion
 wording limited to the audited rights-cleared paper set.
 
 | Denominator / outcome | Count |
@@ -8,75 +8,63 @@ wording limited to the audited rights-cleared paper set.
 | Historical picker cohort | 474 |
 | Historical picker cohort after shared-live filtering | 473 |
 | Historical rows removed as withdrawn-only | 1 |
-| Definition cards before three-layer repair | 26 |
-| Definition cards after three-layer repair | 82 |
-| Historical render gap before | 56 |
+| Definition cards before three-layer repair | 9 |
+| Definition cards after three-layer repair | 52 |
+| Historical render gap before | 43 |
 | Historical render gap after | 0 |
-| Runtime picker rows before shared-live filtering | 20,435 |
-| Runtime picker rows after shared-live filtering | 20,374 |
+| Runtime picker rows before shared-live filtering | 22,163 |
+| Runtime picker rows after shared-live filtering | 22,102 |
 | Runtime rows removed as withdrawn-only | 61 |
-| Complete abbreviation class | 667 |
-| Abbreviations with public corpus-attested expansions | 112 |
-| Rights-withheld expansion rows (count only) | 36 |
+| Complete abbreviation class | 697 |
+| Abbreviations with public corpus-attested expansions | 79 |
+| Rights-withheld expansion rows (count only) | 93 |
+| Picker labels matching denied live quotes removed in this build | 10 |
 
 ## Historical terms repaired by the three-layer route
 
+- `bert` — BERT — 1 grounded row(s); layers: concepts=1
 - `blockchain` — blockchain — 1 grounded row(s); layers: content_tags.definitions=1
-- `categorization` — categorization — 1 grounded row(s); layers: concepts=1
 - `causal-model` — causal model — 1 grounded row(s); layers: concepts=1
-- `chunking` — chunking — 1 grounded row(s); layers: content_tags.definitions=1
-- `classification` — classification — 2 grounded row(s); layers: concepts=2
-- `clustering-coefficient` — clustering coefficient — 1 grounded row(s); layers: concepts=1
-- `connectome` — connectome — 1 grounded row(s); layers: content_tags.definitions=1
-- `controlled-vocabulary` — controlled vocabulary — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
+- `consciousness` — consciousness — 1 grounded row(s); layers: concepts=1
+- `controlled-vocabulary` — controlled vocabulary — 1 grounded row(s); layers: content_tags.definitions=1
 - `cosmological-parameters` — cosmological parameters — 1 grounded row(s); layers: concepts=1
-- `critical-thinking` — critical thinking — 1 grounded row(s); layers: concepts=1
 - `differential-expression` — differential expression — 1 grounded row(s); layers: concepts=1
-- `distributed-representation` — distributed representation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
-- `dropout` — dropout — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `discrimination` — discrimination — 1 grounded row(s); layers: concepts=1
+- `distributed-representation` — distributed representation — 1 grounded row(s); layers: content_tags.definitions=1
+- `dopamine` — dopamine — 1 grounded row(s); layers: concepts=1
 - `fair-principles` — FAIR principles — 1 grounded row(s); layers: concepts=1
-- `feature-learning` — feature learning — 1 grounded row(s); layers: concepts=1
-- `generalizability` — generalizability — 2 grounded row(s); layers: concepts=2
-- `generative-model` — generative model — 1 grounded row(s); layers: concepts=1
+- `generative-model` — generative model — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `graph` — graph — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
 - `graph-neural-network` — graph neural network — 1 grounded row(s); layers: content_tags.definitions=1
-- `information-bottleneck` — information bottleneck — 1 grounded row(s); layers: concepts=1
-- `instance-theory` — instance theory — 1 grounded row(s); layers: concepts=1
-- `interaction-network` — interaction network — 1 grounded row(s); layers: concepts=1
-- `interpretability` — interpretability — 2 grounded row(s); layers: concepts=2
-- `keystone-species` — keystone species — 1 grounded row(s); layers: concepts=1
+- `large-language-model` — large language model — 1 grounded row(s); layers: concepts=1
 - `maximum-likelihood` — maximum likelihood — 1 grounded row(s); layers: content_tags.definitions=1
 - `message-passing` — message passing — 1 grounded row(s); layers: concepts=1
-- `metadata` — metadata — 6 grounded row(s); layers: concepts=5, content_tags.definitions=1
-- `mixed-strategy` — mixed strategy — 1 grounded row(s); layers: concepts=1
+- `meta-analysis` — meta-analysis — 1 grounded row(s); layers: concepts=1
+- `metadata` — metadata — 5 grounded row(s); layers: concepts=4, content_tags.definitions=1
 - `model-selection` — model selection — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `modularity` — modularity — 1 grounded row(s); layers: concepts=1
 - `natural-language-processing` — natural language processing — 1 grounded row(s); layers: concepts=1
-- `neural-style-transfer` — neural style transfer — 1 grounded row(s); layers: concepts=1
-- `normalization` — normalization — 6 grounded row(s); layers: concepts=3, content_tags.definitions=3
+- `negative-binomial-model` — negative binomial model — 1 grounded row(s); layers: concepts=1
+- `network-depth` — network depth — 1 grounded row(s); layers: concepts=1
+- `network-topology` — network topology — 1 grounded row(s); layers: concepts=1
+- `normalization` — normalization — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `ontology` — ontology — 1 grounded row(s); layers: content_tags.definitions=1
-- `overfitting` — overfitting — 5 grounded row(s); layers: concepts=4, content_tags.definitions=1
+- `overfitting` — overfitting — 2 grounded row(s); layers: concepts=2
 - `particle-physics` — particle physics — 1 grounded row(s); layers: concepts=1
 - `positive-predictive-value` — positive predictive value — 1 grounded row(s); layers: content_tags.definitions=1
 - `posterior-distribution` — posterior distribution — 1 grounded row(s); layers: content_tags.definitions=1
-- `precision` — precision — 6 grounded row(s); layers: concepts=4, content_tags.definitions=2
-- `pretraining` — pretraining — 1 grounded row(s); layers: concepts=1
-- `provenance` — provenance — 2 grounded row(s); layers: concepts=2
+- `precision` — precision — 5 grounded row(s); layers: concepts=3, content_tags.definitions=2
 - `random-forest` — random forest — 1 grounded row(s); layers: content_tags.definitions=1
-- `recall` — recall — 7 grounded row(s); layers: concepts=5, content_tags.definitions=2
+- `recall` — recall — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
 - `redundancy` — redundancy — 1 grounded row(s); layers: concepts=1
-- `regularization` — regularization — 2 grounded row(s); layers: concepts=2
-- `repetition-suppression` — repetition suppression — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
 - `rna-seq` — RNA-seq — 1 grounded row(s); layers: concepts=1
-- `scaling` — scaling — 1 grounded row(s); layers: content_tags.definitions=1
-- `segregation` — segregation — 1 grounded row(s); layers: concepts=1
-- `sentiment-analysis` — sentiment analysis — 1 grounded row(s); layers: content_tags.definitions=1
-- `sequencing` — sequencing — 1 grounded row(s); layers: concepts=1
-- `social-media` — social media — 1 grounded row(s); layers: concepts=1
 - `statistical-power` — statistical power — 1 grounded row(s); layers: concepts=1
+- `supervised-learning` — supervised learning — 1 grounded row(s); layers: concepts=1
+- `systematic-review` — systematic review — 1 grounded row(s); layers: content_tags.definitions=1
 - `transparency` — transparency — 1 grounded row(s); layers: content_tags.definitions=1
 - `u-net` — U-Net — 1 grounded row(s); layers: concepts=1
 - `variational-autoencoder` — variational autoencoder — 1 grounded row(s); layers: content_tags.definitions=1
-- `word-embedding` — word embedding — 1 grounded row(s); layers: concepts=1
+- `working-memory` — working memory — 1 grounded row(s); layers: concepts=1
 
 ## Complete runtime abbreviation class
 
@@ -91,16 +79,17 @@ wording limited to the audited rights-cleared paper set.
 - `adme-t` — ADME/T [all-caps-short-form] — no corpus-attested public expansion
 - `aef` — AEF [all-caps-short-form] — no corpus-attested public expansion
 - `aevb` — AEVB [all-caps-short-form] — no corpus-attested public expansion
+- `aews` — aEWS [corpus-attested-abbreviation] — augmented Early Warning Score — Scalable and accurate deep learning with electronic health records (2018)
 - `aflow-pocc` — AFLOW-POCC [all-caps-short-form] — no corpus-attested public expansion
 - `aflowlib` — AFLOWLIB [all-caps-short-form] — no corpus-attested public expansion
 - `afqt` — AFQT [all-caps-short-form] — no corpus-attested public expansion
 - `agw` — AGW [all-caps-short-form] — anthropogenic global warming — Quantifying the Consensus on Anthropogenic Global Warming in the Scientific Literature (2013)
-- `ai` — AI [all-caps-short-form] — A HIGHLY CONTESTED CONCEPT — In AI We Trust: Ethics, Artificial Intelligence, and Reliability (2020); artificial intelligence — A reflection on the use of artificial intelligence tools for the meaningful learning of mathematics (2024); Artificial Intelligence — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023); Artificial Intelligence — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021); ambiguous across corpus records
+- `ai` — AI [all-caps-short-form] — Artificial Intelligence — Redefining Radiology: A Review of Artificial Intelligence Integration in Medical Imaging (2023); Artificial Intelligence — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `aic` — AIC [all-caps-short-form] — no corpus-attested public expansion
 - `aime` — AIME [all-caps-short-form] — no corpus-attested public expansion
 - `aimless` — AIMLESS [all-caps-short-form] — no corpus-attested public expansion
 - `ais` — AIS [all-caps-short-form] — no corpus-attested public expansion
-- `ale` — ALE [all-caps-short-form] — Activation Likelihood Estimation — Meta-analysis of fMRI studies related to mathematical creativity (2025)
+- `ale` — ALE [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `ampa` — AMPA [all-caps-short-form] — no corpus-attested public expansion
 - `ampar` — AMPAR [all-caps-short-form] — no corpus-attested public expansion
 - `an` — AN [all-caps-short-form] — no corpus-attested public expansion
@@ -109,10 +98,10 @@ wording limited to the audited rights-cleared paper set.
 - `anndata` — ANNDATA [all-caps-short-form] — no corpus-attested public expansion
 - `anova` — ANOVA [all-caps-short-form] — no corpus-attested public expansion
 - `anp` — ANP [all-caps-short-form] — alternate nucleotide proportion — Software for Computing and Annotating Genomic Ranges (2013)
-- `api` — API [all-caps-short-form] — application programming interface — Array programming with NumPy (2020); application programming interface — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021); Application Programming Interfaces — UniProt: the universal protein knowledgebase in 2021 (2020); RESTful Application Programming Interface — UniProt: the universal protein knowledgebase in 2021 (2020); ambiguous across corpus records
+- `api` — API [all-caps-short-form] — application programming interface — Array programming with NumPy (2020); application programming interface — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `arachne` — ARACHNE [all-caps-short-form] — no corpus-attested public expansion
 - `arba` — ARBA [all-caps-short-form] — no corpus-attested public expansion
-- `arcs` — ARCS [all-caps-short-form] — satisfaction — The exploration of continuous learning intention in STEAM education through attitude, motivation, and cognitive load (2022)
+- `arcs` — ARCS [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `artag` — ARTAG [all-caps-short-form] — no corpus-attested public expansion
 - `arx` — ARX [all-caps-short-form] — no corpus-attested public expansion
 - `asvab` — ASVAB [all-caps-short-form] — no corpus-attested public expansion
@@ -120,10 +109,12 @@ wording limited to the audited rights-cleared paper set.
 - `auc` — AUC [all-caps-short-form] — no corpus-attested public expansion
 - `auc-prc` — AUC-PRC [all-caps-short-form] — no corpus-attested public expansion
 - `auc-roc` — AUC-ROC [all-caps-short-form] — no corpus-attested public expansion
+- `auroc` — AUROC [all-caps-short-form] — no corpus-attested public expansion
 - `avcn` — AVCN [all-caps-short-form] — no corpus-attested public expansion
 - `awm` — AWM [all-caps-short-form] — no corpus-attested public expansion
 - `aws` — AWS [all-caps-short-form] — no corpus-attested public expansion
 - `ba0` — BA0 [all-caps-short-form] — no corpus-attested public expansion
+- `barcodes` — barcodes [corpus-attested-abbreviation] — unique, short DNA sequences — A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species (2011)
 - `bau` — BAU [all-caps-short-form] — no corpus-attested public expansion
 - `bbb` — BBB [all-caps-short-form] — blood-brain barrier — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `bdm` — BDM [all-caps-short-form] — no corpus-attested public expansion
@@ -148,11 +139,13 @@ wording limited to the audited rights-cleared paper set.
 - `cadd` — CADD [all-caps-short-form] — computer-aided drug design — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `cagr` — CAGR [all-caps-short-form] — no corpus-attested public expansion
 - `camsap1` — CAMSAP1 [all-caps-short-form] — no corpus-attested public expansion
+- `capi` — CAPI [all-caps-short-form] — no corpus-attested public expansion
 - `casme-ii` — CASME II [all-caps-short-form] — no corpus-attested public expansion
 - `casp` — CASP [all-caps-short-form] — no corpus-attested public expansion
+- `casp14` — CASP14 [all-caps-short-form] — structure prediction — Highly accurate protein structure prediction with AlphaFold (2021)
 - `cat` — CAT [all-caps-short-form] — no corpus-attested public expansion
 - `catma` — CATMA [all-caps-short-form] — no corpus-attested public expansion
-- `caution` — CAUTION [all-caps-short-form] — an unsafe observation — UniProt: a worldwide hub of protein knowledge (2018)
+- `caution` — CAUTION [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `cbi` — CBI [all-caps-short-form] — no corpus-attested public expansion
 - `cbi-2` — CBI-2 [all-caps-short-form] — no corpus-attested public expansion
 - `cbow` — CBOW [all-caps-short-form] — no corpus-attested public expansion
@@ -175,6 +168,7 @@ wording limited to the audited rights-cleared paper set.
 - `cgr` — CGR [all-caps-short-form] — no corpus-attested public expansion
 - `charmm` — CHARMM [all-caps-short-form] — no corpus-attested public expansion
 - `cheers-2022` — CHEERS 2022 [all-caps-short-form] — no corpus-attested public expansion
+- `chelsa-v1-2` — CHELSA V1.2 [all-caps-short-form] — no corpus-attested public expansion
 - `chr2` — ChR2 [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `cht` — CHT [all-caps-short-form] — compact hash table — Improved metagenomic analysis with Kraken 2 (2019)
 - `chuckles` — CHUCKLES [all-caps-short-form] — no corpus-attested public expansion
@@ -199,7 +193,7 @@ wording limited to the audited rights-cleared paper set.
 - `co2` — CO2 [all-caps-short-form] — no corpus-attested public expansion
 - `coconut` — COCONUT [all-caps-short-form] — no corpus-attested public expansion
 - `cod` — COD [all-caps-short-form] — no corpus-attested public expansion
-- `consort` — CONSORT [all-caps-short-form] — Consolidated Standards of Reporting Trials — CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials (2010); CONSORT statement — The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement (2007); ambiguous across corpus records
+- `consort` — CONSORT [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `cos-star` — COS-STAR [all-caps-short-form] — no corpus-attested public expansion
 - `covid-19` — COVID-19 [all-caps-short-form] — no corpus-attested public expansion
 - `cp` — CP [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
@@ -215,9 +209,10 @@ wording limited to the audited rights-cleared paper set.
 - `csd` — CSD [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `cse` — CSE [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `csr` — CSR [all-caps-short-form] — no corpus-attested public expansion
-- `ctcae` — CTCAE [all-caps-short-form] — REVISED AND RENAMED the CTCAE version 3.0 — Extended Clavien-Dindo classification of surgical complications: Japan Clinical Oncology Group postoperative complications criteria (2016)
+- `ctcae` — CTCAE [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `ctla-4` — CTLA-4 [all-caps-short-form] — no corpus-attested public expansion
 - `ctruncate` — CTRUNCATE [all-caps-short-form] — no corpus-attested public expansion
+- `ctt` — CTT [all-caps-short-form] — no corpus-attested public expansion
 - `cut-run` — CUT&RUN [all-caps-short-form] — no corpus-attested public expansion
 - `cyp` — CYP [all-caps-short-form] — cytochromes P450 — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `cyp24a1` — CYP24A1 [all-caps-short-form] — no corpus-attested public expansion
@@ -266,18 +261,21 @@ wording limited to the audited rights-cleared paper set.
 - `escrt` — ESCRT [all-caps-short-form] — no corpus-attested public expansion
 - `esrd` — ESRD [all-caps-short-form] — no corpus-attested public expansion
 - `et-0` — ET 0 [all-caps-short-form] — no corpus-attested public expansion
-- `evs` — EVs [corpus-attested-abbreviation] — extracellular vesicles — Overview of Extracellular Vesicles, Their Origin, Composition, Purpose, and Methods for Exosome Isolation and Analysis (2019); 1 additional expansion row(s) withheld by rights gate
+- `evs` — EVs [corpus-attested-abbreviation] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate
 - `exafs` — EXAFS [all-caps-short-form] — no corpus-attested public expansion
 - `exp` — EXP [all-caps-short-form] — no corpus-attested public expansion
 - `f` — F [single-letter] — no corpus-attested public expansion
 - `facs` — FACS [all-caps-short-form] — no corpus-attested public expansion
-- `fair` — FAIR [all-caps-short-form] — Findable, Accessible, Interoperable and Reusable — UniProt: the universal protein knowledgebase in 2021 (2020)
+- `fair` — FAIR [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `fairdom` — FAIRDOM [all-caps-short-form] — no corpus-attested public expansion
+- `famsa` — FAMSA [all-caps-short-form] — no corpus-attested public expansion
+- `fao` — FAO [all-caps-short-form] — no corpus-attested public expansion
 - `fastq` — FASTQ [all-caps-short-form] — no corpus-attested public expansion
 - `fer` — FER [all-caps-short-form] — no corpus-attested public expansion
 - `ffa` — FFA [all-caps-short-form] — no corpus-attested public expansion
+- `fhir` — FHIR [all-caps-short-form] — no corpus-attested public expansion
 - `fish-clsm` — FISH-CLSM [all-caps-short-form] — no corpus-attested public expansion
-- `fl` — FL [all-caps-short-form] — Federated learning — The future of digital health with federated learning (2020)
+- `fl` — FL [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `flim-fret` — FLIM-FRET [all-caps-short-form] — no corpus-attested public expansion
 - `flotilla` — FLOTILLA [all-caps-short-form] — no corpus-attested public expansion
 - `fof` — FOF [all-caps-short-form] — no corpus-attested public expansion
@@ -294,16 +292,18 @@ wording limited to the audited rights-cleared paper set.
 - `gad-2` — GAD-2 [all-caps-short-form] — no corpus-attested public expansion
 - `gad-7` — GAD-7 [all-caps-short-form] — no corpus-attested public expansion
 - `gad67` — GAD67 [all-caps-short-form] — no corpus-attested public expansion
-- `gan` — GAN [all-caps-short-form] — Generative Adversarial Nets — Plant Disease Detection and Classification by Deep Learning (2019)
+- `gan` — GAN [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `gat` — GAT [all-caps-short-form] — no corpus-attested public expansion
+- `gbs` — GBS [all-caps-short-form] — no corpus-attested public expansion
 - `gcb` — GCB [all-caps-short-form] — no corpus-attested public expansion
 - `gcn` — GCN [all-caps-short-form] — no corpus-attested public expansion
 - `gdb-7` — GDB-7 [all-caps-short-form] — no corpus-attested public expansion
 - `gdb-9` — GDB-9 [all-caps-short-form] — no corpus-attested public expansion
-- `gdm` — GDM [all-caps-short-form] — gestational diabetes mellitus — Gestational diabetes and pregnancy outcomes - a systematic review of the World Health Organization (WHO) and the International Association of Diabetes in Pregnancy Study Groups (IADPSG) diagnostic criteria (2012)
+- `gdm` — GDM [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `gdt` — GDT [all-caps-short-form] — no corpus-attested public expansion
 - `geci` — GECI [all-caps-short-form] — no corpus-attested public expansion
 - `gem` — GEM [all-caps-short-form] — no corpus-attested public expansion
-- `genes` — genes [corpus-attested-abbreviation] — replicators — Microbiome definition re-visited: old concepts and new challenges (2020)
+- `genes` — genes [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `gepia2` — GEPIA2 [all-caps-short-form] — no corpus-attested public expansion
 - `gepr-3` — GEPR-3 [all-caps-short-form] — no corpus-attested public expansion
 - `ghcn` — GHCN [all-caps-short-form] — Global Historical Climatology Network — TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 (2018)
@@ -320,11 +320,12 @@ wording limited to the audited rights-cleared paper set.
 - `go-bp` — GO BP [all-caps-short-form] — no corpus-attested public expansion
 - `go-cc` — GO CC [all-caps-short-form] — no corpus-attested public expansion
 - `go-cam` — GO-CAM [all-caps-short-form] — no corpus-attested public expansion
-- `go-cams` — GO-CAMs [corpus-attested-abbreviation] — GO Causal Activity Models — The Gene Ontology knowledgebase in 2023 (2023)
-- `goals` — goals [corpus-attested-abbreviation] — selection — Older Adults Perceptions of Technology and Barriers to Interacting with Tablet Computers: A Focus Group Study (2017)
+- `go-cams` — GO-CAMs [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `goals` — goals [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `goatools` — GOATOOLS [all-caps-short-form] — no corpus-attested public expansion
 - `gp4-3` — GP4.3 [all-caps-short-form] — no corpus-attested public expansion
 - `gpgp` — GPGP [all-caps-short-form] — no corpus-attested public expansion
+- `gpt3-5` — GPT3.5 [all-caps-short-form] — no corpus-attested public expansion
 - `gpu` — GPU [all-caps-short-form] — no corpus-attested public expansion
 - `gpu-ram` — GPU RAM [all-caps-short-form] — no corpus-attested public expansion
 - `gpus` — GPUs [corpus-attested-abbreviation] — graphics processing units — Array programming with NumPy (2020)
@@ -338,34 +339,38 @@ wording limited to the audited rights-cleared paper set.
 - `has` — HAS [all-caps-short-form] — no corpus-attested public expansion
 - `hcn` — HCN [all-caps-short-form] — no corpus-attested public expansion
 - `hcn1` — HCN1 [all-caps-short-form] — no corpus-attested public expansion
-- `hea` — HEA [all-caps-short-form] — high-entropy alloy — Additive manufacturing of metals: a brief review of the characteristic microstructures and properties of steels, Ti-6Al-4V and high-entropy alloys (2017); High-entropy alloys — Exceptional damage-tolerance of a medium-entropy alloy CrCoNi at cryogenic temperatures (2016); ambiguous across corpus records
+- `hea` — HEA [all-caps-short-form] — high-entropy alloy — Additive manufacturing of metals: a brief review of the characteristic microstructures and properties of steels, Ti-6Al-4V and high-entropy alloys (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `helm` — HELM [all-caps-short-form] — no corpus-attested public expansion
 - `hg` — HG [all-caps-short-form] — no corpus-attested public expansion
 - `hia` — HIA [all-caps-short-form] — human gastrointestinal absorption — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
+- `hiv` — HIV [all-caps-short-form] — no corpus-attested public expansion
 - `hm` — HM [all-caps-short-form] — no corpus-attested public expansion
 - `hmmer3` — HMMER3 [all-caps-short-form] — no corpus-attested public expansion
 - `hnn` — HNN [all-caps-short-form] — no corpus-attested public expansion
 - `homd` — HOMD [all-caps-short-form] — no corpus-attested public expansion
 - `horace` — HORACE [all-caps-short-form] — no corpus-attested public expansion
 - `hplc` — HPLC [all-caps-short-form] — no corpus-attested public expansion
+- `hpo` — HPO [all-caps-short-form] — Human Phenotype Ontology — The Human Phenotype Ontology project: linking molecular biology and disease through phenotype data (2013)
 - `hppd` — HPPD [all-caps-short-form] — no corpus-attested public expansion
 - `hrtf` — HRTF [all-caps-short-form] — no corpus-attested public expansion
 - `hyb` — HYB [all-caps-short-form] — no corpus-attested public expansion
 - `iadpsg` — IADPSG [all-caps-short-form] — no corpus-attested public expansion
 - `iba` — IBA [all-caps-short-form] — no corpus-attested public expansion
 - `ibd` — IBD [all-caps-short-form] — no corpus-attested public expansion
-- `ic` — IC [all-caps-short-form] — inferior colliculus — Tonotopic Organization in the Depth of Human Inferior Colliculus (2013); information content — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); information content — Semantic Similarity in Biomedical Ontologies (2009); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `ic` — IC [all-caps-short-form] — information content — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); information content — Semantic Similarity in Biomedical Ontologies (2009); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `icans` — ICANS [all-caps-short-form] — no corpus-attested public expansion
+- `icd` — ICD [all-caps-short-form] — immunogenic cell death — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020)
 - `icm` — ICM [all-caps-short-form] — integrated crop management — Biostimulant Properties of Seaweed Extracts in Plants: Implications towards Sustainable Crop Production (2021)
 - `icp-aes` — ICP-AES [all-caps-short-form] — no corpus-attested public expansion
 - `icr` — ICR [all-caps-short-form] — no corpus-attested public expansion
 - `icsd` — ICSD [all-caps-short-form] — no corpus-attested public expansion
-- `ictv` — ICTV [all-caps-short-form] — International Committee on Taxonomy of Viruses — Virus taxonomy: the database of the International Committee on Taxonomy of Viruses (ICTV) (2018)
-- `ies-r` — IES-R [all-caps-short-form] — Impact of Event Scale-Revised — Immediate Psychological Responses and Associated Factors during the Initial Stage of the 2019 Coronavirus Disease (COVID-19) Epidemic among the Genera (2020)
-- `ifg` — IFG [all-caps-short-form] — inferior frontal gyrus — Meta-analysis of fMRI studies related to mathematical creativity (2025)
+- `ictv` — ICTV [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `icu` — ICU [all-caps-short-form] — no corpus-attested public expansion
+- `ies-r` — IES-R [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
+- `ifg` — IFG [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `ifj` — IFJ [all-caps-short-form] — no corpus-attested public expansion
-- `ihc` — IHC [all-caps-short-form] — immunohistochemical — Estimating the population abundance of tissue-infiltrating immune and stromal cell populations using gene expression (2016); immunohistochemically-stained — QuPath: Open source software for digital pathology image analysis (2017); ambiguous across corpus records
-- `iit` — IIT [all-caps-short-form] — integrated information theory — An Informal Internet Survey on the Current State of Consciousness Science (2018)
+- `ihc` — IHC [all-caps-short-form] — immunohistochemically-stained — QuPath: Open source software for digital pathology image analysis (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `iit` — IIT [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `il-13` — IL-13 [all-caps-short-form] — no corpus-attested public expansion
 - `il-2` — IL-2 [all-caps-short-form] — no corpus-attested public expansion
 - `il-4` — IL-4 [all-caps-short-form] — no corpus-attested public expansion
@@ -373,13 +378,14 @@ wording limited to the audited rights-cleared paper set.
 - `int` — INT [all-caps-short-form] — no corpus-attested public expansion
 - `int-int` — INT-INT [all-caps-short-form] — no corpus-attested public expansion
 - `ios` — IOS [all-caps-short-form] — no corpus-attested public expansion
-- `iou` — IOU [all-caps-short-form] — Intersection over Union — A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS (2023); Intersection-over-Union — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); ambiguous across corpus records
+- `iou` — IOU [all-caps-short-form] — Intersection-over-Union — A Robust Deep-Learning-Based Detector for Real-Time Tomato Plant Diseases and Pests Recognition (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `ipah` — IPAH [all-caps-short-form] — no corpus-attested public expansion
 - `ipl` — IPL [all-caps-short-form] — no corpus-attested public expansion
 - `ips` — IPS [all-caps-short-form] — no corpus-attested public expansion
 - `ipsc` — IPSC [all-caps-short-form] — no corpus-attested public expansion
 - `ipsp` — IPSP [all-caps-short-form] — no corpus-attested public expansion
 - `ires` — IRES [all-caps-short-form] — internal ribosome entry site — Translation and functional roles of circular RNAs in human cancer (2020); internal ribosome entry site — A peptide encoded by circular form of LINC-PINT suppresses oncogenic transcriptional elongation in glioblastoma (2018)
+- `irt` — IRT [all-caps-short-form] — no corpus-attested public expansion
 - `isa` — ISA [all-caps-short-form] — no corpus-attested public expansion
 - `isapp` — ISAPP [all-caps-short-form] — no corpus-attested public expansion
 - `ish` — ISH [all-caps-short-form] — no corpus-attested public expansion
@@ -389,6 +395,7 @@ wording limited to the audited rights-cleared paper set.
 - `itc` — ITC [all-caps-short-form] — no corpus-attested public expansion
 - `itd` — ITD [all-caps-short-form] — no corpus-attested public expansion
 - `iupac` — IUPAC [all-caps-short-form] — no corpus-attested public expansion
+- `jags` — JAGS [all-caps-short-form] — no corpus-attested public expansion
 - `jax` — JAX [all-caps-short-form] — no corpus-attested public expansion
 - `jnd` — JND [all-caps-short-form] — no corpus-attested public expansion
 - `jra-55` — JRA-55 [all-caps-short-form] — no corpus-attested public expansion
@@ -413,6 +420,8 @@ wording limited to the audited rights-cleared paper set.
 - `lip` — LIP [all-caps-short-form] — no corpus-attested public expansion
 - `lmms` — LMMs [corpus-attested-abbreviation] — linear mixed effects models — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018)
 - `logcpm` — logCPM [corpus-attested-abbreviation] — log 2 counts per million — limma powers differential expression analyses for RNA-sequencing and microarray studies (2015)
+- `loinc` — LOINC [all-caps-short-form] — no corpus-attested public expansion
+- `loinc2hpo` — LOINC2HPO [all-caps-short-form] — no corpus-attested public expansion
 - `loocv` — LOOCV [all-caps-short-form] — leave-one-data-set-out cross-validation — DNA methylation age of human tissues and cell types (2013)
 - `lp` — LP [all-caps-short-form] — no corpus-attested public expansion
 - `lpar1` — LPAR1 [all-caps-short-form] — no corpus-attested public expansion
@@ -425,6 +434,7 @@ wording limited to the audited rights-cleared paper set.
 - `ltm` — LTM [all-caps-short-form] — no corpus-attested public expansion
 - `ltp` — LTP [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `lts` — LTS [all-caps-short-form] — Long-term support — The Astropy Project: Building an Open-science Project and Status of the v2.0 Core Package (2018)
+- `ly294002` — LY294002 [all-caps-short-form] — no corpus-attested public expansion
 - `m` — M [single-letter] — no corpus-attested public expansion
 - `maccs` — MACCS [all-caps-short-form] — no corpus-attested public expansion
 - `mae` — MAE [all-caps-short-form] — mean absolute error — TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 (2018)
@@ -432,9 +442,12 @@ wording limited to the audited rights-cleared paper set.
 - `manova` — MANOVA [all-caps-short-form] — no corpus-attested public expansion
 - `map` — mAP [corpus-attested-abbreviation] — mean average precision — SLEAP: A deep learning system for multi-animal pose tracking (2022); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `mapk6` — MAPK6 [all-caps-short-form] — no corpus-attested public expansion
-- `masking` — masking [corpus-attested-abbreviation] — success of blinding — CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials (2010)
+- `masking` — masking [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `mast` — MAST [all-caps-short-form] — no corpus-attested public expansion
-- `mcmc` — MCMC [all-caps-short-form] — no corpus-attested public expansion
+- `matlab` — MATLAB [all-caps-short-form] — no corpus-attested public expansion
+- `mc-j` — MC-J [all-caps-short-form] — no corpus-attested public expansion
+- `mc-nj` — MC-NJ [all-caps-short-form] — no corpus-attested public expansion
+- `mcmc` — MCMC [all-caps-short-form] — Markov chain Monte Carlo — More than 75 percent decline over 27 years in total flying insect biomass in protected areas (2017)
 - `mcode` — MCODE [all-caps-short-form] — no corpus-attested public expansion
 - `mct1` — MCT1 [all-caps-short-form] — no corpus-attested public expansion
 - `md-17` — MD-17 [all-caps-short-form] — no corpus-attested public expansion
@@ -458,7 +471,7 @@ wording limited to the audited rights-cleared paper set.
 - `ml` — ML [all-caps-short-form] — likelihood — FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments (2010); machine learning — Could graph neural networks learn better molecular representation for drug discovery? A comparison study of descriptor-based and graph-based models (2021); maximum likelihood — FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments (2010); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `mld` — MLD [all-caps-short-form] — no corpus-attested public expansion
 - `mlh1` — MLH1 [all-caps-short-form] — no corpus-attested public expansion
-- `mmn` — MMN [all-caps-short-form] — mismatch negativity — Have We Forgotten Auditory Sensory Memory? Retention Intervals in Studies of Nonverbal Auditory Working Memory (2016)
+- `mmn` — MMN [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `mmp-9` — MMP-9 [all-caps-short-form] — no corpus-attested public expansion
 - `mmr` — MMR [all-caps-short-form] — no corpus-attested public expansion
 - `mnist` — MNIST [all-caps-short-form] — no corpus-attested public expansion
@@ -479,7 +492,7 @@ wording limited to the audited rights-cleared paper set.
 - `mua` — MUA [all-caps-short-form] — no corpus-attested public expansion
 - `muv` — MUV [all-caps-short-form] — no corpus-attested public expansion
 - `mvpa` — MVPA [all-caps-short-form] — no corpus-attested public expansion
-- `myocytes` — myocytes [corpus-attested-abbreviation] — muscle cells — Revised Estimates for the Number of Human and Bacteria Cells in the Body (2016)
+- `myocytes` — myocytes [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `n` — N [single-letter] — no corpus-attested public expansion
 - `n190-p190` — N190/P190 [all-caps-short-form] — no corpus-attested public expansion
 - `ncc` — NCC [all-caps-short-form] — no corpus-attested public expansion
@@ -487,17 +500,17 @@ wording limited to the audited rights-cleared paper set.
 - `ncl` — NCL [all-caps-short-form] — no corpus-attested public expansion
 - `nf2` — NF2 [all-caps-short-form] — no corpus-attested public expansion
 - `nfa` — NFA [all-caps-short-form] — no corpus-attested public expansion
-- `ngs` — NGS [all-caps-short-form] — next-generation sequencing — Trimmomatic: a flexible trimmer for Illumina sequence data (2014); next-generation sequencing — A pneumonia outbreak associated with a new coronavirus of probable bat origin (2020)
+- `ngs` — NGS [all-caps-short-form] — next-generation sequencing — Trimmomatic: a flexible trimmer for Illumina sequence data (2014); next-generation sequencing — A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species (2011); 1 additional expansion row(s) withheld by rights gate
 - `nhst` — NHST [all-caps-short-form] — no corpus-attested public expansion
 - `nihl` — NIHL [all-caps-short-form] — no corpus-attested public expansion
 - `nihr` — NIHR [all-caps-short-form] — no corpus-attested public expansion
 - `nisq` — NISQ [all-caps-short-form] — no corpus-attested public expansion
 - `nist-rm-dna` — NIST RM DNA [all-caps-short-form] — no corpus-attested public expansion
-- `nlr` — NLR [all-caps-short-form] — neutrophil-to-lymphocyte ratio — Systemic inflammation markers and cancer incidence in the UK Biobank (2021); to calculate — What is the normal value of the neutrophil-to-lymphocyte ratio? (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `nlr` — NLR [all-caps-short-form] — neutrophil-to-lymphocyte ratio — Systemic inflammation markers and cancer incidence in the UK Biobank (2021); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `nlrp6` — NLRP6 [all-caps-short-form] — no corpus-attested public expansion
 - `nmda` — NMDA [all-caps-short-form] — no corpus-attested public expansion
 - `nmo` — NMO [all-caps-short-form] — no corpus-attested public expansion
-- `nms` — NMS [all-caps-short-form] — Non-maximum suppression — A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS (2023)
+- `nms` — NMS [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `npy` — NPY [all-caps-short-form] — no corpus-attested public expansion
 - `nr2a` — NR2A [all-caps-short-form] — no corpus-attested public expansion
 - `nr2b` — NR2B [all-caps-short-form] — no corpus-attested public expansion
@@ -511,13 +524,14 @@ wording limited to the audited rights-cleared paper set.
 - `oks` — OKS [all-caps-short-form] — object keypoint similarity — SLEAP: A deep learning system for multi-animal pose tracking (2022)
 - `olm` — OLM [all-caps-short-form] — no corpus-attested public expansion
 - `omi` — OMI [all-caps-short-form] — no corpus-attested public expansion
+- `omop2obo` — OMOP2OBO [all-caps-short-form] — no corpus-attested public expansion
 - `oqmd` — OQMD [all-caps-short-form] — no corpus-attested public expansion
 - `or` — OR [all-caps-short-form] — no corpus-attested public expansion
 - `orb` — ORB [all-caps-short-form] — no corpus-attested public expansion
 - `orcid` — ORCID [all-caps-short-form] — no corpus-attested public expansion
 - `ordination` — ordination [corpus-attested-abbreviation] — dimensional reduction — phyloseq: An R Package for Reproducible Interactive Analysis and Graphics of Microbiome Census Data (2013)
-- `otu` — OTU [all-caps-short-form] — operational taxonomic unit — Exact sequence variants should replace operational taxonomic units in marker-gene data analysis (2017); operational taxonomic units — Exact sequence variants should replace operational taxonomic units in marker-gene data analysis (2017); ambiguous across corpus records
-- `otus` — OTUs [corpus-attested-abbreviation] — operational taxonomic units — Exact sequence variants should replace operational taxonomic units in marker-gene data analysis (2017)
+- `otu` — OTU [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `otus` — OTUs [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `owl` — OWL [all-caps-short-form] — no corpus-attested public expansion
 - `owl2-dl` — OWL2-DL [all-caps-short-form] — no corpus-attested public expansion
 - `oxphos` — OXPHOS [all-caps-short-form] — no corpus-attested public expansion
@@ -527,10 +541,11 @@ wording limited to the audited rights-cleared paper set.
 - `pae` — PAE [all-caps-short-form] — Predicted Aligned Error — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021)
 - `pafs` — PAFs [corpus-attested-abbreviation] — part affinity fields — SLEAP: A deep learning system for multi-animal pose tracking (2022)
 - `paga` — PAGA [all-caps-short-form] — no corpus-attested public expansion
-- `pah` — PAH [all-caps-short-form] — polycyclic aromatic hydrocarbons — Microplastics in Seafood and the Implications for Human Health (2018)
+- `pah` — PAH [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `pains` — PAINS [all-caps-short-form] — no corpus-attested public expansion
 - `pairs` — PAIRS [all-caps-short-form] — no corpus-attested public expansion
 - `pal2nal` — PAL2NAL [all-caps-short-form] — no corpus-attested public expansion
+- `papi` — PAPI [all-caps-short-form] — no corpus-attested public expansion
 - `pc1` — PC1 [all-caps-short-form] — no corpus-attested public expansion
 - `pcr` — PCR [all-caps-short-form] — polymerase chain reaction — Trimmomatic: a flexible trimmer for Illumina sequence data (2014)
 - `pd-1` — PD-1 [all-caps-short-form] — no corpus-attested public expansion
@@ -542,7 +557,7 @@ wording limited to the audited rights-cleared paper set.
 - `pet` — PET [all-caps-short-form] — no corpus-attested public expansion
 - `pfaa` — PFAA [all-caps-short-form] — no corpus-attested public expansion
 - `pfas` — PFAS [all-caps-short-form] — no corpus-attested public expansion
-- `pfc` — PFC [all-caps-short-form] — prefrontal cortex — What, If Anything, Is Rodent Prefrontal Cortex? (2018); prefrontal cortex — Priming, Response Learning and Repetition Suppression (2008); 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `pfc` — PFC [all-caps-short-form] — no corpus-attested public expansion; 4 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `pfhs` — PFHS [all-caps-short-form] — no corpus-attested public expansion
 - `pfoa` — PFOA [all-caps-short-form] — perfluorooctanoic acid — Perfluorooctanoic Acid (PFOA) Exposures and Incident Cancers among Adults Living Near a Chemical Plant (2013)
 - `pfos` — PFOS [all-caps-short-form] — no corpus-attested public expansion
@@ -553,16 +568,18 @@ wording limited to the audited rights-cleared paper set.
 - `phq-9` — PHQ-9 [all-caps-short-form] — no corpus-attested public expansion
 - `pir` — PIR [all-caps-short-form] — no corpus-attested public expansion
 - `pm10` — PM10 [all-caps-short-form] — no corpus-attested public expansion
-- `pmn-mdsc` — PMN-MDSC [all-caps-short-form] — granulocytic MDSC — Recommendations for myeloid-derived suppressor cell nomenclature and characterization standards (2016); PHENOTYPICALLY DISTINCT FROM steady-state neutrophils — Recommendations for myeloid-derived suppressor cell nomenclature and characterization standards (2016); ambiguous across corpus records
+- `pmn-mdsc` — PMN-MDSC [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `pn` — PN [all-caps-short-form] — no corpus-attested public expansion
 - `pointless` — POINTLESS [all-caps-short-form] — no corpus-attested public expansion
+- `polarization` — polarization [corpus-attested-abbreviation] — isolated clusters — Science vs Conspiracy: Collective Narratives in the Age of Misinformation (2015)
 - `ppbp` — PPBP [all-caps-short-form] — no corpus-attested public expansion
-- `ppc` — PPC [all-caps-short-form] — posterior parietal cortex — Task-phase-specific dynamics of basal forebrain neuronal ensembles (2014); 1 additional expansion row(s) withheld by rights gate
+- `ppc` — PPC [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate
 - `ppi` — PPI [all-caps-short-form] — no corpus-attested public expansion
 - `ppmi` — PPMI [all-caps-short-form] — no corpus-attested public expansion
 - `pppd` — PPPD [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
-- `ppv` — PPV [all-caps-short-form] — positive predictive value — Why Most Published Research Findings Are False (2005); positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); rank-level positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); ambiguous across corpus records
-- `prisma` — PRISMA [all-caps-short-form] — Preferred Reporting Items for Systematic reviews and Meta-Analyses — Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement (2009)
+- `ppv` — PPV [all-caps-short-form] — positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); rank-level positive predictive value — Improved metagenomic analysis with Kraken 2 (2019); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
+- `prism` — PRISM [all-caps-short-form] — no corpus-attested public expansion
+- `prisma` — PRISMA [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `prisma-2009` — PRISMA 2009 [all-caps-short-form] — no corpus-attested public expansion
 - `psa` — PSA [all-caps-short-form] — polar surface area — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017)
 - `pspl` — PSPL [all-caps-short-form] — no corpus-attested public expansion
@@ -591,6 +608,7 @@ wording limited to the audited rights-cleared paper set.
 - `raws` — RAWS [all-caps-short-form] — no corpus-attested public expansion
 - `rbd-n` — RBD/N [all-caps-short-form] — no corpus-attested public expansion
 - `rbnh` — RBNH [all-caps-short-form] — no corpus-attested public expansion
+- `rcd` — RCD [all-caps-short-form] — no corpus-attested public expansion
 - `rdf` — RDF [all-caps-short-form] — no corpus-attested public expansion
 - `recist` — RECIST [all-caps-short-form] — no corpus-attested public expansion
 - `refmac` — REFMAC [all-caps-short-form] — no corpus-attested public expansion
@@ -600,11 +618,11 @@ wording limited to the audited rights-cleared paper set.
 - `revigo` — REVIGO [all-caps-short-form] — no corpus-attested public expansion
 - `rf` — RF [all-caps-short-form] — no corpus-attested public expansion
 - `rfam` — RFAM [all-caps-short-form] — no corpus-attested public expansion
-- `rfsv` — RFSV [all-caps-short-form] — Rough FSV — Volatility Is Rough (2018)
+- `rfsv` — RFSV [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `rhamm` — RHAMM [all-caps-short-form] — no corpus-attested public expansion
 - `rifg` — RIFG [all-caps-short-form] — no corpus-attested public expansion
 - `rifle` — RIFLE [all-caps-short-form] — no corpus-attested public expansion
-- `rl` — RL [all-caps-short-form] — representation learning — Review of deep learning: concepts, CNN architectures, challenges, applications, future directions (2021)
+- `rl` — RL [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `rlaif` — RLAIF [all-caps-short-form] — no corpus-attested public expansion
 - `rlhf` — RLHF [all-caps-short-form] — no corpus-attested public expansion
 - `rml` — RML [all-caps-short-form] — no corpus-attested public expansion
@@ -620,17 +638,17 @@ wording limited to the audited rights-cleared paper set.
 - `s` — s [single-letter] — no corpus-attested public expansion
 - `s1-n` — S1/N [all-caps-short-form] — no corpus-attested public expansion
 - `s1bc` — S1BC [all-caps-short-form] — no corpus-attested public expansion
-- `sa` — SA [all-caps-short-form] — spatial ability — Which Cognitive Abilities Make the Difference? Predicting Academic Achievements in Advanced STEM Studies (2018); synthetic accessibility — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); ambiguous across corpus records
+- `sa` — SA [all-caps-short-form] — synthetic accessibility — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `sam` — SAM [all-caps-short-form] — no corpus-attested public expansion
 - `sarc-f` — SARC-F [all-caps-short-form] — no corpus-attested public expansion
 - `sars` — SARS [all-caps-short-form] — no corpus-attested public expansion
-- `sars-cov-2` — SARS-CoV-2 [corpus-attested-abbreviation] — Severe acute respiratory syndrome coronavirus 2 — Performance characteristics of five immunoassays for SARS-CoV-2: a head-to-head benchmark comparison (2020)
+- `sars-cov-2` — SARS-CoV-2 [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `scala` — SCALA [all-caps-short-form] — no corpus-attested public expansion
 - `scan` — SCAN [all-caps-short-form] — no corpus-attested public expansion
 - `scanpy` — SCANPY [all-caps-short-form] — no corpus-attested public expansion
 - `scfa` — SCFA [all-caps-short-form] — no corpus-attested public expansion
 - `scrna-seq` — scRNA-seq [corpus-attested-abbreviation] — single-cell RNA sequencing — The history and advances in cancer immunotherapy: understanding the characteristics of tumor-infiltrating immune cells and their therapeutic implications (2020)
-- `sd` — SD [all-caps-short-form] — same-different — The same-different task as a tool to study unconscious processing (2021)
+- `sd` — SD [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `sdi` — SDI [all-caps-short-form] — no corpus-attested public expansion
 - `se` — SE [all-caps-short-form] — no corpus-attested public expansion
 - `sef` — SEF [all-caps-short-form] — no corpus-attested public expansion
@@ -649,7 +667,7 @@ wording limited to the audited rights-cleared paper set.
 - `smart` — SMART [all-caps-short-form] — no corpus-attested public expansion
 - `smarts` — SMARTS [all-caps-short-form] — no corpus-attested public expansion
 - `smct1` — SMCT1 [all-caps-short-form] — no corpus-attested public expansion
-- `sme` — SME [all-caps-short-form] — social media exposure — Mental health problems and social media exposure during COVID-19 outbreak (2020); Social-media exposure — Mental health problems and social media exposure during COVID-19 outbreak (2020); ambiguous across corpus records
+- `sme` — SME [all-caps-short-form] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `smiles` — SMILES [all-caps-short-form] — no corpus-attested public expansion
 - `smirks` — SMIRKS [all-caps-short-form] — no corpus-attested public expansion
 - `smote` — SMOTE [all-caps-short-form] — no corpus-attested public expansion
@@ -658,7 +676,7 @@ wording limited to the audited rights-cleared paper set.
 - `snap` — SNAP [all-caps-short-form] — no corpus-attested public expansion
 - `snarc` — SNARC [all-caps-short-form] — no corpus-attested public expansion
 - `snotel` — SNOTEL [all-caps-short-form] — no corpus-attested public expansion
-- `soa` — SOA [all-caps-short-form] — stimulus onset asynchrony — Dissociating the time courses of the cross-modal semantic priming effects elicited by naturalistic sounds and spoken words (2018)
+- `soa` — SOA [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `som` — SOM [all-caps-short-form] — no corpus-attested public expansion
 - `sort` — SORT [all-caps-short-form] — no corpus-attested public expansion
 - `sparql` — SPARQL [all-caps-short-form] — no corpus-attested public expansion
@@ -666,7 +684,7 @@ wording limited to the audited rights-cleared paper set.
 - `spm` — SPM [all-caps-short-form] — suspended particulate matter — COVID-19 and surface water quality: Improved lake water quality during the lockdown (2020)
 - `sr101` — SR101 [all-caps-short-form] — no corpus-attested public expansion
 - `sr95531` — SR95531 [all-caps-short-form] — no corpus-attested public expansion
-- `srpbm` — SRPBM [all-caps-short-form] — SRPBM=number of circular reads/number of mapped reads (units in billion)/read length — Circular RNA profiling reveals an abundant circHIPK3 that regulates cell growth by sponging multiple miRNAs (2016)
+- `srpbm` — SRPBM [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `ssa` — SSA [all-caps-short-form] — no corpus-attested public expansion
 - `ssi` — SSI [all-caps-short-form] — no corpus-attested public expansion
 - `sst` — SST [all-caps-short-form] — no corpus-attested public expansion
@@ -678,7 +696,7 @@ wording limited to the audited rights-cleared paper set.
 - `strega` — STREGA [all-caps-short-form] — no corpus-attested public expansion
 - `strf` — STRF [all-caps-short-form] — no corpus-attested public expansion
 - `stricta` — STRICTA [all-caps-short-form] — no corpus-attested public expansion
-- `strobe` — STROBE [all-caps-short-form] — STROBE statement — The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement (2007)
+- `strobe` — STROBE [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `study` — STUDY [all-caps-short-form] — no corpus-attested public expansion
 - `stut` — sTUT [corpus-attested-abbreviation] — no corpus-attested public expansion; 2 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `svhc` — SVHC [all-caps-short-form] — no corpus-attested public expansion
@@ -689,7 +707,7 @@ wording limited to the audited rights-cleared paper set.
 - `tcm` — TCM [all-caps-short-form] — no corpus-attested public expansion
 - `tei` — TEI [all-caps-short-form] — no corpus-attested public expansion
 - `tei-xml` — TEI XML [all-caps-short-form] — no corpus-attested public expansion
-- `ties` — ties [corpus-attested-abbreviation] — Parameter restraint terms — How good are my data and what is the resolution? (2013)
+- `ties` — ties [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `timer` — TIMER [all-caps-short-form] — no corpus-attested public expansion
 - `tl` — TL [all-caps-short-form] — no corpus-attested public expansion
 - `tmas` — TMAs [corpus-attested-abbreviation] — tissue microarrays — QuPath: Open source software for digital pathology image analysis (2017)
@@ -709,9 +727,9 @@ wording limited to the audited rights-cleared paper set.
 - `uf` — UF [all-caps-short-form] — no corpus-attested public expansion
 - `umi` — UMI [all-caps-short-form] — no corpus-attested public expansion
 - `umts` — UMTS [all-caps-short-form] — no corpus-attested public expansion
-- `uniparc` — UniParc [corpus-attested-abbreviation] — UniProt Archive — UniProt: the universal protein knowledgebase in 2021 (2020)
+- `uniparc` — UniParc [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `uniprot` — UniProt [corpus-attested-abbreviation] — Universal Protein Resource — AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models (2021)
-- `uniprotkb` — UniProtKB [corpus-attested-abbreviation] — UniProt Knowledgebase — UniProt: the universal protein knowledgebase in 2021 (2020)
+- `uniprotkb` — UniProtKB [corpus-attested-abbreviation] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `unite` — UNITE [all-caps-short-form] — no corpus-attested public expansion
 - `upclass` — UPCLASS [all-caps-short-form] — no corpus-attested public expansion
 - `uri` — URI [all-caps-short-form] — no corpus-attested public expansion
@@ -720,7 +738,7 @@ wording limited to the audited rights-cleared paper set.
 - `vamp2` — VAMP2 [all-caps-short-form] — no corpus-attested public expansion
 - `van` — VAN [all-caps-short-form] — no corpus-attested public expansion
 - `vc` — VC [all-caps-short-form] — no corpus-attested public expansion
-- `vci` — VCI [all-caps-short-form] — Vaccine Confidence Index — Mapping global trends in vaccine confidence and investigating barriers to vaccine uptake: a large-scale retrospective temporal modelling study (2020)
+- `vci` — VCI [all-caps-short-form] — no corpus-attested public expansion; 1 additional expansion row(s) withheld by rights gate
 - `vgg16` — VGG16 [all-caps-short-form] — no corpus-attested public expansion
 - `vglut3` — VGLUT3 [all-caps-short-form] — no corpus-attested public expansion
 - `vid` — VID [all-caps-short-form] — no corpus-attested public expansion

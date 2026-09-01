@@ -1,6 +1,6 @@
 # Task 09 — coverage of every pickable term
 
-Generated 2026-08-31T16:49:21.137Z from `http://127.0.0.1:8765/define/index-en.html` with headless Chrome driving
+Generated 2026-09-01T11:12:45.512Z from `http://127.0.0.1:8766/define/index-en.html` with headless Chrome driving
 the production DOM and production `score.js` paths. The historical cohort begins with all 474
 entries in `data/concepts.json`, then applies the same live-row predicate as the runtime picker.
 Every retained historical term and every runtime abbreviation is exercised; this is not a sample.
@@ -12,18 +12,18 @@ Every retained historical term and every runtime abbreviation is exercised; this
 | Historical terms before shared-live filter | 474 |
 | Historical terms removed as withdrawn-only | 1 |
 | Live historical terms exercised | 473/473 |
-| Definition/evidence cards rendered | 82 |
-| Honest no-public-sense refusals | 391 |
+| Definition/evidence cards rendered | 52 |
+| Honest no-public-sense refusals | 421 |
 | User definitions accepted | 473/473 |
-| User definitions given a valid score path | 23 |
-| Scores correctly withheld | 450 |
+| User definitions given a valid score path | 9 |
+| Scores correctly withheld | 464 |
 | Sub-term answer available | 1 |
 | Sub-term answer honestly degraded | 472 |
 | Tier-3 score leaks | 0 |
 | Terms with console/page errors | 0 |
 | Terms with broken-path failures | 0 |
-| Runtime picker rows after shared-live filter | 20374 |
-| Complete abbreviation class exercised | 667/667 |
+| Runtime picker rows after shared-live filter | 22102 |
+| Complete abbreviation class exercised | 697/697 |
 | Abbreviation presentation failures | 0 |
 
 ## Honest capability tiers
@@ -31,9 +31,9 @@ Every retained historical term and every runtime abbreviation is exercised; this
 | Tier | Terms |
 |---|---:|
 | benchmark-score | 2 |
-| attested-use-coverage | 21 |
-| evidence-only | 59 |
-| corpus-only | 391 |
+| attested-use-coverage | 7 |
+| corpus-only | 421 |
+| evidence-only | 43 |
 
 The public rights-cleared sense index supports fewer scored/evidence terms than the internal
 corpus counts discussed before publication. A refusal caused by withheld or unresolved evidence
@@ -58,9 +58,9 @@ is counted separately from a broken path.
 
 | Selector | Resolved | Correctly suppressed | Not applicable to benchmark board |
 |---|---:|---:|---:|
-| oldest | 80 | 391 | 2 |
-| newest | 80 | 391 | 2 |
-| most cited | 80 | 391 | 2 |
+| oldest | 50 | 421 | 2 |
+| newest | 50 | 421 | 2 |
+| most cited | 50 | 421 | 2 |
 
 “Most cited” is suppressed whenever any candidate paper lacks a citation count; the page does
 not invent a winner. Tied oldest/newest/cited selectors may legitimately mark more than one card.
