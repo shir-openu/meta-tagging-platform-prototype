@@ -1090,6 +1090,11 @@ a:focus-visible {
    met four roadmap cards, eight toggle buttons and their hidden prose before the two things that
    actually work. A roadmap is not the product. */
 .pt-soon{color:var(--dim,#8b8b96);font-size:.88rem;line-height:1.6;margin:1.1rem 0 0;max-width:70ch}
+/* The two "Now live" links had NO rule at all, so they fell back to the browser default
+   rgb(0,0,238) on a rgb(18,10,18) background: contrast 2.07 where WCAG AA asks 4.5. Dark blue
+   on near-black is not a dim link, it is an invisible one, and both of them point at pages that
+   work. Measured, fixed to the same token .pt-foot a already uses, and remeasured at 10.66. */
+.pt-soon a{color:var(--teal-lit);text-decoration:underline}
 
 /* TASK 06: capability is a data state, visible before the visitor invests in a trial. */
 .capability-state{margin:.8rem 0 1rem;padding:.75rem .9rem;border:1px solid var(--line);
