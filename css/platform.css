@@ -1224,3 +1224,14 @@ a:focus-visible {
   font-weight: 800;
   line-height: 0;
 }
+
+/* TEMPORARY, the same switch as css/intake.css -- Shir's instruction, 2026-09-01 and again
+   2026-09-02: hide the $2 from users, keep it in place and working, and make it
+   unresponsive to clicks. The intake PAGE was hidden last night; this is the home-page CARD
+   that leads to it, which still showed "$2 - manual service" on its badge and a $2 hold in
+   its notes. She said "the $2 button" and the button is here.
+
+   DELETE THIS BLOCK AND THE ONE AT THE END OF css/intake.css TO SHOW THE PRICE AGAIN.
+   Nothing is removed from the markup. */
+.payment-hidden .price-state,
+.payment-hidden .price-note { display: none !important; pointer-events: none !important; }
