@@ -2599,6 +2599,28 @@ function labelControls() {
   });
 }
 
+
+/* THE STAGE HEADING, in one place. It used to be a closure set only when step 3 was revealed,
+   so every control that changes the corpus afterwards left it behind: "test it on the 5 papers
+   that discuss them" narrowed 28 papers to 5 and re-scored (+0.745 to +0.729) under a heading
+   still reading "against the 28 papers you chose". Same for the by-scholar buttons. refresh()
+   calls this now, so the sentence cannot disagree with the corpus it describes. */
+function renderStageHead() {
+  const h = document.getElementById("stageHead");
+  if (!h) return;
+  if (S.capability && S.capability !== CAPABILITY.BENCHMARK) {
+    h.textContent = t("evidence.stage")
+      .replace("{term}", S.termPick ? S.termPick.label : conceptLabel(conf()))
+      .replace("{n}", S.selected.size);
+    return;
+  }
+  const entry = (S.registry || []).find(c => c.id === S.concept);
+  const name = conceptLabel(entry);
+  h.textContent = LANG === "he"
+    ? `הגדרה למושג ${name} — מול ${S.selected.size} המאמרים שבחרת`
+    : `Defining ${name} — against the ${S.selected.size} papers you chose`;
+}
+
 function refresh() {
   writeURL();
   if (typeof renderLiveMatrix === 'function') renderLiveMatrix(S.liveDef);
@@ -2613,6 +2635,7 @@ function refresh() {
   renderSteps();
   renderOwn();
   renderCapability();
+  renderStageHead();
   const jk = document.getElementById("jack");
   if (jk) jk.innerHTML = jackknife();
 }
@@ -2731,15 +2754,8 @@ function wire() {
     const n = document.getElementById('addPaperNote');
     if (n) { n.classList.toggle('open'); n.innerHTML = t('corpus.add.note'); }
   });
-  const head = () => {
-    const h = document.getElementById('stageHead');
-    if (!h) return;
-    const entry = (S.registry || []).find(c => c.id === S.concept);
-    const name = conceptLabel(entry);
-    h.textContent = LANG === 'he'
-      ? `הגדרה למושג ${name} — מול ${S.selected.size} המאמרים שבחרת`
-      : `Defining ${name} — against the ${S.selected.size} papers you chose`;
-  };
+  const head = renderStageHead;   // one definition; see renderStageHead above
+
   const js_ = document.getElementById('judgeStart');
   if (js_) js_.addEventListener('click', renderJudge);
   const jr_ = document.getElementById('judgeReset');
@@ -2759,10 +2775,7 @@ function wire() {
       renderLiveMatrix(S.liveDef);
       renderBoard();
     } else {
-      const h = document.getElementById("stageHead");
-      if (h) h.textContent = t("evidence.stage")
-        .replace("{term}", S.termPick ? S.termPick.label : conceptLabel(conf()))
-        .replace("{n}", S.selected.size);
+      renderStageHead();
       renderEvidenceWorkspace();
     }
     st.scrollIntoView({ behavior: 'smooth', block: 'start' });
