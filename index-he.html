@@ -140,7 +140,14 @@
 
 </div>
 
-<script src="data/inline.js?v=5dcb298c"></script>
+<!-- data/inline.js is NOT loaded here. It is 3.78 MB (1.22 MB gzipped) and it was
+     98% of this page's transfer. The only code that reads MTP_INLINE on this page
+     bails on its second line -- `if (!box) return` -- because the entry page has no
+     #liveStats element any more, so the file fed a function that never used it.
+     IF A STATS BAR IS EVER RESTORED HERE, RESTORE THE FALLBACK WITH IT: over HTTP
+     the fetch works and the numbers appear, and on file:// they would silently
+     vanish. The define pages still load it conditionally, because score.js does
+     read it. -->
 <script>
 // "?" opens the description; the second button opens the notes. Nothing on arrival.
 // One at a time within a card: a card has both buttons and both panels used to stand open

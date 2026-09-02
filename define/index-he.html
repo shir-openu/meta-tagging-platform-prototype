@@ -377,7 +377,11 @@
 </div>
 
 <script>window.MTP_FORCE_LANG = "he";</script>
-<script src="../data/inline.js?v=5dcb298c"></script>
+<script>/* The file:// fallback, 1.22 MB gz, loaded only when fetch() is blocked.
+   Over HTTP the page fetches the same JSON and every byte of this is dead weight:
+   it was 98% of this page. Same rule score.js already applies to the other two
+   large fallbacks. */
+if(location.protocol==="file:")document.write('<script src="../data/inline.js?v=5dcb298c"><\/script>');</script>
 
 <script src="../js/i18n.js"></script>
 <script src="../js/score.js?v=5dcb298c"></script>
