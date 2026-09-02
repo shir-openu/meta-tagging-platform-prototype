@@ -86,7 +86,11 @@
     </div>
     <div class="pt-note" id="conceptTally" style="margin:.45rem 0 .2rem;font-size:.82rem"></div>
     <div class="why" id="conceptSoon"></div>
-    <div class="pt-note" style="margin-top:.8rem;font-size:.86rem"
+    <!-- id is load-bearing: score.js hides this note when a plain TERM is chosen, because it
+         describes the three definition boards and not the term's corpus. Without the id the
+         guard `if (note)` skips silently and the note stays on screen - which it did on both
+         of these pages while index.html was correct. -->
+    <div class="pt-note" id="conceptNote" style="margin-top:.8rem;font-size:.86rem"
          data-i18n="concept.note"></div>
   </div>
     </div>
