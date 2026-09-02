@@ -631,10 +631,23 @@ function renderPapers() {
   }
   const q = (document.getElementById("paperSearch") || {}).value || "";
   const scored = new Map(S.papers.map(p => [p.id, p]));
-  const all = (S.index && S.index.length) ? S.index : S.papers.map(p => ({
+  const asRow = p => ({
     id: p.id, title: p.title, authors: [], year: p.year,
     discipline: p.field || "—", colour: "#5a6472", open: false,
-    n_cases: p.n_cases, n_scored: p.n_scored }));
+    n_cases: p.n_cases, n_scored: p.n_scored });
+  // THE UNION, NOT THE FALLBACK. This used to read `S.index.length ? S.index : S.papers`, so a
+  // board whose papers are absent from a NON-EMPTY library index got neither of them. That is
+  // not hypothetical: paper_index.json holds 599 papers and none of the consciousness board's
+  // seven, because those papers are not ingested into the corpus yet. The panel then said
+  // "6 papers selected" above 599 rows with nothing ticked, and the six could not be seen or
+  // unticked. art (29) and game (10) tick correctly and are the controls for this.
+  //
+  // A panel that offers to choose a corpus must show the corpus being scored. Matched by id,
+  // so a board paper already in the index is not listed twice, and this keeps behaving once
+  // the ingest lands.
+  const indexed = new Set((S.index || []).map(p => p.id));
+  const all = ((S.index && S.index.length) ? S.index : []).concat(
+    S.papers.filter(p => !indexed.has(p.id)).map(asRow));
 
   const hits = all.filter(p => paperMatches(p, q));
 
