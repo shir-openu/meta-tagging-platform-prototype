@@ -55,6 +55,8 @@ const S = {
   // a term yet; every selected term is then explicit about what the corpus can support.
   capability: null,
   pickedCorpus: false,
+  // The ranked list is capped at OFFER_N. This is the visitor asking to see past the cap.
+  showAllOffers: false,
   registry: [], query: "",
   papers: [], cases: [], defs: [], verdicts: {}, criteria: [], manifest: null,
   senseIndex: null, senseReport: null,
@@ -1190,10 +1192,20 @@ function renderOffered(rows) {
     }
   }
 
+  // THE CAP HID THE FINDING. This list stops at OFFER_N and said nothing about stopping.
+  // On the consciousness board seven of the nine definitions tie at +1.000; a visitor saw
+  // four and no sign the other five existed, while i18n's own note tells the reader that
+  // seven tie. A truncation that is not stated reads as a complete ranking -- and here the
+  // tie IS the result: it says this corpus cannot separate these definitions.
+  const all = collapseVersions(real);
+  const shown = S.showAllOffers ? all : all.slice(0, OFFER_N);
+  const lead = all.length ? all[0].s.mcc : null;
+  const tied = lead === null ? 0 : all.filter(r => Math.abs(r.s.mcc - lead) < 1e-9).length;
+
   el.innerHTML =
     `<div class="offerhead">${t("offer.head")} <span class="lead">${t("offer.sub")}</span></div>` +
     caveat +
-    collapseVersions(real).slice(0, OFFER_N).map((r, k) => {
+    shown.map((r, k) => {
       const d = r.d, s = r.s;
       const name = LANG === "he" ? d.name_he : (d.name_en || d.id);
       const word = LANG === "he" ? d.he : d.text;
@@ -1216,7 +1228,20 @@ function renderOffered(rows) {
           <div class="omiss">${miss} ${t("offer.misses")}</div>
         </div>
       </div>`;
-    }).join("");
+    }).join("") +
+    (all.length > OFFER_N ? `<div class="offermore">
+      <span class="lead">${t("offer.shown").replace("{k}", shown.length)
+        .replace("{n}", all.length)}${tied >= 2
+        ? " " + t("offer.tie").replace("{t}", tied).replace("{s}", fmt(lead)) : ""}</span>
+      <button class="pt-btn" data-offer-toggle>${S.showAllOffers
+        ? t("offer.showfewer").replace("{k}", OFFER_N)
+        : t("offer.showall").replace("{n}", all.length)}</button>
+    </div>` : "");
+
+  // Re-render rather than unhiding rows: the rank number is positional, so a row revealed in
+  // place would keep the number it was given while the list was still four long.
+  const tog = el.querySelector("[data-offer-toggle]");
+  if (tog) tog.onclick = () => { S.showAllOffers = !S.showAllOffers; renderOffered(rows); };
 }
 
 /* Ask for the definitions of a particular scholar: keep only papers that engage them.

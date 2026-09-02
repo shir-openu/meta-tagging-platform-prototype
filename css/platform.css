@@ -1247,3 +1247,11 @@ a:focus-visible {
    DELETE THIS BLOCK TO BRING THE BUTTON BACK. The card, its link, its notes and its price
    are all still in index.html and index-he.html, unchanged. */
 .card-hidden { display: none !important; pointer-events: none !important; }
+
+/* The ranked list is capped at OFFER_N; this line states the cap and opens it. Without it the
+   list stopped at four and read as the whole ranking, hiding a seven-way tie at +1.000. */
+.offermore {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  margin: .6rem 0 .2rem; padding-top: .55rem; border-top: 1px solid rgba(255,255,255,.08);
+}
+.offermore .lead { flex: 1 1 16rem; min-width: 0; color: var(--dim); font-size: 0.979rem; }
