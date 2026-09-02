@@ -971,11 +971,16 @@ function jackknife() {
       `${flips.length === 1 ? t("jack.paperChanges") : t("jack.papersChange")}`
     : `${t("jack.stable")} (<span class="num">${esc(nameOf(topId))}</span>).`;
 
+  // The heading used to say "five" and the list is `rows.slice(0, 5)` - on the consciousness
+  // board only three papers survive the filter, so a visitor read "the five papers" above
+  // three of them. It names what it shows.
+  const jackRows = rows.slice(0, 5);
   return `<div class="pt-note">${head}
     <div class="plain" style="margin-top:.5rem">
-      ${t("jack.top5")} (<span class="num">${fmt(topMCC)}</span>):
+      ${jackRows.length === 1 ? t("jack.top1")
+        : t("jack.topk").replace("{k}", jackRows.length)} (<span class="num">${fmt(topMCC)}</span>):
     </div>
-    ${rows.slice(0, 5).map(r => {
+    ${jackRows.map(r => {
       const p = S.papers.find(x => x.id === r.pid) || { title: r.pid };
       return `<div class="pt-case">
         <span class="th">${esc(p.title)}</span>
