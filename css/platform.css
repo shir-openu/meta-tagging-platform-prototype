@@ -1235,3 +1235,15 @@ a:focus-visible {
    Nothing is removed from the markup. */
 .payment-hidden .price-state,
 .payment-hidden .price-note { display: none !important; pointer-events: none !important; }
+
+/* TEMPORARY -- Shir, 2026-09-02: hide the whole "Tag a paper" button, not only its price.
+   She does not want users to see the tagging service until the other sections and features
+   are working.
+
+   A class of its own rather than reusing `payment-hidden`: that one is also on <main> in
+   request-tagging.html, and hiding `.payment-hidden` outright would blank the entire intake
+   page instead of one card.
+
+   DELETE THIS BLOCK TO BRING THE BUTTON BACK. The card, its link, its notes and its price
+   are all still in index.html and index-he.html, unchanged. */
+.card-hidden { display: none !important; pointer-events: none !important; }
