@@ -196,9 +196,15 @@
   .intake-page * { scroll-behavior: auto !important; transition: none !important; }
 }
 
-/* TEMPORARY -- Shir, 2026-09-01: "FOR NOW HIDE THE $2 BUTTON. KEEP IT LOCATED THERE AND WE
-   NEED ITS FUNCTIONS TO WORK. JUST HIDE IT FROM THE USERS AND MAKE IT TEMPORARILY
-   UNRESPONSIVE TO USER MOUSE CLICKS."
+/* TEMPORARY -- Shir's instruction, 2026-09-01, in substance and not word for word: hide the
+   $2 button for now, keep it where it is with its functions working, and make it
+   temporarily unresponsive to mouse clicks.
+
+   Not in quotation marks on purpose. The first version of this comment printed her sentence
+   inside quotes with five silent spelling corrections in it. The meaning was hers and the
+   quotation marks were not true, which is the same defect CLAUDE_B found in a write-up the
+   same night: a compression printed as the source's own words. Restoring the typos into a
+   public repo is the wrong repair; not claiming verbatim is the right one.
 
    Nothing is deleted. The price lockup, the two fee cases, the fee note and the five-step
    $2 flow all stay in the markup, in place, with their text and numbers intact; only this
