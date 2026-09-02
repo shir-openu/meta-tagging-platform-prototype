@@ -280,7 +280,12 @@ function fmt(x) {
    because that is what provenance is for and "a user" is the opposite of it: priority is a
    dated public record bearing a name, and an anonymous record establishes nothing. */
 function provLine(d) {
-  let s = t("prov." + d.provenance);
+  // t() RETURNS THE KEY ON A MISS, so an unlisted provenance printed "prov.usage" straight
+  // onto the board - the game board's ordinary-usage definition, one of fifteen, on one of
+  // the two boards that exist. `prov.unknown` is already written for exactly this case and
+  // was unreachable, because the miss never fell through to it.
+  const provKey = "prov." + d.provenance;
+  let s = t(provKey) === provKey ? t("prov.unknown") : t(provKey);
   if (d.proposed_by) {
     s += " " + esc(d.proposed_by);
     if (d.provenance === "user+tool") s += t("prov.tool");
@@ -803,11 +808,35 @@ function caseRow(r) {
   </div>`;
 }
 
+/* WHAT "ALL THE DEFINITIONS" SAYS WHEN THERE ARE NONE.
+
+   renderBoard() has two early returns and NEITHER of them wrote to #board, so the panel kept
+   whatever the last run had left there - on a fresh load, nothing at all. It opened to its
+   heading and a close button, twenty-one characters, for every concept that has no board,
+   which is all but three of the fourteen thousand seven hundred and sixty-seven in the
+   registry. The panel beside it says "choose a concept" and the jackknife panel says "at
+   least three papers are needed": both explain their own absence, and this one did not.
+
+   The two absences are different and do not get the same sentence. S.termPick is what tells
+   them apart - a term with no board is not a concept selection, so S.concept stays on the
+   default and S.capability stays null, and a condition written on capability fires on the
+   wrong one. It carries the label, so the sentence can name the term the visitor typed. */
+function boardEmptyNote() {
+  const bd = document.getElementById("board");
+  if (!bd) return;
+  const term = S.termPick && S.termPick.label;
+  bd.innerHTML = `<div class="pt-note" style="padding:.9rem 0">${
+    term ? t("board.noboard").replace(
+             "{term}", `<span class="ltr" dir="ltr">${esc(term)}</span>`)
+         : esc(t("board.pick"))}</div>`;
+}
+
 function renderBoard() {
   if (S.capability && S.capability !== CAPABILITY.BENCHMARK) {
     ["calib", "discrim"].forEach(id => {
       const el = document.getElementById(id); if (el) el.style.display = "none";
     });
+    boardEmptyNote();
     const stage = document.getElementById("stage2");
     if (stage && !stage.hidden) renderEvidenceWorkspace();
     return;
@@ -821,6 +850,15 @@ function renderBoard() {
     if (w) w.style.display = "none";
     const off = document.getElementById("offered");
     if (off) off.innerHTML = `<div class="pt-note" style="padding:.9rem 0">${esc(t("board.pick"))}</div>`;
+    // AND #board, WHICH THIS SAME BRANCH LEFT BLANK. "All the definitions" opened to its
+    // heading and a close button - twenty-one characters - on a fresh load and for every
+    // concept that has no board, which is all but two of them. The panel beside it says
+    // "choose a concept", and the jackknife panel says "at least three papers are needed":
+    // both explain their own absence. This one said nothing, and a panel that opens empty
+    // reads as a tool that is broken rather than one that has not been asked yet.
+    // The two absences are not the same, so they do not get the same sentence: nothing
+    // picked yet, versus a term picked that has no board to show.
+    boardEmptyNote();
     return;
   }
   const { judged, undecided } = corpusCases();
@@ -882,13 +920,22 @@ function renderBoard() {
   document.getElementById("board").innerHTML = rows.map(({ d, s }) => {
     const mine = d.id.startsWith("shir");
     const w = Math.max(2, Math.abs(s.mcc) / max * 100);
-    const gate = t("gate." + d.gate) || d.gate;
+    // t() RETURNS THE KEY ON A MISS, so `t("gate." + d.gate) || d.gate` can never reach its
+    // fallback: for a definition with no gate the key is "gate.undefined", that string is
+    // truthy, and it is what all TEN rows of the consciousness board showed a visitor. The
+    // game board's fifteen definitions all carry a gate and rendered correctly, which is why
+    // this survived - one of the two boards was clean and the other was never opened here.
+    // A missing gate is not a gate called "undefined". The gate is a verdict on whether a
+    // definition may be read at all; where the data records none, the honest thing is to
+    // show no chip rather than invent one.
+    const gateKey = d.gate ? "gate." + d.gate : "";
+    const gateTxt = gateKey ? (t(gateKey) === gateKey ? d.gate : t(gateKey)) : "";
     const wrong = s.rows.filter(r => r.kind === "fp" || r.kind === "fn");
     return `<div class="pt-def ${mine ? "mine" : ""} ${d.is_control ? "control" : ""}">
       <div class="pt-defh">
         <span class="nm">${esc(LANG === "he" ? d.name_he : (d.name_en || d.id))}</span>
         <span class="prov prov-${d.provenance}">${provLine(d)}</span>
-        <span class="gate ${d.gate}">${gate}</span>
+        ${gateTxt ? `<span class="gate ${esc(d.gate)}">${esc(gateTxt)}</span>` : ""}
       </div>
       <div class="wording"${LANG === "he" ? "" : ' dir="ltr"'}>${esc(LANG === "he" ? d.he : d.text)}</div>
       ${citeLine(d)}
@@ -1474,6 +1521,13 @@ function chooseSoon(id, fromURL, sourceURL) {
   renderPapers();
   renderCapability();
   updateStep3();
+  // AND THE BOARD PANEL, which this function set the state for and never redrew. Four
+  // renderers were called here and renderBoard was not, so "All the definitions" kept
+  // whatever the previous state had left in it: on a fresh visit that is the empty string,
+  // and after a first look it is the sentence for a DIFFERENT state - the panel told a
+  // visitor who had just chosen `priming` to "choose a concept". Everything it needs was
+  // already set six lines above; nothing asked it to look.
+  renderBoard();
   out.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 

@@ -1058,11 +1058,15 @@ a:focus-visible {
    how many. Purple and pink, and stronger than the earlier pass - she said the previous
    tints looked faded. */
 .tc { margin-top: .8rem; border-top: 1px solid var(--line); padding-top: .7rem; }
-.tc-h { font-weight: 700; color: #d81b8c; margin-bottom: .5rem; }
+/* #d81b8c is 3.98:1 on this panel's #14101a and these are the counts a visitor reads.
+   On a dark ground the accessible direction is BRIGHTER, which is also the direction
+   Shir asked for above - she called the earlier pass faded. #ff77bd is not a new colour:
+   it is the pink this same file already uses on dark at .evidence-add. 3.98 -> 7.71. */
+.tc-h { font-weight: 700; color: #ff77bd; margin-bottom: .5rem; }
 .tc-list { max-height: 22rem; overflow-y: auto; padding-inline-end: .3rem; }
 .tc-d { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em;
         color: #a259ff; font-weight: 700; margin: .6rem 0 .2rem; }
-.tc-d .n { color: #d81b8c; margin-inline-start: .4rem; }
+.tc-d .n { color: #ff77bd; margin-inline-start: .4rem; }
 .tc-p { display: flex; gap: .55rem; align-items: baseline; padding: .12rem 0; font-size: .9rem; }
 .tc-p .y { color: #8b7aa8; font-variant-numeric: tabular-nums; min-width: 2.6rem; }
 .tc-p a { color: #c77dff; text-decoration: none; }
