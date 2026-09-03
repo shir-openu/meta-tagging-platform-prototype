@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Not found — Meta-Tagging Platform</title>
+<meta name="description" content="That address is not on this site. The definition board, the method page and the showcase are one click away.">
+<link rel="stylesheet" href="css/shell.css?v=8e5a2f35">
+<link rel="stylesheet" href="css/platform.css?v=8e5a2f35">
+<style>
+ /* THE SHOWCASE GAINED A 404 AND THIS SITE HAD NONE. GitHub Pages answers a missing address
+    with its own "File not found", which tells a reader nothing and offers no way on.
+
+    Every colour here is a token from platform.css, not a value of my own. The first draft of
+    this page used the greys the showcase 404 uses -- #55606d subtitle, #6e6e6e footer, a
+    default-blue link -- because I wrote it from the showcase's markup without opening it.
+    shell.css paints this site #120a12. Every measurement passed: 390px wide, no overflow, no
+    console error. The screenshot showed a Hebrew line that was very nearly invisible. */
+ .nf-wrap { max-width: 42rem; margin: 3.5rem auto; padding: 0 1.2rem;
+            position: relative; z-index: 1; }
+ .nf-wrap h1 { margin-bottom: .2rem; color: var(--ink); }
+ /* dir=rtl so the Hebrew reads right-to-left, text-align:left so it stays in the page's
+    column. Without the second half it floated to the far right edge, level with nothing,
+    and on a phone it read as a caption for the paragraph below it. */
+ .nf-sub { color: var(--dim); margin-top: 0; font-size: 1.05rem; text-align: left; }
+ .nf-body { color: var(--ink); line-height: 1.6; }
+ /* Hanging indent. At 390px "The definition board - pick a concept, score a definition"
+    wraps, and with a flat left edge the second line began where a link begins: it read as a
+    fifth item whose link had gone missing. */
+ .nf-ways { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+ .nf-ways li { margin-bottom: .75rem; line-height: 1.5;
+               padding-inline-start: 1.1rem; text-indent: -1.1rem; }
+ .nf-ways a { color: var(--teal-lit); font-weight: 600; text-decoration: underline;
+              text-underline-offset: 3px; }
+ .nf-ways a:hover, .nf-ways a:focus { color: var(--pink); }
+ .nf-ways span { color: var(--dim); font-weight: 400; }
+ .nf-foot { margin-top: 2.6rem; border-top: 1px solid var(--line); padding-top: .9rem;
+            color: var(--dim); font-size: .85rem; }
+</style>
+</head><body>
+<div class="nf-wrap">
+  <h1>That address is not on this site</h1>
+  <p class="nf-sub" dir="rtl">הכתובת הזו לא קיימת באתר הזה</p>
+  <p class="nf-body">Nothing is wrong with your browser. Either the page never existed, or it
+     moved and something still links to it — if it was the second, that is our fault and not
+     yours.</p>
+  <ul class="nf-ways">
+    <li><a href="index.html">The platform</a> <span>— what this prototype is</span></li>
+    <li><a href="define/">The definition board</a> <span>— pick a concept, score a definition</span></li>
+    <li><a href="method.html">The method</a> <span>— how the score is computed, and its limits</span></li>
+    <li><a href="https://shir-openu.github.io/meta-tagging-showcase/">The showcase</a>
+        <span>— 907 tagged papers</span></li>
+  </ul>
+  <p class="nf-foot">&copy; 2026 Shir Sivroni · Meta-Tagging Project</p>
+</div>
+
+<!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body></html>
