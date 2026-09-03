@@ -204,15 +204,30 @@ function capabilityForRegistryEntry(c) {
 let _startTerms = null;
 function topRivalTerms(limit) {
   if (_startTerms) return _startTerms.slice(0, limit);
-  const pt = ((S.senseIndex || {}).picker_terms) || {};
+  const idx = S.senseIndex || {};
+  const pt = idx.picker_terms || {};
+  const senses = idx.senses || [];
+  const papers = idx.papers || {};
   if (!Object.keys(pt).length || !(S.registry || []).length) return [];
   const out = [];
   for (const c of S.registry) {
     const slug = c.slug || slugOf(c.en || c.id);
-    const n = (pt[slug] || []).length;
-    if (n >= 2) out.push({ c, n });
+    const list = pt[slug] || [];
+    if (list.length < 2) continue;
+    // RANK BY FIELDS, NOT BY COUNT. The first version offered the terms with the most
+    // senses, and put `biostimulant` first: 18 definitions, nearly all from one field.
+    // That is a term the corpus covers thickly, not a term the literature disagrees about.
+    // 317 of the 1,234 terms are defined in two or more DIFFERENT fields, and those are the
+    // ones that show what this project is for -- attention has 11 definitions across 9.
+    const fields = new Set();
+    for (const i of list) {
+      const sense = senses[i];
+      const d = sense && (papers[sense.paper_id] || {}).discipline;
+      if (d) fields.add(d);
+    }
+    out.push({ c, n: list.length, f: fields.size });
   }
-  out.sort((a, b) => b.n - a.n || String(a.c.id).localeCompare(String(b.c.id)));
+  out.sort((a, b) => b.f - a.f || b.n - a.n || String(a.c.id).localeCompare(String(b.c.id)));
   _startTerms = out;
   return out.slice(0, limit);
 }
@@ -239,12 +254,13 @@ function renderStartHere() {
     // The SHORT form on the chip. conceptLabel() expands abbreviations, so CONSORT arrived as
     // "CONSORT for Consolidated Standards of Reporting Trials; CONSORT for CONSORT statement"
     // and took a whole row to itself. The expansion is worth having and is kept on hover.
-    picks.map(({ c, n }) => {
+    picks.map(({ c, n, f }) => {
       const short = (LANG === "he" ? (c.he || c.en || c.id) : (c.en || c.id));
       const full = conceptLabel(c) || c.id;
       return `<button type="button" class="start-term" data-start="${escAttr(c.id)}"` +
         (full && full !== short ? ` title="${escAttr(full)}"` : "") + `>` +
-        `${esc(short)} <span class="start-n">${n}</span></button>`;
+        `${esc(short)} <span class="start-n">${t("start.chip")
+          .replace("{n}", n).replace("{f}", f)}</span></button>`;
     }).join("") +
     `</div>`;
   if (!box.dataset.wired) {
@@ -2058,8 +2074,12 @@ function renderEvidenceWorkspace() {
       ? `<div class="selector-notes">${plan.notes.map(n => `<div>${n}</div>`).join("")}</div>` : "";
     out.innerHTML = `<section class="evidence-workspace"><div class="evidence-head">` +
       `<span class="cap-badge">${esc(info.title)}</span><h2>${esc(S.termPick.label)}</h2>` +
+      // HOW MANY FIELDS DISAGREE is the sentence this project exists to say, and the summary
+      // counted only definitions and papers. attention: 11 definitions, 10 papers, 9 fields.
       `<p>${t(chosenCorpus ? "evidence.summary" : "evidence.summary.all")
-              .replace("{s}", rows.length).replace("{p}", plan.papers.length)}</p>` +
+              .replace("{s}", rows.length).replace("{p}", plan.papers.length)
+              .replace("{f}", new Set(rows.map(r => (paperById.get(r.paper_id) || {}).discipline)
+                                          .filter(Boolean)).size)}</p>` +
       // Say WHICH set is on screen. Without a corpus chosen these are every definition the
       // term has; with one they are the subset from those papers. The same count with two
       // different meanings is how a reader mistakes one for the other.
