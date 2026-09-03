@@ -154,6 +154,12 @@ const CAPABILITY = Object.freeze({
   CORPUS: "corpus-only",
 });
 
+// Has the visitor actually chosen a corpus? Five separate labels say "your chosen corpus",
+// and before a choice is made all five are false. One predicate so they cannot drift apart.
+function corpusChosen() {
+  return !!(S.pickedCorpus && S.selected && S.selected.size > 0);
+}
+
 function capabilityInfo(kind) {
   if (kind === CAPABILITY.BENCHMARK) {
     return { cls: "benchmark", title: t("cap.benchmark.h"), body: t("cap.benchmark.body") };
@@ -209,7 +215,30 @@ function renderCapability() {
       `<span class="cap-chip ${evidenceReady ? "ready" : "off"}">${esc(t("cap.screen.evidence"))} · ${esc(evidenceReady ? t("cap.ready") : t("cap.unavailable"))}</span>` +
       `<span class="cap-chip ${coverageReady ? "ready coverage" : "off"}">${esc(t("cap.screen.coverage"))} · ${esc(coverageReady ? t("cap.ready") : t("cap.unavailable"))}</span>` +
       `<span class="cap-chip ${benchmarkReady ? "ready" : "off"}">${esc(t("cap.screen.benchmark"))} · ${esc(benchmarkReady ? t("cap.ready") : t("cap.unavailable"))}</span>` +
-    `</div>`;
+    `</div>` +
+    // SAY THE PLAIN THING. Shir picked `order` and asked where the definitions were. The box
+    // above told her what is unavailable in method words -- "independent positive and negative
+    // cases", "MCC and bootstrap" -- and never said that NO DEFINITIONS EXIST for this concept,
+    // which is the sentence she was actually asking for. The picker says "3 concepts ready to
+    // score, out of 22519"; the board, where the reader is standing, did not repeat it.
+    //
+    // The three are read from the registry, never typed here: a list retyped in a second place
+    // is a list that goes stale in one of them.
+    (benchmarkReady ? "" :
+      `<div class="cap-nodefs">${esc(t("cap.nodefs"))} ` +
+      (S.registry || []).filter(c => c.state === "ready")
+        .map(c => `<button type="button" class="cap-go" data-switch="${escAttr(c.id)}">` +
+                  `${esc(conceptLabel(c) || c.id)}</button>`).join(" ") +
+      `</div>`);
+  // One delegated listener, bound once: the box is re-rendered on every state change and a
+  // per-button listener would be added again each time.
+  if (!box.dataset.wired) {
+    box.dataset.wired = "1";
+    box.addEventListener("click", ev => {
+      const b = ev.target.closest("[data-switch]");
+      if (b) switchConcept(b.getAttribute("data-switch"));
+    });
+  }
 }
 
 /* ---------- metric ---------- */
@@ -1629,8 +1658,11 @@ function evidenceSelectorPlan(rows) {
     notes.push(t("evidence.year.unavailable").replace("{n}", papers.length - years.length));
   } else if (papers.length) {
     const oldest = Math.min(...years), newest = Math.max(...years);
-    papers.filter(([, p]) => hasYear(p) && Number(p.year) === oldest).forEach(([id]) => add(id, t("evidence.oldest")));
-    papers.filter(([, p]) => hasYear(p) && Number(p.year) === newest).forEach(([id]) => add(id, t("evidence.newest")));
+    const _sel = corpusChosen();
+    papers.filter(([, p]) => hasYear(p) && Number(p.year) === oldest)
+          .forEach(([id]) => add(id, t(_sel ? "evidence.oldest" : "evidence.oldest.all")));
+    papers.filter(([, p]) => hasYear(p) && Number(p.year) === newest)
+          .forEach(([id]) => add(id, t(_sel ? "evidence.newest" : "evidence.newest.all")));
     const oldTies = papers.filter(([, p]) => hasYear(p) && Number(p.year) === oldest).length;
     const newTies = papers.filter(([, p]) => hasYear(p) && Number(p.year) === newest).length;
     if (oldTies > 1) notes.push(t("evidence.oldest.tie").replace("{n}", oldTies).replace("{y}", oldest));
@@ -1868,7 +1900,22 @@ function renderEvidenceWorkspace() {
   const index = S.senseIndex || {};
   const allRows = (S.termPick.senseIndices || []).map(i => index.senses && index.senses[i])
     .filter(Boolean);
-  const rows = allRows.filter(row => S.selected.has(row.paper_id));
+  // SHOW THE DEFINITIONS. Shir, 2026-09-03: "the users interest is in the DIFFERENT
+  // DEFINITIONS." A visitor who picked `attention` was told "this term has 11 grounded senses
+  // in the index, but none comes from the papers you selected" -- while step 2 beside it read
+  // "494 papers in this term's corpus". The board held all eleven and showed none, because
+  // this line filters them to a selection the visitor has not made yet.
+  //
+  //     THE FILTER IS RIGHT ONCE A CORPUS IS CHOSEN AND WRONG BEFORE IT. Filtering to an
+  //     empty set is not "no results", it is "you have not asked yet", and the page said the
+  //     first while displaying the second.
+  //
+  // 1,234 of the 8,626 terms in the index carry two or more rival senses -- attention has 11,
+  // covid-19 11, deep-learning 11, bias 9. Every one of them was reachable and blank.
+  const chosenCorpus = S.pickedCorpus && S.selected.size > 0;
+  const rows = chosenCorpus
+    ? allRows.filter(row => S.selected.has(row.paper_id))
+    : allRows;
   const info = capabilityInfo(S.capability);
   const reportCounts = index.counts || {};
   const external = externalDefinitionEntry();
@@ -1935,9 +1982,15 @@ function renderEvidenceWorkspace() {
       ? `<div class="selector-notes">${plan.notes.map(n => `<div>${n}</div>`).join("")}</div>` : "";
     out.innerHTML = `<section class="evidence-workspace"><div class="evidence-head">` +
       `<span class="cap-badge">${esc(info.title)}</span><h2>${esc(S.termPick.label)}</h2>` +
-      `<p>${t("evidence.summary").replace("{s}", rows.length).replace("{p}", plan.papers.length)}</p></div>` +
+      `<p>${t(chosenCorpus ? "evidence.summary" : "evidence.summary.all")
+              .replace("{s}", rows.length).replace("{p}", plan.papers.length)}</p>` +
+      // Say WHICH set is on screen. Without a corpus chosen these are every definition the
+      // term has; with one they are the subset from those papers. The same count with two
+      // different meanings is how a reader mistakes one for the other.
+      (chosenCorpus ? "" : `<p class="evidence-scope">${esc(t("evidence.all.corpus"))}</p>`) +
+      `</div>` +
       notes + evidenceOwnHTML() + renderCoverageWorkbench(rows) +
-      `<div class="sense-all-head">${esc(t("evidence.all"))}</div>${cards}` +
+      `<div class="sense-all-head">${esc(t(chosenCorpus ? "evidence.all" : "evidence.all.all"))}</div>${cards}` +
       externalDefinitionsHTML(rows.length) +
       `<div class="sense-audit">${t("evidence.audit")
         .replace("{active}", reportCounts.sense_rows_active || "—")
@@ -2663,7 +2716,11 @@ function renderStageHead() {
   const h = document.getElementById("stageHead");
   if (!h) return;
   if (S.capability && S.capability !== CAPABILITY.BENCHMARK) {
-    h.textContent = t("evidence.stage")
+    // Before a corpus is chosen there is no paper count to give here -- the number of papers
+    // carrying senses is computed further down, in the workspace, and printing S.selected.size
+    // put "0 papers" above a list of eleven definitions. The heading drops the count instead
+    // of guessing it; the workspace states it exactly, one line below.
+    h.textContent = t(corpusChosen() ? "evidence.stage" : "evidence.stage.all")
       .replace("{term}", S.termPick ? S.termPick.label : conceptLabel(conf()))
       .replace("{n}", S.selected.size);
     return;
