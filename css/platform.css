@@ -1287,3 +1287,16 @@ a:focus-visible {
   margin: .6rem 0 .2rem; padding-top: .55rem; border-top: 1px solid rgba(255,255,255,.08);
 }
 .offermore .lead { flex: 1 1 16rem; min-width: 0; color: var(--dim); font-size: 0.979rem; }
+
+/* The board's opening door. Terms the literature defines more than once, offered because a
+   visitor cannot guess which words pay off. Colour on tint, never white on a filled block. */
+.start-here { margin: .9rem 0 1rem; padding: .8rem .95rem; border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--teal-lit); border-radius: 12px;
+  background: rgba(255, 255, 255, .035); }
+.start-here p { margin: 0 0 .6rem; color: var(--ink); font-size: .92rem; line-height: 1.5; }
+.start-row { display: flex; flex-wrap: wrap; gap: .45rem; }
+.start-term { font: inherit; font-size: .86rem; cursor: pointer; padding: .32rem .6rem;
+  border-radius: 999px; border: 1px solid rgba(47, 212, 212, .45);
+  background: rgba(47, 212, 212, .10); color: var(--teal-lit); }
+.start-term:hover, .start-term:focus-visible { background: rgba(47, 212, 212, .20); }
+.start-n { color: var(--dim); font-variant-numeric: tabular-nums; margin-inline-start: .3rem; }

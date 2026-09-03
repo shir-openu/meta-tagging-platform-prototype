@@ -191,6 +191,71 @@ function capabilityForRegistryEntry(c) {
   return paperCount === 1 ? CAPABILITY.EVIDENCE : CAPABILITY.CORPUS;
 }
 
+// A DOOR INTO THE 1,234. The board's opening screen was the title, two step buttons and the
+// footer -- forty words, no concept, no definition. A visitor had to guess a word before the
+// tool could show them anything, and the words that pay off are exactly the ones they cannot
+// guess: the terms the literature defines more than once.
+//
+// Shir, 2026-09-03: "THE USER'S INTEREST IS IN THE DIFFERENT DEFINITIONS."
+//
+// The list is COMPUTED from the sense index, never typed: the terms with the most rival
+// senses, which is the same measure the tally counts. Cached because it is one pass over
+// 22,519 registry entries and the board re-renders on every state change.
+let _startTerms = null;
+function topRivalTerms(limit) {
+  if (_startTerms) return _startTerms.slice(0, limit);
+  const pt = ((S.senseIndex || {}).picker_terms) || {};
+  if (!Object.keys(pt).length || !(S.registry || []).length) return [];
+  const out = [];
+  for (const c of S.registry) {
+    const slug = c.slug || slugOf(c.en || c.id);
+    const n = (pt[slug] || []).length;
+    if (n >= 2) out.push({ c, n });
+  }
+  out.sort((a, b) => b.n - a.n || String(a.c.id).localeCompare(String(b.c.id)));
+  _startTerms = out;
+  return out.slice(0, limit);
+}
+
+function renderStartHere() {
+  const steps = document.querySelector(".steps");
+  if (!steps) return;
+  let box = document.getElementById("startHere");
+  // The SAME predicate the step button uses. S.concept is "art" on first load -- a default
+  // that is never displayed -- so testing it made this block hide itself on exactly the
+  // screen it exists for, while the button beside it read "not chosen yet". Two tests for
+  // one question is how the two disagree.
+  const idle = !S.capability && !S.termPick;
+  if (!idle) { if (box) box.remove(); return; }
+  const picks = topRivalTerms(8);
+  if (!picks.length) { if (box) box.remove(); return; }
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "startHere";
+    box.className = "start-here";
+    steps.insertAdjacentElement("afterend", box);
+  }
+  box.innerHTML = `<p>${esc(t("start.here"))}</p><div class="start-row">` +
+    // The SHORT form on the chip. conceptLabel() expands abbreviations, so CONSORT arrived as
+    // "CONSORT for Consolidated Standards of Reporting Trials; CONSORT for CONSORT statement"
+    // and took a whole row to itself. The expansion is worth having and is kept on hover.
+    picks.map(({ c, n }) => {
+      const short = (LANG === "he" ? (c.he || c.en || c.id) : (c.en || c.id));
+      const full = conceptLabel(c) || c.id;
+      return `<button type="button" class="start-term" data-start="${escAttr(c.id)}"` +
+        (full && full !== short ? ` title="${escAttr(full)}"` : "") + `>` +
+        `${esc(short)} <span class="start-n">${n}</span></button>`;
+    }).join("") +
+    `</div>`;
+  if (!box.dataset.wired) {
+    box.dataset.wired = "1";
+    box.addEventListener("click", ev => {
+      const b = ev.target.closest("[data-start]");
+      if (b) chooseSoon(b.getAttribute("data-start"));
+    });
+  }
+}
+
 function renderCapability() {
   let box = document.getElementById("capabilityState");
   if (!box) {
@@ -796,6 +861,7 @@ function updateStep3() {
   const haveCorpus = !!S.pickedCorpus && S.selected && S.selected.size > 0;
   wrap.hidden = !(haveConcept && haveCorpus);
   renderCapability();
+  renderStartHere();
   const ttl = document.querySelector("#step3 .ttl");
   if (ttl) ttl.textContent = S.capability === CAPABILITY.BENCHMARK
     ? t("step.go") : t("evidence.step");
@@ -1557,6 +1623,7 @@ function chooseSoon(id, fromURL, sourceURL) {
   renderSteps();
   renderPapers();
   renderCapability();
+  renderStartHere();
   updateStep3();
   // AND THE BOARD PANEL, which this function set the state for and never redrew. Four
   // renderers were called here and renderBoard was not, so "All the definitions" kept
@@ -2764,6 +2831,7 @@ function refresh() {
   renderSteps();
   renderOwn();
   renderCapability();
+  renderStartHere();
   renderStageHead();
   const jk = document.getElementById("jack");
   if (jk) jk.innerHTML = jackknife();
