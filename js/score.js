@@ -232,6 +232,29 @@ function topRivalTerms(limit) {
   return out.slice(0, limit);
 }
 
+// OPEN THE WORDINGS THE DOOR ADVERTISED.
+//
+// Two places promise a reader the rival definitions and then land them on the term's corpus:
+// a showcase link carrying &see=definitions, and this page's own start-here door, whose
+// buttons read "attention 11 in 9 fields" and showed none of the 11. The corpus step is the
+// method and is not skipped -- it is ANSWERED with the corpus the term brings, which is the
+// corpus the promise was about.
+//
+// It drives the page's own controls: the same selection the "all" button makes and the same
+// step-3 button a reader would press, so this cannot drift from what pressing them does.
+function openTheWordings() {
+  const ids = (S.termPick && S.termPick.ids) || [];
+  if (!ids.length) return false;
+  ids.forEach(id => S.selected.add(id));
+  S.pickedCorpus = true;
+  refresh();
+  const w = document.getElementById("step3wrap");
+  const b3 = w && w.querySelector("button");
+  if (!b3) return false;
+  b3.click();
+  return true;
+}
+
 function renderStartHere() {
   const steps = document.querySelector(".steps");
   if (!steps) return;
@@ -267,7 +290,7 @@ function renderStartHere() {
     box.dataset.wired = "1";
     box.addEventListener("click", ev => {
       const b = ev.target.closest("[data-start]");
-      if (b) chooseSoon(b.getAttribute("data-start"));
+      if (b) { chooseSoon(b.getAttribute("data-start")); openTheWordings(); }
     });
   }
 }
@@ -3376,15 +3399,7 @@ async function boot() {
     // from what pressing them does: the same selection "all" makes, and the same step-3
     // button a reader would press.
     if (bootURL.searchParams.get("see") === "definitions") {
-      const ids = (S.termPick && S.termPick.ids) || [];
-      if (ids.length) {
-        ids.forEach(id => S.selected.add(id));
-        S.pickedCorpus = true;
-        refresh();
-        const w = document.getElementById("step3wrap");
-        const b3 = w && w.querySelector("button");
-        if (b3) b3.click();
-      }
+      openTheWordings();
     }
   }
 }
