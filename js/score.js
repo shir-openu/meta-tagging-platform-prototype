@@ -1651,7 +1651,7 @@ function evidenceSelectorPlan(rows) {
     badges.set(id, list);
   };
 
-  if (papers.length === 1) notes.push(t("evidence.onepaper"));
+  if (papers.length === 1) notes.push(t(corpusChosen() ? "evidence.onepaper" : "evidence.onepaper.all"));
   const hasYear = p => p.year !== null && p.year !== "" && Number.isFinite(Number(p.year));
   const years = papers.filter(([, p]) => hasYear(p)).map(([, p]) => Number(p.year));
   if (years.length !== papers.length) {
@@ -1676,7 +1676,7 @@ function evidenceSelectorPlan(rows) {
   } else if (cited.length) {
     const max = Math.max(...cited.map(([, p]) => Number(p.citations.count)));
     cited.filter(([, p]) => Number(p.citations.count) === max)
-      .forEach(([id]) => add(id, t("evidence.cited")));
+      .forEach(([id]) => add(id, t(corpusChosen() ? "evidence.cited" : "evidence.cited.all")));
   }
   return { byPaper, papers, badges, notes };
 }
@@ -1989,8 +1989,18 @@ function renderEvidenceWorkspace() {
       // different meanings is how a reader mistakes one for the other.
       (chosenCorpus ? "" : `<p class="evidence-scope">${esc(t("evidence.all.corpus"))}</p>`) +
       `</div>` +
-      notes + evidenceOwnHTML() + renderCoverageWorkbench(rows) +
+      // THE DEFINITIONS COME FIRST. Measured on ?term=attention: the first definition sat at
+      // y=859 on a 900px screen -- one full screen down, behind 180 words of framing:
+      // "no independent negatives", "not a benchmark score", "no TN, FP, MCC, confusion
+      // matrix or bootstrap here". Shir, 2026-09-03: "TOO MUCH TEXT ON THE SCREEN AND THE
+      // IMPORTANT TEXT IS NOT SHOWN ... THE USER'S INTEREST IS IN THE DIFFERENT DEFINITIONS."
+      //
+      // Nothing is removed. The coverage workbench is what makes this tool honest about what
+      // it cannot measure, and it keeps every word -- it moves BELOW the definitions, which
+      // is where a caveat belongs relative to the thing it qualifies.
+      notes + evidenceOwnHTML() +
       `<div class="sense-all-head">${esc(t(chosenCorpus ? "evidence.all" : "evidence.all.all"))}</div>${cards}` +
+      renderCoverageWorkbench(rows) +
       externalDefinitionsHTML(rows.length) +
       `<div class="sense-audit">${t("evidence.audit")
         .replace("{active}", reportCounts.sense_rows_active || "—")
