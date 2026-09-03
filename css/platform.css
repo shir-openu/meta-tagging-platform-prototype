@@ -1257,6 +1257,11 @@ a:focus-visible {
   line-height: 0;
 }
 
+/* A SEPARATOR MUST BELONG TO SOMETHING. #stateBar is empty until a corpus is chosen
+   and hidden on the term path, so the bullet that used to sit before 'the method'
+   in the markup was a bullet with nothing in front of it on the landing view. */
+#stateBar:not(:empty)::after{content:" · "}
+
 /* TEMPORARY, the same switch as css/intake.css -- Shir's instruction, 2026-09-01 and again
    2026-09-02: hide the $2 from users, keep it in place and working, and make it
    unresponsive to clicks. The intake PAGE was hidden last night; this is the home-page CARD
@@ -1278,6 +1283,7 @@ a:focus-visible {
 
    DELETE THIS BLOCK TO BRING THE BUTTON BACK. The card, its link, its notes and its price
    are all still in index.html and index-he.html, unchanged. */
+
 .card-hidden { display: none !important; pointer-events: none !important; }
 
 /* The ranked list is capped at OFFER_N; this line states the cap and opens it. Without it the
