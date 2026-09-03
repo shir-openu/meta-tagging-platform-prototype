@@ -1053,7 +1053,19 @@ a:focus-visible {
    (colour on a tint, never white on a filled block); only the text colour moves, to the
    site's own --teal-lit at 8.87:1 and a light red at 7.73:1.
    These render inside #pOwn, the panel a visitor opens to write their own definition, which
-   is why audit_a11y reported this page clean: it never opens that panel. */
+   is why audit_a11y reported this page clean: it never opens that panel.
+
+   CORRECTION, same day. The commit that made this change said the chips "have no live data
+   path today -- all three ready concepts have zero reviewed sub-terms". That is wrong. The
+   concept `art` carries 22 of them in data/subterm_index.json, and they render: pick art,
+   open the corpus picker, select all, close it, open step 3, open "try your own definition",
+   tick the `object` sub-term, open "inspect 22 cases and their evidence" -- 22 chips, one per
+   judged case, with the quote and the paper beside each. Seven steps, which is why no probe
+   had reached them, and 165 object / 45 not object / 23 undecided behind them.
+
+   I had concluded "no data path" from a page that said "There are no criterion x case
+   verdict columns yet" -- a true sentence about a DIFFERENT thing. The colours were 2.17:1
+   and 1.86:1 on the best surface this tool has. */
 .feature-v{font-size:.72rem;
   border-radius:999px;padding:.12rem .42rem;background:rgba(13,148,136,.14);color:var(--teal-lit)}
 .feature-v.not-object{background:rgba(192,57,43,.12);color:#ff8f80}.ownfeatures{margin-top:.3rem;color:var(--muted);
