@@ -2036,8 +2036,22 @@ function renderEvidenceWorkspace() {
       const citation = paper.citations
         ? ` · ${esc(t("evidence.citation"))}: <span class="num">${Number(paper.citations.count).toLocaleString()}</span>`
         : "";
-      const source = paper.source_url
-        ? `<a class="pt-btn tiny" href="${escAttr(paper.source_url)}" target="_blank" rel="noopener">${esc(t("evidence.source"))}</a>`
+      // OUR PAGE FIRST, exactly as paperLink() has done since 2026-08-19 -- this one call site
+      // never went through it. Every definition card offered `open source`, straight to the
+      // publisher, for 248 of the 273 papers behind the terms the showcase now advertises:
+      // a paywall in place of a tagged page we publish ourselves.
+      //
+      //     A LINK TO THE WRONG PLACE IS SILENT WHERE A DEAD ONE IS LOUD. doi.org resolves
+      //     perfectly. Fourth instance of this today, and the first on the platform.
+      //
+      // The showcase page carries the same quotation in its tag layer and links onward to the
+      // publisher itself, so nothing is taken away from a reader who wants the original.
+      // `paperId`, not `row.paper_id`: this block is the PAPER scope and `row` is the sense
+      // inside it, declared further down. The driver caught it on the first run -- 0 cards,
+      // 1 JS error -- which is what driving a page instead of reading it is for.
+      const ourPage = showcaseHref(paperId);
+      const source = (ourPage || paper.source_url)
+        ? `<a class="pt-btn tiny" href="${escAttr(ourPage || paper.source_url)}" target="_blank" rel="noopener">${esc(t(ourPage ? "evidence.ourpage" : "evidence.source"))}</a>`
         : "";
       const senses = (plan.byPaper.get(paperId) || []).map(row => {
         const loc = row.locator || {};
