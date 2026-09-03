@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/meta-tagging-platform-prototype/favicon.svg" type="image/svg+xml">
 <title>Not found — Meta-Tagging Platform</title>
 <meta name="description" content="That address is not on this site. The definition board, the method page and the showcase are one click away.">
-<link rel="stylesheet" href="css/shell.css?v=cba440b4">
-<link rel="stylesheet" href="css/platform.css?v=cba440b4">
+<link rel="stylesheet" href="/meta-tagging-platform-prototype/css/shell.css?v=cba440b4">
+<link rel="stylesheet" href="/meta-tagging-platform-prototype/css/platform.css?v=cba440b4">
 <style>
  /* THE SHOWCASE GAINED A 404 AND THIS SITE HAD NONE. GitHub Pages answers a missing address
     with its own "File not found", which tells a reader nothing and offers no way on.
@@ -35,7 +35,14 @@
  .nf-foot { margin-top: 2.6rem; border-top: 1px solid var(--line); padding-top: .9rem;
             color: var(--dim); font-size: .85rem; }
 </style>
-</head><body>
+</head><!-- EVERY ROUTE AND ASSET ON THIS PAGE IS ABSOLUTE.
+     GitHub serves 404.html for a miss at any depth with the address unchanged, so a relative
+     href resolves against the missing path. Measured live 2026-09-03 while these were
+     relative: under /define/ 2 of 4 routes were dead and under /method/ 3 of 4 were -- and
+     the surviving one resolved to the BOARD while labelled "The platform", which is worse
+     than a 404. The stylesheets were relative too, so the page rendered unstyled at depth.
+     This site is served under a path, so the correct form carries that path. -->
+<body>
 <div class="nf-wrap">
   <h1>That address is not on this site</h1>
   <p class="nf-sub" dir="rtl">הכתובת הזו לא קיימת באתר הזה</p>
@@ -43,9 +50,9 @@
      moved and something still links to it — if it was the second, that is our fault and not
      yours.</p>
   <ul class="nf-ways">
-    <li><a href="index.html">The platform</a> <span>— what this prototype is</span></li>
-    <li><a href="define/">The definition board</a> <span>— pick a concept, score a definition</span></li>
-    <li><a href="method.html">The method</a> <span>— how the score is computed, and its limits</span></li>
+    <li><a href="/meta-tagging-platform-prototype/index.html">The platform</a> <span>— what this prototype is</span></li>
+    <li><a href="/meta-tagging-platform-prototype/define/">The definition board</a> <span>— pick a concept, score a definition</span></li>
+    <li><a href="/meta-tagging-platform-prototype/method.html">The method</a> <span>— how the score is computed, and its limits</span></li>
     <li><a href="https://shir-openu.github.io/meta-tagging-showcase/">The showcase</a>
         <span>— 907 tagged papers</span></li>
   </ul>
