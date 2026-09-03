@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>השיטה, והמגבלות שלה</title>
 <link rel="alternate" hreflang="en" href="method.html">
 <link rel="alternate" hreflang="he" href="method-he.html">
@@ -64,8 +64,8 @@
   </div>
 
   <div class="pt-panel">
-    <h3>מושג שני, ולמה הבקרה משתנה איתו</h3>
-    <div style="color:var(--dim);font-size:.93rem">השיטה רצה עכשיו על שני מושגים, וזו הנקודה: שיטה נראית רק כשאותה מכונה מפיקה תשובה בצורה אחרת במקום אחר. השני הוא <b>משחק</b> — המושג שוויטגנשטיין השתמש בו כדי לטעון שיש מושגים בלי הגדרה כלל, ולכן זה המבחן הקשה ביותר שאפשר היה לבחור.<br><br><b>הבקרה אינה אותה בקרה.</b> באומנות "מה שקוראים לו אומנות" היא טאוטולוגיה: היא מעתיקה את התשובה, מקבלת ‎+0.983 ומכיילת את כל השאר. במשחק אותו משפט בדיוק הוא עמדה <b>שנויה במחלוקת</b>, והיא מפסידה לכמה הגדרות מהספרות — כי הספרות הזו עוסקת במפורש בביטול השימוש הרגיל. היקסון מכחיש ששחמט הוא משחק; יול מכחיש את זה על "עוגה עוגה עוגה"; ראף מכחיש את זה על מערכת כלי שחמט. לכן לוח המשחק מכויל על בקרה שמעתיקה את תווית הקורפוס. בקרה אחת קבועה לשניהם הייתה משביתה בשקט את מנגנון הבטיחות שמעל כל מספר בלוח ההוא.</div>
+    <h3>יותר ממושג אחד, ולמה הבקרה משתנה עם כל אחד</h3>
+    <div style="color:var(--dim);font-size:.93rem">השיטה רצה עכשיו על שלושה מושגים, וזו הנקודה: שיטה נראית רק כשאותה מכונה מפיקה תשובה בצורה אחרת במקום אחר. השני הוא <b>משחק</b> — המושג שוויטגנשטיין השתמש בו כדי לטעון שיש מושגים בלי הגדרה כלל, ולכן זה המבחן הקשה ביותר שאפשר היה לבחור. השלישי הוא <b>תודעה</b>, והוא הפיק צורה שלישית: שבע מתשע ההגדרות לא טועות באף מקרה ומגיעות לתיקו, כי המקרים שמפרידים ביניהן הם המקרים שהספרות אינה יודעת להכריע. לאומנות יש מוסד שמכריע במקרים הקשים שלה. לתודעה אין, והלוח מודד את זה במקום להסתיר.<br><br><b>הבקרה אינה אותה בקרה.</b> באומנות "מה שקוראים לו אומנות" היא טאוטולוגיה: היא מעתיקה את התשובה, מקבלת ‎+0.983 ומכיילת את כל השאר. במשחק אותו משפט בדיוק הוא עמדה <b>שנויה במחלוקת</b>, והיא מפסידה לכמה הגדרות מהספרות — כי הספרות הזו עוסקת במפורש בביטול השימוש הרגיל. היקסון מכחיש ששחמט הוא משחק; יול מכחיש את זה על "עוגה עוגה עוגה"; ראף מכחיש את זה על מערכת כלי שחמט. לכן לוח המשחק מכויל על בקרה שמעתיקה את תווית הקורפוס. בקרה אחת קבועה לשניהם הייתה משביתה בשקט את מנגנון הבטיחות שמעל כל מספר בלוח ההוא.</div>
   </div>
 
   <div class="pt-panel">
@@ -85,7 +85,7 @@
 
   <div class="pt-panel">
     <h3>איך לשחזר בעצמכם</h3>
-    <div style="color:var(--dim);font-size:.93rem">אין כאן שרת. כל מספר בכלי מחושב בדפדפן משני קבצים, ואפשר להוריד אותם:<div class="pt-tools" style="margin-top:.6rem"><a class="pt-btn" href="data/cases.json" download>cases.json</a><a class="pt-btn" href="data/verdicts.json" download>verdicts.json</a><a class="pt-btn" href="data/papers.json" download>papers.json</a><a class="pt-btn" href="data/definitions.json" download>definitions.json</a><a class="pt-btn" href="data/manifest.json" download>manifest.json</a></div><br>ב־<span class="ltr">manifest.json</span> יש סכימה מלאה: אילו קבצים יש, מה בכל אחד, ומה טיפוס כל שדה — כתוב גם עבור סוכני AI, לא רק עבור בני אדם. השרת מחזיר <span class="ltr">access-control-allow-origin: *</span>, כלומר כל כלי אחר יכול למשוך את הנתונים ישירות, בלי רשות ובלי מפתח. <span class="ltr">reference_scorer.py</span> הוא מימוש קצר בלי תלויות שמשחזר כל ציון שפורסם; הריצו אותו לפני שאתם סומכים על הקריאה שלכם.<br><br><b>מבחן הקבלה שהצבנו לעצמנו:</b> בהינתן הכתובת הזו בלבד, סוכן שלא ראה את הפרויקט צריך להיות מסוגל לשחזר את כל הטבלה ולקבל את אותם מספרים. הוא הצליח.</div>
+    <div style="color:var(--dim);font-size:.93rem">אין כאן שרת. כל מספר בכלי מחושב בדפדפן משני קבצים, ואפשר להוריד אותם:<div class="pt-tools" style="margin-top:.6rem"><a class="pt-btn" href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data" download>cases.json</a><a class="pt-btn" href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data" download>verdicts.json</a><a class="pt-btn" href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data" download>papers.json</a><a class="pt-btn" href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data" download>definitions.json</a><a class="pt-btn" href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data" download>manifest.json</a></div><br>ב־<span class="ltr">manifest.json</span> יש סכימה מלאה: אילו קבצים יש, מה בכל אחד, ומה טיפוס כל שדה — כתוב גם עבור סוכני AI, לא רק עבור בני אדם. השרת מחזיר <span class="ltr">access-control-allow-origin: *</span>, כלומר כל כלי אחר יכול למשוך את הנתונים ישירות, בלי רשות ובלי מפתח. <span class="ltr">reference_scorer.py</span> הוא מימוש קצר בלי תלויות שמשחזר כל ציון שפורסם; הריצו אותו לפני שאתם סומכים על הקריאה שלכם.<br><br><b>מבחן הקבלה שהצבנו לעצמנו:</b> בהינתן הכתובת הזו בלבד, סוכן שלא ראה את הפרויקט צריך להיות מסוגל לשחזר את כל הטבלה ולקבל את אותם מספרים. הוא הצליח.</div>
   </div>
 
   <div class="pt-panel">
@@ -93,11 +93,17 @@
     <div style="color:var(--dim);font-size:.93rem">שכבת התגים היא שלנו ומשוחררת תחת <span class="ltr">CC BY 4.0</span>. טקסט המאמרים שייך למחבריו ולמו"לים: אנחנו <b>מקשרות אליו ולא משכפלות אותו</b>, והציטוטים המוצגים הם קצרים ונועדו לזיהוי ולאימות בלבד.</div>
   </div>
 
-  <div class="pt-foot" dir="ltr" style="text-align:start">
-    <a href="index-he.html">← back to the platform</a> ·
-    <a href="define/">the working screen</a> ·
-    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">source code</a>
-    <br><span class="pt-credit">&copy; Shir Sivroni</span>
+  <div class="pt-foot" dir="rtl" style="text-align:start">
+    <a href="index-he.html">← חזרה לפלטפורמה</a> ·
+    <a href="define/index-he.html">מסך העבודה</a> ·
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
+    <br><!-- The line here used to read:
+         Developed by Shir Sivroni &middot; &copy; 2026 Shir Sivroni
+     The year was an attempt to stamp a date on the work. It is not needed
+     for that and is not good evidence of one: the authoritative, citable
+     timestamp is the Zenodo preprint. Kept here as a record of what the
+     page used to say, and why it changed. 2026-08-16. -->
+    <span class="pt-credit">&copy; Shir Sivroni</span>
   </div>
 
 </div>
