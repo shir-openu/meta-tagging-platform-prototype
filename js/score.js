@@ -3358,6 +3358,34 @@ async function boot() {
       if (b) b.setAttribute("aria-expanded", "true");
     }
     chooseSoon(termRow.id, true, bootURL);
+
+    // SEE THE DEFINITIONS, WHICH IS WHAT THE LINK PROMISED.
+    //
+    // 3,300 links across the showcase say "the same word, defined differently" or "N rival
+    // definitions across M fields" and land here. Driven on 2026-09-03, arriving with ?term=
+    // put the reader on the term's CORPUS -- 494 papers for `attention` -- and the wordings
+    // were three actions away: open step 2, select the papers, open step 3. The page was
+    // right and the promise was early.
+    //
+    // THE THREE STEPS ARE THE METHOD and they are not touched: a definition is judged
+    // AGAINST a chosen corpus, so choosing one is the reader's act. This is opt-in. A link
+    // that carries &see=definitions says "I already know which corpus I mean -- the one this
+    // term brings" and gets taken to the wordings; every other arrival behaves as before.
+    //
+    // It uses the page's own controls rather than reimplementing them, so it cannot drift
+    // from what pressing them does: the same selection "all" makes, and the same step-3
+    // button a reader would press.
+    if (bootURL.searchParams.get("see") === "definitions") {
+      const ids = (S.termPick && S.termPick.ids) || [];
+      if (ids.length) {
+        ids.forEach(id => S.selected.add(id));
+        S.pickedCorpus = true;
+        refresh();
+        const w = document.getElementById("step3wrap");
+        const b3 = w && w.querySelector("button");
+        if (b3) b3.click();
+      }
+    }
   }
 }
 boot();
