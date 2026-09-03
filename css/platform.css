@@ -1300,3 +1300,15 @@ a:focus-visible {
   background: rgba(47, 212, 212, .10); color: var(--teal-lit); }
 .start-term:hover, .start-term:focus-visible { background: rgba(47, 212, 212, .20); }
 .start-n { color: var(--dim); font-variant-numeric: tabular-nums; margin-inline-start: .3rem; }
+
+/* The wordings together, before the full cards. A comparison list is only useful if the
+   eye can run down it, so the rows are tight and the source sits on the same line. */
+.compare-head { margin: 1rem 0 .4rem; font-size: .84rem; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--teal-lit); }
+.compare-list { margin: 0 0 1.2rem; padding-inline-start: 1.6rem; }
+.compare-list li { margin: .3rem 0; line-height: 1.45; color: var(--ink); }
+.compare-list a { color: var(--ink); text-decoration: underline;
+  text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.compare-list a:hover, .compare-list a:focus-visible { color: var(--teal-lit); }
+.compare-src { color: var(--dim); font-size: .82rem; margin-inline-start: .45rem;
+  white-space: nowrap; }

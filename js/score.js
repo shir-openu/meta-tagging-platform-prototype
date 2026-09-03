@@ -2007,6 +2007,7 @@ function renderEvidenceWorkspace() {
       externalDefinitionsHTML(rows.length) + evidenceOwnHTML() + renderCoverageWorkbench(rows) + `</section>`;
   } else {
     const plan = evidenceSelectorPlan(rows);
+    const paperById = new Map(plan.papers);
     const defaultIds = new Set([...plan.badges].filter(([, b]) => b.length).map(([id]) => id));
     const ordered = plan.papers.sort((a, b) =>
       Number(defaultIds.has(b[0])) - Number(defaultIds.has(a[0]))
@@ -2074,6 +2075,25 @@ function renderEvidenceWorkspace() {
       // it cannot measure, and it keeps every word -- it moves BELOW the definitions, which
       // is where a caveat belongs relative to the thing it qualifies.
       notes + evidenceOwnHTML() +
+      // THE WORDINGS TOGETHER, BEFORE THE FULL CARDS. Measured on attention: the 11
+      // definitions sat 488px apart, y=808 to y=5364 -- 4.6 screens to see them all. The
+      // copy promised "side by side" and the page delivered one every other screen, because
+      // each wording carries its full attesting passage beneath it.
+      //
+      // Nothing is duplicated in substance: this is the same gloss text, listed, each row a
+      // link to its own card lower down. The passages stay where they are -- they are the
+      // evidence, and evidence belongs with the claim, not in a comparison list.
+      // plan.papers is a list of [id, paper] entries; a Map of it is the lookup this needs.
+      // `plan.byId` was something I assumed rather than checked, and it does not exist.
+      (rows.length > 1
+        ? `<div class="compare-head">${esc(t("evidence.compare").replace("{n}", rows.length))}</div>` +
+          `<ol class="compare-list">` + rows.map(row => {
+            const paper = paperById.get(row.paper_id) || {};
+            const meta = [paper.year, paper.discipline].filter(Boolean).join(" · ");
+            return `<li><a href="#${escAttr(row.sense_id)}">${esc(row.gloss || row.label)}</a>` +
+                   (meta ? `<span class="compare-src">${esc(meta)}</span>` : "") + `</li>`;
+          }).join("") + `</ol>`
+        : "") +
       `<div class="sense-all-head">${esc(t(chosenCorpus ? "evidence.all" : "evidence.all.all"))}</div>${cards}` +
       renderCoverageWorkbench(rows) +
       externalDefinitionsHTML(rows.length) +
