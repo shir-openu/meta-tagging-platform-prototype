@@ -1474,9 +1474,17 @@ function renderConcepts() {
 
   const tally = document.getElementById("conceptTally");
   if (tally) {
+    // "3 ready to score, out of 22519" was the whole message, and it read as "almost nothing
+    // works here". It is true and it was the wrong headline: 1,234 of the 8,626 terms in the
+    // sense index carry TWO OR MORE rival definitions, and as of today the board shows them.
+    // Counted from the index at render time, never typed: a number in prose beside a number
+    // from data is a number that goes stale.
+    const rivals = Object.values(((S.senseIndex || {}).picker_terms) || {})
+      .filter(v => Array.isArray(v) && v.length >= 2).length;
     tally.innerHTML = t("concept.tally")
       .replace("{r}", S.registry.filter(c => c.state === "ready").length)
-      .replace("{t}", S.registry.length);
+      .replace("{t}", S.registry.length)
+      + (rivals ? " " + t("concept.tally.rivals").replace("{d}", rivals.toLocaleString()) : "");
   }
 
   // mousedown, not click: the input's blur would close the dropdown before a click lands.
