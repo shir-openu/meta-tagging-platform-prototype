@@ -85,6 +85,20 @@ def main():
     circ = score("circular", verdicts, cases)
     print(f"  calibration: the circular control scores {circ['mcc']:+.3f} "
           f"({'OK' if circ['mcc'] >= 0.90 else 'FAILED - do not read any other number'})")
+    # A FAILED GUARD THAT DOES NOT BLOCK. The line above prints "FAILED - do not read any
+    # other number", the strongest statement this file makes, and until 2026-09-04 it changed
+    # nothing: only `worst` reached sys.exit, so a broken calibration printed that warning,
+    # then printed "every published score reproduces", and exited 0. Forced the control to
+    # 0.420 against its 0.90 threshold to check, and that is exactly what happened.
+    #
+    # The method page tells readers "The tool raises that warning itself", and that when the
+    # control fails "no other number in the table may be read". Both are now true of the exit
+    # code and not only of the text.
+    if circ["mcc"] < 0.90:
+        print("\n  CALIBRATION FAILED. The circular control copies the answer, so it must "
+              "score near +1.000 on any corpus. It did not, so the coding contradicts itself "
+              "on this corpus and no other number above may be read.")
+        sys.exit(1)
     if worst > 0.001:
         print("\n  MISMATCH. Either the data changed or the reading is wrong.")
         sys.exit(1)
