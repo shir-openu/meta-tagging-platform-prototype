@@ -1537,3 +1537,232 @@ html[data-theme="light"] .conceptbtn b,
 html[data-theme="light"] .offerhead,
 html[data-theme="light"] .offer .oname,
 html[data-theme="light"] .ac-item .nm { color: #0f172a; }
+
+/* --fam-lit IS THE DARK-MODE TONE. IN THE BRIGHT VIEW IT IS THE WRONG END OF THE RAMP.
+   Shir, 2026-09-08: "NO YOU MUST CHECK ... I CANNOT GO OVER EACH OPTION PLEASE COMPARE AND
+   CHECK." She was right that reading two pages is not checking. A sweep over all nine
+   pages in both themes, computing the real WCAG ratio for every visible text node, found
+   ten failures - all of them text painted in `--fam-lit`, which is chosen to glow on a
+   near-black card and lands at 1.67:1 on a white one. The Hebrew entry page was worst
+   because its card headings, state chips and action links are all family-coloured.
+       h2 "השיטה, והמגבלות שלה"   1.67:1   needs 3
+       a.go "כניסה"                1.92:1   needs 4.5
+       .step .val "not chosen yet" 2.72:1   needs 4.5
+   In the bright view those take `--fam`, the dark end, which is what the ramp is for. */
+html[data-theme="light"] .act h2,
+html[data-theme="light"] .act .state,
+/* `.act .go` was in this list when it was an OUTLINE. It is now a solid fill in the same
+   family colour, so painting its label --fam put orange text on an orange button and the
+   word "read" disappeared entirely. Caught by looking at the bright view, not by the
+   contrast sweep, which measures text against the first opaque ancestor and read this as
+   fam-on-fam at ratio 1.0 only after the fill existed. The label stays white; the rule
+   below re-states it after this block so order cannot undo it. */
+html[data-theme="light"] .act .why,
+html[data-theme="light"] .act .notes,
+html[data-theme="light"] .step .num,
+html[data-theme="light"] .step .val,
+html[data-theme="light"] .phead b { color: var(--fam, var(--teal)); }
+html[data-theme="light"] .act .why,
+html[data-theme="light"] .act .notes { color: var(--ink); }
+
+/* =====================================================
+   SOLID, NOT WASHED - 2026-09-08
+   Shir: "אני חושבת שמה שמפריע זה שהצבעים שקופים. דווקא אהבתי את הגוונים הסגולים המקוריים
+   אבל ברז קוויל זה נראה יותר SOLID הצבעים הכפתורים הטקסט."
+   And: "מה שיש עכשיו זה לא לפה ולא לשם" - the half-migration is worse than either end.
+
+   She has diagnosed it exactly. Every surface here is a low-alpha wash over a ground, every
+   button is an outline, and several labels run at 0.85 or 0.7 opacity. Res-Quill is solid:
+   a solid card, a solid border, a filled button. That is the whole difference and it is not
+   the palette.
+
+   AND THE FILLED BUTTON DOES NOT BREAK HER RULE. Res-Quill's bright action is cyan with
+   DARK text on it, not white - so "never white text inside a coloured block" survives. The
+   primary action here is a solid fill with the near-black ink on top.
+
+   The purple she liked is back as the first family.
+   ===================================================== */
+:root {
+  --teal: #a78bfa;
+  --teal-lit: #c4b5fd;
+  --pink: #22d3ee;
+}
+
+/* Solid cards: one flat surface, one solid family edge. No gradient, no wash. */
+.act, .step, .offer, .panel {
+  background: var(--rq-surface);
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--fam, var(--teal));
+}
+.act:hover, .step:hover {
+  background: #24334a;
+  border-inline-start-color: var(--fam-lit, var(--teal-lit));
+}
+html[data-theme="light"] .act,
+html[data-theme="light"] .step,
+html[data-theme="light"] .offer,
+html[data-theme="light"] .panel { background: #ffffff; }
+html[data-theme="light"] .act:hover,
+html[data-theme="light"] .step:hover { background: #f1f5f9; }
+
+/* The primary action: a solid fill in the family colour, dark ink on top. */
+.act .go.primary {
+  background: var(--fam-lit, var(--teal-lit));
+  border: 2px solid var(--fam-lit, var(--teal-lit));
+  color: #0f172a;
+  padding: .44rem 1.35rem;
+  font-size: 1.06rem;
+  font-weight: 700;
+}
+.act .go.primary:hover {
+  background: var(--fam, var(--teal));
+  border-color: var(--fam, var(--teal));
+  color: #0f172a;
+}
+/* NOT white on a colour, in either theme. Res-Quill's own bright action is a LIGHT fill
+   with dark text on it, and that is the shape that satisfies the house rule. In the dark
+   view the fill is the family's light tone with near-black ink; in the bright view it is a
+   pale tint of the same family with the family's dark tone as the ink. Caught by rendering
+   the bright view - the first version put white text on a dark green fill. */
+/* (light-mode primary override removed: direction_field keeps one button in both views) */
+
+/* The secondary action stays an outline, but a solid one. */
+.act .go { border-width: 2px; }
+
+/* Text at full strength. Nothing that carries meaning runs at partial opacity. */
+.act .state, .offer .oplain, .act .notes li::before { opacity: 1; }
+.pt-card.soon, .act.soon { opacity: 1; }
+.act.soon .state { color: var(--dim); }
+
+/* =====================================================
+   BACK TO THE ORIGINAL GROUND, WITH DIRECTION_FIELD'S BUTTONS - 2026-09-08
+   Shir: "BUT FIRST REVERT TO ORIGINAL BACKGROUND OK?" and "YOU CAN STAY WITH THE ORIGINAL
+   BACKGROUND AND MAKE THE BUTTONS WITH COLORS."
+
+   So the slate experiment is reverted: #120a12 is back, and the original teal/pink/wine
+   with it. The waves were never touched and are unchanged throughout.
+
+   The buttons come from her own direction_field, read off the live page rather than guessed:
+
+       radius 10px . padding 7px 14px . weight 500 . size 13px . solid fill . 1px same-colour border
+       teal    #009e96  white text        purple  #8324c4  white text
+       grey    #64748b  white text        blue    #1d4ed8  white text
+       magenta #e71dca  white text        amber   #f59e0b  DARK text #1f1400
+
+   #8324c4 and #e71dca are the exact purple and pink from her Stroop figure - her own
+   brand colours, which direction_field already uses. So this is not a new palette, it is
+   the one she has been using, made solid.
+
+   NOTE ON THE HOUSE RULE. "Never white text inside a coloured block" was written about
+   filled CHIPS and badges. direction_field is her own design and its buttons are solid
+   fills with white text, so filled ACTIONS are wanted; chips stay outlined. The amber
+   button is the case that proves the rule is about contrast rather than about white: on
+   #f59e0b she uses near-black, because white on amber is unreadable.
+   ===================================================== */
+:root {
+  --rq-bg: #120a12;
+  --rq-surface: #1a1119;
+  --teal: #169999;
+  --teal-lit: #2fd4d4;
+  --pink: #ff4db8;
+  --wine: #990f23;
+  --ink: #e5e7eb;
+  --dim: #9aa3ad;
+  --muted: #9aa3ad;
+  --line: rgba(229, 231, 235, 0.14);
+  --panel: rgba(255, 255, 255, 0.035);
+
+  --btn-teal:    #009e96;
+  --btn-purple:  #8324c4;
+  --btn-magenta: #e71dca;
+  --btn-blue:    #1d4ed8;
+  --btn-amber:   #f59e0b;
+  --btn-grey:    #64748b;
+}
+body { background: #120a12; }
+body, button, input, select, textarea {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Cards: solid, on the original ground. */
+.act, .step, .offer, .panel {
+  background: var(--rq-surface);
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--fam, var(--teal));
+}
+.act:hover, .step:hover { background: #221726; }
+
+/* THE BUTTONS. Solid fill, her radius, her padding, white text - except amber. */
+.pt-btn, .act .go, .conceptbtn, .pt-btn.big {
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.act .go {
+  background: var(--fam, var(--btn-teal));
+  border-color: var(--fam, var(--btn-teal));
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.act .go:hover { filter: brightness(1.15); background: var(--fam, var(--btn-teal)); }
+.act .go.primary { padding: 9px 20px; font-size: 1.02rem; font-weight: 700; }
+
+/* The header controls take her named colours rather than all being outlines. */
+#aboutBtn  { background: var(--btn-purple);  border-color: var(--btn-purple);  color: #fff; }
+#themeBtn  { background: var(--btn-amber);   border-color: var(--btn-amber);   color: #1f1400; }
+.pt-head a.pt-btn { background: var(--btn-teal); border-color: var(--btn-teal); color: #fff;
+  text-decoration: none; }
+#aboutBtn:hover, #themeBtn:hover, .pt-head a.pt-btn:hover { filter: brightness(1.12); }
+
+/* THE BRIGHT VIEW, TAKEN FROM direction_field'S OWN, READ OFF THE LIVE PAGE:
+       ground #f0f2f5 . ink #1a1a2e . panel rgba(255,255,255,.82)
+   AND THE THING THAT MATTERS MOST: ITS BUTTONS DO NOT CHANGE BETWEEN THEMES. Teal, purple,
+   grey, blue, magenta and amber are identical in dark and bright; only the ground and the
+   ink move. That is why the two views read as one design rather than two, and it is why
+   every light-mode button override below is deleted rather than re-tuned. */
+html[data-theme="light"] {
+  --rq-bg: #f0f2f5;
+  --rq-surface: rgba(255, 255, 255, .82);
+  --ink: #1a1a2e;
+  --dim: #4a5060;
+  --muted: #4a5060;
+  --line: rgba(26, 26, 46, .16);
+  --panel: rgba(255, 255, 255, .82);
+}
+html[data-theme="light"] body { background: #f0f2f5; }
+html[data-theme="light"] .act,
+html[data-theme="light"] .step,
+html[data-theme="light"] .offer,
+html[data-theme="light"] .panel { background: rgba(255, 255, 255, .82); }
+html[data-theme="light"] .act:hover,
+html[data-theme="light"] .step:hover { background: #ffffff; }
+/* Buttons keep their fill and their white ink in both views - no override here on purpose. */
+
+/* Stated last so nothing above can repaint a filled button's label into its own fill. */
+.act .go, html[data-theme="light"] .act .go { color: #ffffff; }
+#themeBtn, html[data-theme="light"] #themeBtn { color: #1f1400; }
+
+/* THE ONE PLACE THIS DEPARTS FROM direction_field, AND WHY.
+   Its teal button is #009e96 with white text, which measures 3.32:1 - below the 4.5:1
+   floor for text this size. The sweep caught it on nine page/theme combinations. Darkened
+   to #007a74, which is the same teal and measures 5.20:1. Everything else keeps her
+   values exactly. */
+:root { --btn-teal: #007a74; }
+
+/* The primary action is the same fill as the others, only larger. It was still carrying
+   the LIGHT family tone from the earlier solid-button block - #34d399 under white text,
+   1.92:1 - which the sweep caught as the last failure of nine pages. In direction_field
+   every button is a mid-dark fill with white on it; size is what marks the primary one. */
+.act .go.primary,
+html[data-theme="light"] .act .go.primary {
+  background: var(--fam, var(--btn-teal));
+  border-color: var(--fam, var(--btn-teal));
+  color: #ffffff;
+}
+.act .go.primary:hover,
+html[data-theme="light"] .act .go.primary:hover {
+  background: var(--fam, var(--btn-teal));
+  filter: brightness(1.15);
+}
