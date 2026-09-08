@@ -333,7 +333,23 @@ function renderCapability() {
       (S.registry || []).filter(c => c.state === "ready")
         .map(c => `<button type="button" class="cap-go" data-switch="${escAttr(c.id)}">` +
                   `${esc(conceptLabel(c) || c.id)}</button>`).join(" ") +
-      `</div>`);
+      `</div>` +
+      /* THE PAID OFFER, WHERE THE FREE TOOL RUNS OUT. 2026-09-08.
+         This is the dead end Shir was looking at when she asked for the payments: a term the
+         corpus does not define has no board, and the page could only point at the three that
+         do. Building that board is what the $2.50 buys.
+         It appears ONLY here - never beside a board that already exists, which would be
+         selling something that is free. `data-paid-card` means the existing rule in
+         platform.css hides it whenever payments are not switched on, so this cannot advertise
+         a service that cannot take money. The term travels in the URL so the request page
+         arrives pre-filled. */
+      ((S.termPick && S.termPick.slug)
+        ? `<div class="cap-offer" data-paid-card><a class="pay-btn pay-score" href="${
+             escAttr(document.documentElement.lang === "he"
+               ? "../request-scoring-he.html" : "../request-scoring.html")
+           }?term=${encodeURIComponent(S.termPick.slug)}">${esc(t("cap.buyboard"))}</a>` +
+          `<span class="cap-offer-note">${esc(t("cap.buyboard.note"))}</span></div>`
+        : ""));
   // One delegated listener, bound once: the box is re-rendered on every state change and a
   // per-button listener would be added again each time.
   if (!box.dataset.wired) {

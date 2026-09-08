@@ -16,9 +16,16 @@
 <meta name="twitter:description" content="A verbatim-grounded tag layer for academic literature. Build a corpus, test definitions, and check every score against the exact sentence it came from.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="he" href="index-he.html">
-<link rel="stylesheet" href="css/shell.css?v=599ccfcb">
-<script src="js/theme.js?v=599ccfcb" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=599ccfcb">
+<link rel="stylesheet" href="css/shell.css?v=ec64726a">
+<script src="js/theme.js?v=ec64726a" defer></script>
+<!-- payments.config.js holds the PUBLIC client id and the API address, and is the only
+     file that changes when the endpoint or the account moves. It is loaded FIRST and
+     WITHOUT defer, so payments.js can decide before first paint whether the paid cards
+     exist at all - a card that appears and then vanishes is worse than one that never
+     appeared. The SECRET is not here and never can be: this is a static site. -->
+<script src="js/payments.config.js?v=ec64726a"></script>
+<script src="js/payments.js?v=ec64726a"></script>
+<link rel="stylesheet" href="css/platform.css?v=ec64726a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,16 +107,32 @@
       <div class="notes" id="n5"><ul><li>All data open to download</li><li>The limits are shown to everyone</li></ul></div>
     </div>
 
-    <div class="act live payment-hidden card-hidden" data-intake-card style="--fam:#8324c4;--fam-lit:#e71dca">
+    <div class="act live" data-paid-card data-intake-card style="--fam:#8324c4;--fam-lit:#e71dca">
       <div class="row"><span class="ic">🏷️</span><h2>Tag a paper</h2>
-        <span class="state price-state">$2 · manual service</span></div>
+        <span class="state price-state"><span data-price-for="tag_paper">$2.00</span> · manual service</span></div>
       <div class="disc">
         <a class="go" href="request-tagging.html">Tag a paper</a>
         <button class="tog" data-why="w6" aria-expanded="false" aria-controls="w6" aria-label="why — Send a paper for us to tag">?</button>
         <button class="tog" data-why="n6" aria-expanded="false" aria-controls="n6" aria-label="notes — Send a paper for us to tag">&#8801;</button>
       </div>
       <div class="why" id="w6">Send a DOI, source link or MHTML. We check the full text, licence and text quality before asking for payment; accepted papers are tagged with exact source sentences and reviewed by Shir.</div>
-      <div class="notes" id="n6"><ul><li>Source check before payment</li><li>Scans, PDF-only copies and uncleared sources are refused</li><li class="price-note">$2 hold; capture only after delivery</li></ul></div>
+      <div class="notes" id="n6"><ul><li>Source check before payment</li><li>Scans, PDF-only copies and uncleared sources are refused</li><li class="price-note">Source check before any payment; full refund if we cannot tag it</li></ul></div>
+    </div>
+
+    <!-- The second paid action. It is offered where the free tool runs out: a term the corpus
+         defines NOWHERE has no board to show, and building that board - rival definitions,
+         adjudicated cases, the criteria layer, the MCC table and the circular control - is
+         what $2.50 buys. Scoring the definitions the corpus already holds stays free. -->
+    <div class="act live" data-paid-card style="--fam:#c2185b;--fam-lit:#f2789f">
+      <div class="row"><span class="ic">⚖️</span><h2>Score a definition</h2>
+        <span class="state price-state"><span data-price-for="score_def">$2.50</span> · manual service</span></div>
+      <div class="disc">
+        <a class="go" href="request-scoring.html">Score a definition</a>
+        <button class="tog" data-why="w7" aria-expanded="false" aria-controls="w7" aria-label="why — Score a definition">?</button>
+        <button class="tog" data-why="n7" aria-expanded="false" aria-controls="n7" aria-label="notes — Score a definition">&#8801;</button>
+      </div>
+      <div class="why" id="w7">Name a term this corpus does not yet define, and we build its board: the rival definitions, the adjudicated cases behind each one, an MCC table and the deliberately circular control that calibrates it.</div>
+      <div class="notes" id="n7"><ul><li>For terms with no board yet — the existing boards are free</li><li>Every case carries the exact sentence it was read from</li><li class="price-note"><span data-price-for="score_def">$2.50</span>; nothing is charged before the term is accepted</li></ul></div>
     </div>
 
   </div>

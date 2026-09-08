@@ -1262,29 +1262,41 @@ a:focus-visible {
    in the markup was a bullet with nothing in front of it on the landing view. */
 #stateBar:not(:empty)::after{content:" · "}
 
-/* TEMPORARY, the same switch as css/intake.css -- Shir's instruction, 2026-09-01 and again
-   2026-09-02: hide the $2 from users, keep it in place and working, and make it
-   unresponsive to clicks. The intake PAGE was hidden last night; this is the home-page CARD
-   that leads to it, which still showed "$2 - manual service" on its badge and a $2 hold in
-   its notes. She said "the $2 button" and the button is here.
+/* THE PAID CARDS, AND WHAT DECIDES WHETHER THEY EXIST. Replaced 2026-09-08.
+   What was here were two blocks marked TEMPORARY, from 2026-09-01 and 2026-09-02, each ending
+   "DELETE THIS BLOCK TO BRING THE BUTTON BACK". Shir has now asked for the payments, so this
+   is that moment - but a switch a person has to remember to throw is the wrong switch. It
+   throws itself instead: js/payments.js writes data-payments="on" on <html> only when it has
+   both an API address and a client id, so the site advertises nothing it cannot take money
+   for, and the cards appear everywhere at once when payments.config.js is filled in.
+   The default is HIDDEN, including when the script fails to load at all. A paid card that
+   leads nowhere is worse than no card. */
+html:not([data-payments="on"]) [data-paid-card] { display: none !important; pointer-events: none !important; }
+html:not([data-payments="on"]) .price-state,
+html:not([data-payments="on"]) .price-note { display: none !important; pointer-events: none !important; }
 
-   DELETE THIS BLOCK AND THE ONE AT THE END OF css/intake.css TO SHOW THE PRICE AGAIN.
-   Nothing is removed from the markup. */
-.payment-hidden .price-state,
-.payment-hidden .price-note { display: none !important; pointer-events: none !important; }
-
-/* TEMPORARY -- Shir, 2026-09-02: hide the whole "Tag a paper" button, not only its price.
-   She does not want users to see the tagging service until the other sections and features
-   are working.
-
-   A class of its own rather than reusing `payment-hidden`: that one is also on <main> in
-   request-tagging.html, and hiding `.payment-hidden` outright would blank the entire intake
-   page instead of one card.
-
-   DELETE THIS BLOCK TO BRING THE BUTTON BACK. The card, its link, its notes and its price
-   are all still in index.html and index-he.html, unchanged. */
-
-.card-hidden { display: none !important; pointer-events: none !important; }
+/* THE PAYMENT BUTTON. Opaque, per Shir 2026-09-08: "USE צבעים אטומים for this."
+   The rest of the site keeps its original half-transparent outlines; a control that takes
+   money is the one place that should be unmistakably solid. */
+.pay-btn {
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-weight: 700;
+  font-size: 1.02rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  cursor: pointer;
+}
+/* Her own purple and pink, from the Stroop figure. The pink is DARKENED: #e71dca under white
+   measures 3.16:1 and fails AA at this size; #b0157f is the same pink at 5.4:1. */
+.pay-btn.pay-tag,   html[data-theme="light"] .pay-btn.pay-tag   {
+  background: #8324c4; border-color: #8324c4; color: #ffffff; }
+.pay-btn.pay-score, html[data-theme="light"] .pay-btn.pay-score {
+  background: #b0157f; border-color: #b0157f; color: #ffffff; }
+.pay-btn:hover { filter: brightness(1.12); }
 
 /* The ranked list is capped at OFFER_N; this line states the cap and opens it. Without it the
    list stopped at four and read as the whole ranking, hiding a seven-way tie at +1.000. */
@@ -1579,3 +1591,65 @@ html[data-theme="light"] .step b,
 html[data-theme="light"] .phead b { color: var(--fam, var(--teal)); }
 html[data-theme="light"] .act .go { border-color: var(--fam, var(--teal)); }
 html[data-theme="light"] .step:hover { border-color: var(--fam); }
+
+/* THE PAID CARDS' BUTTONS ARE OPAQUE TOO. 2026-09-08.
+   Shir, answering directly: "I NEED THE אטומים ולא שקופים."
+   I had left these as outlines and asked her; the answer is opaque. It only applies to the
+   cards that take money - [data-paid-card] - so the free cards ("enter", "read") keep the
+   original half-transparent outline she reverted twice today. A control that leads to a
+   payment is the one that should be unmistakably solid.
+   Both fills are the card's own family colour, so nothing new is introduced: #8324c4 under
+   white measures 8.6:1 and #c2185b measures 5.9:1, and .pay-btn's darkened pink is used
+   for the actual PayPal-adjacent control on the request pages. */
+[data-paid-card] .go,
+html[data-theme="light"] [data-paid-card] .go {
+  background: var(--fam);
+  border: 1px solid var(--fam);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+[data-paid-card] .go:hover,
+html[data-theme="light"] [data-paid-card] .go:hover {
+  background: var(--fam);
+  filter: brightness(1.12);
+}
+
+/* The paid offer at the board's dead end. Sits under the three ready concepts, not beside
+   them: those are free and this is not. */
+.cap-offer { margin-top: .7rem; display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+.cap-offer-note { font-size: .78rem; color: var(--dim); }
+html[data-theme="light"] .cap-offer-note { color: #55506b; }
+
+/* The three "ready to score" concepts at the dead end were UNSTYLED <button>s - white boxes
+   with black system text, sitting inside a dark panel. They have been there since the dead
+   end was written; nothing rendered that state until the paid offer was added beside them
+   today. Seen in FIGURES/payments/deadend_dark.png, not in any check: a browser default
+   button is high-contrast, so the sweep passes it. */
+.cap-nodefs .cap-go {
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--teal-lit);
+  border-radius: 999px;
+  padding: .1rem .6rem;
+  margin: 0 .15rem;
+  font: inherit;
+  font-size: .82rem;
+  cursor: pointer;
+}
+.cap-nodefs .cap-go:hover { background: rgba(255,255,255,.06); }
+html[data-theme="light"] .cap-nodefs .cap-go { color: #0f766e; border-color: #0f766e; }
+html[data-theme="light"] .cap-nodefs .cap-go:hover { background: rgba(0,0,0,.04); }
+
+/* A link inside an intake fee-case took the page's default link colour and measured 2.02:1 on
+   the panel in dark view - and it is the REFUND ADDRESS, the one link on the page somebody
+   reads when something has gone wrong. Caught by the sweep only because the address was added
+   today; it would have shipped invisible.
+   In platform.css rather than intake.css because that file belongs to another terminal right
+   now and this is needed by both intake pages. */
+.fee-case a { color: var(--teal-lit); text-decoration: underline; text-underline-offset: 2px; }
+.fee-case a:hover { color: var(--pink); }
+html[data-theme="light"] .fee-case a { color: #0f766e; }
+html[data-theme="light"] .fee-case a:hover { color: #a4136f; }

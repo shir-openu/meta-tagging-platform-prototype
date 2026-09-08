@@ -253,3 +253,47 @@ html[data-theme="light"] .fee-case { background: rgba(131, 36, 196, .06); }
 html[data-theme="light"] .choice:has(input:checked) { background: rgba(231, 29, 202, .07); }
 html[data-theme="light"] .check-button:hover,
 html[data-theme="light"] .email-button:hover { background: rgba(131, 36, 196, .07); }
+
+/* PAYMENT ZONE. Built by the inline script only after the source check returns "accepted".
+   Shir asked for opaque payment controls (צבעים אטומים): the .pay-amount chip is a solid
+   #8324c4 fill with white ink (identical in both themes, like direction_field's buttons).
+   Everything else here stays theme-aware -- a hardcoded dark panel would go invisible in the
+   bright view, the trap the block above documents. The PayPal button itself is drawn by the
+   SDK inside .pay-host and keeps its own colour. */
+.pay-zone {
+  background: var(--intake-panel);
+  border: 1px solid var(--intake-line);
+  border-inline-start: 5px solid var(--intake-purple-deep);
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding: .9rem 1.05rem;
+}
+.pay-lede { color: var(--intake-ink); font-size: .92rem; line-height: 1.5; margin: 0 0 .7rem; }
+.pay-amount {
+  background: var(--intake-purple-deep);   /* #8324c4 -- opaque; ~5.6:1 under white, passes AA */
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: 800;
+  padding: 7px 14px;
+}
+.pay-host { margin: .7rem 0 0; min-height: 46px; }
+.pay-status { color: var(--intake-warn); font-size: .88rem; line-height: 1.4; margin-top: .45rem; min-height: 1.1em; }
+.pay-unavailable { color: var(--intake-ink); font-size: .92rem; line-height: 1.5; margin: 0; }
+.pay-receipt b { color: var(--intake-good); display: block; margin-bottom: .3rem; }
+.pay-receipt p { color: var(--intake-ink); font-size: .92rem; line-height: 1.5; margin: .35rem 0 0; }
+.pay-token {
+  background: #0e0b13;
+  border: 1px solid var(--intake-purple-deep);
+  border-radius: 8px;
+  color: var(--intake-ink);
+  display: block;
+  font: 700 .95rem Consolas, monospace;
+  margin: .45rem 0;
+  padding: .5rem .7rem;
+  word-break: break-all;
+}
+/* The token box is the one dark surface; recolour it for the bright view so its ink is not
+   dark-on-dark. */
+html[data-theme="light"] .pay-token { background: #f4eefb; }

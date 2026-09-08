@@ -16,9 +16,16 @@
 <meta name="twitter:description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="he" href="index-he.html">
-<link rel="stylesheet" href="css/shell.css?v=599ccfcb">
-<script src="js/theme.js?v=599ccfcb" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=599ccfcb">
+<link rel="stylesheet" href="css/shell.css?v=ec64726a">
+<script src="js/theme.js?v=ec64726a" defer></script>
+<!-- payments.config.js holds the PUBLIC client id and the API address, and is the only
+     file that changes when the endpoint or the account moves. It is loaded FIRST and
+     WITHOUT defer, so payments.js can decide before first paint whether the paid cards
+     exist at all - a card that appears and then vanishes is worse than one that never
+     appeared. The SECRET is not here and never can be: this is a static site. -->
+<script src="js/payments.config.js?v=ec64726a"></script>
+<script src="js/payments.js?v=ec64726a"></script>
+<link rel="stylesheet" href="css/platform.css?v=ec64726a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -99,16 +106,29 @@
       <div class="notes" id="n5"><ul><li>כל הנתונים פתוחים להורדה</li><li>המגבלות מוצגות לכולם</li></ul></div>
     </div>
 
-    <div class="act live payment-hidden card-hidden" data-intake-card style="--fam:#8324c4;--fam-lit:#e71dca">
+    <div class="act live" data-paid-card data-intake-card style="--fam:#8324c4;--fam-lit:#e71dca">
       <div class="row"><span class="ic">🏷️</span><h2>תיוג מאמר</h2>
-        <span class="state price-state"><span class="ltr">$2</span> · שירות ידני</span></div>
+        <span class="state price-state"><span class="ltr" data-price-for="tag_paper">$2.00</span> · שירות ידני</span></div>
       <div class="disc">
         <a class="go" href="request-tagging-he.html">תיוג מאמר</a>
         <button class="tog" data-why="w6" aria-expanded="false" aria-controls="w6" aria-label="הסבר — שליחת מאמר לתיוג">?</button>
         <button class="tog" data-why="n6" aria-expanded="false" aria-controls="n6" aria-label="הערות — שליחת מאמר לתיוג">&#8801;</button>
       </div>
       <div class="why" id="w6">שולחים DOI, קישור למקור או MHTML. לפני בקשת תשלום אנחנו בודקים את הטקסט המלא, הרישיון ואיכות הטקסט; מאמר שמתקבל מתויג באמצעות משפטי המקור המדויקים ונבדק בידי שיר.</div>
-      <div class="notes" id="n6"><ul><li>בדיקת מקור לפני תשלום</li><li>סריקות, קובצי PDF בלבד ומקורות ללא רישיון מתאים נדחים</li><li class="price-note">אישור זמני של שני דולר; חיוב רק לאחר מסירה</li></ul></div>
+      <div class="notes" id="n6"><ul><li>בדיקת מקור לפני תשלום</li><li>סריקות, קובצי PDF בלבד ומקורות ללא רישיון מתאים נדחים</li><li class="price-note">בדיקת המקור לפני כל תשלום; החזר מלא אם לא נוכל לתייג</li></ul></div>
+    </div>
+
+    <!-- הפעולה השנייה בתשלום. The same card as index.html; see the note there. -->
+    <div class="act live" data-paid-card style="--fam:#c2185b;--fam-lit:#f2789f">
+      <div class="row"><span class="ic">⚖️</span><h2>ניקוד הגדרה</h2>
+        <span class="state price-state"><span class="ltr" data-price-for="score_def">$2.50</span> · שירות ידני</span></div>
+      <div class="disc">
+        <a class="go" href="request-scoring-he.html">ניקוד הגדרה</a>
+        <button class="tog" data-why="w7" aria-expanded="false" aria-controls="w7" aria-label="הסבר — ניקוד הגדרה">?</button>
+        <button class="tog" data-why="n7" aria-expanded="false" aria-controls="n7" aria-label="הערות — ניקוד הגדרה">&#8801;</button>
+      </div>
+      <div class="why" id="w7">נוקבים מונח שהקורפוס עדיין לא מגדיר, ואנחנו בונים לו לוח: ההגדרות המתחרות, המקרים שהוכרעו מאחורי כל אחת מהן, טבלת <span class="ltr">MCC</span> והבקרה המעגלית שמכיילת אותה.</div>
+      <div class="notes" id="n7"><ul><li>למונחים שאין להם לוח — הלוחות הקיימים חינמיים</li><li>כל מקרה נושא את המשפט המדויק שממנו נגזר</li><li class="price-note"><span class="ltr" data-price-for="score_def">$2.50</span>; אין חיוב לפני שהמונח מתקבל</li></ul></div>
     </div>
 
   </div>

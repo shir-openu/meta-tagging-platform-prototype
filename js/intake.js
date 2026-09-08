@@ -26,10 +26,10 @@
   const copy = {
     en: {
       incompleteTitle: "Complete the source check",
-      incomplete: "Choose one answer in every section and name the DOI, source URL or paper title. No payment has been taken or held.",
+      incomplete: "Choose one answer in every section and name the DOI, source URL or paper title. Nothing has been charged.",
       refusedTitle: "This source cannot be accepted",
       acceptedTitle: "This request can go to manual review",
-      accepted: "The answers pass this first screen. This is not final acceptance: the paper is verified manually and answered before any $2 authorization hold. No payment has been taken or held.",
+      accepted: "The answers pass this first screen. This is not final acceptance: the paper is verified manually and answered before you are asked to pay. Nothing has been charged.",
       email: "Email this request",
       reasons: {
         PDF_ONLY: "The current workflow cannot use PDF text. No payment was requested. Send a DOI, repository URL or lawful MHTML source and the check runs again.",
@@ -42,10 +42,10 @@
     },
     he: {
       incompleteTitle: "השלימו את בדיקת המקור",
-      incomplete: "בחרו תשובה אחת בכל חלק וציינו DOI, קישור למקור או כותרת מאמר. לא בוצע חיוב ולא נתפסה מסגרת אשראי.",
+      incomplete: "בחרו תשובה אחת בכל חלק וציינו DOI, קישור למקור או כותרת מאמר. לא בוצע שום חיוב.",
       refusedTitle: "אי אפשר לקבל את המקור הזה",
       acceptedTitle: "אפשר להעביר את הבקשה לבדיקה ידנית",
-      accepted: "התשובות עוברות את המסך הראשון. זו עדיין לא קבלה סופית: המאמר עובר אימות ידני ונשלחת תשובה לפני אישור זמני כלשהו של שני דולר. לא בוצע חיוב ולא נתפסה מסגרת אשראי.",
+      accepted: "התשובות עוברות את המסך הראשון. זו עדיין לא קבלה סופית: המאמר עובר אימות ידני ונשלחת תשובה לפני שמתבקש מכם לשלם. לא בוצע שום חיוב.",
       email: "שליחת הבקשה בדוא״ל",
       reasons: {
         PDF_ONLY: "תהליך העבודה הנוכחי אינו יכול להשתמש בטקסט מתוך PDF. לא התבקש תשלום. שלחו DOI, קישור למאגר או מקור MHTML חוקי והבדיקה תרוץ שוב.",

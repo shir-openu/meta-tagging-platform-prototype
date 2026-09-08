@@ -7,10 +7,11 @@
 <meta name="description" content="Check whether a paper can enter the manual $2 meta-tagging service before any payment is requested.">
 <link rel="alternate" hreflang="en" href="request-tagging.html">
 <link rel="alternate" hreflang="he" href="request-tagging-he.html">
-<link rel="stylesheet" href="css/shell.css?v=599ccfcb">
-<script src="js/theme.js?v=599ccfcb" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=599ccfcb">
-<link rel="stylesheet" href="css/intake.css?v=599ccfcb">
+<link rel="stylesheet" href="css/shell.css?v=ec64726a">
+<script src="js/theme.js?v=ec64726a" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=ec64726a">
+<link rel="stylesheet" href="css/intake.css?v=ec64726a">
+<script src="js/payments.js?v=ec64726a" defer></script>
 </head>
 <body class="intake-page">
 
@@ -27,7 +28,7 @@
   </div>
 </div>
 
-<main class="pt-wrap payment-hidden">
+<main class="pt-wrap">
   <header class="pt-head">
     <a class="pt-back" href="index.html">← Platform</a>
     <span class="tag">manual service</span>
@@ -44,16 +45,14 @@
     </div>
   </section>
 
-  <section class="fee-math" aria-label="Payment fee arithmetic">
-    <div class="fee-case"><b>One paper · $2</b><span>Stripe example fee: $0.36 (17.9%); $1.64 remains.</span></div>
-    <div class="fee-case"><b>Ten-paper pack · $20</b><span>Stripe example fee: $0.88 (4.4%); $19.12 remains.</span></div>
-  </section>
-  <p class="fee-caveat">Figures use a standard domestic-card example of 2.9% + $0.30. The processor is not yet fixed, and tax and invoicing are not included.</p>
+  <!-- Removed 2026-09-08 (Shir via META): the fee-example block and the ten-paper pack.
+       One paper, one price; the card processor is PayPal, so the old fee example no longer holds. -->
+
 
   <div class="intake-grid">
     <section class="intake-panel" aria-labelledby="checkTitle">
       <h2 id="checkTitle">Check the source before payment</h2>
-      <p class="intro">This browser check sends nothing. A pass opens a pre-filled email. Every source is verified again before any temporary hold.</p>
+      <p class="intro">This browser check sends nothing. A pass opens a pre-filled email. Every source is verified again before any payment.</p>
 
       <form id="intakePreflight" class="preflight-form" novalidate>
         <label class="source-label" for="locator">DOI, repository URL or paper title</label>
@@ -128,12 +127,12 @@
       <ol class="flow-list">
         <li><b>1 · Source check</b><span>Identity, licence, full text, language and text quality. No payment.</span></li>
         <li><b>2 · Manual acceptance</b><span>The source is confirmed and a delivery date set.</span></li>
-        <li><b>3 · Temporary $2 hold</b><span>Authorization only. The provider’s real capture deadline controls the schedule.</span></li>
+        <li><b>3 · Payment</b><span>PayPal, charged when you pay. Nothing is charged before the paper is accepted, because the check above runs first.</span></li>
         <li><b>4 · Tag and review</b><span>Verbatim-grounded tags are produced and checked.</span></li>
-        <li><b>5 · Deliver, then capture</b><span>The $2 is captured only when the tagged result is delivered.</span></li>
+        <li><b>5 · Delivery</b><span>The tagged paper is delivered, with the exact source sentence behind every tag.</span></li>
       </ol>
-      <div class="flow-stop"><b>If the paper cannot be tagged</b><p>Before capture: cancel and release the hold. After capture: issue a full refund. Never substitute credits.</p></div>
-      <span class="test-only">accepting papers now · payment is arranged by email</span>
+      <div class="flow-stop"><b>If the paper cannot be tagged</b><p>We say so and refund in full. Shir refunds it to the same PayPal account, within 5 working days. Write to shirsivroni@gmail.com with your receipt token.</p></div>
+      <span class="test-only">accepting papers now</span>
     </aside>
   </div>
 
@@ -153,10 +152,125 @@
        page. The paper is sent by email, after the check passes and the source is accepted.</p>
   </section>
 
-  <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · This page takes no card; payment is arranged by email after acceptance. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
+  <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · Every accepted paper is tagged by hand, with the exact source sentence behind each tag. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
 </main>
 
-<script src="js/intake.js?v=599ccfcb"></script>
+<script src="js/intake.js?v=ec64726a"></script>
+<script>
+/* PAYMENT WIRING — terminal-a. The PayPal button (MTP_PAY.mount) is drawn ONLY after the source
+   check returns "accepted"; a refused or incomplete source has no pay button in the DOM at all.
+   The price is read from MTP_PAY.ACTIONS.tag_paper, never typed here. Same script on both language
+   pages; it selects its copy from <html lang>. No corpus, no card field — PayPal is the only surface. */
+(function () {
+  "use strict";
+  var lang = document.documentElement.lang === "he" ? "he" : "en";
+  var COPY = {
+    en: {
+      lede: "The source check passed. Paying charges the $2 now, through PayPal.",
+      pay: "Pay",
+      unavail: "Online card payment is not switched on yet. Use “Email this request” above — your accepted source goes by email and the fee is arranged there. Nothing is charged on this page.",
+      paidTitle: "Payment received — keep this token",
+      paidBody: "This receipt token is your proof of payment and how your request is matched. We have added it to your email below; send that email to complete your request.",
+      emailAppend: "Payment receipt token (keep this):"
+    },
+    he: {
+      lede: "בדיקת המקור עברה. התשלום גובה את שני הדולר עכשיו, דרך PayPal.",
+      pay: "לתשלום",
+      unavail: "תשלום מקוון בכרטיס עדיין לא הופעל. השתמשו ב„שליחת הבקשה בדוא״ל” שלמעלה — המקור שהתקבל נשלח בדוא״ל והתשלום מתואם שם. בעמוד הזה לא מבוצע חיוב.",
+      paidTitle: "התשלום התקבל — שמרו את האסימון",
+      paidBody: "אסימון הקבלה הזה הוא ההוכחה לתשלום וכך הבקשה שלכם מזוהה. הוספנו אותו לדוא״ל שלמטה; שִׁלחו את הדוא״ל כדי להשלים את הבקשה.",
+      emailAppend: "אסימון קבלת תשלום (שמרו אותו):"
+    }
+  }[lang];
+
+  function priceStr() {
+    try { return "$" + window.MTP_PAY.ACTIONS.tag_paper.price; } catch (e) { return "$2.00"; }
+  }
+
+  function init() {
+    var result = document.getElementById("preflightResult");
+    var email = document.getElementById("eligibleEmail");
+    var form = document.getElementById("intakePreflight");
+    var priceSpan = document.querySelector(".intake-hero .price");
+    if (!result || !form) return;
+    if (priceSpan) priceSpan.textContent = priceStr();   /* one place holds the number */
+
+    var zone = null, paid = false, mo = null;
+
+    function details() {
+      function g(n){ var el = form.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : ""; }
+      return {
+        doi: (form.elements.locator && form.elements.locator.value.trim()) || "",
+        sourceKind: g("source"), licence: g("rights"),
+        preflight: { fulltext: g("fulltext"), quality: g("quality"), language: g("language"), scope: g("scope") }
+      };
+    }
+    function removeZone() { if (zone) { zone.remove(); zone = null; } }
+
+    function showReceipt(receipt) {
+      paid = true;
+      if (mo) mo.disconnect();                 /* freeze on the receipt; a later form edit won't erase it */
+      if (!zone) return;
+      zone.className = "pay-zone pay-receipt";
+      zone.textContent = "";
+      var b = document.createElement("b"); b.textContent = COPY.paidTitle;
+      var tok = document.createElement("code"); tok.className = "pay-token ltr"; tok.textContent = receipt.token || "(token missing)";
+      var p = document.createElement("p"); p.textContent = COPY.paidBody;
+      zone.appendChild(b); zone.appendChild(tok); zone.appendChild(p);
+      if (email && email.getAttribute("href")) {   /* put the token into the pre-filled email body */
+        try {
+          var href = email.getAttribute("href");
+          var m = href.match(/([?&]body=)([^&]*)/);
+          if (m) {
+            var body = decodeURIComponent(m[2]) + "\n\n" + COPY.emailAppend + "\n" + (receipt.token || "") +
+              "\n(" + (receipt.amount || "") + " " + (receipt.currency || "") + " · " + (receipt.paidAtUtc || "") + ")";
+            email.setAttribute("href", href.slice(0, m.index) + m[1] + encodeURIComponent(body) + href.slice(m.index + m[0].length));
+          }
+        } catch (e) {}
+      }
+    }
+
+    function buildZone() {
+      removeZone();
+      zone = document.createElement("section");
+      zone.className = "pay-zone";
+      zone.setAttribute("aria-label", "Payment");
+      if (email && email.parentNode) email.parentNode.insertBefore(zone, email.nextSibling);
+      else result.parentNode.insertBefore(zone, result.nextSibling);
+
+      var ready = false;
+      try { ready = !!(window.MTP_PAY && window.MTP_PAY.ready && window.MTP_PAY.ready()); } catch (e) {}
+      if (!ready) {
+        var u = document.createElement("p"); u.className = "pay-unavailable"; u.textContent = COPY.unavail;
+        zone.appendChild(u);
+        return;
+      }
+      var lede = document.createElement("p"); lede.className = "pay-lede"; lede.textContent = COPY.lede;
+      var amt = document.createElement("span"); amt.className = "pay-amount";
+      amt.appendChild(document.createTextNode(COPY.pay + " "));
+      var pr = document.createElement("span"); pr.className = "ltr"; pr.textContent = priceStr(); amt.appendChild(pr);
+      var host = document.createElement("div"); host.className = "pay-host";
+      var status = document.createElement("div"); status.className = "pay-status"; status.setAttribute("role", "status");
+      zone.appendChild(lede); zone.appendChild(amt); zone.appendChild(host); zone.appendChild(status);
+      window.MTP_PAY.mount(host, {
+        action: "tag_paper", details: details(),
+        onPaid: function (receipt) { showReceipt(receipt); },
+        onError: function (msg) { status.textContent = msg; }
+      });
+    }
+
+    mo = new MutationObserver(function () {
+      if (paid) return;
+      var accepted = !result.hidden && result.dataset.state === "accepted";
+      if (accepted) { if (!zone) buildZone(); } else { removeZone(); }
+    });
+    mo.observe(result, { attributes: true, attributeFilter: ["data-state", "hidden"] });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
 <script src="https://shir-openu.github.io/beacon.js" defer></script>
 </body>
 </html>
