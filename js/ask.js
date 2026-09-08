@@ -19,7 +19,10 @@
 (function () {
   "use strict";
   var he = document.documentElement.lang === "he";
-  var COIN = "🪙";
+  var CARD_SVG = '<svg class="coin" viewBox="0 0 20 14" width="19" height="13"'
+      + ' aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">'
+      + '<rect x="1" y="1" width="18" height="12" rx="2"/><path d="M1 5.2h18"/>'
+      + '<path d="M4 9.6h3.4"/></svg>';
   var COPY = he ? {
     pay: "לתשלום",
     sendFirst: "נפתח PayPal. שלחו גם את הדוא״ל, כדי שנדע במה מדובר.",
@@ -85,7 +88,10 @@
       a.href = link();
       a.target = "_blank";
       a.rel = "noopener";
-      a.textContent = COIN + " " + COPY.pay + " " + price();
+      /* The glyph U+1FA99 draws as a pale outline on this platform and vanishes against
+         the gold. An inline SVG in currentColor is the button's own ink and cannot. */
+      a.innerHTML = CARD_SVG;
+      a.appendChild(document.createTextNode(" " + COPY.pay + " " + price()));
       out.appendChild(a);
     } else {
       var n = document.createElement("p");

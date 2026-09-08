@@ -1728,7 +1728,7 @@ html[data-theme="light"] [data-paid-card] .go.pay-go:hover {
   background: linear-gradient(180deg, #ffd45e, #eaa813);
   filter: none;
 }
-.coin { font-size: 1.05em; line-height: 1; }
+.coin { flex: none; vertical-align: -.12em; }
 
 /* The pay button on the request pages is the same promise, so it is the same gold. */
 .ask-pay, .pay-btn.pay-tag, .pay-btn.pay-score,
