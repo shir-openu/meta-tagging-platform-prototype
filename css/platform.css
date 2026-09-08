@@ -1677,15 +1677,18 @@ html[data-theme="light"] .fee-case a:hover { color: #a4136f; }
 .ask-input::placeholder { color: var(--dim); opacity: .7; }
 .ask-input:focus { outline: 0; border-bottom-color: var(--btn-purple); }
 .ask-file { display: block; margin-top: 1rem; color: var(--dim); font-size: .85rem; }
+/* OPAQUE, LIKE EVERY OTHER BUTTON ON THIS SITE. Shir asked for coloured buttons three
+   times today and I made this one an outline while stripping the page down. Academic is
+   about the TEXT and the layout, not about draining the colour out of the controls. */
 .ask-go {
   margin-top: 1.8rem;
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--ink);
-  border-radius: 8px; padding: .5rem 1.4rem;
-  font: inherit; font-size: .98rem; cursor: pointer;
+  background: var(--btn-teal);
+  border: 1px solid var(--btn-teal);
+  color: #ffffff;
+  border-radius: 10px; padding: 9px 20px;
+  font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
 }
-.ask-go:hover { border-color: var(--btn-purple); }
+.ask-go:hover { filter: brightness(1.12); }
 .ask-out { margin-top: 1.8rem; display: flex; flex-direction: column;
            align-items: flex-start; gap: .8rem; }
 .ask-pay {
@@ -1694,8 +1697,12 @@ html[data-theme="light"] .fee-case a:hover { color: #a4136f; }
   text-decoration: none; display: inline-block;
 }
 .ask-pay:hover { filter: brightness(1.12); }
-.ask-email { color: var(--ink); font-size: .95rem; text-decoration: underline;
-             text-underline-offset: 3px; }
+.ask-email {
+  background: var(--btn-amber); border: 1px solid var(--btn-amber); color: #1f1400;
+  border-radius: 10px; padding: 9px 20px; font-weight: 700; font-size: 1rem;
+  text-decoration: none; display: inline-block;
+}
+.ask-email:hover { filter: brightness(1.12); }
 .ask-note, .ask-warn { color: var(--dim); font-size: .85rem; margin: 0; max-width: 30rem; }
 .ask-warn { color: var(--amber, #e0a33c); }
 .ask-refund { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
