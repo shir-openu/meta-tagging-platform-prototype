@@ -7,12 +7,12 @@
 <meta name="description" content="נוקבים מונח שהקורפוס עדיין לא מגדיר, ובונים לו לוח: ההגדרות המתחרות, המקרים שהוכרעו, טבלת MCC והבקרה המעגלית.">
 <link rel="alternate" hreflang="en" href="request-scoring.html">
 <link rel="alternate" hreflang="he" href="request-scoring-he.html">
-<link rel="stylesheet" href="css/shell.css?v=6b4c0f0c">
-<script src="js/theme.js?v=6b4c0f0c" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=6b4c0f0c">
-<link rel="stylesheet" href="css/intake.css?v=6b4c0f0c">
-<script src="js/payments.config.js?v=6b4c0f0c"></script>
-<script src="js/payments.js?v=6b4c0f0c"></script>
+<link rel="stylesheet" href="css/shell.css?v=6ce133bb">
+<script src="js/theme.js?v=6ce133bb" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=6ce133bb">
+<link rel="stylesheet" href="css/intake.css?v=6ce133bb">
+<script src="js/payments.config.js?v=6ce133bb"></script>
+<script src="js/payments.js?v=6ce133bb"></script>
 </head>
 <body class="intake-page">
 
@@ -29,80 +29,28 @@
   </div>
 </div>
 
-<main class="pt-wrap">
+<main class="pt-wrap ask">
   <header class="pt-head">
     <a class="pt-back" href="index-he.html">← הפלטפורמה</a>
-    <span class="tag">שירות ידני</span>
     <a class="pt-btn lang-switch" href="request-scoring.html" hreflang="en">English</a>
   </header>
 
-  <section class="intake-hero" aria-labelledby="scoreTitle">
-    <h1 id="scoreTitle">ניקוד הגדרה</h1>
-    <div class="price-lockup">
-      <span class="price ltr" data-price-for="score_def">$2.50</span><span class="unit">למונח שמתקבל</span>
-      <span class="outline-badge">אין תשלום לפני שהמונח מתקבל</span>
-    </div>
-  </section>
+  <h1 class="ask-title">ניקוד הגדרה</h1>
+  <p class="ask-price"><span data-price-for="score_def">$0.00</span> <span class="ask-unit">למונח שמתקבל</span></p>
 
-  <div class="intake-grid">
-    <section class="intake-panel" aria-labelledby="checkTitle">
-      <h2 id="checkTitle">בדיקת המונח לפני תשלום</h2>
+  <form id="askForm" class="ask-form" novalidate>
+    <label class="ask-label" for="askField">המונח</label>
+    <input class="ask-input" id="askField" name="askField" autocomplete="off"
+           placeholder="למשל: potential" required>
 
-      <form id="scorePreflight" class="preflight-form" novalidate>
-        <label class="source-label" for="term">המונח</label>
-        <input class="source-input" id="term" name="term" autocomplete="off"
-               placeholder="למשל: potential" required>
+    <button class="ask-go" type="submit">המשך</button>
+  </form>
 
-        <label class="source-label" for="field">התחום או הספרות שבהם מדובר</label>
-        <input class="source-input" id="field" name="field" autocomplete="off"
-               placeholder="למשל: חקר ההוראה של הפיזיקה" required>
+  <div id="askOut" class="ask-out" hidden></div>
 
-        <fieldset class="choice-set">
-          <legend class="source-label">האם המונח מוגדר ביותר מדרך אחת?</legend>
-          <label class="choice"><input type="radio" name="rivalry" value="yes" required>
-            <span>כן, אני מכיר/ה הגדרות מתחרות</span></label>
-          <label class="choice"><input type="radio" name="rivalry" value="suspect">
-            <span>נראה לי שכן, אבל איני יכול/ה לנקוב בהן</span></label>
-          <label class="choice"><input type="radio" name="rivalry" value="no">
-            <span>לא, הגדרה אחת מוסכמת</span></label>
-        </fieldset>
+  <p class="ask-refund">הלוחות שכבר קיימים חינמיים. אם מתברר שהספרות מסכימה — שיר מחזירה את מלוא הסכום לאותו חשבון PayPal תוך חמישה ימי עבודה — shirsivroni@gmail.com.</p>
+</main>
 
-        <label class="source-label" for="rivals">הגדרות מתחרות שכבר ידועות לכם</label>
-        <textarea class="source-input" id="rivals" name="rivals" rows="3"
-                  placeholder="אחת בכל שורה, עם המאמר אם יש."></textarea>
-
-        <fieldset class="choice-set">
-          <legend class="source-label">יש לכם מאמרים שמשתמשים במונח?</legend>
-          <label class="choice"><input type="radio" name="corpus" value="have" required>
-            <span>כן, אשלח רשימה או <span class="ltr">DOI</span>־ים</span></label>
-          <label class="choice"><input type="radio" name="corpus" value="ours">
-            <span>להשתמש במה שכבר יש בקורפוס הזה</span></label>
-        </fieldset>
-
-        <fieldset class="choice-set">
-          <legend class="source-label">למה מיועדת התוצאה?</legend>
-          <label class="choice"><input type="radio" name="use" value="research" required>
-            <span>מחקר או מאמר</span></label>
-          <label class="choice"><input type="radio" name="use" value="teaching">
-            <span>הוראה</span></label>
-          <label class="choice"><input type="radio" name="use" value="other">
-            <span>משהו אחר</span></label>
-        </fieldset>
-
-        <button class="check-button" type="submit">בדיקת המונח</button>
-        <div id="preflightResult" class="preflight-result" role="status" tabindex="-1" hidden></div>
-
-        <!-- אזור התשלום לא קיים עד שהבדיקה עוברת. -->
-        <div id="payArea" hidden></div>
-
-        <a id="eligibleEmail" class="email-button" hidden>שליחת הבקשה בדוא״ל</a>
-      </form>
-    </section>
-
-    </div>
-
-  </main>
-
-<script src="js/scoring-intake.js?v=6b4c0f0c" defer></script>
+<script src="js/ask.js?v=6ce133bb" defer></script>
 </body>
 </html>

@@ -7,12 +7,12 @@
 <meta name="description" content="Name a term this corpus does not yet define and have its board built: rival definitions, adjudicated cases, an MCC table and the circular control.">
 <link rel="alternate" hreflang="en" href="request-scoring.html">
 <link rel="alternate" hreflang="he" href="request-scoring-he.html">
-<link rel="stylesheet" href="css/shell.css?v=6b4c0f0c">
-<script src="js/theme.js?v=6b4c0f0c" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=6b4c0f0c">
-<link rel="stylesheet" href="css/intake.css?v=6b4c0f0c">
-<script src="js/payments.config.js?v=6b4c0f0c"></script>
-<script src="js/payments.js?v=6b4c0f0c"></script>
+<link rel="stylesheet" href="css/shell.css?v=6ce133bb">
+<script src="js/theme.js?v=6ce133bb" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=6ce133bb">
+<link rel="stylesheet" href="css/intake.css?v=6ce133bb">
+<script src="js/payments.config.js?v=6ce133bb"></script>
+<script src="js/payments.js?v=6ce133bb"></script>
 </head>
 <body class="intake-page">
 
@@ -29,81 +29,28 @@
   </div>
 </div>
 
-<main class="pt-wrap">
+<main class="pt-wrap ask">
   <header class="pt-head">
     <a class="pt-back" href="index.html">← Platform</a>
-    <span class="tag">manual service</span>
     <a class="pt-btn lang-switch" href="request-scoring-he.html" hreflang="he">עברית</a>
   </header>
 
-  <section class="intake-hero" aria-labelledby="scoreTitle">
-    <h1 id="scoreTitle">Score a definition</h1>
-    <div class="price-lockup">
-      <span class="price" data-price-for="score_def">$2.50</span><span class="unit">per accepted term</span>
-      <span class="outline-badge">no payment before the term is accepted</span>
-    </div>
-  </section>
+  <h1 class="ask-title">Score a definition</h1>
+  <p class="ask-price"><span data-price-for="score_def">$0.00</span> <span class="ask-unit">per accepted term</span></p>
 
-  <div class="intake-grid">
-    <section class="intake-panel" aria-labelledby="checkTitle">
-      <h2 id="checkTitle">Check the term before payment</h2>
+  <form id="askForm" class="ask-form" novalidate>
+    <label class="ask-label" for="askField">The term</label>
+    <input class="ask-input" id="askField" name="askField" autocomplete="off"
+           placeholder="e.g. potential" required>
 
-      <form id="scorePreflight" class="preflight-form" novalidate>
-        <label class="source-label" for="term">The term</label>
-        <input class="source-input" id="term" name="term" autocomplete="off"
-               placeholder="e.g. potential" required>
+    <button class="ask-go" type="submit">Continue</button>
+  </form>
 
-        <label class="source-label" for="field">The field or literature you mean it in</label>
-        <input class="source-input" id="field" name="field" autocomplete="off"
-               placeholder="e.g. physics education research" required>
+  <div id="askOut" class="ask-out" hidden></div>
 
-        <fieldset class="choice-set">
-          <legend class="source-label">Is the term defined more than one way?</legend>
-          <label class="choice"><input type="radio" name="rivalry" value="yes" required>
-            <span>Yes, I know of rival definitions</span></label>
-          <label class="choice"><input type="radio" name="rivalry" value="suspect">
-            <span>I think so, but I cannot name them</span></label>
-          <label class="choice"><input type="radio" name="rivalry" value="no">
-            <span>No, one settled definition</span></label>
-        </fieldset>
+  <p class="ask-refund">The boards that already exist are free. If the literature turns out to agree, Shir refunds in full to the same PayPal account within 5 working days — shirsivroni@gmail.com.</p>
+</main>
 
-        <label class="source-label" for="rivals">Rival definitions you already know of</label>
-        <textarea class="source-input" id="rivals" name="rivals" rows="3"
-                  placeholder="One per line, with the paper if you have it."></textarea>
-
-        <fieldset class="choice-set">
-          <legend class="source-label">Do you have papers that use the term?</legend>
-          <label class="choice"><input type="radio" name="corpus" value="have" required>
-            <span>Yes, I can send a list or DOIs</span></label>
-          <label class="choice"><input type="radio" name="corpus" value="ours">
-            <span>Use whatever this corpus already holds</span></label>
-        </fieldset>
-
-        <fieldset class="choice-set">
-          <legend class="source-label">What is the result for?</legend>
-          <label class="choice"><input type="radio" name="use" value="research" required>
-            <span>Research or a paper</span></label>
-          <label class="choice"><input type="radio" name="use" value="teaching">
-            <span>Teaching</span></label>
-          <label class="choice"><input type="radio" name="use" value="other">
-            <span>Something else</span></label>
-        </fieldset>
-
-        <button class="check-button" type="submit">Check this term</button>
-        <div id="preflightResult" class="preflight-result" role="status" tabindex="-1" hidden></div>
-
-        <!-- The payment area does not exist until the check passes. A refused term must not be
-             able to pay: not hidden-but-clickable, absent. -->
-        <div id="payArea" hidden></div>
-
-        <a id="eligibleEmail" class="email-button" hidden>Email this request</a>
-      </form>
-    </section>
-
-    </div>
-
-  </main>
-
-<script src="js/scoring-intake.js?v=6b4c0f0c" defer></script>
+<script src="js/ask.js?v=6ce133bb" defer></script>
 </body>
 </html>

@@ -1653,3 +1653,52 @@ html[data-theme="light"] .cap-nodefs .cap-go:hover { background: rgba(0,0,0,.04)
 .fee-case a:hover { color: var(--pink); }
 html[data-theme="light"] .fee-case a { color: #0f766e; }
 html[data-theme="light"] .fee-case a:hover { color: #a4136f; }
+
+/* THE ASK PAGES. Academic, not a shopfront. 2026-09-08.
+   Shir: "העיצוב צריך להיראות אקדמי והוא נראה המוני."
+   One question, one answer, one button. The type is the page's own, the rules are hairlines,
+   and the only saturated thing on the screen is the button that takes the money. */
+.ask { max-width: 34rem; }
+.ask-title { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.01em;
+             margin: 1.6rem 0 .2rem; color: var(--ink); }
+.ask-price { margin: 0 0 2rem; color: var(--dim); font-size: .95rem; }
+.ask-price [data-price-for] { color: var(--ink); font-weight: 600; }
+.ask-unit { color: var(--dim); }
+.ask-form { border-top: 1px solid var(--line); padding-top: 1.6rem; }
+.ask-label { display: block; color: var(--ink); font-size: .95rem; margin-bottom: .5rem; }
+.ask-input {
+  width: 100%; box-sizing: border-box;
+  background: transparent;
+  border: 0; border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink); font: inherit; font-size: 1.05rem;
+  padding: .5rem .1rem;
+}
+.ask-input::placeholder { color: var(--dim); opacity: .7; }
+.ask-input:focus { outline: 0; border-bottom-color: var(--btn-purple); }
+.ask-file { display: block; margin-top: 1rem; color: var(--dim); font-size: .85rem; }
+.ask-go {
+  margin-top: 1.8rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 8px; padding: .5rem 1.4rem;
+  font: inherit; font-size: .98rem; cursor: pointer;
+}
+.ask-go:hover { border-color: var(--btn-purple); }
+.ask-out { margin-top: 1.8rem; display: flex; flex-direction: column;
+           align-items: flex-start; gap: .8rem; }
+.ask-pay {
+  background: var(--btn-purple); border: 1px solid var(--btn-purple); color: #fff;
+  border-radius: 10px; padding: 9px 20px; font-weight: 700; font-size: 1.02rem;
+  text-decoration: none; display: inline-block;
+}
+.ask-pay:hover { filter: brightness(1.12); }
+.ask-email { color: var(--ink); font-size: .95rem; text-decoration: underline;
+             text-underline-offset: 3px; }
+.ask-note, .ask-warn { color: var(--dim); font-size: .85rem; margin: 0; max-width: 30rem; }
+.ask-warn { color: var(--amber, #e0a33c); }
+.ask-refund { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+              color: var(--dim); font-size: .8rem; line-height: 1.6; max-width: 32rem; }
+.ask-refund a, .ask-refund { word-break: normal; }
+html[data-theme="light"] .ask-warn { color: #8a5a00; }
