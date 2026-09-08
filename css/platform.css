@@ -1494,19 +1494,8 @@ body, button, input, select, textarea {
   font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* The card surface is Res-Quill's slate, not near-black, and the family tint rides on it. */
-.act, .step, .offer, .panel {
-  background:
-    linear-gradient(0deg, color-mix(in srgb, var(--fam, var(--rq-cyan)) 12%, transparent),
-                          color-mix(in srgb, var(--fam, var(--rq-cyan)) 12%, transparent)),
-    var(--rq-surface);
-}
-.act:hover, .step:hover {
-  background:
-    linear-gradient(0deg, color-mix(in srgb, var(--fam, var(--rq-cyan)) 20%, transparent),
-                          color-mix(in srgb, var(--fam, var(--rq-cyan)) 20%, transparent)),
-    var(--rq-surface);
-}
+/* (card-surface override removed 2026-09-08: Shir asked for the ORIGINAL
+   tinted cards back, with only the BUTTONS made solid and coloured.) */
 .ac-dropdown, .ac-more, .owninput, #pOwn textarea { background: var(--rq-surface); }
 .about-dlg { background: var(--rq-surface); }
 
@@ -1588,16 +1577,8 @@ html[data-theme="light"] .act .notes { color: var(--ink); }
   --pink: #22d3ee;
 }
 
-/* Solid cards: one flat surface, one solid family edge. No gradient, no wash. */
-.act, .step, .offer, .panel {
-  background: var(--rq-surface);
-  border: 1px solid var(--line);
-  border-inline-start: 5px solid var(--fam, var(--teal));
-}
-.act:hover, .step:hover {
-  background: #24334a;
-  border-inline-start-color: var(--fam-lit, var(--teal-lit));
-}
+/* (card-surface override removed 2026-09-08: Shir asked for the ORIGINAL
+   tinted cards back, with only the BUTTONS made solid and coloured.) */
 html[data-theme="light"] .act,
 html[data-theme="light"] .step,
 html[data-theme="light"] .offer,
@@ -1684,13 +1665,8 @@ body, button, input, select, textarea {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Cards: solid, on the original ground. */
-.act, .step, .offer, .panel {
-  background: var(--rq-surface);
-  border: 1px solid var(--line);
-  border-inline-start: 5px solid var(--fam, var(--teal));
-}
-.act:hover, .step:hover { background: #221726; }
+/* (card-surface override removed 2026-09-08: Shir asked for the ORIGINAL
+   tinted cards back, with only the BUTTONS made solid and coloured.) */
 
 /* THE BUTTONS. Solid fill, her radius, her padding, white text - except amber. */
 .pt-btn, .act .go, .conceptbtn, .pt-btn.big {
@@ -1712,9 +1688,14 @@ body, button, input, select, textarea {
 /* The header controls take her named colours rather than all being outlines. */
 #aboutBtn  { background: var(--btn-purple);  border-color: var(--btn-purple);  color: #fff; }
 #themeBtn  { background: var(--btn-amber);   border-color: var(--btn-amber);   color: #1f1400; }
-.pt-head a.pt-btn { background: var(--btn-teal); border-color: var(--btn-teal); color: #fff;
-  text-decoration: none; }
-#aboutBtn:hover, #themeBtn:hover, .pt-head a.pt-btn:hover { filter: brightness(1.12); }
+/* The language control is an <a> on the entry pages and a <button id="langSwitch"> on the
+   define pages. Selecting only the anchor left the define pages' language control an
+   unstyled link beside a solid amber theme button - visible in
+   FIGURES/appearance/define_index_html_dark.png before this line was added. */
+.pt-head a.pt-btn, #langSwitch { background: var(--btn-teal); border-color: var(--btn-teal);
+  color: #fff; text-decoration: none; }
+#aboutBtn:hover, #themeBtn:hover, .pt-head a.pt-btn:hover, #langSwitch:hover {
+  filter: brightness(1.12); }
 
 /* THE BRIGHT VIEW, TAKEN FROM direction_field'S OWN, READ OFF THE LIVE PAGE:
        ground #f0f2f5 . ink #1a1a2e . panel rgba(255,255,255,.82)
@@ -1766,3 +1747,116 @@ html[data-theme="light"] .act .go.primary:hover {
   background: var(--fam, var(--btn-teal));
   filter: brightness(1.15);
 }
+
+/* THE ORIGINAL CARDS, THE NEW BUTTONS. 2026-09-08.
+   Shir: "הכפתורים שהוספת טובים אבל לא החזרת את מה שהיה. הכפתורים שחצי שקופים היו גם בצבע.
+   עליך לחזור לתצוגה המקורית ורק להוסיף את הכפתורים שבצבע."
+   She is right: the half-transparent controls were ALREADY coloured - the tint carried the
+   card's family - and replacing the card surfaces threw that away along with the
+   transparency she objected to. Only the BUTTONS were ever the problem. So the cards go back
+   to their original family-tinted wash over #14101a, and nothing else here touches them. */
+.act, .step, .offer, .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 14%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 14%, transparent)),
+    #14101a;
+  border: 1px solid color-mix(in srgb, var(--fam) 45%, transparent);
+  border-inline-start: 5px solid var(--fam);
+}
+.act:hover, .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 22%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 22%, transparent)),
+    #14101a;
+}
+html[data-theme="light"] .act,
+html[data-theme="light"] .step,
+html[data-theme="light"] .offer,
+html[data-theme="light"] .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 10%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 10%, transparent)),
+    #ffffff;
+}
+html[data-theme="light"] .act:hover,
+html[data-theme="light"] .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 18%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 18%, transparent)),
+    #ffffff;
+}
+
+/* THE EVIDENCE BOARD IN BRIGHT VIEW. 2026-09-08.
+   The capability, evidence and grounded-sense blocks (platform.css ~1130-1210) were written
+   dark-only: hard-coded near-black panels carrying hard-coded near-white ink. The bright view
+   was added afterwards and never reached them, so pressing "Bright view" on a board turned the
+   page light and left every sense card a dark slab on it.
+   It was invisible to every check that existed. contrast_sweep.mjs measures the ENTRY state of
+   each page and the board only exists after a concept is opened; and even had it looked, light
+   ink on a dark panel passes AA whatever the rest of the page is doing. Found by opening a
+   concept in bright view and looking at the screenshot - FIGURES/appearance/board_light.png.
+   The sweep now opens the board too (contrast_sweep.mjs --board).
+   Surfaces and ink move; the pink, purple, teal and blue accents are the same in both views. */
+html[data-theme="light"] .capability-state { background: rgba(255,255,255,.92); }
+html[data-theme="light"] .cap-chip.off { background: rgba(0,0,0,.03); color: #55506b; }
+html[data-theme="light"] .evidence-head {
+  background: linear-gradient(135deg, rgba(109,40,217,.10), rgba(3,105,161,.10)), #ffffff; }
+html[data-theme="light"] .evidence-head h2 { color: #1a1a2e; }
+html[data-theme="light"] .evidence-head p  { color: #4a4560; }
+html[data-theme="light"] .selector-notes   { background: rgba(180,83,9,.08); color: #7a4a06; }
+html[data-theme="light"] .sense-all-head   { color: #7c2d99; }
+html[data-theme="light"] .sense-paper      { background: rgba(255,255,255,.92); }
+html[data-theme="light"] .sense-paper.is-default { border-color: #b79ad0; }
+html[data-theme="light"] .sense-paper h3   { color: #1a1a2e; }
+html[data-theme="light"] .sense-default    { background: rgba(0,0,0,.04); color: #55506b;
+                                             border-color: #cfc6d8; }
+html[data-theme="light"] .sense-meta       { color: #55506b; }
+html[data-theme="light"] .sense-card       { background: rgba(3,105,161,.07); }
+html[data-theme="light"] .sense-card h4    { color: #241a33; }
+html[data-theme="light"] .sense-provenance { color: #5d5568; }
+html[data-theme="light"] .sense-card blockquote { background: rgba(216,27,140,.05); color: #241a2e; }
+html[data-theme="light"] .sense-quote-label{ color: #a4136f; }
+html[data-theme="light"] .sense-locator    { color: #5f5768; }
+html[data-theme="light"] .sense-audit      { color: #55506b; }
+html[data-theme="light"] .sense-audit a    { color: #6d28d9; }
+html[data-theme="light"] .evidence-empty   { background: rgba(180,83,9,.07); color: #7a4a06;
+                                             border-color: #d3ab6a; }
+html[data-theme="light"] .external-definitions { background: rgba(109,40,217,.05);
+                                                 border-color: #c2aed6; }
+html[data-theme="light"] .external-definitions.is-on { background: rgba(109,40,217,.09); }
+html[data-theme="light"] .external-heading { color: #5b2a86; }
+html[data-theme="light"] .external-optin   { background: rgba(109,40,217,.06); color: #2a1f38;
+                                             border-color: #c2aed6; }
+html[data-theme="light"] .external-meta    { color: #55506b; }
+
+/* THE REST OF THE BOARD, MEASURED RATHER THAN GUESSED. 2026-09-08.
+   With the board's surfaces turned light, `contrast_sweep.mjs --board` could finally measure
+   the state a visitor sees, and it found ten distinct shapes below AA in bright view - light
+   teal and light pink inks that were designed for a near-black ground and are near-invisible
+   on white (1.05:1 for the workbench heading) - plus one in DARK view that had been failing
+   since it was written and had never been measured, because until today the sweep only ever
+   looked at the page's entry state. Each number below is the darker member of the same hue,
+   not a new colour. */
+html[data-theme="light"] .coverage-workbench h3 { color: #123c38; }
+html[data-theme="light"] .coverage-workbench p  { color: #40514f; }
+html[data-theme="light"] .screen-kicker         { color: #0f766e; }
+html[data-theme="light"] .coverage-warning      { color: #7a4a06; background: rgba(180,83,9,.08); }
+html[data-theme="light"] .coverage-summary b    { color: #0f766e; }
+html[data-theme="light"] .cap-chip.ready        { color: #146b2b; border-color: #146b2b;
+                                                  background: rgba(20,107,43,.10); }
+html[data-theme="light"] .sense-test            { color: #0f766e !important;
+                                                  border-color: #0f766e !important; }
+html[data-theme="light"] .evidence-add          { color: #a4136f !important;
+                                                  border-color: #a4136f !important; }
+html[data-theme="light"] .external-meta a,
+html[data-theme="light"] .external-card-source a { color: #6d28d9; }
+html[data-theme="light"] .external-separation,
+html[data-theme="light"] .external-off,
+html[data-theme="light"] .external-count,
+html[data-theme="light"] .external-card-head    { color: #55506b; }
+
+/* DARK view, and it was never bright view's fault: .sense-locator has always been #756b7e on
+   a near-black panel - 3.78:1, below the 4.5 it needs - on every board this project has ever
+   published. It is the provenance line, the one piece of text whose whole purpose is being
+   read back and checked. #918a99 is the same grey, lifted to 5.7:1. */
+.sense-locator { color: #918a99; }

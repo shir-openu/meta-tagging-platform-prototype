@@ -221,3 +221,35 @@
 
 /* One column while the flow panel is hidden, so the form does not sit in half a grid. */
 .payment-hidden .intake-grid { grid-template-columns: minmax(0, 1fr); }
+
+/* THE BRIGHT VIEW REACHES THIS FILE TOO. 2026-09-08.
+   intake.css was written before the theme toggle existed and contains no `data-theme`
+   rule at all: on request-tagging.html and request-tagging-he.html the ground turned
+   light, the header buttons turned light, and every intake panel stayed near-black with
+   its own dark input fields on top. Found by rendering the page in bright view, not by
+   the contrast sweep - near-white text on a near-black panel passes AA whatever theme the
+   rest of the page is in, so a measurement could never have caught it.
+   Only the surfaces move. The purple and pink stay exactly as they are, the same way
+   direction_field keeps its buttons identical in both views. */
+html[data-theme="light"] {
+  --intake-panel: rgba(255, 255, 255, .93);
+  --intake-line: rgba(131, 36, 196, .30);
+  --intake-ink: #1a1a2e;
+  --intake-muted: #55506b;
+  /* The three status colours are readable on dark and invisible on white, so each is
+     replaced by the darker member of its own hue rather than left to wash out. */
+  --intake-good: #1a7a33;
+  --intake-warn: #8a5a00;
+  --intake-bad: #a4243b;
+  /* The two headline colours are used as TEXT on the panel, where the light purple
+     (#a259ff, 3.42:1 on white) and light pink (#ff5fbf, 2.55:1) both fail. The deep
+     pair is what carries in bright view. */
+  --intake-purple: #6d28d9;
+  --intake-pink: #b0157f;
+}
+html[data-theme="light"] .source-input,
+html[data-theme="light"] .source-file { background: #ffffff; border-color: rgba(131,36,196,.34); }
+html[data-theme="light"] .fee-case { background: rgba(131, 36, 196, .06); }
+html[data-theme="light"] .choice:has(input:checked) { background: rgba(231, 29, 202, .07); }
+html[data-theme="light"] .check-button:hover,
+html[data-theme="light"] .email-button:hover { background: rgba(131, 36, 196, .07); }

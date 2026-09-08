@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
-<title>פלטפורמת מטא־תיוג — אב טיפוס</title>
+<title>פלטפורמת מטא־תיוג</title>
 <meta name="description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shir-openu.github.io/meta-tagging-platform-prototype/index-he.html">
-<meta property="og:title" content="פלטפורמת מטא־תיוג — אב טיפוס">
+<meta property="og:title" content="פלטפורמת מטא־תיוג">
 <meta property="og:description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
 <meta property="og:site_name" content="Meta-Tagging Platform">
 <meta property="og:locale" content="he_IL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="פלטפורמת מטא־תיוג — אב טיפוס">
+<meta name="twitter:title" content="פלטפורמת מטא־תיוג">
 <meta name="twitter:description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="he" href="index-he.html">
-<link rel="stylesheet" href="css/shell.css?v=080688e4">
-<script src="js/theme.js?v=080688e4" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=080688e4">
+<link rel="stylesheet" href="css/shell.css?v=b84b090e">
+<script src="js/theme.js?v=b84b090e" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=b84b090e">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -67,14 +67,15 @@
 
   <div class="pt-head">
     <h1>פלטפורמת מטא־תיוג</h1>
-    <span class="tag">אב טיפוס</span>
+    <button class="pt-btn" id="aboutBtn" style="margin-inline-start:auto"
+            aria-haspopup="dialog">מה זה?</button>
     <a class="pt-btn" href="index-en.html"
-       style="margin-inline-start:auto;text-decoration:none">English</a>
+       style="text-decoration:none">English</a>
     <div class="sub">שכבת תיוג לספרות אקדמית, שבה <b>כל תג נושא את המשפט המדויק מהמאמר שממנו נגזר</b>.</div>
   </div>
 
   <div class="acts">
-    <div class="act live" style="--fam:#047857;--fam-lit:#34d399">
+    <div class="act live" style="--fam:#1a7a33;--fam-lit:#5cc46f">
       <div class="row"><span class="ic">🔍</span><h2>מציאת הגדרה אופטימלית לפי קורפוס</h2>
         <span class="state">פעיל</span></div>
       <div class="disc">
@@ -86,7 +87,7 @@
       <div class="notes" id="n0"><ul><li>בחירה חופשית של מאמרים</li><li>דירוג שמתעדכן מיד</li><li>מתחת לכל ציון — טבלת המקרים והציטוט</li></ul></div>
     </div>
 
-    <div class="act live" style="--fam:#b45309;--fam-lit:#fbbf24">
+    <div class="act live" style="--fam:#a35b00;--fam-lit:#e0a33c">
       <div class="row"><span class="ic">📐</span><h2>השיטה, והמגבלות שלה</h2>
         <span class="state">פעיל</span></div>
       <div class="disc">
@@ -98,7 +99,7 @@
       <div class="notes" id="n5"><ul><li>כל הנתונים פתוחים להורדה</li><li>המגבלות מוצגות לכולם</li></ul></div>
     </div>
 
-    <div class="act live payment-hidden card-hidden" data-intake-card style="--fam:#7c3aed;--fam-lit:#a78bfa">
+    <div class="act live payment-hidden card-hidden" data-intake-card style="--fam:#8324c4;--fam-lit:#e71dca">
       <div class="row"><span class="ic">🏷️</span><h2>תיוג מאמר</h2>
         <span class="state price-state"><span class="ltr">$2</span> · שירות ידני</span></div>
       <div class="disc">
@@ -119,40 +120,65 @@
   <!-- The corpus is the one target here that HAS a Hebrew twin - corpus-he.html, "הקורפוס
        — כל המאמרים" - so the Hebrew line links the Hebrew page and the note now says which
        items are English-only instead of claiming all of them are. -->
-  <div class="pt-soon">כבר קיים: <a href="https://shir-openu.github.io/meta-tagging-showcase/corpus-he.html">הקורפוס המתויג</a> ·
-   <a href="https://shir-openu.github.io/meta-tagging-showcase/SEARCH.html">חיפוש בשכבת התיוג</a> ·
-   <a href="https://shir-openu.github.io/meta-tagging-showcase/TRANSFERS.html">מאיפה הגיעה השיטה</a>. (שני האחרונים באנגלית בלבד)</div>
+  <!-- 2026-09-08. Trimmed to match index.html: three links, no introducing sentence,
+       and the "coming next" line moved into the About dialog. A plan is not an action.
+       The corpus link keeps its Hebrew twin; the other two are English-only, which the
+       dialog says rather than the line. -->
+  <div class="pt-soon"><a
+   href="https://shir-openu.github.io/meta-tagging-showcase/corpus-he.html">הקורפוס</a> · <a
+   href="https://shir-openu.github.io/meta-tagging-showcase/SEARCH.html">חיפוש</a> · <a
+   href="https://shir-openu.github.io/meta-tagging-showcase/TRANSFERS.html">מעברים</a></div>
 
-  <div class="pt-soon">בהמשך: המרחב השלילי — מונחים שהספרות הייתה אמורה לטבוע ולא טבעה.</div>
-
-  <div class="pt-foot" dir="ltr" style="text-align:start">
-    <!-- 2026-08-17. These eight links pointed a READER at raw machine data. verdicts.json
-         opens as {"circular":"1111101111111101111..."} and reference_scorer.py was served
-         as application/octet-stream, so clicking it DOWNLOADED a file rather than showing
-         anything. Every one returned HTTP 200 - and resolving is not the same as being
-         readable. The data stays open; it is now offered where a person can look at it. -->
-    נתונים פתוחים &mdash; כל מספר בעמוד הזה ניתן לשחזור מתוך
-    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">חמשת קובצי הנתונים</a>, ו־
-    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a> מחשב מהם את
-    הניקוד מחדש. בנוסף <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a> ו־
-    <a href="llms.txt">llms.txt</a>.
+  <div class="pt-foot" dir="rtl" style="text-align:start">
+    <!-- 2026-09-08. Was 55 words of provenance - five data files, reference_scorer.py,
+         README, llms.txt, the licence sentence, source code, other projects - standing
+         between a first-time visitor and the two things the page is for. All of it is in
+         the About dialog now. What stays is the licence and the name. -->
+    <span class="ltr">CC BY 4.0</span> ·
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
     <br>
-    <!-- 2026-08-17. This line was left in English on the Hebrew page. Shir: a Hebrew page must
-         not send its reader into English. Same fault as define/index-he.html linking at
-         ../method.html. -->
-    שכבת התיוג מסופקת תחת <span class="ltr">CC BY 4.0</span>. טקסט המאמרים שייך למחבריו, ומקושר ולא משוכפל.
-    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
-    · <a href="https://shir-openu.github.io/">פרויקטים נוספים</a>
-    <br><!-- The line here used to read:
-         Developed by Shir Sivroni &middot; &copy; 2026 Shir Sivroni
-     The year was an attempt to stamp a date on the work. It is not needed
-     for that and is not good evidence of one: the authoritative, citable
-     timestamp is the Zenodo preprint. Kept here as a record of what the
-     page used to say, and why it changed. 2026-08-16. -->
     <span class="pt-credit">&copy; Shir Sivroni</span>
   </div>
 
 </div>
+
+
+<dialog id="aboutDlg" class="about-dlg" dir="rtl">
+  <form method="dialog" class="about-x"><button aria-label="סגירה">&times;</button></form>
+
+  <h2>מה זו</h2>
+  <p>שכבת תיוג לספרות אקדמית. כל תג נושא את המשפט המדויק מהמאמר שממנו נגזר,
+     כך שכל טענה שלו ניתנת לבדיקה מול המקור.</p>
+
+  <h2>מה שונה כאן</h2>
+  <p>הגדרות לא נטענות אלא <b>ניקדות</b>. הגדרות מתחרות של מושג מדורגות
+     מול מקרים שהוכרעו, והגדרה מעגלית במכוון נשמרת בטבלה כבקרת בקרה:
+     אם היא מנצחת, הדירוג לא מדד דבר.</p>
+
+  <h2>מה עדיין לא גמור</h2>
+  <p>לשלושה מושגים יש לוח מנוקד. בקורפוס יש הרבה יותר מונחים שמוגדרים
+     ביותר מדרך אחת, והם מוצגים ללא ניקוד. בהמשך: המרחב השלילי &mdash;
+     מונחים שהספרות הייתה אמורה לטבוע ולא טבעה.</p>
+
+  <h2>הנתונים פתוחים</h2>
+  <p>כל מספר כאן ניתן לשחזור מתוך
+     <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">קובצי הנתונים</a>;
+     <a class="ltr" href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a>
+     מחשב מהם את הניקוד מחדש. בנוסף
+     <a class="ltr" href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a>,
+     <a class="ltr" href="llms.txt">llms.txt</a> ו<a href="https://shir-openu.github.io/">פרויקטים נוספים</a>.</p>
+  <p class="about-rights">שכבת התיוג מסופקת תחת <span class="ltr">CC BY 4.0</span>.
+     טקסט המאמרים שייך למחבריו, ומקושר ולא משוכפל.</p>
+</dialog>
+
+<script>
+/* The About dialog. The theme button is js/theme.js, shared by every page. */
+(function () {
+  var dlg = document.getElementById("aboutDlg");
+  var ab = document.getElementById("aboutBtn");
+  if (dlg && ab) ab.onclick = function () { dlg.showModal(); };
+})();
+</script>
 
 <!-- data/inline.js is NOT loaded here. It is 3.78 MB (1.22 MB gzipped) and it was
      98% of this page's transfer. The only code that reads MTP_INLINE on this page
