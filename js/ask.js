@@ -61,17 +61,25 @@
 
   function mailto() {
     var f = document.getElementById("askFile");
-    var body = [field.previousElementSibling.textContent + ": " + field.value];
+    var body = [];
+    if (field.value.trim()) body.push(field.previousElementSibling.textContent + ": " + field.value);
     if (f && f.files && f.files.length) body.push("(attach: " + f.files[0].name + ")");
     if (link()) body.push("", link());
-    return "mailto:shirsivroni@gmail.com?subject=" + encodeURIComponent(COPY.subject + field.value)
+    var what = field.value.trim() || (f && f.files && f.files.length ? f.files[0].name : "");
+    return "mailto:shirsivroni@gmail.com?subject=" + encodeURIComponent(COPY.subject + what)
          + "&body=" + encodeURIComponent(body.join("\n"));
   }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     out.innerHTML = "";
-    if (!field.value.trim()) {
+    /* A FILE IS AN ANSWER. Shir uploaded agrawal2009.pdf and the page still said "This field
+       is needed", because the check only looked at the text box. The whole point of this
+       page is "the paper, or the term" - and an attached paper IS the paper. Asking for a
+       DOI as well is asking twice for the same thing. */
+    var fEl = document.getElementById("askFile");
+    var hasFile = !!(fEl && fEl.files && fEl.files.length);
+    if (!field.value.trim() && !hasFile) {
       out.hidden = false;
       var w = document.createElement("p");
       w.className = "ask-warn";
