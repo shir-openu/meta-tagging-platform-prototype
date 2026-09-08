@@ -1443,3 +1443,97 @@ html[data-theme="light"] .conceptbtn b,
 html[data-theme="light"] .offerhead,
 html[data-theme="light"] .offer .oname,
 html[data-theme="light"] .ac-item .nm { color: #1c1622; }
+
+/* =====================================================
+   RES-QUILL'S PALETTE AND TYPE - 2026-09-08
+   Shir: "I THOUGHT YOU'LL TAKE THE COLORS FROM RES-QUILL TOO. THE FONTS. THE DESIGN. I
+   THINK THE APPEARANCE THERE LOOKS MORE PROFESSIONAL. JUST THE WAVES SHAPE AND MOVEMENT
+   LEAVE AS WE HAVE HERE."
+
+   Res-Quill is a Flutter app, so there is no stylesheet to copy - it paints to a canvas
+   and its design lives in Dart. Taken from lib/src/app_constants.dart, AppPalette, verbatim:
+
+       background  0xFF0F172A      cyan    0xFF22D3EE
+       surface     0xFF1E293B      violet  0xFFA78BFA
+                                   green   0xFF34D399
+                                   error   0xFFFF6B6B
+
+   That is Tailwind's slate/cyan/violet/emerald. The old ground was #120a12, a dark plum;
+   the difference she is reading as "more professional" is mostly that cool slate against
+   warm near-black, plus brighter accents at the same saturation.
+
+   THE WAVES KEEP THEIR SHAPE, THEIR MOTION AND THEIR OWN COLOURS. shell.css is untouched.
+   Teal #169999 and pink #ff4db8 sit correctly on slate; only the ground beneath them moves.
+
+   Type: Flutter's default is Roboto, which is what her screenshots show. Added at the front
+   of the existing stack rather than replacing it, so a machine without Roboto still falls
+   through to Inter and Segoe UI exactly as before.
+
+   House rule unchanged: colour on text and borders, never white text in a filled block.
+   ===================================================== */
+:root {
+  --rq-bg:      #0f172a;
+  --rq-surface: #1e293b;
+  --rq-cyan:    #22d3ee;
+  --rq-violet:  #a78bfa;
+  --rq-green:   #34d399;
+  --rq-error:   #ff6b6b;
+
+  --teal: #22d3ee;
+  --teal-lit: #67e8f9;
+  --pink: #a78bfa;
+  --ink: #e2e8f0;
+  --dim: #94a3b8;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, .22);
+  --panel: rgba(148, 163, 184, .08);
+}
+
+body { background: var(--rq-bg); }
+body, button, input, select, textarea {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* The card surface is Res-Quill's slate, not near-black, and the family tint rides on it. */
+.act, .step, .offer, .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, var(--rq-cyan)) 12%, transparent),
+                          color-mix(in srgb, var(--fam, var(--rq-cyan)) 12%, transparent)),
+    var(--rq-surface);
+}
+.act:hover, .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, var(--rq-cyan)) 20%, transparent),
+                          color-mix(in srgb, var(--fam, var(--rq-cyan)) 20%, transparent)),
+    var(--rq-surface);
+}
+.ac-dropdown, .ac-more, .owninput, #pOwn textarea { background: var(--rq-surface); }
+.about-dlg { background: var(--rq-surface); }
+
+/* Res-Quill's own light ground: Tailwind slate-50 with white surfaces, and the accents
+   darkened to keep contrast on it. */
+html[data-theme="light"] {
+  --rq-bg:      #f8fafc;
+  --rq-surface: #ffffff;
+  --teal: #0e7490;
+  --teal-lit: #155e75;
+  --pink: #6d28d9;
+  --ink:  #0f172a;
+  --dim:  #475569;
+  --muted: #475569;
+  --line: rgba(15, 23, 42, .14);
+  --panel: rgba(15, 23, 42, .04);
+}
+html[data-theme="light"] body { background: var(--rq-bg); }
+html[data-theme="light"] .pt-head h1,
+html[data-theme="light"] .pt-card h2,
+html[data-theme="light"] .pt-defh .nm,
+html[data-theme="light"] .pt-bar > span,
+html[data-theme="light"] .hero-result .win,
+html[data-theme="light"] .phead b,
+html[data-theme="light"] .pclose:hover,
+html[data-theme="light"] .step .ttl,
+html[data-theme="light"] .conceptbtn b,
+html[data-theme="light"] .offerhead,
+html[data-theme="light"] .offer .oname,
+html[data-theme="light"] .ac-item .nm { color: #0f172a; }
