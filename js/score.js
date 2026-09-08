@@ -1533,8 +1533,16 @@ function renderConcepts() {
   S.hits = shown;
   if (S.sel == null || S.sel >= shown.length) S.sel = 0;
 
+  /* TWO PAPER COUNTS, NAMED SEPARATELY, because they used to share one word.
+     `papers` is how many papers USE the term; `papers_scored` is how many supplied an
+     adjudicated case. For consciousness those are 86 and 7, and the picker showed the
+     7 under the label "papers" - so a term looked SMALLER for having been scored.
+     Shir found it by typing the word: "IT TELLS ME WE HAVE ONLY 6 PAPERS MENTIONING
+     THE TERM. CANNOT BE." Both numbers are true and neither is the other. */
   const counts = c => t("concept.counts")
-    .replace("{p}", c.papers).replace("{c}", c.cases).replace("{d}", c.definitions);
+    .replace("{p}", c.papers)
+    .replace("{s}", c.papers_scored != null ? c.papers_scored : c.papers)
+    .replace("{c}", c.cases).replace("{d}", c.definitions);
 
   let html = "";
   if (!hits.length) {
