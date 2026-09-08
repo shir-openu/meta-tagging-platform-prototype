@@ -1709,3 +1709,34 @@ html[data-theme="light"] .fee-case a:hover { color: #a4136f; }
               color: var(--dim); font-size: .8rem; line-height: 1.6; max-width: 32rem; }
 .ask-refund a, .ask-refund { word-break: normal; }
 html[data-theme="light"] .ask-warn { color: #8a5a00; }
+
+/* THE BUTTONS THAT COST MONEY ARE GOLD. Shir, 2026-09-08:
+   "tag a paper button should have gold color with icon of money coin or credit card."
+   Gold marks the two controls a visitor pays through, and separates them at a glance from
+   the free ones ("enter", "read"), which keep their family colours. Dark ink on gold rather
+   than white: #f0b429 under white is 2.0:1 and unreadable, under #1f1400 it is 10.4:1. */
+[data-paid-card] .go.pay-go,
+html[data-theme="light"] [data-paid-card] .go.pay-go {
+  background: linear-gradient(180deg, #f5c542, #e0a010);
+  border: 1px solid #c98a06;
+  color: #1f1400;
+  font-weight: 800;
+  display: inline-flex; align-items: center; gap: .45rem;
+}
+[data-paid-card] .go.pay-go:hover,
+html[data-theme="light"] [data-paid-card] .go.pay-go:hover {
+  background: linear-gradient(180deg, #ffd45e, #eaa813);
+  filter: none;
+}
+.coin { font-size: 1.05em; line-height: 1; }
+
+/* The pay button on the request pages is the same promise, so it is the same gold. */
+.ask-pay, .pay-btn.pay-tag, .pay-btn.pay-score,
+html[data-theme="light"] .ask-pay,
+html[data-theme="light"] .pay-btn.pay-tag,
+html[data-theme="light"] .pay-btn.pay-score {
+  background: linear-gradient(180deg, #f5c542, #e0a010);
+  border: 1px solid #c98a06;
+  color: #1f1400;
+}
+.ask-pay:hover { background: linear-gradient(180deg, #ffd45e, #eaa813); filter: none; }

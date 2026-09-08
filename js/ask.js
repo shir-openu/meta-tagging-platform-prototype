@@ -1,21 +1,25 @@
 /* One field, one button, one payment. All four request pages.
  *
- * Shir, 2026-09-08: "העיצוב צריך להיראות אקדמי והוא נראה המוני... תעיפי משם את כל הפרטים,
- * לא צריך כלום, רק להעלות את המאמר או רק לכתוב את המושג שרוצים להגדיר. כל השאר אפשר להוציא
- * מהמאמר עצמו."
+ * Shir, 2026-09-08: "תעיפי משם את כל הפרטים, לא צריך כלום, רק להעלות את המאמר או רק לכתוב
+ * את המושג שרוצים להגדיר. כל השאר אפשר להוציא מהמאמר עצמו."
  *
  * She is right, and it is the better design on the merits. The old intake asked six
  * questions - licence, full text, selectable sentences, language, item kind, source shape -
  * and every one of those answers is READ FROM THE PAPER once we have it. A form that asks a
- * person to tell us what the document will tell us anyway is a form that exists for the
- * builder's convenience, not the visitor's. It also asked them to pre-judge their own
- * request, which is our job and the reason there is a manual review at all.
+ * person to tell us what the document will tell us anyway exists for the builder's
+ * convenience, not the visitor's. It also asked them to pre-judge their own request, which
+ * is our job and the whole reason there is a manual review.
  *
- * So: the paper, or the term. Everything else comes out of the source.
+ * (This file was rewritten after an edit script truncated it to zero bytes: it opened the
+ * file for writing, then the write itself raised on a bad character. `open(...,"w")` empties
+ * the file BEFORE the content arrives, so a failing write leaves nothing behind. The site
+ * kept serving a 0-byte script and the pay button simply stopped existing, with no error in
+ * the console. Build the whole string first, write once.)
  */
 (function () {
   "use strict";
   var he = document.documentElement.lang === "he";
+  var COIN = "🪙";
   var COPY = he ? {
     pay: "לתשלום",
     sendFirst: "נפתח PayPal. שלחו גם את הדוא״ל, כדי שנדע במה מדובר.",
@@ -48,13 +52,15 @@
   function price() {
     try { return "$" + window.MTP_PAY.ACTIONS[action].price; } catch (e) { return ""; }
   }
+  function link() {
+    try { return window.MTP_PAY.payLink(); } catch (e) { return ""; }
+  }
 
   function mailto() {
     var f = document.getElementById("askFile");
     var body = [field.previousElementSibling.textContent + ": " + field.value];
     if (f && f.files && f.files.length) body.push("(attach: " + f.files[0].name + ")");
-    var link = (window.MTP_PAY && window.MTP_PAY.payLink) ? window.MTP_PAY.payLink() : "";
-    if (link) body.push("", link);
+    if (link()) body.push("", link());
     return "mailto:shirsivroni@gmail.com?subject=" + encodeURIComponent(COPY.subject + field.value)
          + "&body=" + encodeURIComponent(body.join("\n"));
   }
@@ -64,22 +70,27 @@
     out.innerHTML = "";
     if (!field.value.trim()) {
       out.hidden = false;
-      var w = document.createElement("p"); w.className = "ask-warn"; w.textContent = COPY.empty;
+      var w = document.createElement("p");
+      w.className = "ask-warn";
+      w.textContent = COPY.empty;
       out.appendChild(w);
       field.focus();
       return;
     }
     out.hidden = false;
 
-    var link = (window.MTP_PAY && window.MTP_PAY.payLink) ? window.MTP_PAY.payLink() : "";
-    if (link) {
+    if (link()) {
       var a = document.createElement("a");
       a.className = "ask-pay";
-      a.href = link; a.target = "_blank"; a.rel = "noopener";
-      a.textContent = COPY.pay + " " + price();
+      a.href = link();
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = COIN + " " + COPY.pay + " " + price();
       out.appendChild(a);
     } else {
-      var n = document.createElement("p"); n.className = "ask-warn"; n.textContent = COPY.offline;
+      var n = document.createElement("p");
+      n.className = "ask-warn";
+      n.textContent = COPY.offline;
       out.appendChild(n);
     }
 
