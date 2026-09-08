@@ -16,8 +16,9 @@
 <meta name="twitter:description" content="A verbatim-grounded tag layer for academic literature. Build a corpus, test definitions, and check every score against the exact sentence it came from.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="he" href="index-he.html">
-<link rel="stylesheet" href="css/shell.css?v=5b9aa9d4">
-<link rel="stylesheet" href="css/platform.css?v=5b9aa9d4">
+<link rel="stylesheet" href="css/shell.css?v=bbcff7de">
+<script src="js/theme.js?v=bbcff7de" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=bbcff7de">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -67,8 +68,11 @@
   <div class="pt-head">
     <h1>Meta-Tagging Platform</h1>
     <span class="tag">prototype</span>
+    <button class="pt-btn" id="aboutBtn" style="margin-inline-start:auto"
+            aria-haspopup="dialog">What is this?</button>
+    <button class="pt-btn theme" id="themeBtn" aria-pressed="false">Bright view</button>
     <a class="pt-btn" href="index-he.html"
-       style="margin-inline-start:auto;text-decoration:none">עברית</a>
+       style="text-decoration:none">עברית</a>
     <div class="sub">A tag layer for academic literature in which <b>every tag carries the exact sentence from the paper it was read from</b>.</div>
   </div>
 
@@ -77,7 +81,7 @@
       <div class="row"><span class="ic">🔍</span><h2>Find the definition that fits a corpus</h2>
         <span class="state">live</span></div>
       <div class="disc">
-        <a class="go" href="define/?lang=en">enter</a>
+        <a class="go primary" href="define/?lang=en">enter</a>
         <button class="tog" data-why="w0" aria-expanded="false" aria-controls="w0" aria-label="why — Find the definition that fits a corpus">?</button>
         <button class="tog" data-why="n0" aria-expanded="false" aria-controls="n0" aria-label="notes — Find the definition that fits a corpus">&#8801;</button>
       </div>
@@ -125,16 +129,15 @@
        showcase and neither went to its front: one is a search box, the other is one report.
        A visitor on this page could not get to the 907 tagged papers in a click. Added first
        because it is the thing the other two are about. -->
-  <div class="pt-soon">Now live: <a
-   href="https://shir-openu.github.io/meta-tagging-showcase/corpus.html">the tagged corpus</a> ·
-   <a
-   href="https://shir-openu.github.io/meta-tagging-showcase/SEARCH.html">search the tag layer</a> ·
-   <a
-   href="https://shir-openu.github.io/meta-tagging-showcase/TRANSFERS.html">where the method came
-   from</a>.</div>
-
-  <div class="pt-soon">Also planned: the negative space — terms the literature should have coined
-   and did not.</div>
+  <!-- 2026-09-08. Shir: "THE APP SHOULD BE CLEAN CLEAR AND ONLY WITH THE NECESSARY TEXT."
+       Three links, three words. What they are is obvious from where they go, and the
+       sentence that used to introduce them said nothing the link text did not. The
+       "also planned" line moved into the About dialog: a plan is not an action, and it
+       was sitting where a visitor looks for one. -->
+  <div class="pt-soon"><a
+   href="https://shir-openu.github.io/meta-tagging-showcase/corpus.html">the corpus</a> · <a
+   href="https://shir-openu.github.io/meta-tagging-showcase/SEARCH.html">search</a> · <a
+   href="https://shir-openu.github.io/meta-tagging-showcase/TRANSFERS.html">transfers</a></div>
 
   <div class="pt-foot" dir="ltr" style="text-align:start">
     <!-- 2026-08-17. These eight links pointed a READER at raw machine data. verdicts.json
@@ -142,15 +145,14 @@
          as application/octet-stream, so clicking it DOWNLOADED a file rather than showing
          anything. Every one returned HTTP 200 - and resolving is not the same as being
          readable. The data stays open; it is now offered where a person can look at it. -->
-    Open data &mdash; every number on this page is reproducible from
-    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">the five data files</a>, and
-    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a> recomputes the
-    scores from them. Also <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a> and
-    <a href="llms.txt">llms.txt</a>.
-    <br>
-    The tag layer is CC BY 4.0. Paper text belongs to its authors, and is linked rather than reproduced.
-    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">source code</a>
-    · <a href="https://shir-openu.github.io/">other projects</a>
+    <!-- 2026-09-08. This footer was 55 words of provenance - five data files,
+         reference_scorer.py, README, llms.txt, the licence, the rights sentence, source
+         code, other projects - standing between a first-time visitor and the two things
+         the page is for. None of it is wrong and none of it is first. It is all in the
+         About dialog now, which is one button away and is where somebody who wants it
+         will look. What stays is the licence and the name. -->
+    CC BY 4.0 ·
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">source</a>
     <br><!-- The line here used to read:
          Developed by Shir Sivroni &middot; &copy; 2026 Shir Sivroni
      The year was an attempt to stamp a date on the work. It is not needed
@@ -162,6 +164,42 @@
 
 </div>
 
+<!-- WHAT IS THIS - the text the front page does not need, one button away.
+     Shir, 2026-09-08: "A WHAT IS OUR PLATFORM BUTTON THAT WHEN PRESSED OPENS A WINDOW WITH
+     SHORT CONCISE EXPLANATION. NOT THE HUGE HTML REPORT BUT A FEW SENTENCES. THINGS YOU
+     WANTED TO PUT IN THE MAIN APP PAGE AND DELETED BECAUSE I ASKED FOR MINIMAL TEXT."
+     So this is exactly that and no more: what the thing is, what makes it different, what
+     is not finished, and where the data is. A native <dialog> - it closes on Escape and on
+     the backdrop without a line of script for either. -->
+<dialog id="aboutDlg" class="about-dlg">
+  <form method="dialog" class="about-x"><button aria-label="close">&times;</button></form>
+
+  <h2>What this is</h2>
+  <p>A tag layer for academic literature. Every tag carries the exact sentence from the
+     paper it was read from, so any claim it makes can be checked against the source.</p>
+
+  <h2>What makes it different</h2>
+  <p>Definitions are not asserted, they are <b>scored</b>. Rival definitions of a concept
+     are ranked against adjudicated cases, and a deliberately circular definition is kept
+     in the table as a control: if it wins, the ranking has measured nothing.</p>
+
+  <h2>What is not finished</h2>
+  <p>Three concepts have a scored board. The corpus holds far more terms that are defined
+     more than one way, and those are shown without a score. Planned next: the negative
+     space &mdash; terms the literature should have coined and did not.</p>
+
+  <h2>The data is open</h2>
+  <p>Every number here is reproducible from
+     <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">the data files</a>;
+     <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a>
+     recomputes the scores from them. Also
+     <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a>,
+     <a href="llms.txt">llms.txt</a> and
+     <a href="https://shir-openu.github.io/">other projects</a>.</p>
+  <p class="about-rights">The tag layer is CC BY 4.0. Paper text belongs to its authors and
+     is linked, never reproduced.</p>
+</dialog>
+
 <!-- data/inline.js is NOT loaded here. It is 3.78 MB (1.22 MB gzipped) and it was
      98% of this page's transfer. The only code that reads MTP_INLINE on this page
      bails on its second line -- `if (!box) return` -- because the entry page has no
@@ -170,6 +208,15 @@
      the fetch works and the numbers appear, and on file:// they would silently
      vanish. The define pages still load it conditionally, because score.js does
      read it. -->
+<script>
+/* The About dialog. The theme button is js/theme.js, shared by every page. */
+(function () {
+  var dlg = document.getElementById("aboutDlg");
+  var ab = document.getElementById("aboutBtn");
+  if (dlg && ab) ab.onclick = function () { dlg.showModal(); };
+})();
+</script>
+
 <script>
 // "?" opens the description; the second button opens the notes. Nothing on arrival.
 // One at a time within a card: a card has both buttons and both panels used to stand open

@@ -1318,3 +1318,128 @@ a:focus-visible {
 .compare-list a:hover, .compare-list a:focus-visible { color: var(--teal-lit); }
 .compare-src { color: var(--dim); font-size: .82rem; margin-inline-start: .45rem;
   white-space: nowrap; }
+
+/* =====================================================
+   BRIGHT VIEW - 2026-09-08
+   Shir: "IT CONTAINS A DARK AS WELL AS BRIGHT VIEW ... IN OUR APP THEY LOOK NICE AND ARE
+   MOOVING. IN THE RESQUILL THEY ARE NOT GOOD."
+   So: a bright view is added and THE WAVES ARE NOT TOUCHED. shell.css is unchanged, the
+   markup is unchanged, and dark mode renders byte for byte what it rendered before. The only
+   thing the light view does to the wave layer is raise its opacity, because a 10% coloured
+   stroke that reads well on #120a12 disappears on a pale ground - the same waves, made
+   visible, not redesigned.
+   House rule kept throughout (Shir, 2026-08-09): colour on text and borders, never white
+   text inside a filled coloured block.
+   ===================================================== */
+html[data-theme="light"] {
+  --ink:  #1c1622;
+  --dim:  #5c6470;
+  --muted: var(--dim);
+  --line: rgba(28, 22, 34, .16);
+  --panel: rgba(255, 255, 255, .70);
+  --teal: #0f6f6f;
+  --teal-lit: #0b5757;
+  --pink: #c01d86;
+  --wine: #7d0c1c;
+}
+html[data-theme="light"] body { background: #f6f2f7; color: var(--ink); }
+html[data-theme="light"] .animated-background { opacity: .28; }
+/* THE FOUR CARD SURFACES, NOT THE ONE I HAPPENED TO SEE.
+   `.act, .step, .offer, .panel` share one rule: a low-alpha wash of the card's family
+   colour over a hard-coded #14101a. I overrode `.act` alone, so the entry page looked
+   right and the define page's two step cards stayed near-black with dark text on them -
+   unreadable, and found only by rendering the second page. Same gradient, light base, and
+   a slightly stronger tint because 14% of a colour disappears on white.
+   The house rule still holds: this is a wash behind normal ink, not white on a colour. */
+html[data-theme="light"] .act,
+html[data-theme="light"] .step,
+html[data-theme="light"] .offer,
+html[data-theme="light"] .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 10%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 10%, transparent)),
+    #ffffff;
+}
+html[data-theme="light"] .act:hover,
+html[data-theme="light"] .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 18%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 18%, transparent)),
+    #ffffff;
+}
+html[data-theme="light"] .pt-card { background: rgba(255, 255, 255, .78); }
+html[data-theme="light"] .ac-dropdown,
+html[data-theme="light"] .ac-more,
+html[data-theme="light"] .owninput,
+html[data-theme="light"] #pOwn textarea { background: #ffffff; color: var(--ink); }
+html[data-theme="light"] .act .go:hover { background: rgba(0, 0, 0, .04); }
+html[data-theme="light"] .start-term { background: rgba(15, 111, 111, .10); color: var(--teal-lit); }
+html[data-theme="light"] .start-here { background: rgba(255, 255, 255, .60); }
+
+/* THE PRIMARY ACTION, WITHOUT A FILLED BLOCK.
+   Res-Quill marks its first action with a bright filled button and white text. That is the
+   one thing on that page this project may not copy: "never white text inside a coloured
+   block". So the primary action is marked by WEIGHT instead - a heavier border, a larger
+   target and a tinted ground that keeps the label in its own colour. */
+.act .go.primary {
+  border-width: 2px;
+  padding: .42rem 1.3rem;
+  font-size: 1.06rem;
+  background: color-mix(in srgb, var(--fam, var(--teal)) 14%, transparent);
+}
+.act .go.primary:hover {
+  background: color-mix(in srgb, var(--fam, var(--teal)) 24%, transparent);
+}
+
+/* The theme button sits with the language button and behaves the same way. */
+.pt-btn.theme { font-variant: normal; letter-spacing: .01em; }
+
+/* ---------- the "What is this?" dialog ----------
+   A native <dialog>: Escape and the backdrop close it with no script. Sized to be read,
+   not to fill the screen, and it scrolls on a phone rather than pushing its close button
+   off the top. Colour on text, never a filled block. */
+.about-dlg {
+  /* A native <dialog> centres itself only while the UA stylesheet's `margin: auto` survives.
+     Something upstream sets a margin on generic blocks, so it was pinning top-left. */
+  margin: auto;
+  max-width: 46rem; width: calc(100% - 2rem); max-height: 82vh; overflow: auto;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: #171021; color: var(--ink);
+  padding: 1.4rem 1.6rem 1.6rem; line-height: 1.55;
+}
+html[data-theme="light"] .about-dlg { background: #fffdff; }
+.about-dlg::backdrop { background: rgba(0, 0, 0, .58); }
+html[data-theme="light"] .about-dlg::backdrop { background: rgba(28, 22, 34, .34); }
+.about-dlg h2 {
+  margin: 1.15rem 0 .3rem; font-size: .82rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--teal-lit);
+}
+.about-dlg h2:first-of-type { margin-top: 0; }
+.about-dlg p { margin: 0; font-size: .96rem; }
+.about-dlg a { color: var(--teal-lit); }
+.about-rights { margin-top: .7rem !important; color: var(--dim); font-size: .86rem !important; }
+.about-x { display: flex; justify-content: flex-end; margin: -.4rem -.6rem .2rem 0; }
+.about-x button {
+  font: inherit; font-size: 1.5rem; line-height: 1; cursor: pointer;
+  background: none; border: 0; color: var(--dim); padding: .1rem .4rem;
+}
+.about-x button:hover { color: var(--ink); }
+
+/* EVERY LITERAL WHITE, NOT THE ONE I SAW.
+   The h1 is hard-coded #fff and vanished on the pale ground. Fixing that one line would
+   have left ELEVEN MORE to be found one screenshot at a time - the define page's concept
+   names, the score headline, the offered definitions, the picker rows. Enumerated from the
+   stylesheet rather than from what happened to be on screen. Any new rule that sets a
+   literal white must be added here in the same commit. */
+html[data-theme="light"] .pt-head h1,
+html[data-theme="light"] .pt-card h2,
+html[data-theme="light"] .pt-defh .nm,
+html[data-theme="light"] .pt-bar > span,
+html[data-theme="light"] .hero-result .win,
+html[data-theme="light"] .phead b,
+html[data-theme="light"] .pclose:hover,
+html[data-theme="light"] .step .ttl,
+html[data-theme="light"] .conceptbtn b,
+html[data-theme="light"] .offerhead,
+html[data-theme="light"] .offer .oname,
+html[data-theme="light"] .ac-item .nm { color: #1c1622; }
