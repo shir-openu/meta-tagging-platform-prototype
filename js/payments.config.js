@@ -22,6 +22,6 @@ window.MTP_PAY_CONFIG = {
      system, and the API above is for volume that does not exist yet.
      Fill this in and every accepted request carries it. Leave it empty and the pages say
      the fee is arranged by email, exactly as they do now. */
-  payLink: "",    // e.g. "https://paypal.me/shirsivroni"
-  payNote: "",    // optional, e.g. "or Bit to 050-787-7086"
+  payLink: "https://www.paypal.com/paypalme/shirsivroni",
+  payNote: "Or send to shirsivroni@gmail.com in PayPal - any PayPal account can.",
 };
