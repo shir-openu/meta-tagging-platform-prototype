@@ -31,7 +31,9 @@
       paidBody: "This receipt token is your proof of payment and how your request is matched. It has been added to the email below; send that email to complete the request.",
       emailToken: "Payment receipt token (keep this):",
       emailSubject: "Score a definition: ",
-      emailPay: "To pay, use this link:"
+      emailPay: "To pay, use this link:",
+      payNow: "Pay",
+      payAfter: "Opens PayPal. Send the email below as well, so we know which term it is for."
     },
     he: {
       accepted: "אפשר לנקד את המונח הזה. התשלום פותח את הבקשה; הלוח נמסר לכתובת שממנה שלחתם.",
@@ -42,7 +44,9 @@
       paidBody: "אסימון הקבלה הוא ההוכחה לתשלום וכך הבקשה מזוהה. הוסף לדוא”ל שלמטה; שלחו אותו כדי להשלים את הבקשה.",
       emailToken: "אסימון קבלת תשלום (שמרו אותו):",
       emailSubject: "ניקוד הגדרה: ",
-      emailPay: "לתשלום, דרך הקישור הזה:"
+      emailPay: "לתשלום, דרך הקישור הזה:",
+      payNow: "לתשלום",
+      payAfter: "נפתח PayPal. שלחו גם את הדוא״ל שלמטה, כדי שנדע על איזה מונח מדובר."
     }
   }[lang];
 
@@ -125,6 +129,27 @@
   function offerPayment() {
     payArea.hidden = false;
     payArea.innerHTML = "";
+    /* NO API, BUT A LINK: that is a way to pay, so offer it. This branch is the one that
+       actually earns money right now - the PayPal API needs a business account and its keys,
+       and a link needs neither. It was written after the API was finished and could not be
+       switched on, which is the wrong order and the lesson of the day. */
+    if ((!window.MTP_PAY || !window.MTP_PAY.ready()) && window.MTP_PAY && window.MTP_PAY.payLink()) {
+      var a = document.createElement("a");
+      a.className = "pay-btn pay-score";
+      a.href = window.MTP_PAY.payLink();
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = COPY.payNow + " $" + window.MTP_PAY.ACTIONS.score_def.price;
+      payArea.appendChild(a);
+      var sub = document.createElement("div");
+      sub.className = "field-note";
+      sub.style.marginTop = ".45rem";
+      sub.textContent = COPY.payAfter + (window.MTP_PAY.payNote() ? " " + window.MTP_PAY.payNote() : "");
+      payArea.appendChild(sub);
+      emailBtn.href = mailto(null);
+      emailBtn.hidden = false;
+      return;
+    }
     if (!window.MTP_PAY || !window.MTP_PAY.ready()) {
       /* Never an inert button. The email route still works and is stated plainly. */
       var note = document.createElement("div");

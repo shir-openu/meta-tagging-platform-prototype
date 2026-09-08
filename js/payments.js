@@ -68,7 +68,17 @@
     });
   }
 
+  /* ready() answers a NARROW question: can a PayPal button be mounted? It needs the API and
+     the client id, and only mount() should ask it.
+
+     canSell() is the question the SITE cares about: is there any way at all for somebody to
+     pay? A payment LINK is a way. Conflating the two is what kept the paid cards hidden on a
+     site whose payment link was already live - the API was built first, so its readiness
+     became the gate for everything, and the simpler route that actually works could not
+     switch the cards on. */
   function ready() { return !!(API && CLIENT_ID); }
+  function payLink() { return (window.MTP_PAY_CONFIG && window.MTP_PAY_CONFIG.payLink) || ""; }
+  function canSell() { return ready() || !!payLink(); }
 
   function mount(el, opts) {
     opts = opts || {};
@@ -129,7 +139,9 @@
     });
   }
 
-  window.MTP_PAY = { ACTIONS: ACTIONS, mount: mount, ready: ready };
+  window.MTP_PAY = { ACTIONS: ACTIONS, mount: mount, ready: ready,
+                     canSell: canSell, payLink: payLink,
+                     payNote: function () { return (window.MTP_PAY_CONFIG && window.MTP_PAY_CONFIG.payNote) || ""; } };
 
   /* THE PAID CARDS ARE HIDDEN UNTIL PAYMENTS CAN ACTUALLY TAKE MONEY.
      Until 2026-09-08 they were hidden by two CSS blocks whose comments said "delete this to
@@ -138,7 +150,7 @@
      payments.config.js is filled in the cards appear on every page at once.
      Set on <html> before first paint where possible, so a paid card never flashes and
      vanishes. */
-  document.documentElement.setAttribute("data-payments", ready() ? "on" : "off");
+  document.documentElement.setAttribute("data-payments", canSell() ? "on" : "off");
 
   /* Every price on the page comes from ACTIONS, never from prose. A number typed into HTML
      goes stale the moment the price moves, and a stale price on a page that takes money is

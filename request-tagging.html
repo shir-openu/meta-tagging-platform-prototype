@@ -7,11 +7,16 @@
 <meta name="description" content="Check whether a paper can enter the manual $2 meta-tagging service before any payment is requested.">
 <link rel="alternate" hreflang="en" href="request-tagging.html">
 <link rel="alternate" hreflang="he" href="request-tagging-he.html">
-<link rel="stylesheet" href="css/shell.css?v=6b1de009">
-<script src="js/theme.js?v=6b1de009" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=6b1de009">
-<link rel="stylesheet" href="css/intake.css?v=6b1de009">
-<script src="js/payments.js?v=6b1de009" defer></script>
+<link rel="stylesheet" href="css/shell.css?v=0fb6b6e8">
+<script src="js/theme.js?v=0fb6b6e8" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=0fb6b6e8">
+<link rel="stylesheet" href="css/intake.css?v=0fb6b6e8">
+<!-- The config must load BEFORE payments.js and WITHOUT defer: it carries the pay
+     link, and payments.js decides on the strength of it whether this page can take
+     money at all. Without it the page believed payments were off while the link was
+     live - the pay button simply never appeared. -->
+<script src="js/payments.config.js?v=0fb6b6e8"></script>
+<script src="js/payments.js?v=0fb6b6e8" defer></script>
 </head>
 <body class="intake-page">
 
@@ -155,7 +160,7 @@
   <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · Every accepted paper is tagged by hand, with the exact source sentence behind each tag. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
 </main>
 
-<script src="js/intake.js?v=6b1de009"></script>
+<script src="js/intake.js?v=0fb6b6e8"></script>
 <script>
 /* PAYMENT WIRING — terminal-a. The PayPal button (MTP_PAY.mount) is drawn ONLY after the source
    check returns "accepted"; a refused or incomplete source has no pay button in the DOM at all.
@@ -168,6 +173,7 @@
     en: {
       lede: "The source check passed. Paying charges the $2 now, through PayPal.",
       pay: "Pay",
+      linkNote: "Opens PayPal. Send the email above as well, so we know which paper it is for.",
       unavail: "Online card payment is not switched on yet. Use “Email this request” above — your accepted source goes by email and the fee is arranged there. Nothing is charged on this page.",
       paidTitle: "Payment received — keep this token",
       paidBody: "This receipt token is your proof of payment and how your request is matched. We have added it to your email below; send that email to complete your request.",
@@ -176,6 +182,7 @@
     he: {
       lede: "בדיקת המקור עברה. התשלום גובה את שני הדולר עכשיו, דרך PayPal.",
       pay: "לתשלום",
+      linkNote: "נפתח PayPal. שלחו גם את הדוא״ל שלמעלה, כדי שנדע על איזה מאמר מדובר.",
       unavail: "תשלום מקוון בכרטיס עדיין לא הופעל. השתמשו ב„שליחת הבקשה בדוא״ל” שלמעלה — המקור שהתקבל נשלח בדוא״ל והתשלום מתואם שם. בעמוד הזה לא מבוצע חיוב.",
       paidTitle: "התשלום התקבל — שמרו את האסימון",
       paidBody: "אסימון הקבלה הזה הוא ההוכחה לתשלום וכך הבקשה שלכם מזוהה. הוספנו אותו לדוא״ל שלמטה; שִׁלחו את הדוא״ל כדי להשלים את הבקשה.",
@@ -238,8 +245,23 @@
       if (email && email.parentNode) email.parentNode.insertBefore(zone, email.nextSibling);
       else result.parentNode.insertBefore(zone, result.nextSibling);
 
-      var ready = false;
+      var ready = false, link = "";
       try { ready = !!(window.MTP_PAY && window.MTP_PAY.ready && window.MTP_PAY.ready()); } catch (e) {}
+      try { link = (window.MTP_PAY && window.MTP_PAY.payLink) ? window.MTP_PAY.payLink() : ""; } catch (e) {}
+      /* NO API BUT A LINK IS STILL A WAY TO PAY. META, 2026-09-08: the PayPal API needs a
+         business account and its keys; a paypal.me link needs neither, and it is what makes
+         this page able to take money today. Built after the API, which was the wrong order. */
+      if (!ready && link) {
+        var pa = document.createElement("a");
+        pa.className = "pay-btn pay-tag";
+        pa.href = link; pa.target = "_blank"; pa.rel = "noopener";
+        pa.textContent = COPY.pay + " " + priceStr();
+        zone.appendChild(pa);
+        var pn = document.createElement("p"); pn.className = "pay-lede";
+        pn.textContent = COPY.linkNote;
+        zone.appendChild(pn);
+        return;
+      }
       if (!ready) {
         var u = document.createElement("p"); u.className = "pay-unavailable"; u.textContent = COPY.unavail;
         zone.appendChild(u);
