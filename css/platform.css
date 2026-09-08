@@ -1740,3 +1740,24 @@ html[data-theme="light"] .pay-btn.pay-score {
   color: #1f1400;
 }
 .ask-pay:hover { background: linear-gradient(180deg, #ffd45e, #eaa813); filter: none; }
+
+/* The price rides ON the button, one line, never orphaned. Shir: "the $2 should be in the
+   same button - Tag a paper - 2$". With an em-dash and normal wrapping the label broke
+   across two lines and left the dash alone on the second, which looked like a bug. */
+[data-paid-card] .go.pay-go { white-space: nowrap; }
+.btn-price { font-variant-numeric: tabular-nums; opacity: .92; }
+.btn-price::before { content: "\00a0\00b7\00a0"; opacity: .55; }
+/* Four cards across is what forces the wrap; below that width they stack anyway. */
+@media (max-width: 1500px) { .acts { flex-wrap: wrap; } }
+
+/* "Score a definition · $2.50" is a long nowrap button, and the ? and ≡ beside it were
+   pushed clean outside the card. The row wraps now: the small buttons drop under rather
+   than escaping the panel. Seen only by rendering the four cards side by side. */
+[data-paid-card] .disc { flex-wrap: wrap; row-gap: .5rem; }
+[data-paid-card] .go.pay-go { max-width: 100%; }
+
+/* nowrap on the whole button made the longer label overrun the card and clip its own price.
+   Only the PRICE needs to stay together; the label may wrap. That keeps "· $2.50" intact
+   and the button inside its panel at every width. */
+[data-paid-card] .go.pay-go { white-space: normal; }
+.btn-price { white-space: nowrap; }
