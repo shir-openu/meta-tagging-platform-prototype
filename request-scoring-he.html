@@ -7,12 +7,12 @@
 <meta name="description" content="נוקבים מונח שהקורפוס עדיין לא מגדיר, ובונים לו לוח: ההגדרות המתחרות, המקרים שהוכרעו, טבלת MCC והבקרה המעגלית.">
 <link rel="alternate" hreflang="en" href="request-scoring.html">
 <link rel="alternate" hreflang="he" href="request-scoring-he.html">
-<link rel="stylesheet" href="css/shell.css?v=0fb6b6e8">
-<script src="js/theme.js?v=0fb6b6e8" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=0fb6b6e8">
-<link rel="stylesheet" href="css/intake.css?v=0fb6b6e8">
-<script src="js/payments.config.js?v=0fb6b6e8"></script>
-<script src="js/payments.js?v=0fb6b6e8"></script>
+<link rel="stylesheet" href="css/shell.css?v=6b4c0f0c">
+<script src="js/theme.js?v=6b4c0f0c" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=6b4c0f0c">
+<link rel="stylesheet" href="css/intake.css?v=6b4c0f0c">
+<script src="js/payments.config.js?v=6b4c0f0c"></script>
+<script src="js/payments.js?v=6b4c0f0c"></script>
 </head>
 <body class="intake-page">
 
@@ -37,12 +37,7 @@
   </header>
 
   <section class="intake-hero" aria-labelledby="scoreTitle">
-    <div class="intake-kicker">קודם בדיקת המונח · אין כפתור תשלום מיידי</div>
     <h1 id="scoreTitle">ניקוד הגדרה</h1>
-    <p>נוקבים מונח שהקורפוס הזה עדיין לא מגדיר, ואנחנו בונים לו לוח: ההגדרות המתחרות שהספרות
-       באמת משתמשת בהן, המקרים שכל אחת מהן מוכרעת מולם, טבלת <span class="ltr">MCC</span>,
-       והגדרה מעגלית במכוון שנשמרת בטבלה כבקרה.</p>
-    <p><b>הלוחות שכבר קיימים חינמיים.</b> זה נועד למונח שאין לו לוח.</p>
     <div class="price-lockup">
       <span class="price ltr" data-price-for="score_def">$2.50</span><span class="unit">למונח שמתקבל</span>
       <span class="outline-badge">אין תשלום לפני שהמונח מתקבל</span>
@@ -52,58 +47,46 @@
   <div class="intake-grid">
     <section class="intake-panel" aria-labelledby="checkTitle">
       <h2 id="checkTitle">בדיקת המונח לפני תשלום</h2>
-      <p class="field-note">הבדיקה בדפדפן אינה שולחת דבר. תוצאה חיובית חושפת את כפתור התשלום
-         ופותחת הודעת דוא״ל מוכנה.</p>
 
       <form id="scorePreflight" class="preflight-form" novalidate>
         <label class="source-label" for="term">המונח</label>
         <input class="source-input" id="term" name="term" autocomplete="off"
                placeholder="למשל: potential" required>
-        <span class="field-note">מונח אחד. אם הכוונה לצירוף שהספרות מתייחסת אליו כיחידה אחת —
-              לכתוב אותו כיחידה אחת.</span>
 
         <label class="source-label" for="field">התחום או הספרות שבהם מדובר</label>
         <input class="source-input" id="field" name="field" autocomplete="off"
                placeholder="למשל: חקר ההוראה של הפיזיקה" required>
-        <span class="field-note">מילה אחת אומרת דברים שונים בתחומים שונים; הלוח נבנה בתוך אחד מהם.</span>
 
         <fieldset class="choice-set">
           <legend class="source-label">האם המונח מוגדר ביותר מדרך אחת?</legend>
           <label class="choice"><input type="radio" name="rivalry" value="yes" required>
-            <span>כן, אני מכיר/ה הגדרות מתחרות
-              <small>המקרה החזק ביותר. אפשר לנקוב אחת או שתיים למטה.</small></span></label>
+            <span>כן, אני מכיר/ה הגדרות מתחרות</span></label>
           <label class="choice"><input type="radio" name="rivalry" value="suspect">
-            <span>נראה לי שכן, אבל איני יכול/ה לנקוב בהן
-              <small>אנחנו בודקים. אם מתברר שהספרות מסכימה — נאמר זאת ונחזיר את הכסף.</small></span></label>
+            <span>נראה לי שכן, אבל איני יכול/ה לנקוב בהן</span></label>
           <label class="choice"><input type="radio" name="rivalry" value="no">
-            <span>לא, הגדרה אחת מוסכמת
-              <small>אז אין מה לנקד, והבקשה נדחית עוד לפני תשלום.</small></span></label>
+            <span>לא, הגדרה אחת מוסכמת</span></label>
         </fieldset>
 
         <label class="source-label" for="rivals">הגדרות מתחרות שכבר ידועות לכם</label>
         <textarea class="source-input" id="rivals" name="rivals" rows="3"
                   placeholder="אחת בכל שורה, עם המאמר אם יש."></textarea>
-        <span class="field-note">אופציונלי, וזה הדבר הכי מועיל שאפשר לתת לנו.</span>
 
         <fieldset class="choice-set">
           <legend class="source-label">יש לכם מאמרים שמשתמשים במונח?</legend>
           <label class="choice"><input type="radio" name="corpus" value="have" required>
-            <span>כן, אשלח רשימה או <span class="ltr">DOI</span>־ים
-              <small>המאמרים שלכם הופכים לקורפוס שמולו הלוח מנוקד.</small></span></label>
+            <span>כן, אשלח רשימה או <span class="ltr">DOI</span>־ים</span></label>
           <label class="choice"><input type="radio" name="corpus" value="ours">
-            <span>להשתמש במה שכבר יש בקורפוס הזה
-              <small>נבדוק קודם שיש כאן מספיק מאמרים שמשתמשים במונח בכלל.</small></span></label>
+            <span>להשתמש במה שכבר יש בקורפוס הזה</span></label>
         </fieldset>
 
         <fieldset class="choice-set">
           <legend class="source-label">למה מיועדת התוצאה?</legend>
           <label class="choice"><input type="radio" name="use" value="research" required>
-            <span>מחקר או מאמר
-              <small>טבלת המקרים וכל הציטוטים מגיעים איתה.</small></span></label>
+            <span>מחקר או מאמר</span></label>
           <label class="choice"><input type="radio" name="use" value="teaching">
-            <span>הוראה<small>אותו לוח, אותן ראיות.</small></span></label>
+            <span>הוראה</span></label>
           <label class="choice"><input type="radio" name="use" value="other">
-            <span>משהו אחר<small>ספרו לנו בדוא״ל.</small></span></label>
+            <span>משהו אחר</span></label>
         </fieldset>
 
         <button class="check-button" type="submit">בדיקת המונח</button>
@@ -116,55 +99,10 @@
       </form>
     </section>
 
-    <aside class="intake-panel intake-flow" aria-labelledby="flowTitle">
-      <h2 id="flowTitle">מה קורה עם ה־<span class="ltr" data-price-for="score_def">$2.50</span></h2>
-      <div class="fee-case"><b><span class="ltr">1</span> · בדיקת המונח</b><span>האם הוא באמת
-        מוגדר ביותר מדרך אחת, והאם יש מספיק מאמרים שמשתמשים בו? ללא תשלום.</span></div>
-      <div class="fee-case"><b><span class="ltr">2</span> · קבלה</b><span>המונח מאושר ונקבע
-        מועד מסירה.</span></div>
-      <div class="fee-case"><b><span class="ltr">3</span> · תשלום</b><span>דרך
-        <span class="ltr">PayPal</span>, החיוב מתבצע בעת התשלום. אין חיוב לפני
-        שהמונח מתקבל, משום שהבדיקה שלמעלה רצה קודם.</span></div>
-      <div class="fee-case"><b><span class="ltr">4</span> · בניית הלוח</b><span>איסוף ההגדרות
-        המתחרות, הכרעת המקרים, כתיבת הקריטריונים, חישוב <span class="ltr">MCC</span>, וניקוד
-        הבקרה המעגלית לצידן.</span></div>
-      <div class="fee-case"><b><span class="ltr">5</span> · מסירה</b><span>הלוח, טבלת המקרים,
-        והמשפט המדויק שמאחורי כל מקרה.</span></div>
+    </div>
 
-      <div class="fee-case" style="border-inline-start-color:#a4243b">
-        <b>אם אי אפשר לבנות את הלוח</b>
-        <span>אם מתברר שהספרות מסכימה, או שמעט מדי מאמרים משתמשים במונח — נאמר זאת ונחזיר את
-        מלוא הסכום. תוצאה שלילית היא עדיין תשובה, ולא כזו שצריך לשלם עליה.<br>
-        <b>שיר מחזירה את הכסף לאותו חשבון <span class="ltr">PayPal</span>, תוך
-        <span class="ltr">5</span> ימי עבודה.</b>
-        לכתוב ל־<a class="ltr" href="mailto:shirsivroni@gmail.com">shirsivroni@gmail.com</a>
-        עם אסימון הקבלה.</span>
-      </div>
-    </aside>
-  </div>
+  </main>
 
-  <section class="refusal-section" aria-labelledby="refusalTitle">
-    <h2 id="refusalTitle">נדחה לפני תשלום</h2>
-    <ul>
-      <li>מונח עם הגדרה אחת מוסכמת. אין מה לנקד.</li>
-      <li>מונח שהקורפוס הזה והמאמרים שלכם כמעט לא משתמשים בו — לוח זקוק לשימושים מתועדים, לא
-          לערך מילוני.</li>
-      <li>בקשה שנכריע איזו הגדרה <i>נכונה</i>. הלוח מדווח איך כל אחת מתפקדת מול מקרים שהוכרעו;
-          הוא לא מכריע את התחום.</li>
-    </ul>
-  </section>
-
-  <section class="server-note" aria-labelledby="serverTitle">
-    <h2 id="serverTitle">מה מקבלים, ומה אפשר לבדוק</h2>
-    <p>כל מקרה נושא את המשפט המדויק מהמאמר שממנו נגזר, כך שכל טענה של הלוח ניתנת לבדיקה מול
-       המקור. ההגדרה המעגלית נמצאת שם כדי לבדוק אותנו: היא מעתיקה את התשובה, ולכן חייבת לקבל
-       ניקוד קרוב ל־<span class="ltr">+1.000</span>. אם לא — הקידוד סותר את עצמו ואין לקרוא אף
-       מספר אחר בטבלה.</p>
-    <p>השיטה במלואה: <a href="method-he.html">השיטה, והמגבלות שלה</a>.</p>
-  </section>
-
-</main>
-
-<script src="js/scoring-intake.js?v=0fb6b6e8" defer></script>
+<script src="js/scoring-intake.js?v=6b4c0f0c" defer></script>
 </body>
 </html>

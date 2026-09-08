@@ -7,16 +7,16 @@
 <meta name="description" content="בדיקה אם מאמר יכול להיכנס לשירות המטא־תיוג הידני במחיר שני דולר, לפני בקשת תשלום כלשהי.">
 <link rel="alternate" hreflang="en" href="request-tagging.html">
 <link rel="alternate" hreflang="he" href="request-tagging-he.html">
-<link rel="stylesheet" href="css/shell.css?v=0fb6b6e8">
-<script src="js/theme.js?v=0fb6b6e8" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=0fb6b6e8">
-<link rel="stylesheet" href="css/intake.css?v=0fb6b6e8">
+<link rel="stylesheet" href="css/shell.css?v=6b4c0f0c">
+<script src="js/theme.js?v=6b4c0f0c" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=6b4c0f0c">
+<link rel="stylesheet" href="css/intake.css?v=6b4c0f0c">
 <!-- The config must load BEFORE payments.js and WITHOUT defer: it carries the pay
      link, and payments.js decides on the strength of it whether this page can take
      money at all. Without it the page believed payments were off while the link was
      live - the pay button simply never appeared. -->
-<script src="js/payments.config.js?v=0fb6b6e8"></script>
-<script src="js/payments.js?v=0fb6b6e8" defer></script>
+<script src="js/payments.config.js?v=6b4c0f0c"></script>
+<script src="js/payments.js?v=6b4c0f0c" defer></script>
 </head>
 <body class="intake-page">
 
@@ -41,9 +41,7 @@
   </header>
 
   <section class="intake-hero" aria-labelledby="intakeTitle">
-    <div class="intake-kicker">קודם בדיקת מקור · אין כפתור תשלום מיידי</div>
     <h1 id="intakeTitle">תיוג מאמר</h1>
-    <p>כל תג חוזר עם המשפט המדויק במקור שממנו נגזר. השירות הראשון ידני, באנגלית בלבד, ומוגבל לטקסט מלא ובר־בחירה שזכויותיו אושרו.</p>
     <div class="price-lockup">
       <span class="price ltr">$2</span><span class="unit">למאמר שהתקבל</span>
       <span class="outline-badge">אין תשלום לפני בדיקה מקדימה</span>
@@ -65,9 +63,9 @@
         <fieldset>
           <legend>איזה מקור יש לכם?</legend>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI או קישור למקור<small>הטקסט המלא מאותר ומאומת.</small></span></label>
-            <label class="choice"><input type="radio" name="source" value="mhtml"><span>יש קובץ MHTML<small>מצרפים אותו אחר כך לדוא״ל.</small></span></label>
-            <label class="choice"><input type="radio" name="source" value="pdf"><span>יש רק PDF<small>תהליך העבודה הנוכחי מסרב לטקסט PDF.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI או קישור למקור</span></label>
+            <label class="choice"><input type="radio" name="source" value="mhtml"><span>יש קובץ MHTML</span></label>
+            <label class="choice"><input type="radio" name="source" value="pdf"><span>יש רק PDF</span></label>
           </div>
           <label class="source-label" for="mhtml">קובץ MHTML אופציונלי</label>
           <input class="source-file" id="mhtml" name="mhtml" type="file" accept=".mhtml,.mht,message/rfc822">
@@ -122,40 +120,12 @@
       </form>
     </section>
 
-    <aside class="intake-panel intake-flow" aria-labelledby="flowTitle">
-      <h2 id="flowTitle">מה קורה לשני הדולר</h2>
-      <ol class="flow-list">
-        <li><b>1 · בדיקת מקור</b><span>זהות, רישיון, טקסט מלא, שפה ואיכות טקסט. אין תשלום.</span></li>
-        <li><b>2 · קבלה ידנית</b><span>המקור מאושר ונקבע מועד מסירה.</span></li>
-        <li><b>3 · תשלום</b><span>PayPal, נגבה בעת התשלום. שום דבר אינו נגבה לפני שהמאמר מתקבל, כי הבדיקה שלמעלה רצה קודם.</span></li>
-        <li><b>4 · תיוג ובדיקה</b><span>התגים המעוגנים במקור מופקים ונבדקים.</span></li>
-        <li><b>5 · מסירה</b><span>המאמר המתויג נמסר, עם המשפט המדויק במקור מאחורי כל תג.</span></li>
-      </ol>
-      <div class="flow-stop"><b>אם אי אפשר לתייג את המאמר</b><p>אומרים לכם, ומחזירים את מלוא הסכום. שיר מחזירה לאותו חשבון PayPal, בתוך חמישה ימי עבודה. כתבו ל־<span class="ltr">shirsivroni@gmail.com</span> עם אסימון הקבלה.</p></div>
-      <span class="test-only">מקבלים מאמרים עכשיו</span>
-    </aside>
-  </div>
-
-  <section class="refusal-section" aria-labelledby="refusalTitle">
-    <h2 id="refusalTitle">נדחה לפני תשלום</h2>
-    <div class="refusal-grid">
-      <article class="refusal-card"><b>אין טקסט מלא</b><p>רשומה או תקציר אינם יכולים לתמוך בתיוג מילולי. לא מתבקש תשלום.</p><code>NO_FULL_TEXT</code></article>
-      <article class="refusal-card"><b>רישיון שגוי או לא ידוע</b><p>נגיש באינטרנט אינו שווה למורשה לשירות הזה. לא מתבקש תשלום.</p><code>RIGHTS_NOT_CLEARED</code></article>
-      <article class="refusal-card"><b>תמונה סרוקה</b><p>בלי טקסט אמין ובר־בחירה אי אפשר לשמר עוגנים למשפטים המדויקים. לא מתבקש תשלום.</p><code>IMAGE_ONLY</code></article>
     </div>
-  </section>
-
-  <section class="server-note" aria-labelledby="serverTitle">
-    <h2 id="serverTitle">למה הקובץ אינו נשלח מכאן</h2>
-    <p>העמוד הזה סטטי: הוא מריץ את בדיקת המקור בדפדפן שלכם, ואינו יכול לקבל מסמך
-       או להחזיק תשלום. שום דבר ממה שמוקלד או מצורף אינו עוזב את המכשיר מהעמוד הזה.
-       את המאמר שולחים בדוא״ל, לאחר שהבדיקה עוברת והמקור אושר.</p>
-  </section>
 
   <footer class="pt-foot"><a href="index-he.html">פלטפורמת מטא־תיוג</a> · כל מאמר שמתקבל מתויג ידנית, עם המשפט המדויק במקור מאחורי כל תג. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
 </main>
 
-<script src="js/intake.js?v=0fb6b6e8"></script>
+<script src="js/intake.js?v=6b4c0f0c"></script>
 <script>
 /* PAYMENT WIRING — terminal-a. The PayPal button (MTP_PAY.mount) is drawn ONLY after the source
    check returns "accepted"; a refused or incomplete source has no pay button in the DOM at all.

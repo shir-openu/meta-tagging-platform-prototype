@@ -7,12 +7,12 @@
 <meta name="description" content="Name a term this corpus does not yet define and have its board built: rival definitions, adjudicated cases, an MCC table and the circular control.">
 <link rel="alternate" hreflang="en" href="request-scoring.html">
 <link rel="alternate" hreflang="he" href="request-scoring-he.html">
-<link rel="stylesheet" href="css/shell.css?v=0fb6b6e8">
-<script src="js/theme.js?v=0fb6b6e8" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=0fb6b6e8">
-<link rel="stylesheet" href="css/intake.css?v=0fb6b6e8">
-<script src="js/payments.config.js?v=0fb6b6e8"></script>
-<script src="js/payments.js?v=0fb6b6e8"></script>
+<link rel="stylesheet" href="css/shell.css?v=6b4c0f0c">
+<script src="js/theme.js?v=6b4c0f0c" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=6b4c0f0c">
+<link rel="stylesheet" href="css/intake.css?v=6b4c0f0c">
+<script src="js/payments.config.js?v=6b4c0f0c"></script>
+<script src="js/payments.js?v=6b4c0f0c"></script>
 </head>
 <body class="intake-page">
 
@@ -37,12 +37,7 @@
   </header>
 
   <section class="intake-hero" aria-labelledby="scoreTitle">
-    <div class="intake-kicker">Term check first · no pay-now button</div>
     <h1 id="scoreTitle">Score a definition</h1>
-    <p>Name a term this corpus does not yet define, and we build its board: the rival
-       definitions the literature actually uses, the cases each one is adjudicated against, an
-       MCC table, and a deliberately circular definition kept in the table as a control.</p>
-    <p><b>The boards that already exist are free.</b> This is for a term that has none.</p>
     <div class="price-lockup">
       <span class="price" data-price-for="score_def">$2.50</span><span class="unit">per accepted term</span>
       <span class="outline-badge">no payment before the term is accepted</span>
@@ -52,59 +47,46 @@
   <div class="intake-grid">
     <section class="intake-panel" aria-labelledby="checkTitle">
       <h2 id="checkTitle">Check the term before payment</h2>
-      <p class="field-note">This browser check sends nothing. A pass reveals the payment button
-         and opens a pre-filled email.</p>
 
       <form id="scorePreflight" class="preflight-form" novalidate>
         <label class="source-label" for="term">The term</label>
         <input class="source-input" id="term" name="term" autocomplete="off"
                placeholder="e.g. potential" required>
-        <span class="field-note">One term. If you mean a phrase the literature treats as one
-              unit, write it as one.</span>
 
         <label class="source-label" for="field">The field or literature you mean it in</label>
         <input class="source-input" id="field" name="field" autocomplete="off"
                placeholder="e.g. physics education research" required>
-        <span class="field-note">A word means different things in different fields; the board is
-              built inside one of them.</span>
 
         <fieldset class="choice-set">
           <legend class="source-label">Is the term defined more than one way?</legend>
           <label class="choice"><input type="radio" name="rivalry" value="yes" required>
-            <span>Yes, I know of rival definitions
-              <small>The strongest case. Name one or two below.</small></span></label>
+            <span>Yes, I know of rival definitions</span></label>
           <label class="choice"><input type="radio" name="rivalry" value="suspect">
-            <span>I think so, but I cannot name them
-              <small>We look. If the literature turns out to agree, we say so and refund.</small></span></label>
+            <span>I think so, but I cannot name them</span></label>
           <label class="choice"><input type="radio" name="rivalry" value="no">
-            <span>No, one settled definition
-              <small>Then there is nothing to score, and this is refused before payment.</small></span></label>
+            <span>No, one settled definition</span></label>
         </fieldset>
 
         <label class="source-label" for="rivals">Rival definitions you already know of</label>
         <textarea class="source-input" id="rivals" name="rivals" rows="3"
                   placeholder="One per line, with the paper if you have it."></textarea>
-        <span class="field-note">Optional, and the single most useful thing you can give us.</span>
 
         <fieldset class="choice-set">
           <legend class="source-label">Do you have papers that use the term?</legend>
           <label class="choice"><input type="radio" name="corpus" value="have" required>
-            <span>Yes, I can send a list or DOIs
-              <small>Your papers become the corpus the board is scored against.</small></span></label>
+            <span>Yes, I can send a list or DOIs</span></label>
           <label class="choice"><input type="radio" name="corpus" value="ours">
-            <span>Use whatever this corpus already holds
-              <small>We check first that enough papers here use the term at all.</small></span></label>
+            <span>Use whatever this corpus already holds</span></label>
         </fieldset>
 
         <fieldset class="choice-set">
           <legend class="source-label">What is the result for?</legend>
           <label class="choice"><input type="radio" name="use" value="research" required>
-            <span>Research or a paper
-              <small>The case table and every quote come with it.</small></span></label>
+            <span>Research or a paper</span></label>
           <label class="choice"><input type="radio" name="use" value="teaching">
-            <span>Teaching<small>Same board, same evidence.</small></span></label>
+            <span>Teaching</span></label>
           <label class="choice"><input type="radio" name="use" value="other">
-            <span>Something else<small>Tell us in the email.</small></span></label>
+            <span>Something else</span></label>
         </fieldset>
 
         <button class="check-button" type="submit">Check this term</button>
@@ -118,54 +100,10 @@
       </form>
     </section>
 
-    <aside class="intake-panel intake-flow" aria-labelledby="flowTitle">
-      <h2 id="flowTitle">What happens to the <span data-price-for="score_def">$2.50</span></h2>
-      <div class="fee-case"><b>1 · Term check</b><span>Is it really defined more than one way,
-        and are there enough papers using it? No payment.</span></div>
-      <div class="fee-case"><b>2 · Acceptance</b><span>The term is confirmed and a delivery date
-        is set.</span></div>
-      <div class="fee-case"><b>3 · Payment</b><span>PayPal, charged when you pay. Nothing is
-        charged before the term is accepted, because the check above runs first.</span></div>
-      <div class="fee-case"><b>4 · The board is built</b><span>Rival definitions gathered, cases
-        adjudicated, criteria written, MCC computed, and the circular control scored beside
-        them.</span></div>
-      <div class="fee-case"><b>5 · Delivery</b><span>The board, the case table, and the exact
-        sentence behind every case.</span></div>
+    </div>
 
-      <div class="fee-case" style="border-inline-start-color:#a4243b">
-        <b>If the board cannot be built</b>
-        <span>If the literature turns out to agree, or too few papers use the term, we say so
-        and refund in full. A negative result is still an answer, and it is not one you should
-        pay for.<br>
-        <b>Shir refunds it to the same PayPal account, within 5 working days.</b>
-        Write to <a href="mailto:shirsivroni@gmail.com">shirsivroni@gmail.com</a> with your
-        receipt token.</span>
-      </div>
-    </aside>
-  </div>
+  </main>
 
-  <section class="refusal-section" aria-labelledby="refusalTitle">
-    <h2 id="refusalTitle">Refused before payment</h2>
-    <ul>
-      <li>A term with one settled definition. There is nothing to score.</li>
-      <li>A term this corpus and your papers barely use — a board needs attested uses, not a
-          dictionary entry.</li>
-      <li>A request for us to decide which definition is <i>right</i>. The board reports how
-          each one performs against adjudicated cases; it does not adjudicate the field.</li>
-    </ul>
-  </section>
-
-  <section class="server-note" aria-labelledby="serverTitle">
-    <h2 id="serverTitle">What you get, and what you can check</h2>
-    <p>Every case carries the exact sentence from the paper it was read from, so any claim the
-       board makes can be checked against its source. The circular definition is there to check
-       us: it copies the answer, so it must score near +1.000. If it does not, the coding
-       contradicts itself and no other number in the table may be read.</p>
-    <p>The method, in full: <a href="method.html">the method, and its limits</a>.</p>
-  </section>
-
-</main>
-
-<script src="js/scoring-intake.js?v=0fb6b6e8" defer></script>
+<script src="js/scoring-intake.js?v=6b4c0f0c" defer></script>
 </body>
 </html>

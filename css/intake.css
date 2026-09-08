@@ -297,3 +297,21 @@ html[data-theme="light"] .email-button:hover { background: rgba(131, 36, 196, .0
 /* The token box is the one dark surface; recolour it for the bright view so its ink is not
    dark-on-dark. */
 html[data-theme="light"] .pay-token { background: #f4eefb; }
+
+/* QUIETER. 2026-09-08. Shir: "לאס וגאס? חושך בעיניים. תעיפי את כל הטקסט משם."
+   The page was pink headings on pink borders on a near-black panel, every question shouting
+   at the same volume as the price. The colours are the site's own now, and only two things
+   are allowed to be loud: the price, and the pay button. */
+.intake-page .intake-panel { border-color: var(--line); }
+.intake-page .source-label,
+.intake-page legend,
+.intake-page .choice-set legend { color: var(--ink); font-weight: 650; }
+.intake-page .intake-panel h2 { color: var(--ink); }
+.intake-page .choice { border-color: var(--line); }
+.intake-page .choice:has(input:checked) { border-color: var(--intake-purple-deep);
+  background: color-mix(in srgb, var(--intake-purple-deep) 12%, transparent); }
+.intake-page .intake-hero { border-color: var(--line); }
+.intake-page .price-lockup .unit,
+.intake-page .outline-badge { color: var(--dim); border-color: var(--line); }
+.intake-page .check-button { border-color: var(--line); color: var(--ink); }
+.intake-page .check-button:hover { border-color: var(--intake-purple-deep); }

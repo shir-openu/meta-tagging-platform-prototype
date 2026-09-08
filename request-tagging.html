@@ -7,16 +7,16 @@
 <meta name="description" content="Check whether a paper can enter the manual $2 meta-tagging service before any payment is requested.">
 <link rel="alternate" hreflang="en" href="request-tagging.html">
 <link rel="alternate" hreflang="he" href="request-tagging-he.html">
-<link rel="stylesheet" href="css/shell.css?v=0fb6b6e8">
-<script src="js/theme.js?v=0fb6b6e8" defer></script>
-<link rel="stylesheet" href="css/platform.css?v=0fb6b6e8">
-<link rel="stylesheet" href="css/intake.css?v=0fb6b6e8">
+<link rel="stylesheet" href="css/shell.css?v=6b4c0f0c">
+<script src="js/theme.js?v=6b4c0f0c" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=6b4c0f0c">
+<link rel="stylesheet" href="css/intake.css?v=6b4c0f0c">
 <!-- The config must load BEFORE payments.js and WITHOUT defer: it carries the pay
      link, and payments.js decides on the strength of it whether this page can take
      money at all. Without it the page believed payments were off while the link was
      live - the pay button simply never appeared. -->
-<script src="js/payments.config.js?v=0fb6b6e8"></script>
-<script src="js/payments.js?v=0fb6b6e8" defer></script>
+<script src="js/payments.config.js?v=6b4c0f0c"></script>
+<script src="js/payments.js?v=6b4c0f0c" defer></script>
 </head>
 <body class="intake-page">
 
@@ -41,9 +41,7 @@
   </header>
 
   <section class="intake-hero" aria-labelledby="intakeTitle">
-    <div class="intake-kicker">Source check first · no pay-now button</div>
     <h1 id="intakeTitle">Tag a paper</h1>
-    <p>Every tag comes back with the exact source sentence it was read from. The first service is manual, English-only and limited to complete, selectable text with cleared rights.</p>
     <div class="price-lockup">
       <span class="price">$2</span><span class="unit">per accepted paper</span>
       <span class="outline-badge">no payment before preflight</span>
@@ -66,9 +64,9 @@
         <fieldset>
           <legend>What source do you have?</legend>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI or source link<small>The full text is located and verified.</small></span></label>
-            <label class="choice"><input type="radio" name="source" value="mhtml"><span>MHTML available<small>Attach it later in your email.</small></span></label>
-            <label class="choice"><input type="radio" name="source" value="pdf"><span>PDF only<small>The current workflow refuses PDF text.</small></span></label>
+            <label class="choice"><input type="radio" name="source" value="locator"><span>DOI or source link</span></label>
+            <label class="choice"><input type="radio" name="source" value="mhtml"><span>MHTML available</span></label>
+            <label class="choice"><input type="radio" name="source" value="pdf"><span>PDF only</span></label>
           </div>
           <label class="source-label" for="mhtml">Optional MHTML file</label>
           <input class="source-file" id="mhtml" name="mhtml" type="file" accept=".mhtml,.mht,message/rfc822">
@@ -127,40 +125,12 @@
       </form>
     </section>
 
-    <aside class="intake-panel intake-flow" aria-labelledby="flowTitle">
-      <h2 id="flowTitle">What happens to the $2</h2>
-      <ol class="flow-list">
-        <li><b>1 · Source check</b><span>Identity, licence, full text, language and text quality. No payment.</span></li>
-        <li><b>2 · Manual acceptance</b><span>The source is confirmed and a delivery date set.</span></li>
-        <li><b>3 · Payment</b><span>PayPal, charged when you pay. Nothing is charged before the paper is accepted, because the check above runs first.</span></li>
-        <li><b>4 · Tag and review</b><span>Verbatim-grounded tags are produced and checked.</span></li>
-        <li><b>5 · Delivery</b><span>The tagged paper is delivered, with the exact source sentence behind every tag.</span></li>
-      </ol>
-      <div class="flow-stop"><b>If the paper cannot be tagged</b><p>We say so and refund in full. Shir refunds it to the same PayPal account, within 5 working days. Write to shirsivroni@gmail.com with your receipt token.</p></div>
-      <span class="test-only">accepting papers now</span>
-    </aside>
-  </div>
-
-  <section class="refusal-section" aria-labelledby="refusalTitle">
-    <h2 id="refusalTitle">Refused before payment</h2>
-    <div class="refusal-grid">
-      <article class="refusal-card"><b>No full text</b><p>A citation or abstract cannot support verbatim tagging. No payment is requested.</p><code>NO_FULL_TEXT</code></article>
-      <article class="refusal-card"><b>Wrong or unknown licence</b><p>Accessible online does not mean cleared for this service. No payment is requested.</p><code>RIGHTS_NOT_CLEARED</code></article>
-      <article class="refusal-card"><b>Scanned image</b><p>Without reliable selectable text, exact sentence anchors cannot be preserved. No payment is requested.</p><code>IMAGE_ONLY</code></article>
     </div>
-  </section>
-
-  <section class="server-note" aria-labelledby="serverTitle">
-    <h2 id="serverTitle">Why the file is not uploaded here</h2>
-    <p>This page is static: it can run the source check in your browser, and it cannot receive
-       a document or hold a payment. Nothing you type or attach leaves your device from this
-       page. The paper is sent by email, after the check passes and the source is accepted.</p>
-  </section>
 
   <footer class="pt-foot"><a href="index.html">Meta-Tagging Platform</a> · Every accepted paper is tagged by hand, with the exact source sentence behind each tag. <span class="pt-credit">&copy; Shir Sivroni</span></footer>
 </main>
 
-<script src="js/intake.js?v=0fb6b6e8"></script>
+<script src="js/intake.js?v=6b4c0f0c"></script>
 <script>
 /* PAYMENT WIRING — terminal-a. The PayPal button (MTP_PAY.mount) is drawn ONLY after the source
    check returns "accepted"; a refused or incomplete source has no pay button in the DOM at all.
