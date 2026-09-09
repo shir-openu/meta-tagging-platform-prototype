@@ -22,6 +22,23 @@ window.MTP_PAY_CONFIG = {
      system, and the API above is for volume that does not exist yet.
      Fill this in and every accepted request carries it. Leave it empty and the pages say
      the fee is arranged by email, exactly as they do now. */
-  payLink: "https://www.paypal.com/paypalme/shirsivroni",
-  payNote: "Or send to shirsivroni@gmail.com in PayPal - any PayPal account can.",
+  /* PAUSED BY SHIR, 2026-09-09: "something is not working yet. hide the payment buttons
+     and make them not responsive to clicks. but dont erase them and keep everything
+     including the design."
+
+     Emptying these two lines is the whole switch. canSell() goes false, <html> carries
+     data-payments="off", and the rule in platform.css hides every [data-paid-card] with
+     `display:none` AND `pointer-events:none` - hidden and unclickable, in one place, for
+     both languages and both themes. The request pages stop drawing a Pay button and say
+     the fee is arranged by email instead.
+
+     NOTHING IS DELETED. The cards, the gold buttons, the card icon, the prices on the
+     labels, the whole design and every line of the payment code are exactly where they
+     were. Putting the two values back below switches it all on again.
+
+         payLink: "https://www.paypal.com/paypalme/shirsivroni",
+         payNote: "Or send to shirsivroni@gmail.com in PayPal - any PayPal account can.",
+  */
+  payLink: "",
+  payNote: "",
 };
