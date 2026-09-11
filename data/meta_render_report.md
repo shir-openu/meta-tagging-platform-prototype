@@ -1,25 +1,25 @@
 # Meta-render audit report
 
-Generated 2026-09-11T15:35:26+00:00. This report audits the complete runtime picker, with public expansion
+Generated 2026-09-11T16:14:26+00:00. This report audits the complete runtime picker, with public expansion
 wording limited to the audited rights-cleared paper set.
 
 | Denominator / outcome | Count |
 |---|---:|
-| Historical picker cohort | 17,004 |
-| Historical picker cohort after shared-live filtering | 16,999 |
+| Historical picker cohort | 17,096 |
+| Historical picker cohort after shared-live filtering | 17,091 |
 | Historical rows removed as withdrawn-only | 5 |
-| Definition cards before three-layer repair | 600 |
-| Definition cards after three-layer repair | 10,039 |
-| Historical render gap before | 9,439 |
+| Definition cards before three-layer repair | 602 |
+| Definition cards after three-layer repair | 10,134 |
+| Historical render gap before | 9,532 |
 | Historical render gap after | 0 |
-| Runtime picker rows before shared-live filtering | 25,363 |
-| Runtime picker rows after shared-live filtering | 25,303 |
+| Runtime picker rows before shared-live filtering | 25,478 |
+| Runtime picker rows after shared-live filtering | 25,418 |
 | Runtime rows removed as withdrawn-only | 60 |
-| Complete abbreviation class | 739 |
-| Abbreviations with public corpus-attested expansions | 232 |
+| Complete abbreviation class | 749 |
+| Abbreviations with public corpus-attested expansions | 235 |
 | Rights-withheld expansion rows (count only) | 38 |
 | Rights-cleared staged HTML/MHTML sources scanned for literal expansions | 400 |
-| Literal expansion rows recovered from those sources | 642 |
+| Literal expansion rows recovered from those sources | 648 |
 | Picker labels matching denied live quotes removed in this build | 8 |
 
 ## Historical terms repaired by the three-layer route
@@ -331,6 +331,7 @@ wording limited to the audited rights-cleared paper set.
 - `age-of-onset` — age of onset — 1 grounded row(s); layers: concepts=1
 - `age-prediction` — age prediction — 1 grounded row(s); layers: concepts=1
 - `age-specific-incidence` — age-specific incidence — 1 grounded row(s); layers: concepts=1
+- `age-standardised-daly-rates` — age-standardised DALY rates — 1 grounded row(s); layers: concepts=1
 - `agency-bias` — agency bias — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `agenda-setting` — agenda-setting — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `agent` — agent — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -415,9 +416,13 @@ wording limited to the audited rights-cleared paper set.
 - `alpha-level` — alpha level — 1 grounded row(s); layers: concepts=1
 - `alpha-satellites` — alpha satellites — 1 grounded row(s); layers: concepts=1
 - `alphafold` — AlphaFold — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `alphafold-3` — AlphaFold 3 — 1 grounded row(s); layers: concepts=1
+- `alphafold-colab` — AlphaFold-Colab — 1 grounded row(s); layers: concepts=1
 - `alphafold-db` — AlphaFold DB — 1 grounded row(s); layers: concepts=1
 - `alphafold-db-web-pages` — AlphaFold DB web pages — 1 grounded row(s); layers: concepts=1
+- `alphafold-multimer` — AlphaFold-multimer — 2 grounded row(s); layers: concepts=2
 - `alphafold-protein-structure-database` — AlphaFold Protein Structure Database — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `alphafold2` — AlphaFold2 — 1 grounded row(s); layers: concepts=1
 - `alston-criteria` — Alston criteria — 1 grounded row(s); layers: concepts=1
 - `altaz` — AltAz — 1 grounded row(s); layers: concepts=1
 - `altered-states-of-consciousness` — altered states of consciousness — 1 grounded row(s); layers: concepts=1
@@ -536,6 +541,7 @@ wording limited to the audited rights-cleared paper set.
 - `antigen-presenting-cells` — antigen-presenting cells — 1 grounded row(s); layers: concepts=1
 - `antigenicity` — antigenicity — 1 grounded row(s); layers: concepts=1
 - `antiretroviral-therapy` — antiretroviral therapy — 1 grounded row(s); layers: concepts=1
+- `antiretroviral-treatment` — antiretroviral treatment — 1 grounded row(s); layers: concepts=1
 - `anxiety` — anxiety — 1 grounded row(s); layers: concepts=1
 - `any-intensity-of-physical-activity` — any intensity of physical activity — 1 grounded row(s); layers: concepts=1
 - `aortic-aneurysm` — Aortic aneurysm — 1 grounded row(s); layers: concepts=1
@@ -691,7 +697,7 @@ wording limited to the audited rights-cleared paper set.
 - `auc-prc` — AUC-PRC — 1 grounded row(s); layers: concepts=1
 - `auc-roc` — AUC-ROC — 1 grounded row(s); layers: concepts=1
 - `audiometry` — audiometry — 1 grounded row(s); layers: concepts=1
-- `audit-and-feedback` — audit and feedback — 1 grounded row(s); layers: concepts=1
+- `audit-and-feedback` — audit and feedback — 2 grounded row(s); layers: concepts=2
 - `auditory-cortex` — auditory cortex — 2 grounded row(s); layers: concepts=2
 - `auditory-imagery` — auditory imagery — 1 grounded row(s); layers: concepts=1
 - `auditory-sensory-memory` — auditory sensory memory — 1 grounded row(s); layers: concepts=1
@@ -809,6 +815,7 @@ wording limited to the audited rights-cleared paper set.
 - `bayesian-beliefs` — Bayesian beliefs — 1 grounded row(s); layers: concepts=1
 - `bayesian-blocks` — Bayesian Blocks — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `bayesian-inference` — Bayesian inference — 1 grounded row(s); layers: concepts=1
+- `bayesian-meta-regression` — Bayesian meta-regression — 1 grounded row(s); layers: concepts=1
 - `bayesian-posterior` — Bayesian posterior — 1 grounded row(s); layers: concepts=1
 - `bayesian-statistics` — Bayesian statistics — 1 grounded row(s); layers: concepts=1
 - `bbb` — BBB — 1 grounded row(s); layers: concepts=1
@@ -855,6 +862,7 @@ wording limited to the audited rights-cleared paper set.
 - `betacoronavirus` — Betacoronavirus — 1 grounded row(s); layers: concepts=1
 - `betrayal` — betrayal — 1 grounded row(s); layers: concepts=1
 - `between-studies-variance` — between-studies variance — 1 grounded row(s); layers: concepts=1
+- `bfd` — BFD — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `biallelic-gbs-markers` — biallelic GBS markers — 1 grounded row(s); layers: concepts=1
 - `bias-existing-in-two-different-platforms` — bias existing in two different platforms — 1 grounded row(s); layers: concepts=1
 - `bias-in-animal-selection` — bias in animal selection — 1 grounded row(s); layers: concepts=1
@@ -1123,11 +1131,13 @@ wording limited to the audited rights-cleared paper set.
 - `cascading-effects-across-trophic-levels` — cascading effects across trophic levels — 1 grounded row(s); layers: concepts=1
 - `cascading-effects-on-food-webs` — cascading effects on food webs — 1 grounded row(s); layers: concepts=1
 - `case-control` — case-control — 1 grounded row(s); layers: concepts=1
+- `case-definitions` — case definitions — 1 grounded row(s); layers: concepts=1
 - `case-detection` — case detection — 1 grounded row(s); layers: concepts=1
 - `cash` — cash — 1 grounded row(s); layers: concepts=1
 - `casp` — CASP — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `casp-assessment` — CASP assessment — 1 grounded row(s); layers: concepts=1
 - `casp14` — CASP14 — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
+- `casp15` — CASP15 — 1 grounded row(s); layers: concepts=1
 - `cat` — CAT — 1 grounded row(s); layers: concepts=1
 - `catalase-like-activity` — catalase-like activity — 1 grounded row(s); layers: content_tags.definitions=1
 - `catalogue-of-life` — Catalogue of Life — 1 grounded row(s); layers: concepts=1
@@ -1161,6 +1171,7 @@ wording limited to the audited rights-cleared paper set.
 - `causative-relationship` — causative relationship — 1 grounded row(s); layers: concepts=1
 - `cause-effect-power` — cause–effect power — 1 grounded row(s); layers: concepts=1
 - `cause-effect-repertoire` — cause-effect repertoire — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `cause-hierarchy` — cause hierarchy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `cause-of-death-clusters` — cause-of-death clusters — 1 grounded row(s); layers: concepts=1
 - `cause-specific-mortality-rates` — cause-specific mortality rates — 1 grounded row(s); layers: concepts=1
 - `cautious-acceptor` — cautious acceptor — 1 grounded row(s); layers: concepts=1
@@ -1459,6 +1470,7 @@ wording limited to the audited rights-cleared paper set.
 - `co-2-fertilization` — CO 2 fertilization — 1 grounded row(s); layers: concepts=1
 - `co-evolutionary-principles` — co-evolutionary principles — 1 grounded row(s); layers: concepts=1
 - `co-evolved-beneficial-host-microbe-interactions` — co-evolved beneficial host-microbe interactions — 1 grounded row(s); layers: concepts=1
+- `co-expression` — co-expression — 1 grounded row(s); layers: concepts=1
 - `co-localize` — co-localize — 1 grounded row(s); layers: content_tags.definitions=1
 - `co-occurrence-analyses` — co-occurrence analyses — 1 grounded row(s); layers: concepts=1
 - `co-precipitation` — co-precipitation — 1 grounded row(s); layers: content_tags.definitions=1
@@ -1483,6 +1495,7 @@ wording limited to the audited rights-cleared paper set.
 - `code-style-and-formatting` — code style and formatting — 1 grounded row(s); layers: concepts=1
 - `code-written-for-the-project` — code written for the project — 1 grounded row(s); layers: concepts=1
 - `codebase` — codebase — 1 grounded row(s); layers: concepts=1
+- `codem` — CODEm — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `codes` — codes — 1 grounded row(s); layers: concepts=1
 - `codes-or-algorithms` — codes or algorithms — 1 grounded row(s); layers: concepts=1
 - `coding-of-exposures-and-outcomes` — coding of exposures and outcomes — 1 grounded row(s); layers: concepts=1
@@ -1524,8 +1537,12 @@ wording limited to the audited rights-cleared paper set.
 - `cohen-s-coefficient-kappa` — Cohen's coefficient kappa — 1 grounded row(s); layers: concepts=1
 - `coherence` — coherence — 1 grounded row(s); layers: concepts=1
 - `cohort-analytics` — cohort analytics — 1 grounded row(s); layers: concepts=1
+- `cohort-effect` — cohort effect — 1 grounded row(s); layers: concepts=1
 - `cohort-studies` — cohort studies — 1 grounded row(s); layers: concepts=1
 - `coincidence` — coincidence — 1 grounded row(s); layers: content_tags.definitions=1
+- `colabfold` — ColabFold — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `colabfolddb` — ColabFoldDB — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `colaboratory` — Colaboratory — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `colexification` — colexification — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `collaboration` — collaboration — 1 grounded row(s); layers: concepts=1
 - `collaborative-memory` — collaborative memory — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -1659,6 +1676,7 @@ wording limited to the audited rights-cleared paper set.
 - `complicated-or-prolonged-grief` — complicated, or prolonged, grief — 1 grounded row(s); layers: concepts=1
 - `component-process` — component-process — 1 grounded row(s); layers: concepts=1
 - `components` — components — 1 grounded row(s); layers: concepts=1
+- `composite-indicator` — composite indicator — 1 grounded row(s); layers: concepts=1
 - `composite-null-hypotheses` — composite null hypotheses — 1 grounded row(s); layers: concepts=1
 - `composite-reliability` — composite reliability — 1 grounded row(s); layers: concepts=1
 - `composite-supertree-phylogeny` — composite ‘supertree’ phylogeny — 1 grounded row(s); layers: concepts=1
@@ -1747,6 +1765,7 @@ wording limited to the audited rights-cleared paper set.
 - `confidence-levels` — confidence levels — 1 grounded row(s); layers: concepts=1
 - `confidence-map` — confidence map — 1 grounded row(s); layers: concepts=1
 - `confidence-measure` — confidence measure — 1 grounded row(s); layers: concepts=1
+- `confidence-score` — confidence score — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `confidence-that-scientific-code-is-operating-properly` — confidence that scientific code is operating properly — 1 grounded row(s); layers: concepts=1
 - `configuration-files` — configuration files — 1 grounded row(s); layers: concepts=1
 - `configuration-of-incentives` — configuration of incentives — 1 grounded row(s); layers: concepts=1
@@ -1759,6 +1778,7 @@ wording limited to the audited rights-cleared paper set.
 - `conformation` — conformation — 1 grounded row(s); layers: concepts=1
 - `conformational-isomers` — conformational isomers — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `conformational-space` — conformational space — 2 grounded row(s); layers: concepts=2
+- `conformational-state` — conformational state — 1 grounded row(s); layers: concepts=1
 - `confounder-adjusted-estimates` — confounder-adjusted estimates — 1 grounded row(s); layers: concepts=1
 - `confounding-by-indication` — confounding by indication — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `confounding-factors` — confounding factors — 1 grounded row(s); layers: concepts=1
@@ -1936,6 +1956,7 @@ wording limited to the audited rights-cleared paper set.
 - `correlation-coefficient` — correlation coefficient — 1 grounded row(s); layers: concepts=1
 - `correlation-coefficients` — correlation coefficients — 1 grounded row(s); layers: concepts=1
 - `correspondence-analysis` — correspondence analysis — 1 grounded row(s); layers: concepts=1
+- `corrtest` — CorrTest — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `corrupted-values` — corrupted values — 1 grounded row(s); layers: concepts=1
 - `corruption-process` — corruption process — 1 grounded row(s); layers: concepts=1
 - `cortical-excitability` — cortical excitability — 1 grounded row(s); layers: concepts=1
@@ -2008,6 +2029,7 @@ wording limited to the audited rights-cleared paper set.
 - `cross-correlation` — cross-correlation — 1 grounded row(s); layers: content_tags.definitions=1
 - `cross-cultural-communication` — cross-cultural communication — 1 grounded row(s); layers: concepts=1
 - `cross-different-aspects` — cross different aspects — 1 grounded row(s); layers: concepts=1
+- `cross-distillation` — cross-distillation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `cross-docking` — cross-docking — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `cross-docking-dataset` — cross-docking dataset — 1 grounded row(s); layers: concepts=1
 - `cross-entropy-loss` — cross-entropy loss — 1 grounded row(s); layers: concepts=1
@@ -2388,6 +2410,8 @@ wording limited to the audited rights-cleared paper set.
 - `differential-language-analysis` — differential language analysis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `differential-splicing` — differential splicing — 1 grounded row(s); layers: concepts=1
 - `diffusion-dissemination-implementation-continuum` — diffusion-dissemination-implementation continuum — 1 grounded row(s); layers: concepts=1
+- `diffusion-module` — diffusion module — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `diffusion-samples` — diffusion samples — 1 grounded row(s); layers: concepts=1
 - `digital-footprint` — digital footprint — 1 grounded row(s); layers: concepts=1
 - `digital-health-record-systems` — digital health record systems — 1 grounded row(s); layers: concepts=1
 - `digital-image-analytics-automation-quantitation-and-objectiv` — digital image analytics, automation, quantitation and objective screening of tissue samples — 1 grounded row(s); layers: concepts=1
@@ -2436,7 +2460,8 @@ wording limited to the audited rights-cleared paper set.
 - `directed-weighted-graph` — directed weighted graph — 1 grounded row(s); layers: concepts=1
 - `directing-style` — directing style — 1 grounded row(s); layers: concepts=1
 - `disability` — disability — 1 grounded row(s); layers: concepts=1
-- `disability-adjusted-life-years` — disability-adjusted life years — 1 grounded row(s); layers: concepts=1
+- `disability-adjusted-life-years` — disability-adjusted life-years — 1 grounded row(s); layers: concepts=1
+- `disability-weights` — disability weights — 1 grounded row(s); layers: concepts=1
 - `disaster` — disaster — 1 grounded row(s); layers: content_tags.definitions=1
 - `discarded-bycatch` — discarded bycatch — 1 grounded row(s); layers: concepts=1
 - `discards` — discards — 1 grounded row(s); layers: concepts=1
@@ -2448,7 +2473,7 @@ wording limited to the audited rights-cleared paper set.
 - `discovery-and-re-usability-problem` — discovery and re-usability problem — 1 grounded row(s); layers: concepts=1
 - `discovery-transparency-and-replicability` — discovery, transparency, and replicability — 1 grounded row(s); layers: concepts=1
 - `discrepancy-words` — discrepancy words — 1 grounded row(s); layers: concepts=1
-- `discrete-strategies` — discrete strategies — 1 grounded row(s); layers: concepts=1
+- `discrete-strategies` — discrete strategies — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
 - `discriminability` — discriminability — 1 grounded row(s); layers: content_tags.definitions=1
 - `discriminant-content-validation` — Discriminant Content Validation — 1 grounded row(s); layers: concepts=1
 - `discriminant-set` — discriminant set — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -2472,6 +2497,7 @@ wording limited to the audited rights-cleared paper set.
 - `disinformation-and-false-reports` — disinformation and false reports — 1 grounded row(s); layers: concepts=1
 - `disjunctive-accounts` — disjunctive accounts — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `disjunctive-concept` — disjunctive concept — 1 grounded row(s); layers: concepts=1
+- `dismod-mr` — DisMod-MR — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `disordered-proteins` — disordered proteins — 1 grounded row(s); layers: content_tags.definitions=1
 - `disordered-systems` — disordered systems — 1 grounded row(s); layers: concepts=1
 - `disorders-of-consciousness` — disorders of consciousness — 3 grounded row(s); layers: concepts=3
@@ -2491,6 +2517,7 @@ wording limited to the audited rights-cleared paper set.
 - `distance-based-greedy-clustering` — distance-based greedy clustering — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `distance-degeneracy` — distance degeneracy — 1 grounded row(s); layers: concepts=1
 - `distance-effect` — distance effect — 1 grounded row(s); layers: content_tags.definitions=1
+- `distance-error-matrix` — distance error matrix — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `distance-matrix` — distance matrix — 1 grounded row(s); layers: concepts=1
 - `distance-measurement` — distance measurement — 1 grounded row(s); layers: concepts=1
 - `distance-threshold` — distance threshold — 1 grounded row(s); layers: concepts=1
@@ -2517,6 +2544,7 @@ wording limited to the audited rights-cleared paper set.
 - `distribution-of-threatened-species` — distribution of threatened species — 1 grounded row(s); layers: concepts=1
 - `distributive-law` — distributive law — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `divergence` — Divergence — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `divergence-times` — divergence times — 1 grounded row(s); layers: concepts=1
 - `diverse-chromatin-components` — diverse chromatin components — 1 grounded row(s); layers: concepts=1
 - `diversity-loss` — diversity loss — 1 grounded row(s); layers: concepts=1
 - `diversity-of-life` — diversity of life — 1 grounded row(s); layers: concepts=1
@@ -2541,6 +2569,8 @@ wording limited to the audited rights-cleared paper set.
 - `docker` — Docker — 1 grounded row(s); layers: concepts=1
 - `docker-containers` — Docker containers — 1 grounded row(s); layers: concepts=1
 - `docker-image` — Docker image — 1 grounded row(s); layers: concepts=1
+- `docking` — docking — 1 grounded row(s); layers: concepts=1
+- `dockq` — DockQ — 1 grounded row(s); layers: concepts=1
 - `document-oriented-nosql-database-program` — document-oriented NoSQL database program — 1 grounded row(s); layers: concepts=1
 - `documentation-generator` — documentation generator — 1 grounded row(s); layers: concepts=1
 - `dogmatic-intolerance` — dogmatic intolerance — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -2630,6 +2660,7 @@ wording limited to the audited rights-cleared paper set.
 - `earlier-versions-of-galaxy` — earlier versions of Galaxy — 1 grounded row(s); layers: concepts=1
 - `early-acute-infection` — early acute infection — 1 grounded row(s); layers: concepts=1
 - `early-fusion` — early fusion — 2 grounded row(s); layers: content_tags.definitions=2
+- `early-stop-criterion` — early stop criterion — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `early-stopping` — early stopping — 2 grounded row(s); layers: concepts=2
 - `earth-microbiome-project` — Earth Microbiome Project — 1 grounded row(s); layers: concepts=1
 - `earthlocation-class` — EarthLocation class — 1 grounded row(s); layers: concepts=1
@@ -2700,6 +2731,7 @@ wording limited to the audited rights-cleared paper set.
 - `efficient-implementation` — efficient implementation — 1 grounded row(s); layers: concepts=1
 - `effort-discounting` — effort discounting — 1 grounded row(s); layers: content_tags.definitions=1
 - `effort-heuristic` — effort heuristic — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `eggnog` — eggNOG — 1 grounded row(s); layers: concepts=1
 - `eggnog-database` — eggNOG database — 1 grounded row(s); layers: concepts=1
 - `eggnog-mapper` — eggNOG-mapper — 1 grounded row(s); layers: concepts=1
 - `eggnog-v5` — eggNOG v5 — 1 grounded row(s); layers: concepts=1
@@ -2906,6 +2938,7 @@ wording limited to the audited rights-cleared paper set.
 - `evidence-base` — evidence base — 1 grounded row(s); layers: concepts=1
 - `evidence-based-practices` — evidence-based practices — 1 grounded row(s); layers: concepts=1
 - `evidence-based-public-health-recommendations` — evidence-based public health recommendations — 1 grounded row(s); layers: concepts=1
+- `evidence-channels` — evidence channels — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `evidence-code` — evidence code — 1 grounded row(s); layers: concepts=1
 - `evidence-for-each-assertion-in-the-model` — evidence for each assertion in the model — 1 grounded row(s); layers: concepts=1
 - `evidence-reviews` — evidence reviews — 1 grounded row(s); layers: concepts=1
@@ -2920,6 +2953,7 @@ wording limited to the audited rights-cleared paper set.
 - `evolutionary-history` — evolutionary history — 2 grounded row(s); layers: concepts=2
 - `evolutionary-not-revolutionary-changes` — evolutionary, not revolutionary, changes — 1 grounded row(s); layers: concepts=1
 - `evolutionary-potential` — evolutionary potential — 1 grounded row(s); layers: concepts=1
+- `evolutionary-probabilities` — evolutionary probabilities — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `evolved-role` — evolved role — 1 grounded row(s); layers: concepts=1
 - `evolving-guideline` — evolving guideline — 1 grounded row(s); layers: concepts=1
 - `evs` — EVs — 1 grounded row(s); layers: concepts=1
@@ -2987,7 +3021,7 @@ wording limited to the audited rights-cleared paper set.
 - `expert-curation` — Expert curation — 1 grounded row(s); layers: concepts=1
 - `expert-judges` — Expert judges — 1 grounded row(s); layers: concepts=1
 - `expert-opinion-approaches` — expert-opinion approaches — 1 grounded row(s); layers: concepts=1
-- `expert-panel` — expert panel — 1 grounded row(s); layers: concepts=1
+- `expert-panel` — expert panel — 2 grounded row(s); layers: concepts=2
 - `expert-recommendations-for-implementing-change-study` — Expert Recommendations for Implementing Change study — 1 grounded row(s); layers: concepts=1
 - `expert-review` — expert review — 1 grounded row(s); layers: concepts=1
 - `expert-tools` — expert tools — 1 grounded row(s); layers: concepts=1
@@ -3068,6 +3102,7 @@ wording limited to the audited rights-cleared paper set.
 - `facebook-friends` — Facebook friends — 1 grounded row(s); layers: concepts=1
 - `facebook-graph-api` — Facebook Graph API — 1 grounded row(s); layers: concepts=1
 - `facebook-use` — Facebook use — 1 grounded row(s); layers: concepts=1
+- `facilitation` — facilitation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `facilitation-of-component-processes` — facilitation of component processes — 1 grounded row(s); layers: concepts=1
 - `facs` — FACS — 1 grounded row(s); layers: content_tags.definitions=1
 - `fact-checker-warnings` — fact-checker warnings — 1 grounded row(s); layers: concepts=1
@@ -3142,6 +3177,7 @@ wording limited to the audited rights-cleared paper set.
 - `fatal-outcomes` — fatal outcomes — 1 grounded row(s); layers: concepts=1
 - `fatosphere` — Fatosphere — 1 grounded row(s); layers: concepts=1
 - `fatty-acid-productive-value` — fatty acid productive value — 1 grounded row(s); layers: content_tags.definitions=1
+- `fava` — FAVA — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `fdr-based-thresholding` — FDR-based thresholding — 1 grounded row(s); layers: concepts=1
 - `fdr-of-025` — FDR of .025 — 1 grounded row(s); layers: concepts=1
 - `fear-anxiety-and-stigma` — fear, anxiety and stigma — 1 grounded row(s); layers: concepts=1
@@ -3352,6 +3388,7 @@ wording limited to the audited rights-cleared paper set.
 - `function-essentialism` — function essentialism — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `function-of-consciousness` — function of consciousness — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `functional-annotation-sources` — functional annotation sources — 1 grounded row(s); layers: concepts=1
+- `functional-association` — functional association — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `functional-augmentative-approaches` — functional-augmentative approaches — 1 grounded row(s); layers: concepts=1
 - `functional-capacity` — functional capacity — 1 grounded row(s); layers: concepts=1
 - `functional-conservation` — functional conservation — 1 grounded row(s); layers: concepts=1
@@ -3516,6 +3553,7 @@ wording limited to the audited rights-cleared paper set.
 - `genome-wide-statistical-methods` — genome-wide statistical methods — 1 grounded row(s); layers: concepts=1
 - `genomic-and-metagenomic-workflows` — genomic and metagenomic workflows — 1 grounded row(s); layers: concepts=1
 - `genomic-assay-analysis-pipelines` — genomic assay analysis pipelines — 1 grounded row(s); layers: concepts=1
+- `genomic-context` — genomic context — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `genomic-coordinates` — genomic coordinates — 1 grounded row(s); layers: concepts=1
 - `genomic-data-analysis` — genomic data analysis — 1 grounded row(s); layers: concepts=1
 - `genomic-interpretation` — genomic interpretation — 1 grounded row(s); layers: concepts=1
@@ -3568,6 +3606,7 @@ wording limited to the audited rights-cleared paper set.
 - `global-crop-production` — global crop production — 1 grounded row(s); layers: concepts=1
 - `global-emotional-synchrony` — global emotional synchrony — 1 grounded row(s); layers: concepts=1
 - `global-frame` — global frame — 1 grounded row(s); layers: concepts=1
+- `global-health-data-exchange` — Global Health Data Exchange — 1 grounded row(s); layers: concepts=1
 - `global-historical-climatology-network` — Global Historical Climatology Network — 1 grounded row(s); layers: concepts=1
 - `global-hyper-parameters` — global hyper-parameters — 1 grounded row(s); layers: concepts=1
 - `global-installed-base` — global installed base — 1 grounded row(s); layers: concepts=1
@@ -3774,6 +3813,7 @@ wording limited to the audited rights-cleared paper set.
 - `health-research` — health research — 1 grounded row(s); layers: concepts=1
 - `health-risks` — health risks — 1 grounded row(s); layers: concepts=1
 - `health-social-and-behavioral-sciences` — health, social, and behavioral sciences — 1 grounded row(s); layers: concepts=1
+- `healthcare-access-and-quality-index` — Healthcare Access and Quality Index — 1 grounded row(s); layers: concepts=1
 - `healthcare-quality` — healthcare quality — 1 grounded row(s); layers: concepts=1
 - `healthy-individuals` — healthy individuals — 1 grounded row(s); layers: concepts=1
 - `healthy-microbiota` — healthy microbiota — 1 grounded row(s); layers: concepts=1
@@ -3914,6 +3954,7 @@ wording limited to the audited rights-cleared paper set.
 - `homology-based-approaches` — homology-based approaches — 1 grounded row(s); layers: concepts=1
 - `homology-detection` — homology detection — 1 grounded row(s); layers: concepts=1
 - `homology-relationships` — homology relationships — 1 grounded row(s); layers: concepts=1
+- `homology-search` — homology search — 1 grounded row(s); layers: concepts=1
 - `homomorphic-encryption-systems` — Homomorphic encryption systems — 1 grounded row(s); layers: concepts=1
 - `homophily` — homophily — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
 - `homotopically-equivalent` — homotopically equivalent — 1 grounded row(s); layers: concepts=1
@@ -4119,7 +4160,6 @@ wording limited to the audited rights-cleared paper set.
 - `implementation-practice` — implementation practice — 1 grounded row(s); layers: concepts=1
 - `implementation-process` — implementation process — 1 grounded row(s); layers: concepts=1
 - `implementation-relevant-measures` — implementation-relevant measures — 1 grounded row(s); layers: concepts=1
-- `implementation-science` — implementation science — 1 grounded row(s); layers: concepts=1
 - `implementation-theories` — implementation theories — 1 grounded row(s); layers: concepts=1
 - `implementation-theory` — implementation theory — 1 grounded row(s); layers: concepts=1
 - `implementations` — implementations — 1 grounded row(s); layers: concepts=1
@@ -4378,12 +4418,14 @@ wording limited to the audited rights-cleared paper set.
 - `internal-validation` — internal validation — 1 grounded row(s); layers: concepts=1
 - `internally-consistent-items` — internally consistent items — 1 grounded row(s); layers: concepts=1
 - `international-chemical-identifier-standard` — International Chemical Identifier Standard — 1 grounded row(s); layers: concepts=1
+- `international-classification-of-diseases` — International Classification of Diseases — 1 grounded row(s); layers: concepts=1
 - `international-code-of-virus-classification-and-nomenclature` — International Code of Virus Classification and Nomenclature — 1 grounded row(s); layers: concepts=1
 - `international-committee-on-nomenclature-of-viruses` — International Committee on Nomenclature of Viruses — 1 grounded row(s); layers: concepts=1
 - `international-committee-on-taxonomy-of-viruses` — International Committee on Taxonomy of Viruses — 1 grounded row(s); layers: concepts=1
 - `international-league-against-epilepsy-ilae-guidelines` — International League Against Epilepsy (ILAE) guidelines — 1 grounded row(s); layers: concepts=1
 - `interneurons` — Interneurons — 1 grounded row(s); layers: content_tags.definitions=1
 - `interoception` — interoception — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `interologs` — interologs — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `interoperability-layer` — interoperability layer — 1 grounded row(s); layers: concepts=1
 - `interpersonal` — interpersonal — 1 grounded row(s); layers: concepts=1
 - `interpersonal-experiences-of-stigma` — interpersonal experiences of stigma — 1 grounded row(s); layers: concepts=1
@@ -4440,6 +4482,7 @@ wording limited to the audited rights-cleared paper set.
 - `ipa-module` — IPA module — 1 grounded row(s); layers: concepts=1
 - `ips-cells` — iPS cells — 1 grounded row(s); layers: concepts=1
 - `ipsilateral` — ipsilateral — 2 grounded row(s); layers: concepts=2
+- `iptm` — ipTM — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `ipython` — IPython — 1 grounded row(s); layers: concepts=1
 - `ir-microspectroscopy` — IR microspectroscopy — 1 grounded row(s); layers: content_tags.definitions=1
 - `iranges` — IRanges — 1 grounded row(s); layers: concepts=1
@@ -4517,6 +4560,7 @@ wording limited to the audited rights-cleared paper set.
 - `junctional-read` — junctional read — 1 grounded row(s); layers: concepts=1
 - `junctional-read-counts` — junctional read counts — 1 grounded row(s); layers: concepts=1
 - `jupyter` — Jupyter — 2 grounded row(s); layers: concepts=2
+- `jupyter-notebook` — Jupyter Notebook — 1 grounded row(s); layers: concepts=1
 - `just-in-time-compilation` — just-in-time compilation — 1 grounded row(s); layers: concepts=1
 - `justice` — justice — 1 grounded row(s); layers: concepts=1
 - `k-mers` — k -mers — 1 grounded row(s); layers: concepts=1
@@ -4530,6 +4574,7 @@ wording limited to the audited rights-cleared paper set.
 - `kappa-similarities` — Kappa similarities — 1 grounded row(s); layers: concepts=1
 - `kappa-statistic` — Kappa statistic — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `keep-changes-small` — Keep changes small — 1 grounded row(s); layers: concepts=1
+- `kegg` — KEGG — 1 grounded row(s); layers: concepts=1
 - `kegg-drug-database` — KEGG-drug database — 1 grounded row(s); layers: concepts=1
 - `keloid` — keloid — 1 grounded row(s); layers: content_tags.definitions=1
 - `kendall-rank-correlation-coefficient` — Kendall rank correlation coefficient — 1 grounded row(s); layers: concepts=1
@@ -4643,6 +4688,7 @@ wording limited to the audited rights-cleared paper set.
 - `larger-pathways-modules-or-processes` — larger pathways, modules, or processes — 1 grounded row(s); layers: concepts=1
 - `largest-connect-component` — largest connect component — 1 grounded row(s); layers: concepts=1
 - `largest-viable-cluster` — largest viable cluster — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `last-common-ancestor` — last common ancestor — 1 grounded row(s); layers: concepts=1
 - `last-fixation` — last fixation — 1 grounded row(s); layers: concepts=1
 - `late-fusion` — late fusion — 2 grounded row(s); layers: content_tags.definitions=2
 - `latency` — latency — 1 grounded row(s); layers: content_tags.definitions=1
@@ -4720,6 +4766,7 @@ wording limited to the audited rights-cleared paper set.
 - `life-cycle-assessment` — life cycle assessment — 1 grounded row(s); layers: content_tags.definitions=1
 - `lifestyle-microbiota-human-health-connection` — lifestyle-microbiota-human health connection — 1 grounded row(s); layers: concepts=1
 - `lift-over-from-an-old-assembly` — lift over from an old assembly — 1 grounded row(s); layers: concepts=1
+- `ligand-docking` — ligand docking — 1 grounded row(s); layers: concepts=1
 - `ligandbox-database` — LigandBox database — 1 grounded row(s); layers: concepts=1
 - `lightly-digested-open-chromatin-assays` — lightly digested open chromatin assays — 1 grounded row(s); layers: concepts=1
 - `lightweight-flexible-and-modular-components` — lightweight, flexible, and modular components — 1 grounded row(s); layers: concepts=1
@@ -4901,6 +4948,7 @@ wording limited to the audited rights-cleared paper set.
 - `low-sequencing-depths` — low sequencing depths — 1 grounded row(s); layers: concepts=1
 - `low-signals` — low signals — 1 grounded row(s); layers: concepts=1
 - `low-statistical-power` — low statistical power — 1 grounded row(s); layers: concepts=1
+- `low-throughput` — low-throughput — 1 grounded row(s); layers: concepts=1
 - `low-yields` — low yields — 1 grounded row(s); layers: concepts=1
 - `lower-bound-of-our-confidence-interval` — lower bound of our confidence interval — 1 grounded row(s); layers: concepts=1
 - `lower-bound-on-the-likelihood` — lower bound on the likelihood — 1 grounded row(s); layers: concepts=1
@@ -5143,6 +5191,8 @@ wording limited to the audited rights-cleared paper set.
 - `meditation` — meditation — 1 grounded row(s); layers: concepts=1
 - `medium` — medium — 1 grounded row(s); layers: concepts=1
 - `medium-range` — medium-range — 1 grounded row(s); layers: concepts=1
+- `mega` — MEGA — 1 grounded row(s); layers: concepts=1
+- `mega-cc` — MEGA-CC — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `megahit` — MEGAHIT — 1 grounded row(s); layers: concepts=1
 - `melancholy` — melancholy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `membership-search` — membership search — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -5194,6 +5244,7 @@ wording limited to the audited rights-cleared paper set.
 - `meta-organism-concept` — meta-organism concept — 1 grounded row(s); layers: concepts=1
 - `meta-organisms` — meta-organisms — 1 grounded row(s); layers: concepts=1
 - `meta-synthesis` — meta-synthesis — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `meta-tag` — meta tag — 1 grounded row(s); layers: concepts=1
 - `metabarcoding` — metabarcoding — 1 grounded row(s); layers: concepts=1
 - `metabolic-state` — metabolic state — 1 grounded row(s); layers: concepts=1
 - `metabolites` — metabolites — 1 grounded row(s); layers: concepts=1
@@ -5228,6 +5279,7 @@ wording limited to the audited rights-cleared paper set.
 - `metrics-of-biodiversity` — metrics of biodiversity — 1 grounded row(s); layers: concepts=1
 - `metropolis-acceptance-criterion` — Metropolis acceptance criterion — 1 grounded row(s); layers: concepts=1
 - `mfs` — MFs — 1 grounded row(s); layers: concepts=1
+- `mgnify` — MGnify — 1 grounded row(s); layers: concepts=1
 - `michaelis-menten` — Michaelis-Menten — 1 grounded row(s); layers: concepts=1
 - `micro-aggregates` — micro-aggregates — 1 grounded row(s); layers: concepts=1
 - `micro-eukaryotes` — micro-eukaryotes — 1 grounded row(s); layers: concepts=1
@@ -5358,6 +5410,7 @@ wording limited to the audited rights-cleared paper set.
 - `model-organism-databases` — model organism databases — 1 grounded row(s); layers: concepts=1
 - `model-quality` — model quality — 1 grounded row(s); layers: concepts=1
 - `model-scale-mean-anomalies` — model-scale mean anomalies — 1 grounded row(s); layers: concepts=1
+- `model-seeds` — model seeds — 1 grounded row(s); layers: concepts=1
 - `model-selection` — model selection — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `model-spatial-biases` — model spatial biases — 1 grounded row(s); layers: concepts=1
 - `model-zoos` — model zoos — 1 grounded row(s); layers: concepts=1
@@ -5369,7 +5422,9 @@ wording limited to the audited rights-cleared paper set.
 - `modes-of-action` — modes of action — 1 grounded row(s); layers: concepts=1
 - `modes-of-attention` — modes of attention — 1 grounded row(s); layers: concepts=1
 - `modification-condition` — modification condition — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `modified-delphi-process` — modified Delphi process — 1 grounded row(s); layers: concepts=1
 - `modified-hospital` — modified HOSPITAL — 1 grounded row(s); layers: concepts=1
+- `modified-residues` — modified residues — 1 grounded row(s); layers: concepts=1
 - `modified-weibull` — modified Weibull — 1 grounded row(s); layers: concepts=1
 - `modular-code` — modular code — 1 grounded row(s); layers: concepts=1
 - `modular-image-analysis-software` — modular image analysis software — 1 grounded row(s); layers: concepts=1
@@ -5515,6 +5570,8 @@ wording limited to the audited rights-cleared paper set.
 - `multiple-portals` — multiple portals — 1 grounded row(s); layers: concepts=1
 - `multiple-predictions` — multiple predictions — 1 grounded row(s); layers: concepts=1
 - `multiple-sclerosis` — multiple sclerosis — 1 grounded row(s); layers: concepts=1
+- `multiple-sequence-alignment` — multiple-sequence alignment — 1 grounded row(s); layers: concepts=1
+- `multiple-sequence-alignments` — multiple sequence alignments — 1 grounded row(s); layers: concepts=1
 - `multiple-sequence-alignments-msas` — multiple sequence alignments (MSAs) — 1 grounded row(s); layers: concepts=1
 - `multiple-threads` — multiple threads — 2 grounded row(s); layers: concepts=2
 - `multiple-utilisability` — multiple utilisability — 1 grounded row(s); layers: concepts=1
@@ -5657,6 +5714,7 @@ wording limited to the audited rights-cleared paper set.
 - `network-depth` — network depth — 1 grounded row(s); layers: concepts=1
 - `network-events` — network events — 1 grounded row(s); layers: content_tags.definitions=1
 - `network-meta-analyses` — network meta-analyses — 1 grounded row(s); layers: concepts=1
+- `network-meta-regression` — network meta-regression — 1 grounded row(s); layers: concepts=1
 - `network-of-relationships` — network of relationships — 1 grounded row(s); layers: concepts=1
 - `network-topology` — network topology — 1 grounded row(s); layers: concepts=1
 - `neural-connections` — neural connections — 1 grounded row(s); layers: concepts=1
@@ -5683,6 +5741,7 @@ wording limited to the audited rights-cleared paper set.
 - `neuroscience-knowledge-survey` — neuroscience knowledge survey — 1 grounded row(s); layers: concepts=1
 - `neuroscience-literacy` — neuroscience literacy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `neuroscience-of-art` — neuroscience of art — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `neutral-theory-of-molecular-evolution` — neutral theory of molecular evolution — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `neutralisation-and-pseudo-neutralisation-assays` — Neutralisation and pseudo-neutralisation assays — 1 grounded row(s); layers: concepts=1
 - `neutralised` — neutralised — 1 grounded row(s); layers: concepts=1
 - `neutralising-activity` — neutralising activity — 1 grounded row(s); layers: concepts=1
@@ -5732,6 +5791,7 @@ wording limited to the audited rights-cleared paper set.
 - `no-position-classification` — ‘no position’ classification — 1 grounded row(s); layers: concepts=1
 - `no-report-paradigms` — no-report paradigms — 1 grounded row(s); layers: content_tags.definitions=1
 - `node-ages` — node ages — 1 grounded row(s); layers: concepts=1
+- `node-dating` — node-dating — 1 grounded row(s); layers: concepts=1
 - `node-features-matrix` — node features matrix — 1 grounded row(s); layers: concepts=1
 - `node-level-embedding` — node-level embedding — 1 grounded row(s); layers: concepts=1
 - `nodes` — nodes — 1 grounded row(s); layers: concepts=1
@@ -5750,6 +5810,7 @@ wording limited to the audited rights-cleared paper set.
 - `non-canonical-splicing-of-short-exons` — non-canonical splicing of short exons — 1 grounded row(s); layers: concepts=1
 - `non-co-2-forcings` — non-CO 2 forcings — 1 grounded row(s); layers: concepts=1
 - `non-coding-rna-species` — non-coding RNA species — 1 grounded row(s); layers: concepts=1
+- `non-communicable-diseases` — non-communicable diseases — 1 grounded row(s); layers: concepts=1
 - `non-compounding-linear-percentage-rate` — non-compounding linear percentage rate — 1 grounded row(s); layers: concepts=1
 - `non-conscious-mechanism` — non-conscious mechanism — 1 grounded row(s); layers: concepts=1
 - `non-conscious-process` — Non-Conscious process — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -6087,6 +6148,7 @@ wording limited to the audited rights-cleared paper set.
 - `otus-clustering-sequences-at-a-3-genetic-difference` — OTUs clustering sequences at a 3% genetic difference — 1 grounded row(s); layers: concepts=1
 - `our-protocol` — our protocol — 1 grounded row(s); layers: concepts=1
 - `out-of-core-computation` — Out-of-core computation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `out-of-sample-predictive-validity` — out-of-sample predictive validity — 1 grounded row(s); layers: concepts=1
 - `out-of-training-samples` — out-of-training samples — 1 grounded row(s); layers: concepts=1
 - `out-section` — out-section — 1 grounded row(s); layers: concepts=1
 - `outcome` — outcome — 4 grounded row(s); layers: concepts=3, content_tags.definitions=1
@@ -6156,6 +6218,7 @@ wording limited to the audited rights-cleared paper set.
 - `paired-end-rna-seq-data` — paired-end RNA-seq data — 1 grounded row(s); layers: concepts=1
 - `paired-end-sequences` — paired-end sequences — 1 grounded row(s); layers: concepts=1
 - `paired-refinement` — paired-refinement — 1 grounded row(s); layers: concepts=1
+- `pairformer` — pairformer — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `pairwise-confidence-prediction` — pairwise confidence prediction — 1 grounded row(s); layers: concepts=1
 - `pairwise-distances` — pairwise distances — 1 grounded row(s); layers: concepts=1
 - `pairwise-ecological-distances` — pairwise ecological distances — 1 grounded row(s); layers: concepts=1
@@ -6386,6 +6449,7 @@ wording limited to the audited rights-cleared paper set.
 - `phylogenetic-species-concept` — phylogenetic species concept — 1 grounded row(s); layers: concepts=1
 - `phylogenetic-tree` — phylogenetic tree — 1 grounded row(s); layers: concepts=1
 - `phylogenies` — phylogenies — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `phylogeny` — phylogeny — 1 grounded row(s); layers: concepts=1
 - `phyloseq` — phyloseq — 2 grounded row(s); layers: concepts=2
 - `phyloseq-class` — phyloseq class — 1 grounded row(s); layers: concepts=1
 - `phyloseq-constructor-method` — phyloseq-constructor method — 1 grounded row(s); layers: concepts=1
@@ -6551,6 +6615,7 @@ wording limited to the audited rights-cleared paper set.
 - `pose-estimation` — pose estimation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `pose-estimation-accuracy` — pose-estimation accuracy — 1 grounded row(s); layers: concepts=1
 - `pose-score` — pose score — 1 grounded row(s); layers: concepts=1
+- `posebusters` — PoseBusters — 1 grounded row(s); layers: concepts=1
 - `position-nudge` — position nudge — 1 grounded row(s); layers: concepts=1
 - `positional-ordering-of-dimensions` — positional ordering of dimensions — 1 grounded row(s); layers: concepts=1
 - `positional-relationship` — positional relationship — 1 grounded row(s); layers: concepts=1
@@ -6839,9 +6904,11 @@ wording limited to the audited rights-cleared paper set.
 - `protein-backbone` — protein backbone — 1 grounded row(s); layers: concepts=1
 - `protein-binding` — protein binding — 1 grounded row(s); layers: concepts=1
 - `protein-binding-partner` — protein binding partner — 1 grounded row(s); layers: concepts=1
+- `protein-complex` — protein complex — 1 grounded row(s); layers: concepts=1
 - `protein-complexes` — protein complexes — 2 grounded row(s); layers: concepts=2
 - `protein-data-bank` — Protein Data Bank — 3 grounded row(s); layers: concepts=3
 - `protein-data-bank-pdb` — Protein Data Bank (PDB) — 1 grounded row(s); layers: concepts=1
+- `protein-database` — protein database — 1 grounded row(s); layers: concepts=1
 - `protein-domain-discovery` — protein domain discovery — 1 grounded row(s); layers: concepts=1
 - `protein-families-from-cog` — protein families from COG — 1 grounded row(s); layers: concepts=1
 - `protein-family` — protein family — 3 grounded row(s); layers: concepts=2, content_tags.definitions=1
@@ -6863,6 +6930,7 @@ wording limited to the audited rights-cleared paper set.
 - `protein-translocation` — protein translocation — 1 grounded row(s); layers: concepts=1
 - `proteins` — proteins — 3 grounded row(s); layers: concepts=3
 - `proteins-api` — Proteins API — 1 grounded row(s); layers: concepts=1
+- `proteome` — proteome — 1 grounded row(s); layers: concepts=1
 - `proteome-completeness-and-quality` — proteome completeness and quality — 1 grounded row(s); layers: concepts=1
 - `proteome-redundancy-removal` — proteome redundancy removal — 1 grounded row(s); layers: concepts=1
 - `proteome-scale` — proteome-scale — 1 grounded row(s); layers: concepts=1
@@ -6900,6 +6968,7 @@ wording limited to the audited rights-cleared paper set.
 - `pseudotyped-viruses` — pseudotyped viruses — 1 grounded row(s); layers: concepts=1
 - `pseudovirus-neutralization-assays` — Pseudovirus neutralization assays — 1 grounded row(s); layers: concepts=1
 - `psi-extended-fasta-format` — PSI Extended FASTA Format — 1 grounded row(s); layers: concepts=1
+- `psi-mi-cv` — PSI-MI CV — 1 grounded row(s); layers: concepts=1
 - `psilocybin` — psilocybin — 1 grounded row(s); layers: concepts=1
 - `psychedelics` — psychedelics — 1 grounded row(s); layers: concepts=1
 - `psychic-functions` — psychic functions — 1 grounded row(s); layers: concepts=1
@@ -7216,11 +7285,13 @@ wording limited to the audited rights-cleared paper set.
 - `recruitment-and-maturation-of-antigen-presenting-cells-apcs` — recruitment and maturation of antigen-presenting cells (APCs) — 1 grounded row(s); layers: concepts=1
 - `recruitment-strategies` — recruitment strategies — 1 grounded row(s); layers: concepts=1
 - `recurrent-neural-networks` — recurrent neural networks — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `recycle-count` — recycle count — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `red-list-categories` — Red List Categories — 1 grounded row(s); layers: concepts=1
 - `red-list-category-weight` — Red List category weight — 1 grounded row(s); layers: concepts=1
 - `red-teaming` — red teaming — 1 grounded row(s); layers: concepts=1
 - `reddit` — Reddit — 1 grounded row(s); layers: concepts=1
 - `redefinition-of-the-taxonomy-based-on-the-phylogeny` — redefinition of the taxonomy based on the phylogeny — 1 grounded row(s); layers: concepts=1
+- `redistribution-algorithms` — redistribution algorithms — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `redocking` — redocking — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `redshift-measurement` — redshift measurement — 1 grounded row(s); layers: concepts=1
 - `reduce-overall-ecosystem-stability-and-resilience` — reduce overall ecosystem stability and resilience — 1 grounded row(s); layers: concepts=1
@@ -7320,6 +7391,7 @@ wording limited to the audited rights-cleared paper set.
 - `relative-risk` — relative risk — 1 grounded row(s); layers: concepts=1
 - `relative-traffic-change` — relative traffic change — 1 grounded row(s); layers: concepts=1
 - `relatively-small-increases-in-cost` — relatively small increases in cost — 1 grounded row(s); layers: concepts=1
+- `relaxed-clock` — relaxed-clock — 1 grounded row(s); layers: concepts=1
 - `release-version` — release version — 1 grounded row(s); layers: concepts=1
 - `reliability` — reliability — 7 grounded row(s); layers: concepts=5, content_tags.definitions=2
 - `reliability-and-validity` — reliability and validity — 1 grounded row(s); layers: concepts=1
@@ -7335,6 +7407,8 @@ wording limited to the audited rights-cleared paper set.
 - `religion` — religion — 1 grounded row(s); layers: concepts=1
 - `religious-belief` — religious belief — 1 grounded row(s); layers: concepts=1
 - `religious-practice` — religious practice — 1 grounded row(s); layers: concepts=1
+- `reltime` — RelTime — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `reltime-with-dated-tips` — RelTime with Dated Tips — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `relu` — ReLU — 1 grounded row(s); layers: content_tags.definitions=1
 - `remote-machines-that-already-have-data` — remote machines that already have data — 1 grounded row(s); layers: concepts=1
 - `remote-sensing` — remote sensing — 1 grounded row(s); layers: concepts=1
@@ -7419,6 +7493,7 @@ wording limited to the audited rights-cleared paper set.
 - `residual-variance-of-daily-log-biomass` — residual variance of daily log-biomass — 1 grounded row(s); layers: concepts=1
 - `residual-variances` — residual variances — 2 grounded row(s); layers: concepts=2
 - `residue-gas` — residue gas — 1 grounded row(s); layers: concepts=1
+- `residue-index` — residue index — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `residues-in-proximity` — residues in proximity — 1 grounded row(s); layers: concepts=1
 - `resistance-to-a-drug` — resistance to a drug — 1 grounded row(s); layers: concepts=1
 - `resistant-to-rnaser-degradation` — resistant to RNaseR degradation — 1 grounded row(s); layers: concepts=1
@@ -7564,6 +7639,8 @@ wording limited to the audited rights-cleared paper set.
 - `root-directory` — root directory — 1 grounded row(s); layers: concepts=1
 - `root-mean-square-average-of-the-log-fold-changes` — root-mean-square average of the log-fold-changes — 1 grounded row(s); layers: concepts=1
 - `root-mean-square-deviation` — root-mean-square deviation — 1 grounded row(s); layers: concepts=1
+- `rosettafold` — RoseTTAFold — 1 grounded row(s); layers: concepts=1
+- `rosettafold2na` — RoseTTAFold2NA — 1 grounded row(s); layers: concepts=1
 - `rotated-form` — rotated form — 1 grounded row(s); layers: concepts=1
 - `rotation-tests` — rotation tests — 1 grounded row(s); layers: concepts=1
 - `rotational-and-translation-symmetries` — rotational and translation symmetries — 1 grounded row(s); layers: concepts=1
@@ -7978,6 +8055,7 @@ wording limited to the audited rights-cleared paper set.
 - `single-bucket-model` — single bucket model — 1 grounded row(s); layers: concepts=1
 - `single-cell-genomics` — single-cell genomics — 1 grounded row(s); layers: concepts=1
 - `single-cell-platforms` — single-cell platforms — 1 grounded row(s); layers: concepts=1
+- `single-cell-rna-seq` — single-cell RNA-Seq — 1 grounded row(s); layers: concepts=1
 - `single-cell-rna-sequencing` — single-cell RNA sequencing — 1 grounded row(s); layers: concepts=1
 - `single-cell-technologies` — single-cell technologies — 1 grounded row(s); layers: concepts=1
 - `single-cells` — single cells — 1 grounded row(s); layers: concepts=1
@@ -8000,6 +8078,7 @@ wording limited to the audited rights-cleared paper set.
 - `single-weak-base` — single weak base — 1 grounded row(s); layers: concepts=1
 - `singletons` — singletons — 1 grounded row(s); layers: concepts=1
 - `singular-model` — singular model — 1 grounded row(s); layers: concepts=1
+- `site-configurations` — site configurations — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `site-specific-data-harmonization` — site-specific data harmonization — 1 grounded row(s); layers: concepts=1
 - `sitting` — sitting — 1 grounded row(s); layers: concepts=1
 - `situatedness` — situatedness — 1 grounded row(s); layers: concepts=1
@@ -8107,6 +8186,7 @@ wording limited to the audited rights-cleared paper set.
 - `socialization-of-hallucinations` — socialization of hallucinations — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `socialness-ratings` — socialness ratings — 1 grounded row(s); layers: concepts=1
 - `societal-objectives` — societal objectives — 1 grounded row(s); layers: concepts=1
+- `socio-demographic-index` — Socio-demographic Index — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `socioeconomic-considerations` — socioeconomic considerations — 1 grounded row(s); layers: concepts=1
 - `socioeconomic-position` — socioeconomic position — 1 grounded row(s); layers: concepts=1
 - `socioeconomic-status` — socioeconomic status — 1 grounded row(s); layers: content_tags.definitions=1
@@ -8124,6 +8204,7 @@ wording limited to the audited rights-cleared paper set.
 - `soil-carbon` — soil carbon — 1 grounded row(s); layers: concepts=1
 - `soil-moisture` — soil moisture — 1 grounded row(s); layers: concepts=1
 - `soluble` — soluble — 1 grounded row(s); layers: concepts=1
+- `solution-ensemble` — solution ensemble — 1 grounded row(s); layers: concepts=1
 - `solvents` — solvents — 1 grounded row(s); layers: concepts=1
 - `somatic-mutations` — somatic mutations — 1 grounded row(s); layers: concepts=1
 - `somatostatin` — somatostatin — 1 grounded row(s); layers: content_tags.definitions=1
@@ -8256,6 +8337,7 @@ wording limited to the audited rights-cleared paper set.
 - `sr101` — SR101 — 1 grounded row(s); layers: content_tags.definitions=1
 - `src-directory` — src directory — 1 grounded row(s); layers: concepts=1
 - `sse2-instructions` — SSE2 instructions — 1 grounded row(s); layers: concepts=1
+- `st-gpr` — ST-GPR — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `stability-and-resilience-of-microbial-networks` — stability and resilience of microbial networks — 1 grounded row(s); layers: concepts=1
 - `stabilization` — stabilization — 1 grounded row(s); layers: content_tags.definitions=1
 - `stabilizing-selection` — stabilizing selection — 1 grounded row(s); layers: concepts=1
@@ -8282,6 +8364,7 @@ wording limited to the audited rights-cleared paper set.
 - `standard-format-for-biodiversity-data` — standard format for biodiversity data — 1 grounded row(s); layers: concepts=1
 - `standard-identifier` — standard identifier — 1 grounded row(s); layers: concepts=1
 - `standard-inchi` — Standard InChI — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `standard-locations` — standard locations — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `standard-methodologies` — standard methodologies — 1 grounded row(s); layers: concepts=1
 - `standard-set-of-1000-pairs-of-random-longitudes-latitudes` — standard set of 1000 pairs of random longitudes/latitudes — 1 grounded row(s); layers: concepts=1
 - `standardised-data-extraction-protocols` — standardised data extraction protocols — 1 grounded row(s); layers: concepts=1
@@ -8310,6 +8393,7 @@ wording limited to the audited rights-cleared paper set.
 - `state-updating` — state updating — 1 grounded row(s); layers: concepts=1
 - `statement` — statement — 1 grounded row(s); layers: concepts=1
 - `static-reports` — static reports — 1 grounded row(s); layers: concepts=1
+- `static-structures` — static structures — 1 grounded row(s); layers: concepts=1
 - `station-density` — station density — 1 grounded row(s); layers: concepts=1
 - `station-observations` — station observations — 1 grounded row(s); layers: concepts=1
 - `statistical-account` — statistical account — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
@@ -8388,6 +8472,7 @@ wording limited to the audited rights-cleared paper set.
 - `stricta` — STRICTA — 1 grounded row(s); layers: content_tags.definitions=1
 - `strides` — strides — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `striking-plumage-differences` — striking plumage differences — 1 grounded row(s); layers: concepts=1
+- `string` — STRING — 1 grounded row(s); layers: concepts=1
 - `stringent-conditions` — stringent conditions — 1 grounded row(s); layers: concepts=1
 - `strobe` — STROBE — 1 grounded row(s); layers: concepts=1
 - `strobe-statement` — STROBE statement — 1 grounded row(s); layers: concepts=1
@@ -8571,6 +8656,7 @@ wording limited to the audited rights-cleared paper set.
 - `synergism` — synergism — 2 grounded row(s); layers: concepts=2
 - `synergistic-interaction` — synergistic interaction — 1 grounded row(s); layers: content_tags.definitions=1
 - `synonyms` — synonyms — 1 grounded row(s); layers: concepts=1
+- `synonymy` — synonymy — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `synthetic-accessibility` — synthetic accessibility — 1 grounded row(s); layers: concepts=1
 - `synthetic-data` — synthetic data — 1 grounded row(s); layers: concepts=1
 - `synthetic-images` — synthetic images — 1 grounded row(s); layers: concepts=1
@@ -8646,7 +8732,7 @@ wording limited to the audited rights-cleared paper set.
 - `taxonomic-uncertainty` — taxonomic uncertainty — 1 grounded row(s); layers: concepts=1
 - `taxonomic-units` — taxonomic units — 1 grounded row(s); layers: concepts=1
 - `taxonomic-weighting` — taxonomic weighting — 1 grounded row(s); layers: concepts=1
-- `taxonomies` — Taxonomies — 1 grounded row(s); layers: concepts=1
+- `taxonomies` — Taxonomies — 2 grounded row(s); layers: concepts=2
 - `tcr-t-therapy` — TCR-T therapy — 1 grounded row(s); layers: concepts=1
 - `teaching-effectiveness` — teaching effectiveness — 1 grounded row(s); layers: concepts=1
 - `team-of-volunteers` — team of volunteers — 1 grounded row(s); layers: concepts=1
@@ -8854,14 +8940,17 @@ wording limited to the audited rights-cleared paper set.
 - `timelike-developable-surfaces` — timelike developable surfaces — 1 grounded row(s); layers: concepts=1
 - `timescale` — timescale — 1 grounded row(s); layers: concepts=1
 - `timescales-over-which-interventions-yield-benefits` — timescales over which interventions yield benefits — 1 grounded row(s); layers: concepts=1
+- `timetree` — timetree — 1 grounded row(s); layers: concepts=1
 - `timing-phase-and-amplitude-of-the-source` — timing, phase, and amplitude of the source — 1 grounded row(s); layers: concepts=1
 - `tinnitus` — tinnitus — 1 grounded row(s); layers: content_tags.definitions=1
+- `tip-dating` — tip-dating — 1 grounded row(s); layers: concepts=1
 - `tip-of-the-iceberg` — tip of the iceberg — 1 grounded row(s); layers: concepts=1
 - `tip-of-the-nose` — tip-of-the-nose — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `tippme` — TIPPME — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `tissue-areas` — tissue areas — 1 grounded row(s); layers: concepts=1
 - `tissue-microarrays` — tissue microarrays — 1 grounded row(s); layers: concepts=1
 - `tit-for-tat` — tit-for-tat — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
+- `tm-score` — TM-score — 1 grounded row(s); layers: concepts=1
 - `tmas` — TMAs — 1 grounded row(s); layers: concepts=1
 - `tmm-normalization` — TMM normalization — 1 grounded row(s); layers: concepts=1
 - `tnc-network` — TNC network — 1 grounded row(s); layers: concepts=1
@@ -8990,6 +9079,7 @@ wording limited to the audited rights-cleared paper set.
 - `treatment-effects` — treatment effects — 1 grounded row(s); layers: concepts=1
 - `treatment-scale-up` — treatment scale-up — 1 grounded row(s); layers: concepts=1
 - `treatment-with-antibiotics-for-three-days` — treatment with antibiotics for three days — 1 grounded row(s); layers: concepts=1
+- `tree-explorer` — Tree Explorer — 1 grounded row(s); layers: concepts=1
 - `tree-of-life` — Tree of Life — 1 grounded row(s); layers: concepts=1
 - `tree-of-parzen-estimators` — Tree of Parzen Estimators — 1 grounded row(s); layers: concepts=1
 - `trend-reversal` — trend reversal — 1 grounded row(s); layers: concepts=1
@@ -9083,6 +9173,7 @@ wording limited to the audited rights-cleared paper set.
 - `uncertain` — Uncertain — 2 grounded row(s); layers: concepts=2
 - `uncertainty-about-inputs` — uncertainty about inputs — 1 grounded row(s); layers: concepts=1
 - `uncertainty-estimates` — uncertainty estimates — 1 grounded row(s); layers: concepts=1
+- `uncertainty-intervals` — uncertainty intervals — 1 grounded row(s); layers: concepts=1
 - `uncertainty-ranges` — uncertainty ranges — 1 grounded row(s); layers: concepts=1
 - `uncharacterized-protein-names` — uncharacterized protein names — 1 grounded row(s); layers: concepts=1
 - `uncomplicated-grief` — uncomplicated grief — 1 grounded row(s); layers: concepts=1
@@ -9091,6 +9182,7 @@ wording limited to the audited rights-cleared paper set.
 - `uncorrupted-ones` — uncorrupted ones — 1 grounded row(s); layers: concepts=1
 - `underestimates` — underestimates — 1 grounded row(s); layers: concepts=1
 - `undergoing-restoration` — undergoing restoration — 1 grounded row(s); layers: concepts=1
+- `underlying-cause-of-death` — underlying cause of death — 1 grounded row(s); layers: concepts=1
 - `underlying-evidence` — underlying evidence — 1 grounded row(s); layers: concepts=1
 - `underlying-genome-database` — underlying genome database — 1 grounded row(s); layers: concepts=1
 - `underlying-results` — underlying results — 1 grounded row(s); layers: concepts=1
@@ -9132,6 +9224,7 @@ wording limited to the audited rights-cleared paper set.
 - `uniqueness-for-a-chemical-structure` — uniqueness for a chemical structure — 1 grounded row(s); layers: concepts=1
 - `uniref-databases` — UniRef databases — 1 grounded row(s); layers: concepts=1
 - `uniref-protein-sequence-clusters` — UniRef protein sequence clusters — 1 grounded row(s); layers: concepts=1
+- `uniref30` — UniRef30 — 1 grounded row(s); layers: concepts=1
 - `uniref50-clustering` — UniRef50 clustering — 1 grounded row(s); layers: concepts=1
 - `uniref90` — UniRef90 — 1 grounded row(s); layers: concepts=1
 - `unirule-system` — UniRule system — 1 grounded row(s); layers: concepts=1
@@ -9523,6 +9616,7 @@ wording limited to the audited rights-cleared paper set.
 - `bert` — BERT [all-caps-short-form] — no corpus-attested public expansion
 - `bf` — BF [all-caps-short-form] — breadth-first search — Improved metagenomic analysis with Kraken 2 (2019)
 - `bf-01` — BF 01 [all-caps-short-form] — no corpus-attested public expansion
+- `bfd` — BFD [all-caps-short-form] — Big Fantastic Database — Highly accurate protein structure prediction with AlphaFold (2021); Big Fantastic Database — ColabFold: making protein folding accessible to all (2022)
 - `bia` — BIA [all-caps-short-form] — no corpus-attested public expansion
 - `bic` — BIC [all-caps-short-form] — Bayesian Information Criterion — A brief introduction to mixed effects modelling and multi-model inference in ecology (2018)
 - `blast` — BLAST [all-caps-short-form] — Basic Local Alignment Search Tool — A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species (2011)
@@ -9546,6 +9640,7 @@ wording limited to the audited rights-cleared paper set.
 - `casme-ii` — CASME II [all-caps-short-form] — no corpus-attested public expansion
 - `casp` — CASP [all-caps-short-form] — no corpus-attested public expansion
 - `casp14` — CASP14 [all-caps-short-form] — no corpus-attested public expansion
+- `casp15` — CASP15 [all-caps-short-form] — no corpus-attested public expansion
 - `cat` — CAT [all-caps-short-form] — no corpus-attested public expansion
 - `catma` — CATMA [all-caps-short-form] — no corpus-attested public expansion
 - `caution` — CAUTION [all-caps-short-form] — no corpus-attested public expansion
@@ -9626,7 +9721,7 @@ wording limited to the audited rights-cleared paper set.
 - `cyp24a1` — CYP24A1 [all-caps-short-form] — no corpus-attested public expansion
 - `cytof` — CyTOF [corpus-attested-abbreviation] — cytometry by time-of-flight — The history and advances in cancer immunotherapy: understanding the characteristics of tumor-infiltrating immune cells and their therapeutic implications (2020)
 - `d-items` — D_ITEMS [all-caps-short-form] — no corpus-attested public expansion
-- `daly` — DALY [all-caps-short-form] — disability-adjusted life year — Impact of Vaccines; Health, Economic and Social Perspectives (2020); disability-adjusted life years — Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territories and 811 subnational locations, 1990–2021: a systematic analysis for the Global Burden of Disease Study 2021 (2024); disability-adjusted life years — Projections of global mortality and burden of disease from 2002 to 2030 (2006); disability-adjusted life years — Impact of Vaccines; Health, Economic and Social Perspectives (2020); disability-adjusted life years — Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019 (2020); disability-adjusted life-years — Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territories and 811 subnational locations, 1990–2021: a systematic analysis for the Global Burden of Disease Study 2021 (2024); disability-adjusted life-years — Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019 (2020); ambiguous across corpus records
+- `daly` — DALY [all-caps-short-form] — disability-adjusted life year — Impact of Vaccines; Health, Economic and Social Perspectives (2020); disability-adjusted life years — Projections of global mortality and burden of disease from 2002 to 2030 (2006); disability-adjusted life years — Impact of Vaccines; Health, Economic and Social Perspectives (2020); disability-adjusted life-years — Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territories and 811 subnational locations, 1990–2021: a systematic analysis for the Global Burden of Disease Study 2021 (2024); disability-adjusted life-years — Projections of global mortality and burden of disease from 2002 to 2030 (2006); disability-adjusted life-years — Impact of Vaccines; Health, Economic and Social Perspectives (2020); disability-adjusted life-years — Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019 (2020); ambiguous across corpus records
 - `dalys` — DALYs [corpus-attested-abbreviation] — disability-adjusted life-years — Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019 (2020)
 - `dce` — DCE [all-caps-short-form] — no corpus-attested public expansion
 - `dcfh-da` — DCFH-DA [all-caps-short-form] — no corpus-attested public expansion
@@ -9685,6 +9780,7 @@ wording limited to the audited rights-cleared paper set.
 - `famsa` — FAMSA [all-caps-short-form] — no corpus-attested public expansion
 - `fao` — FAO [all-caps-short-form] — fatty acid oxidation — Macrophages in immunoregulation and therapeutics (2023)
 - `fastq` — FASTQ [all-caps-short-form] — no corpus-attested public expansion
+- `fava` — FAVA [all-caps-short-form] — no corpus-attested public expansion
 - `fer` — FER [all-caps-short-form] — facial emotion recognition — A Brief Review of Facial Emotion Recognition Based on Visual Information (2018)
 - `ffa` — FFA [all-caps-short-form] — no corpus-attested public expansion
 - `fhir` — FHIR [all-caps-short-form] — Fast Healthcare Interoperability Resources — Blockchain Technology for Healthcare: Facilitating the Transition to Patient-Driven Interoperability (2018); Fast Healthcare Interoperability Resources — Scalable and accurate deep learning with electronic health records (2018)
@@ -9778,7 +9874,7 @@ wording limited to the audited rights-cleared paper set.
 - `ibd` — IBD [all-caps-short-form] — identical by descent — The Geography of Recent Genetic Ancestry across Europe (2013); Inflammatory Bowel Disease — Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3 (2021); inflammatory bowel disease — Macrophages in immunoregulation and therapeutics (2023); ambiguous across corpus records
 - `ic` — IC [all-caps-short-form] — inferior colliculus — Tonotopic Organization in the Depth of Human Inferior Colliculus (2013); information content — Statistical learning and probabilistic prediction in music cognition: mechanisms of stylistic enculturation (2018); information content — Semantic Similarity in Biomedical Ontologies (2009); information content — REVIGO Summarizes and Visualizes Long Lists of Gene Ontology Terms (2011); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records
 - `icans` — ICANS [all-caps-short-form] — no corpus-attested public expansion
-- `icd` — ICD [all-caps-short-form] — immunogenic cell death — Macrophages in immunoregulation and therapeutics (2023); immunogenic cell death — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020)
+- `icd` — ICD [all-caps-short-form] — immunogenic cell death — Macrophages in immunoregulation and therapeutics (2023); immunogenic cell death — Consensus guidelines for the definition, detection and interpretation of immunogenic cell death (2020); International Classification of Diseases — The REporting of studies Conducted using Observational Routinely-collected health Data (RECORD) Statement (2015); ambiguous across corpus records
 - `icd-9` — ICD-9 [all-caps-short-form] — no corpus-attested public expansion
 - `icm` — ICM [all-caps-short-form] — independent cluster model — Best Practices for Developing and Validating Scales for Health, Social, and Behavioral Research: A Primer (2018); integrated crop management — Biostimulant Properties of Seaweed Extracts in Plants: Implications towards Sustainable Crop Production (2021); ambiguous across corpus records
 - `icp-aes` — ICP-AES [all-caps-short-form] — inductively coupled plasma atomic emission spectroscopy — Grain structure control during metal 3D printing by high-intensity ultrasound (2020); inductively coupled plasma atomic emission spectroscopy — Aqueous rechargeable zinc/sodium vanadate batteries with enhanced performance from simultaneous insertion of dual carriers (2018); inductively coupled plasma-atomic emission spectroscopy — Grain structure control during metal 3D printing by high-intensity ultrasound (2020); ambiguous across corpus records
@@ -9825,6 +9921,7 @@ wording limited to the audited rights-cleared paper set.
 - `jrf` — JRF [all-caps-short-form] — no corpus-attested public expansion
 - `k` — k [single-letter] — no corpus-attested public expansion
 - `k-ras` — K-RAS [all-caps-short-form] — no corpus-attested public expansion
+- `kegg` — KEGG [all-caps-short-form] — no corpus-attested public expansion
 - `kitti` — KITTI [all-caps-short-form] — no corpus-attested public expansion
 - `knime` — KNIME [all-caps-short-form] — no corpus-attested public expansion
 - `l-epsc` — L-EPSC [all-caps-short-form] — no corpus-attested public expansion
@@ -9880,6 +9977,8 @@ wording limited to the audited rights-cleared paper set.
 - `mdp` — MDP [all-caps-short-form] — Markov decision process — Regimes of Expectations: An Active Inference Model of Social Conformity and Human Decision Making (2019)
 - `measur` — MEASUR [all-caps-short-form] — no corpus-attested public expansion
 - `meg` — MEG [all-caps-short-form] — Mono ethylene glycol — Beyond Mechanical Recycling: Giving New Life to Plastic Waste (2020)
+- `mega` — MEGA [all-caps-short-form] — Molecular Evolutionary Genetics Analysis — MEGA11: Molecular Evolutionary Genetics Analysis Version 11 (2021)
+- `mega-cc` — MEGA-CC [all-caps-short-form] — no corpus-attested public expansion
 - `megahit` — MEGAHIT [all-caps-short-form] — no corpus-attested public expansion
 - `mehdie` — MEHDIE [all-caps-short-form] — no corpus-attested public expansion
 - `mensa` — MENSA [all-caps-short-form] — no corpus-attested public expansion
@@ -10011,6 +10110,7 @@ wording limited to the audited rights-cleared paper set.
 - `prisma` — PRISMA [all-caps-short-form] — Preferred Reporting Items for Systematic reviews and Meta-Analyses — Impact of Educational Technology on Teacher Stress and Anxiety: A Literature Review (2021); Preferred Reporting Items for Systematic reviews and Meta-Analyses — Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement (2009); Preferred Reporting Items for Systematic reviews and Meta-Analyses — A manifesto for reproducible science (2017); Preferred Reporting Items for Systematic reviews and Meta-Analyses — The PRISMA 2020 statement: an updated guideline for reporting systematic reviews (2021); Preferred Reporting Items for Systematic reviews and Meta-Analyses — Women’s experiences of decision-making and informed choice about pregnancy and birth care: a systematic review and meta-synthesis of qualitative research (2020)
 - `prisma-2009` — PRISMA 2009 [all-caps-short-form] — no corpus-attested public expansion
 - `psa` — PSA [all-caps-short-form] — polar surface area — SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness of small molecules (2017); polar surface area — AqSolDB, a curated reference set of aqueous solubility and 2D descriptors for a diverse set of compounds (2019)
+- `psi-mi-cv` — PSI-MI CV [all-caps-short-form] — no corpus-attested public expansion
 - `pspl` — PSPL [all-caps-short-form] — no corpus-attested public expansion
 - `pss` — PSS [all-caps-short-form] — Perceived Stress Scale — Stress, Burnout, Anxiety and Depression among Teachers: A Scoping Review (2022); Perceived Stress Scale — COVID-19 Pandemic and Lockdown Measures Impact on Mental Health Among the General Population in Italy (2020)
 - `psth` — PSTH [all-caps-short-form] — no corpus-attested public expansion
@@ -10122,6 +10222,7 @@ wording limited to the audited rights-cleared paper set.
 - `ssa` — SSA [all-caps-short-form] — no corpus-attested public expansion
 - `ssi` — SSI [all-caps-short-form] — Survey Sampling International — The influence of political ideology and trust on willingness to vaccinate (2018)
 - `sst` — SST [all-caps-short-form] — Steady State Topography — Towards new human rights in the age of neuroscience and neurotechnology (2017)
+- `st-gpr` — ST-GPR [all-caps-short-form] — no corpus-attested public expansion
 - `stad` — STAD [all-caps-short-form] — no corpus-attested public expansion
 - `stat1` — STAT1 [all-caps-short-form] — no corpus-attested public expansion
 - `stc` — STC [all-caps-short-form] — no corpus-attested public expansion
@@ -10130,6 +10231,7 @@ wording limited to the audited rights-cleared paper set.
 - `strega` — STREGA [all-caps-short-form] — no corpus-attested public expansion
 - `strf` — STRF [all-caps-short-form] — no corpus-attested public expansion
 - `stricta` — STRICTA [all-caps-short-form] — no corpus-attested public expansion
+- `string` — STRING [all-caps-short-form] — no corpus-attested public expansion
 - `strobe` — STROBE [all-caps-short-form] — STROBE statement — The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement (2007)
 - `sts` — STS [all-caps-short-form] — no corpus-attested public expansion
 - `study` — STUDY [all-caps-short-form] — no corpus-attested public expansion
@@ -10200,6 +10302,7 @@ wording limited to the audited rights-cleared paper set.
 - `xml` — XML [all-caps-short-form] — no corpus-attested public expansion
 - `yank` — YANK [all-caps-short-form] — no corpus-attested public expansion
 - `ylds` — YLDs [corpus-attested-abbreviation] — years lived with disability — Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019 (2020)
+- `ylls` — YLLs [corpus-attested-abbreviation] — years of life lost — Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019 (2020)
 - `yolo` — YOLO [all-caps-short-form] — you only look once — UAV-YOLOv8: A Small-Object-Detection Model Based on Improved YOLOv8 for UAV Aerial Photography Scenarios (2023)
 - `z` — z [single-letter] — no corpus-attested public expansion
 - `zd7288` — ZD7288 [all-caps-short-form] — no corpus-attested public expansion

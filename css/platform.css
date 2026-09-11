@@ -1456,6 +1456,69 @@ html[data-theme="light"] .offerhead,
 html[data-theme="light"] .offer .oname,
 html[data-theme="light"] .ac-item .nm { color: #1c1622; }
 
+/* THE DEFINITIONS BOARD IN BRIGHT VIEW, EVERY LITERAL COLOUR. 2026-09-11.
+   The block above caught every literal WHITE. It did not catch the greys, ambers, greens, reds
+   and blues the board also hard-codes for a dark ground - and those only exist on screen once
+   step 3 is open, a state no sweep had ever reached. Measured with ?term=art&see=definitions
+   and ?term=consciousness&see=definitions open: 366 text nodes, 59 below AA. The matrix labels
+   were 1.10-1.49:1 in bright view ("hit", "false alarm", "The literature says: YES").
+   Enumerated from the stylesheet, not from the screenshot: every `color:` literal between the
+   board's first and last rule, one row per role. Each colour was computed against the page
+   ground, the card, and all four tinted matrix cells, and the WORST of those is quoted:
+     ink #1c1622 13.6:1   grey #525a66 5.4:1   amber #7a4f00 5.5:1   red #9f2119 6.0:1
+     green #1b6b2d 5.1:1  blue #1a4f8e 6.3:1   pink #a8174f 5.6:1
+   Any new board rule that sets a literal colour must be added here in the same commit. */
+html[data-theme="light"] .lmcolh,
+html[data-theme="light"] .lmrowh,
+html[data-theme="light"] .lml,
+html[data-theme="light"] .jquote { color: #1c1622; }
+html[data-theme="light"] .lmlab,
+html[data-theme="light"] .lms,
+html[data-theme="light"] .lmfoot,
+html[data-theme="light"] .verrow,
+html[data-theme="light"] .disc-h .n,
+html[data-theme="light"] .pt-paper .who,
+html[data-theme="light"] .jcount,
+html[data-theme="light"] .jpaper { color: #525a66; }
+html[data-theme="light"] .cited .ourwords,
+html[data-theme="light"] .offerwarn b,
+html[data-theme="light"] .offer .oabstain,
+html[data-theme="light"] .pt-def .abstain,
+html[data-theme="light"] .prov-user\+tool,
+html[data-theme="light"] .cnone b,
+html[data-theme="light"] .pt-note.discrim,
+html[data-theme="light"] .pt-note.discrim b,
+html[data-theme="light"] .ac-none b,
+html[data-theme="light"] .pt-defh .gate.borderline { color: #7a4f00; }
+html[data-theme="light"] .pt-defh .gate.disqualified,
+html[data-theme="light"] .pt-case .vd.fp,
+html[data-theme="light"] .pt-case .vd.fn,
+html[data-theme="light"] .hero-result.warn .win { color: #9f2119; }
+html[data-theme="light"] .pt-paper.istag .m,
+html[data-theme="light"] .pt-paper .t a:hover,
+html[data-theme="light"] .pt-paper .t a:focus,
+html[data-theme="light"] .hero-result .sc,
+html[data-theme="light"] .offer.best .omcc,
+html[data-theme="light"] .pt-paper .open-badge { color: #1b6b2d; }
+html[data-theme="light"] .offer.best .orank { color: #1b6b2d; border-color: #1b6b2d; }
+html[data-theme="light"] .prov-literature,
+html[data-theme="light"] .vers > summary { color: #1a4f8e; }
+html[data-theme="light"] .prov-user { color: #a8174f; }
+/* The matrix key (TP/FP/FN/TN) is small bold monospace, so it needs 4.5:1, and in DARK view
+   three of the four failed too (2.94-3.58:1) - the family hue at full strength on its own 14%
+   tint. The big number beside it is large text and keeps the pure hue. Dark: the hue 55% toward
+   white (6.3-8.1:1 on the tinted cell). Bright: the family's own deep shade, --d (6.4-8.1:1).
+   PLAIN HEX, NOT color-mix(). The first version of this rule used color-mix(), which computes
+   to `color(srgb ...)`. contrast_sweep.mjs parsed only `rgb(...)`, so it DROPPED these four
+   nodes and reported the dark board "0 below AA" over 100 nodes instead of 104 - a clean zero
+   that had never measured the thing it was about. A browser without color-mix() would also
+   discard the declaration and fall back to the failing hue. The hexes are that same mix. */
+.lmcell[data-kind="tp"] .lmk { color: #7ac4be; }
+.lmcell[data-kind="fp"] .lmk { color: #d67fca; }
+.lmcell[data-kind="fn"] .lmk { color: #dc928a; }
+.lmcell[data-kind="tn"] .lmk { color: #7eaadc; }
+html[data-theme="light"] .lmcell .lmk { color: var(--d); }
+
 /* ============================================================================
    THE ORIGINAL VIEW, AND THE THREE OPAQUE BUTTONS. 2026-09-08.
 
