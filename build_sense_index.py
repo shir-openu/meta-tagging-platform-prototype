@@ -393,6 +393,49 @@ def _single_letter_paren_is_a_panel_label(short: str, expansion: str) -> bool:
     return not (words and words[-1].lower() in _QUANTITY_HEADS)
 
 
+def _short_form_fits_expansion(short: str, expansion: str) -> bool:
+    """Schwartz & Hearst (2003): the short form's characters occur in the expansion, in order,
+    the first one at the start of a word.
+
+    2026-09-11, CLAUDE_B. 12 of 37 abbreviation entries were a bracketed GLOSS read as an
+    expansion - `stress` -> `cortisol`, `genes` -> `replicators`, `masking` -> `success of
+    blinding`. Each is attested and none is an abbreviation; the letters say so. Single letters
+    are left to _single_letter_paren_is_a_panel_label, which admits `sample size (N)` on purpose,
+    and non-Latin short forms are outside this test.
+    """
+    chars = [c.lower() for c in str(short or "") if c.isalnum()]
+    if len(chars) < 2 or not re.search(r"[A-Za-z]", str(short or "")):
+        return True
+    long_form = str(expansion or "").lower()
+    li = len(long_form) - 1
+    for si in range(len(chars) - 1, -1, -1):
+        c = chars[si]
+        while li >= 0 and (long_form[li] != c
+                           or (si == 0 and li > 0 and long_form[li - 1].isalnum())):
+            li -= 1
+        if li < 0:
+            return False
+        li -= 1
+    return True
+
+
+def _rows_written_as(rows: list[dict[str, Any]], label: str) -> list[dict[str, Any]]:
+    """Expansion rows whose short form is THIS label as written - case included - and fits it.
+
+    2026-09-11, CLAUDE_B. The rows are keyed by `folded(short_form)`, so mathers2006's
+    "antiretroviral therapy (ART)" was filed under `art` and the benchmark-scored concept `art`
+    was labelled an HIV acronym on its own board, in both languages. The fold is right for
+    grouping and wrong for attaching: ART is not art. Of 37 entries exactly one collided, and it
+    was the one concept this platform scores.
+    """
+    want = " ".join(str(label or "").split())
+    return [
+        row for row in rows
+        if " ".join(str(row.get("short_form") or "").split()) == want
+        and _short_form_fits_expansion(row.get("short_form") or "", row.get("expansion") or "")
+    ]
+
+
 def collect_abbreviation_expansions(
     records: list[dict[str, Any]],
     *,
@@ -1116,8 +1159,8 @@ def main() -> int:
         if term_slug not in live_runtime_slugs:
             continue
         kind = abbreviation_kind(label)
-        internal_rows = all_expansions.get(folded(label), [])
-        public_rows = public_expansions.get(folded(label), [])
+        internal_rows = _rows_written_as(all_expansions.get(folded(label), []), label)
+        public_rows = _rows_written_as(public_expansions.get(folded(label), []), label)
         if not kind and not internal_rows:
             continue
         expansion_names = {folded(row["expansion"]) for row in internal_rows}

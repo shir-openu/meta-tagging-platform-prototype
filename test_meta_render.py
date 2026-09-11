@@ -158,5 +158,31 @@ class TermCorpusRightsTests(unittest.TestCase):
         self.assertEqual(counts["rights_removed_quote_picker_rows_this_build"], 1)
 
 
+class ExpansionAttachesToTheLabelAsWrittenTests(unittest.TestCase):
+    """2026-09-11, CLAUDE_B: `art` was labelled "antiretroviral therapy" on its own board."""
+
+    def test_an_acronym_does_not_attach_to_the_word_it_folds_to(self) -> None:
+        from build_sense_index import _rows_written_as
+        rows = [{"short_form": "ART", "expansion": "antiretroviral therapy", "paper_id": "mathers2006"}]
+        self.assertEqual(_rows_written_as(rows, "art"), [])
+        # positive control: the same row still attaches to the acronym itself
+        self.assertEqual(_rows_written_as(rows, "ART"), rows)
+
+    def test_a_bracketed_gloss_is_not_an_expansion(self) -> None:
+        from build_sense_index import _short_form_fits_expansion
+        for short, gloss in (("stress", "cortisol"), ("genes", "replicators"),
+                             ("masking", "success of blinding")):
+            self.assertFalse(_short_form_fits_expansion(short, gloss), (short, gloss))
+
+    def test_real_short_forms_still_fit(self) -> None:
+        from build_sense_index import _short_form_fits_expansion
+        for short, expansion in (("ART", "antiretroviral therapy"), ("PFC", "prefrontal cortex"),
+                                 ("fMRI", "functional magnetic resonance imaging"),
+                                 ("5-HT", "5-hydroxytryptamine"), ("ToM", "theory of mind"),
+                                 # single letters keep their own rule: `sample size (N)` is admitted
+                                 ("N", "sample size")):
+            self.assertTrue(_short_form_fits_expansion(short, expansion), (short, expansion))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

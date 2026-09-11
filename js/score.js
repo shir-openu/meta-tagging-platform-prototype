@@ -255,6 +255,26 @@ function openTheWordings() {
   return true;
 }
 
+// THE SAME PROMISE FOR A CONCEPT THAT HAS A BOARD. 2026-09-11: with ?term= now read as ?concept=
+// for a ready concept, the link opened consciousness at step 1 with "no papers chosen" - exactly
+// what ?concept= itself shows, and still three actions short of the "50 rival definitions" the
+// link promised. openTheWordings() cannot serve it: a ready board has no S.termPick. Its corpus is
+// the one the board is reproducible from - every scored paper, the selection loadConcept makes
+// when no URL says otherwise - and the step-3 button is the reader's own, pressed for them.
+function openTheBoardWordings() {
+  const ids = (S.papers || []).filter(p => p.n_scored).map(p => p.id);
+  if (!ids.length) return false;
+  ids.forEach(id => S.selected.add(id));
+  S.pickedCorpus = true;
+  refresh();
+  updateStep3();
+  const w = document.getElementById("step3wrap");
+  const b3 = w && !w.hidden && w.querySelector("button");
+  if (!b3) return false;
+  b3.click();
+  return true;
+}
+
 function renderStartHere() {
   const steps = document.querySelector(".steps");
   if (!steps) return;
@@ -3363,7 +3383,16 @@ async function boot() {
   // Capture the incoming URL once. The first refresh normalises address state; reading `term`
   // after that refresh erased a deep link before boot had consumed it.
   const bootURL = new URL(location.href);
-  const want = bootURL.searchParams.get("concept");
+  // 2026-09-11, CLAUDE_B: 33 LINKS PROMISED A BOARD AND OPENED AN EMPTY TOOL. The concept index
+  // and the edition pages send ?term=consciousness&see=definitions ("50 rival definitions across
+  // 3 fields"), and the ?term= branch below deliberately skips ready rows - so for exactly the
+  // concepts that HAVE a board, the link landed on "not chosen yet". A ?term= naming a ready
+  // concept is read as ?concept= for it, here, where every emitter's link arrives, so no emitter
+  // has to know which terms are ready.
+  const wantTerm0 = bootURL.searchParams.get("term");
+  const termReady = !bootURL.searchParams.get("concept") && wantTerm0 && S.registry.find(
+    c => c.state === "ready" && (c.slug || slugOf(c.en || c.id)) === slugOf(wantTerm0));
+  const want = bootURL.searchParams.get("concept") || (termReady ? termReady.id : null);
   const wanted = want && S.registry.find(c => c.id === want && c.state === "ready");
   if (wanted) { S.concept = want; S.capability = CAPABILITY.BENCHMARK; }
   if (!await loadConcept(true)) return;
@@ -3425,6 +3454,12 @@ async function boot() {
     if (bootURL.searchParams.get("see") === "definitions") {
       openTheWordings();
     }
+  }
+
+  // A concept with a board keeps the same promise (see openTheBoardWordings). ?concept= links
+  // carrying &see=definitions get it too, so the two spellings of one link cannot diverge again.
+  if (wanted && !termRow && bootURL.searchParams.get("see") === "definitions") {
+    openTheBoardWordings();
   }
 }
 boot();

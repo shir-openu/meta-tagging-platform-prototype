@@ -5,20 +5,20 @@
       "sha256": "72065c6ceba19ce1a65e81b1762c384adab1d17f0742d4ee06b094adae2922d2"
     },
     "external_definitions.wordnet.inline.js": {
-      "bytes": 972209,
-      "sha256": "43b34413248df24d5ceff3ff1b2365c123892e0541b360d2cdeaca2fdfda5e0e"
+      "bytes": 971584,
+      "sha256": "d3b876c0fbb44b0b5caa0f71f285c6c32bc91cd78d46817b75d474838755763c"
     },
     "external_definitions.wordnet.json": {
-      "bytes": 972176,
-      "sha256": "931f138c1d8ebf0b2fb5fc7eed82f77443ae522d14785e1ab761b67b1b89d691"
+      "bytes": 971551,
+      "sha256": "dc48ebd5d314be8cb54b70c1ef5623b64a851b2e54aaf11b5c3e69a2cc0426fa"
     },
     "wordnet_fallback_report.json": {
-      "bytes": 65835,
-      "sha256": "c3141ef6bafc2a8f8863b6c1bc0394e865f512865321e351a00b5d7cfe4ac66f"
+      "bytes": 66220,
+      "sha256": "a4f639c1e0dfae4dee25dbedea03f15552be864a4cb7e969a44c69384c75d37f"
     },
     "wordnet_fallback_report.md": {
       "bytes": 949,
-      "sha256": "1952a0cd8c6d47781923bddd5ef349fb60994e551ce88c8469cbf1cd50caee25"
+      "sha256": "1ac9bb8fbe6af92703f3018ccb7f5287d4e272c9afdaf27e95da61d245e103eb"
     }
   },
   "provider": {
