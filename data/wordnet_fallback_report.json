@@ -1,14 +1,14 @@
 {
   "corpus_record_count": 1139,
-  "corpus_snapshot_sha256": "610e83e7aa699f5a269b6e8dd7a320e9d34775504d3945f3c0145e0a52ad5e57",
+  "corpus_snapshot_sha256": "cc02de41a696a7087823b02082a5826187e6f36a75b52fb5d3534a5499f8b249",
   "counts": {
     "historical_assignment_gap_left_uncovered": 340,
     "historical_assignment_gap_terms": 415,
-    "payload_bytes": 975287,
-    "picker_terms": 17168,
-    "wordnet_matched_picker_terms": 2062,
+    "payload_bytes": 977075,
+    "picker_terms": 17241,
+    "wordnet_matched_picker_terms": 2066,
     "wordnet_matches_in_historical_assignment_gap": 75,
-    "wordnet_synsets": 6866
+    "wordnet_synsets": 6879
   },
   "current_all_corpus_layers": {
     "metric_note": "WordNet contributes at most one independent provider to the threshold per term; all matching WordNet synsets remain visible but are not miscounted as independent sources.",
@@ -55,6 +55,7 @@
       "astrocyte",
       "astronomy",
       "atlas",
+      "atopic dermatitis",
       "attrition",
       "audiometry",
       "augmentation",
@@ -383,6 +384,7 @@
       "insoluble",
       "integrity",
       "intent",
+      "intermediate host",
       "internet",
       "interpersonal",
       "intervention",
@@ -402,6 +404,7 @@
       "knowledge base",
       "large intestine",
       "lateralization",
+      "law of mass action",
       "leaning",
       "leap",
       "learning curve",
@@ -596,6 +599,7 @@
       "pump",
       "pupil",
       "python",
+      "race",
       "radiology",
       "random",
       "random sampling",
@@ -640,7 +644,6 @@
       "rumor",
       "runaway",
       "rural area",
-      "safety",
       "sag",
       "salmonella typhimurium",
       "satisfaction",
@@ -824,10 +827,10 @@
       "yangtze river",
       "yank"
     ],
-    "terms_newly_reaching_two_with_wordnet": 810,
-    "terms_with_at_least_two_after_wordnet": 3725,
-    "terms_with_at_least_two_before_wordnet": 2915,
-    "terms_with_exactly_one_corpus_definition": 10710
+    "terms_newly_reaching_two_with_wordnet": 813,
+    "terms_with_at_least_two_after_wordnet": 3760,
+    "terms_with_at_least_two_before_wordnet": 2947,
+    "terms_with_exactly_one_corpus_definition": 10763
   },
   "current_public_rights_cleared_layer": {
     "metric_note": "WordNet contributes at most one independent provider to the threshold per term; all matching WordNet synsets remain visible but are not miscounted as independent sources.",
@@ -873,6 +876,7 @@
       "associative",
       "astrocyte",
       "astronomy",
+      "atopic dermatitis",
       "attrition",
       "audiometry",
       "augmentation",
@@ -1144,6 +1148,7 @@
       "intent",
       "interdependence",
       "interest",
+      "intermediate host",
       "interpersonal",
       "intersection",
       "intervention",
@@ -1161,6 +1166,7 @@
       "label",
       "latency",
       "lateralization",
+      "law of mass action",
       "leap",
       "legislation",
       "lidar",
@@ -1308,6 +1314,7 @@
       "publication",
       "pump",
       "python",
+      "race",
       "radiology",
       "randomisation",
       "randomization",
@@ -1473,10 +1480,10 @@
       "x-ray",
       "yank"
     ],
-    "terms_newly_reaching_two_with_wordnet": 640,
-    "terms_with_at_least_two_after_wordnet": 2617,
-    "terms_with_at_least_two_before_wordnet": 1977,
-    "terms_with_exactly_one_corpus_definition": 8250
+    "terms_newly_reaching_two_with_wordnet": 644,
+    "terms_with_at_least_two_after_wordnet": 2643,
+    "terms_with_at_least_two_before_wordnet": 1999,
+    "terms_with_exactly_one_corpus_definition": 8301
   },
   "historical_assignment_measurement": "Frozen approved Phase-2 assignment baseline; 59/474 assigned grounded and 415/474 assigned gap before implementation.",
   "matched_term_ids": [
@@ -1608,6 +1615,7 @@
     "astrocyte",
     "astronomy",
     "atlas",
+    "atopic dermatitis",
     "attention",
     "attitude",
     "attractor",
@@ -2437,6 +2445,7 @@
     "interest",
     "interference",
     "interferometer",
+    "intermediate host",
     "internal representation",
     "internet",
     "interoception",
@@ -2487,6 +2496,7 @@
     "lateral",
     "lateralization",
     "latin square",
+    "law of mass action",
     "layer",
     "leaning",
     "leap",
@@ -2955,6 +2965,7 @@
     "questionable",
     "r",
     "rabies",
+    "race",
     "radicalism",
     "radiology",
     "ram",
@@ -3554,8 +3565,8 @@
     "source_uri": "https://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.gz",
     "version": "3.0"
   },
-  "public_sense_index_generated_utc": "2026-09-15T15:13:17+00:00",
-  "public_sense_index_sha256": "3586af6361482f9513bc88ac76b2aea3f3f7c479d1e995e06477028680c26842",
+  "public_sense_index_generated_utc": "2026-09-15T16:50:34+00:00",
+  "public_sense_index_sha256": "31c95bfdc20feb276d734a0a95223813af58284bcbf908e05f98fef867d1f2ff",
   "schema_version": "wordnet-fallback-report-1",
   "source_archive_sha256": "640db279c949a88f61f851dd54ebbb22d003f8b90b85267042ef85a3781d3a52"
 }
