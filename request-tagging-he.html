@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>תיוג מאמר — פלטפורמת מטא־תיוג</title>
+<meta name="description" content="בדיקה אם מאמר יכול להיכנס לשירות המטא־תיוג הידני במחיר שני דולר, לפני בקשת תשלום כלשהי.">
+<link rel="alternate" hreflang="en" href="request-tagging.html">
+<link rel="alternate" hreflang="he" href="request-tagging-he.html">
+<link rel="stylesheet" href="css/shell.css?v=c89df82f">
+<script src="js/theme.js?v=c89df82f" defer></script>
+<link rel="stylesheet" href="css/platform.css?v=c89df82f">
+<link rel="stylesheet" href="css/intake.css?v=c89df82f">
+<!-- The config must load BEFORE payments.js and WITHOUT defer: it carries the pay
+     link, and payments.js decides on the strength of it whether this page can take
+     money at all. Without it the page believed payments were off while the link was
+     live - the pay button simply never appeared. -->
+<script src="js/payments.config.js?v=c89df82f"></script>
+<script src="js/payments.js?v=c89df82f" defer></script>
+</head>
+<body class="intake-page">
+
+<div class="animated-background" aria-hidden="true">
+  <div class="wave-container">
+    <svg class="wave wave-teal" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160 L1440,320 L0,320 Z"></path></svg>
+    <svg class="wave wave-pink" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,200 C280,260 380,140 680,200 C980,260 1080,140 1440,200 L1440,320 L0,320 Z"></path></svg>
+    <svg class="wave wave-wine" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,240 C240,300 340,180 640,240 C940,300 1040,180 1440,240 L1440,320 L0,320 Z"></path></svg>
+  </div>
+  <div class="particles">
+    <div class="particle particle-teal" style="left:10%;top:20%"></div><div class="particle particle-pink" style="left:30%;top:60%"></div>
+    <div class="particle particle-wine" style="left:50%;top:30%"></div><div class="particle particle-teal" style="left:70%;top:70%"></div>
+    <div class="particle particle-pink" style="left:90%;top:40%"></div><div class="particle particle-wine" style="left:20%;top:80%"></div>
+  </div>
+</div>
+
+<main class="pt-wrap ask">
+  <header class="pt-head">
+    <a class="pt-back" href="index-he.html">← הפלטפורמה</a>
+    <a class="pt-btn lang-switch" href="request-tagging.html" hreflang="en">English</a>
+  </header>
+
+  <h1 class="ask-title">תיוג מאמר</h1>
+  <p class="ask-price"><span data-price-for="tag_paper">$0.00</span> <span class="ask-unit">למאמר שמתקבל</span></p>
+
+  <form id="askForm" class="ask-form" novalidate>
+    <label class="ask-label" for="askField">המאמר</label>
+    <input class="ask-input" id="askField" name="askField" autocomplete="off"
+           placeholder="DOI, קישור, או הכותרת — או פשוט לצרף את הקובץ" required>
+    <input class="ask-file" id="askFile" type="file" accept=".mhtml,.mht,.pdf,.html">
+
+    <button class="ask-go" type="submit">המשך</button>
+  </form>
+
+  <div id="askOut" class="ask-out" hidden></div>
+
+  <p class="ask-refund">כל השאר נקרא מתוך המאמר. אם אי אפשר לתייג — שיר מחזירה את מלוא הסכום לאותו חשבון PayPal תוך חמישה ימי עבודה — shirsivroni@gmail.com.</p>
+</main>
+
+<script src="js/intake.js?v=c89df82f"></script>
+
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+<script src="js/ask.js?v=c89df82f" defer></script>
+</body>
+</html>

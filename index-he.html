@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>פלטפורמת מטא־תיוג</title>
+<meta name="description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shir-openu.github.io/meta-tagging-platform-prototype/index-he.html">
+<meta property="og:title" content="פלטפורמת מטא־תיוג">
+<meta property="og:description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
+<meta property="og:site_name" content="Meta-Tagging Platform">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="פלטפורמת מטא־תיוג">
+<meta name="twitter:description" content="שכבת תיוג מעוגנת־ציטוט לספרות אקדמית. בונים קורפוס, בוחנים הגדרות, ובודקים כל ציון מול המשפט המדויק שממנו נגזר.">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="he" href="index-he.html">
+<link rel="stylesheet" href="css/shell.css?v=c89df82f">
+<script src="js/theme.js?v=c89df82f" defer></script>
+<!-- payments.config.js holds the PUBLIC client id and the API address, and is the only
+     file that changes when the endpoint or the account moves. It is loaded FIRST and
+     WITHOUT defer, so payments.js can decide before first paint whether the paid cards
+     exist at all - a card that appears and then vanishes is worse than one that never
+     appeared. The SECRET is not here and never can be: this is a static site. -->
+<script src="js/payments.config.js?v=c89df82f"></script>
+<script src="js/payments.js?v=c89df82f"></script>
+<link rel="stylesheet" href="css/platform.css?v=c89df82f">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Meta-Tagging Platform - concept definition component",
+  "description": "Rival definitions of a concept scored against literature-sourced cases, every case anchored to an exact quote.",
+  "creator": {"@type": "Person", "name": "Shir Sivroni"},
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distribution": [
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/cases.json"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/definitions.json"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/verdicts.json"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "data/papers.json"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Background imported unchanged from PrimingToolbox; driven by css/shell.css -->
+<div class="animated-background">
+  <div class="wave-container">
+    <svg class="wave wave-teal" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160 L1440,320 L0,320 Z"></path>
+    </svg>
+    <svg class="wave wave-pink" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,200 C280,260 380,140 680,200 C980,260 1080,140 1440,200 L1440,320 L0,320 Z"></path>
+    </svg>
+    <svg class="wave wave-wine" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,240 C240,300 340,180 640,240 C940,300 1040,180 1440,240 L1440,320 L0,320 Z"></path>
+    </svg>
+  </div>
+  <div class="particles">
+    <div class="particle particle-teal" style="left: 10%; top: 20%;"></div>
+    <div class="particle particle-pink" style="left: 30%; top: 60%;"></div>
+    <div class="particle particle-wine" style="left: 50%; top: 30%;"></div>
+    <div class="particle particle-teal" style="left: 70%; top: 70%;"></div>
+    <div class="particle particle-pink" style="left: 90%; top: 40%;"></div>
+    <div class="particle particle-wine" style="left: 20%; top: 80%;"></div>
+    <div class="particle particle-teal" style="left: 60%; top: 10%;"></div>
+    <div class="particle particle-pink" style="left: 80%; top: 50%;"></div>
+  </div>
+</div>
+
+<div class="pt-wrap">
+
+  <div class="pt-head">
+    <h1>פלטפורמת מטא־תיוג</h1>
+    <button class="pt-btn" id="aboutBtn" style="margin-inline-start:auto"
+            aria-haspopup="dialog">מה זה?</button>
+    <a class="pt-btn" href="index-en.html"
+       style="text-decoration:none">English</a>
+    <div class="sub">שכבת תיוג לספרות אקדמית, שבה <b>כל תג נושא את המשפט המדויק מהמאמר שממנו נגזר</b>.</div>
+  </div>
+
+  <div class="acts">
+    <div class="act live" style="--fam:#1a7a33;--fam-lit:#5cc46f">
+      <div class="row"><span class="ic">🔍</span><h2>מציאת הגדרה אופטימלית לפי קורפוס</h2>
+        <span class="state">פעיל</span></div>
+      <div class="disc">
+        <a class="go" href="define/index-he.html">כניסה</a>
+        <button class="tog" data-why="w0" aria-expanded="false" aria-controls="w0" aria-label="הסבר — מציאת הגדרה אופטימלית לפי קורפוס">?</button>
+        <button class="tog" data-why="n0" aria-expanded="false" aria-controls="n0" aria-label="הערות — מציאת הגדרה אופטימלית לפי קורפוס">&#8801;</button>
+      </div>
+      <div class="why" id="w0">בוחרים אילו מאמרים מרכיבים את הקורפוס, ורואים מיד איזו הגדרה של המושג מתאימה לו הכי טוב — ובאילו מקרים בדיוק היא נופלת.</div>
+      <div class="notes" id="n0"><ul><li>בחירה חופשית של מאמרים</li><li>דירוג שמתעדכן מיד</li><li>מתחת לכל ציון — טבלת המקרים והציטוט</li></ul></div>
+    </div>
+
+    <div class="act live" style="--fam:#a35b00;--fam-lit:#e0a33c">
+      <div class="row"><span class="ic">📐</span><h2>השיטה, והמגבלות שלה</h2>
+        <span class="state">פעיל</span></div>
+      <div class="disc">
+        <a class="go" href="method-he.html">קריאה</a>
+        <button class="tog" data-why="w5" aria-expanded="false" aria-controls="w5" aria-label="הסבר — השיטה, והמגבלות שלה">?</button>
+        <button class="tog" data-why="n5" aria-expanded="false" aria-controls="n5" aria-label="הערות — השיטה, והמגבלות שלה">&#8801;</button>
+      </div>
+      <div class="why" id="w5">לא עמוד "אודות". מה הכלי <b>לא</b> יודע, ואיך לשחזר בעצמכם כל מספר שהוא מציג.</div>
+      <div class="notes" id="n5"><ul><li>כל הנתונים פתוחים להורדה</li><li>המגבלות מוצגות לכולם</li></ul></div>
+    </div>
+
+    <div class="act live" data-paid-card data-intake-card style="--fam:#8324c4;--fam-lit:#e71dca">
+      <div class="row"><span class="ic">🏷️</span><h2>תיוג מאמר</h2>
+        <span class="state price-state">שירות ידני</span></div>
+      <div class="disc">
+        <a class="go pay-go" href="request-tagging-he.html"><svg class="coin" viewBox="0 0 20 14" width="19" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="1" width="18" height="12" rx="2"/><path d="M1 5.2h18"/><path d="M4 9.6h3.4"/></svg>תיוג מאמר <span class="btn-price ltr" data-price-for="tag_paper">$2.00</span></a>
+        <button class="tog" data-why="w6" aria-expanded="false" aria-controls="w6" aria-label="הסבר — שליחת מאמר לתיוג">?</button>
+        <button class="tog" data-why="n6" aria-expanded="false" aria-controls="n6" aria-label="הערות — שליחת מאמר לתיוג">&#8801;</button>
+      </div>
+      <div class="why" id="w6">שולחים DOI, קישור למקור או MHTML. לפני בקשת תשלום אנחנו בודקים את הטקסט המלא, הרישיון ואיכות הטקסט; מאמר שמתקבל מתויג באמצעות משפטי המקור המדויקים ונבדק בידי שיר.</div>
+      <div class="notes" id="n6"><ul><li>בדיקת מקור לפני תשלום</li><li>סריקות, קובצי PDF בלבד ומקורות ללא רישיון מתאים נדחים</li><li class="price-note">בדיקת המקור לפני כל תשלום; החזר מלא אם לא נוכל לתייג</li></ul></div>
+    </div>
+
+    <!-- הפעולה השנייה בתשלום. The same card as index.html; see the note there. -->
+    <div class="act live" data-paid-card style="--fam:#c2185b;--fam-lit:#f2789f">
+      <div class="row"><span class="ic">⚖️</span><h2>ניקוד הגדרה</h2>
+        <span class="state price-state">שירות ידני</span></div>
+      <div class="disc">
+        <a class="go pay-go" href="request-scoring-he.html"><svg class="coin" viewBox="0 0 20 14" width="19" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="1" width="18" height="12" rx="2"/><path d="M1 5.2h18"/><path d="M4 9.6h3.4"/></svg>ניקוד הגדרה <span class="btn-price ltr" data-price-for="score_def">$2.50</span></a>
+        <button class="tog" data-why="w7" aria-expanded="false" aria-controls="w7" aria-label="הסבר — ניקוד הגדרה">?</button>
+        <button class="tog" data-why="n7" aria-expanded="false" aria-controls="n7" aria-label="הערות — ניקוד הגדרה">&#8801;</button>
+      </div>
+      <div class="why" id="w7">נוקבים מונח שהקורפוס עדיין לא מגדיר, ואנחנו בונים לו לוח: ההגדרות המתחרות, המקרים שהוכרעו מאחורי כל אחת מהן, טבלת <span class="ltr">MCC</span> והבקרה המעגלית שמכיילת אותה.</div>
+      <div class="notes" id="n7"><ul><li>למונחים שאין להם לוח — הלוחות הקיימים חינמיים</li><li>כל מקרה נושא את המשפט המדויק שממנו נגזר</li><li class="price-note"><span class="ltr" data-price-for="score_def">$2.50</span>; אין חיוב לפני שהמונח מתקבל</li></ul></div>
+    </div>
+
+  </div>
+
+  <!-- 2026-08-18. Same correction as index.html: two of the four were built and this line still
+     called them planned. The three targets are English-only, which is why the Hebrew line says
+     so - a Hebrew page may link an English page that has no twin, but it should not pretend
+     otherwise. -->
+  <!-- The corpus is the one target here that HAS a Hebrew twin - corpus-he.html, "הקורפוס
+       — כל המאמרים" - so the Hebrew line links the Hebrew page and the note now says which
+       items are English-only instead of claiming all of them are. -->
+  <!-- 2026-09-08. Trimmed to match index.html: three links, no introducing sentence,
+       and the "coming next" line moved into the About dialog. A plan is not an action.
+       The corpus link keeps its Hebrew twin; the other two are English-only, which the
+       dialog says rather than the line. -->
+  <div class="pt-soon"><a
+   href="https://shir-openu.github.io/meta-tagging-showcase/corpus-he.html">הקורפוס</a> · <a
+   href="https://shir-openu.github.io/meta-tagging-showcase/SEARCH.html">חיפוש</a> · <a
+   href="https://shir-openu.github.io/meta-tagging-showcase/TRANSFERS.html">מעברים</a></div>
+
+  <div class="pt-foot" dir="rtl" style="text-align:start">
+    <!-- 2026-09-08. Was 55 words of provenance - five data files, reference_scorer.py,
+         README, llms.txt, the licence sentence, source code, other projects - standing
+         between a first-time visitor and the two things the page is for. All of it is in
+         the About dialog now. What stays is the licence and the name. -->
+    <span class="ltr">CC BY 4.0</span> ·
+    <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">קוד המקור</a>
+    <br>
+    <span class="pt-credit">&copy; Shir Sivroni</span>
+  </div>
+
+</div>
+
+
+<dialog id="aboutDlg" class="about-dlg" dir="rtl">
+  <form method="dialog" class="about-x"><button aria-label="סגירה">&times;</button></form>
+
+  <h2>מה זו</h2>
+  <p>שכבת תיוג לספרות אקדמית. כל תג נושא את המשפט המדויק מהמאמר שממנו נגזר,
+     כך שכל טענה שלו ניתנת לבדיקה מול המקור.</p>
+
+  <h2>מה שונה כאן</h2>
+  <p>הגדרות לא נטענות אלא <b>ניקדות</b>. הגדרות מתחרות של מושג מדורגות
+     מול מקרים שהוכרעו, והגדרה מעגלית במכוון נשמרת בטבלה כבקרת בקרה:
+     אם היא מנצחת, הדירוג לא מדד דבר.</p>
+
+  <h2>מה עדיין לא גמור</h2>
+  <p>לשלושה מושגים יש לוח מנוקד. בקורפוס יש הרבה יותר מונחים שמוגדרים
+     ביותר מדרך אחת, והם מוצגים ללא ניקוד. בהמשך: המרחב השלילי &mdash;
+     מונחים שהספרות הייתה אמורה לטבוע ולא טבעה.</p>
+
+  <h2>הנתונים פתוחים</h2>
+  <p>כל מספר כאן ניתן לשחזור מתוך
+     <a href="https://github.com/shir-openu/meta-tagging-platform-prototype/tree/main/data">קובצי הנתונים</a>;
+     <a class="ltr" href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py">reference_scorer.py</a>
+     מחשב מהם את הניקוד מחדש. בנוסף
+     <a class="ltr" href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/README.md">README</a>,
+     <a class="ltr" href="llms.txt">llms.txt</a> ו<a href="https://shir-openu.github.io/">פרויקטים נוספים</a>.</p>
+  <p class="about-rights">שכבת התיוג מסופקת תחת <span class="ltr">CC BY 4.0</span>.
+     טקסט המאמרים שייך למחבריו, ומקושר ולא משוכפל.</p>
+</dialog>
+
+<script>
+/* The About dialog. The theme button is js/theme.js, shared by every page. */
+(function () {
+  var dlg = document.getElementById("aboutDlg");
+  var ab = document.getElementById("aboutBtn");
+  if (dlg && ab) ab.onclick = function () { dlg.showModal(); };
+})();
+</script>
+
+<!-- data/inline.js is NOT loaded here. It is 3.78 MB (1.22 MB gzipped) and it was
+     98% of this page's transfer. The only code that reads MTP_INLINE on this page
+     bails on its second line -- `if (!box) return` -- because the entry page has no
+     #liveStats element any more, so the file fed a function that never used it.
+     IF A STATS BAR IS EVER RESTORED HERE, RESTORE THE FALLBACK WITH IT: over HTTP
+     the fetch works and the numbers appear, and on file:// they would silently
+     vanish. The define pages still load it conditionally, because score.js does
+     read it. -->
+<script>
+// "?" opens the description; the second button opens the notes. Nothing on arrival.
+// One at a time within a card: a card has both buttons and both panels used to stand open
+// together, which is the same thing Shir objected to on the entry screen. Cards stay
+// independent of one another so two of them can still be compared side by side.
+document.querySelectorAll(".tog[data-why]").forEach(b => {
+  b.onclick = () => {
+    const box = document.getElementById(b.dataset.why);
+    if (!box) return;
+    const card = b.closest(".act") || document;
+    card.querySelectorAll(".tog[data-why]").forEach(o => {
+      if (o === b) return;
+      const ob = document.getElementById(o.dataset.why);
+      if (ob) ob.classList.remove("open");
+      o.setAttribute("aria-expanded", "false");
+    });
+    const open = box.classList.toggle("open");
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+});
+
+// Read from the data, never typed. A figure in prose goes stale the moment the corpus grows,
+// and a stale number on a page whose whole claim is verifiability is the worst bug available.
+// fetch() is blocked on file://, and this page is opened by double-click as often as it is
+// served, so data/inline.js ships the same JSON as a script and answers when fetch cannot.
+(async () => {
+  try {
+    const inl = window.MTP_INLINE || {};
+    const grab = async n => {
+      try {
+        const r = await fetch(`data/${n}.json`);
+        if (r.ok) return await r.json();
+      } catch (e) { /* file:// */ }
+      if (inl[n + ".json"]) return inl[n + ".json"];
+      throw new Error("no data for " + n);
+    };
+    const box = document.getElementById("liveStats");
+    if (!box) return;   // אין עוד סרגל נתונים בעמוד הכניסה
+    const [papers, cases] = await Promise.all(["papers", "cases"].map(grab));
+    const scored = papers.filter(p => p.n_scored).length;
+    const judged = cases.filter(c => c.status === "P" || c.status === "N").length;
+    const L = document.documentElement.lang === "he";
+    box.innerHTML = L
+      ? `<b>המושג שנטען כרגע:</b> אומנות · <span class="num">${papers.length}</span> מאמרים `
+        + `(<span class="num">${scored}</span> מהם מנוקדים) · <span class="num">${cases.length}</span> `
+        + `מקרים, <span class="num">${judged}</span> מהם מוכרעים · `
+        + `<span class="num">13</span> הגדרות יריבות, שלוש מהן בקרות מכוונות`
+      : `<b>concept loaded:</b> art · <span class="num">${papers.length}</span> papers `
+        + `(<span class="num">${scored}</span> of them scored) · <span class="num">${cases.length}</span> `
+        + `cases, <span class="num">${judged}</span> adjudicated · `
+        + `<span class="num">13</span> rival definitions, three of them deliberate controls`;
+  } catch (e) {
+    const b = document.getElementById("liveStats");
+    if (b) b.style.display = "none";
+  }
+})();
+</script>
+
+<!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body>
+</html>

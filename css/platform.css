@@ -1,0 +1,1832 @@
+/* ---------------------------------------------------------------------------
+   Shir, 2026-08-15: "THE RESOLUTION OF THE PAGES IS VERY SMALL. The current design
+   looks good on my PC monitor at 125%. On my laptop it looks good at 67% and 125 is
+   far too big. Is there a way to make a page suitable to the monitor it is viewed
+   from?"  Yes, and the cause was two fixed numbers.
+
+   Every size in this file is already in `rem` - but `rem` is anchored to the browser's
+   root font size, which is 16px on EVERY machine and knows nothing about the screen.
+   So the page rendered identically on a 27-inch monitor and a 13-inch laptop, and the
+   only way to fix it was the zoom control - 125% on one, 67% on the other.
+
+   The root font size now scales WITH THE VIEWPORT, so one setting suits both:
+       small laptop  (1280px wide) -> ~15.4px
+       1366px laptop               -> ~15.9px
+       1920px monitor              -> ~18.2px
+       2560px monitor              -> ~21px  (capped)
+   The rem+vw mix inside clamp() is deliberate: a pure-vw root font size stops the
+   browser's own zoom from working, which would take away the control she is using now.
+   --------------------------------------------------------------------------- */
+html { font-size: clamp(15px, 0.72rem + 0.32vw, 21px); }
+
+/* The container was a hard 1400px. On a 1366-wide laptop that is wider than the
+   window, which is what forced 67% - the page did not fit at any comfortable size. */
+:root { --shell-max: min(1400px, 94vw); }
+
+/* =====================================================
+   Meta-Tagging Platform - additions on top of shell.css
+   shell.css is PrimingToolbox/css/main.css, imported unchanged:
+   the wave background, the palette and the card system come from there
+   and are NOT reproduced here. Teal #169999, Pink #ff4db8, Wine #990f23.
+
+   House rule (Shir, 2026-08-09): never white text inside a coloured block.
+   Colour is carried on text and on borders. No filled chips, no badges.
+   ===================================================== */
+
+:root {
+  --teal: #169999;
+  --teal-lit: #2fd4d4;
+  --pink: #ff4db8;
+  --wine: #990f23;
+  --ink: #e5e7eb;
+  --dim: #9aa3ad;
+  --line: rgba(229, 231, 235, 0.14);
+  --panel: rgba(255, 255, 255, 0.035);
+  /* FIVE RULES ASKED FOR THIS AND NOTHING EVER DEFINED IT. `color: var(--muted)` with no
+     fallback and no definition is invalid at computed-value time, so the declaration is
+     dropped and the element INHERITS -- which on this page means --ink, the brightest text
+     colour there is. The five lines meant to be secondary (the feature-map explanations, the
+     sub-term captions, the validity note) were rendering at exactly the weight of body text.
+     Not a contrast failure -- it fails the other way -- but the hierarchy the author wrote
+     was not on the screen. Same value as --dim so there is one grey, not two. */
+  --muted: var(--dim);
+}
+
+/* ---------- layout ---------- */
+.pt-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--shell-max, min(1400px, 94vw));
+  margin: 0 auto;
+  padding: 1.8rem 2.2rem 5rem;
+}
+
+.pt-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+}
+.pt-head h1 {
+  font-size: 2.201rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.pt-head .tag {
+  font-size: 0.968rem;
+  color: var(--pink);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pt-head .sub {
+  width: 100%;
+  color: var(--dim);
+  font-size: 1.053rem;
+  margin-top: 0.3rem;
+}
+
+a.pt-back {
+  color: var(--teal-lit);
+  text-decoration: none;
+  font-size: 1.038rem;
+  border-bottom: 1px solid rgba(47, 212, 212, 0.35);
+}
+a.pt-back:hover { border-bottom-color: var(--teal-lit); }
+
+/* ---------- entry cards ---------- */
+.pt-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+.pt-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem 1.2rem;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.18s, transform 0.18s;
+}
+.pt-card.live:hover {
+  border-color: rgba(47, 212, 212, 0.6);
+  transform: translateY(-2px);
+}
+.pt-card .ic { font-size: 2.13rem; line-height: 1; margin-bottom: 0.6rem; }
+.pt-card h2 {
+  font-size: 1.242rem;
+  color: #fff;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+.pt-card p { color: var(--dim); font-size: 1.03rem; flex: 1; }
+.pt-card ul { list-style: none; margin: 0.7rem 0 0; padding: 0; }
+.pt-card li {
+  color: var(--teal-lit);
+  font-size: 1.015rem;
+  padding: 0.12rem 0;
+}
+.pt-card li::before { content: "· "; color: var(--pink); }
+.pt-card .state {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.pt-card.live .state { color: var(--teal-lit); }
+.pt-card.soon { opacity: 0.62; }
+.pt-card.soon .state { color: var(--pink); }
+.pt-card a.go {
+  margin-top: 0.85rem;
+  align-self: flex-start;
+  color: var(--teal-lit);
+  border: 1px solid rgba(47, 212, 212, 0.45);
+  border-radius: 8px;
+  padding: 0.32rem 0.8rem;
+  text-decoration: none;
+  font-size: 1.038rem;
+}
+.pt-card a.go:hover { border-color: var(--teal-lit); }
+
+/* ---------- two-column work surface ---------- */
+.pt-work {
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .pt-work { grid-template-columns: 1fr; } }
+
+.pt-panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 0.9rem 1rem;
+}
+.pt-panel h3 {
+  font-size: 0.968rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+.pt-panel + .pt-panel { margin-top: 1rem; }
+
+/* corpus picker */
+.pt-tools {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.pt-btn {
+  font: inherit;
+  font-size: 0.968rem;
+  color: var(--teal-lit);
+  background: transparent;
+  border: 1px solid rgba(47, 212, 212, 0.4);
+  border-radius: 8px;
+  padding: 0.26rem 0.7rem;
+  cursor: pointer;
+}
+.pt-btn:hover { border-color: var(--teal-lit); }
+.pt-btn.on { border-color: var(--pink); color: var(--pink); }
+
+#paperList { max-height: 26rem; overflow-y: auto; padding-left: 0.2rem; }
+.pt-paper {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  padding: 0.4rem 0.2rem;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+.pt-paper:first-child { border-top: 0; }
+.pt-paper input { margin-top: 0.28rem; accent-color: #169999; }
+.pt-paper .t { font-size: 1.027rem; color: var(--ink); line-height: 1.4; }
+.pt-paper .m { font-size: 0.897rem; color: var(--dim); }
+.pt-paper.off .t, .pt-paper.off .m { opacity: 0.45; }
+
+/* the parsed-state bar, after direction_field */
+.pt-state {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1.015rem;
+  color: var(--dim);
+  direction: ltr;
+  font-family: Consolas, monospace;
+}
+.pt-state b { color: var(--teal-lit); font-weight: 700; }
+
+/* leaderboard */
+.pt-def {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.85rem;
+  margin: 0.5rem 0;
+  background: var(--panel);
+}
+.pt-def.mine { border-color: rgba(255, 77, 184, 0.55); }
+.pt-def.control { opacity: 0.72; border-style: dashed; }
+.pt-defh { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.pt-defh .nm { font-weight: 700; color: #fff; font-size: 1.075rem; }
+.pt-defh .gate { font-size: 0.873rem; font-weight: 700; margin-inline-start: auto; }
+.pt-defh .gate.ok { color: var(--teal-lit); }
+.pt-defh .gate.borderline { color: #ffb020; }
+.pt-defh .gate.disqualified { color: #ff6b6b; }
+/* GATE 3 IS BLUE ON PURPOSE (2026-09-21, MT-04). `not-point-identified` says the definition is fine and
+   UNMEASURABLE - its score belongs to whoever chose the threshold - not that it is defective. Red is the
+   one colour that would destroy that distinction, and the default (colourless) reads as no verdict at all.
+   This is the same blue as .prov-literature, so a reader meets it as a stated fact rather than a warning. */
+.pt-defh .gate[class~="not-point-identified"] { color: #5aa9f0; }
+.pt-def .wording { color: var(--dim); font-size: 1.015rem; margin: 0.1rem 0 0.35rem; }
+.pt-bar { position: relative; height: 20px; border-radius: 6px; background: rgba(255,255,255,0.06); }
+.pt-bar > i { display: block; height: 20px; border-radius: 6px; background: var(--teal); opacity: 0.75; }
+.pt-bar > span {
+  position: absolute; left: 0.5rem; top: 0; line-height: 20px;
+  font-size: 0.92rem; font-family: Consolas, monospace; color: #fff;
+  direction: ltr;
+}
+.pt-def .cm {
+  font-size: 0.897rem; color: var(--dim); font-family: Consolas, monospace;
+  direction: ltr; unicode-bidi: isolate; text-align: left; margin-top: 0.25rem;
+}
+.pt-def .plain { font-size: 0.991rem; color: var(--dim); margin-top: 0.2rem; }
+
+/* The citation, and the warning that travels with it.
+   Colour goes on the TEXT, never as a filled block with white text on it - a rule of Shir's
+   that this sheet follows throughout. The "our wording" flag is the loudest thing in the
+   line on purpose: a one-line summary sitting under a scholar's name reads as a quotation
+   from them unless something says otherwise, and everything else in this project is built on
+   the difference between a quotation and a paraphrase. */
+.pt-def .cited, .offer .cited {
+  font-size: 0.92rem;
+  color: var(--dim);
+  line-height: 1.5;
+  margin: 0.15rem 0 0.4rem;
+  border-inline-start: 2px solid var(--line);
+  padding-inline-start: 0.55rem;
+}
+.cited .ourwords { color: #e0a33c; font-weight: 700; }
+/* Own line, own direction. A bibliographic reference is Latin script inside a Hebrew page,
+   and the two must not share a run. */
+.cited .ref { display: block; margin-top: 0.15rem; }
+.cited .flag:empty { display: none; }
+/* Smaller type, but still a real target. The earlier version set min-height:0 to make it sit
+   neatly in the line, which is exactly how the 27px buttons the accessibility audit caught
+   got there in the first place. */
+.pt-btn.tiny {
+  font-size: 0.873rem;
+  padding: 0.3rem 0.6rem;
+  margin-inline-start: 0.4rem;
+}
+/* The warning that the ranking is not a fair comparison. It sits ABOVE the first card,
+   because a caveat printed after the thing it qualifies is read second or not at all - and
+   this one reverses the headline. Amber text on the panel, not a filled amber block: nothing
+   on this site is white type on a coloured slab. */
+.offerwarn {
+  border: 1px solid rgba(224, 163, 60, 0.45);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  margin: 0 0 0.7rem;
+  font-size: 1.015rem;
+  line-height: 1.65;
+  color: #e0a33c;
+}
+.offerwarn b { color: #f0c476; }
+.offer .oabstain { font-size: 0.92rem; color: #e0a33c; line-height: 1.5; margin-top: 0.2rem; }
+
+/* Abstention is a property of the definition, so it is stated on the definition, beside its
+   score, rather than in a footnote under the table. */
+.pt-def .abstain {
+  font-size: 0.944rem;
+  color: #e0a33c;
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+
+details.pt-cases { margin-top: 0.4rem; }
+details.pt-cases > summary {
+  cursor: pointer; font-size: 0.944rem; color: var(--teal-lit); list-style: none;
+}
+details.pt-cases > summary::before { content: "▸ "; }
+details.pt-cases[open] > summary::before { content: "▾ "; }
+.pt-case {
+  border-top: 1px solid var(--line);
+  padding: 0.4rem 0;
+  font-size: 1.003rem;
+}
+.pt-case .th { color: var(--ink); }
+.pt-case .vd { font-size: 0.873rem; font-weight: 700; margin-inline-start: 0.4rem; }
+.pt-case .vd.tp, .pt-case .vd.tn { color: var(--teal-lit); }
+.pt-case .vd.fp, .pt-case .vd.fn { color: #ff6b6b; }
+.pt-case .q {
+  color: var(--dim); font-size: 0.968rem; font-style: italic;
+  border-inline-start: 2px solid rgba(255,77,184,0.4);
+  padding-inline-start: 0.6rem; margin-top: 0.25rem;
+}
+.pt-case .src { font-size: 0.873rem; color: var(--dim); margin-top: 0.15rem; }
+
+.pt-note {
+  border: 1px solid var(--line);
+  border-inline-start: 3px solid var(--pink);
+  border-radius: 0 10px 10px 0;
+  padding: 0.7rem 0.95rem;
+  margin: 1rem 0;
+  font-size: 1.038rem;
+  color: var(--dim);
+}
+.pt-note b { color: var(--pink); }
+
+.pt-foot {
+  margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  color: var(--dim); font-size: 0.968rem;
+}
+.pt-foot a { color: var(--teal-lit); text-decoration: none; }
+/* The credit line. English on every page, including the RTL ones, so it is set LTR and
+   start-aligned rather than inheriting the page direction. */
+.pt-credit { display: inline-block; margin-top: .5rem; direction: ltr; unicode-bidi: isolate; }
+
+.num { direction: ltr; unicode-bidi: isolate; display: inline-block; font-family: Consolas, monospace; }
+
+/* A pure-ASCII run inside Hebrew prose. Without the isolate, the Hebrew around it opens an
+   RTL run that swallows the neighbouring "·", "[" and "," as neutrals and reorders the whole
+   fragment - measured, not theorised, on an earlier report where an interval's bounds were
+   printed swapped. Hebrew words must never go inside this class. */
+.ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+/* the parsed-state bar reads right-to-left like the rest of the page */
+.pt-state { direction: inherit; font-family: inherit; }
+.pt-state .num, .pt-state .ltr { font-family: Consolas, monospace; }
+
+/* A paper that is tagged but whose cases have not been judged against the definitions yet.
+   Shown, never hidden - the corpus grew and a visitor should see that - but not selectable,
+   because adding it would move no number and the tool would look broken rather than honest. */
+.pt-paper.unscored { opacity: .5; cursor: not-allowed; }
+/* A term's corpus holds two kinds of paper and they are different claims: somebody TAGGED this
+   paper with the term, or the term simply occurs in its text. Both are selectable, so neither is
+   dimmed - the distinction is carried by the colour of the meta line. (2026-08-19) */
+.pt-paper.istag .m { color: #5cc46f; }
+.pt-paper.mention .m { color: var(--dim); }
+/* A title in the corpus list is a LINK to the paper, and a link takes the page's link colour -
+   a mid-blue that sits at roughly 2:1 on this near-black panel, then gets multiplied by the
+   0.45 of `.off` when the row is unticked. The result is a list of titles nobody can read; it
+   is visible in Shir's own screenshot of 2026-08-19 and predates the term-corpus work.
+   The row already sets `.t { color: var(--ink) }` - the anchor just has to stop overriding it,
+   keeping the underline so it still reads as a link. (2026-08-19) */
+.pt-paper .t a { color: var(--ink); text-decoration: underline;
+                 text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.pt-paper .t a:hover, .pt-paper .t a:focus { color: #5cc46f; }
+/* An unticked row is de-emphasised, not hidden. 0.45 was set when these rows were plain text on
+   the panel; on a list of 60 selectable papers it is the difference between scanning the list
+   and squinting at it. */
+.paperscroll .pt-paper.off .t, .paperscroll .pt-paper.off .m { opacity: 0.72; }
+.pt-paper.unscored .m { color: var(--pink); }
+
+/* ---------- phones ----------
+   Checked at 390px and the page was clipping on the right: the state bar's monospace run
+   and the confusion-matrix line do not wrap, so they forced the layout wider than the
+   viewport and the RTL content ran off the edge. Nothing here is cosmetic - a visitor on a
+   phone was losing the beginning of every line, which in RTL is the part that matters. */
+@media (max-width: 620px) {
+  .pt-wrap { padding: 1rem .8rem 4rem; }
+  .pt-head h1 { font-size: 1.438rem; }
+  .pt-head .tag { font-size: 0.873rem; }
+  #langSwitch { margin-inline-start: 0 !important; }
+
+  /* The real cause, found by measuring rather than guessing: .ltr and .num are
+     display:inline-block so that a bidi run cannot be reordered by the Hebrew around it.
+     inline-block is also unbreakable, so on a narrow screen those runs push the layout
+     wider than the viewport. `inline` keeps the isolation - which is what actually
+     protects the digits - and lets the line wrap. */
+  .ltr, .num { display: inline; }
+  .pt-state, .pt-def .cm {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    font-size: 0.92rem;
+  }
+  .pt-state { text-align: start; }
+
+  /* long English paper titles inside an RTL column */
+  .pt-paper .t, .pt-paper .m { overflow-wrap: anywhere; }
+  #paperList { max-height: 18rem; }
+
+  .pt-note, .pt-panel { padding: .7rem .8rem; }
+  .pt-bar > span { font-size: 0.85rem; }
+  .pt-case .q { padding-inline-start: .45rem; }
+
+  /* nothing may make the body itself scroll sideways */
+  .pt-wrap, .pt-panel, .pt-note, .pt-def { max-width: 100%; }
+  img, svg { max-width: 100%; }
+}
+
+/* ---------- the wave layer: NOT OVERRIDDEN ----------
+   There used to be a block here that dropped .animated-background to 7% opacity and
+   re-anchored the wave band to the bottom of the screen. I wrote it because the strokes
+   read to me as stray lines across open content, and it was a design decision I made on my
+   own and did not raise.
+   Shir, 2026-08-12: "לא רואים את הגלים! בפירוש ביקשתי לקחת העיצוב מעמודים קיימים ולא ליצור
+   לבד." She is right, and the override is gone. The waves are now exactly what shell.css
+   says, and shell.css is a byte-for-byte copy of PrimingToolbox's main.css - verified today
+   against https://shir-openu.github.io/PrimingToolbox/css/main.css.
+   Nothing about the wave layer belongs in this file. If it ever needs changing again, it
+   changes at the source and it is her call, not mine. */
+
+/* ================= action buttons =================
+   Shir, 2026-08-10: the cards carried far too much prose. What a visitor needs first is a
+   button whose action is obvious; the explanation and the notes are there for whoever asks
+   for them. So each card is now an action with two disclosures - "?" opens the description,
+   "≡" opens the notes - and nothing else is shown until pressed.
+
+   One colour family per action, taken from REPORTS/report54.html. (report56 does not exist;
+   54 is the highest, and it is the reference for the house rule anyway.) Colour is carried
+   on text and border only - never a filled block with white text on it. */
+.act {
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--fam, var(--teal));
+  border-radius: 12px;
+  background: var(--panel);
+  padding: .85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.act.soon { opacity: .58; }
+.act .row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.act .ic { font-size: 1.322rem; line-height: 1; }
+.act h2 {
+  font-size: 1.208rem; font-weight: 700; margin: 0;
+  color: var(--fam-lit, var(--teal-lit));
+}
+.act .state {
+  font-size: 0.85rem; font-weight: 700; letter-spacing: .03em;
+  margin-inline-start: auto; color: var(--fam-lit, var(--teal-lit)); opacity: .85;
+}
+.act.soon .state { color: var(--dim); }
+
+.act .disc { display: flex; gap: .35rem; margin-top: .55rem; align-items: center; }
+.act .go {
+  color: var(--fam-lit, var(--teal-lit));
+  border: 1px solid var(--fam, var(--teal));
+  border-radius: 8px; padding: .3rem .95rem;
+  text-decoration: none; font-size: 1.008rem; font-weight: 700;
+}
+.act .go:hover { background: rgba(255,255,255,.05); }
+.act .tog {
+  font: inherit; font-size: 0.968rem; line-height: 1;
+  width: 1.9rem; height: 1.9rem;
+  color: var(--fam-lit, var(--teal-lit));
+  background: transparent;
+  border: 1px solid var(--line); border-radius: 50%;
+  cursor: pointer; display: grid; place-items: center;
+}
+.act .tog:hover { border-color: var(--fam, var(--teal)); }
+.act .tog[aria-expanded="true"] { border-color: var(--fam, var(--teal)); background: rgba(255,255,255,.06); }
+.act .tog .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+.act .why, .act .notes { display: none; margin-top: .5rem; }
+.act .why.open, .act .notes.open { display: block; }
+.act .why { color: var(--dim); font-size: 1.008rem; }
+.act .notes ul { list-style: none; margin: 0; padding: 0; }
+.act .notes li {
+  font-size: 1.015rem; padding: .12rem 0; color: var(--fam-lit, var(--teal-lit));
+}
+.act .notes li::before { content: "· "; opacity: .7; }
+
+/* ================= button-first screen =================
+   Shir, 2026-08-10, after opening the screen herself: *"אני מכירה את הפרויקט ועדיין אין לי
+   מושג מה הולך שם, מלא טקסט, לא ברור לי איפה ללחוץ"*. If the person who designed the thing
+   cannot find the button, nobody can.
+
+   So: the screen shows ONE answer and a row of buttons that say what they do. Every
+   explanation, every table, every limitation is still here in full - transparency is the
+   product - but behind a button the reader presses only if they want it. */
+
+.hero-result {
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid #5cc46f;
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 1.1rem 1.3rem;
+  margin: .2rem 0 1.3rem;
+}
+.hero-result .lead {
+  font-size: 0.991rem; color: var(--dim); letter-spacing: .02em;
+}
+.hero-result .win {
+  font-size: 2.272rem; font-weight: 700; color: #fff; margin: .15rem 0 .1rem;
+  line-height: 1.25;
+}
+.hero-result .sc {
+  font-family: Consolas, monospace; direction: ltr; unicode-bidi: isolate;
+  color: #5cc46f; font-size: 1.208rem; font-weight: 700;
+}
+.hero-result .plainline { color: var(--dim); font-size: 1.03rem; margin-top: .3rem; }
+.hero-result.warn { border-inline-start-color: #ff6b6b; }
+.hero-result.warn .win { font-size: 1.322rem; color: #ff9d9d; }
+
+/* `hidden` must actually hide, whatever else the element is.
+   #step3wrap carries class="steps" AND the hidden attribute, and `.steps { display: grid }`
+   silently beat the browser's own `[hidden] { display: none }` because a class selector
+   outranks it. The third button therefore sat on the opening screen from the first paint,
+   however carefully the JS gated it: I set the attribute and the stylesheet ignored it.
+   The old rule named two classes by hand, which is the same bug waiting for the third. */
+[hidden] { display: none !important; }
+.acts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: .8rem;
+}
+.act .lead { font-size: 1.027rem; color: var(--dim); margin-top: .1rem; }
+
+/* panels open only on request */
+.panel {
+  display: none;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 1rem 1.1rem;
+  margin-top: 1rem;
+}
+.panel.open { display: block; }
+.phead {
+  display: flex; align-items: center; gap: .5rem;
+  border-bottom: 1px solid var(--line); padding-bottom: .5rem; margin-bottom: .8rem;
+}
+.phead b { color: #fff; font-size: 1.15rem; }
+.pclose {
+  font: inherit; font-size: 1.265rem; line-height: 1;
+  margin-inline-start: auto; width: 1.8rem; height: 1.8rem;
+  color: var(--dim); background: transparent;
+  border: 1px solid var(--line); border-radius: 50%; cursor: pointer;
+}
+.pclose:hover { color: #fff; border-color: var(--dim); }
+
+.pt-foot #stateBar {
+  border: 0; padding: 0; margin: 0; background: none; font-size: inherit;
+}
+
+/* ---------- the two step buttons: the whole first screen ---------- */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+         gap: .9rem; margin: .4rem 0 1.2rem; }
+.step {
+  font: inherit; text-align: start; cursor: pointer;
+  display: flex; align-items: center; gap: .9rem;
+  padding: 1rem 1.15rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--fam);
+  border-radius: 14px;
+  transition: border-color .15s, transform .15s;
+}
+.step:hover { border-color: var(--fam-lit); transform: translateY(-2px); }
+.step .num {
+  flex: 0 0 auto; width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--fam); color: var(--fam-lit);
+  font-weight: 700; font-size: 1.15rem;
+}
+.step .txt { display: flex; flex-direction: column; gap: .1rem; }
+.step .ttl { color: #fff; font-weight: 700; font-size: 1.208rem; }
+.step .val { color: var(--fam-lit); font-size: 1.027rem; }
+
+.conceptlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .6rem; }
+.conceptbtn {
+  font: inherit; text-align: start; cursor: pointer;
+  display: flex; flex-direction: column; gap: .15rem;
+  padding: .75rem .9rem; border-radius: 10px;
+  background: transparent; border: 1px solid var(--line); color: var(--ink);
+}
+.conceptbtn b { color: #fff; }
+.conceptbtn span { color: var(--dim); font-size: 0.991rem; }
+.conceptbtn.on { border-color: #a98bec; }
+.conceptbtn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ---------- the offered definitions ---------- */
+.offerhead { color: #fff; font-weight: 700; margin: 0 0 .5rem; }
+.offerhead .lead { color: var(--dim); font-weight: 400; font-size: 1.027rem; }
+.offer {
+  display: flex; align-items: center; gap: .9rem;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel); padding: .7rem .95rem; margin-bottom: .5rem;
+}
+.offer.best { border-inline-start: 5px solid #5cc46f; }
+.offer .orank {
+  flex: 0 0 auto; width: 1.8rem; height: 1.8rem; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700; font-size: 1.003rem;
+  border: 1px solid var(--line); color: var(--dim);
+}
+.offer.best .orank { border-color: #5cc46f; color: #5cc46f; }
+.offer .obody { flex: 1 1 auto; min-width: 0; }
+.offer .oname { color: #fff; font-weight: 700; font-size: 1.15rem; }
+.offer .oword { color: var(--dim); font-size: 1.027rem; margin-top: .05rem; }
+.offer .oplain { color: var(--dim); font-size: 0.979rem; margin-top: .2rem; opacity: .85; }
+.offer .onums { flex: 0 0 auto; text-align: center; min-width: 6.5rem; }
+.offer .omcc {
+  font-family: Consolas, monospace; direction: ltr; unicode-bidi: isolate;
+  font-size: 1.322rem; font-weight: 700; color: #5cc46f;
+}
+.offer:not(.best) .omcc { color: var(--ink); }
+.offer .olab, .offer .omiss { font-size: 0.873rem; color: var(--dim); }
+
+.nextline { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0 .4rem; }
+.pt-btn.big { font-size: 1.03rem; padding: .45rem 1.1rem; font-weight: 700; }
+
+#ownText {
+  width: 100%; margin-top: .6rem; padding: .6rem .75rem;
+  background: rgba(255,255,255,.04); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px;
+  font: inherit; font-size: 1.064rem;
+}
+#ownText:focus { outline: none; border-color: var(--teal-lit); }
+
+/* ---------- each card gets a body in its own colour ----------
+   Shir: on my landing page every square's background belongs to that square's colour - it is
+   not all black in the eye. She is right, and reading the landing CSS rather than the
+   screenshot settled it: .project-card is a solid #fff body on a #f5f6f8 page, so the card
+   is a lit surface, not a hole. The dark equivalent is a tint of the family colour, strong
+   enough to read as that card's own body and light enough to keep text contrast.
+
+   Still no white text on a filled colour block: the tint is a low-alpha wash of the family,
+   the heading takes the family's light tone, and the body text stays the normal ink. */
+.act, .step, .offer, .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 14%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 14%, transparent)),
+    #14101a;
+}
+.act:hover, .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 22%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 22%, transparent)),
+    #14101a;
+}
+.act { border-color: color-mix(in srgb, var(--fam) 45%, transparent); }
+.step { border-color: color-mix(in srgb, var(--fam) 45%, transparent); }
+.act .why, .act .notes { color: var(--ink); }
+
+/* the panels inherit the colour of the button that opened them */
+#pConcept { --fam: #5e35b1; --fam-lit: #a98bec; }
+#pCorpus  { --fam: #1a7a33; --fam-lit: #5cc46f; }
+#pBoard   { --fam: #0b4f9c; --fam-lit: #5aa9f0; }
+#pJack    { --fam: #a35b00; --fam-lit: #e0a33c; }
+#pHow     { --fam: #00838f; --fam-lit: #3fd0dd; }
+#pDl      { --fam: #00838f; --fam-lit: #3fd0dd; }
+#pFaq     { --fam: #546e7a; --fam-lit: #9db4bf; }
+#pOwn     { --fam: #c2185b; --fam-lit: #f2789f; }
+#pWho     { --fam: #7b1fa2; --fam-lit: #c98fe0; }
+.panel { border-color: color-mix(in srgb, var(--fam, #169999) 45%, transparent); }
+.phead b { color: var(--fam-lit, #fff); }
+
+/* the offered definitions: the leader is green, the rest keep a neutral body */
+.offer { --fam: #546e7a; }
+.offer.best { --fam: #1a7a33; }
+
+/* Where a definition came from. A project about provenance must say which definitions are
+   attested in published work, which a reader proposed, and which the tool proposed. */
+.oprov, .prov { font-size: 0.85rem; font-weight: 700; letter-spacing: .02em; }
+.oprov { margin-top: .25rem; }
+.prov { margin-inline-start: .5rem; }
+.prov-literature { color: #5aa9f0; }
+.prov-user { color: #f2789f; }
+.prov-user\+tool { color: #e0a33c; }
+.prov-control { color: var(--dim); }
+
+/* ---------- your own definition: name, text, and the public/private choice ----------
+   The radios sit in a real <fieldset>/<legend> rather than a styled div, because a screen
+   reader announces the legend before each option; a bare div leaves "private" and "public"
+   floating with nothing to say what they are a choice about. Same reason the inputs have
+   real <label for=...> rather than placeholder text - placeholders vanish on focus, which
+   is exactly when someone using magnification needs to know what field they are in. */
+.ownlab {
+  display: block;
+  margin: .85rem 0 .25rem;
+  font-size: 1.015rem;
+  color: var(--dim);
+}
+.owninput,
+#pOwn textarea {
+  width: 100%;
+  padding: .5rem .65rem;
+  border-radius: 8px;
+  border: 1px solid #3a3247;
+  background: #0e0b13;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.064rem;
+}
+.owninput:focus-visible,
+#pOwn textarea:focus-visible { outline: 2px solid var(--fam-lit, #a98bec); outline-offset: 1px; }
+
+.ownvis {
+  margin: .9rem 0 0;
+  padding: .55rem .8rem .7rem;
+  border: 1px solid #3a3247;
+  border-radius: 10px;
+}
+.ownvis legend { padding: 0 .4rem; font-size: 0.991rem; color: var(--dim); }
+.ownvis label {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  margin: .3rem 0;
+  font-size: 1.008rem;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.ownvis input[type="radio"] { margin-top: .28rem; accent-color: #a98bec; flex: none; }
+
+/* ---------- accessibility ----------
+   A visible focus ring on everything reachable by keyboard. The shell stylesheet suppresses
+   outlines for the mouse case and never puts them back, so tabbing through the page moved an
+   invisible cursor - which makes the tool unusable without a mouse, not merely awkward. */
+.pt-btn:focus-visible,
+.step:focus-visible,
+.conceptbtn:focus-visible,
+.go:focus-visible,
+.tog:focus-visible,
+.pclose:focus-visible,
+.pt-paper:focus-within,
+a:focus-visible {
+  outline: 2px solid #a98bec;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Touch targets. Apple and Google both put the floor at 44px; several controls here were
+   28-32px, which on a phone means the neighbouring button gets pressed instead. */
+@media (max-width: 640px) {
+  .pt-btn, .go, .tog, .pclose { min-height: 44px; min-width: 44px; }
+  .tog, .pclose { display: inline-flex; align-items: center; justify-content: center; }
+  .steps { grid-template-columns: 1fr; }
+  .ownvis label { min-height: 44px; align-items: center; }
+}
+
+/* min-height does nothing to an inline element, and .pt-btn is an <a>. The measured height
+   stayed 27px with the rule sitting right there in the sheet - the kind of fix that looks
+   applied in the source and is not applied on the screen. */
+@media (max-width: 640px) {
+  .pt-btn, .pt-back, .go, .tog, .pclose {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pt-back { min-height: 44px; }
+}
+
+/* ---------- the 14 criteria, offered ---------- */
+.critrow {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .5rem .6rem;
+  margin: .3rem 0;
+  border: 1px solid #3a3247;
+  border-radius: 9px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.critrow input { margin-top: .3rem; accent-color: #a98bec; flex: none; }
+.critrow .t { display: block; font-size: 1.042rem; }
+.critrow .m { display: block; font-size: 0.944rem; color: var(--dim); margin-top: .15rem; }
+/* An unticked criterion is dimmed, not hidden: dropping one is a decision the user should
+   be able to see they made, and undo. */
+.critrow.off { opacity: .5; }
+.critrow:focus-within { outline: 2px solid #a98bec; outline-offset: 2px; }
+@media (max-width: 640px) { .critrow { min-height: 44px; } }
+
+/* A <button> with no background declared gets the browser's default buttonface, which is
+   light grey. The card's action button was therefore pale blue text on rgb(240,240,240) -
+   2.2:1, measured, well under the 4.5:1 floor - and it was also the one thing Shir banned:
+   a filled pale block instead of colour on text over the card's own body. */
+.act .go, .tog, .conceptbtn { background: transparent; }
+
+/* ---------- the concept picker ----------
+   A search field, a result list, and an honest panel for the concepts that have no board.
+   Shir's objection was that two buttons written into the page are not a picker, and that a
+   list of buttons does not survive a thousand concepts. Neither does a list of 472 rows, so
+   the ready concepts always sort first and the tail is capped with a count of what was
+   hidden - a search that silently truncates is a search that lies about its coverage. */
+.conceptbtn .cwhy {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--dim);
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+/* A concept we hold papers on but cannot yet score. Dimmed, but NOT disabled: pressing it
+   is how you find out what is missing, and a dead control would just look broken. */
+.conceptbtn.soon {
+  opacity: 0.72;
+  border-style: dashed;
+}
+.conceptbtn.soon b { font-weight: 600; }
+#conceptResults { max-height: 24rem; overflow-y: auto; }
+.cmore, .cnone {
+  font-size: 1.003rem;
+  line-height: 1.6;
+  color: var(--dim);
+  padding: 0.6rem 0.2rem;
+}
+.cnone b { color: #e0a33c; display: block; margin-bottom: 0.25rem; }
+#conceptSoon { margin-top: 0.6rem; }
+
+/* The discrimination warning. Amber like the abstention notice, and distinct from the red
+   calibration failure above it, because they mean different things: the red one says the
+   coding contradicts itself, the amber one says the coding is fine but the corpus is too
+   one-sided to separate a good definition from a deliberately hopeless one. */
+.pt-note.discrim {
+  border: 1px solid rgba(224, 163, 60, 0.45);
+  color: #e0a33c;
+  line-height: 1.65;
+  margin-bottom: 0.8rem;
+}
+.pt-note.discrim b { color: #f0c476; }
+
+/* ---------- the concept picker: a field with a dropdown under it ----------
+   Modelled on the direction-field tool's autocomplete, which Shir named as the reference
+   after the tile grid proved unusable: "אי אפשר לעבוד עם החלון של בחירת מושג". A grid you
+   scroll is a list of options; a dropdown that appears under the caret and narrows as you
+   type is a picker. */
+.ac-wrap { position: relative; }
+.ac-wrap .owninput { padding-inline-end: 2.4rem; }
+.ac-caret {
+  position: absolute;
+  inset-inline-end: .5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  color: var(--dim);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: .35rem .45rem;
+  line-height: 1;
+}
+.ac-caret:hover { color: var(--teal-lit); }
+.ac-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline: 0;
+  z-index: 200;
+  max-height: 22rem;
+  overflow-y: auto;
+  background: #14101a;
+  border: 1px solid rgba(229, 231, 235, 0.22);
+  border-radius: 10px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+}
+.ac-dropdown.open { display: block; }
+.ac-item {
+  display: block;
+  width: 100%;
+  text-align: start;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  padding: .55rem .8rem;
+  cursor: pointer;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.ac-item:first-child { border-top: 0; }
+.ac-item:hover, .ac-item.sel { background: rgba(47, 212, 212, 0.12); }
+.ac-item .nm { font-weight: 700; color: #fff; }
+.ac-item .sub { display: block; font-size: 0.82rem; color: var(--dim); margin-top: .1rem; }
+/* A concept we hold papers on but cannot yet score. Dimmed, never disabled: pressing it is
+   how you find out what is missing. */
+.ac-item.soon .nm { font-weight: 600; color: var(--ink); }
+.ac-item.on .nm { color: var(--teal-lit); }
+.ac-none { padding: .7rem .85rem; font-size: 0.88rem; color: var(--dim); line-height: 1.6; }
+.ac-none b { color: #e0a33c; display: block; margin-bottom: .2rem; }
+.ac-more { padding: .5rem .85rem; font-size: 0.82rem; color: var(--dim);
+           border-top: 1px solid var(--line); }
+
+/* The caret is a real control and a thumb has to hit it. 27x27 is what the mobile audit
+   caught the moment the dropdown shipped - the same 44px rule that caught the buttons. */
+@media (max-width: 640px), (pointer: coarse) {
+  .ac-caret { min-width: 44px; min-height: 44px; }
+}
+
+/* ---- the two-button entry screen -------------------------------------------------
+   Shir: "nothing else below the buttons, only the opening menu", and each panel opens
+   under the button that opened it rather than in one shared slot at the foot of the page. */
+/* Shir: "the buttons misbehave — press one and it expands while the other moves. It should
+   just open a window, with a horizontal scrollbar."
+   She is describing exactly what I built: the pressed column was set to span the full grid
+   width, which necessarily pushes the other button out of its place. The buttons must not
+   move at all. So the two columns are dissolved (`display: contents`), the buttons are pinned
+   to row 1 and any open panel takes the whole of row 2 — full width, its own scrollbars,
+   nothing above it shifting by a pixel. */
+.stepcol { display: contents; }
+.steps { align-items: start; }
+/* 2026-08-13. The buttons still moved when a panel opened, and the reason was the column
+   count, not the panel. `.steps` is `repeat(auto-fit, minmax(19rem, 1fr))`, and because
+   `.stepcol` is `display: contents` the grid's children are the two buttons AND the two
+   panels — four items. Open one and auto-fit is free to lay out a different number of
+   columns, so button 1 and button 2 change width and slide. Two columns, stated outright,
+   cannot do that: whatever opens below, row 1 is two fixed tracks. */
+.steps:has(.stepcol) { grid-template-columns: 1fr 1fr; }
+@media (max-width: 900px) { .steps:has(.stepcol) { grid-template-columns: 1fr; } }
+/* #step3wrap holds a single stepcol spanning both columns, so it needs the same certainty. */
+#step3wrap:has(.stepcol) { grid-template-columns: 1fr 1fr; }
+.stepcol:nth-of-type(1) .step { grid-column: 1; grid-row: 1; }
+.stepcol:nth-of-type(2) .step { grid-column: 2; grid-row: 1; }
+/* Shir, 2026-08-15: "WHEN YOU PRESS THIS BUTTON TWO SLIDERS APPEAR - I THINK ONLY THE INNER
+   ONE SHOULD STAY, THE OUTER SLIDER REDUNDANT." The panel carried its own horizontal scroller
+   and the concept dropdown inside it carries a vertical one, so opening the picker put two
+   bars on screen for one list. The inner bar belongs to the thing being scrolled; this one
+   only ever existed to rescue content too wide for the column. */
+.stepcol .panel { grid-column: 1 / -1; grid-row: 2; margin: .55rem 0 0;
+                  max-width: none; overflow-x: visible; }
+@media (max-width: 900px) {
+  .stepcol:nth-of-type(1) .step,
+  .stepcol:nth-of-type(2) .step { grid-column: 1; }
+  .stepcol:nth-of-type(2) .step { grid-row: 2; }
+  .stepcol .panel { grid-row: 3; }
+}
+.stepcol .step { width: 100%; }
+.go3 { justify-content: center; }
+/* the paper list is long and its rows are wide: it scrolls in its own box, in both
+   directions, so a narrow window never makes the page itself scroll sideways */
+.paperscroll { max-height: 26rem; overflow-y: auto; overflow-x: auto; }
+.paperscroll .pt-paper { min-height: 44px; align-items: flex-start; }
+.paperscroll .pt-paper .t { display: block; direction: ltr; unicode-bidi: isolate;
+  text-align: start; overflow-wrap: anywhere; }
+.paperscroll .pt-paper .m { display: block; direction: ltr; unicode-bidi: isolate;
+  text-align: start; }
+/* A row in the picker is a touch target. Putting the list on one line dropped each row to
+   37px, under the 44px minimum, and the mobile audit found twelve of them. The row keeps its
+   single line; it just stops being too short to hit. */
+.paperscroll .pt-paper input { min-width: 22px; min-height: 22px; }
+.disc-h { position: sticky; top: 0; background: var(--pt-panel, #12151c);
+          font-weight: 700; font-size: .95rem; padding: .35rem .2rem .25rem;
+          border-bottom: 1px solid rgba(255,255,255,.08); z-index: 1; }
+/* margin-inline-START alone lost its gap in the Hebrew page: the discipline name is Latin
+   inside an RTL line, so bidi reordering can put the count on the side the margin is not
+   on and it rendered as `neuroscience32`. A margin on BOTH sides cannot be reordered away. */
+.disc-h .n { color: #8b93a1; font-weight: 400; font-size: .85rem; margin-inline: .4rem; }
+.pt-paper .who { color: #8b93a1; font-size: .88rem; }
+.pt-paper .open-badge { color: #5cc46f; font-size: .78rem; margin-inline-start: .4rem; }
+@media (max-width: 900px) { .paperscroll { max-height: 20rem; } }
+
+/* ---- the live confusion matrix -----------------------------------------------------
+   Shir asked for the matrix she liked in the preprint, here, updating with the definition
+   under test. Same four colours as the preprint so a cell means the same thing in both.
+   Colour on the TEXT and the border, never a filled block with white text on it. */
+.stagehead { font-size: 1.28rem; margin: 1.6rem 0 .6rem; }
+.lmhead { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin: .4rem 0 .8rem; }
+.lmlab { font-size: .9rem; color: #9aa3b2; }
+.lmhead .owninput { flex: 1 1 18rem; min-width: 0; }
+.lmscore { font-size: 1.05rem; }
+.lmscore b { font-size: 1.25rem; }
+.lmwrap { display: grid; grid-template-columns: minmax(7rem, auto) 1fr 1fr;
+          gap: .5rem; align-items: stretch; overflow-x: auto; }
+.lmcolh, .lmrowh { display: flex; align-items: center; font-size: .92rem;
+                   font-weight: 700; color: #c3cad6; padding: .3rem .2rem; }
+.lmcolh { justify-content: center; text-align: center; }
+.lmcell { display: flex; flex-direction: column; align-items: flex-start; gap: .12rem;
+          border: 2px solid var(--c); border-radius: 12px; background: transparent;
+          padding: .7rem .9rem; cursor: pointer; font: inherit; text-align: start;
+          transition: background .12s; min-width: 8rem; }
+.lmcell:hover, .lmcell:focus-visible { background: var(--l); }
+.lmk { font-family: Consolas, monospace; font-weight: 700; font-size: .82rem; color: var(--c); }
+.lmn { font-size: 1.7rem; font-weight: 700; color: var(--c); line-height: 1.1; }
+.lml { font-size: .95rem; color: #e6e9ee; }
+.lms { font-size: .82rem; color: #9aa3b2; }
+.lmfoot { font-size: .86rem; color: #9aa3b2; margin: .7rem 0 .4rem; }
+.lmcaseh { font-weight: 700; margin: .8rem 0 .3rem; }
+@media (max-width: 760px) {
+  .lmwrap { grid-template-columns: 1fr 1fr; }
+  .lmrowh { grid-column: 1 / -1; }
+  .lmcorner { display: none; }
+}
+
+/* one author, one row: the earlier drafts fold inside the surviving card */
+.vers { margin: .35rem 0 .1rem; }
+.vers > summary { cursor: pointer; font-size: .84rem; color: #8fb7e8; list-style: none; }
+.vers > summary::-webkit-details-marker { display: none; }
+.vers > summary::before { content: "▸ "; }
+.vers[open] > summary::before { content: "▾ "; }
+.verbody { border-inline-start: 2px solid rgba(255,255,255,.12); margin: .3rem 0 .2rem .2rem;
+           padding-inline-start: .6rem; }
+.verrow { font-size: .84rem; color: #9aa3b2; padding: .1rem 0; }
+
+/* judging your own definition, one case at a time */
+.jcard { border: 1px solid var(--line, #2a2f3a); border-radius: 12px; padding: .9rem 1rem;
+         margin: .7rem 0; background: rgba(255,255,255,.02); }
+.jcount { font-size: .82rem; color: #8b93a1; }
+.jthing { font-size: 1.16rem; font-weight: 700; margin: .3rem 0 .45rem; }
+.jquote { font-size: .96rem; line-height: 1.6; border-inline-start: 3px solid #5e35b1;
+          padding-inline-start: .7rem; color: #d7dce4; }
+.jpaper { font-size: .8rem; color: #8b93a1; margin: .45rem 0 .7rem;
+          direction: ltr; unicode-bidi: isolate; }
+.jcard .pt-tools { flex-wrap: wrap; gap: .45rem; }
+.jyes { border-color: #0d9488 !important; color: #4ecdc4 !important; }
+.jno  { border-color: #c0392b !important; color: #ef8a7f !important; }
+.judge-bound{margin:.45rem 0;color:#7f8997;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:.68rem;overflow-wrap:anywhere}
+.judge-validity{margin-top:.55rem;font-size:.82rem;color:var(--muted)}
+.judge-validity.warn{color:#8a4b08;font-weight:650}
+.feature-map{margin:.9rem 0;padding:.85rem;border:1px solid rgba(124,92,191,.28);border-radius:12px;
+  background:rgba(124,92,191,.06)}
+.feature-map h3{margin:0 0 .35rem;font-size:1rem}.feature-map p{margin:.2rem 0 .7rem;color:var(--muted)}
+.feature-row{display:flex;gap:.55rem;align-items:flex-start;padding:.45rem .5rem;margin:.25rem 0;
+  border:1px solid rgba(127,137,151,.2);border-radius:8px;background:rgba(255,255,255,.03);cursor:pointer}
+.feature-row input{margin-top:.2rem}.feature-row span{display:flex;flex-direction:column;gap:.12rem}
+.feature-row small{color:var(--muted);font-size:.72rem}.feature-row.subterm{border-color:rgba(13,148,136,.45)}
+.feature-criteria{margin:.6rem 0}.feature-criteria>summary{cursor:pointer;font-weight:700}
+.feature-answer{margin:.7rem 0;padding:.55rem .65rem;border-left:4px solid #0d9488;background:rgba(13,148,136,.1);
+  font-weight:750}.feature-limit{margin:.45rem 0;color:var(--muted);font-size:.8rem;line-height:1.45}
+.feature-evidence{margin:.65rem 0;padding:.65rem;border:1px solid rgba(13,148,136,.25);border-radius:8px}
+.feature-evidence details{margin-top:.55rem}.feature-evidence summary{cursor:pointer}
+/* BOTH VERDICT CHIPS WERE LIGHT-THEME COLOURS. #00685f and #8e2b20 measure 8.34:1 and better
+   on white, which is what they were picked against; on the ground they actually sit on --
+   a teal or red tint over this page's #120a12 -- they are 2.43:1 and 2.05:1. The tints stay
+   (colour on a tint, never white on a filled block); only the text colour moves, to the
+   site's own --teal-lit at 8.87:1 and a light red at 7.73:1.
+   These render inside #pOwn, the panel a visitor opens to write their own definition, which
+   is why audit_a11y reported this page clean: it never opens that panel.
+
+   CORRECTION, same day. The commit that made this change said the chips "have no live data
+   path today -- all three ready concepts have zero reviewed sub-terms". That is wrong. The
+   concept `art` carries 22 of them in data/subterm_index.json, and they render: pick art,
+   open the corpus picker, select all, close it, open step 3, open "try your own definition",
+   tick the `object` sub-term, open "inspect 22 cases and their evidence" -- 22 chips, one per
+   judged case, with the quote and the paper beside each. Seven steps, which is why no probe
+   had reached them, and 165 object / 45 not object / 23 undecided behind them.
+
+   I had concluded "no data path" from a page that said "There are no criterion x case
+   verdict columns yet" -- a true sentence about a DIFFERENT thing. The colours were 2.17:1
+   and 1.86:1 on the best surface this tool has. */
+.feature-v{font-size:.72rem;
+  border-radius:999px;padding:.12rem .42rem;background:rgba(13,148,136,.14);color:var(--teal-lit)}
+.feature-v.not-object{background:rgba(192,57,43,.12);color:#ff8f80}.ownfeatures{margin-top:.3rem;color:var(--muted);
+  font-size:.78rem}
+
+/* what a composed definition scores -- or why it cannot be scored yet */
+.critgap { margin-top: .7rem; padding: .7rem .9rem; border-radius: 10px;
+           border: 1px solid #f3ddc4; border-inline-start: 5px solid #ef6c00;
+           background: rgba(239,108,0,.07); font-size: .9rem; line-height: 1.6; }
+.critgap b { color: #ffb066; }
+.critscore { margin-top: .7rem; padding: .6rem .9rem; border-radius: 10px;
+             border: 1px solid #cfe8dd; border-inline-start: 5px solid #0d9488;
+             background: rgba(13,148,136,.08); font-size: .95rem; }
+.critscore b { font-size: 1.15rem; color: #4ecdc4; }
+
+/* ---- the corpus behind a term ------------------------------------------------------
+   Shir, 2026-08-14: picking a tagged term must show the papers it appears in, not just
+   how many. Purple and pink, and stronger than the earlier pass - she said the previous
+   tints looked faded. */
+.tc { margin-top: .8rem; border-top: 1px solid var(--line); padding-top: .7rem; }
+/* #d81b8c is 3.98:1 on this panel's #14101a and these are the counts a visitor reads.
+   On a dark ground the accessible direction is BRIGHTER, which is also the direction
+   Shir asked for above - she called the earlier pass faded. #ff77bd is not a new colour:
+   it is the pink this same file already uses on dark at .evidence-add. 3.98 -> 7.71. */
+.tc-h { font-weight: 700; color: #ff77bd; margin-bottom: .5rem; }
+.tc-list { max-height: 22rem; overflow-y: auto; padding-inline-end: .3rem; }
+.tc-d { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em;
+        color: #a259ff; font-weight: 700; margin: .6rem 0 .2rem; }
+.tc-d .n { color: #ff77bd; margin-inline-start: .4rem; }
+.tc-p { display: flex; gap: .55rem; align-items: baseline; padding: .12rem 0; font-size: .9rem; }
+.tc-p .y { color: #8b7aa8; font-variant-numeric: tabular-nums; min-width: 2.6rem; }
+.tc-p a { color: #c77dff; text-decoration: none; }
+.tc-p a:hover { color: #ff5fb0; text-decoration: underline; }
+.tc-note { margin-top: .6rem; font-size: .84rem; color: #b98fd6; }
+.abbr-details { margin: 0 0 .75rem; padding: .65rem .75rem; border: 1px solid rgba(216,27,140,.35);
+  border-radius: 9px; background: rgba(216,27,140,.07); color: var(--ink); }
+.abbr-details.compact { margin: .35rem 0 0; padding: .4rem .55rem; font-size: .76rem; }
+.abbr-head { color: #ff74bd; font-size: .76rem; font-weight: 800; letter-spacing: .035em;
+  text-transform: uppercase; }
+.abbr-details ul { margin: .35rem 0 0; padding-inline-start: 1.15rem; }
+.abbr-details li { margin: .18rem 0; line-height: 1.35; }
+.abbr-details li span, .abbr-none { color: var(--dim); }
+.abbr-warning, .abbr-withheld { margin-top: .38rem; color: #f5c96a; font-size: .8rem; }
+.ac-item .abbr-details { pointer-events: none; }
+
+/* The concept dropdown holds 10,506 terms. It scrolls; the count line at the bottom says how
+   many more are behind the slice, in pink so it is not mistaken for a disabled note. */
+#conceptResults.open { max-height: 26rem; overflow-y: auto; }
+.ac-more { color: #ff5fb0; font-weight: 700; font-size: .88rem;
+           padding: .5rem .6rem; border-top: 1px solid var(--line); position: sticky;
+           bottom: 0; background: #170f22; }
+
+/* One quiet line where four "coming" cards used to stand. Shir, 2026-08-17: a first-time reader
+   met four roadmap cards, eight toggle buttons and their hidden prose before the two things that
+   actually work. A roadmap is not the product. */
+.pt-soon{color:var(--dim,#8b8b96);font-size:.88rem;line-height:1.6;margin:1.1rem 0 0;max-width:70ch}
+/* The two "Now live" links had NO rule at all, so they fell back to the browser default
+   rgb(0,0,238) on a rgb(18,10,18) background: contrast 2.07 where WCAG AA asks 4.5. Dark blue
+   on near-black is not a dim link, it is an invisible one, and both of them point at pages that
+   work. Measured, fixed to the same token .pt-foot a already uses, and remeasured at 10.66. */
+.pt-soon a{color:var(--teal-lit);text-decoration:underline}
+
+/* TASK 06: capability is a data state, visible before the visitor invests in a trial. */
+.capability-state{margin:.8rem 0 1rem;padding:.75rem .9rem;border:1px solid var(--line);
+  border-inline-start:5px solid #a259ff;border-radius:12px;background:rgba(24,14,36,.88);
+  font-size:.88rem;line-height:1.5}
+.capability-state.cap-benchmark{border-inline-start-color:#5cc46f}
+.capability-state.cap-coverage{border-inline-start-color:#28b6a8}
+.capability-state.cap-evidence{border-inline-start-color:#5aa9f0}
+.capability-state.cap-corpus{border-inline-start-color:#a98bec}
+.cap-main{display:flex;align-items:baseline;gap:.65rem;flex-wrap:wrap}
+.cap-badge{display:inline-block;padding:.12rem .55rem;border-radius:999px;background:#322044;
+  color:#e5c9ff;font-size:.72rem;font-weight:800;letter-spacing:.035em;text-transform:uppercase}
+.cap-benchmark .cap-badge{background:#173d25;color:#8ce29e}
+.cap-coverage .cap-badge{background:#123f3b;color:#74e0d5}
+.cap-evidence .cap-badge{background:#173652;color:#85c4ff}
+.cap-screens{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.55rem}
+.cap-chip{border:1px solid var(--line);border-radius:999px;padding:.12rem .5rem;font-size:.72rem}
+.cap-chip.ready{border-color:#397f51;color:#8ce29e;background:rgba(57,127,81,.13)}
+.cap-chip.off{color:#9b8da8;background:rgba(255,255,255,.025)}
+
+/* Grounded sense browser.  The interpretive gloss and the verbatim passage are deliberately
+   different visual objects; provenance is not a footnote to a definition here. */
+.evidence-workspace{margin-top:.7rem}
+.evidence-head{border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;
+  background:linear-gradient(135deg,rgba(43,24,66,.92),rgba(17,31,50,.92))}
+.evidence-head h2{margin:.45rem 0 .2rem;color:#f5edff;font-size:1.35rem}
+.evidence-head p{margin:.2rem 0;color:#c4b6d1;max-width:78ch}
+.selector-notes{margin:.7rem 0;padding:.65rem .8rem;border-inline-start:4px solid #d49133;
+  border-radius:8px;background:rgba(212,145,51,.08);color:#d9c19b;font-size:.84rem}
+.selector-notes>div+div{margin-top:.3rem}
+.evidence-add{margin:.8rem 0!important;font-weight:800!important;border-color:#d81b8c!important;color:#ff77bd!important}
+.sense-all-head{margin:1rem 0 .45rem;color:#c77dff;font-size:.8rem;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase}
+.sense-paper{border:1px solid var(--line);border-radius:13px;padding:.9rem 1rem;margin:.75rem 0;
+  background:rgba(19,13,28,.86)}
+.sense-paper.is-default{border-color:#5c4770;box-shadow:0 0 0 1px rgba(199,125,255,.08)}
+.sense-paper h3{font-size:1.03rem;color:#f0e8f8;margin:.3rem 0 .1rem}
+.sense-defaults{display:flex;gap:.3rem;flex-wrap:wrap}
+.sense-default{font-size:.68rem;color:#a89daf;background:rgba(255,255,255,.045);
+  border:1px solid #4b4055;border-radius:999px;padding:.12rem .45rem}
+.sense-meta{font-size:.78rem;color:#9f90ad;line-height:1.55}
+.sense-meta .pt-btn{margin-inline-start:.35rem}
+.sense-card{margin-top:.7rem;padding:.75rem .8rem;border-inline-start:3px solid #5aa9f0;
+  background:rgba(41,67,91,.13);border-radius:0 9px 9px 0}
+[dir="rtl"] .sense-card{border-radius:9px 0 0 9px}
+.sense-card h4{margin:0 0 .15rem;color:#ddd0e8;font-size:.94rem;line-height:1.45}
+.sense-provenance{font-size:.7rem;color:#8f8498;margin-bottom:.5rem}
+.sense-card blockquote{margin:.35rem 0;padding:.55rem .7rem;border-inline-start:3px solid #d81b8c;
+  background:rgba(216,27,140,.055);color:#f1eaf3;font-size:.88rem;line-height:1.55}
+.sense-quote-label{display:block;color:#d68db7;font-size:.68rem;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;margin-bottom:.25rem}
+.sense-locator{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#756b7e;
+  font-size:.66rem;overflow-wrap:anywhere}
+.sense-audit{margin-top:1rem;color:#82768d;font-size:.73rem}
+.sense-audit a{color:#a98bec}
+.evidence-empty{margin:.8rem 0;padding:.8rem;border:1px solid #6e5537;border-radius:9px;
+  background:rgba(212,145,51,.08);color:#d9c19b}
+
+/* External dictionaries are visually and structurally outside the corpus evidence stream.
+   The whole block remains visible while off so consent, source and licence are knowable before
+   enabling it; definition text appears only after the visitor opts in for the current term. */
+.external-definitions{margin:1rem 0;padding:.9rem 1rem;border:1px solid #66507c;
+  border-inline-start:5px solid #a98bec;border-radius:13px;background:rgba(45,27,62,.2)}
+.external-definitions.is-on{border-color:#8966aa;background:rgba(65,37,87,.28)}
+.external-heading{color:#e4c9fb;font-size:.82rem;font-weight:850;letter-spacing:.035em;
+  text-transform:uppercase;margin-bottom:.6rem}
+.external-optin{display:flex;align-items:flex-start;gap:.55rem;padding:.65rem .7rem;
+  border:1px solid #6e5685;border-radius:9px;background:rgba(109,70,140,.13);cursor:pointer;
+  color:#f2e6fb;font-size:.9rem;font-weight:750;line-height:1.45}
+.external-optin input{margin-top:.22rem;accent-color:#a98bec}
+.external-meta{margin:.55rem 0 .25rem;color:#b7a5c5;font-size:.75rem;line-height:1.55}
+.external-meta a,.external-card-source a{color:#cda8ef}
+.external-separation,.external-off,.external-count{color:#a99ab4;font-size:.76rem;line-height:1.5}
+.external-off{margin-top:.55rem;font-style:italic}
+.external-count{margin:.7rem 0 .35rem;color:#d0b9df}
+.external-definition-card{margin:.7rem 0;padding:.8rem .85rem;border:1px solid #5e4773;
+  border-inline-start:3px solid #a98bec;border-radius:9px;background:rgba(49,31,65,.45)}
+.external-definition-card h4{margin:.35rem 0;color:#f0e6f8;font-size:.94rem;line-height:1.48}
+.external-card-head{display:flex;align-items:center;gap:.45rem;color:#a99ab4;font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.04em}
+.external-rival{display:inline-block;padding:.1rem .42rem;border-radius:999px;
+  color:#f1d9ff;background:#5a3474;font-weight:850}
+.external-card-source{margin:.35rem 0;color:#9f8cac;font-size:.7rem;line-height:1.5}
+
+/* Attested-use coverage is a separate positive-only screen, never a matrix-shaped imitation
+   of the benchmark. The warning stays visually attached to every partial result. */
+.coverage-own{margin:.2rem 0 .9rem;padding:.8rem .9rem;border:1px solid #6d3860;border-radius:11px;
+  background:rgba(111,32,89,.09)}
+.coverage-own label{display:block;color:#d9b4cf;font-size:.78rem;font-weight:750;margin-bottom:.3rem}
+.coverage-own textarea{width:100%;resize:vertical;box-sizing:border-box;margin-bottom:.5rem}
+.coverage-limit{margin-top:.55rem;color:#b7a6b2;font-size:.78rem;line-height:1.45}
+.coverage-workbench{margin:.9rem 0 1.1rem;padding:1rem;border:1px solid #246e68;
+  border-radius:14px;background:rgba(18,63,59,.12)}
+.coverage-workbench.unavailable{border-color:#715d3b;background:rgba(113,93,59,.1)}
+.coverage-workbench h3{margin:.25rem 0 .4rem;color:#d8fffb;font-size:1.12rem}
+.coverage-workbench p{color:#bcd4d1;max-width:74ch}
+.screen-kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.055em;color:#74e0d5;font-weight:850}
+.coverage-warning{margin:.7rem 0;padding:.65rem .75rem;border-inline-start:4px solid #d49133;
+  border-radius:7px;background:rgba(212,145,51,.08);color:#d9c19b;font-size:.8rem;line-height:1.5}
+.coverage-definition{margin:.55rem 0;padding:.65rem .75rem;border:1px solid #3d766f;border-radius:9px;
+  color:#f0fbfa;background:rgba(31,96,89,.12);font-weight:650}
+.coverage-source{font-size:.75rem;color:#99b7b3;margin:.25rem 0 .7rem}
+.coverage-summary{display:grid;grid-template-columns:repeat(4,minmax(8rem,1fr));gap:.45rem;margin:.75rem 0}
+.coverage-summary>div{padding:.55rem .65rem;border:1px solid #315f5a;border-radius:9px;background:rgba(19,67,62,.16)}
+.coverage-summary b{display:block;color:#7ce4d8;font-size:1.16rem;font-variant-numeric:tabular-nums}
+.coverage-summary span{display:block;color:#9ab7b3;font-size:.7rem;line-height:1.35}
+.coverage-actions{margin:.5rem 0}
+.coverage-case{margin:.65rem 0;padding:.75rem .8rem;border:1px solid #2c5551;border-radius:10px;
+  background:rgba(12,39,37,.23)}
+.coverage-case-head{font-weight:750;color:#d8e7e5;line-height:1.45}
+.coverage-case blockquote{margin:.45rem 0;padding:.5rem .65rem;border-inline-start:3px solid #28b6a8;
+  color:#cddbd9;font-size:.83rem;line-height:1.5}
+.coverage-case-paper{color:#7e9996;font-size:.72rem;margin-bottom:.5rem}
+.coverage-v.on{border-color:#63d8cc!important;color:#8af0e5!important;background:rgba(40,182,168,.13)!important}
+.sense-test{margin-top:.55rem!important;border-color:#347c75!important;color:#7ce4d8!important}
+
+@media(max-width:680px){
+  .cap-main{display:block}.cap-main .cap-badge{margin-bottom:.35rem}
+  .sense-paper{padding:.75rem}.sense-meta .pt-btn{display:inline-block;margin-top:.3rem}
+  .coverage-summary{grid-template-columns:1fr 1fr}
+}
+#nextline [data-panel="pOwn"]::before {
+  content: "+";
+  display: inline-block;
+  margin-inline-end: .35em;
+  font-size: 1.2em;
+  font-weight: 800;
+  line-height: 0;
+}
+
+/* A SEPARATOR MUST BELONG TO SOMETHING. #stateBar is empty until a corpus is chosen
+   and hidden on the term path, so the bullet that used to sit before 'the method'
+   in the markup was a bullet with nothing in front of it on the landing view. */
+#stateBar:not(:empty)::after{content:" · "}
+
+/* THE PAID CARDS, AND WHAT DECIDES WHETHER THEY EXIST. Replaced 2026-09-08.
+   What was here were two blocks marked TEMPORARY, from 2026-09-01 and 2026-09-02, each ending
+   "DELETE THIS BLOCK TO BRING THE BUTTON BACK". Shir has now asked for the payments, so this
+   is that moment - but a switch a person has to remember to throw is the wrong switch. It
+   throws itself instead: js/payments.js writes data-payments="on" on <html> only when it has
+   both an API address and a client id, so the site advertises nothing it cannot take money
+   for, and the cards appear everywhere at once when payments.config.js is filled in.
+   The default is HIDDEN, including when the script fails to load at all. A paid card that
+   leads nowhere is worse than no card. */
+html:not([data-payments="on"]) [data-paid-card] { display: none !important; pointer-events: none !important; }
+html:not([data-payments="on"]) .price-state,
+html:not([data-payments="on"]) .price-note { display: none !important; pointer-events: none !important; }
+
+/* THE PAYMENT BUTTON. Opaque, per Shir 2026-09-08: "USE צבעים אטומים for this."
+   The rest of the site keeps its original half-transparent outlines; a control that takes
+   money is the one place that should be unmistakably solid. */
+.pay-btn {
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-weight: 700;
+  font-size: 1.02rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  cursor: pointer;
+}
+/* Her own purple and pink, from the Stroop figure. The pink is DARKENED: #e71dca under white
+   measures 3.16:1 and fails AA at this size; #b0157f is the same pink at 5.4:1. */
+.pay-btn.pay-tag,   html[data-theme="light"] .pay-btn.pay-tag   {
+  background: #8324c4; border-color: #8324c4; color: #ffffff; }
+.pay-btn.pay-score, html[data-theme="light"] .pay-btn.pay-score {
+  background: #b0157f; border-color: #b0157f; color: #ffffff; }
+.pay-btn:hover { filter: brightness(1.12); }
+
+/* The ranked list is capped at OFFER_N; this line states the cap and opens it. Without it the
+   list stopped at four and read as the whole ranking, hiding a seven-way tie at +1.000. */
+.offermore {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  margin: .6rem 0 .2rem; padding-top: .55rem; border-top: 1px solid rgba(255,255,255,.08);
+}
+.offermore .lead { flex: 1 1 16rem; min-width: 0; color: var(--dim); font-size: 0.979rem; }
+
+/* The board's opening door. Terms the literature defines more than once, offered because a
+   visitor cannot guess which words pay off. Colour on tint, never white on a filled block. */
+.start-here { margin: .9rem 0 1rem; padding: .8rem .95rem; border: 1px solid var(--line);
+  border-inline-start: 5px solid var(--teal-lit); border-radius: 12px;
+  background: rgba(255, 255, 255, .035); }
+.start-here p { margin: 0 0 .6rem; color: var(--ink); font-size: .92rem; line-height: 1.5; }
+.start-row { display: flex; flex-wrap: wrap; gap: .45rem; }
+.start-term { font: inherit; font-size: .86rem; cursor: pointer; padding: .32rem .6rem;
+  border-radius: 999px; border: 1px solid rgba(47, 212, 212, .45);
+  background: rgba(47, 212, 212, .10); color: var(--teal-lit); }
+.start-term:hover, .start-term:focus-visible { background: rgba(47, 212, 212, .20); }
+.start-n { color: var(--dim); font-variant-numeric: tabular-nums; margin-inline-start: .3rem; }
+
+/* The wordings together, before the full cards. A comparison list is only useful if the
+   eye can run down it, so the rows are tight and the source sits on the same line. */
+.compare-head { margin: 1rem 0 .4rem; font-size: .84rem; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--teal-lit); }
+.compare-list { margin: 0 0 1.2rem; padding-inline-start: 1.6rem; }
+.compare-list li { margin: .3rem 0; line-height: 1.45; color: var(--ink); }
+.compare-list a { color: var(--ink); text-decoration: underline;
+  text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.compare-list a:hover, .compare-list a:focus-visible { color: var(--teal-lit); }
+.compare-src { color: var(--dim); font-size: .82rem; margin-inline-start: .45rem;
+  white-space: nowrap; }
+
+/* =====================================================
+   BRIGHT VIEW - 2026-09-08
+   Shir: "IT CONTAINS A DARK AS WELL AS BRIGHT VIEW ... IN OUR APP THEY LOOK NICE AND ARE
+   MOOVING. IN THE RESQUILL THEY ARE NOT GOOD."
+   So: a bright view is added and THE WAVES ARE NOT TOUCHED. shell.css is unchanged, the
+   markup is unchanged, and dark mode renders byte for byte what it rendered before. The only
+   thing the light view does to the wave layer is raise its opacity, because a 10% coloured
+   stroke that reads well on #120a12 disappears on a pale ground - the same waves, made
+   visible, not redesigned.
+   House rule kept throughout (Shir, 2026-08-09): colour on text and borders, never white
+   text inside a filled coloured block.
+   ===================================================== */
+html[data-theme="light"] {
+  --ink:  #1c1622;
+  --dim:  #5c6470;
+  --muted: var(--dim);
+  --line: rgba(28, 22, 34, .16);
+  --panel: rgba(255, 255, 255, .70);
+  --teal: #0f6f6f;
+  --teal-lit: #0b5757;
+  --pink: #c01d86;
+  --wine: #7d0c1c;
+}
+html[data-theme="light"] body { background: #f6f2f7; color: var(--ink); }
+html[data-theme="light"] .animated-background { opacity: .28; }
+/* THE FOUR CARD SURFACES, NOT THE ONE I HAPPENED TO SEE.
+   `.act, .step, .offer, .panel` share one rule: a low-alpha wash of the card's family
+   colour over a hard-coded #14101a. I overrode `.act` alone, so the entry page looked
+   right and the define page's two step cards stayed near-black with dark text on them -
+   unreadable, and found only by rendering the second page. Same gradient, light base, and
+   a slightly stronger tint because 14% of a colour disappears on white.
+   The house rule still holds: this is a wash behind normal ink, not white on a colour. */
+html[data-theme="light"] .act,
+html[data-theme="light"] .step,
+html[data-theme="light"] .offer,
+html[data-theme="light"] .panel {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 10%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 10%, transparent)),
+    #ffffff;
+}
+html[data-theme="light"] .act:hover,
+html[data-theme="light"] .step:hover {
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--fam, #169999) 18%, transparent),
+                          color-mix(in srgb, var(--fam, #169999) 18%, transparent)),
+    #ffffff;
+}
+html[data-theme="light"] .pt-card { background: rgba(255, 255, 255, .78); }
+html[data-theme="light"] .ac-dropdown,
+html[data-theme="light"] .ac-more,
+html[data-theme="light"] .owninput,
+html[data-theme="light"] #pOwn textarea { background: #ffffff; color: var(--ink); }
+html[data-theme="light"] .act .go:hover { background: rgba(0, 0, 0, .04); }
+html[data-theme="light"] .start-term { background: rgba(15, 111, 111, .10); color: var(--teal-lit); }
+html[data-theme="light"] .start-here { background: rgba(255, 255, 255, .60); }
+
+/* THE PRIMARY ACTION, WITHOUT A FILLED BLOCK.
+   Res-Quill marks its first action with a bright filled button and white text. That is the
+   one thing on that page this project may not copy: "never white text inside a coloured
+   block". So the primary action is marked by WEIGHT instead - a heavier border, a larger
+   target and a tinted ground that keeps the label in its own colour. */
+.act .go.primary {
+  border-width: 2px;
+  padding: .42rem 1.3rem;
+  font-size: 1.06rem;
+  background: color-mix(in srgb, var(--fam, var(--teal)) 14%, transparent);
+}
+.act .go.primary:hover {
+  background: color-mix(in srgb, var(--fam, var(--teal)) 24%, transparent);
+}
+
+/* The theme button sits with the language button and behaves the same way. */
+.pt-btn.theme { font-variant: normal; letter-spacing: .01em; }
+
+/* ---------- the "What is this?" dialog ----------
+   A native <dialog>: Escape and the backdrop close it with no script. Sized to be read,
+   not to fill the screen, and it scrolls on a phone rather than pushing its close button
+   off the top. Colour on text, never a filled block. */
+.about-dlg {
+  /* A native <dialog> centres itself only while the UA stylesheet's `margin: auto` survives.
+     Something upstream sets a margin on generic blocks, so it was pinning top-left. */
+  margin: auto;
+  max-width: 46rem; width: calc(100% - 2rem); max-height: 82vh; overflow: auto;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: #171021; color: var(--ink);
+  padding: 1.4rem 1.6rem 1.6rem; line-height: 1.55;
+}
+html[data-theme="light"] .about-dlg { background: #fffdff; }
+.about-dlg::backdrop { background: rgba(0, 0, 0, .58); }
+html[data-theme="light"] .about-dlg::backdrop { background: rgba(28, 22, 34, .34); }
+.about-dlg h2 {
+  margin: 1.15rem 0 .3rem; font-size: .82rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--teal-lit);
+}
+.about-dlg h2:first-of-type { margin-top: 0; }
+.about-dlg p { margin: 0; font-size: .96rem; }
+.about-dlg a { color: var(--teal-lit); }
+.about-rights { margin-top: .7rem !important; color: var(--dim); font-size: .86rem !important; }
+.about-x { display: flex; justify-content: flex-end; margin: -.4rem -.6rem .2rem 0; }
+.about-x button {
+  font: inherit; font-size: 1.5rem; line-height: 1; cursor: pointer;
+  background: none; border: 0; color: var(--dim); padding: .1rem .4rem;
+}
+.about-x button:hover { color: var(--ink); }
+
+/* EVERY LITERAL WHITE, NOT THE ONE I SAW.
+   The h1 is hard-coded #fff and vanished on the pale ground. Fixing that one line would
+   have left ELEVEN MORE to be found one screenshot at a time - the define page's concept
+   names, the score headline, the offered definitions, the picker rows. Enumerated from the
+   stylesheet rather than from what happened to be on screen. Any new rule that sets a
+   literal white must be added here in the same commit. */
+html[data-theme="light"] .pt-head h1,
+html[data-theme="light"] .pt-card h2,
+html[data-theme="light"] .pt-defh .nm,
+html[data-theme="light"] .pt-bar > span,
+html[data-theme="light"] .hero-result .win,
+html[data-theme="light"] .phead b,
+html[data-theme="light"] .pclose:hover,
+html[data-theme="light"] .step .ttl,
+html[data-theme="light"] .conceptbtn b,
+html[data-theme="light"] .offerhead,
+html[data-theme="light"] .offer .oname,
+html[data-theme="light"] .ac-item .nm { color: #1c1622; }
+
+/* THE DEFINITIONS BOARD IN BRIGHT VIEW, EVERY LITERAL COLOUR. 2026-09-11.
+   The block above caught every literal WHITE. It did not catch the greys, ambers, greens, reds
+   and blues the board also hard-codes for a dark ground - and those only exist on screen once
+   step 3 is open, a state no sweep had ever reached. Measured with ?term=art&see=definitions
+   and ?term=consciousness&see=definitions open: 366 text nodes, 59 below AA. The matrix labels
+   were 1.10-1.49:1 in bright view ("hit", "false alarm", "The literature says: YES").
+   Enumerated from the stylesheet, not from the screenshot: every `color:` literal between the
+   board's first and last rule, one row per role. Each colour was computed against the page
+   ground, the card, and all four tinted matrix cells, and the WORST of those is quoted:
+     ink #1c1622 13.6:1   grey #525a66 5.4:1   amber #7a4f00 5.5:1   red #9f2119 6.0:1
+     green #1b6b2d 5.1:1  blue #1a4f8e 6.3:1   pink #a8174f 5.6:1
+   Any new board rule that sets a literal colour must be added here in the same commit. */
+html[data-theme="light"] .lmcolh,
+html[data-theme="light"] .lmrowh,
+html[data-theme="light"] .lml,
+html[data-theme="light"] .jquote { color: #1c1622; }
+html[data-theme="light"] .lmlab,
+html[data-theme="light"] .lms,
+html[data-theme="light"] .lmfoot,
+html[data-theme="light"] .verrow,
+html[data-theme="light"] .disc-h .n,
+html[data-theme="light"] .pt-paper .who,
+html[data-theme="light"] .jcount,
+html[data-theme="light"] .jpaper { color: #525a66; }
+html[data-theme="light"] .cited .ourwords,
+html[data-theme="light"] .offerwarn b,
+html[data-theme="light"] .offer .oabstain,
+html[data-theme="light"] .pt-def .abstain,
+html[data-theme="light"] .prov-user\+tool,
+html[data-theme="light"] .cnone b,
+html[data-theme="light"] .pt-note.discrim,
+html[data-theme="light"] .pt-note.discrim b,
+html[data-theme="light"] .ac-none b,
+html[data-theme="light"] .pt-defh .gate.borderline { color: #7a4f00; }
+html[data-theme="light"] .pt-defh .gate[class~="not-point-identified"] { color: #10508f; }
+html[data-theme="light"] .pt-defh .gate.disqualified,
+html[data-theme="light"] .pt-case .vd.fp,
+html[data-theme="light"] .pt-case .vd.fn,
+html[data-theme="light"] .hero-result.warn .win { color: #9f2119; }
+html[data-theme="light"] .pt-paper.istag .m,
+html[data-theme="light"] .pt-paper .t a:hover,
+html[data-theme="light"] .pt-paper .t a:focus,
+html[data-theme="light"] .hero-result .sc,
+html[data-theme="light"] .offer.best .omcc,
+html[data-theme="light"] .pt-paper .open-badge { color: #1b6b2d; }
+html[data-theme="light"] .offer.best .orank { color: #1b6b2d; border-color: #1b6b2d; }
+html[data-theme="light"] .prov-literature,
+html[data-theme="light"] .vers > summary { color: #1a4f8e; }
+html[data-theme="light"] .prov-user { color: #a8174f; }
+/* The matrix key (TP/FP/FN/TN) is small bold monospace, so it needs 4.5:1, and in DARK view
+   three of the four failed too (2.94-3.58:1) - the family hue at full strength on its own 14%
+   tint. The big number beside it is large text and keeps the pure hue. Dark: the hue 55% toward
+   white (6.3-8.1:1 on the tinted cell). Bright: the family's own deep shade, --d (6.4-8.1:1).
+   PLAIN HEX, NOT color-mix(). The first version of this rule used color-mix(), which computes
+   to `color(srgb ...)`. contrast_sweep.mjs parsed only `rgb(...)`, so it DROPPED these four
+   nodes and reported the dark board "0 below AA" over 100 nodes instead of 104 - a clean zero
+   that had never measured the thing it was about. A browser without color-mix() would also
+   discard the declaration and fall back to the failing hue. The hexes are that same mix. */
+.lmcell[data-kind="tp"] .lmk { color: #7ac4be; }
+.lmcell[data-kind="fp"] .lmk { color: #d67fca; }
+.lmcell[data-kind="fn"] .lmk { color: #dc928a; }
+.lmcell[data-kind="tn"] .lmk { color: #7eaadc; }
+html[data-theme="light"] .lmcell .lmk { color: var(--d); }
+
+/* ============================================================================
+   THE ORIGINAL VIEW, AND THE THREE OPAQUE BUTTONS. 2026-09-08.
+
+   Shir: "ביקשתי שהכל יהיה כמו המקור חוץ מהכפתורים שצבעת בצבע אטום."
+
+   Everything above this line is css/platform.css exactly as it stood at 1c6d36d - the
+   commit that added the bright view and the What-is-this dialog, and the last state she
+   approved. The three commits after it (9704081, 1d7bcac, ef12ea2) restyled the view:
+   Res-Quill's palette and type, then direction_field's solid buttons, then a partial
+   revert that still left every card action a solid fill. All of that is gone.
+
+   What stays is the one thing she asked for: the HEADER CONTROLS painted in an opaque
+   colour. Nothing else. The card actions ("enter", "read") keep the outline in
+   var(--fam-lit) over the card's own family tint that they have always had, the cards
+   keep their translucent wash, the fonts are the originals.
+   ============================================================================ */
+:root {
+  --btn-purple: #8324c4;   /* her own purple, from the Stroop figure */
+  --btn-magenta: #e71dca;  /* her own pink, the same pair */
+  --btn-amber: #f59e0b;
+  /* direction_field's teal is #009e96, which measures 3.32:1 under white text - below the
+     4.5:1 floor. #007a74 is the same teal at 5.20:1. */
+  --btn-teal: #007a74;
+}
+#aboutBtn, #themeBtn, .pt-head a.pt-btn, #langSwitch {
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+#aboutBtn,  html[data-theme="light"] #aboutBtn  {
+  background: var(--btn-purple); border-color: var(--btn-purple); color: #ffffff; }
+#themeBtn,  html[data-theme="light"] #themeBtn  {
+  background: var(--btn-amber);  border-color: var(--btn-amber);  color: #1f1400; }
+/* The language control is an <a class="pt-btn"> on the entry pages and a
+   <button id="langSwitch"> on the define pages. */
+.pt-head a.pt-btn,  html[data-theme="light"] .pt-head a.pt-btn,
+#langSwitch,        html[data-theme="light"] #langSwitch {
+  background: var(--btn-teal); border-color: var(--btn-teal); color: #ffffff; }
+#aboutBtn:hover, #themeBtn:hover, .pt-head a.pt-btn:hover, #langSwitch:hover {
+  filter: brightness(1.12); }
+/* THE EVIDENCE BOARD IN BRIGHT VIEW. 2026-09-08.
+   The capability, evidence and grounded-sense blocks (platform.css ~1130-1210) were written
+   dark-only: hard-coded near-black panels carrying hard-coded near-white ink. The bright view
+   was added afterwards and never reached them, so pressing "Bright view" on a board turned the
+   page light and left every sense card a dark slab on it.
+   It was invisible to every check that existed. contrast_sweep.mjs measures the ENTRY state of
+   each page and the board only exists after a concept is opened; and even had it looked, light
+   ink on a dark panel passes AA whatever the rest of the page is doing. Found by opening a
+   concept in bright view and looking at the screenshot - FIGURES/appearance/board_light.png.
+   The sweep now opens the board too (contrast_sweep.mjs --board).
+   Surfaces and ink move; the pink, purple, teal and blue accents are the same in both views. */
+html[data-theme="light"] .capability-state { background: rgba(255,255,255,.92); }
+html[data-theme="light"] .cap-chip.off { background: rgba(0,0,0,.03); color: #55506b; }
+html[data-theme="light"] .evidence-head {
+  background: linear-gradient(135deg, rgba(109,40,217,.10), rgba(3,105,161,.10)), #ffffff; }
+html[data-theme="light"] .evidence-head h2 { color: #1a1a2e; }
+html[data-theme="light"] .evidence-head p  { color: #4a4560; }
+html[data-theme="light"] .selector-notes   { background: rgba(180,83,9,.08); color: #7a4a06; }
+html[data-theme="light"] .sense-all-head   { color: #7c2d99; }
+html[data-theme="light"] .sense-paper      { background: rgba(255,255,255,.92); }
+html[data-theme="light"] .sense-paper.is-default { border-color: #b79ad0; }
+html[data-theme="light"] .sense-paper h3   { color: #1a1a2e; }
+html[data-theme="light"] .sense-default    { background: rgba(0,0,0,.04); color: #55506b;
+                                             border-color: #cfc6d8; }
+html[data-theme="light"] .sense-meta       { color: #55506b; }
+html[data-theme="light"] .sense-card       { background: rgba(3,105,161,.07); }
+html[data-theme="light"] .sense-card h4    { color: #241a33; }
+html[data-theme="light"] .sense-provenance { color: #5d5568; }
+html[data-theme="light"] .sense-card blockquote { background: rgba(216,27,140,.05); color: #241a2e; }
+html[data-theme="light"] .sense-quote-label{ color: #a4136f; }
+html[data-theme="light"] .sense-locator    { color: #5f5768; }
+html[data-theme="light"] .sense-audit      { color: #55506b; }
+html[data-theme="light"] .sense-audit a    { color: #6d28d9; }
+html[data-theme="light"] .evidence-empty   { background: rgba(180,83,9,.07); color: #7a4a06;
+                                             border-color: #d3ab6a; }
+html[data-theme="light"] .external-definitions { background: rgba(109,40,217,.05);
+                                                 border-color: #c2aed6; }
+html[data-theme="light"] .external-definitions.is-on { background: rgba(109,40,217,.09); }
+html[data-theme="light"] .external-heading { color: #5b2a86; }
+html[data-theme="light"] .external-optin   { background: rgba(109,40,217,.06); color: #2a1f38;
+                                             border-color: #c2aed6; }
+html[data-theme="light"] .external-meta    { color: #55506b; }
+
+/* THE REST OF THE BOARD, MEASURED RATHER THAN GUESSED. 2026-09-08.
+   With the board's surfaces turned light, `contrast_sweep.mjs --board` could finally measure
+   the state a visitor sees, and it found ten distinct shapes below AA in bright view - light
+   teal and light pink inks that were designed for a near-black ground and are near-invisible
+   on white (1.05:1 for the workbench heading) - plus one in DARK view that had been failing
+   since it was written and had never been measured, because until today the sweep only ever
+   looked at the page's entry state. Each number below is the darker member of the same hue,
+   not a new colour. */
+html[data-theme="light"] .coverage-workbench h3 { color: #123c38; }
+html[data-theme="light"] .coverage-workbench p  { color: #40514f; }
+html[data-theme="light"] .screen-kicker         { color: #0f766e; }
+html[data-theme="light"] .coverage-warning      { color: #7a4a06; background: rgba(180,83,9,.08); }
+html[data-theme="light"] .coverage-summary b    { color: #0f766e; }
+html[data-theme="light"] .cap-chip.ready        { color: #146b2b; border-color: #146b2b;
+                                                  background: rgba(20,107,43,.10); }
+html[data-theme="light"] .sense-test            { color: #0f766e !important;
+                                                  border-color: #0f766e !important; }
+html[data-theme="light"] .evidence-add          { color: #a4136f !important;
+                                                  border-color: #a4136f !important; }
+html[data-theme="light"] .external-meta a,
+html[data-theme="light"] .external-card-source a { color: #6d28d9; }
+html[data-theme="light"] .external-separation,
+html[data-theme="light"] .external-off,
+html[data-theme="light"] .external-count,
+html[data-theme="light"] .external-card-head    { color: #55506b; }
+
+/* DARK view, and it was never bright view's fault: .sense-locator has always been #756b7e on
+   a near-black panel - 3.78:1, below the 4.5 it needs - on every board this project has ever
+   published. It is the provenance line, the one piece of text whose whole purpose is being
+   read back and checked. #918a99 is the same grey, lifted to 5.7:1. */
+.sense-locator { color: #918a99; }
+
+/* THE FAMILY INK IN BRIGHT VIEW, AND NOTHING ELSE. 2026-09-08.
+   Each card carries two tones of its family: --fam (the dark one) and --fam-lit (the light
+   one). Every label on a card is painted --fam-lit, which is right on a near-black card and
+   is what the original does. On the BRIGHT view's white card it is the wrong end of the
+   pair: "read" measured 2.22:1, "enter" 2.19:1, and eighteen labels across four pages were
+   below AA. That is not the restyling - it is the bright view, added in 1c6d36d, never
+   having been checked against the card labels.
+   The fix is one substitution, in the light theme only: use the family's DARK tone as ink
+   on a light card. Same colour, same family, same outline; the dark view is untouched. */
+html[data-theme="light"] .act h2,
+html[data-theme="light"] .act .state,
+html[data-theme="light"] .act .go,
+html[data-theme="light"] .act .notes li::before,
+html[data-theme="light"] .step .val,
+html[data-theme="light"] .step b,
+html[data-theme="light"] .phead b { color: var(--fam, var(--teal)); }
+html[data-theme="light"] .act .go { border-color: var(--fam, var(--teal)); }
+html[data-theme="light"] .step:hover { border-color: var(--fam); }
+
+/* THE PAID CARDS' BUTTONS ARE OPAQUE TOO. 2026-09-08.
+   Shir, answering directly: "I NEED THE אטומים ולא שקופים."
+   I had left these as outlines and asked her; the answer is opaque. It only applies to the
+   cards that take money - [data-paid-card] - so the free cards ("enter", "read") keep the
+   original half-transparent outline she reverted twice today. A control that leads to a
+   payment is the one that should be unmistakably solid.
+   Both fills are the card's own family colour, so nothing new is introduced: #8324c4 under
+   white measures 8.6:1 and #c2185b measures 5.9:1, and .pay-btn's darkened pink is used
+   for the actual PayPal-adjacent control on the request pages. */
+[data-paid-card] .go,
+html[data-theme="light"] [data-paid-card] .go {
+  background: var(--fam);
+  border: 1px solid var(--fam);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+[data-paid-card] .go:hover,
+html[data-theme="light"] [data-paid-card] .go:hover {
+  background: var(--fam);
+  filter: brightness(1.12);
+}
+
+/* The paid offer at the board's dead end. Sits under the three ready concepts, not beside
+   them: those are free and this is not. */
+.cap-offer { margin-top: .7rem; display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+.cap-offer-note { font-size: .78rem; color: var(--dim); }
+html[data-theme="light"] .cap-offer-note { color: #55506b; }
+
+/* The three "ready to score" concepts at the dead end were UNSTYLED <button>s - white boxes
+   with black system text, sitting inside a dark panel. They have been there since the dead
+   end was written; nothing rendered that state until the paid offer was added beside them
+   today. Seen in FIGURES/payments/deadend_dark.png, not in any check: a browser default
+   button is high-contrast, so the sweep passes it. */
+.cap-nodefs .cap-go {
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--teal-lit);
+  border-radius: 999px;
+  padding: .1rem .6rem;
+  margin: 0 .15rem;
+  font: inherit;
+  font-size: .82rem;
+  cursor: pointer;
+}
+.cap-nodefs .cap-go:hover { background: rgba(255,255,255,.06); }
+html[data-theme="light"] .cap-nodefs .cap-go { color: #0f766e; border-color: #0f766e; }
+html[data-theme="light"] .cap-nodefs .cap-go:hover { background: rgba(0,0,0,.04); }
+
+/* A link inside an intake fee-case took the page's default link colour and measured 2.02:1 on
+   the panel in dark view - and it is the REFUND ADDRESS, the one link on the page somebody
+   reads when something has gone wrong. Caught by the sweep only because the address was added
+   today; it would have shipped invisible.
+   In platform.css rather than intake.css because that file belongs to another terminal right
+   now and this is needed by both intake pages. */
+.fee-case a { color: var(--teal-lit); text-decoration: underline; text-underline-offset: 2px; }
+.fee-case a:hover { color: var(--pink); }
+html[data-theme="light"] .fee-case a { color: #0f766e; }
+html[data-theme="light"] .fee-case a:hover { color: #a4136f; }
+
+/* THE ASK PAGES. Academic, not a shopfront. 2026-09-08.
+   Shir: "העיצוב צריך להיראות אקדמי והוא נראה המוני."
+   One question, one answer, one button. The type is the page's own, the rules are hairlines,
+   and the only saturated thing on the screen is the button that takes the money. */
+.ask { max-width: 34rem; }
+.ask-title { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.01em;
+             margin: 1.6rem 0 .2rem; color: var(--ink); }
+.ask-price { margin: 0 0 2rem; color: var(--dim); font-size: .95rem; }
+.ask-price [data-price-for] { color: var(--ink); font-weight: 600; }
+.ask-unit { color: var(--dim); }
+.ask-form { border-top: 1px solid var(--line); padding-top: 1.6rem; }
+.ask-label { display: block; color: var(--ink); font-size: .95rem; margin-bottom: .5rem; }
+.ask-input {
+  width: 100%; box-sizing: border-box;
+  background: transparent;
+  border: 0; border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink); font: inherit; font-size: 1.05rem;
+  padding: .5rem .1rem;
+}
+.ask-input::placeholder { color: var(--dim); opacity: .7; }
+.ask-input:focus { outline: 0; border-bottom-color: var(--btn-purple); }
+.ask-file { display: block; margin-top: 1rem; color: var(--dim); font-size: .85rem; }
+/* OPAQUE, LIKE EVERY OTHER BUTTON ON THIS SITE. Shir asked for coloured buttons three
+   times today and I made this one an outline while stripping the page down. Academic is
+   about the TEXT and the layout, not about draining the colour out of the controls. */
+.ask-go {
+  margin-top: 1.8rem;
+  background: var(--btn-teal);
+  border: 1px solid var(--btn-teal);
+  color: #ffffff;
+  border-radius: 10px; padding: 9px 20px;
+  font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer;
+}
+.ask-go:hover { filter: brightness(1.12); }
+.ask-out { margin-top: 1.8rem; display: flex; flex-direction: column;
+           align-items: flex-start; gap: .8rem; }
+.ask-pay {
+  background: var(--btn-purple); border: 1px solid var(--btn-purple); color: #fff;
+  border-radius: 10px; padding: 9px 20px; font-weight: 700; font-size: 1.02rem;
+  text-decoration: none; display: inline-block;
+}
+.ask-pay:hover { filter: brightness(1.12); }
+.ask-email {
+  background: var(--btn-amber); border: 1px solid var(--btn-amber); color: #1f1400;
+  border-radius: 10px; padding: 9px 20px; font-weight: 700; font-size: 1rem;
+  text-decoration: none; display: inline-block;
+}
+.ask-email:hover { filter: brightness(1.12); }
+.ask-note, .ask-warn { color: var(--dim); font-size: .85rem; margin: 0; max-width: 30rem; }
+.ask-warn { color: var(--amber, #e0a33c); }
+.ask-refund { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+              color: var(--dim); font-size: .8rem; line-height: 1.6; max-width: 32rem; }
+.ask-refund a, .ask-refund { word-break: normal; }
+html[data-theme="light"] .ask-warn { color: #8a5a00; }
+
+/* THE BUTTONS THAT COST MONEY ARE GOLD. Shir, 2026-09-08:
+   "tag a paper button should have gold color with icon of money coin or credit card."
+   Gold marks the two controls a visitor pays through, and separates them at a glance from
+   the free ones ("enter", "read"), which keep their family colours. Dark ink on gold rather
+   than white: #f0b429 under white is 2.0:1 and unreadable, under #1f1400 it is 10.4:1. */
+[data-paid-card] .go.pay-go,
+html[data-theme="light"] [data-paid-card] .go.pay-go {
+  background: linear-gradient(180deg, #f5c542, #e0a010);
+  border: 1px solid #c98a06;
+  color: #1f1400;
+  font-weight: 800;
+  display: inline-flex; align-items: center; gap: .45rem;
+}
+[data-paid-card] .go.pay-go:hover,
+html[data-theme="light"] [data-paid-card] .go.pay-go:hover {
+  background: linear-gradient(180deg, #ffd45e, #eaa813);
+  filter: none;
+}
+.coin { flex: none; vertical-align: -.12em; }
+
+/* The pay button on the request pages is the same promise, so it is the same gold. */
+.ask-pay, .pay-btn.pay-tag, .pay-btn.pay-score,
+html[data-theme="light"] .ask-pay,
+html[data-theme="light"] .pay-btn.pay-tag,
+html[data-theme="light"] .pay-btn.pay-score {
+  background: linear-gradient(180deg, #f5c542, #e0a010);
+  border: 1px solid #c98a06;
+  color: #1f1400;
+}
+.ask-pay:hover { background: linear-gradient(180deg, #ffd45e, #eaa813); filter: none; }
+
+/* The price rides ON the button, one line, never orphaned. Shir: "the $2 should be in the
+   same button - Tag a paper - 2$". With an em-dash and normal wrapping the label broke
+   across two lines and left the dash alone on the second, which looked like a bug. */
+[data-paid-card] .go.pay-go { white-space: nowrap; }
+.btn-price { font-variant-numeric: tabular-nums; opacity: .92; }
+.btn-price::before { content: "\00a0\00b7\00a0"; opacity: .55; }
+/* Four cards across is what forces the wrap; below that width they stack anyway. */
+@media (max-width: 1500px) { .acts { flex-wrap: wrap; } }
+
+/* "Score a definition · $2.50" is a long nowrap button, and the ? and ≡ beside it were
+   pushed clean outside the card. The row wraps now: the small buttons drop under rather
+   than escaping the panel. Seen only by rendering the four cards side by side. */
+[data-paid-card] .disc { flex-wrap: wrap; row-gap: .5rem; }
+[data-paid-card] .go.pay-go { max-width: 100%; }
+
+/* nowrap on the whole button made the longer label overrun the card and clip its own price.
+   Only the PRICE needs to stay together; the label may wrap. That keeps "· $2.50" intact
+   and the button inside its panel at every width. */
+[data-paid-card] .go.pay-go { white-space: normal; }
+.btn-price { white-space: nowrap; }

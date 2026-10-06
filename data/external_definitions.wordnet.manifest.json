@@ -1,0 +1,38 @@
+{
+  "outputs": {
+    "WORDNET_LICENSE.txt": {
+      "bytes": 2128,
+      "sha256": "72065c6ceba19ce1a65e81b1762c384adab1d17f0742d4ee06b094adae2922d2"
+    },
+    "external_definitions.wordnet.inline.js": {
+      "bytes": 1177695,
+      "sha256": "df36551223b43ed1482182a4ba03e93aa56bf6029e59240328782172434843d0"
+    },
+    "external_definitions.wordnet.json": {
+      "bytes": 1177662,
+      "sha256": "8f5fe02d14cbe7252fe8b7a9f36ad72694126849169bd5c0da9dae587a201dd3"
+    },
+    "wordnet_fallback_report.json": {
+      "bytes": 91655,
+      "sha256": "d4580ed260be81f46abde92311adcfc102b6123b7d01d0cf544b3143dff63ea5"
+    },
+    "wordnet_fallback_report.md": {
+      "bytes": 1331,
+      "sha256": "5a4dde3ce85ca75a4c8c5163b6b9f20541814c9275b442c5576699accd956f2a"
+    }
+  },
+  "provider": {
+    "id": "wordnet-3.0",
+    "licence_notice_path": "WORDNET_LICENSE.txt",
+    "licence_spdx": "WordNet",
+    "licence_uri": "https://spdx.org/licenses/WordNet.html",
+    "name": "Princeton WordNet",
+    "official_licence_uri": "https://wordnet.princeton.edu/license-and-commercial-use",
+    "source_page": "https://wordnet.princeton.edu/",
+    "source_uri": "https://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.gz",
+    "version": "3.0"
+  },
+  "schema_version": "external-definitions-manifest-1",
+  "source_archive_sha256": "640db279c949a88f61f851dd54ebbb22d003f8b90b85267042ef85a3781d3a52",
+  "transformation": "Exact Unicode-NFKC, whitespace-collapsed, case-folded picker-label to WordNet-lemma match; underscore is treated as WordNet's space encoding; no stemming, aliases, fuzzy matching, sense selection, rewriting, or corpus mutation."
+}

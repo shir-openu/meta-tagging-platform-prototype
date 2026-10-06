@@ -1,0 +1,188 @@
+"""Regression controls for META_RENDER_CODEX's grounded-card and abbreviation fixes."""
+
+from __future__ import annotations
+
+import unittest
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_sense_index import (
+    abbreviation_kind,
+    collect_abbreviation_expansions,
+    collect_grounded_rows,
+    rights_sanitize_term_corpus,
+)
+
+
+class GroundedLayerTests(unittest.TestCase):
+    def test_all_three_layers_use_the_shared_live_row_rule(self) -> None:
+        record = {
+            "id": "control-paper",
+            "content_tags": {"definitions": [
+                {"term": "alpha", "text": "live definition", "evidence": "A live evidence passage long enough to publish safely."},
+                {"term": "dead-alpha", "text": "withdrawn definition", "evidence": "A withdrawn evidence passage long enough to look usable.",
+                 "withdrawn_reason": "bad source"},
+            ]},
+            "senses": [
+                {"label": "beta - live sense gloss long enough for the card", "evidence": "A live sense passage long enough to publish safely."},
+                {"label": "dead-beta - withdrawn sense gloss long enough for the card", "evidence": "A withdrawn sense passage long enough to look usable.",
+                 "withdrawn_evidence": "old quote"},
+            ],
+            "concepts": [
+                {"term": "gamma", "sense": "live concept sense long enough for the card", "evidence": "A live concept passage long enough to publish safely."},
+                {"term": "repaired-gamma", "sense": "re-grounded concept sense remains live", "evidence": "A replacement passage long enough to publish safely.",
+                 "retracted": "old span was replaced"},
+                {"term": "dead-gamma", "sense": "withdrawn concept sense must not render", "evidence": "A withdrawn concept passage long enough to look usable.",
+                 "withdrawn_reason": "bad source"},
+            ],
+        }
+
+        rows, withdrawn = collect_grounded_rows(record)
+
+        self.assertEqual(
+            {row["term"] for row in rows},
+            {"alpha", "beta", "gamma", "repaired-gamma"},
+        )
+        self.assertEqual({row["term"] for row in withdrawn}, {"dead-alpha", "dead-beta", "dead-gamma"})
+        self.assertEqual(
+            {row["source_layer"] for row in rows},
+            {"content_tags.definitions", "senses", "concepts"},
+        )
+
+
+class AbbreviationClassTests(unittest.TestCase):
+    def test_visual_and_hebrew_short_forms_are_enumerated(self) -> None:
+        self.assertEqual(abbreviation_kind("N"), "single-letter")
+        self.assertEqual(abbreviation_kind("RAM"), "all-caps-short-form")
+        self.assertEqual(abbreviation_kind("ר״ת"), "hebrew-abbreviation")
+        self.assertIsNone(abbreviation_kind("memory"))
+
+    def test_ambiguous_sense_label_expansion_requires_attesting_evidence(self) -> None:
+        record = {
+            "id": "chemical-paper",
+            "senses": [{
+                "label": "`PFC` - reserved here for `perfluorocarbons`",
+                "evidence": "The paper uses PFC specifically to designate perfluorocarbons.",
+            }],
+        }
+        rows = collect_abbreviation_expansions([record])
+        self.assertEqual(rows["pfc"][0]["expansion"], "perfluorocarbons")
+
+        record["senses"][0]["evidence"] = "The paper uses PFC but gives no full form here."
+        self.assertNotIn("pfc", collect_abbreviation_expansions([record]))
+
+    def test_wrapped_criticism_is_not_misread_as_an_expansion(self) -> None:
+        record = {
+            "id": "chemical-paper",
+            "senses": [{
+                "label": "`PFC` - reserved for `perfluorocarbons`; the old usage is called `AN UNFORTUNATE CHOICE`",
+                "evidence": "PFC designates perfluorocarbons, and the old usage was an unfortunate choice.",
+            }],
+        }
+
+        rows = collect_abbreviation_expansions([record])["pfc"]
+
+        self.assertEqual([row["expansion"] for row in rows], ["perfluorocarbons"])
+
+    def test_cleared_staged_literal_expansions_cover_the_requested_class(self) -> None:
+        record = {"id": "cleared-paper"}
+        body = (
+            "The table reports age acceleration (N) and n/k (N), neither of which expands N. "
+            "The analysis records sample size (N). "
+            "It uses random access memory (RAM) for the index. "
+            "The signal is represented in the prefrontal cortex (PFC)."
+        )
+
+        rows = collect_abbreviation_expansions(
+            [record],
+            literal_sources={"cleared-paper": body},
+            short_forms=["N", "RAM", "PFC"],
+            runtime_labels=["sample size", "prefrontal cortex"],
+        )
+
+        self.assertEqual(rows["n"][0]["expansion"], "sample size")
+        self.assertEqual(len(rows["n"]), 1)
+        self.assertEqual(rows["ram"][0]["expansion"], "random access memory")
+        self.assertEqual(rows["pfc"][0]["expansion"], "prefrontal cortex")
+        self.assertTrue(all(
+            row["source"] == "staged-mhtml-literal-expansion-parenthesis"
+            for short in ("n", "ram", "pfc") for row in rows[short]
+        ))
+
+
+class TermCorpusRightsTests(unittest.TestCase):
+    def test_denied_long_statistic_surface_is_removed_but_short_form_remains(self) -> None:
+        long_surface = "The overall alpha level was set at 0.05"
+        payload = {
+            "order": ["denied-paper"],
+            "papers": {},
+            "terms": {
+                "the-overall-alpha-level-was-set-at-0-05": [long_surface, [0], [0]],
+                "ram": ["RAM", [0], [0]],
+            },
+        }
+        records = [{
+            "id": "denied-paper",
+            "content_tags": {"statistics": [
+                {"surface": long_surface, "evidence": long_surface},
+                {"surface": "RAM"},
+            ]},
+        }]
+
+        sanitized, counts = rights_sanitize_term_corpus(payload, records, set())
+
+        self.assertNotIn("the-overall-alpha-level-was-set-at-0-05", sanitized["terms"])
+        self.assertIn("ram", sanitized["terms"])
+        self.assertEqual(counts["rights_removed_quote_picker_rows_this_build"], 1)
+
+    def test_cleared_matching_slug_does_not_rescue_denied_quote_wording(self) -> None:
+        denied = "A result was significant under the alpha criterion"
+        public = "A-result was significant under the alpha criterion"
+        term_slug = "a-result-was-significant-under-the-alpha-criterion"
+        payload = {
+            "order": ["denied-paper", "cleared-paper"],
+            "papers": {},
+            "terms": {term_slug: [denied, [0, 1], [0, 1]]},
+        }
+        records = [
+            {"id": "denied-paper", "content_tags": {"definitions": [
+                {"term": denied, "text": "a definition", "evidence": denied},
+            ]}},
+            {"id": "cleared-paper", "content_tags": {"key_terms": [{"term": public}]}},
+        ]
+
+        sanitized, counts = rights_sanitize_term_corpus(payload, records, {"cleared-paper"})
+
+        self.assertNotIn(term_slug, sanitized["terms"])
+        self.assertEqual(counts["rights_removed_quote_picker_rows_this_build"], 1)
+
+
+class ExpansionAttachesToTheLabelAsWrittenTests(unittest.TestCase):
+    """2026-09-11, CLAUDE_B: `art` was labelled "antiretroviral therapy" on its own board."""
+
+    def test_an_acronym_does_not_attach_to_the_word_it_folds_to(self) -> None:
+        from build_sense_index import _rows_written_as
+        rows = [{"short_form": "ART", "expansion": "antiretroviral therapy", "paper_id": "mathers2006"}]
+        self.assertEqual(_rows_written_as(rows, "art"), [])
+        # positive control: the same row still attaches to the acronym itself
+        self.assertEqual(_rows_written_as(rows, "ART"), rows)
+
+    def test_a_bracketed_gloss_is_not_an_expansion(self) -> None:
+        from build_sense_index import _short_form_fits_expansion
+        for short, gloss in (("stress", "cortisol"), ("genes", "replicators"),
+                             ("masking", "success of blinding")):
+            self.assertFalse(_short_form_fits_expansion(short, gloss), (short, gloss))
+
+    def test_real_short_forms_still_fit(self) -> None:
+        from build_sense_index import _short_form_fits_expansion
+        for short, expansion in (("ART", "antiretroviral therapy"), ("PFC", "prefrontal cortex"),
+                                 ("fMRI", "functional magnetic resonance imaging"),
+                                 ("5-HT", "5-hydroxytryptamine"), ("ToM", "theory of mind"),
+                                 # single letters keep their own rule: `sample size (N)` is admitted
+                                 ("N", "sample size")):
+            self.assertTrue(_short_form_fits_expansion(short, expansion), (short, expansion))
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

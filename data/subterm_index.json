@@ -1,0 +1,128 @@
+{
+  "schema_version": "task06-subterm-index-1",
+  "method": "exact (paper, thing) join; output contains no source passages or source paper ids",
+  "source_sha256": "bc59eb4046bbe5be2422dabc41a2331c3507a746421cfabe6500ca6763cabdd6",
+  "public_cases_sha256": "029c6e4f9e0b81372e06251bcbdf946097a4c407b487f039121b2362acabc80c",
+  "concepts": {
+    "art": {
+      "mapping_method": "user-confirmed; no automatic semantic inference",
+      "criterion_verdict_columns": 0,
+      "reviewed_terms": [
+        {
+          "id": "object",
+          "label_en": "object",
+          "label_he": "אובייקט",
+          "layer_en": "reviewed genus/type commitment",
+          "layer_he": "מחויבות סוג/טיפוס שנבדקה",
+          "source_checked": 233,
+          "source_counts": {
+            "object": 165,
+            "not_object": 45,
+            "undecided": 23
+          },
+          "public_case_overlap": {
+            "matched": 22,
+            "object": 20,
+            "not_object": 2,
+            "undecided": 0,
+            "cases": [
+              {
+                "case_index": 2,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 12,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 15,
+                "object_layer_verdict": "not-object"
+              },
+              {
+                "case_index": 20,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 22,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 49,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 52,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 69,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 75,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 90,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 91,
+                "object_layer_verdict": "not-object"
+              },
+              {
+                "case_index": 102,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 103,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 131,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 308,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 316,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 318,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 331,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 337,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 343,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 387,
+                "object_layer_verdict": "object"
+              },
+              {
+                "case_index": 441,
+                "object_layer_verdict": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "game": {
+      "mapping_method": "unavailable; no reviewed criteria/sub-term layer",
+      "criterion_verdict_columns": 0,
+      "reviewed_terms": []
+    }
+  }
+}

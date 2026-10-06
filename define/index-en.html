@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find the definition that fits a corpus / מציאת הגדרה לפי קורפוס</title>
+<meta name="description" content="בוחרים מושג, בוחרים אילו מאמרים מרכיבים את הקורפוס, ומקבלים את ההגדרה שמתאימה לו.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/shell.css?v=c89df82f">
+<script src="../js/theme.js?v=c89df82f" defer></script>
+<!-- The board offers the paid action at its dead end (js/score.js, .cap-offer), so it
+     needs to know whether payments exist. Without these two the offer renders and is
+     hidden by the [data-paid-card] rule, which is the safe default but means the
+     button could never appear at all. Config first and undeferred, so the decision is
+     made before first paint. -->
+<script src="../js/payments.config.js?v=c89df82f"></script>
+<script src="../js/payments.js?v=c89df82f"></script>
+<link rel="stylesheet" href="../css/platform.css?v=c89df82f">
+</head>
+<body>
+
+<div class="animated-background">
+  <div class="wave-container">
+      <svg class="wave wave-teal" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <path d="M0,300 Q150,200 300,300 T600,300 T900,300 T1200,300 T1500,300 T1800,300" />
+        <path d="M0,320 Q150,380 300,320 T600,320 T900,320 T1200,320 T1500,320 T1800,320" />
+      </svg>
+
+      <svg class="wave wave-pink" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <path d="M0,250 Q200,150 400,250 T800,250 T1200,250 T1600,250 T2000,250" />
+        <path d="M0,350 Q200,450 400,350 T800,350 T1200,350 T1600,350 T2000,350" />
+      </svg>
+
+      <svg class="wave wave-wine" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <path d="M0,280 Q180,380 360,280 T720,280 T1080,280 T1440,280 T1800,280" />
+        <path d="M0,380 Q180,280 360,380 T720,380 T1080,380 T1440,380 T1800,380" />
+      </svg>
+    </div>
+  <!-- All eight, at PrimingToolbox's own positions. This page had been trimmed to three,
+       which is the same habit as the opacity override: a small unrequested edit to a design
+       that was supposed to be taken as it is. -->
+  <div class="particles">
+    <div class="particle particle-teal" style="left: 10%; top: 20%;"></div>
+    <div class="particle particle-pink" style="left: 30%; top: 60%;"></div>
+    <div class="particle particle-wine" style="left: 50%; top: 30%;"></div>
+    <div class="particle particle-teal" style="left: 70%; top: 70%;"></div>
+    <div class="particle particle-pink" style="left: 90%; top: 40%;"></div>
+    <div class="particle particle-wine" style="left: 20%; top: 80%;"></div>
+    <div class="particle particle-teal" style="left: 60%; top: 10%;"></div>
+    <div class="particle particle-pink" style="left: 80%; top: 50%;"></div>
+  </div>
+</div>
+
+<div class="pt-wrap">
+
+  <div class="pt-head">
+    <h1 data-i18n="def.title">מציאת הגדרה לפי קורפוס</h1>
+    <button class="pt-btn" id="langSwitch" style="margin-inline-start:auto">English</button>
+    <div class="sub"><a class="pt-back" id="backLink" href="../" data-i18n="def.back">← חזרה לפלטפורמה</a></div>
+  </div>
+
+  <!-- FIRST SCREEN: two buttons. Nothing else.
+       Shir: "נכנסתי פעם ראשונה למערכת, מה אני צריכה לראות? כפתור שמאפשר לבחור מילה או ביטוי
+       שאני רוצה להגדיר, וכפתור שמאפשר לי לבחור את הקורפוס מתוך רשימת מאמרים קיימת. זהו!" -->
+  <div class="steps">
+
+    <div class="stepcol">
+      <button class="step" data-panel="pConcept" style="--fam:#5e35b1;--fam-lit:#a98bec">
+        <span class="num">1</span>
+        <span class="txt">
+          <span class="ttl" data-i18n="step.concept">בחרו מושג להגדיר</span>
+          <span class="val" id="conceptVal">—</span>
+        </span>
+      </button>
+      <div class="panel" id="pConcept">
+    <div class="phead"><b data-i18n="step.concept">בחרו מושג להגדיר</b>
+      <button class="pclose" data-close="pConcept">×</button></div>
+    <!-- A SEARCH, not a list of tabs.
+         Shir: "יש חלון שצריך לבחור מושג להגדיר אבל את לא נותנת אפשרות לבחור... ומה כשיהיו
+         1000 מושגים????" The field searches data/concepts.json - 474 concepts today - and
+         every state gets a truthful answer, including "we hold nothing on this word". -->
+    <!-- A field with a dropdown under it, the way the direction-field tool does it.
+         Shir: "אי אפשר לעבוד עם החלון של בחירת מושג... תבדקי איך זה נעשה בחלון הקלט של שדה
+         הכיוונים." A grid of tiles you have to scroll is not a picker; a list that appears
+         under the caret and filters as you type is. -->
+    <label class="ownlab" for="conceptSearch" data-i18n="concept.search.lab"></label>
+    <div class="ac-wrap">
+      <input class="owninput" id="conceptSearch" type="text" autocomplete="off"
+             role="combobox" aria-expanded="false" aria-autocomplete="list"
+             aria-controls="conceptResults" data-i18n-ph="concept.search.ph">
+      <button class="ac-caret" id="conceptCaret" type="button"
+              aria-label="פתיחת רשימת המושגים">▾</button>
+      <div class="ac-dropdown" id="conceptResults" role="listbox"></div>
+    </div>
+    <div class="pt-note" id="conceptTally" style="margin:.45rem 0 .2rem;font-size:.82rem"></div>
+    <div class="why" id="conceptSoon"></div>
+    <!-- id is load-bearing: score.js hides this note when a plain TERM is chosen, because it
+         describes the three definition boards and not the term's corpus. Without the id the
+         guard `if (note)` skips silently and the note stays on screen - which it did on both
+         of these pages while index.html was correct. -->
+    <div class="pt-note" id="conceptNote" style="margin-top:.8rem;font-size:.86rem"
+         data-i18n="concept.note"></div>
+  </div>
+    </div>
+
+    <div class="stepcol">
+      <button class="step" data-panel="pCorpus" style="--fam:#1a7a33;--fam-lit:#5cc46f">
+        <span class="num">2</span>
+        <span class="txt">
+          <span class="ttl" data-i18n="step.corpus">בחרו את הקורפוס</span>
+          <span class="val" id="corpusVal">—</span>
+        </span>
+      </button>
+      <div class="panel" id="pCorpus">
+    <div class="phead"><b data-i18n="step.corpus">בחרו את הקורפוס</b>
+      <button class="pclose" data-close="pCorpus">×</button></div>
+    <label class="ownlab" for="paperSearch" data-i18n="corpus.search.lab"></label>
+    <input class="owninput" id="paperSearch" type="search" autocomplete="off"
+           data-i18n-ph="corpus.search.ph">
+    <div class="pt-note" id="paperTally" style="margin:.4rem 0;font-size:.82rem"></div>
+    <div class="pt-tools">
+      <button class="pt-btn" id="selAll" data-i18n="corpus.all">הכל</button>
+      <button class="pt-btn" id="selNone" data-i18n="corpus.none">כלום</button>
+      <button class="pt-btn" id="selInvert" data-i18n="corpus.invert">היפוך</button>
+    </div>
+    <div id="paperList" class="paperscroll"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="addPaper" data-i18n="corpus.add">הוספת מאמר</button>
+    </div>
+    <div class="why" id="addPaperNote"></div>
+    <div class="pt-note" id="unscoredNote" style="display:none;font-size:.82rem"></div>
+  </div>
+    </div>
+
+  </div>
+
+  <!-- THE THIRD BUTTON. It does not exist until there is a concept AND a corpus, because
+       until then there is nothing for it to open. Shir: "when I choose a term to define and
+       the corpus, a third button can be opened to me." -->
+  <div class="steps" id="step3wrap" hidden>
+    <div class="stepcol" style="grid-column:1/-1">
+      <button class="step go3" id="step3" style="--fam:#0b4f9c;--fam-lit:#5aa9f0">
+        <span class="num">3</span>
+        <span class="txt">
+          <span class="ttl" data-i18n="step.go">כתבו הגדרה — או בחרו מתוך רשימה</span>
+          <span class="val" id="goVal">—</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- WHAT THE TOOL OFFERS: a few definitions with the numbers that matter. -->
+  <div id="stage2" hidden>
+  <!-- Shir: "there the confusion matrix can be shown and be updated
+       according to my definition... I can insert a definition and ask for
+       its score relative to the given corpus." -->
+  <h2 class="stagehead" id="stageHead"></h2>
+  <div id="liveMatrix"></div>
+  <div id="offered"></div>
+
+  <!-- WHAT YOU CAN DO NEXT -->
+  <div class="nextline" id="nextline" hidden>
+    <button class="pt-btn big" data-panel="pOwn" data-i18n="next.own">נסו הגדרה משלכם</button>
+    <button class="pt-btn big" data-panel="pJudge" data-i18n="judge.btn">נקדו הגדרה משלכם</button>
+    <button class="pt-btn big" data-panel="pWho" data-i18n="next.who">הגדרות לפי חוקר</button>
+    <button class="pt-btn big" data-panel="pCrit" data-i18n="crit.btn">בנו הגדרה מתנאים</button>
+    <button class="pt-btn" data-panel="pFaq" data-i18n="faq.btn">שאלות נפוצות</button>
+    <button class="pt-btn" id="moreBtn" data-i18n="more.show">עוד</button>
+  </div>
+
+  <div class="acts" id="acts" hidden>
+
+    <div class="act" style="--fam:#0b4f9c;--fam-lit:#5aa9f0">
+      <div class="row"><span class="ic">🏆</span><h2 data-i18n="btn.board">כל ההגדרות</h2></div>
+      <div class="lead" data-i18n="btn.board.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pBoard" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wBoard" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wBoard" data-i18n="btn.board.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#a35b00;--fam-lit:#e0a33c">
+      <div class="row"><span class="ic">⚖️</span><h2 data-i18n="btn.jack">מי מחזיק את התוצאה</h2></div>
+      <div class="lead" data-i18n="btn.jack.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pJack" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wJack" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wJack" data-i18n="btn.jack.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#00838f;--fam-lit:#3fd0dd">
+      <div class="row"><span class="ic">📐</span><h2 data-i18n="btn.how">איך נמדד הציון</h2></div>
+      <div class="lead" data-i18n="btn.how.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pHow" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wHow" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wHow" data-i18n="btn.how.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#c2185b;--fam-lit:#f2789f">
+      <div class="row"><span class="ic">🔗</span><h2 data-i18n="btn.share">שיתוף והורדה</h2></div>
+      <div class="lead" data-i18n="btn.share.lead"></div>
+      <div class="disc">
+        <button class="go" id="copyLink" data-i18n="btn.copy">העתקת קישור</button>
+        <button class="go" data-panel="pDl" data-i18n="btn.dl">הורדת הנתונים</button>
+        <button class="tog" data-why="wShare" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wShare" data-i18n="btn.share.why"></div>
+    </div>
+
+    <div class="act" style="--fam:#5d4037;--fam-lit:#c9a08c">
+      <div class="row"><span class="ic">©</span><h2 data-i18n="btn.rights">זכויות ובעלות</h2></div>
+      <div class="lead" data-i18n="btn.rights.lead"></div>
+      <div class="disc">
+        <button class="go" data-panel="pRights" data-i18n="btn.open">פתיחה</button>
+        <button class="tog" data-why="wRights" aria-expanded="false">?</button>
+      </div>
+      <div class="why" id="wRights" data-i18n="btn.rights.why"></div>
+    </div>
+
+  </div>
+  </div><!-- /stage2 -->
+
+  <!-- PANELS -->
+
+
+
+  <!-- JUDGE YOUR OWN DEFINITION.
+       Shir: "there I can insert a definition and ask for its score relative to the given
+       corpus." The automatic path needs a judged column per criterion and that run has not
+       happened yet. But the manual path is not a workaround: it is exactly how every other
+       column on this board was produced -- a person reading the case and the quote and
+       saying yes or no. So the tool offers the reader the same job, over the corpus they
+       chose, and scores it with the same code. -->
+  <div class="panel" id="pJudge">
+    <div class="phead"><b data-i18n="judge.h">נקדו את ההגדרה שלכם</b>
+      <button class="pclose" data-close="pJudge">×</button></div>
+    <div class="why open" data-i18n="judge.body"></div>
+    <label class="ownlab" for="judgeText" data-i18n="judge.text.lab"></label>
+    <textarea id="judgeText" rows="2"></textarea>
+    <div class="pt-tools" style="margin-top:.55rem">
+      <button class="pt-btn" id="judgeStart" data-i18n="judge.start">התחלה</button>
+      <button class="pt-btn" id="judgeReset" data-i18n="judge.reset">איפוס</button>
+    </div>
+    <div id="judgeCard"></div>
+    <div id="judgeScore"></div>
+  </div>
+
+  <div class="panel" id="pOwn">
+    <div class="phead"><b data-i18n="next.own">נסו הגדרה משלכם</b>
+      <button class="pclose" data-close="pOwn">×</button></div>
+    <div class="why open" data-i18n="own.body"></div>
+
+    <label class="ownlab" for="ownName" data-i18n="own.name.lab"></label>
+    <input class="owninput" id="ownName" type="text" autocomplete="name">
+
+    <label class="ownlab" for="ownText" data-i18n="own.text.lab"></label>
+    <textarea id="ownText" rows="3"></textarea>
+
+    <!-- Public/private. There is no server, so "public" cannot mean "published from here" -
+         it means marked, and the file still has to be sent. The wording says exactly that;
+         a checkbox that implies publication we cannot perform would be the same dishonesty
+         we just removed from own.body. -->
+    <fieldset class="ownvis">
+      <legend data-i18n="own.vis.lab"></legend>
+      <label><input type="radio" name="ownVis" value="private" checked>
+        <span data-i18n="own.vis.priv"></span></label>
+      <label><input type="radio" name="ownVis" value="public">
+        <span data-i18n="own.vis.pub"></span></label>
+    </fieldset>
+
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="ownSend" data-i18n="own.send">שמירה</button>
+      <button class="pt-btn" id="ownDl" data-i18n="own.dl">הורדה</button>
+      <button class="pt-btn" id="ownClear" data-i18n="own.clear">מחיקה</button>
+    </div>
+    <div id="ownAck" class="why"></div>
+    <div id="ownList"></div>
+
+    <div class="pt-note" style="margin-top:.9rem;font-size:.86rem">
+      <b data-i18n="own.rights.h">זכויות</b> <span data-i18n="own.rights.body"></span>
+    </div>
+  </div>
+
+  <!-- The 14 criteria. Shir's design, and her argument for it: a creative user may decide
+       one of the conditions is unnecessary, and their corpus may back them up. So the list
+       is editable and every entry can be dropped. -->
+  <div class="panel" id="pCrit">
+    <div class="phead"><b data-i18n="crit.h">בניית הגדרה מתנאים</b>
+      <button class="pclose" data-close="pCrit">×</button></div>
+    <div class="why open" data-i18n="crit.body"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="critAll" data-i18n="crit.all">סמנו הכל</button>
+      <button class="pt-btn" id="critNone" data-i18n="crit.none">נקו הכל</button>
+    </div>
+    <div id="critList"></div>
+    <label class="ownlab" for="critOwn" data-i18n="crit.add.lab"></label>
+    <input class="owninput" id="critOwn" type="text">
+    <div class="pt-tools" style="margin-top:.5rem">
+      <button class="pt-btn" id="critAdd" data-i18n="crit.add">הוספת תנאי</button>
+    </div>
+    <div class="pt-note" id="critOut" style="margin-top:.9rem"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <button class="pt-btn" id="critUse" data-i18n="crit.use">העברה</button>
+    </div>
+    <div class="why" id="critAck"></div>
+  </div>
+
+  <div class="panel" id="pRights">
+    <div class="phead"><b data-i18n="btn.rights">זכויות ובעלות</b>
+      <button class="pclose" data-close="pRights">×</button></div>
+    <div class="why open" data-i18n="rights.body"></div>
+    <div class="pt-note" style="margin-top:.9rem;font-size:.86rem">
+      <b data-i18n="cite.h">ציטוט</b> <span data-i18n="cite.body"></span>
+    </div>
+  </div>
+
+  <div class="panel" id="pWho">
+    <div class="phead"><b data-i18n="next.who">הגדרות לפי חוקר</b>
+      <button class="pclose" data-close="pWho">×</button></div>
+    <div class="why open" data-i18n="who.body"></div>
+    <div class="pt-tools" id="whoList" style="margin-top:.6rem"></div>
+  </div>
+
+  <div class="panel" id="pFaq">
+    <div class="phead"><b data-i18n="faq.btn">שאלות נפוצות</b>
+      <button class="pclose" data-close="pFaq">×</button></div>
+    <div class="why open" data-i18n="faq.body"></div>
+  </div>
+
+  <div class="panel" id="pBoard">
+    <div class="phead"><b data-i18n="btn.board">כל ההגדרות</b>
+      <button class="pclose" data-close="pBoard">×</button></div>
+    <div class="pt-note" id="calib" style="display:none"></div>
+    <!-- The second calibration. It sits beside the first because they fail independently:
+         the circular control can be perfect while the corpus cannot tell anything apart. -->
+    <div class="pt-note discrim" id="discrim" style="display:none"></div>
+    <div id="board"></div>
+  </div>
+
+  <div class="panel" id="pJack">
+    <div class="phead"><b data-i18n="btn.jack">מי מחזיק את התוצאה</b>
+      <button class="pclose" data-close="pJack">×</button></div>
+    <div id="jack"></div>
+  </div>
+
+  <div class="panel" id="pHow">
+    <div class="phead"><b data-i18n="btn.how">איך נמדד הציון</b>
+      <button class="pclose" data-close="pHow">×</button></div>
+    <div class="why open" data-i18n="how.body"></div>
+    <div class="pt-note" style="margin-top:.8rem">
+      <b data-i18n="limits.h"></b> <span data-i18n="limits.body"></span>
+    </div>
+    <div style="margin-top:.7rem">
+      <a class="pt-btn" href="../method.html" data-i18n="how.more">העמוד המלא על השיטה</a>
+    </div>
+  </div>
+
+  <div class="panel" id="pDl">
+    <div class="phead"><b data-i18n="btn.dl">הורדת הנתונים</b>
+      <button class="pclose" data-close="pDl">×</button></div>
+    <div class="why open" data-i18n="dl.body"></div>
+    <!-- Filled by renderDownloads() from the concept's own manifest, so the list is what
+         that concept actually ships. A hardcoded list handed a visitor of the game board a
+         link to the art files, which is the worst kind of wrong: it downloads successfully. -->
+    <div class="pt-tools" style="margin-top:.6rem" id="dlList"></div>
+    <div class="pt-tools" style="margin-top:.6rem">
+      <a class="pt-btn" href="https://github.com/shir-openu/meta-tagging-platform-prototype/blob/main/reference_scorer.py" download>reference_scorer.py</a>
+    </div>
+  </div>
+
+  <div class="pt-foot" dir="ltr" style="text-align:start">
+    <span id="stateBar"></span>
+    <a href="../method.html">the method, and its limits</a>
+    · <a href="https://github.com/shir-openu/meta-tagging-platform-prototype">GitHub</a>
+    <br><!-- The line here used to read:
+         Developed by Shir Sivroni &middot; &copy; 2026 Shir Sivroni
+     The year was an attempt to stamp a date on the work. It is not needed
+     for that and is not good evidence of one: the authoritative, citable
+     timestamp is the Zenodo preprint. Kept here as a record of what the
+     page used to say, and why it changed. 2026-08-16. -->
+    <span class="pt-credit">&copy; Shir Sivroni</span>
+  </div>
+
+</div>
+
+<script>window.MTP_FORCE_LANG = "en";</script>
+<script>/* The file:// fallback, 1.22 MB gz, loaded only when fetch() is blocked.
+   Over HTTP the page fetches the same JSON and every byte of this is dead weight:
+   it was 98% of this page. Same rule score.js already applies to the other two
+   large fallbacks. */
+if(location.protocol==="file:")document.write('<script src="../data/inline.js?v=c89df82f"><\/script>');</script>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/score.js?v=c89df82f"></script>
+
+<!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body>
+</html>

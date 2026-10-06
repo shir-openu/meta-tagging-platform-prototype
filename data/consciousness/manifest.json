@@ -1,0 +1,48 @@
+{
+ "name": "meta-tagging platform - concept definition component",
+ "concept": "consciousness",
+ "built": "2026-09-01",
+ "note": "Every definition and every case carries the verbatim sentence it was read from, in one of seven cc-by papers acquired for this board. The builder refuses the whole board if one quote is not an exact substring.",
+ "license": "CC BY 4.0 for the tag layer. Paper text is (c) its authors and is quoted here for identification under the cc-by licences of the seven sources.",
+ "files": {
+  "papers.json": {
+   "what": "one row per source paper",
+   "count": 7
+  },
+  "cases.json": {
+   "what": "one record per case; `quote` is an exact substring of the paper",
+   "count": 15
+  },
+  "definitions.json": {
+   "what": "the rival definitions, their abstention right and their published score",
+   "count": 10
+  },
+  "verdicts.json": {
+   "what": "one string per definition, one character per case",
+   "count": 10
+  }
+ },
+ "how_to_score": "Identical to art and game. Take every case whose status is P or N; SKIP any case whose verdict character is '-'; compare the character to the status; MCC = (TP*TN - FP*FN) / sqrt((TP+FP)(TP+FN)(TN+FP)(TN+FN)). The label-copy control must score +1.000.",
+ "abstention": {
+  "what": "Only a definition with may_abstain=true may carry '-'. Two do: criticality, whose own paper reports that the direction of a deviation is not recoverable, and the enactive account, which has no verdict to give about a system that is not moving in an environment.",
+  "the_catch": "An abstainer is graded only on what it answered, so a high score over four cases says less than a lower one over eleven. The skipped count is published beside every score for exactly that reason."
+ },
+ "canonical_corpus": {
+  "papers_total": 7,
+  "papers_scored": 7,
+  "cases_total": 15,
+  "cases_adjudicated": 12
+ },
+ "calibration_rule": {
+  "control": "label-copy",
+  "expect": "MCC = +1.000",
+  "why_not_circular": "For art, 'whatever people call art' is a tautology. For consciousness it is a substantive position - it is the field's default, and the Living Mirror account is expressly in the business of overruling it by counting every living system conscious."
+ },
+ "limitations": [
+  "Seven papers and 12 adjudicated cases. Every number here is over a corpus that small, and no confidence interval is reported because a seven-cluster bootstrap would be meaningless.",
+  "Single coder.",
+  "SEVEN OF THE NINE DEFINITIONS MAKE NO ERRORS, AND THAT IS NOT SEVEN CORRECT THEORIES. The cases that divide these definitions - a bacterium, a simulated brain, deep sleep - are the cases the literature cannot adjudicate, so they score nothing. The cases it can adjudicate are ones every definition already agrees on. Read this board as a measurement of how much the field can decide, not as a ranking.",
+  "Consciousness has no artworld. `art` works because an institution adjudicates its hard cases and a definition that excludes Fountain is thereby wrong. Nobody can rule on the bacterium, which is why the question is open.",
+  "Comparable only WITHIN this run. These numbers are not comparable with the art or game numbers - only the method is."
+ ]
+}
