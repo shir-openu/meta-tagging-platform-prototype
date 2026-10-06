@@ -19,7 +19,7 @@
   "schema_version": "0.2",
   "rights_sha256": "522396662dd4d3fb4d54be54b1d2c9ff092855509111172f032b7a184e171635",
   "term_corpus_sha256": "f787168fcc62e9627e9240c5ff7ed9527d66a1e2329958df547bc1b62c4f53c9",
-  "concepts_sha256": "4c12692c94dbc25e0a03ae310d24f3a034c97d83fadb879faca9d8dc7f9ba3d8"
+  "concepts_sha256": "1d226baf2b12a000dee2539ce75fa66ebb66b82e5e10dc0083631dd882181b99"
  },
  "counts": {
   "terms_in_index": 17495,

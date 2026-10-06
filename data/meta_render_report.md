@@ -1,25 +1,25 @@
 # Meta-render audit report
 
-Generated 2026-10-06T07:39:10+00:00 from `DATA/corpus.json` SHA-256 `4eae9d93aa6348a4feb204fd9c0e141461d6b479bec61f71ac3f5e39ab6ab875`. This report audits the complete
+Generated 2026-10-06T11:44:41+00:00 from `DATA/corpus.json` SHA-256 `4eae9d93aa6348a4feb204fd9c0e141461d6b479bec61f71ac3f5e39ab6ab875`. This report audits the complete
 runtime picker, with public expansion wording limited to the audited rights-cleared paper set.
 
 | Denominator / outcome | Count |
 |---|---:|
-| Historical picker cohort | 22,777 |
-| Historical picker cohort after shared-live filtering | 22,775 |
+| Historical picker cohort | 22,824 |
+| Historical picker cohort after shared-live filtering | 22,822 |
 | Historical rows removed as withdrawn-only | 2 |
 | Definition cards before three-layer repair | 840 |
-| Definition cards after three-layer repair | 16,597 |
-| Historical render gap before | 15,757 |
+| Definition cards after three-layer repair | 16,601 |
+| Historical render gap before | 15,761 |
 | Historical render gap after | 0 |
 | Runtime picker rows before shared-live filtering | 32,051 |
 | Runtime picker rows after shared-live filtering | 30,497 |
 | Runtime rows removed as withdrawn-only | 1,554 |
-| Complete abbreviation class | 1,734 |
-| Abbreviations with public corpus-attested expansions | 1,087 |
+| Complete abbreviation class | 1,733 |
+| Abbreviations with public corpus-attested expansions | 1,086 |
 | Rights-withheld expansion rows (count only) | 75 |
 | Rights-cleared staged HTML/MHTML sources scanned for literal expansions | 975 |
-| Literal expansion rows recovered from those sources | 3,178 |
+| Literal expansion rows recovered from those sources | 3,174 |
 | Picker labels matching denied live quotes removed in this build | 0 |
 
 ## Historical terms repaired by the three-layer route
@@ -3240,6 +3240,7 @@ runtime picker, with public expansion wording limited to the audited rights-clea
 - `cross-feeding-experiments` — cross feeding experiments — 1 grounded row(s); layers: concepts=1
 - `cross-linking` — cross-linking — 1 grounded row(s); layers: concepts=1
 - `cross-loadings` — cross-loadings — 1 grounded row(s); layers: concepts=1
+- `cross-modal-semantic-priming` — cross-modal semantic priming — 1 grounded row(s); layers: concepts=1
 - `cross-ontology-relationships` — cross-ontology relationships — 1 grounded row(s); layers: concepts=1
 - `cross-priming` — cross-priming — 1 grounded row(s); layers: concepts=1
 - `cross-reactivity` — cross-reactivity — 2 grounded row(s); layers: concepts=2
@@ -4467,6 +4468,7 @@ runtime picker, with public expansion wording limited to the audited rights-clea
 - `emotional-mediation` — emotional mediation — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `emotional-over-involvement` — emotional over-involvement — 1 grounded row(s); layers: concepts=1
 - `emotional-preparedness-for-death` — emotional preparedness for death — 1 grounded row(s); layers: concepts=1
+- `emotional-priming` — emotional priming — 1 grounded row(s); layers: concepts=1
 - `emotional-reaction` — emotional reaction — 2 grounded row(s); layers: concepts=2
 - `emotional-sharing` — emotional sharing — 2 grounded row(s); layers: concepts=1, content_tags.definitions=1
 - `emotional-strain` — emotional strain — 1 grounded row(s); layers: concepts=1
@@ -11244,6 +11246,7 @@ runtime picker, with public expansion wording limited to the audited rights-clea
 - `primer-bias` — primer bias — 1 grounded row(s); layers: concepts=1
 - `primer-for-best-practices-for-scale-development` — primer for best practices for scale development — 1 grounded row(s); layers: concepts=1
 - `primer-free-rrna-gene-sequencing-approach` — primer-free rRNA gene sequencing approach — 1 grounded row(s); layers: concepts=1
+- `priming` — priming — 7 grounded row(s); layers: concepts=4, content_tags.definitions=3
 - `priming-susceptibility` — priming susceptibility — 1 grounded row(s); layers: concepts=1
 - `principal-agent-relationship` — principal–agent relationship — 1 grounded row(s); layers: concepts=1
 - `principal-component-analysis` — principal component analysis — 6 grounded row(s); layers: concepts=5, content_tags.definitions=1
@@ -12204,6 +12207,7 @@ runtime picker, with public expansion wording limited to the audited rights-clea
 - `repertoire-of-genes-expressing-circular-rna` — repertoire of genes expressing circular RNA — 1 grounded row(s); layers: concepts=1
 - `repetition` — repetition — 1 grounded row(s); layers: concepts=1
 - `repetition-of-computational-tasks` — repetition of computational tasks — 1 grounded row(s); layers: concepts=1
+- `repetition-priming` — repetition priming — 4 grounded row(s); layers: concepts=2, content_tags.definitions=2
 - `repetition-suppression` — repetition suppression — 3 grounded row(s); layers: concepts=1, content_tags.definitions=2
 - `repetitive-regions` — repetitive regions — 1 grounded row(s); layers: concepts=1
 - `repetitive-regions-of-genomes` — repetitive regions of genomes — 1 grounded row(s); layers: concepts=1
@@ -13046,7 +13050,7 @@ runtime picker, with public expansion wording limited to the audited rights-clea
 - `service-efficiency` — service efficiency — 1 grounded row(s); layers: concepts=1
 - `service-user` — service user — 1 grounded row(s); layers: content_tags.definitions=1
 - `ses` — SES — 1 grounded row(s); layers: concepts=1
-- `set` — SET — 2 grounded row(s); layers: concepts=2
+- `set` — set — 2 grounded row(s); layers: concepts=2
 - `set-of-genes-derived-from-a-single-gene-in-the-last-common-a` — set of genes derived from a single gene in the last common ancestor — 1 grounded row(s); layers: concepts=1
 - `set-of-relations` — set of relations — 1 grounded row(s); layers: concepts=1
 - `set-of-terms` — set of terms — 1 grounded row(s); layers: concepts=1
@@ -17234,7 +17238,6 @@ runtime picker, with public expansion wording limited to the audited rights-clea
 - `sems` — SEMs [corpus-attested-abbreviation] — structural equation models — Aridity-driven shift in biodiversity-soil multifunctionality relationships (2021)
 - `sers` — SERS [all-caps-short-form] — Raman spectroscopy — Single-photon avalanche diode imagers in biophotonics: review and outlook (2019); surface-enhanced Raman scattering — Quantum mechanical effects in plasmonic structures with subnanometre gaps. (2016); surface-enhanced Raman spectroscopy — Single-photon avalanche diode imagers in biophotonics: review and outlook (2019); surface-enhanced Raman spectroscopy — Gold Nanozymes: From Concept to Biomedical Applications. (2020); switch error rates — Accurate, scalable and integrative haplotype estimation. (2019); ambiguous across corpus records
 - `ses` — SES [all-caps-short-form] — social–ecological systems — Community Capitals as Community Resilience to Climate Change: Conceptual Connections. (2016); socio-economic status — Reorienting rabies research and practice: Lessons from India (2019); socioeconomic status — COVID-19 and vaccine hesitancy: A longitudinal study (2021); socioeconomic status — Reorienting rabies research and practice: Lessons from India (2019); ambiguous across corpus records
-- `set` — SET [all-caps-short-form] — single electron transfer — A Review on Metal- and Metal Oxide-Based Nanozymes: Properties, Mechanisms, and Applications (2021); social exchange theory — Social Capital Theory, Social Exchange Theory, Social Cognitive Theory, Financial Literacy, and the Role of Knowledge Sharing as a Moderator in Enhancing Financial Well-Being: From Bibliometric Analysis to a Conceptual Framework Model. (2021); standard evolutionary theory — How geoarchaeology and landscape archaeology contribute to niche construction theory (NCT). (2015); ambiguous across corpus records
 - `seurat` — SEURAT [all-caps-short-form] — no corpus-attested public expansion
 - `sewb` — SEWB [all-caps-short-form] — social and emotional wellbeing — The Fabric of Aboriginal and Torres Strait Islander Wellbeing: A Conceptual Model (2021)
 - `sf` — SF [all-caps-short-form] — simplicial fraction — The simpliciality of higher-order networks (2024); 1 additional expansion row(s) withheld by rights gate; ambiguous across corpus records

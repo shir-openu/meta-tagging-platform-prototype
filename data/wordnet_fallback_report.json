@@ -5,11 +5,11 @@
   "counts": {
     "historical_assignment_gap_left_uncovered": 340,
     "historical_assignment_gap_terms": 415,
-    "payload_bytes": 1177662,
-    "picker_terms": 22873,
-    "wordnet_matched_picker_terms": 2622,
+    "payload_bytes": 1178317,
+    "picker_terms": 22920,
+    "wordnet_matched_picker_terms": 2624,
     "wordnet_matches_in_historical_assignment_gap": 75,
-    "wordnet_synsets": 8349
+    "wordnet_synsets": 8354
   },
   "current_all_corpus_layers": {
     "metric_note": "WordNet contributes at most one independent provider to the threshold per term; all matching WordNet synsets remain visible but are not miscounted as independent sources.",
@@ -552,6 +552,7 @@
       "indirectness",
       "individual",
       "individualisation",
+      "individuality",
       "inductive",
       "industrialization",
       "infertility",
@@ -1212,10 +1213,10 @@
       "zinc oxide",
       "zoonosis"
     ],
-    "terms_newly_reaching_two_with_wordnet": 1197,
-    "terms_with_at_least_two_after_wordnet": 5411,
-    "terms_with_at_least_two_before_wordnet": 4214,
-    "terms_with_exactly_one_corpus_definition": 15451
+    "terms_newly_reaching_two_with_wordnet": 1198,
+    "terms_with_at_least_two_after_wordnet": 5424,
+    "terms_with_at_least_two_before_wordnet": 4226,
+    "terms_with_exactly_one_corpus_definition": 15468
   },
   "current_public_rights_cleared_layer": {
     "metric_note": "WordNet contributes at most one independent provider to the threshold per term; all matching WordNet synsets remain visible but are not miscounted as independent sources.",
@@ -2337,11 +2338,11 @@
       "zoonosis"
     ],
     "terms_newly_reaching_two_with_wordnet": 1115,
-    "terms_with_at_least_two_after_wordnet": 4413,
-    "terms_with_at_least_two_before_wordnet": 3298,
-    "terms_with_exactly_one_corpus_definition": 13362
+    "terms_with_at_least_two_after_wordnet": 4415,
+    "terms_with_at_least_two_before_wordnet": 3300,
+    "terms_with_exactly_one_corpus_definition": 13364
   },
-  "generated_utc": "2026-10-06T07:40:42+00:00",
+  "generated_utc": "2026-10-06T11:46:27+00:00",
   "historical_assignment_measurement": "Frozen approved Phase-2 assignment baseline; 59/474 assigned grounded and 415/474 assigned gap before implementation.",
   "matched_term_ids": [
     "2-dimensional",
@@ -3519,6 +3520,7 @@
     "indirectness",
     "individual",
     "individualisation",
+    "individuality",
     "inductive",
     "industrialization",
     "inertia",
@@ -4157,6 +4159,7 @@
     "primary care",
     "primate",
     "prime",
+    "priming",
     "principle of relativity",
     "prism",
     "privacy",
@@ -4978,8 +4981,8 @@
     "source_uri": "https://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.gz",
     "version": "3.0"
   },
-  "public_sense_index_generated_utc": "2026-10-06T07:39:10+00:00",
-  "public_sense_index_sha256": "fc1bcaacf9bab664e56e270db32181ec73c11cd3d2eea2aa7c69cc800dad70cd",
+  "public_sense_index_generated_utc": "2026-10-06T11:44:41+00:00",
+  "public_sense_index_sha256": "a56ff4af61f5b6221c4091ae368be13215d1f5786937a5ba6395ef27d66401ae",
   "schema_version": "wordnet-fallback-report-1",
   "source_archive_sha256": "640db279c949a88f61f851dd54ebbb22d003f8b90b85267042ef85a3781d3a52",
   "withheld_records_left_out_before_counting": 16

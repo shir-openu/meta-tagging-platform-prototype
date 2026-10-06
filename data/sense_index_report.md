@@ -1,6 +1,6 @@
 # Task 06 sense-index failure report
 
-Generated 2026-10-06T07:39:10+00:00 from `DATA/corpus.json` SHA-256 `4eae9d93aa6348a4feb204fd9c0e141461d6b479bec61f71ac3f5e39ab6ab875`.
+Generated 2026-10-06T11:44:41+00:00 from `DATA/corpus.json` SHA-256 `4eae9d93aa6348a4feb204fd9c0e141461d6b479bec61f71ac3f5e39ab6ab875`.
 
 | Finding | Count |
 |---|---:|
